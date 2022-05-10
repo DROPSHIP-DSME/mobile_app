@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>512487199242-nrkbde1s4t1q2te5ocdid60fldcnlp5b.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.512487199242-nrkbde1s4t1q2te5ocdid60fldcnlp5b</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>512487199242-mb3m0hb53nme29kme3pslsk3l3lf9d1n.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBlqT9OShIf-oYdcQuk6dgrDVQmZb99WDM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>512487199242</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.wallpon.user</string>
+	<key>PROJECT_ID</key>
+	<string>dropship-9a984</string>
+	<key>STORAGE_BUCKET</key>
+	<string>dropship-9a984.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:512487199242:ios:14185748a202ec522bc5f3</string>
+</dict>
+</plist>

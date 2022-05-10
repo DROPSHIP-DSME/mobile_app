@@ -1,0 +1,57 @@
+{
+  "_from": "react-native-hide-show-password-input",
+  "_id": "react-native-hide-show-password-input@1.2.0",
+  "_inBundle": false,
+  "_integrity": "sha512-jVYnQ5bXliTI9ayQpOvK9AsB+g7BC+Vkfarze3fBiFSBaluXYaeklxYuHNCx7eMBGgg4VlNyxlryrRqldkRlCw==",
+  "_location": "/react-native-hide-show-password-input",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "react-native-hide-show-password-input",
+    "name": "react-native-hide-show-password-input",
+    "escapedName": "react-native-hide-show-password-input",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/react-native-hide-show-password-input/-/react-native-hide-show-password-input-1.2.0.tgz",
+  "_shasum": "392818235a3dff4f467b741a18f288e16cb4e0d6",
+  "_spec": "react-native-hide-show-password-input",
+  "_where": "/Applications/RN/dropship",
+  "author": {
+    "name": "vishal jadav"
+  },
+  "bugs": {
+    "url": "https://github.com/vishaljadav24/react-native-hide-show-password-input/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "prop-types": "^15.7.2",
+    "react-native-material-textfield": "github:vishaljadav24/react-native-material-textfield",
+    "react-native-vector-icons": "^7.1.0"
+  },
+  "deprecated": false,
+  "description": "React-Native Component For Password Show/Hide",
+  "devDependencies": {
+    "babel-preset-react-native": "4.0.0",
+    "react-test-renderer": "16.8.3"
+  },
+  "homepage": "https://github.com/vishaljadav24/react-native-hide-show-password-input#readme",
+  "license": "MIT",
+  "main": "index.js",
+  "name": "react-native-hide-show-password-input",
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vishaljadav24/react-native-hide-show-password-input.git"
+  },
+  "version": "1.2.0"
+}

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "512487199242",
+    "project_id": "dropship-9a984",
+    "storage_bucket": "dropship-9a984.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:512487199242:android:7557d87ac6bbbc0e2bc5f3",
+        "android_client_info": {
+          "package_name": "com.dropship.live"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "512487199242-s9i3as8tll2tct53pdpl1paib1kf20tt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dropship.live",
+            "certificate_hash": "06ed95e134d09869dd3e9daf07e8e311a92efc44"
+          }
+        },
+        {
+          "client_id": "512487199242-cp48gba87neibcgvoo98i8tca01tr0i0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDspchteBJ9S7r7nGT1QhI_tMi4yrdeuvc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "512487199242-cp48gba87neibcgvoo98i8tca01tr0i0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SplashIcon" translatesAutoresizingMaskIntoConstraints="NO" id="IdB-hg-lUE">
+                                <rect key="frame" x="20" y="135" width="335" height="332"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
+                        <color key="backgroundColor" red="0.88627450980392153" green="0.12549019607843137" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="bottom" secondItem="IdB-hg-lUE" secondAttribute="bottom" constant="230" id="2GC-Sk-WWn"/>
+                            <constraint firstItem="IdB-hg-lUE" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="240" id="Bzf-gO-jHc"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="bottom" secondItem="IdB-hg-lUE" secondAttribute="bottom" constant="135" id="ED9-xI-Fok"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="IdB-hg-lUE" secondAttribute="trailing" constant="20" id="HzD-kF-Jxy"/>
+                            <constraint firstItem="IdB-hg-lUE" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="230" id="IaP-r1-knp"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="IdB-hg-lUE" secondAttribute="trailing" constant="40" id="O6O-f1-iGX"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="bottom" secondItem="IdB-hg-lUE" secondAttribute="bottom" constant="200" id="bNr-pO-o9f"/>
+                            <constraint firstItem="IdB-hg-lUE" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="40" id="bhS-K4-STk"/>
+                            <constraint firstItem="IdB-hg-lUE" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="135" id="c89-c6-TGt"/>
+                            <constraint firstItem="IdB-hg-lUE" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="200" id="cQO-3E-uPY"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="bottom" secondItem="IdB-hg-lUE" secondAttribute="bottom" constant="240" id="f6t-uo-k9Y"/>
+                            <constraint firstItem="IdB-hg-lUE" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="135" id="fB6-nk-kSr"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="IdB-hg-lUE" secondAttribute="trailing" constant="20" id="fUP-ms-LMM"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="bottom" secondItem="IdB-hg-lUE" secondAttribute="bottom" constant="200" id="m5D-c6-KDa"/>
+                            <constraint firstItem="IdB-hg-lUE" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="20" id="zeE-A0-Ks1"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="SplashIcon" width="154.5" height="153.5"/>
+    </resources>
+</document>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>DROPSHIP</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>$(MARKETING_VERSION)</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb1327762154404654</string>
+			</array>
+		</dict>
+		<dict>
+		<key>CFBundleURLSchemes</key>
+			<array>
+			<string>twitterkit-qWPj1TXbreMX1SsDvdiQTaF7Y</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.wallpon.user</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>WallPon</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.512487199242-nrkbde1s4t1q2te5ocdid60fldcnlp5b</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>1327762154404654</string>
+	<key>FacebookClientToken</key>
+	<string>da5ba148829746f57e3f99064c64c65d</string>
+	<key>FacebookDisplayName</key>
+	<string>DROPSHIP</string>
+	<key>CFBundleVersion</key>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>localhost</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>twitter</string>
+		<string>twitterauth</string>
+	</array>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Wallpon doesn't require to access this feature</string>
+	<key>NSCameraUsageDescription</key>
+	<string>WallPon will only upload and share photos and videos you choose.</string>
+	<key>NSContactsUsageDescription</key>
+	<string>Wallpon use the contact list to send the application invitation</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>WallPon will only use your location to show you local coupons nearby that you can redeem.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>WallPon will only use your location to show you local coupons nearby that you can redeem.</string>
+	<key>NSLocationUsageDescription</key>
+	<string>WallPon will only use your location to show you local coupons nearby that you can redeem.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>WallPon will only use your location to show you local coupons nearby that you can redeem.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>WallPon will only use your microphone for live feeds when you go live.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>This lets you save photos and videos to your Camera Roll.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This lets you access photos and videos from your Camera Roll.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Raleway-ExtraBold.ttf</string>
+		<string>Raleway-Light.ttf</string>
+		<string>Raleway-Regular.ttf</string>
+		<string>Raleway-SemiBold.ttf</string>
+		<string>Raleway-Thin.ttf</string>
+		<string>SFProText-Semibold.ttf</string>
+		<string>Montserrat-Bold.ttf</string>
+		<string>Montserrat-Medium.ttf</string>
+		<string>Montserrat-Regular.ttf</string>
+		<string>Montserrat-SemiBold.ttf</string>
+		<string>SourceSansPro-Bold.ttf</string>
+		<string>SourceSansPro-Regular.ttf</string>
+		<string>SourceSansPro-SemiBold.ttf</string>
+		<string>HomepageBaukasten-Bold.ttf</string>
+		<string>Questrial-Regular.ttf</string>
+		<string>Raleway-Medium.ttf</string>
+		<string>AntDesign.ttf</string>
+		<string>Entypo.ttf</string>
+		<string>EvilIcons.ttf</string>
+		<string>Feather.ttf</string>
+		<string>FontAwesome.ttf</string>
+		<string>FontAwesome5_Brands.ttf</string>
+		<string>FontAwesome5_Regular.ttf</string>
+		<string>FontAwesome5_Solid.ttf</string>
+		<string>Fontisto.ttf</string>
+		<string>Foundation.ttf</string>
+		<string>Ionicons.ttf</string>
+		<string>MaterialCommunityIcons.ttf</string>
+		<string>MaterialIcons.ttf</string>
+		<string>Octicons.ttf</string>
+		<string>SimpleLineIcons.ttf</string>
+		<string>Zocial.ttf</string>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>remote-notification</string>
+	</array>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
+	<key>branch_app_domain</key>
+	<string>o3i5v.app.link</string>
+	<key>branch_key</key>
+	<string>key_live_bgZup1hDyYy1TZJ4iyNvDmbdttlzgcxA</string>
+</dict>
+</plist>

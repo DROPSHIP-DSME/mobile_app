@@ -1,0 +1,61 @@
+{
+  "_from": "react-native-flatlist-slider@^1.0.6",
+  "_id": "react-native-flatlist-slider@1.0.6",
+  "_inBundle": false,
+  "_integrity": "sha512-F1C87eGIte9nfBU/MyNI6OOVKR/uCwFMrjVGv2j5u0LZjBm2WoEso96kPF2j0PIG8+XerD7Y2pmtGdCMCWxtcA==",
+  "_location": "/react-native-flatlist-slider",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "react-native-flatlist-slider@^1.0.6",
+    "name": "react-native-flatlist-slider",
+    "escapedName": "react-native-flatlist-slider",
+    "rawSpec": "^1.0.6",
+    "saveSpec": null,
+    "fetchSpec": "^1.0.6"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/react-native-flatlist-slider/-/react-native-flatlist-slider-1.0.6.tgz",
+  "_shasum": "46b26e6d1b357f1934b3e4157cf3da2ad8a57596",
+  "_spec": "react-native-flatlist-slider@^1.0.6",
+  "_where": "/Applications/RN/dropship",
+  "author": {
+    "name": "Kiran Shinde"
+  },
+  "bugs": {
+    "url": "https://github.com/KPS250/React-Native-FlatList-Slider/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "React Native FlatList Slider Component ",
+  "homepage": "https://github.com/KPS250/React-Native-FlatList-Slider#readme",
+  "keywords": [
+    "slider",
+    "imageslider",
+    "carousel",
+    "flatlist",
+    "react-native",
+    "react-component",
+    "react-native-component",
+    "react",
+    "react native",
+    "mobile",
+    "ios",
+    "android",
+    "ui"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "react-native-flatlist-slider",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KPS250/React-Native-FlatList-Slider.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.6"
+}
