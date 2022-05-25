@@ -20,11 +20,11 @@ import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper';
 import { Rating, AirbnbRating } from 'react-native-ratings';
-import Footer3 from '../../screens/common/Footer3';
+import Footer3 from '../../screens/auth/Footer3';
 import * as Progress from 'react-native-progress';
 import RnIncrementDecrementBtn  from 
 'react-native-increment-decrement-button';
-import Shopheader from '../../screens/common/Shopheader';
+import Shopheader from '../../screens/auth/Shopheader';
 
 
 const Bagprocess = (props) => {
@@ -173,7 +173,7 @@ const Bagprocess = (props) => {
              <View style={{marginHorizontal:'3%',marginTop:'20%',flexDirection:"row"}}>
               <Image source={ImageIcons.backpopup} style={{width:10,height:17}}/>
               <View style={{borderBottomWidth:3,width:40,marginLeft:"-2%",marginBottom:"2.8%"}}></View>
-              <Text style={{fontSize:15,fontFamily:"SourceSansPro-Regular",fontWeight:"bold",paddingLeft:5}}>CONTINUE SHOPPING</Text>
+              <Text style={{fontSize:15,fontFamily:"hinted-AvertaStd-Regular",fontWeight:"bold",paddingLeft:5}}>CONTINUE SHOPPING</Text>
               </View>
               
               
@@ -181,7 +181,7 @@ const Bagprocess = (props) => {
              
 
               <View style={[styles.textviewpop,{margin:"3%"}]}>
-              <Text style={{fontSize:26,color:'#1A1A1A',paddingVertical:'1%',lineHeight:30,fontWeight:'bold',fontFamily:'SourceSansPro-Regular',fontStyle:'normal'}}>Shopping Bag</Text>
+              <Text style={{fontSize:26,color:'#1A1A1A',paddingVertical:'1%',lineHeight:30,fontWeight:'bold',fontFamily:'hinted-AvertaStd-Regular',fontStyle:'normal'}}>Shopping Bag</Text>
               </View> 
 
               <View style={{flexDirection:'row',marginHorizontal:"3%"}}>
@@ -192,7 +192,7 @@ const Bagprocess = (props) => {
                    <View style={{alignSelf:'center',marginLeft:2}} >
                     
                     <View style={{}}>
-                    <Text style={{fontSize:16,fontStyle:'normal',marginVertical:'2%',fontFamily:'SourceSansPro-Regular',color:'#1A1A1A'}}>Ribbed Knit Bardot Crossover Top</Text>
+                    <Text style={{fontSize:16,fontStyle:'normal',marginVertical:'2%',fontFamily:'hinted-AvertaStd-Regular',color:'#1A1A1A'}}>Ribbed Knit Bardot Crossover Top</Text>
                     </View>
                     
                    
@@ -200,7 +200,7 @@ const Bagprocess = (props) => {
                     <View style={{flexDirection:'row'}}>
                <View>
                 <View>
-                <Text style={{fontSize:18,fontStyle:'normal',marginVertical:'4%',fontFamily:'SourceSansPro-Bold',color:'#1A1A1A'}}>Style</Text>
+                <Text style={{fontSize:18,fontStyle:'normal',marginVertical:'4%',fontFamily:'hinted-AvertaStd-Bold',color:'#1A1A1A'}}>Style</Text>
                 </View>
                  <View style={styles.poppiker}>
                      <Picker
@@ -216,7 +216,7 @@ const Bagprocess = (props) => {
 
                  <View style={{marginLeft:"2%"}}>
                  <View>
-                 <Text style={{fontSize:18,fontStyle:'normal',marginVertical:'4%',fontFamily:'SourceSansPro-Bold',color:'#1A1A1A'}}>Quantity</Text>
+                 <Text style={{fontSize:18,fontStyle:'normal',marginVertical:'4%',fontFamily:'hinted-AvertaStd-Bold',color:'#1A1A1A'}}>Quantity</Text>
                  </View>
                  <View style={{}}>
                             <RnIncrementDecrementBtn
@@ -226,7 +226,7 @@ const Bagprocess = (props) => {
                             //val={parseInt(item.productQuantity)}
                             styleBtn={{width:40,height:33,backgroundColor:'#F3F3F3'}}
                             styleTextInput={{width:40,height:33,backgroundColor:'#F3F3F3'}}
-                            labelStyle={{fontSize:15,marginTop:'1%',color:'#223263',fontFamily:'SourceSansPro-Regular'}}
+                            labelStyle={{fontSize:15,marginTop:'1%',color:'#223263',fontFamily:'hinted-AvertaStd-Regular'}}
                             //handleClick={(val)=> setIncrement(val,item._id)}
                             />
                 </View> 
@@ -243,8 +243,8 @@ const Bagprocess = (props) => {
                         </View>
                         </View>
                         <View style={{flexDirection:"row",marginTop:"6%"}}>
-                       <Text style={{color:"#1A1A1A",fontSize:16,fontFamily:'SourceSansPro-Regular'}}>Total:</Text>
-                       <Text style={{color:"#1A1A1A",fontSize:16,fontFamily:'SourceSansPro-Bold'}}>$52.50</Text>
+                       <Text style={{color:"#1A1A1A",fontSize:16,fontFamily:'hinted-AvertaStd-Regular'}}>Total:</Text>
+                       <Text style={{color:"#1A1A1A",fontSize:16,fontFamily:'hinted-AvertaStd-Bold'}}>$0</Text>
                        </View>
                      </View> 
                    </View>
@@ -261,7 +261,7 @@ const Bagprocess = (props) => {
                    <View style={{alignSelf:'center',marginLeft:2}} >
                     
                     <View style={{}}>
-                    <Text style={{fontSize:16,fontStyle:'normal',fontFamily:'SourceSansPro-Regular',color:'#1A1A1A'}}>Button Fly Crop Cardigan</Text>
+                    <Text style={{fontSize:16,fontStyle:'normal',fontFamily:'hinted-AvertaStd-Regular',color:'#1A1A1A'}}>Button Fly Crop Cardigan</Text>
                     </View>
                     
                    
@@ -269,7 +269,7 @@ const Bagprocess = (props) => {
                     <View style={{flexDirection:'row'}}>
                <View>
                 <View>
-                <Text style={{fontSize:18,fontStyle:'normal',marginVertical:'4%',fontFamily:'SourceSansPro-Bold',color:'#1A1A1A'}}>Style</Text>
+                <Text style={{fontSize:18,fontStyle:'normal',marginVertical:'4%',fontFamily:'hinted-AvertaStd-Bold',color:'#1A1A1A'}}>Style</Text>
                 </View>
                  <View style={styles.poppiker}>
                      <Picker
@@ -285,7 +285,7 @@ const Bagprocess = (props) => {
 
                  <View style={{marginLeft:"2%"}}>
                  <View>
-                 <Text style={{fontSize:18,fontStyle:'normal',marginVertical:'4%',fontFamily:'SourceSansPro-Bold',color:'#1A1A1A'}}>Quantity</Text>
+                 <Text style={{fontSize:18,fontStyle:'normal',marginVertical:'4%',fontFamily:'hinted-AvertaStd-Bold',color:'#1A1A1A'}}>Quantity</Text>
                  </View>
                  <View style={{}}>
                             <RnIncrementDecrementBtn
@@ -295,7 +295,7 @@ const Bagprocess = (props) => {
                             //val={parseInt(item.productQuantity)}
                             styleBtn={{width:40,height:33,backgroundColor:'#F3F3F3'}}
                             styleTextInput={{width:40,height:33,backgroundColor:'#F3F3F3'}}
-                            labelStyle={{fontSize:15,marginTop:'1%',color:'#223263',fontFamily:'SourceSansPro-Regular'}}
+                            labelStyle={{fontSize:15,marginTop:'1%',color:'#223263',fontFamily:'hinted-AvertaStd-Regular'}}
                             //handleClick={(val)=> setIncrement(val,item._id)}
                             />
                 </View> 
@@ -311,8 +311,8 @@ const Bagprocess = (props) => {
                         </View>
                         </View>
                         <View style={{flexDirection:"row",marginTop:"6%"}}>
-                       <Text style={{color:"#1A1A1A",fontSize:16,fontFamily:'SourceSansPro-Regular'}}>Total:</Text>
-                       <Text style={{color:"#1A1A1A",fontSize:16,fontFamily:'SourceSansPro-Bold'}}>$52.50</Text>
+                       <Text style={{color:"#1A1A1A",fontSize:16,fontFamily:'hinted-AvertaStd-Regular'}}>Total:</Text>
+                       <Text style={{color:"#1A1A1A",fontSize:16,fontFamily:'hinted-AvertaStd-Bold'}}>$0</Text>
                        </View>
                      </View> 
                    </View>
@@ -320,12 +320,12 @@ const Bagprocess = (props) => {
 
                <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}> 
                <View>
-               <Text style={{color:"#1A1A1A",fontSize:18,fontFamily:'SourceSansPro-Bold'}}>Shipping: </Text>
+               <Text style={{color:"#1A1A1A",fontSize:18,fontFamily:'hinted-AvertaStd-Bold'}}>Shipping: </Text>
                </View>
 
                <View style={{}}>
                       
-                       <Text style={{color:"#1A1A1A",fontSize:18,fontFamily:'SourceSansPro-Bold'}}>US$0.00</Text>
+                       <Text style={{color:"#1A1A1A",fontSize:18,fontFamily:'hinted-AvertaStd-Bold'}}>US$0</Text>
                </View>
                </View>
                <View style={{borderBottomWidth:1.5,marginTop:"4%",marginHorizontal:"3%",borderColor:"#000000"}}></View>
@@ -333,15 +333,15 @@ const Bagprocess = (props) => {
 
                <View style={{marginHorizontal:"3%",marginTop:"4%",bottom:5}}> 
                   <View style={{flexDirection:"row",justifyContent:"space-between"}}> 
-                  <Text style={{color:"#1A1A1A",fontSize:18,fontFamily:'SourceSansPro-Regular'}}>Grand Total:</Text>
-                  <Text style={{color:"#1A1A1A",fontSize:18,fontFamily:'SourceSansPro-Bold'}}>US$232.50</Text>
+                  <Text style={{color:"#1A1A1A",fontSize:18,fontFamily:'hinted-AvertaStd-Regular'}}>Grand Total:</Text>
+                  <Text style={{color:"#1A1A1A",fontSize:18,fontFamily:'hinted-AvertaStd-Bold'}}>US$0</Text>
                   </View>
               </View>
 
               <View style={{ flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%"}}>
               
               { couponcode==false &&  <View>
-               <TextInput  style={{backgroundColor:'#E6E6E6',borderRadius:10,paddingLeft:'5%',fontSize:18,lineHeight:23,letterSpacing:-0.125172,width:'120%',height:50,color:'#878787',fontWeight:'normal',fontStyle:'normal',fontFamily:'SourceSansPro-Regular'}}
+               <TextInput  style={{backgroundColor:'#E6E6E6',borderRadius:10,paddingLeft:'5%',fontSize:18,lineHeight:23,letterSpacing:-0.125172,width:'120%',height:50,color:'#878787',fontWeight:'normal',fontStyle:'normal',fontFamily:'hinted-AvertaStd-Regular'}}
                 placeholder="Enter coupon code"
                 onChangeText={onChangeText1}
                 value={text1}
@@ -350,7 +350,7 @@ const Bagprocess = (props) => {
               </View>
             }
               { couponcode ==true && <View>
-               <TextInput  style={{backgroundColor:'#999999',borderRadius:10,paddingLeft:'5%',fontSize:18,lineHeight:23,letterSpacing:-0.125172,width:'120%',height:50,color:'#878787',fontWeight:'normal',fontStyle:'normal',fontFamily:'SourceSansPro-Regular'}}
+               <TextInput  style={{backgroundColor:'#999999',borderRadius:10,paddingLeft:'5%',fontSize:18,lineHeight:23,letterSpacing:-0.125172,width:'120%',height:50,color:'#878787',fontWeight:'normal',fontStyle:'normal',fontFamily:'hinted-AvertaStd-Regular'}}
                 placeholder="Coupon code applied"
                 onChangeText={onChangeText1}
                 value={text1}
@@ -359,12 +359,12 @@ const Bagprocess = (props) => {
               </View>
             }
               <TouchableOpacity  style={{marginTop:"3%", backgroundColor:"#4AFFBD",height:38,width:110,borderRadius:20}}>
-             <Text style={{textAlign:'center',paddingTop:"10%",color:"#1A1A1A",fontSize:12,fontFamily:"SourceSansPro-Bold",fontWeight:"bold"}}>APPLY</Text>
+             <Text style={{textAlign:'center',paddingTop:"10%",color:"#1A1A1A",fontSize:12,fontFamily:"hinted-AvertaStd-Bold",fontWeight:"bold"}}>APPLY</Text>
              </TouchableOpacity>
              </View>
 
              <View style={{marginHorizontal:"3%",marginTop:"5%"}}>
-             <Text style={{color:"#1A1A1A",fontSize:18,fontFamily:"SourceSansPro-Bold",fontWeight:"bold"}}>We Accept:</Text>
+             <Text style={{color:"#1A1A1A",fontSize:18,fontFamily:"hinted-AvertaStd-Bold",fontWeight:"bold"}}>We Accept:</Text>
              </View>
 
              <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"3%",marginBottom:"8%"}}>
@@ -397,8 +397,8 @@ const Bagprocess = (props) => {
          </ScrollView>
           <View style={{marginHorizontal:"3%",marginTop:"4%",bottom:5,elevation:1,}}> 
                   <View style={{flexDirection:"row",justifyContent:"space-between"}}> 
-                  <Text style={{color:"#1A1A1A",fontSize:18,fontFamily:'SourceSansPro-Regular'}}>Grand Total:</Text>
-                  <Text style={{color:"#1A1A1A",fontSize:18,fontFamily:'SourceSansPro-Bold'}}>US$232.50</Text>
+                  <Text style={{color:"#1A1A1A",fontSize:18,fontFamily:'hinted-AvertaStd-Regular'}}>Grand Total:</Text>
+                  <Text style={{color:"#1A1A1A",fontSize:18,fontFamily:'hinted-AvertaStd-Bold'}}>US$0</Text>
                   </View> 
                    
                    
@@ -423,18 +423,18 @@ const Bagprocess = (props) => {
             </View> 
 
              <View style={{marginLeft:"4%"}}>
-                    <Text style={{fontSize:18,fontStyle:'normal',marginVertical:'2%',fontFamily:'SourceSansPro-Regular',color:'#1A1A1A'}}>Ribbed Knit Bardot Crossover Top</Text>
+                    <Text style={{fontSize:18,fontStyle:'normal',marginVertical:'2%',fontFamily:'hinted-AvertaStd-Regular',color:'#1A1A1A'}}>Ribbed Knit Bardot Crossover Top</Text>
             </View>
 
             <View style={{marginLeft:"4%"}}>
-                    <Text style={{fontSize:20,fontStyle:'normal',fontWeight:"bold", marginVertical:'2%',fontFamily:'SourceSansPro-Regular',color:'#1A1A1A'}}>$52.50</Text>
+                    <Text style={{fontSize:20,fontStyle:'normal',fontWeight:"bold", marginVertical:'2%',fontFamily:'hinted-AvertaStd-Regular',color:'#1A1A1A'}}>$0</Text>
             </View>
             
             <View style={{flexDirection:"row",marginLeft:'4%'}}>
             <View>
              <View style={{flexDirection:'row',marginTop:'4%'}}>
-               <Text style={{fontSize:18,fontFamily:'SourceSansPro-Bold',}}>Color :</Text>
-                <Text style={{fontSize:18,fontFamily:'SourceSansPro-Regular',marginLeft:5}}>White</Text>
+               <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Bold',}}>Color :</Text>
+                <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular',marginLeft:5}}>White</Text>
              </View> 
 
              <View style={{flexDirection:'row',marginVertical:'2%'}}>
@@ -446,21 +446,21 @@ const Bagprocess = (props) => {
                 
               <View style={{flexDirection:'row',width:100,marginLeft:'10%'}}>
             <View style={{marginHorizontal:'4%',marginVertical:'3%'}}> 
-              <Text style={{fontSize:18,fontFamily:'SourceSansPro-Bold',}}>Size</Text>
+              <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Bold',}}>Size</Text>
              <View style={{flexDirection:'row'}}>
                 <View style={{height:40,width:40,backgroundColor:'#e6e6e6',borderRadius:4,padding:9,}}>
-                  <Text style={{textAlign:'center',color:'#4d4d4d',fontSize:16,fontFamily:'SourceSansPro-SemiBold'}}>XS</Text>    
+                  <Text style={{textAlign:'center',color:'#4d4d4d',fontSize:16,fontFamily:'hinted-AvertaStd-Semibold'}}>XS</Text>    
                 </View>
                  <View style={{height:40,width:40,backgroundColor:'#e6e6e6',borderRadius:4,padding:9,marginLeft:8}}>
-                  <Text style={{textAlign:'center',color:'#4d4d4d',fontSize:16,fontFamily:'SourceSansPro-SemiBold'}}>S</Text>    
+                  <Text style={{textAlign:'center',color:'#4d4d4d',fontSize:16,fontFamily:'hinted-AvertaStd-Semibold'}}>S</Text>    
                 </View>
                  <View style={{height:40,width:40,backgroundColor:'#8B0000',borderRadius:4,padding:9,marginLeft:8}}>
-                  <Text style={{textAlign:'center',color:'#FFFFFF',fontSize:16,fontFamily:'SourceSansPro-SemiBold'}}>L</Text>    
+                  <Text style={{textAlign:'center',color:'#FFFFFF',fontSize:16,fontFamily:'hinted-AvertaStd-Semibold'}}>L</Text>    
                 </View>
                  
              </View>
              <View style={{height:40,width:40,backgroundColor:'#999999',borderRadius:4,padding:9,marginTop:"2%"}}>
-                  <Text style={{textAlign:'center',color:'#4d4d4d',fontSize:16,fontFamily:'SourceSansPro-SemiBold'}}>XL</Text>    
+                  <Text style={{textAlign:'center',color:'#4d4d4d',fontSize:16,fontFamily:'hinted-AvertaStd-Semibold'}}>XL</Text>    
                 </View>
             </View> 
             </View>

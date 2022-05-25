@@ -1,8 +1,10 @@
-const baseUri = `http://3.144.121.158/v1`; //STATGING URL
+const baseUri = `http://3.144.121.158:7888/v1`; //STATGING URL
 // const baseUri = `https://api.wallpon.com/v1`; //PRODUCTION URL   `http://3.134.6.186:7889/v1`
 // const baseUri = `https://8fd71b19882a.ngrok.io/v1`;
 // const baseUri = `http://localhost/v1`
-export const socketUri = `http://3.134.6.186:8332`; 
+//export const socketUri = `http://3.134.6.186:8332`; 
+export const socketUri = `http://54.147.39.81:7858`; 
+
 
 const api = {
   baseUri,
@@ -28,6 +30,8 @@ const api = {
   branddetails:`/shops/getBrandDetails`,
   Brandslist:`/shops/getAllBrands`,
   SearchBrandslist:`/shops/searchAllBrands`,
+  searchlistdata:`/shops/getsearchlist`,
+  searchlistitmes:`/shops/searchitems`,
   getalleventlist:`/shops/getallevent`,
   gettopcountry:`/shops/topsellingcountry`,
   uploadproductpic:`/shops/uploadProductImage`,
@@ -106,7 +110,7 @@ const api = {
   getCommissionsListOfSalesman: `/agentCommissions/getCommissionsListOfSalesman`,
   editUser:`/users/editUser`,
   deleteUser:`/users/deleteUser`,
-
+  getlivestreamrecap:`/shops/livestreamrecap`,
 };
 
 export default api; 

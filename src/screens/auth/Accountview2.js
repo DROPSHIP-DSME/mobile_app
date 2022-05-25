@@ -20,11 +20,11 @@ import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import { RadioButton ,Provider, Portal, Button,} from 'react-native-paper';
 import { Rating, AirbnbRating } from 'react-native-ratings';
-import Footer3 from '../../screens/common/Footer3';
+import Footer3 from '../../screens/auth/Footer3';
 import * as Progress from 'react-native-progress';
 import RnIncrementDecrementBtn  from 
 'react-native-increment-decrement-button';
-import Shopheader from '../../screens/common/Shopheader';
+import Shopheader from '../../screens/auth/Shopheader';
 import Modal from 'react-native-modal'
 
 
@@ -174,7 +174,7 @@ const Accountview2 = (props) => {
         </View>
         <View style={{flexDirection:"row",marginTop:10,justifyContent:"space-between"}}>
         <View style={{paddingTop:10,paddingLeft:8}}>
-        <Text style={{color:"#1A1A1A",fontSize:12,fontFamily:'SourceSansPro-Regular'}}>Blue Purse</Text>
+        <Text style={{color:"#1A1A1A",fontSize:12,fontFamily:'hinted-AvertaStd-Regular'}}>Blue Purse</Text>
         </View>
         <View style={{marginRight:8}}>
         <Image source={ImageIcons.Iconlock} style={{width:35,height:35}}/>
@@ -182,7 +182,7 @@ const Accountview2 = (props) => {
         </View>
          <View style={{flexDirection:"row",marginTop:6,justifyContent:"space-between"}}>
         <View style={{paddingLeft:8}}>
-        <Text style={{color:"#1A1A1A",fontSize:16,fontFamily:'SourceSansPro-Bold'}}>$55.00</Text>
+        <Text style={{color:"#1A1A1A",fontSize:16,fontFamily:'hinted-AvertaStd-Bold'}}>$0</Text>
         <View style={{flexDirection:'row'}}>
                         <Rating
                         type='custom'
@@ -194,7 +194,7 @@ const Accountview2 = (props) => {
                         onFinishRating={(start) => ratingCompleted(start)}
                         style={{ marginLeft:'3%'}}
                         />
-                        <Text style={styles.TEXT}>4.0</Text>
+                        <Text style={styles.TEXT}>0</Text>
                         
                      </View>
                      
@@ -245,26 +245,26 @@ const Accountview2 = (props) => {
              }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#FFFFFF'}} >   
              
              <View style={{flexDirection:"row",marginHorizontal:"4%",marginTop:"9%"}}>
-              <Text style={{fontSize:15,fontFamily:"SourceSansPro-Regular",color:"#999999"}}>ORDER HISTORY /</Text>
-              <Text style={{fontSize:15,fontFamily:"SourceSansPro-Regular",color:"#999999"}}>VIEW ORDER /</Text>
-              <Text style={{fontSize:15,fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}>CHAT WITH SELLER</Text>
+              <Text style={{fontSize:15,fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}>ORDER HISTORY /</Text>
+              <Text style={{fontSize:15,fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}>VIEW ORDER /</Text>
+              <Text style={{fontSize:15,fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>CHAT WITH SELLER</Text>
               </View>
 
                
                 <View style={{flexDirection:'row',justifyContent:'space-between',marginHorizontal:'4%',marginVertical:'6%'}}>
-                 <Text style={{fontSize:26,color:'#1a1a1a',fontFamily:'SourceSansPro-SemiBold',}}>View Order</Text>
+                 <Text style={{fontSize:26,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',}}>View Order</Text>
                </View>
 
 
               <View style={{marginHorizontal:'4%',}}>  
               <View>
                <View style={{alignItems:"center",flexDirection:'row',}}>
-               <Text style={{fontSize:18,fontFamily:"SourceSansPro-SemiBold",color:"#1A1A1A"}}>Order No:</Text>
-               <Text style={{fontSize:18,fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}>GSHM8U00S0004KH</Text>
+               <Text style={{fontSize:18,fontFamily:"hinted-AvertaStd-Semibold",color:"#1A1A1A"}}>Order No:</Text>
+               <Text style={{fontSize:18,fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>GSHM8U00S0004KH</Text>
                </View>
                <View style={{alignItems:"center",marginTop:"1%",flexDirection:'row',}}>
-               <Text style={{fontSize:18,fontFamily:"SourceSansPro-SemiBold",color:"#1A1A1A"}}>Date:</Text>
-               <Text style={{fontSize:18,fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}>13/05/2022</Text>
+               <Text style={{fontSize:18,fontFamily:"hinted-AvertaStd-Semibold",color:"#1A1A1A"}}>Date:</Text>
+               <Text style={{fontSize:18,fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>13/05/2022</Text>
                </View>
               </View>
     
@@ -284,7 +284,7 @@ const Accountview2 = (props) => {
                   <View style={{backgroundColor:'#FFFFFF',width:deviceWidth/1.1,marginVertical:'10%',borderRadius:15,alignSelf:'center',padding:'5%',elevation:2}}>
 
                  <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:'3%'}}>
-                     <Text style={{fontSize:20,color:'#1a1a1a',fontFamily:'SourceSansPro-SemiBold',}}>Chat with Seller</Text>
+                     <Text style={{fontSize:20,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',}}>Chat with Seller</Text>
                        
                        
                      <TouchableOpacity onPress={() => closepopup() } style={{height:40,width:40,backgroundColor:'#e6e6e6',borderRadius:4,marginLeft:'4%',padding:8,}}>
@@ -295,23 +295,23 @@ const Accountview2 = (props) => {
                 
                 <View style={{marginTop:'7%'}}>
                 <View style={{backgroundColor:'#AFFFE2',padding:8,width:'98%',borderRadius:10,alignSelf:'flex-end'}}>
-                  <Text style={{fontSize:16,fontFamily:'SourceSansPro-Regular',color:'#1a1a1a',}}>Hey! Just wanted to ask when my order will be processed?</Text>
+                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',color:'#1a1a1a',}}>Hey! Just wanted to ask when my order will be processed?</Text>
                 </View>
-                 <Text style={{fontSize:14,fontFamily:'SourceSansPro-Regular',color:'#666666',marginHorizontal:'3%',marginTop:2}}>Today, 12:30PM</Text>
+                 <Text style={{fontSize:14,fontFamily:'hinted-AvertaStd-Regular',color:'#666666',marginHorizontal:'3%',marginTop:2}}>Today, 12:30PM</Text>
                 </View>
 
                  <View style={{marginVertical:'8%'}}>
                   <View style={{backgroundColor:'#B80000',padding:8,width:'98%',borderRadius:10,alignSelf:'flex-end',}}>
-                  <Text style={{fontSize:16,fontFamily:'SourceSansPro-Regular',color:'#FFFFFF',}}>Hello! Thanks for your enquiry. Orders are processed in 3 business days.</Text>
+                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',color:'#FFFFFF',}}>Hello! Thanks for your enquiry. Orders are processed in 3 business days.</Text>
                   </View>
-                   <Text style={{fontSize:14,fontFamily:'SourceSansPro-Regular',color:'#666666',marginTop:2,alignSelf:'flex-end',right:4}}>Today, 12:30PM</Text>
+                   <Text style={{fontSize:14,fontFamily:'hinted-AvertaStd-Regular',color:'#666666',marginTop:2,alignSelf:'flex-end',right:4}}>Today, 12:30PM</Text>
                  </View>
 
                  <View style={{marginHorizontal:'3%'}}>
                   <View style={{backgroundColor:'#AFFFE2',padding:15,width:'45%',borderRadius:10,}}>
-                  <Text style={{fontSize:16,fontFamily:'SourceSansPro-Regular',color:'#1a1a1a',}}>Okay thanks!</Text>
+                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',color:'#1a1a1a',}}>Okay thanks!</Text>
                   </View>
-                   <Text style={{fontSize:14,fontFamily:'SourceSansPro-Regular',color:'#666666',marginTop:2,}}>Today, 12:30PM</Text>
+                   <Text style={{fontSize:14,fontFamily:'hinted-AvertaStd-Regular',color:'#666666',marginTop:2,}}>Today, 12:30PM</Text>
                  </View>
 
                 <View style={{flexDirection:'row',marginVertical:'10%',justifyContent:'space-between'}}>
@@ -341,17 +341,17 @@ const Accountview2 = (props) => {
                <View style={{alignSelf:'center',borderRadius:15,flexDirection:'row',marginTop:'3%',width:deviceWidth/1.1}}>
                <Image source={ImageIcons.teashop} style={{width:100,height:120,alignSelf:'center',borderRadius:15}}/>
                <View style={{marginLeft:5,alignSelf:'center',}}>
-                  <Text style={{fontSize:15,fontFamily:'SourceSansPro-SemiBold',marginLeft:6,color:'#1a1a1a'}}>Ribbed Knit Bardot Crossover Top</Text>
-                <Text style={{fontSize:20,fontFamily:'SourceSansPro-Bold',marginLeft:6,color:'#1a1a1a'}}>$52.50</Text>
+                  <Text style={{fontSize:15,fontFamily:'hinted-AvertaStd-Semibold',marginLeft:6,color:'#1a1a1a'}}>Ribbed Knit Bardot Crossover Top</Text>
+                <Text style={{fontSize:20,fontFamily:'hinted-AvertaStd-Bold',marginLeft:6,color:'#1a1a1a'}}>$0</Text>
                   <View style={{flexDirection:'row',marginLeft:6,marginVertical:'2%'}}>
-                      <Text style={{fontSize:16,fontFamily:'SourceSansPro-SemiBold',color:'#1a1a1a'}}>Color:</Text>
+                      <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a'}}>Color:</Text>
                        <View style={{height:15,width:15,borderRadius:10,backgroundColor:'#5999F1',marginLeft:2,alignSelf:'center'}}></View>
-                      <Text style={{fontSize:16,fontFamily:'SourceSansPro-SemiBold',color:'#1a1a1a'}}>  Size:</Text>
-                      <Text style={{fontSize:16,fontFamily:'SourceSansPro-Regular',color:'#1a1a1a'}}> 42</Text>
+                      <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a'}}>  Size:</Text>
+                      <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',color:'#1a1a1a'}}> 0</Text>
                     </View>
                      <View style={{flexDirection:'row',marginLeft:6,}}>
-                       <Text style={{fontSize:16,fontFamily:'SourceSansPro-SemiBold',color:'#1a1a1a'}}>Quantity:</Text>
-                       <Text style={{fontSize:16,fontFamily:'SourceSansPro-Regular',color:'#1a1a1a'}}> x1</Text>
+                       <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a'}}>Quantity:</Text>
+                       <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',color:'#1a1a1a'}}> x1</Text>
                     </View>
                     
                </View>
@@ -361,22 +361,22 @@ const Accountview2 = (props) => {
              <View style={{alignSelf:'center',borderRadius:15,flexDirection:'row',marginTop:'7%',width:deviceWidth/1.1}}>
                <Image source={ImageIcons.teashop} style={{width:100,height:120,alignSelf:'center',borderRadius:15}}/>
                <View style={{marginLeft:5,alignSelf:'center'}}>
-                  <Text style={{fontSize:15,fontFamily:'SourceSansPro-SemiBold',marginLeft:6,color:'#1a1a1a'}}>DuelSense Wireless Controller</Text>
-                  <Text style={{fontSize:20,fontFamily:'SourceSansPro-Bold',marginLeft:6,color:'#1a1a1a'}}>$115.50</Text>
+                  <Text style={{fontSize:15,fontFamily:'hinted-AvertaStd-Semibold',marginLeft:6,color:'#1a1a1a'}}>DuelSense Wireless Controller</Text>
+                  <Text style={{fontSize:20,fontFamily:'hinted-AvertaStd-Bold',marginLeft:6,color:'#1a1a1a'}}>$0</Text>
                  <View style={{flexDirection:'row',marginLeft:6,marginVertical:'2%'}}>
-                      <Text style={{fontSize:16,fontFamily:'SourceSansPro-SemiBold',color:'#1a1a1a'}}>Color:</Text>
+                      <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a'}}>Color:</Text>
                        <View style={{height:15,width:15,borderRadius:10,backgroundColor:'#5999F1',marginLeft:2,alignSelf:'center'}}></View>
-                      <Text style={{fontSize:16,fontFamily:'SourceSansPro-SemiBold',color:'#1a1a1a'}}>  Size:</Text>
-                      <Text style={{fontSize:16,fontFamily:'SourceSansPro-Regular',color:'#1a1a1a'}}> 42</Text>
+                      <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a'}}>  Size:</Text>
+                      <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',color:'#1a1a1a'}}> 0</Text>
                     </View>
                  <View style={{flexDirection:'row',marginLeft:6,marginVertical:'2%'}}>
-                       <Text style={{fontSize:16,fontFamily:'SourceSansPro-SemiBold',color:'#1a1a1a'}}>Type:</Text>
-                       <Text style={{fontSize:16,fontFamily:'SourceSansPro-Regular',color:'#1a1a1a'}}> DuelSense Midnight Black</Text>
+                       <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a'}}>Type:</Text>
+                       <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',color:'#1a1a1a'}}> DuelSense Midnight Black</Text>
                     </View>
                   
                      <View style={{flexDirection:'row',marginLeft:6}}>
-                       <Text style={{fontSize:16,fontFamily:'SourceSansPro-SemiBold',color:'#1a1a1a'}}>Quantity:</Text>
-                       <Text style={{fontSize:16,fontFamily:'SourceSansPro-Regular',color:'#1a1a1a'}}> x1</Text>
+                       <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a'}}>Quantity:</Text>
+                       <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',color:'#1a1a1a'}}> x1</Text>
                     </View>
                      
                </View>
@@ -387,19 +387,19 @@ const Accountview2 = (props) => {
              
 
                <View style={{flexDirection:'row',justifyContent:'space-between',marginHorizontal:'3%',marginTop:'10%'}}>
-                 <Text style={{fontSize:26,color:'#1a1a1a',fontFamily:'SourceSansPro-Bold',}}>Order Details</Text>
+                 <Text style={{fontSize:26,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Bold',}}>Order Details</Text>
                </View>
                 
                 <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"4%"}}>
                 <View style={{justifyContent:'space-between',marginTop:'4%'}}>
-                 <Text style={{fontSize:20,color:'#1a1a1a',fontFamily:'SourceSansPro-SemiBold',}}>Personal Details</Text>
-                  <Text style={{fontSize:16,fontFamily:"SourceSansPro-Regular",color:"#1A1A1A",padding:"1%"}}>Marry Davis {"\n"}2501 Stevens Ev{"\n"}Miniapolis MN,54404{"\n"}
+                 <Text style={{fontSize:20,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',}}>Personal Details</Text>
+                  <Text style={{fontSize:16,fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A",padding:"1%"}}>Marry Davis {"\n"}2501 Stevens Ev{"\n"}Miniapolis MN,54404{"\n"}
                   USA{"\n"} {"\n"}marydavis@gmail.com{"\n"}+1-808-143-8506</Text>
                </View>
 
                 <View style={{justifyContent:'space-between',marginTop:'4%'}}>
-                 <Text style={{fontSize:20,color:'#1a1a1a',fontFamily:'SourceSansPro-SemiBold',}}>Shipping {"\n"}Information</Text>
-                  <Text style={{fontSize:16,fontFamily:"SourceSansPro-Regular",color:"#1A1A1A",}}>Standard Shipping {"\n"}2501 Stevens Ev{"\n"}Miniapolis MN,54404{"\n"}
+                 <Text style={{fontSize:20,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',}}>Shipping {"\n"}Information</Text>
+                  <Text style={{fontSize:16,fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A",}}>Standard Shipping {"\n"}2501 Stevens Ev{"\n"}Miniapolis MN,54404{"\n"}
                   USA</Text>
                    <View style={{backgroundColor:'#b80000',width:'45%',borderRadius:15,padding:6,marginLeft:'4%'}}>
                      <Text style={[styles.totalincometodayWIDRO,{color:'#ffffff'}]}>EDIT</Text> 
@@ -414,13 +414,13 @@ const Accountview2 = (props) => {
 
                <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"4%",marginTop:'5%',marginBottom:'30%'}}>
                 <View style={{justifyContent:'space-between',}}>
-                 <Text style={{fontSize:20,color:'#1a1a1a',fontFamily:'SourceSansPro-SemiBold'}}>Billing Information</Text>
-                  <Text style={{fontSize:16,fontFamily:"SourceSansPro-Regular",color:"#1A1A1A",top:-15}}>Same as shipping address</Text>
+                 <Text style={{fontSize:20,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold'}}>Billing Information</Text>
+                  <Text style={{fontSize:16,fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A",top:-15}}>Same as shipping address</Text>
                </View>
 
                 <View style={{marginLeft:8}}>
-                 <Text style={{fontSize:20,color:'#1a1a1a',fontFamily:'SourceSansPro-SemiBold',}}>Payment</Text>
-                  <Text style={{fontSize:16,fontFamily:"SourceSansPro-SemiBold", color:"#1A1A1A",}}>US$235.00
+                 <Text style={{fontSize:20,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',}}>Payment</Text>
+                  <Text style={{fontSize:16,fontFamily:"hinted-AvertaStd-Semibold", color:"#1A1A1A",}}>US$0
                     {"\n"}Pay by credit/debit card </Text>
                </View>
                </View>
@@ -452,25 +452,25 @@ const Accountview2 = (props) => {
                     
                     
 
-                <Text style={{fontSize:18,fontFamily:'SourceSansPro-SemiBold',color:'#1a1a1a',marginTop:'3%'}}>Select a shipping address:</Text>
+                <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a',marginTop:'3%'}}>Select a shipping address:</Text>
 
                 <View style={{borderWidth:2,borderColor:'#b80000',padding:4,borderRadius:15,marginVertical:'5%',backgroundColor:'#ffffff'}}>
                  <View style={{backgroundColor:'#d0e3fb',width:'45%',borderRadius:10,padding:8,marginHorizontal:'2%',marginVertical:'3%'}}>
                      <Text style={styles.totalincometodayWIDROprocess}>DEFAULT ADDRESS</Text> 
                    </View>
-                  <Text style={{fontSize:18,fontFamily:"SourceSansPro-Regular",color:"#1A1A1A",marginHorizontal:'2%'}}>Marry Davis {"\n"}2501 Stevens Ev{"\n"}Miniapolis MN,54404{"\n"}
+                  <Text style={{fontSize:18,fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A",marginHorizontal:'2%'}}>Marry Davis {"\n"}2501 Stevens Ev{"\n"}Miniapolis MN,54404{"\n"}
                   USA{"\n"}</Text>
                 </View>
 
 
                  <View style={{padding:4,marginVertical:'5%',elevation:0.5,backgroundColor:'#ffffff',borderRadius:5}}>
                  
-                  <Text style={{fontSize:18,fontFamily:"SourceSansPro-Regular",color:"#1A1A1A",marginHorizontal:'2%',marginTop:'2%'}}>Marry Davis {"\n"}2501 Stevens Ev{"\n"}Miniapolis MN,54404{"\n"}
+                  <Text style={{fontSize:18,fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A",marginHorizontal:'2%',marginTop:'2%'}}>Marry Davis {"\n"}2501 Stevens Ev{"\n"}Miniapolis MN,54404{"\n"}
                   USA{"\n"}</Text>
                 </View>
 
                 <View style={{padding:'4%',elevation:0.5,marginTop:'5%',flexDirection:'row',justifyContent:'space-between',backgroundColor:'#ffffff',borderRadius:5}}>
-                 <Text style={{fontSize:18,fontFamily:"SourceSansPro-SemiBold",alignSelf:'center'}}>Add a New Addresss</Text>
+                 <Text style={{fontSize:18,fontFamily:"hinted-AvertaStd-Semibold",alignSelf:'center'}}>Add a New Addresss</Text>
                   <TouchableOpacity onPress={() => closepopup() } style={{height:40,width:40,backgroundColor:'#e6e6e6',borderRadius:4,padding:8,}}>
                       <Image source={ImageIcons.addwhytoday}  style={{height:15,width:15,marginTop:5,alignSelf:'center'}} />
                     </TouchableOpacity>
@@ -562,18 +562,18 @@ const Accountview2 = (props) => {
             </View> 
 
              <View style={{marginLeft:"2%"}}>
-                    <Text style={{fontSize:18,fontStyle:'normal',marginVertical:'2%',fontFamily:'SourceSansPro-Regular',color:'#1A1A1A'}}>Ribbed Knit Bardot Crossover Top</Text>
+                    <Text style={{fontSize:18,fontStyle:'normal',marginVertical:'2%',fontFamily:'hinted-AvertaStd-Regular',color:'#1A1A1A'}}>Ribbed Knit Bardot Crossover Top</Text>
             </View>
 
             <View style={{marginLeft:"2%"}}>
-                    <Text style={{fontSize:20,fontStyle:'normal',fontWeight:"bold", marginVertical:'2%',fontFamily:'SourceSansPro-Regular',color:'#1A1A1A'}}>$52.50</Text>
+                    <Text style={{fontSize:20,fontStyle:'normal',fontWeight:"bold", marginVertical:'2%',fontFamily:'hinted-AvertaStd-Regular',color:'#1A1A1A'}}>$52.50</Text>
             </View>
             
             <View style={{flexDirection:"row"}}>
             <View>
              <View style={{flexDirection:'row',marginHorizontal:'4%',marginTop:'4%'}}>
-               <Text style={{fontSize:18,fontFamily:'SourceSansPro-Bold',}}>Color :</Text>
-                <Text style={{fontSize:18,fontFamily:'SourceSansPro-Regular',marginLeft:5}}>White</Text>
+               <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Bold',}}>Color :</Text>
+                <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular',marginLeft:5}}>White</Text>
              </View> 
 
              <View style={{flexDirection:'row',marginHorizontal:'4%',marginVertical:'2%'}}>
@@ -585,21 +585,21 @@ const Accountview2 = (props) => {
                 
               <View style={{flexDirection:'row',width:100}}>
             <View style={{marginHorizontal:'4%',marginVertical:'3%'}}> 
-              <Text style={{fontSize:18,fontFamily:'SourceSansPro-Bold',}}>Size</Text>
+              <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Bold',}}>Size</Text>
              <View style={{flexDirection:'row'}}>
                 <View style={{height:40,width:40,backgroundColor:'#e6e6e6',borderRadius:4,padding:9,}}>
-                  <Text style={{textAlign:'center',color:'#4d4d4d',fontSize:16,fontFamily:'SourceSansPro-SemiBold'}}>XS</Text>    
+                  <Text style={{textAlign:'center',color:'#4d4d4d',fontSize:16,fontFamily:'hinted-AvertaStd-Semibold'}}>XS</Text>    
                 </View>
                  <View style={{height:40,width:40,backgroundColor:'#e6e6e6',borderRadius:4,padding:9,marginLeft:8}}>
-                  <Text style={{textAlign:'center',color:'#4d4d4d',fontSize:16,fontFamily:'SourceSansPro-SemiBold'}}>S</Text>    
+                  <Text style={{textAlign:'center',color:'#4d4d4d',fontSize:16,fontFamily:'hinted-AvertaStd-Semibold'}}>S</Text>    
                 </View>
                  <View style={{height:40,width:40,backgroundColor:'#8B0000',borderRadius:4,padding:9,marginLeft:8}}>
-                  <Text style={{textAlign:'center',color:'#FFFFFF',fontSize:16,fontFamily:'SourceSansPro-SemiBold'}}>L</Text>    
+                  <Text style={{textAlign:'center',color:'#FFFFFF',fontSize:16,fontFamily:'hinted-AvertaStd-Semibold'}}>L</Text>    
                 </View>
                  
              </View>
              <View style={{height:40,width:40,backgroundColor:'#999999',borderRadius:4,padding:9,marginTop:"2%"}}>
-                  <Text style={{textAlign:'center',color:'#4d4d4d',fontSize:16,fontFamily:'SourceSansPro-SemiBold'}}>XL</Text>    
+                  <Text style={{textAlign:'center',color:'#4d4d4d',fontSize:16,fontFamily:'hinted-AvertaStd-Semibold'}}>XL</Text>    
                 </View>
             </View> 
             </View>

@@ -15,10 +15,10 @@ import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import Swipeout from 'react-native-swipeout';
 import HorizontalSlider from 'react-horizontal-slider';
-import Footer2 from '../../screens/common/Footer2';
-import SellHeader from '../../screens/common/Sellheader';
-import Shopheader from '../../screens/common/Shopheader';
-import Footer3 from '../../screens/common/Footer3';
+import Footer2 from '../../screens/auth/Footer2';
+import SellHeader from '../../screens/auth/Sellheader';
+import Shopheader from '../../screens/auth/Shopheader';
+import Footer3 from '../../screens/auth/Footer3';
 
 import AsyncStorage from '@react-native-community/async-storage'; 
 import { useFocusEffect } from '@react-navigation/native';
@@ -326,7 +326,7 @@ const deviceWidth = Dimensions.get('window').width;
                     <View style={{}}>
                         <Image source={ImageIcons.iconpath} style={{width:11,height:11,top:5,left:5}}/>
                     </View>
-                    <Text style={styles.shorttest}>45.8K</Text>
+                    <Text style={styles.shorttest}>0K</Text>
                 </View>
                <View style={{borderRadius:5,position:'absolute',bottom:70,right:15, backgroundColor:'#ffffff',padding:8}}>
                    <Image source={ImageIcons.redsave} style={{width:10,height:15,}}/>
@@ -337,7 +337,7 @@ const deviceWidth = Dimensions.get('window').width;
               <Image source={item.image1} style={{height:20,width:20,borderRadius:15}} />
               <Text style={{fontSize:12,color:'#666666',marginLeft:6,alignSelf:'center'}}>{item.text}</Text>
             </View>  
-            <Text style={{fontSize:14,fontFamily:'SourceSansPro-Regular',marginVertical:'2%',marginBottom:15}}>{item.text1}</Text>
+            <Text style={{fontSize:14,fontFamily:'hinted-AvertaStd-Regular',marginVertical:'2%',marginBottom:15}}>{item.text1}</Text>
              </View>
              
           
@@ -412,12 +412,12 @@ const deviceWidth = Dimensions.get('window').width;
     }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} >
 
      <View style={{flexDirection:"row",marginHorizontal:"4%",marginTop:"9%"}}>
-              <Text style={{fontSize:15,fontFamily:"SourceSansPro-Regular",color:"#999999"}}>ACCOUNT SUMMARY /</Text>
-              <Text style={{fontSize:15,fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}> BOOKMARKS</Text>
+              <Text style={{fontSize:15,fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}>ACCOUNT SUMMARY /</Text>
+              <Text style={{fontSize:15,fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}> BOOKMARKS</Text>
               </View> 
           
                <View style={{flexDirection:'row',justifyContent:'space-between',marginHorizontal:'3%',marginVertical:'5%'}}>
-                 <Text style={{fontSize:26,color:'#1a1a1a',fontFamily:'SourceSansPro-SemiBold',}}>Bookmarks</Text>
+                 <Text style={{fontSize:26,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',}}>Bookmarks</Text>
                </View>
 
               <View style={{flexDirection:'row',marginHorizontal:'4%'}}>
@@ -440,7 +440,7 @@ const deviceWidth = Dimensions.get('window').width;
                 </View>
                 <TouchableOpacity style={[styles.pickerViewshorttodayagainorder,{marginLeft:'8%',flexDirection:'row',justifyContent:'space-around',padding:4}]}>
                    <Image source={ImageIcons.whitefiltertoday}  style={{height:11,width:11,marginTop:5}} />
-                   <Text style={{fontSize:16,fontFamily:'SourceSansPro-Regular',textAlign:'center',color:'#ffffff'}}>FILTERS</Text> 
+                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',textAlign:'center',color:'#ffffff'}}>FILTERS</Text> 
                 </TouchableOpacity>
               </View>
 

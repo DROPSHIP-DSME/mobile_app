@@ -13,12 +13,12 @@ import { phoneRegExp } from '../../services/helper';
 import DropdownField from '../../components/dropdown/DropDownMenu';
 import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
-import Footer3 from '../../screens/common/Footer3';
+import Footer3 from '../../screens/auth/Footer3';
 import AsyncStorage from '@react-native-community/async-storage'; 
 import { useFocusEffect } from '@react-navigation/native';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import { Rating, AirbnbRating } from 'react-native-ratings';
-import Shopheader from '../../screens/common/Shopheader';
+import Shopheader from '../../screens/auth/Shopheader';
 
 const Accountorderhist = (props) => {
 
@@ -210,13 +210,13 @@ const Accountorderhist = (props) => {
              }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} >
              
               <View style={{flexDirection:"row",marginHorizontal:"4%",marginTop:"9%"}}>
-              <Text style={{fontSize:15,fontFamily:"SourceSansPro-Regular",color:"#999999"}}>ACCOUNT SUMMARY /</Text>
-              <Text style={{fontSize:15,fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}> ORDER HISTORY</Text>
+              <Text style={{fontSize:15,fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}>ACCOUNT SUMMARY /</Text>
+              <Text style={{fontSize:15,fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}> ORDER HISTORY</Text>
               
               </View>
                
                <View style={{marginHorizontal:"4%",marginTop:'5%'}}>
-               <Text style={{fontSize:26,fontFamily:"SourceSansPro-SemiBold",}}>Order History</Text>
+               <Text style={{fontSize:26,fontFamily:"hinted-AvertaStd-Semibold",}}>Order History</Text>
                </View>
 
                 <View style={{flexDirection:'row',marginHorizontal:'4%',marginTop:'5%'}}>
@@ -239,7 +239,7 @@ const Accountorderhist = (props) => {
                 </View>
                 <View style={[styles.pickerViewshorttodayagain,{marginLeft:'8%',flexDirection:'row',justifyContent:'space-around',padding:4}]}>
                    <Image source={ImageIcons.filtertoday}  style={{height:11,width:11,marginTop:5}} />
-                   <Text style={{fontSize:16,fontFamily:'SourceSansPro-Regular',textAlign:'center'}}>FILTERS</Text> 
+                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',textAlign:'center'}}>FILTERS</Text> 
                 </View>
               </View>
                

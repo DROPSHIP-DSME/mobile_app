@@ -13,11 +13,11 @@ import { phoneRegExp } from '../../services/helper';
 import DropdownField from '../../components/dropdown/DropDownMenu';
 import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
-import Footer3 from '../../screens/common/Footer3';
+import Footer3 from '../../screens/auth/Footer3';
 import AsyncStorage from '@react-native-community/async-storage'; 
 import { useFocusEffect } from '@react-navigation/native';
 import AwesomeAlert from 'react-native-awesome-alerts';
-import Shopheader from '../../screens/common/Shopheader';
+import Shopheader from '../../screens/auth/Shopheader';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 
 
@@ -213,17 +213,17 @@ const editprofile = (props) => {
              }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#ffffff'}} >
              
               <View style={{flexDirection:"row",marginHorizontal:"3%",marginVertical:"6%"}}>
-              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"SourceSansPro-Regular",color:"#999999"}}>PERSONAL DETAILS /</Text>
-              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}> EDIT PROFILE</Text>
+              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}>PERSONAL DETAILS /</Text>
+              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}> EDIT PROFILE</Text>
               
               </View>
                
                <View style={{marginHorizontal:"3%"}}>
-               <Text style={{fontSize:26,fontFamily:"SourceSansPro-Regular",fontWeight:"bold"}}>Edit Profile</Text>
+               <Text style={{fontSize:26,fontFamily:"hinted-AvertaStd-Regular",fontWeight:"bold"}}>Edit Profile</Text>
                </View>
                
                 <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
-              <Text style={{fontSize:12,fontFamily:'SourceSansPro-Regular',color:'4d4d4d',marginLeft:'4%'}}>First Name</Text>
+              <Text style={{fontSize:12,fontFamily:'hinted-AvertaStd-Regular',color:'4d4d4d',marginLeft:'4%'}}>First Name</Text>
                <TextInput 
                  placeholder="mary"
                  placeholderTextColor="#1a1a1a"

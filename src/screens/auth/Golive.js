@@ -188,29 +188,51 @@ const facebooksignin = async () => {
             style={styles.registrationRoot}>
              <StatusBar backgroundColor={'#ffffff00'} barStyle="dark-content" translucent={true} />
         <View style={{backgroundColor:'#ffffff',flex:1}}>
+          
+          <View style={{alignItems:'center',marginTop:'18%'}}>
+              <Image source={ImageIcons.logored_1} style={styles.setlogonewdatarow}  />
+          </View>
+        <View style={{alignItems:'center',marginTop:'19%'}}>
+            <TouchableOpacity
+                style={styles.Touchablestarttextnew}
+                activeOpacity = { .5}
+                onPress={() => navigation.navigate('watchlist')}>
+                <View style={{flexDirection:'row',  justifyContent:'center',padding:10}}>
+                    <Image source={ImageIcons.googleicon} style={{ width:25,height:23,}} />
+                    <Text style={[styles.startbutton1,{fontSize:18,marginLeft:20,color:'#000000'}]}>Sign in with Google</Text>
+                </View>
+            </TouchableOpacity>
+        </View> 
+        <View style={{alignItems:'center',marginTop:'4%'}}>
+            <TouchableOpacity
+                style={styles.Touchablestarttextnew}
+                activeOpacity = { .5}
+                onPress={() => bigcommercelogin()}>
+                <View style={{flexDirection:'row',  justifyContent:'center',padding:10}}>
+                    <Image source={ImageIcons.facebook} style={{ width:14,height:24,}} />
+                    <Text style={[styles.startbutton1,{fontSize:18,marginLeft:20,color:'#000000'}]}>Sign in with Facebook</Text>
+                </View>
+            </TouchableOpacity>
+        </View> 
+        <View style={[styles.devider1, { marginTop: '10%' }]}>
+            <View style={styles.devider2} />
+            <Text style={styles.devider3}>OR</Text>
+            <View style={styles.devider2} />
+        </View>
         
-        <View style={[styles.heading,{marginTop:'15%',marginBottom:'5%'}]}>
-            <Image source={ImageIcons.logored_1} style={styles.setlogonewdata}  />
-        </View>
-        <View>
-            <Text style={[styles.headingText1,{textAlign:'center'}]}>Select a sign in option</Text>
-        </View>
 
-        <View>
-            <Text style={[styles.headingText1,{textAlign:'center',fontWeight:'400',fontSize:19,padding:10}]}>Select what app experience you want to jump into.</Text>
-        </View>
-        
-
-        <TouchableOpacity style={styles.Touchablelogin}
-            onPress={() => navigation.navigate("Goliveshop")}>
-            <Text style={[styles.TouchableloginTEXT,{color:'#ffffff',fontWeight:'700'}]}>I’M HERE TO SELL</Text>
-        </TouchableOpacity>
-
-         
-         <TouchableOpacity style={[styles.Touchablelogin,{backgroundColor:'#4AFFBD'}]}
+        <TouchableOpacity style={[styles.Touchablelogin,{width:'90%',marginTop:'5%',marginHorizontal:'2%'}]}
             onPress={() => navigation.navigate("RegistrationShop")}>
-            <Text style={[styles.TouchableloginTEXT,{color:'#000000',fontWeight:'700'}]}>I’M HERE TO SHOP</Text>
+            <Text style={[styles.TouchableloginTEXT,{fontSize:18,fontWeight:'700'}]}>Sign in with Email</Text>
         </TouchableOpacity>
+
+         <View style={styles.twotextviewcreatetop}> 
+                <Text style={styles.customertext}>Don’t have an account yet?</Text>
+                <TouchableOpacity onPress={() => props.navigation.navigate("CreateAccountShop")}>
+                    <Text style={styles.customertextred}> Sign up here.</Text>
+                </TouchableOpacity>
+            </View> 
+        
 
         
         </View>  

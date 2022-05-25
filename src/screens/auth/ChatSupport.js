@@ -13,7 +13,7 @@ import DropdownField from '../../components/dropdown/DropDownMenu';
 import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper';
-import Footer2 from '../../screens/common/Footer2';
+import Footer2 from '../../screens/auth/Footer2';
 import moment from 'moment';
  
  

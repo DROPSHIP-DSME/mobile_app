@@ -23,8 +23,8 @@ import ImagePicker from 'react-native-image-crop-picker';
 import { launchImageLibrary } from 'react-native-image-picker';
 import AsyncStorage from '@react-native-community/async-storage';
 import { v4 as uuid } from "uuid";
-import Footer2 from '../../screens/common/Footer2';
-import SellHeader from '../../screens/common/Sellheader';
+import Footer2 from '../../screens/auth/Footer2';
+import SellHeader from '../../screens/auth/Sellheader';
 
 import { useValidation } from 'react-native-form-validator';
 
@@ -298,7 +298,7 @@ const AddProduct = (props) => {
                         }
                     </View>
                     </View>
-                </View>
+                </View>  
                 <View style={[styles.pickerView,{marginTop:5,}]}>
                     <Picker
                     selectedValue={selectedValue}

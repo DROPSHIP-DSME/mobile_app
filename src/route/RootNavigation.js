@@ -11,6 +11,7 @@ import Auth from '../route/Auth';
 import RNBootSplash from "react-native-bootsplash";
 import CustomDrawer from './CustomDrawer';
 import { login, changeLoginCredentials, setNetworkConnection, logout } from '../redux/actions/Auth'
+import { setVendorInfo, setVendorIdResetPassword } from '../redux/actions/Vendor'
 import NetInfo from "@react-native-community/netinfo";
 import messaging from '@react-native-firebase/messaging';
 import dynamicLinks from '@react-native-firebase/dynamic-links';
@@ -34,9 +35,56 @@ const RootNavigation = (props) => {
     }, [loginCredentials])
 
     useEffect(async () => {
+        //Start: Accept notification data listener
+        messaging().setAutoInitEnabled(true)
+        const unsubscribeFCMbackground = messaging().onNotificationOpenedApp(async remoteMessage => {
+            if (remoteMessage?.data?.vendor) {
+                let vendorBody = JSON.parse(remoteMessage?.data?.vendor);
+                props.setVendorInfo(vendorBody)
+            }
+        });
+        const unsubscribeFCM = messaging().onMessage(async remoteMessage => {
+            if (remoteMessage?.data?.vendor) {
+                let vendorBody = JSON.parse(remoteMessage?.data?.vendor);
+                props.setVendorInfo(vendorBody)
+            }
+        });
+        setVendorNotification();
+        //End: Accept notification data listener
+
+        // Start: Dynamic link Listener
+        const linkUnsubscribe = dynamicLinks().onLink(handleDynamicLink);
+        dynamicLinks()
+            .getInitialLink()
+            .then(link => {
+                if (link?.url) {
+                    // console.log("link.url=background==>", link.url)
+                    props.logout();
+                    setTimeout(() => {
+                        NetInfo.fetch().then(state => {
+                            props.setNetworkConnection(state.isConnected);
+                        });
+                        props.setVendorIdResetPassword(link?.url)
+                    }, 500);
+                    setIsResetLink(true)
+                }
+                // if (link.url === 'https://invertase.io/offer') {
+                //     // ...set initial route as offers screen
+                // }
+            });
+        // End: Dynamic link Listener
+        const unsubscribe = NetInfo.addEventListener(state => {
+            if (!state.isConnected) {
+                Alert.alert("Wallpon", "Please check your internet connection")
+            }
+            props.setNetworkConnection(state.isConnected);
+        });
         validateLoginCredential();
         return () => {
-            
+            unsubscribe();
+            unsubscribeFCMbackground();
+            unsubscribeFCM();
+            linkUnsubscribe();
         }
     }, [])
 
@@ -133,6 +181,8 @@ const mapDispatchToProps = {
     login,
     changeLoginCredentials,
     setNetworkConnection,
+    setVendorInfo,
+    setVendorIdResetPassword,
     logout
 };
 export default connect(mapStateToProps, mapDispatchToProps)(RootNavigation);

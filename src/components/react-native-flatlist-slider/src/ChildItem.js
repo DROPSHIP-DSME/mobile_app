@@ -32,9 +32,9 @@ export default (ChildItem = ({
         />
       }
         <Text style={{fontSize:20,fontWeight:'600',marginLeft:'4%',color:'#FFFFFF',bottom:'20%',
-        lineHeight:25,fontFamily:'SourceSansPro-SemiBold',fontStyle:'normal',position:'absolute'}}>{item.desc}</Text>
+        lineHeight:25,fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal',position:'absolute'}}>{item.desc}</Text>
         <Text style={{fontSize:14, width:'70%',fontWeight:'500',marginLeft:'4%',color:'#FFFFFF',bottom:'10%',
-        lineHeight:15,fontFamily:'SourceSansPro-Regular',fontStyle:'normal',position:'absolute'}}>Check out our featured stores dropping new items this week.</Text>
+        lineHeight:15,fontFamily:'hinted-AvertaStd-Regular',fontStyle:'normal',position:'absolute'}}>Check out our featured stores dropping new items this week.</Text>
     </View>
   );
 });

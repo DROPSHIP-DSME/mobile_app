@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { upcoming } from '../../screens/auth';
-import { getalleventlist } from '../../redux/actions/Auth'
+import { getalleventlist,getincomingtlist,getlivestreamrecap } from '../../redux/actions/Auth'
 
 
 const mapStateToProps = (state) => ({
@@ -9,10 +9,14 @@ const mapStateToProps = (state) => ({
     getalleventdata: state.auth.getalleventdata,
     loginuserid: state.auth.loginuserid,
     loginuserstatus: state.auth.loginuserstatus,
+    getinconeorderlist: state.auth.getinconeorderlist,
+    livestreamrecaplist: state.auth.livestreamrecaplist,
 });
 
 const mapDispatchToProps = {
-    getalleventlist
+    getalleventlist,
+    getincomingtlist,
+    getlivestreamrecap,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(upcoming);

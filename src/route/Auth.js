@@ -25,7 +25,9 @@ import {
   Dashdetail,
   Accountorderview,
   Accountview2,
+  Dashlive3,
   Dashlive,
+  Dashlive2,
   Dashimport,
   ForgetPassword,
   Dashsupport,
@@ -45,6 +47,8 @@ import {
   Dashreturn,
   Goliveshop,
   Addcategory,
+  Footer2,
+  Footer3,
   Support,
   SalesAnalytic,
   BenRose,
@@ -62,10 +66,11 @@ import {
   editpassword,
   deletaccount,
   //CreateAccount,
-  CreateAccount,
+  Codeconfirm,
   CreateAccountShop,
   Addbrand,
   AddProduct,
+  AddProduct2,
   AddStore,
   CreateStore,
   Order,
@@ -83,7 +88,9 @@ import {
   Processorder,
   Cart,
   Overview,
+  Inorder,
   Topselling,
+  Verification,
   Livechannel,
   Productculture,
   Productcountry,
@@ -97,8 +104,10 @@ import {
   watchlist,
   clothing,
   clothdetails,
+  StartRecording,
   coming,
   upcoming,
+  schedule,
   shop,
   Blurbackground,
   videocall,
@@ -125,7 +134,8 @@ import {
   confirpayment,
   myaccount,
   Account,
-  ProductStore
+  ProductStore,
+  Sellheader,
 
 } from '../container';
 import {
@@ -182,6 +192,11 @@ const Auth = (props) => {
           options={{ title: '', headerShown: false }}
         />
         <Stack.Screen
+        name="Sellheader"
+        component={Sellheader}
+        options={{ title: '', headerShown: false, headerTransparent: true,headerTintColor:Colors.WHITE }}
+      />
+      <Stack.Screen
         name="SaleOnboard"
         component={SaleOnboard}
         options={{ title: '', headerShown: false, headerTransparent: true,headerTintColor:Colors.WHITE }}
@@ -228,7 +243,19 @@ const Auth = (props) => {
       />
  
 
-      
+      <Stack.Screen
+        name="schedule"
+        component={schedule}
+        options={({ navigation }) => ({
+                        headerShown: true,
+                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
+                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerTitle: "Go Live",
+                        headerTitleAlign: "center",
+                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
+                        headerStyle: { backgroundColor:'#fce8e8', elevation: 0, shadowOpacity: 0 },
+                    })}
+      />
 
       <Stack.Screen
         name="Popevent"
@@ -467,7 +494,20 @@ const Auth = (props) => {
         //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
       />
 
-      
+      <Stack.Screen
+        name="StartRecording"
+        component={StartRecording}
+        options={({ navigation }) => ({
+                        headerShown: true,
+                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
+                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerTitle: "Go Live",
+                        headerTitleAlign: "center",
+                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
+                        headerStyle: { backgroundColor:'#fce8e8', elevation: 0, shadowOpacity: 0 },
+                    })}
+        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
+      />
 
 
       <Stack.Screen
@@ -962,7 +1002,11 @@ const Auth = (props) => {
         component={Profilee}
         options={{ title: '', headerShown: false }}
       />
-      
+       <Stack.Screen
+        name="Inorder"
+        component={Inorder}
+        options={{ title: '', headerShown: false }}
+      />
        <Stack.Screen
         name="Cart"
         component={Cart}
@@ -1266,7 +1310,16 @@ const Auth = (props) => {
         component={Dashlive}
         options={{ title: '', headerShown: false }}
       />
-       
+       <Stack.Screen
+        name="Dashlive2"
+        component={Dashlive2}
+        options={{ title: '', headerShown: false }}
+      />
+       <Stack.Screen
+        name="Dashlive3"
+        component={Dashlive3}
+        options={{ title: '', headerShown: false }}
+      />
        <Stack.Screen
         name="Dashdetail"
         component={Dashdetail}
@@ -1440,7 +1493,7 @@ const Auth = (props) => {
                         headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
                         headerStyle: { backgroundColor: Colors.WHITE, elevation: 0, shadowOpacity: 0 },
                     })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
+        options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.BLACK}}
       />
 
       <Stack.Screen
@@ -1488,6 +1541,22 @@ const Auth = (props) => {
         //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
       />
 
+
+
+      <Stack.Screen
+        name="AddProduct2"
+        component={AddProduct2}
+        options={({ navigation }) => ({
+                        headerShown: true,
+                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
+                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerTitle: "Add Product",
+                        headerTitleAlign: "center",
+                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
+                        headerStyle: { backgroundColor: '#FFE7E7', elevation: 0, shadowOpacity: 0 },
+                    })}
+        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
+      />
 
       <Stack.Screen 
         name="Store"
@@ -1550,8 +1619,8 @@ const Auth = (props) => {
       />
          
       <Stack.Screen 
-            name="CreateAccount"
-            component={CreateAccount}
+            name="Codeconfirm"
+            component={Codeconfirm}
             options={{ title: '', headerShown: false, headerTransparent: true,headerTintColor:Colors.WHITE}}
           />
 
@@ -1562,12 +1631,28 @@ const Auth = (props) => {
         options={{ title: '', headerShown: false, headerTransparent: true,headerTintColor:Colors.WHITE}}
       />
       
+      
+      <Stack.Screen
+        name="Footer2"
+        component={Footer2}
+        options={{ title: '', headerShown: false, headerTransparent: true,headerTintColor:Colors.WHITE}}
+      />
+      <Stack.Screen
+        name="Footer3"
+        component={Footer3}
+        options={{ title: '', headerShown: false, headerTransparent: true,headerTintColor:Colors.WHITE}}
+      />
+      <Stack.Screen
+        name="Verification"
+        component={Verification}
+        options={{ title: '', headerShown: false, headerTransparent: true,headerTintColor:Colors.WHITE}}
+      />
      
       
       <Stack.Screen
         name="ForgetPassword"
         component={ForgetPassword}
-        options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE }}
+        options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.BLACK }}
       />
       
        <Stack.Screen
@@ -1664,10 +1749,11 @@ const styles = StyleSheet.create({
     leftIcon: {
         width: wp('6%'),
         height: wp('7%'),
+        // marginLeft: 15,
         tintColor: Colors.BLACK
     },
     rightText: {
-       fontSize: 12
+        fontSize: 12
     }
 });
 

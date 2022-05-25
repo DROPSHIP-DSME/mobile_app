@@ -14,7 +14,7 @@ import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper';
 import AsyncStorage from '@react-native-community/async-storage'; 
-import Footer2 from '../../screens/common/Footer2';
+import Footer2 from '../../screens/auth/Footer2';
 
 const Category = (props) => {
 

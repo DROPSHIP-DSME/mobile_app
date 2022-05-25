@@ -1,10 +1,15 @@
 import { combineReducers } from 'redux';
 import Auth from './Auth';
-
+import Vendor from './Vendor';
+import Coupon from './Coupon';
+import Bank from './Bank';
 
 // Combine app reducers
 const appReducer = combineReducers({
-  auth: Auth
+  auth: Auth,
+  vendor: Vendor,
+  coupon: Coupon,
+  bank: Bank
 });
 
 // Root reducer

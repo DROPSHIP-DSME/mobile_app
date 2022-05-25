@@ -13,12 +13,12 @@ import { phoneRegExp } from '../../services/helper';
 import DropdownField from '../../components/dropdown/DropDownMenu';
 import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
-import Footer3 from '../../screens/common/Footer3';
+import Footer3 from '../../screens/auth/Footer3';
 import AsyncStorage from '@react-native-community/async-storage'; 
 import { useFocusEffect } from '@react-navigation/native';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import { Rating, AirbnbRating } from 'react-native-ratings';
-import Shopheader from '../../screens/common/Shopheader';
+import Shopheader from '../../screens/auth/Shopheader';
 
 const noaddress = (props) => {
 
@@ -178,17 +178,17 @@ const noaddress = (props) => {
              }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#E5E5E5'}} >
              
               <View style={{flexDirection:"row",marginHorizontal:"3%",marginTop:"8%"}}>
-              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"SourceSansPro-Regular",color:"#999999"}}>PERSONAL DETAILS /</Text>
-              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}>ADDRESSES</Text>
+              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}>PERSONAL DETAILS /</Text>
+              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>ADDRESSES</Text>
               
               </View>
                
                <View style={{marginHorizontal:"3%",marginTop:'5%'}}>
-               <Text style={{fontSize:26,fontFamily:"SourceSansPro-Regular",fontWeight:"bold"}}>My Addresses</Text>
+               <Text style={{fontSize:26,fontFamily:"hinted-AvertaStd-Regular",fontWeight:"bold"}}>My Addresses</Text>
                </View>
 
                <View style={{marginHorizontal:"3%"}}>
-               <Text style={{fontSize:16,fontFamily:"SourceSansPro-Semibold",fontWeight:"normal"}}>You have no saved addresses currently.</Text>
+               <Text style={{fontSize:16,fontFamily:"hinted-AvertaStd-Semibold",fontWeight:"normal"}}>You have no saved addresses currently.</Text>
                </View>
 
              <TouchableOpacity  style={{width:deviceWidth/1.1, backgroundColor:"#B80000",borderRadius:30,marginTop:"12%",height:63,marginLeft:"4%" }} >

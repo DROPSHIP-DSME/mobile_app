@@ -179,14 +179,15 @@ const clothing = (props) => {
            <View style={{justifyContent:'space-between', zIndex:1010,position:'absolute',top:-8, right:10, textAlign:'center'}}>
               <View style={{marginBottom:10,}}>
               <Image source={ImageIcons.Vector} style={styles.imgvector} />
-              <Text style={styles.liketext}>400</Text>
+              <Text style={styles.liketext}>0</Text>
               </View>
               <View style={{marginBottom:10,}}>
               <Image source={ImageIcons.copy} style={styles.imgvector2}  />
-              <Text style={styles.liketext}>400</Text></View>
+              <Text style={styles.liketext}>0</Text></View>
               <View style={{marginBottom:10,}}>
-             <Image source={ImageIcons.Vectorshare} style={styles.imgvector3} />
-             <Text style={styles.liketext}>5</Text></View>
+                <Image source={ImageIcons.Vectorshare} style={styles.imgvector3} />
+                <Text style={styles.liketext}>0</Text>
+             </View>
              <Image source={ImageIcons.speker} style={styles.imgvector} />
             </View>
             </View>
@@ -197,7 +198,7 @@ const clothing = (props) => {
 
             <View style={{flexDirection:'row',marginHorizontal:'2%',marginVertical:'5%'}}>
             <Image source={ImageIcons.client} style={styles.audioimg} />
-            <Text style={styles.audiencetext}>30,000 audience</Text>
+            <Text style={styles.audiencetext}>0 audience</Text>
             </View>
             
             <ScrollView  keyboardShouldPersistTaps="handled" persistentScrollbar={true} >

@@ -1,6 +1,7 @@
  import { connect } from 'react-redux';
 import { Dashlive } from '../../screens/auth';
-import { getselldeshboard,gettopsell,getincomingtlist,getchanneltoken,liveeventdetail,getAllproduct,schuleEventstart } from '../../redux/actions/Auth'
+import { getselldeshboard,gettopsell,getincomingtlist,Brandslist,
+  getchanneltoken,liveeventdetail,getAllproduct,schuleEventstart } from '../../redux/actions/Auth'
 
 
 const mapStateToProps = (state) => ({
@@ -11,10 +12,11 @@ const mapStateToProps = (state) => ({
     getlistselldeshboard: state.auth.getlistselldeshboard,
     gettopsellproduct: state.auth.gettopsellproduct,
     getinconeorderlist: state.auth.getinconeorderlist,
-     getlistproduct: state.auth.getlistproduct,
-      livedetail: state.auth.livedetail,
-      removedatalioder: state.auth.removedatalioder,
-});
+    getlistproduct: state.auth.getlistproduct,
+    livedetail: state.auth.livedetail,
+    removedatalioder: state.auth.removedatalioder,
+    Brandlistdata: state.auth.Brandlistdata,
+}); 
 
 const mapDispatchToProps = {
    getselldeshboard,
@@ -23,7 +25,8 @@ const mapDispatchToProps = {
    liveeventdetail,
    getAllproduct,
    schuleEventstart,
-   getchanneltoken
+   getchanneltoken,
+   Brandslist
    // signup
 
 };

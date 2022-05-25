@@ -114,11 +114,11 @@ const ResetPassword = (props) => {
             </View>
             <View style={{ justifyContent:'center',width:'100%', alignItems:'center'}}>
                 <Text style={{textAlign:'center', color:"#1A1A1A",
-            fontFamily: 'SourceSansPro-Regular',fontWeight:'400',fontSize:16,width:'80%',marginTop:20}}>An email has been sent with instructions on how to reset your password.</Text>
+            fontFamily: 'hinted-AvertaStd-Regular',fontWeight:'400',fontSize:16,width:'80%',marginTop:20}}>An email has been sent with instructions on how to reset your password.</Text>
             </View>
             <TouchableOpacity style={styles.Touchablelogin}
-                onPress={() => props.navigation.navigate("RegistrationShop")}>
-                <Text style={styles.TouchableloginTEXT}>RETURN TO LOGIN</Text>
+                onPress={() => props.navigation.navigate("Registration")}>
+                <Text style={styles.TouchableloginTEXT}>Return to Login</Text>
             </TouchableOpacity>
             <Loader isVisible={props?.loginLoader} />
         </View>

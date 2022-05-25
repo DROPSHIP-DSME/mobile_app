@@ -20,7 +20,7 @@ import { RNCamera } from 'react-native-camera';
 import ImagePicker from 'react-native-image-crop-picker';
 import { launchImageLibrary } from 'react-native-image-picker';
 import AsyncStorage from '@react-native-community/async-storage';
-import Footer2 from '../../screens/common/Footer2';
+import Footer2 from '../../screens/auth/Footer2';
 import { useValidation } from 'react-native-form-validator';
 
 const Addbrand2 = (props) => {

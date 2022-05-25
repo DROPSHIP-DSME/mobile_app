@@ -13,12 +13,12 @@ import { phoneRegExp } from '../../services/helper';
 import DropdownField from '../../components/dropdown/DropDownMenu';
 import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
-import Footer3 from '../../screens/common/Footer3';
+import Footer3 from '../../screens/auth/Footer3';
 import AsyncStorage from '@react-native-community/async-storage'; 
 import { useFocusEffect } from '@react-navigation/native';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import { Rating, AirbnbRating } from 'react-native-ratings';
-import Shopheader from '../../screens/common/Shopheader';
+import Shopheader from '../../screens/auth/Shopheader';
 import { CreditCardInput } from 'react-native-payment-card';
 
 const paymentedit = (props) => {
@@ -213,18 +213,18 @@ const paymentedit = (props) => {
              }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#E5E5E5'}} >
              
               <View style={{flexDirection:"row",marginHorizontal:"3%",marginVertical:"6%"}}>
-              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"SourceSansPro-Regular",color:"#999999"}}>PERSONAL DETAIL /</Text>
-              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}>PAYMENT</Text>
+              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}>PERSONAL DETAIL /</Text>
+              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>PAYMENT</Text>
               
               </View>
                
                <View style={{marginHorizontal:"3%"}}>
-               <Text style={{fontSize:26,fontFamily:"SourceSansPro-Regular",fontWeight:"bold"}}>My Payments</Text>
+               <Text style={{fontSize:26,fontFamily:"hinted-AvertaStd-Regular",fontWeight:"bold"}}>My Payments</Text>
                </View>
 
                <View style={{marginHorizontal:"3%",borderRadius:10,elevation:1 ,backgroundColor:"#ffffff",marginTop:"5%"}}>
               <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"2%",marginTop:"2%"}}>
-                 <View style={{backgroundColor:"#E6E6E6",width:deviceWidth/3,height:25,paddingTop:"1%",borderRadius:5}}><Text style={{textAlign:"center", color:"#2F80ED",fontSize:12,fontWeight:"bold",fontFamily:"SourceSansPro-Regular"}}>
+                 <View style={{backgroundColor:"#E6E6E6",width:deviceWidth/3,height:25,paddingTop:"1%",borderRadius:5}}><Text style={{textAlign:"center", color:"#2F80ED",fontSize:12,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular"}}>
                  DEFAULT PAYMENT</Text></View>
                  <View style={{flexDirection:"row"}}>
                  <TouchableOpacity onPress={()=>props.navigation.navigate("changepayment")}>
@@ -246,8 +246,8 @@ const paymentedit = (props) => {
                             onChange={_onChange}
                         />
                     </View>
-                 <Text style={{fontSize:18,fontFamily:"SourceSansPro-Regular",fontWeight:"bold",color:"1A1A1A",padding:"3%"}}>Visa/Delta/Electron</Text>
-              <Text style={{fontSize:18,fontFamily:"SourceSansPro-Regular",color:"#1A1A1A",padding:"4%"}}>Marry Davis {"\n"}Crebit card ending in •••• 7010</Text>
+                 <Text style={{fontSize:18,fontFamily:"hinted-AvertaStd-Regular",fontWeight:"bold",color:"1A1A1A",padding:"3%"}}>Visa/Delta/Electron</Text>
+              <Text style={{fontSize:18,fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A",padding:"4%"}}>Marry Davis {"\n"}Crebit card ending in •••• 7010</Text>
               </View>
 
               

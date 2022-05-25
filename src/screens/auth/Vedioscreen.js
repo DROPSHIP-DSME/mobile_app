@@ -12,7 +12,7 @@ import { phoneRegExp } from '../../services/helper';
 import DropdownField from '../../components/dropdown/DropDownMenu';
 import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
-import Footer from '../../screens/common/Footer';
+
 import Video from 'react-native-video';
 
 const Vedioscreen = (props) => {

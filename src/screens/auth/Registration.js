@@ -21,7 +21,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { useValidation } from 'react-native-form-validator';
 import PasswordInputText from '../../components/react-native-hide-show-password-input';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
-import { LoginManager } from "react-native-fbsdk-next";
+//import { LoginManager } from "react-native-fbsdk-next";
 import InstagramLogin from 'react-native-instagram-login';
 import RNTwitterSignIn from '@react-native-twitter-signin/twitter-signin';
 import LinkedInModal from 'react-native-linkedin'
@@ -30,7 +30,7 @@ const Registration = (props) => {
 
     const {
         navigation,
-        values,
+        values, 
         errors,
         handleChange,
         handleSubmit,
@@ -120,18 +120,18 @@ const Registration = (props) => {
         }
     } 
     const facebookSignIn = async () => {
-        LoginManager.logInWithPermissions(["public_profile", "email"]).then(
-            function (result) {
-                if (result.isCancelled) {
-                    console.log("Login cancelled");
-                } else {
-                    console.log("Login Success ", JSON.stringify(result));
-                }
-            },
-            function (error) {
-                console.log("Login fail with error: " + error);
-            }
-        );
+        // LoginManager.logInWithPermissions(["public_profile", "email"]).then(
+        //     function (result) {
+        //         if (result.isCancelled) {
+        //             console.log("Login cancelled");
+        //         } else {
+        //             console.log("Login Success ", JSON.stringify(result));
+        //         }
+        //     },
+        //     function (error) {
+        //         console.log("Login fail with error: " + error);
+        //     }
+        // );
     }
     const instaLoginWeb = (data) => {
         console.log('InstaLogin', data)
@@ -172,104 +172,54 @@ const Registration = (props) => {
             <View style={[styles.heading, { marginTop: '15%', marginBottom: '5%' }]}>
                 <Image source={ImageIcons.logored_1} style={styles.setlogonewdata} />
             </View>
+            
             <View>
-                <Text style={styles.headingText1}>Login</Text>
-            </View>
-            <View>
+               <View style={{alignItems:'center',marginTop:'19%'}}>
+                    <TouchableOpacity
+                        style={styles.Touchablestarttextnew}
+                        activeOpacity = { .5}
+                        onPress={() => navigation.navigate('watchlist')}>
+                        <View style={{flexDirection:'row',  justifyContent:'center',padding:10}}>
+                            <Image source={ImageIcons.googleicon} style={{ width:25,height:23,}} />
+                            <Text style={[styles.startbutton1,{fontSize:18,marginLeft:20,color:'#000000'}]}>Sign up with Google</Text>
+                        </View>
+                    </TouchableOpacity>
+                </View> 
 
-
-                <View >
-                    <TextInput style={styles.input1}
-                        placeholder="Email address"
-                        autoCompleteType='email'
-                        placeholderTextColor="#999999"
-                        onChangeText={onChangeText1}
-                        value={email}
-                        onSubmitEditing={() => handleRegistrationSubmit()}
-                    />
-                    {isFieldInError('email') &&
-                        <Text style={styles.stringerror}>must be required field</Text>
-                    }
-                </View>
-
-                <View >
-                    <PasswordInputText
-                        style={styles.input2}
-                        placeholderTextColor="#999999"
-                        onChangeText={onChangeText2}
-                        value={password}
-                        secureTextEntry={true}
-                        onSubmitEditing={() => handleRegistrationSubmit()}
-                    />
-                    {isFieldInError('password') &&
-                        <Text style={styles.stringerror}>must be required field</Text>
-                    }
-                </View>
-                <View style={{ marginTop: '2%', flexDirection: 'row', marginLeft: '5%' }}>
-                    <CheckBox
-                        checkedColor='red'
-                        value={true}
-                    />
-                    <Text style={{ marginTop: '1%', marginLeft: 0 }}>Remember me</Text>
+                <View style={{alignItems:'center',marginTop:'4%'}}>
+                    <TouchableOpacity
+                        style={styles.Touchablestarttextnew}
+                        activeOpacity = { .5}
+                        onPress={() => bigcommercelogin()}>
+                        <View style={{flexDirection:'row',  justifyContent:'center',padding:10}}>
+                            <Image source={ImageIcons.facebook} style={{ width:14,height:24,}} />
+                            <Text style={[styles.startbutton1,{fontSize:18,marginLeft:20,color:'#000000'}]}>Sign up with Facebook</Text>
+                        </View>
+                    </TouchableOpacity>
+                </View> 
+                <View style={[styles.devider1, { marginTop: '10%' }]}>
+                    <View style={styles.devider2} />
+                    <Text style={styles.devider3}>OR</Text>
+                    <View style={styles.devider2} />
                 </View>
 
             </View>
 
-            <TouchableOpacity style={styles.Touchablelogin}
-                onPress={() => handleRegistrationSubmit()}>
-                <Text style={styles.TouchableloginTEXT}>LOGIN</Text>
+            <TouchableOpacity style={[styles.Touchablelogin,{width:'90%',marginTop:'5%',marginHorizontal:'2%'}]}
+                onPress={() => navigation.navigate("CreateAccountShop")}>
+                <Text style={[styles.TouchableloginTEXT,{fontSize:18,fontWeight:'700'}]}>Sign up with Email</Text>
             </TouchableOpacity>
+
+             <View style={styles.twotextviewcreatetop}>
+                <Text style={styles.customertext}>Already have an account? </Text>
+                <TouchableOpacity onPress={() => props.navigation.navigate("RegistrationShop")}>
+                    <Text style={styles.customertextred}>Sign in here.</Text>
+                </TouchableOpacity>
+            </View> 
 
             <Loader isVisible={props?.loginLoader} />
 
-            <View style={styles.twotextviewcreate}>
-                <Text style={styles.customertext}>Forgot your password?</Text>
-                <TouchableOpacity onPress={() => props.navigation.navigate("ForgetPassword")}>
-                    <Text style={styles.customertextred}> Click here.</Text>
-                </TouchableOpacity>
-            </View>
-
-            <View style={[styles.devider1, { marginTop: '10%' }]}>
-                <View style={styles.devider2} />
-                <Text style={styles.devider3}>OR</Text>
-                <View style={styles.devider2} />
-            </View>
-
-
-            <View style={styles.accountmainview}>
-                <TouchableOpacity onPress={() => googleSignIn()}>
-                    <View style={styles.showimge}>
-                        <Image source={ImageIcons.google} style={styles.google1} />
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => facebookSignIn()}>
-                    <View style={styles.showimge}>
-                        <Image source={ImageIcons.facebook} style={styles.facebook1} />
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => instaLogin.current.show()}>
-                    <View style={styles.showimge}>
-                        <Image source={ImageIcons.message} style={styles.message1} />
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => twitterSignIn()}>
-                    <View style={[styles.showimge, { padding: 10 }]}>
-                        <Image source={ImageIcons.twitter} style={styles.twitter1} />
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={()=>linkedInLogin.current.open()}>
-                    <View style={[styles.showimge, { padding: 10 }]}>
-                        <Image source={ImageIcons.linkin} style={styles.linkin1} />
-                    </View>
-                </TouchableOpacity>
-            </View>
-
-            <View style={styles.twotextviewcreate}>
-                <Text style={styles.customertext}>Don’t have an account yet?</Text>
-                <TouchableOpacity onPress={() => props.navigation.navigate("CreateAccount")}>
-                    <Text style={styles.customertextred}> Sign up here.</Text>
-                </TouchableOpacity>
-            </View>
+            
             <InstagramLogin
                 ref={instaLogin}
                 appId='982976512583210'

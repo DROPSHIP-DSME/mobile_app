@@ -13,12 +13,12 @@ import { phoneRegExp } from '../../services/helper';
 import DropdownField from '../../components/dropdown/DropDownMenu';
 import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
-import Footer3 from '../../screens/common/Footer3';
+import Footer3 from '../../screens/auth/Footer3';
 import AsyncStorage from '@react-native-community/async-storage'; 
 import { useFocusEffect } from '@react-navigation/native';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import { Rating, AirbnbRating } from 'react-native-ratings';
-import Shopheader from '../../screens/common/Shopheader';
+import Shopheader from '../../screens/auth/Shopheader';
 
 const Accountsum = (props) => {
 
@@ -212,17 +212,17 @@ const Accountsum = (props) => {
                 handleScroll(nativeEvent['contentOffset'].y);
              }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#E5E5E5'}} >
              <View style={{marginHorizontal:'3%',paddingTop:'10%'}}>
-                   <Text style={{fontSize:35,color:"#B80000",fontFamily:'SourceSansPro',fontWeight:"bold"}}>My Account</Text>
+                   <Text style={{fontSize:35,color:"#B80000",fontFamily:'hinted-AvertaStd-Bold',fontWeight:"bold"}}>My Account</Text>
               </View>
               <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",paddingTop:"8%"}}>
               <TouchableOpacity onPress={() => props.navigation.navigate("Account")}>
-              <Text style={{fontSize:16,fontWeight:"bold",fontFamily:"SourceSansPro-Regular",color:"#999999"}}>Personal Details</Text>
+              <Text style={{fontSize:16,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}>Personal Details</Text>
                </TouchableOpacity>
 
               <TouchableOpacity onPress={() => props.navigation.navigate("Accountstore")}>
-              <Text style={{fontSize:16,fontWeight:"bold",fontFamily:"SourceSansPro-Regular",color:"#999999"}}>My store</Text>
+              <Text style={{fontSize:16,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}>My store</Text>
               </TouchableOpacity>
-              <Text style={{fontSize:16,fontWeight:"bold",fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}>Account Summary</Text>
+              <Text style={{fontSize:16,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>Account Summary</Text>
               </View>
               
               <View style={{flexDirection:'row',marginHorizontal:"3%",marginTop:"2%"}}>
@@ -261,13 +261,13 @@ const Accountsum = (props) => {
               
               <View style={{marginHorizontal:"3%",marginTop:"4%"}}>
               <View>
-               <Text style={{fontSize:20,fontWeight:"bold",fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}>Saved Items</Text>
+               <Text style={{fontSize:20,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>Saved Items</Text>
               </View>
               </View>
               
               <TouchableOpacity  onPress={() => props.navigation.navigate("Accountfav1")} style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}>
               <View>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}>My Favourites</Text>
+              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>My Favourites</Text>
               </View>
               <View>
               <Image source={ImageIcons.rightpop} style={{width:8,height:11,marginRight:8}}/>
@@ -276,7 +276,7 @@ const Accountsum = (props) => {
               <View style={{borderBottomWidth:0.7,marginTop:"2%",marginHorizontal:"3%",borderColor:"#999999"}}></View> 
                <TouchableOpacity onPress={() => props.navigation.navigate("Accountdata")} style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}>
               <View>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}>Bookmarks</Text>
+              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>Bookmarks</Text>
               </View>
               <View>
               <Image source={ImageIcons.rightpop} style={{width:8,height:11,marginRight:8}}/>
@@ -285,7 +285,7 @@ const Accountsum = (props) => {
               <View style={{borderBottomWidth:0.7,marginTop:"2%",marginHorizontal:"3%",borderColor:"#999999"}}></View> 
                <TouchableOpacity onPress={() => props.navigation.navigate("Accountfollow")} style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}>
               <View style={{marginBottom:"3%"}}>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}>Following</Text>
+              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>Following</Text>
               </View>
               <View>
               <Image source={ImageIcons.rightpop} style={{width:8,height:11,marginRight:8}}/>

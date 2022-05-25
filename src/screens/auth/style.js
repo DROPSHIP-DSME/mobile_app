@@ -42,6 +42,18 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '92.5%',
   },
+  newmslimg:{
+    width:6, height:21,
+  },
+  newshrimg:{
+    width:19.97, height:21,
+  },
+  newlkiimg:{
+    width:20, height:19,
+  },
+  newspkimg:{
+    width:21, height:19.38,
+  },
   create: {
     backgroundColor: Colors.white,
     borderRadius: 30,
@@ -108,6 +120,12 @@ const styles = StyleSheet.create({
     opacity: 0.6,
     marginTop: 2
   },
+  fllowview:{
+    marginTop:"3%", backgroundColor:"#B80000",height:25,width:74,paddingHorizontal:'2%',borderRadius:20
+  },
+flltxt:{
+  textAlign:'center',paddingTop:"3%",color:"#FFFFFF",fontSize:12,fontFamily:"hinted-AvertaStd-Bold",fontWeight:"bold"
+},
   modal: {
     backgroundColor: Colors.white,
     height: SCREEN_HEIGHT / 2,
@@ -137,7 +155,7 @@ const styles = StyleSheet.create({
     // padding: Platform.OS == 'ios' ? 10 : 7,
     
     height: 40,
-    width: '78%',
+    width: '65%',
   },
   flagModal: {
     backgroundColor: 'white',
@@ -208,8 +226,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#FF0000',
     borderRadius: 15,
     height: 26,
-    alignSelf: 'center',
-    width: 44,
+    //alignSelf: 'center',
+    //width: 44,
   },
   gallerysection: {
     bottom: hp('15%'),

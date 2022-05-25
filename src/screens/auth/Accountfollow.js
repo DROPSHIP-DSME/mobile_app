@@ -15,10 +15,10 @@ import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import Swipeout from 'react-native-swipeout';
 import HorizontalSlider from 'react-horizontal-slider';
-import Footer2 from '../../screens/common/Footer2';
-import SellHeader from '../../screens/common/Sellheader';
-import Shopheader from '../../screens/common/Shopheader';
-import Footer3 from '../../screens/common/Footer3';
+import Footer2 from '../../screens/auth/Footer2';
+import SellHeader from '../../screens/auth/Sellheader';
+import Shopheader from '../../screens/auth/Shopheader';
+import Footer3 from '../../screens/auth/Footer3';
 
 import AsyncStorage from '@react-native-community/async-storage'; 
 import { useFocusEffect } from '@react-navigation/native';
@@ -266,38 +266,38 @@ const deviceWidth = Dimensions.get('window').width;
      const DATA2 = [
        {
         text:'Sneakers',
-        text1:'$55.00',
-        text2:'Orders (256)',
+        text1:'$0',
+        text2:'Orders (0)',
         image:ImageIcons.whiteshoetoday,
        },
         {
        text:'Sneakers',
-       text1:'$55.00',
-       text2:'Orders (256)',
+       text1:'$0',
+       text2:'Orders (0)',
         image:ImageIcons.whiteshoetoday,
        },
        {
        text:'Sneakers',
-       text1:'$55.00',
-       text2:'Orders (256)',
+       text1:'$0',
+       text2:'Orders (0)',
         image:ImageIcons.whiteshoetoday,
        },
        {
        text:'Sneakers',
-       text1:'$55.00',
-       text2:'Orders (256)',
+       text1:'$0',
+       text2:'Orders (0)',
         image:ImageIcons.whiteshoetoday,
        },
        {
        text:'Sneakers',
-       text1:'$55.00',
-       text2:'Orders (256)',
+       text1:'$0',
+       text2:'Orders (0)',
         image:ImageIcons.whiteshoetoday,
        },
        {
        text:'Sneakers',
-       text1:'$55.00',
-       text2:'Orders (256)',
+       text1:'$0',
+       text2:'Orders (0)',
         image:ImageIcons.whiteshoetoday,
        },
        
@@ -316,7 +316,7 @@ const deviceWidth = Dimensions.get('window').width;
            <View style={{marginTop:5,}}>
             <Text style={{fontSize:14,width:'80%',marginLeft:'5%'}}>{item.text}</Text>
             <View style={{height:14,width:14,backgroundColor:'#e6e6e6',borderRadius:3,alignSelf:'flex-end',marginRight:'9%',marginTop:-10,}}></View>
-            <Text style={{fontSize:16,width:'80%',fontFamily:'SourceSansPro-Bold',marginLeft:'5%'}}>{item.text1}</Text>
+            <Text style={{fontSize:16,width:'80%',fontFamily:'hinted-AvertaStd-Bold',marginLeft:'5%'}}>{item.text1}</Text>
              <View>
                 <Rating
                 type='custom'
@@ -327,7 +327,7 @@ const deviceWidth = Dimensions.get('window').width;
                 style={{ paddingVertical: 5,width:100,marginLeft:5}}
                 />
              </View>
-             <Text style={{fontSize:14,width:'80%',marginLeft:'5%',fontFamily:'SourceSansPro-Regular',color:'#4d4d4d',marginBottom:'20%'}}>{item.text2}</Text>
+             <Text style={{fontSize:14,width:'80%',marginLeft:'5%',fontFamily:'hinted-AvertaStd-Regular',color:'#4d4d4d',marginBottom:'20%'}}>{item.text2}</Text>
           </View>
         </View>  
   );
@@ -400,25 +400,25 @@ const deviceWidth = Dimensions.get('window').width;
     }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} >
 
      <View style={{flexDirection:"row",marginHorizontal:"4%",marginTop:"9%"}}>
-              <Text style={{fontSize:15,fontFamily:"SourceSansPro-Regular",color:"#999999"}}>ACCOUNT SUMMARY /</Text>
-              <Text style={{fontSize:15,fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}> FOLLOWING</Text>
+              <Text style={{fontSize:15,fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}>ACCOUNT SUMMARY /</Text>
+              <Text style={{fontSize:15,fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}> FOLLOWING</Text>
               </View> 
           
                <View style={{flexDirection:'row',justifyContent:'space-between',marginHorizontal:'3%',marginVertical:'5%'}}>
-                 <Text style={{fontSize:26,color:'#1a1a1a',fontFamily:'SourceSansPro-SemiBold',}}>Following</Text>
+                 <Text style={{fontSize:26,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',}}>Following</Text>
                </View>
 
               <View style={{width:deviceWidth/1.9,backgroundColor:'#ffffff',padding:'5%',marginTop:'2%',borderRadius:15,marginHorizontal:'4%'}}>
                 <Image source={ImageIcons.colortodayshoe} style={{width:70,height:70,borderRadius:30,alignSelf:'center'}}/>
                
-                  <Text style={{fontSize:20,fontFamily:'SourceSansPro-SemiBold',textAlign:'center'}}>Sneakers Store</Text>
+                  <Text style={{fontSize:20,fontFamily:'hinted-AvertaStd-Semibold',textAlign:'center'}}>Sneakers Store</Text>
 
-                  <Text style={{fontSize:16,fontFamily:'SourceSansPro-SemiBold',textAlign:'center',color:'#2F80ED',marginVertical:5}}>store.dropship.com</Text>
+                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',textAlign:'center',color:'#2F80ED',marginVertical:5}}>store.dropship.com</Text>
                  
                
                 <View style={{flexDirection:'row',marginTop:'2%',alignSelf:'center'}}>
                    <Image source={ImageIcons.redcolorbag} style={{width:15,height:15,marginTop:2}}/>
-                   <Text style={{fontSize:16,fontFamily:'SourceSansPro-Regular',marginLeft:5}}>56 products</Text>
+                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',marginLeft:5}}>0 products</Text>
                 </View>
 
                  <View style={{backgroundColor:'#4AFFBD',width:100,borderRadius:25,padding:8,alignSelf:'center',marginVertical:'8%'}}>

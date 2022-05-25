@@ -16,7 +16,7 @@ import ImagePicker from 'react-native-image-crop-picker';
 import { launchImageLibrary } from 'react-native-image-picker';
 import AsyncStorage from '@react-native-community/async-storage';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import Footer3 from '../../screens/common/Footer3';
+import Footer3 from '../../screens/auth/Footer3';
 
 const  Editprofiledetail = (props) => {
  edit
@@ -150,8 +150,8 @@ return (
                 </TouchableOpacity>
             }             
              <View style={{marginTop:10,paddingBottom:20,marginLeft:'3%',flexDirection:'column'}}>                     
-                <Text style={{fontSize:14,fontWeight:'bold',color:'#223263',fontFamily:'SourceSansPro-SemiBold',fontStyle:'normal'}}>{props?.getprofileuserlist?.userName}</Text>
-                <Text style={{fontSize:14,color:'#9098B1',fontWeight:'bold',fontFamily:'SourceSansPro-SemiBold',fontStyle:'normal'}}>@{props?.getprofileuserlist?.userName}</Text>
+                <Text style={{fontSize:14,fontWeight:'bold',color:'#223263',fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal'}}>{props?.getprofileuserlist?.userName}</Text>
+                <Text style={{fontSize:14,color:'#9098B1',fontWeight:'bold',fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal'}}>@{props?.getprofileuserlist?.userName}</Text>
              </View>
         </View>
         <View>

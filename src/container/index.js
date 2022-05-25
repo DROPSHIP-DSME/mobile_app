@@ -7,6 +7,8 @@ import Golive from './auth/Golive';
 import Addcategory from './auth/Addcategory';
 import clothing from './auth/clothing';
 import clothdetails from './auth/clothdetails';
+import StartRecording from './auth/StartRecording';
+import schedule from './auth/schedule';
 import coming from './auth/coming';
 import upcoming from './auth/upcoming';
 import shop from './auth/shop';
@@ -48,6 +50,7 @@ import ProductDetails3 from './auth/ProductDetails3';
 import AddStore2 from './auth/AddStore2';
 import Addbrand from './auth/Addbrand';
 import AddProduct from './auth/AddProduct';
+import AddProduct2 from './auth/AddProduct2';
 import AddStore from './auth/AddStore';
 import CreateStore from './auth/CreateStore';
 import Accountproduct from './auth/Accountproduct';
@@ -66,9 +69,12 @@ import Livechannel from './auth/Livechannel';
 import Productculture from './auth/Productculture';
 import Productcountry from './auth/Productcountry';
 import ProfileDetail from './auth/ProfileDetail';
+import Sellheader from './auth/Sellheader';
 
 import Login from './auth/Login';
 import Dashlive from './auth/Dashlive';
+import Dashlive2 from './auth/Dashlive2';
+import Dashlive3 from './auth/Dashlive3';
 import Dashsupport from './auth/Dashsupport';
 import Dashsupportacc from './auth/Dashsupportacc';
 import Overview from './auth/Overview';
@@ -98,13 +104,34 @@ import Dashdetail from './auth/Dashdetail';
 import Topselling from './auth/Topselling';
 import ResetPassword from './auth/ResetPassword';
 import ForgetPassword from './auth/ForgetPassword';
+import Vendor from './vender';
+import AddNewVendor from './vender/AddNewVendor';
+import AcceptedVendor from './vender/AcceptedVendor';
+import SearchLocation from './vender/SearchLocation';
+import VendorDetails from './vender/VendorDetails';
+import Earning from './earning';
+import CashOut from './earning/CashOut';
+import ManageBank from './earning/ManageBank';
+import SubmitCashout from './earning/SubmitCashout';
+import SelectBank from './earning/SelectBank';
+import AddBankAccount from './earning/AddBankAccount';
+import Coupons from './coupon';
+import AddCoupon from './coupon/AddCoupon';
 
-import CreateAccount from './auth/CreateAccount';
+
+import footer from './coupon/footer';
+
+import Createaccount from './coupon/Createaccount';
+import Codeconfirm from './auth/Codeconfirm';
 import CreateAccountShop from './auth/CreateAccountShop';
 import Vedioscreen from './auth/Vedioscreen';
 
 import Store from './auth/Store';
+import Verification from './auth/Verification';
+import Inorder from './auth/Inorder';
 import Cart from './auth/Cart';
+import Footer2 from './auth/Footer2';
+import Footer3 from './auth/Footer3';
 
 import Support from './auth/Support';
 import SalesAnalytic from './auth/SalesAnalytic';
@@ -124,12 +151,26 @@ import confirpayment from './auth/confirpayment';
 import Accountorderview from './auth/Accountorderview';
 import changepayment from './auth/changepayment';
 import deletaccount from './auth/deletaccount';
+import Insights from './insights';
+import SingleCouponInsight from './insights/SingleCouponInsight';
+import VerificationForm from './verification/VerificationForm';
+import VerificationForm2 from './verification/VerificationForm2';
+import VerificationForm3 from './verification/VerificationForm3';
+import VerificationForm4 from './verification/VerificationForm4';
+import ChooseSubscription from './subscription/ChooseSubscription';
+import SubscriptionDetail from './subscription/SubscriptionDetail';
+import Profile from './profile';
+import Editprofile from './profile/Editprofile';
 import Accountview2 from './auth/Accountview2';
 import Accountdata from './auth/Accountdata';
 import ProductStore from './auth/ProductStore';
 
 
 export {
+    //EmmaRose,
+    //DeGaulle,
+    
+    //BenRose
     ProductStore,
     deletaccount,
     Accountdata,
@@ -160,6 +201,7 @@ export {
     Cart,
     Dashproduct,
     Dashlive,
+    Dashlive2,
     Dashsetting,
     Dashsupportacc,
     Dashdetail,
@@ -173,16 +215,19 @@ export {
     Accountbrand,
     Dashadvertise,
     Dashaccount,
+    Dashlive3,
     Dashsale,
     Dashreturn,
     Dashchats,
     Dashorder,
     Dashsuccess,
     Processorder,
-    Neworder,
-    Accountbrandlist,
-    upcoming,
+    Inorder,
+     Neworder,
+     Accountbrandlist,
+     upcoming,
     Topselling,
+   StartRecording,
     Overview,
     More,
     Goback,
@@ -200,15 +245,41 @@ export {
     Login,
     ResetPassword,
     ForgetPassword,
+    Vendor,
+    Earning,
     StoreOwner,
+    AddNewVendor,
+    AcceptedVendor,
+    SearchLocation,
+    VendorDetails,
+    CashOut,
+    ManageBank,
+    SubmitCashout,
+    SelectBank,
+    AddBankAccount,
+    Coupons,
+    Insights,
+    SingleCouponInsight,
+    AddCoupon,
+    VerificationForm,
+    VerificationForm2,
+    VerificationForm3,
+    VerificationForm4,
+    ChooseSubscription,
+    SubscriptionDetail,
+    Editprofile,
     Accountorderhist,
+    Profile,
+    footer,
+    Createaccount,
     Selectproduct,
     Golive,
     Addcategory,
-    CreateAccount,
+    Codeconfirm,
     CreateAccountShop,
     Addbrand,
     AddProduct,
+    AddProduct2,
     AddStore,
     CreateStore,
     Order,
@@ -221,6 +292,9 @@ export {
     ProductDetails3,
     AddStore2,
     Store,
+    Verification,
+    Footer2,
+    Footer3,
     Support,
     SalesAnalytic,
     BenRose,
@@ -233,6 +307,7 @@ export {
     clothing,
     clothdetails,
     coming,shop,
+    schedule,
     Blurbackground,
     videocall,
     changepassword,
@@ -249,5 +324,6 @@ export {
     ShoesOnboard,
     Popevent,
     Notification,
-    Account
+    Account,
+    Sellheader
 };

@@ -18,8 +18,8 @@ import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper';
 import { Rating, AirbnbRating } from 'react-native-ratings';
-import Footer3 from '../../screens/common/Footer3';
-import Shopheader from '../../screens/common/Shopheader';
+import Footer3 from '../../screens/auth/Footer3';
+import Shopheader from '../../screens/auth/Shopheader';
 
 import AsyncStorage from '@react-native-community/async-storage'; 
 import moment from 'moment';

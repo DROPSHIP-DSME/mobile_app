@@ -16,7 +16,7 @@ import ImagePicker from 'react-native-image-crop-picker';
 import { launchImageLibrary } from 'react-native-image-picker';
 import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
-import Footer3 from '../../screens/common/Footer3';
+import Footer3 from '../../screens/auth/Footer3';
 
 
 const shippinglist = (props) => {
@@ -46,18 +46,7 @@ const shippinglist = (props) => {
 
     // Local states
     const [billImgPath, setBillImgPath] = useState("");
-    const [retakeFlag, setRetakeFlag] = useState(false);
-    const [fromGallery, setFromGallery] = useState(false);
-
-    const [First, onChangeFirst] = React.useState("");
-    const [Lastname, onChangeLastname] = React.useState("");
-    const [Address, onChangeAddress] = React.useState("");
-    const [Address2, onChangeAddress2] = React.useState("");
-    const [State, onChangeState] = React.useState("");
-    const [Zip, onChangeZip] = React.useState("");
-    const [product, onChangeproduct] = React.useState("");
-    const [City, onChangeCity] = React.useState("");
-    const [Country, onChangeCountry] = React.useState("");
+   
 
     const [wayToContact, setWayToContact] = useState("Phone");
     const [wayToContactList, setWayToContactList] = useState([

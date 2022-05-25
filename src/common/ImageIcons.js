@@ -9,17 +9,17 @@ const Elli= require(`${assetsRootPath}Elli.png`);
 const chat2 = require(`${assetsRootPath}chat2.png`);
 const furniture = require(`${assetsRootPath}furniture.png`);
 const deleticon = require(`${assetsRootPath}deleticon.png`);
-const ar = require(`${assetsRootPath}ar.jpg`);
+const ar = require(`${assetsRootPath}rightarrow.png`);
 const winterimage = require(`${assetsRootPath}winterimage.png`);
-const arroricon = require(`${assetsRootPath}arroricon.jpg`);
+const arroricon = require(`${assetsRootPath}rightarrow.png`);
 const golive = require(`${assetsRootPath}golive.png`);
-const vphoto = require(`${assetsRootPath}vphoto.jpeg`);
+const vphoto = require(`${assetsRootPath}email2.png`);
 const locke = require(`${assetsRootPath}lock.png`);
 const email2 = require(`${assetsRootPath}email2.png`);
 const mobile = require(`${assetsRootPath}mobile.png`);
 const camera = require(`${assetsRootPath}camera.png`);
 const gender = require(`${assetsRootPath}gender.png`);
-const gendeer = require(`${assetsRootPath}gendeer.jpg`);
+const gendeer = require(`${assetsRootPath}gender.png`);
 const profileimage = require(`${assetsRootPath}profileimage.png`);
 const earn = require(`${assetsRootPath}earn.png`);
 const rightarrow = require(`${assetsRootPath}rightarrow.png`);
@@ -72,6 +72,7 @@ const popimg = require(`${assetsRootPath}popimg.png`);
 const popimg1 = require(`${assetsRootPath}popimg1.png`);
 const popimg2 = require(`${assetsRootPath}popimg2.png`);
 const popimg3 = require(`${assetsRootPath}popimg3.png`);
+const left = require(`${assetsRootPath}left.png`);
 
 const close = require(`${assetsRootPath}close.png`);
 const wallponLogo = require(`${assetsRootPath}wallpon.png`);
@@ -106,6 +107,7 @@ const facebookicon = require(`${assetsRootPath}facebookicon.png`);
 const twittericon = require(`${assetsRootPath}twittericon.png`);
 const linkedinicon = require(`${assetsRootPath}linkedinicon.png`);
 const cartred = require(`${assetsRootPath}cartred.png`);
+const sell = require(`${assetsRootPath}sell.png`);
 
 const newimg = require(`${assetsRootPath}newimg.png`);
 const home = require(`${assetsRootPath}home.png`);
@@ -335,9 +337,17 @@ const newchange=require(`${assetsRootPath}newchange.png`);
 const bar2today=require(`${assetsRootPath}bar2today.png`);
 const bar3today=require(`${assetsRootPath}bar3today.png`);
 const bar4today=require(`${assetsRootPath}bar4today.png`);
+const sliderimage1=require(`${assetsRootPath}sliderimage1.png`);
+const sliderimage2=require(`${assetsRootPath}sliderimage2.png`);
+const uparrow=require(`${assetsRootPath}uparrow.png`);
+const messagebox=require(`${assetsRootPath}messagebox.png`);
 
 const ImageIcons = {
   righticon,
+  messagebox,
+  uparrow,
+  sliderimage1,
+  sliderimage2,
   credit,
   bar2today,
   bar3today,
@@ -667,5 +677,7 @@ const ImageIcons = {
   popimg1,
   popimg2,
   popimg3,
+  left,
+  sell
 };
 export default ImageIcons;

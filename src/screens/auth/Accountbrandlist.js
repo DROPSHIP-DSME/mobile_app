@@ -15,10 +15,10 @@ import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import Swipeout from 'react-native-swipeout';
 import HorizontalSlider from 'react-horizontal-slider';
-import Footer2 from '../../screens/common/Footer2';
-import SellHeader from '../../screens/common/Sellheader';
-import Shopheader from '../../screens/common/Shopheader';
-import Footer3 from '../../screens/common/Footer3';
+import Footer2 from '../../screens/auth/Footer2';
+import SellHeader from '../../screens/auth/Sellheader';
+import Shopheader from '../../screens/auth/Shopheader';
+import Footer3 from '../../screens/auth/Footer3'; 
 
 import AsyncStorage from '@react-native-community/async-storage'; 
 import { useFocusEffect } from '@react-navigation/native';
@@ -42,7 +42,7 @@ const Accountbrandlist = (props) => {
      const deviceHeight = Dimensions.get('window').height;
 const deviceWidth = Dimensions.get('window').width;
 
-
+//const brandId1 = '61b2e247ddb2bd19c2b95329';
     const {
         navigation,
         values,
@@ -66,16 +66,25 @@ const deviceWidth = Dimensions.get('window').width;
     // ]
  
     useEffect(() => {
+      
       props.getincomingtlist(props?.loginuserid);
       props.getselldeshboard(props?.loginuserid);
       props.gettopsell(props?.loginuserid,3);
       props.liveeventdetail(props?.loginuserid);
+      
     }, [])
+
+     useEffect(() => {
+      alert(brandId)
+       props.branddetails(brandId);
+       console.log(props?.getBranddetails,'newresult')
+     }, [])
 
     useEffect(() => {
        // AsyncStorage.setItem('UserId','');
        // AsyncStorage.setItem('userLogin','');
         getBrandUserId();
+
     }, [])
 
     useFocusEffect(() => {
@@ -100,7 +109,7 @@ const deviceWidth = Dimensions.get('window').width;
 
     const getBrandUserId = async () => {
         if(userId!="" && userId!=undefined){
-            await AsyncStorage.setItem('UserId',userId);
+            await AsyncStorage.setItem('UserId',userId); 
             await AsyncStorage.setItem('userLogin',"1");
         }
     }
@@ -132,20 +141,7 @@ const deviceWidth = Dimensions.get('window').width;
         }
     ]);
 
-    const [fdata,setfdata]=useState([
-        {total:"Total income",dollar:"100,000",withdraw:"withdraw money",icon:ImageIcons.arroricon},
-          {total:"Total order",dollar:"10,000",withdraw:" "} ,
-          {total:"Total order",dollar:"10,000"},]);
-
-     const [orderdata,setorderdata]=useState([
-        {name:"Kenitled",cloths:"winter cloths",orderby:"koyajosya"},
-          {name:"Kenitled",cloths:"winter cloths",orderby:"koyajosya"},{name:"Kenitled",cloths:"winter cloths",orderby:"koyajosya"},]);
-
-      const [ordertdata,setordertdata]=useState([
-        {name:"Kenitled",cloths:"winter cloths",orderby:"10000"},
-          {name:"Kenitled",cloths:"winter cloths",orderby:"10000"},{name:"Kenitled",cloths:"winter cloths",orderby:"10000"},]);
-
-
+  
        let colors = ['#8862E01A', '#19D8951A', '#E220201A', '#abcdef'];
 
      const openpopup = () => {
@@ -156,114 +152,11 @@ const deviceWidth = Dimensions.get('window').width;
              setVisible(false)
           }
 
-       const data1 = {
-        labels: ["USA", "Canada", "Mexico"], // optional
-        data: [0.4, 0.6, 0.8]
-        };
-
-       const data = {
-        labels: ["Jan", "Feb", "Mar", "Apr", "May",],
-        datasets: [
-        {
-          data: [20, 45, 28, 80, 99,]
-        }
-        ]
-    };
+       
 
     const containerStyle = {backgroundColor: 'red', padding: '7%',marginHorizontal:'5%',alignItems:'center',};
 
-       const DATA = [
-       {
-        image:ImageIcons.redincome,
-       },
-
-     ];
-      const DATA3 = [
-       {
-         image:ImageIcons.girlcent,
-        text:"GSHM8U00S0004KH ",
-        text1:"Amy White ",
-        text2:"amywhite@yahoo.com ",
-       },
-       {
-        image:ImageIcons.girlcent,
-        text:"GSHM8U00S0004KH ",
-        text1:"Amy White ",
-        text2:"amywhite@yahoo.com ",
-       },
-       {
-        image:ImageIcons.girlcent,
-        text:"GSHM8U00S0004KH ",
-        text1:"Amy White ",
-        text2:"amywhite@yahoo.com ",
-       },
-       {
-        image:ImageIcons.girlcent,
-        text:"GSHM8U00S0004KH ",
-        text1:"Amy White ",
-        text2:"amywhite@yahoo.com ",
-       },
-       {
-        image:ImageIcons.girlcent,
-        text:"GSHM8U00S0004KH ",
-        text1:"Amy White ",
-        text2:"amywhite@yahoo.com ",
-       },
-        {
-        image:ImageIcons.girlcent,
-        text:"GSHM8U00S0004KH ",
-        text1:"Amy White ",
-        text2:"amywhite@yahoo.com ",
-       },
-        {
-        image:ImageIcons.girlcent,
-        text:"GSHM8U00S0004KH ",
-        text1:"Amy White ",
-        text2:"amywhite@yahoo.com ",
-       },
-        {
-        image:ImageIcons.girlcent,    
-        text:"GSHM8U00S0004KH ",
-        text1:"Amy White ",
-        text2:"amywhite@yahoo.com ",
-       },
-        {
-        image:ImageIcons.girlcent,
-        text:"GSHM8U00S0004KH ",
-        text1:"Amy White ",
-        text2:"amywhite@yahoo.com ",
-       },
-
-     ];
-     const DATA4 = [
-       {
-         image:ImageIcons.girlcent,
-        text1:"Clothing",
-        text:"GSHM8U00S0004KH ",
-       },
-       {
-        image:ImageIcons.girlcent,
-        text1:"Clothing",
-        text:"GSHM8U00S0004KH ",
-       },
-       {
-        image:ImageIcons.girlcent,
-        text1:"Clothing",
-       text:"GSHM8U00S0004KH ",
-       },
-       {
-        image:ImageIcons.girlcent,
-        text1:"Clothing",
-       text:"GSHM8U00S0004KH ",
-       },
-       {
-        image:ImageIcons.girlcent,
-        text1:"Clothing",
-        text:"GSHM8U00S0004KH ",
-       },
-
-     ];
-
+  
      const DATA2 = [
        {
         text:'Sneakers',
@@ -308,16 +201,16 @@ const deviceWidth = Dimensions.get('window').width;
     
     
 
- const renderItem2 = ({ item ,index }) => {
+ const renderItem = ({ item ,index }) => {
      return(
         <View>
-           <View style={{padding:2,marginHorizontal:7}}>
-              <Image source={item.image} style={{height:162,width:deviceWidth/2.5,borderRadius:10}} />
-           </View>
+           <TouchableOpacity style={{padding:2,marginHorizontal:7}} onPress={()=>props.navigation.navigate("ProductDetails",{productId:item._id, })}>
+              <Image source={{uri: item.productImage}} style={{height:162,width:deviceWidth/2.5,borderRadius:10}} />
+           </TouchableOpacity>
            <View style={{marginTop:5,flexDirection:'row',marginHorizontal:3}}>
             <View>
-            <Text style={{fontSize:14,width:'80%',marginLeft:'5%'}}>{item.text}</Text>
-            <Text style={{fontSize:16,width:'80%',fontFamily:'SourceSansPro-Bold',marginLeft:'5%'}}>{item.text1}</Text>
+            <Text style={{fontSize:14,width:'80%',marginLeft:'5%'}}>{item.productName}</Text>
+            <Text style={{fontSize:16,width:'80%',fontFamily:'hinted-AvertaStd-Bold',marginLeft:'5%'}}>{item.productPrice}</Text>
              <View style={{marginBottom:'12%'}}>
                 <Rating
                 type='custom'
@@ -343,38 +236,7 @@ const deviceWidth = Dimensions.get('window').width;
   );
 }
 
-     const renderItem3 = ({ item,index }) => {
-   return(
-           <View>
 
-            <View style={styles.seledataViewTODAY}>
-                     <View style={{flexDirection:'row'}}>
-                       <Image source={item.image} style={{width:18,height:18,}}/>
-                       <Text style={styles.seriestexttoday}>{item.text}</Text>
-                     </View>  
-                       <Text style={styles.seriestexttoday}>{item.text1}</Text>
-                       <Text style={styles.seriestexttoday}>{item.text2}</Text>
-                   </View>
-            
-            </View>
-    );
-    }
-
-     const renderItem4 = ({ item,index }) => {
-   return(
-           <View>
-
-            <View style={styles.seledataViewTODAYsecndrender}>
-                    <View style={{flexDirection:'row'}}>
-                      <Image source={item.image} style={{width:24,height:24,}}/>
-                       <Text style={[styles.seriestexttoday,{alignSelf:'center',marginLeft:1}]}>{item.text}</Text>
-                    </View>   
-                       <Text style={styles.seriestexttoday}>{item.text1}</Text>
-                   </View>
-            
-            </View>
-    );
-    }
 
     const renderItem6 = ({ item }) => {
             return(
@@ -410,56 +272,56 @@ const deviceWidth = Dimensions.get('window').width;
     }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} >
 
                 
-               <View style={{marginTop:'15%',borderRadius:15,marginHorizontal:'4%'}}>
+               <View style={styles.brndhedr}>
                 <TouchableOpacity onPress={()=>props.navigation.navigate("Accountbrandlist")}>
-                <Image source={ImageIcons.colortodayshoe} style={{width:85,height:85,borderRadius:30,alignSelf:'center'}}/>
+                <Image source={{uri:props?.getBranddetails?.brandImage}} style={styles.snekimg}/>
                 </TouchableOpacity>
 
                  <View style={{alignSelf:'flex-end',position:'absolute'}}>
-                      <TouchableOpacity onPress={() => openpopup() } style={{height:40,width:40,backgroundColor:'#e6e6e6',borderRadius:4,padding:8}}>
-                      <Image source={ImageIcons.threemore}  style={{height:18,width:5,marginTop:5,alignSelf:'center'}} />
+                      <TouchableOpacity onPress={() => openpopup() } style={styles.threebtn}>
+                      <Image source={ImageIcons.threemore}  style={styles.imgthree} />
                     </TouchableOpacity>
-                    <View style={{height:40,width:40,backgroundColor:'#e6e6e6',borderRadius:4,padding:8,marginTop:10}}>
-                      <Image source={ImageIcons.shareicon}  style={{height:15,width:15,marginTop:5,alignSelf:'center'}} />
+                    <View style={styles.shareview}>
+                      <Image source={ImageIcons.shareicon}  style={styles.sharimg} />
                     </View>
                    </View> 
 
-                  <Text style={{fontSize:32,fontFamily:'SourceSansPro-Bold',textAlign:'center',color:"#b80000",marginTop:'2%'}}>Sneakers Store</Text>
+                  <Text style={styles.nametxt}>{props?.getBranddetails?.brandName}</Text>
 
-                  <Text style={{fontSize:18,fontFamily:'SourceSansPro-Regular',textAlign:'center',color:'#1a1a1a',marginVertical:5}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat purus, sed turpis ultricies cum sed.</Text>
+                  <Text style={styles.abouttxt}>{props?.getlistbranddetails?.aboutBrand}</Text>
                  
-                 <View style={{flexDirection:'row',justifyContent:'space-around',marginTop:'3%'}}>
-                   <Text style={{fontSize:22,fontFamily:'SourceSansPro-Bold',textAlign:'center',color:"#1a1a1a"}}>12</Text>
-                    <Text style={{fontSize:22,fontFamily:'SourceSansPro-Bold',textAlign:'center',color:"#1a1a1a"}}>52</Text>
-                     <Text style={{fontSize:22,fontFamily:'SourceSansPro-Bold',textAlign:'center',color:"#1a1a1a"}}>125</Text>
+                 <View style={styles.arroundview}>
+                   <Text style={styles.zerotxt}>0</Text>
+                    <Text style={styles.zerotxt}>0</Text>
+                     <Text style={styles.zerotxt}>0</Text>
                  </View>
 
-                  <View style={{flexDirection:'row',justifyContent:'space-around'}}>
-                   <Text style={{fontSize:16,fontFamily:'SourceSansPro-Regular',textAlign:'center',color:"#1a1a1a"}}>Livestreams</Text>
-                    <Text style={{fontSize:16,fontFamily:'SourceSansPro-Regular',textAlign:'center',color:"#1a1a1a"}}>Products</Text>
-                     <Text style={{fontSize:16,fontFamily:'SourceSansPro-Regular',textAlign:'center',color:"#1a1a1a"}}>Followers</Text>
+                  <View style={styles.spacearround}>
+                   <Text style={styles.stremtxt}>Livestreams</Text>
+                    <Text style={styles.stremtxt}>Products</Text>
+                     <Text style={styles.stremtxt}>Followers</Text>
                  </View>
               
-                  <View style={{backgroundColor:'#b80000',marginBottom:'20%',width:deviceWidth/1.1,borderRadius:30,padding:'3%',alignSelf:'center',marginTop:'8%'}}>
+                  <View style={styles.btnfllow}>
                       <Text style={styles.totalincometodaycompaign}>FOLLOW</Text> 
                    </View>
               </View>  
           
               
-                <View style={{flexDirection:"row",marginHorizontal:"4%",}}>
-              <Text style={{fontSize:16,fontWeight:"bold",fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}>Store</Text>
+                <View style={styles.stview}>
+              <Text style={styles.stlinetxt}>Store</Text>
               
               <TouchableOpacity style={{marginLeft:'10%'}}>
-              <Text style={{fontSize:16,fontWeight:"bold",fontFamily:"SourceSansPro-Regular",color:"#999999"}}>Livestreams</Text>
+              <Text style={styles.nolvtxt}>Livestreams</Text>
               </TouchableOpacity>
               </View>
               
-              <View style={{flexDirection:'row',marginHorizontal:"4%",marginTop:"2%"}}>
-              <View style={{borderBottomWidth:2,borderColor:"#1A1A1A",width:"20%"}}></View>
-              <View style={{borderBottomWidth:2,borderColor:"#999999",width:"78%"}}></View>
+              <View style={styles.rowline}>
+              <View style={styles.linecolor}></View>
+              <View style={styles.line999clr}></View>
               </View>
 
-              <View style={{flexDirection:'row',marginHorizontal:'4%',marginTop:'5%'}}>
+              <View style={styles.picview}>
                <View style={styles.pickerViewshorttodayagainorderstore}>
                       <Picker
                         selectedValue={selectedValue}
@@ -479,7 +341,7 @@ const deviceWidth = Dimensions.get('window').width;
                 </View>
                 <TouchableOpacity style={[styles.pickerViewshorttodayagainorderstore,{marginLeft:'8%',flexDirection:'row',justifyContent:'space-around',padding:4}]}>
                    <Image source={ImageIcons.filtertoday}  style={{height:11,width:11,marginTop:5}} />
-                   <Text style={{fontSize:16,fontFamily:'SourceSansPro-Regular',textAlign:'center',color:'#000000'}}>FILTERS</Text> 
+                   <Text style={styles.fitrtxt}>FILTERS</Text> 
                 </TouchableOpacity>
               </View>
 
@@ -488,10 +350,10 @@ const deviceWidth = Dimensions.get('window').width;
               
                  <View style={{marginTop:'8%',}}>
                   
-                    <View style={{marginLeft:'5%'}}>
+                    <View style={{marginLeft:'5%',marginBottom:'15%'}}>
                     <FlatList
-                        data={DATA2}
-                        renderItem={renderItem2}
+                        data={props?.getlistbranddetails || []}
+                        renderItem={renderItem}
                         key={item => item.id}
                         showsHorizontalScrollIndicator={false}
                         numColumns={2}
@@ -512,7 +374,7 @@ const deviceWidth = Dimensions.get('window').width;
             <View style={{ width: 250, borderRadius: 10, backgroundColor:'#fff', borderColor:'#999', borderWidth:2 }}>
               
              
-              <Text style={{marginVertical:'4%',marginHorizontal:'11%',fontSize:16,fontFamily:'SourceSansPro-SemiBold'}}>Language</Text>
+              <Text style={{marginVertical:'4%',marginHorizontal:'11%',fontSize:16,fontFamily:'hinted-AvertaStd-Semibold'}}>Language</Text>
               <View style={styles.pickerViewshorttodaymodallist}>
                       <Picker
                         selectedValue={selectedValue}
@@ -533,7 +395,7 @@ const deviceWidth = Dimensions.get('window').width;
 
                 <View style={{borderBottomWidth:2,borderColor:'#e6e6e6',width:'90%',marginVertical:'6%',alignSelf:'center'}}></View>
                 <TouchableOpacity onPress={()=>closepopup()}>
-                <Text style={{marginHorizontal:'11%',fontSize:16,fontFamily:'SourceSansPro-SemiBold',marginBottom:'5%'}}>Report store</Text>
+                <Text style={{marginHorizontal:'11%',fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',marginBottom:'5%'}}>Report store</Text>
                 </TouchableOpacity>
              
 

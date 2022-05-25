@@ -13,12 +13,12 @@ import { phoneRegExp } from '../../services/helper';
 import DropdownField from '../../components/dropdown/DropDownMenu';
 import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
-import Footer3 from '../../screens/common/Footer3';
+import Footer3 from '../../screens/auth/Footer3';
 import AsyncStorage from '@react-native-community/async-storage'; 
 import { useFocusEffect } from '@react-navigation/native';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import { Rating, AirbnbRating } from 'react-native-ratings';
-import Shopheader from '../../screens/common/Shopheader';
+import Shopheader from '../../screens/auth/Shopheader';
 
 const editviewaddress = (props) => {
 
@@ -178,28 +178,28 @@ const editviewaddress = (props) => {
              }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#FFFFFF'}} >
              
               <View style={{flexDirection:"row",marginHorizontal:"3%",marginVertical:"6%"}}>
-              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"SourceSansPro-Regular",color:"#999999"}}>PERSONAL DETAILS /</Text>
-              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"SourceSansPro-Regular",color:"#999999"}}> ADDRESSES/</Text>
-              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}> EDIT ADDRESS</Text>
+              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}>PERSONAL DETAILS /</Text>
+              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}> ADDRESSES/</Text>
+              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}> EDIT ADDRESS</Text>
               </View>
                
                <View style={{marginHorizontal:"3%"}}>
-               <Text style={{fontSize:26,fontFamily:"SourceSansPro-Regular",fontWeight:"bold"}}>Edit Address</Text>
+               <Text style={{fontSize:26,fontFamily:"hinted-AvertaStd-Regular",fontWeight:"bold"}}>Edit Address</Text>
                </View>
                
                 <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
-              <Text style={{fontSize:12,fontFamily:'SourceSansPro-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'2%'}}>First Name</Text>
-              <Text style={{fontSize:18,fontFamily:'SourceSansPro-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'1%'}}>Mary</Text>       
+              <Text style={{fontSize:12,fontFamily:'hinted-AvertaStd-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'2%'}}>First Name</Text>
+              <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'1%'}}>Mary</Text>       
                 </View>
 
                 <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
-              <Text style={{fontSize:12,fontFamily:'SourceSansPro-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'2%'}}>Last Name</Text>
-              <Text style={{fontSize:18,fontFamily:'SourceSansPro-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'1%'}}>Davis</Text>       
+              <Text style={{fontSize:12,fontFamily:'hinted-AvertaStd-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'2%'}}>Last Name</Text>
+              <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'1%'}}>Davis</Text>       
                 </View>
 
                 <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
-              <Text style={{fontSize:12,fontFamily:'SourceSansPro-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'2%'}}>Address Line 1</Text>
-              <Text style={{fontSize:18,fontFamily:'SourceSansPro-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'1%'}}>2501 Stevens Ave</Text>       
+              <Text style={{fontSize:12,fontFamily:'hinted-AvertaStd-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'2%'}}>Address Line 1</Text>
+              <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'1%'}}>2501 Stevens Ave</Text>       
                 </View>
 
                 <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
@@ -211,8 +211,8 @@ const editviewaddress = (props) => {
                 </View>
 
                 <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
-              <Text style={{fontSize:12,fontFamily:'SourceSansPro-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'2%'}}>City </Text>
-              <Text style={{fontSize:18,fontFamily:'SourceSansPro-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'1%'}}>Mennieapolis</Text>       
+              <Text style={{fontSize:12,fontFamily:'hinted-AvertaStd-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'2%'}}>City </Text>
+              <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'1%'}}>Mennieapolis</Text>       
                 </View>
     
 
@@ -241,13 +241,13 @@ const editviewaddress = (props) => {
                 </View>
 
                  <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
-              <Text style={{fontSize:12,fontFamily:'SourceSansPro-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'2%'}}>Post/Zip Code </Text>
-              <Text style={{fontSize:18,fontFamily:'SourceSansPro-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'1%'}}>55404</Text>       
+              <Text style={{fontSize:12,fontFamily:'hinted-AvertaStd-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'2%'}}>Post/Zip Code </Text>
+              <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'1%'}}>55404</Text>       
                 </View>
 
                  <View style={{flexDirection:'row',marginHorizontal:'4%',marginTop:"10%"}}>
                 <View style={{height:15,width:15,backgroundColor:'#848484',borderRadius:3,}}></View>
-                 <Text style={{fontSize:16,fontFamily:'SourceSansPro-Regular',color:'#1a1a1a',marginLeft:5}}>Make default shipping method</Text>
+                 <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',color:'#1a1a1a',marginLeft:5}}>Make default shipping method</Text>
                </View>
               
                  <TouchableOpacity  onPress={() => props.navigation.navigate("noaddress")} style={{width:deviceWidth/1.1, backgroundColor:"#B80000",borderRadius:30,marginTop:"3%",height:63,marginLeft:"4%",marginBottom:"25%" }} >

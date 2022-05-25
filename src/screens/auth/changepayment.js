@@ -13,13 +13,13 @@ import { phoneRegExp } from '../../services/helper';
 import DropdownField from '../../components/dropdown/DropDownMenu';
 import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
-import Footer3 from '../../screens/common/Footer3';
+import Footer3 from '../../screens/auth/Footer3';
 import AsyncStorage from '@react-native-community/async-storage'; 
 import { useFocusEffect } from '@react-navigation/native';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper';
-import Shopheader from '../../screens/common/Shopheader';
+import Shopheader from '../../screens/auth/Shopheader';
 import { CreditCardInput } from 'react-native-payment-card';
 
 
@@ -182,14 +182,14 @@ const changepayment = (props) => {
              }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#FFFFFF'}} >
              
               <View style={{flexDirection:"row",marginHorizontal:"3%",marginVertical:"6%"}}>
-              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"SourceSansPro-Regular",color:"#999999"}}>PERSONAL DETAIL /</Text>
-              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"SourceSansPro-Regular",color:"#999999"}}>PAYMENTS /</Text>
-              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}>EDIT PAYMENT</Text>
+              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}>PERSONAL DETAIL /</Text>
+              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}>PAYMENTS /</Text>
+              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>EDIT PAYMENT</Text>
               
               </View>
                
                <View style={{marginHorizontal:"3%"}}>
-               <Text style={{fontSize:26,fontFamily:"SourceSansPro-Regular",fontWeight:"bold"}}>Edit Payment</Text>
+               <Text style={{fontSize:26,fontFamily:"hinted-AvertaStd-Regular",fontWeight:"bold"}}>Edit Payment</Text>
                </View>
 
                <View style={{flexDirection:"row",elevation:1,marginHorizontal:"4%",backgroundColor:"#FAFAFA",marginTop:"2%"}}>
@@ -203,7 +203,7 @@ const changepayment = (props) => {
                <View style={{backgroundColor:'#ffffff',width:deviceWidth/1.1,alignSelf:'center',padding:'5%',borderRadius:15,flexDirection:'row'}}>
                <Image source={ImageIcons.righttoday} style={{width:20,height:20,marginTop:6,alignSelf:'center'}}/>
                <View style={{marginLeft:5,alignSelf:'center'}}>
-                  <Text style={{fontSize:18,fontFamily:'SourceSansPro-SemiBold',marginLeft:6,color:'#b80000',fontWeight:"bold"}}>Pay by debit/credit card</Text>
+                  <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Semibold',marginLeft:6,color:'#b80000',fontWeight:"bold"}}>Pay by debit/credit card</Text>
                  <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"5%",marginBottom:"8%"}}>
              <View>
                  <Image source={ImageIcons.visa} style={{width:45,height:30}}/>
@@ -244,28 +244,28 @@ const changepayment = (props) => {
 
 
           {/* <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
-              <Text style={{fontSize:12,fontFamily:'SourceSansPro-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'2%'}}>Card Number</Text>
-              <Text style={{fontSize:18,fontFamily:'SourceSansPro-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'1%'}}>2233 4455 6789 5432</Text>       
+              <Text style={{fontSize:12,fontFamily:'hinted-AvertaStd-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'2%'}}>Card Number</Text>
+              <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'1%'}}>2233 4455 6789 5432</Text>       
                 </View>
 
                 <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
-              <Text style={{fontSize:12,fontFamily:'SourceSansPro-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'2%'}}>Cardholder Name</Text>
-              <Text style={{fontSize:18,fontFamily:'SourceSansPro-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'1%'}}>Mary Devis</Text>       
+              <Text style={{fontSize:12,fontFamily:'hinted-AvertaStd-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'2%'}}>Cardholder Name</Text>
+              <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'1%'}}>Mary Devis</Text>       
                 </View>
 
                 <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
-              <Text style={{fontSize:12,fontFamily:'SourceSansPro-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'2%'}}>Expiry Date</Text>
-              <Text style={{fontSize:18,fontFamily:'SourceSansPro-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'1%'}}>19/23</Text>       
+              <Text style={{fontSize:12,fontFamily:'hinted-AvertaStd-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'2%'}}>Expiry Date</Text>
+              <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'1%'}}>19/23</Text>       
                 </View>
 
                  <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
-              <Text style={{fontSize:12,fontFamily:'SourceSansPro-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'2%'}}>Payment Type</Text>
-              <Text style={{fontSize:18,fontFamily:'SourceSansPro-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'1%'}}>Credit/Debit Card</Text>       
+              <Text style={{fontSize:12,fontFamily:'hinted-AvertaStd-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'2%'}}>Payment Type</Text>
+              <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'1%'}}>Credit/Debit Card</Text>       
                 </View>
 
                  <View style={{flexDirection:'row',marginHorizontal:'4%',marginTop:"4%"}}>
                 <View style={{height:15,width:15,backgroundColor:'#848484',borderRadius:3,}}></View>
-                 <Text style={{fontSize:16,fontFamily:'SourceSansPro-Regular',color:'#1a1a1a',marginLeft:5}}>Make default payment method</Text>
+                 <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',color:'#1a1a1a',marginLeft:5}}>Make default payment method</Text>
                </View> */}
                 
 
@@ -280,7 +280,7 @@ const changepayment = (props) => {
               <View style={{backgroundColor:'#ffffff',width:deviceWidth/1.1,alignSelf:'center',padding:'5%',borderRadius:15,flexDirection:'row'}}>
                <Image source={ImageIcons.righttoday} style={{width:20,height:20,marginTop:6,alignSelf:'center'}}/>
                <View style={{marginLeft:5,alignSelf:'center'}}>
-                  <Text style={{fontSize:18,fontFamily:'SourceSansPro-SemiBold',marginLeft:6,color:'#808080'}}>Pay by PayPal</Text>
+                  <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Semibold',marginLeft:6,color:'#808080'}}>Pay by PayPal</Text>
                 <View style={{marginLeft:"4%"}}>
                  <Image source={ImageIcons.paypal} style={{width:45,height:30}}/>
                 </View>

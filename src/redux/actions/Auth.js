@@ -75,7 +75,10 @@ import {
   NEW_PROFILE,
   GETCALLTOKEN,
   POST_EDIT_USER,
-  DELETE_USER
+  DELETE_USER,
+  SEARCH_LIST_ITMES,
+  ALLSEARCH_LIST_DATA,
+  LIVESTREAM_RECAP,
 } from '../actions/ActionTypes';
 import { Alert } from 'react-native';
 import { Api, Utilise } from '../../common';
@@ -757,7 +760,7 @@ export const shopsignup = (signupRequest, navigation, role,type) => {
           if (navigation) {
             dispatch({ type: LOGIN_USER_ID, payload: response.data._id });
             dispatch({ type: LOGIN_USER_STATUS, payload: 1 });
-            navigation.navigate("watchlist",{ userId:response.data._id });
+            navigation.navigate("Verification",{ userId:response.data._id });
           }
         } else {
          // if(response?.message!="Email already exists"){
@@ -944,6 +947,31 @@ export const getalleventlist = (userId) => {
         };
     }
 };
+//getlivestreamrecap
+export const getlivestreamrecap = (channelId) => {
+//alert(channelId)
+  let request = {
+    "channelId": channelId
+   }
+   return async (dispatch, getState) => {
+       let isInternetConnected = await getState().auth?.isInternetConnected;
+       if (isInternetConnected) {
+           try {
+               let response = await Utilise.apiCalling('POST', `${Api.getlivestreamrecap}`,  request);
+               console.log("responselivestream------>>>>",response)
+               if (response?.status) {
+                  //Alert.alert("DROPSHIP", 'livestreamlist successfully')
+                   dispatch({ type: LIVESTREAM_RECAP, payload: response.data });
+               } else {
+                 //  Alert.alert("DROPSHIP", String(response?.message))
+               }
+           } catch (error) {
+               dispatch({ type: LIVESTREAM_RECAP, payload: [] });
+              // Alert.alert("DROPSHIP", String(error?.message))
+           }
+       };
+   }
+};
 
 //getalleventlist1
 export const getalleventlist1 = (userId) => {
@@ -972,6 +1000,28 @@ export const getalleventlist1 = (userId) => {
                   }
               };
           }
+    }
+};
+
+//getsearchlist
+export const getsearchlist = (userId) => {
+      let request = {
+        userId:userId
+      }
+                        console.log('getsearchlistresponse',request);
+
+      return async (dispatch, getState) => {
+          dispatch({ type: ALLSEARCH_LIST_DATA, payload: [] });
+          let isInternetConnected = await getState().auth?.isInternetConnected;
+          if (isInternetConnected) {
+              try {
+                  let response = await Utilise.apiCalling('POST', `${Api.searchlistdata}`,  request);
+                  console.log('getsearchlistresponse',response);
+                  if (response?.status) {
+                      dispatch({ type: ALLSEARCH_LIST_DATA, payload: response.data });
+                  }
+              } catch (error) { }
+          };
     }
 };
 
@@ -1024,6 +1074,32 @@ export const searchbrand = (userId,search) => {
                 }
             } catch (error) {
                 dispatch({ type: BRANDS_LIST_DATA, payload: [] });
+               // Alert.alert("DROPSHIP", String(error?.message))
+            }
+        };
+    }
+};
+//searchitmes
+export const searchitems = (search,userId) => {
+   let request = {
+      search:search,
+      userId:userId
+    }
+    return async (dispatch, getState) => {
+        let isInternetConnected = await getState().auth?.isInternetConnected;
+        if (isInternetConnected) {
+            try {
+                 dispatch({ type: SEARCH_LIST_ITMES, payload: [] });
+                let response = await Utilise.apiCalling('POST', `${Api.searchlistitmes}`,  request);
+               
+                if (response?.status) {
+                   //Alert.alert("DROPSHIP", 'Brandslist successfully')
+                    dispatch({ type: SEARCH_LIST_ITMES, payload: response.data });
+                } else {
+                   // Alert.alert("DROPSHIP", String(response?.message))
+                }
+            } catch (error) {
+                dispatch({ type: SEARCH_LIST_ITMES, payload: [] });
                // Alert.alert("DROPSHIP", String(error?.message))
             }
         };
@@ -1559,7 +1635,7 @@ export const gettopcountry = (userId,limit) => {
             try {
                 dispatch({ type: GET_ALL_PRODUCTDETAILS, payload: [] });
                 let response = await Utilise.apiCalling('POST', `${Api.getlistproductdetails}`,  request);
-                
+                console.log(response,'aaaaa')
                 if (response?.status) {
                     dispatch({ type: GET_ALL_PRODUCTDETAILS, payload: response.data });
                 } else {
@@ -1867,13 +1943,15 @@ export const getincomingtlist = (userId) => {
 
   
   let request = {
-      orderNumber:orderNumber
+      eventId:orderNumber
     }
+    console.log('responsegetLivecommentCustomer',request)
     return async (dispatch, getState) => {
         let isInternetConnected = await getState().auth?.isInternetConnected;
         if (isInternetConnected) {
             try {
                 let response = await Utilise.apiCalling('POST', `${Api.getLivecommentCustomer}`,  request);
+                console.log('responsegetLivecommentCustomer',response)
                 if (response?.status) {
                     dispatch({ type: GET_LIVECOMMENT_LIST, payload: response.data });
                 } else {

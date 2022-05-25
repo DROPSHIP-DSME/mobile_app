@@ -20,7 +20,7 @@ import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper';
 import moment from 'moment';
-import Footer2 from '../../screens/common/Footer2';
+import Footer2 from '../../screens/auth/Footer2';
 
 const Order = (props) => {
 
@@ -113,7 +113,7 @@ const renderItem = ({ item,index }) => {
                     >
                     <Picker.Item label="Update order status" value="" />
                     <Picker.Item label="Prcoessing" value="Prcoessing" />
-                    <Picker.Item label="Shipped" value="Shipped" />
+                    <Picker.Item label="Shipped" value="Shipped" /> 
                     <Picker.Item label="Delivered" value="Delivered" />
                     <Picker.Item label="Cancelled" value="Cancelled" />
                     </Picker>

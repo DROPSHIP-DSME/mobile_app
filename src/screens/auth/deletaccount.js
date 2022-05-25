@@ -13,12 +13,12 @@ import { phoneRegExp } from '../../services/helper';
 import DropdownField from '../../components/dropdown/DropDownMenu';
 import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
-import Footer3 from '../../screens/common/Footer3';
+import Footer3 from '../../screens/auth/Footer3';
 import AsyncStorage from '@react-native-community/async-storage'; 
 import { useFocusEffect } from '@react-navigation/native';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import { Rating, AirbnbRating } from 'react-native-ratings';
-import Shopheader from '../../screens/common/Shopheader';
+import Shopheader from '../../screens/auth/Shopheader';
 import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper';
 const deletaccount = (props) => {
 
@@ -195,21 +195,21 @@ const deletaccount = (props) => {
              }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#ffffff'}} >
              
               <View style={{flexDirection:"row",marginHorizontal:"3%",marginVertical:"6%"}}>
-              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"SourceSansPro-Regular",color:"#999999"}}>PERSONAL DETAILS /</Text>
-              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}>DELETE ACCOUNT</Text>
+              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}>PERSONAL DETAILS /</Text>
+              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>DELETE ACCOUNT</Text>
               
               </View>
                
                <View style={{marginHorizontal:"3%"}}>
-               <Text style={{fontSize:26,fontFamily:"SourceSansPro-Regular",fontWeight:"bold"}}>Delete Account</Text>
+               <Text style={{fontSize:26,fontFamily:"hinted-AvertaStd-Regular",fontWeight:"bold"}}>Delete Account</Text>
                </View>
 
                <View style={{marginHorizontal:"3%",marginTop:"4%"}}>
-               <Text style={{fontSize:20,fontFamily:"SourceSansPro-Semibold",}}>Reasons for Deleting </Text>
+               <Text style={{fontSize:20,fontFamily:"hinted-AvertaStd-Semibold",}}>Reasons for Deleting </Text>
                </View>
 
                 <View style={{marginHorizontal:"3%",marginTop:"4%"}}>
-               <Text style={{fontSize:18,fontFamily:"SourceSansPro-Regular",}}>We’re sorry to see you go. 
+               <Text style={{fontSize:18,fontFamily:"hinted-AvertaStd-Regular",}}>We’re sorry to see you go. 
                  Please let us know the 
                specific reason you’re choosing to terminate your account.</Text>
                </View>
@@ -222,7 +222,7 @@ const deletaccount = (props) => {
                 onPress={() => setChecked('first')}
               />
 
-              <Text style={{paddingTop:"2%", fontSize:18,fontFamily:"SourceSansPro-Semibold", color:"#B80000",lineHeight:23,paddingHorizontal:"2%"}}>I’m no longer interested in the {"\n"}selling/shopping online.</Text>
+              <Text style={{paddingTop:"2%", fontSize:18,fontFamily:"hinted-AvertaStd-Semibold", color:"#B80000",lineHeight:23,paddingHorizontal:"2%"}}>I’m no longer interested in the {"\n"}selling/shopping online.</Text>
               </View>
 
               <View style={{flexDirection:"row",marginTop:"4%", flexDirection:"row",elevation:1,marginHorizontal:"4%",backgroundColor:"#FAFAFA"}}>
@@ -231,7 +231,7 @@ const deletaccount = (props) => {
                 status={ checked === 'second' ? 'checked' : 'unchecked' }
                 onPress={() => setChecked('second')}
               />
-              <Text style={{paddingTop:"2%", fontSize:18,fontFamily:"SourceSansPro-Semibold",color:"#808080",lineHeight:23,paddingHorizontal:"2%"}}>I already have another platform.</Text>
+              <Text style={{paddingTop:"2%", fontSize:18,fontFamily:"hinted-AvertaStd-Semibold",color:"#808080",lineHeight:23,paddingHorizontal:"2%"}}>I already have another platform.</Text>
               </View>
 
               <View style={{flexDirection:"row",marginTop:"4%", flexDirection:"row",elevation:1,marginHorizontal:"4%",backgroundColor:"#FAFAFA"}}>
@@ -240,7 +240,7 @@ const deletaccount = (props) => {
                 status={ checked === 'third' ? 'checked' : 'unchecked' }
                 onPress={() => setChecked('third')}
               />
-              <Text style={{paddingTop:"2%", fontSize:18,fontFamily:"SourceSansPro-Semibold", color:"#808080",lineHeight:23,paddingHorizontal:"2%"}}>I don’t have a specific reason.</Text>
+              <Text style={{paddingTop:"2%", fontSize:18,fontFamily:"hinted-AvertaStd-Semibold", color:"#808080",lineHeight:23,paddingHorizontal:"2%"}}>I don’t have a specific reason.</Text>
               </View>
 
             </View>
@@ -254,12 +254,12 @@ const deletaccount = (props) => {
                 </View>
 
                 <View style={{marginHorizontal:"3%",marginTop:"4%"}}>
-               <Text style={{fontSize:18,fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}>Deleting your account will remove all of your 
+               <Text style={{fontSize:18,fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>Deleting your account will remove all of your 
                information from our database. This cannot be undone. </Text>
                </View>
 
                <View style={{marginHorizontal:"3%",marginTop:"6%"}}>
-               <Text style={{fontSize:14,fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}>To confirm this, type ‘DELETE’ below.</Text>
+               <Text style={{fontSize:14,fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>To confirm this, type ‘DELETE’ below.</Text>
                </View>
 
                <View style={[styles.pickerViewshorttodaybranded1234,{marginTop:'2%',width:260, backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
@@ -287,7 +287,7 @@ const deletaccount = (props) => {
                   <Image source={ImageIcons.righticon}  style={{height:80,width:80}} />
                   </View>
                   <View style={{marginTop:"3%",alignItems:"center",marginBottom:"10%"}}>
-                  <Text style={{fontFamily:"SourceSansPro-Regular",fontSize:18,color:"#1A1A1A"}}>Password changed successfully.
+                  <Text style={{fontFamily:"hinted-AvertaStd-Regular",fontSize:18,color:"#1A1A1A"}}>Password changed successfully.
                   </Text>
                   </View>
 

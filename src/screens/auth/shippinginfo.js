@@ -17,7 +17,7 @@ import { launchImageLibrary } from 'react-native-image-picker';
 import AsyncStorage from '@react-native-community/async-storage';
 import CheckBox from '@react-native-community/checkbox';
 import { v4 as uuid } from "uuid";
-import Footer3 from '../../screens/common/Footer3';
+import Footer3 from '../../screens/auth/Footer3';
 import { useValidation } from 'react-native-form-validator';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 

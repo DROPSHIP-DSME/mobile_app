@@ -15,14 +15,16 @@ import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import Swipeout from 'react-native-swipeout';
 import HorizontalSlider from 'react-horizontal-slider';
-import Shopheader from '../../screens/common/Shopheader';
+import Footer2 from '../../screens/auth/Footer2';
+import SellHeader from '../../screens/auth/Sellheader';
+import Shopheader from '../../screens/auth/Shopheader';
 
 import AsyncStorage from '@react-native-community/async-storage'; 
 import { useFocusEffect } from '@react-navigation/native';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import { Provider , Portal,} from 'react-native-paper';
 import Modal from 'react-native-modal'
-import Footer3 from '../../screens/common/Footer3';
+import Footer3 from '../../screens/auth/Footer3';
 
 
 import {
@@ -68,6 +70,7 @@ const deviceWidth = Dimensions.get('window').width;
       props.getselldeshboard(props?.loginuserid);
       props.gettopsell(props?.loginuserid,3);
       props.liveeventdetail(props?.loginuserid);
+      props.Brandslist(); 
     }, [])
 
     useEffect(() => {
@@ -153,218 +156,12 @@ const deviceWidth = Dimensions.get('window').width;
              setVisible(false)
           }
 
-       const data1 = {
-        labels: ["USA", "Canada", "Mexico"], // optional
-        data: [0.4, 0.6, 0.8]
-        };
-
-       const data = {
-        labels: ["Jan", "Feb", "Mar", "Apr", "May",],
-        datasets: [
-        {
-          data: [20, 45, 28, 80, 99,]
-        }
-        ]
-    };
 
     const containerStyle = {backgroundColor: 'red', padding: '7%',marginHorizontal:'5%',alignItems:'center',};
 
-       const DATA = [
-       {
-        image:ImageIcons.redincome,
-       },
+ 
 
-     ];
-      const DATA3 = [
-       {
-         image:ImageIcons.girlcent,
-        text:"GSHM8U00S0004KH ",
-        text1:"Amy White ",
-        text2:"amywhite@yahoo.com ",
-       },
-       {
-        image:ImageIcons.girlcent,
-        text:"GSHM8U00S0004KH ",
-        text1:"Amy White ",
-        text2:"amywhite@yahoo.com ",
-       },
-       {
-        image:ImageIcons.girlcent,
-        text:"GSHM8U00S0004KH ",
-        text1:"Amy White ",
-        text2:"amywhite@yahoo.com ",
-       },
-       {
-        image:ImageIcons.girlcent,
-        text:"GSHM8U00S0004KH ",
-        text1:"Amy White ",
-        text2:"amywhite@yahoo.com ",
-       },
-       {
-        image:ImageIcons.girlcent,
-        text:"GSHM8U00S0004KH ",
-        text1:"Amy White ",
-        text2:"amywhite@yahoo.com ",
-       },
-        {
-        image:ImageIcons.girlcent,
-        text:"GSHM8U00S0004KH ",
-        text1:"Amy White ",
-        text2:"amywhite@yahoo.com ",
-       },
-        {
-        image:ImageIcons.girlcent,
-        text:"GSHM8U00S0004KH ",
-        text1:"Amy White ",
-        text2:"amywhite@yahoo.com ",
-       },
-        {
-        image:ImageIcons.girlcent,    
-        text:"GSHM8U00S0004KH ",
-        text1:"Amy White ",
-        text2:"amywhite@yahoo.com ",
-       },
-        {
-        image:ImageIcons.girlcent,
-        text:"GSHM8U00S0004KH ",
-        text1:"Amy White ",
-        text2:"amywhite@yahoo.com ",
-       },
-
-     ];
-     const DATA4 = [
-       {
-         image:ImageIcons.girlcent,
-        text1:"Clothing",
-        text:"GSHM8U00S0004KH ",
-       },
-       {
-        image:ImageIcons.girlcent,
-        text1:"Clothing",
-        text:"GSHM8U00S0004KH ",
-       },
-       {
-        image:ImageIcons.girlcent,
-        text1:"Clothing",
-       text:"GSHM8U00S0004KH ",
-       },
-       {
-        image:ImageIcons.girlcent,
-        text1:"Clothing",
-       text:"GSHM8U00S0004KH ",
-       },
-       {
-        image:ImageIcons.girlcent,
-        text1:"Clothing",
-        text:"GSHM8U00S0004KH ",
-       },
-
-     ];
-
-     const DATA2 = [
-       {
-        text:'Sneakers',
-        text1:'$55.00',
-        text2:'Orders (256)',
-        image:ImageIcons.whiteshoetoday,
-       },
-        {
-       text:'Sneakers',
-       text1:'$55.00',
-       text2:'Orders (256)',
-        image:ImageIcons.whiteshoetoday,
-       },
-       {
-       text:'Sneakers',
-       text1:'$55.00',
-       text2:'Orders (256)',
-        image:ImageIcons.whiteshoetoday,
-       },
-       {
-       text:'Sneakers',
-       text1:'$55.00',
-       text2:'Orders (256)',
-        image:ImageIcons.whiteshoetoday,
-       },
-       {
-       text:'Sneakers',
-       text1:'$55.00',
-       text2:'Orders (256)',
-        image:ImageIcons.whiteshoetoday,
-       },
-       {
-       text:'Sneakers',
-       text1:'$55.00',
-       text2:'Orders (256)',
-        image:ImageIcons.whiteshoetoday,
-       },
-       
-
-     ];
-
-    
-    
-
- const renderItem2 = ({ item ,index }) => {
-     return(
-        <View>
-           <View style={{padding:2,marginHorizontal:7}}>
-              <Image source={item.image} style={{height:162,width:162}} />
-           </View>
-           <View style={{marginTop:5,}}>
-            <Text style={{fontSize:14,width:'80%',marginLeft:'5%'}}>{item.text}</Text>
-            <View style={{height:14,width:14,backgroundColor:'#e6e6e6',borderRadius:3,alignSelf:'flex-end',marginRight:'9%',marginTop:-10,}}></View>
-            <Text style={{fontSize:16,width:'80%',fontFamily:'SourceSansPro-Bold',marginLeft:'5%'}}>{item.text1}</Text>
-             <View>
-                <Rating
-                type='custom'
-                imageSize={18}
-                ratingCount={5}
-                ratingColor='#EB5757'
-                tintColor='#FFE7E7'
-                style={{ paddingVertical: 5,width:100,marginLeft:5}}
-                />
-             </View>
-             <Text style={{fontSize:14,width:'80%',marginLeft:'5%',fontFamily:'SourceSansPro-Regular',color:'#4d4d4d',marginBottom:'20%'}}>{item.text2}</Text>
-          </View>
-        </View>  
-  );
-}
-
-     const renderItem3 = ({ item,index }) => {
-   return(
-           <View>
-
-            <View style={styles.seledataViewTODAY}>
-                     <View style={{flexDirection:'row'}}>
-                       <Image source={item.image} style={{width:18,height:18,}}/>
-                       <Text style={styles.seriestexttoday}>{item.text}</Text>
-                     </View>  
-                       <Text style={styles.seriestexttoday}>{item.text1}</Text>
-                       <Text style={styles.seriestexttoday}>{item.text2}</Text>
-                   </View>
-            
-            </View>
-    );
-    }
-
-     const renderItem4 = ({ item,index }) => {
-   return(
-           <View>
-
-            <View style={styles.seledataViewTODAYsecndrender}>
-                    <View style={{flexDirection:'row'}}>
-                      <Image source={item.image} style={{width:24,height:24,}}/>
-                       <Text style={[styles.seriestexttoday,{alignSelf:'center',marginLeft:1}]}>{item.text}</Text>
-                    </View>   
-                       <Text style={styles.seriestexttoday}>{item.text1}</Text>
-                   </View>
-            
-            </View>
-    );
-    }
-
-    const renderItem6 = ({ item }) => {
+    const renderItem = ({ item }) => {
             return(
                 <View>
                     { item.userId.userName=='Admin' ?
@@ -386,6 +183,36 @@ const deviceWidth = Dimensions.get('window').width;
                 </View>
             );
     }
+
+    const renderItem1 =({item,index}) =>{
+      
+      return(
+        <View style={styles.maincarbrand}>
+
+            <TouchableOpacity style={styles.productViewbrand} onPress={() => props.navigation.navigate("Accountbrandlist",{brandId:item._id})}>
+              <View>
+                <Image source={{uri: item.brandImage}} style={styles.produtbrandimage} />
+              </View>
+                <Text style={[styles.Degaretext,{width:'80%'}]}>{item.brandName}</Text>
+                <Text style={styles.dropcom}>store.dropship.com</Text>
+
+            </TouchableOpacity>
+            <View style={{alignSelf:'center'}}>
+              <View style={{flexDirection:'row',marginTop:'2%',}}>
+                 <Image source={ImageIcons.redcolorbag} style={styles.bgsaimg}/>
+                 <Text style={styles.optext}>0 products</Text>
+              </View>
+              <View style={{flexDirection:'row',marginVertical:'3%',}}>
+                 <Image source={ImageIcons.rededit} style={styles.bgsaimg}/>
+                 <Text style={styles.optext}>0 sales</Text>
+              </View>
+            </View>
+            <TouchableOpacity onPress={()=>props.navigation.navigate("Accountbrandlist",{brandId:item._id})} style={styles.dashbtn}>
+              <Text style={styles.opendashtxt}>OPEN DASHBOARD</Text> 
+            </TouchableOpacity>
+        </View>
+      );
+    }
     
 
     return (
@@ -398,40 +225,28 @@ const deviceWidth = Dimensions.get('window').width;
     }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} >
 
      <View style={{flexDirection:"row",marginHorizontal:"4%",marginTop:"9%"}}>
-              <Text style={{fontSize:15,fontFamily:"SourceSansPro-Regular",color:"#999999"}}>MY STORES /</Text>
-              <Text style={{fontSize:15,fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}> MANAGE BRANDS</Text>
+              <Text style={{fontSize:15,fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}>MY STORES /</Text>
+              <Text style={{fontSize:15,fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}> MANAGE BRANDS</Text>
               </View> 
           
                <View style={{flexDirection:'row',justifyContent:'space-between',marginHorizontal:'4%',marginVertical:'5%'}}>
-                 <Text style={{fontSize:26,color:'#1a1a1a',fontFamily:'SourceSansPro-SemiBold',}}>My Brands</Text>
+                 <Text style={{fontSize:26,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',}}>My Brands</Text>
                </View>
 
-              <View style={{width:deviceWidth/1.9,backgroundColor:'#ffffff',padding:'5%',marginTop:'2%',borderRadius:15,marginHorizontal:'4%'}}>
-                <TouchableOpacity onPress={()=>props.navigation.navigate("Accountbrandlist")}>
-                <Image source={ImageIcons.colortodayshoe} style={{width:70,height:70,borderRadius:30,alignSelf:'center'}}/>
-                </TouchableOpacity>
-                  <Text style={{fontSize:20,fontFamily:'SourceSansPro-SemiBold',textAlign:'center'}}>Sneakers Store</Text>
 
-                  <Text style={{fontSize:16,fontFamily:'SourceSansPro-SemiBold',textAlign:'center',color:'#2F80ED',marginVertical:5}}>store.dropship.com</Text>
-                 
-               <View style={{alignSelf:'center'}}>
-                <View style={{flexDirection:'row',marginTop:'2%',}}>
-                   <Image source={ImageIcons.redcolorbag} style={{width:15,height:15,marginTop:2}}/>
-                   <Text style={{fontSize:16,fontFamily:'SourceSansPro-Regular',marginLeft:5}}>56 products</Text>
-                </View>
-                <View style={{flexDirection:'row',marginVertical:'3%',}}>
-                   <Image source={ImageIcons.rededit} style={{width:15,height:15,marginTop:2}}/>
-                   <Text style={{fontSize:16,fontFamily:'SourceSansPro-Regular',marginLeft:5}}>154 sales</Text>
-                </View>
-                </View> 
-                 <TouchableOpacity onPress={()=>props.navigation.navigate("Accountbrandlist")} style={{backgroundColor:'#4AFFBD',width:150,borderRadius:25,padding:8,alignSelf:'center',marginVertical:'8%'}}>
-                      <Text style={[styles.totalincometodayPLAN,{color:'#1a1a1a'}]}>OPEN DASHBOARD</Text> 
-                   </TouchableOpacity>
-              </View>
+            <View style={{marginHorizontal:'2%',marginBottom:'18%'}}>
+              <FlatList
+                data={props?.Brandlistdata || []}
+                renderItem={renderItem1}
+                keyExtractor={item => item.id}
+                showsHorizontalScrollIndicator={false}
+                numColumns={2}
+              />
+            </View>
 
               <TouchableOpacity onPress={()=>props.navigation.navigate("CreateStore")} style={{backgroundColor:'#b80000',marginBottom:'20%',width:deviceWidth/1.1,borderRadius:30,padding:'5%',alignSelf:'center',marginTop:'8%'}}>
-                      <Text style={styles.totalincometodaycompaign}>ADD A NEW BRAND</Text> 
-                   </TouchableOpacity>
+                <Text style={styles.totalincometodaycompaign}>ADD A NEW BRAND</Text> 
+              </TouchableOpacity>
 
               
                  
@@ -458,7 +273,7 @@ const deviceWidth = Dimensions.get('window').width;
             <View style={{marginVertical:'2%'}}>
                 <FlatList
                     data={props?.getchatsupportlist1 || []}
-                    renderItem={renderItem6}
+                    renderItem={renderItem}
                     keyExtractor={item => item.id}
                     showsHorizontalScrollIndicator={false}
                     horizontal={false}

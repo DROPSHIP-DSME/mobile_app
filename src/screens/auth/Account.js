@@ -13,12 +13,12 @@ import { phoneRegExp } from '../../services/helper';
 import DropdownField from '../../components/dropdown/DropDownMenu';
 import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
-import Footer3 from '../../screens/common/Footer3';
+import Footer3 from '../../screens/auth/Footer3';
 import AsyncStorage from '@react-native-community/async-storage'; 
 import { useFocusEffect } from '@react-navigation/native';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import { Rating, AirbnbRating } from 'react-native-ratings';
-import Shopheader from '../../screens/common/Shopheader';
+import Shopheader from '../../screens/auth/Shopheader';
 import moment from 'moment';
 const Account = (props) => {
 
@@ -192,16 +192,16 @@ const Account = (props) => {
                 handleScroll(nativeEvent['contentOffset'].y);
              }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#E5E5E5'}} >
              <View style={{marginHorizontal:'3%',paddingTop:'10%'}}>
-                   <Text style={{fontSize:35,color:"#B80000",fontFamily:'SourceSansPro',fontWeight:"bold"}}>My Account</Text>
+                   <Text style={{fontSize:35,color:"#B80000",fontFamily:'hinted-AvertaStd-Bold',fontWeight:"bold"}}>My Account</Text>
               </View>
               <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",paddingTop:"8%"}}>
-              <Text style={{fontSize:16,fontWeight:"bold",fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}>Personal Details</Text>
+              <Text style={{fontSize:16,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>Personal Details</Text>
               
               <TouchableOpacity onPress={() => props.navigation.navigate("Accountstore")}>
-              <Text style={{fontSize:16,fontWeight:"bold",fontFamily:"SourceSansPro-Regular",color:"#999999"}}>My store</Text>
+              <Text style={{fontSize:16,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}>My store</Text>
               </TouchableOpacity>
               <TouchableOpacity onPress={() => props.navigation.navigate("Accountsum")}>
-              <Text style={{fontSize:16,fontWeight:"bold",fontFamily:"SourceSansPro-Regular",color:"#999999"}}>Account Summary</Text>
+              <Text style={{fontSize:16,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}>Account Summary</Text>
               </TouchableOpacity>
               </View>
               
@@ -213,7 +213,7 @@ const Account = (props) => {
               <View style={{marginTop:"8%",marginHorizontal:"3%",borderRadius:10,backgroundColor:"#ffffff"}}>
               <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}>
               <View>
-              <Text style={{fontSize:20,fontWeight:"bold",fontFamily:"SourceSansPro-Semibold",color:"#1A1A1A"}}>My Profile</Text>
+              <Text style={{fontSize:20,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Semibold",color:"#1A1A1A"}}>My Profile</Text>
               </View>
               <TouchableOpacity onPress={() => props.navigation.navigate("emptyaccount")}>
               <Image  source={ImageIcons.edit} style={{width:35,height:35}}/> 
@@ -222,37 +222,37 @@ const Account = (props) => {
               
               <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"6%"}}>
               <View>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}>First Name</Text>
+              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>First Name</Text>
               </View>
               <View>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"SourceSansPro-Semibold",color:"#1A1A1A"}}>{props?.getprofileuserlist?.userName}</Text>
+              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Semibold",color:"#1A1A1A"}}>{props?.getprofileuserlist?.userName}</Text>
               </View>
               </View>
               <View style={{borderBottomWidth:0.7,marginTop:"2%",marginHorizontal:"3%",borderColor:"#999999"}}></View> 
                <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}>
               <View>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}>Last Name</Text>
+              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>Last Name</Text>
               </View>
               <View>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"SourceSansPro-Semibold",color:"#1A1A1A"}}>{props?.getprofileuserlist?.lastName}- - - - - - - - -</Text>
+              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Semibold",color:"#1A1A1A"}}>{props?.getprofileuserlist?.lastName}- - - - - - - - -</Text>
               </View>
               </View>
               <View style={{borderBottomWidth:0.7,marginTop:"2%",marginHorizontal:"3%",borderColor:"#999999"}}></View> 
                <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}>
               <View>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}>Email</Text>
+              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>Email</Text>
               </View>
               <View>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"SourceSansPro-Semibold",color:"#1A1A1A"}}>{props?.getprofileuserlist?.email}</Text>
+              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Semibold",color:"#1A1A1A"}}>{props?.getprofileuserlist?.email}</Text>
               </View>
               </View>
               <View style={{borderBottomWidth:0.7,marginTop:"2%",marginHorizontal:"3%",borderColor:"#999999"}}></View>  
               <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%",marginBottom:"3%"}}>
               <View>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}>Number</Text>
+              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>Number</Text>
               </View>
               <View>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"SourceSansPro-Semibold",color:"#1A1A1A"}}>{props?.getprofileuserlist?.phone}</Text>
+              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Semibold",color:"#1A1A1A"}}>{props?.getprofileuserlist?.phone}</Text>
               </View>
               </View>
               </View>
@@ -261,7 +261,7 @@ const Account = (props) => {
                 <View style={{marginTop:"3%",marginHorizontal:"3%",borderRadius:10,backgroundColor:"#ffffff"}}>
               <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}>
               <View>
-              <Text style={{fontSize:20,fontWeight:"bold",fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}>My Address</Text>
+              <Text style={{fontSize:20,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>My Address</Text>
               </View>
               <TouchableOpacity onPress={()=>props.navigation.navigate("editaddress")}>
               <Image source={ImageIcons.edit} style={{width:35,height:35}}/> 
@@ -270,44 +270,44 @@ const Account = (props) => {
               
               <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}>
               <View>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}>Address line1</Text>
+              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>Address line1</Text>
               </View>
               {(props?.getuseraddresslist && props?.getuseraddresslist?.length>0) &&
               <View>
-                <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"SourceSansPro-Semibold",color:"#1A1A1A"}}>{props?.getuseraddresslist[0]?.streetAdress}</Text>
+                <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Semibold",color:"#1A1A1A"}}>{props?.getuseraddresslist[0]?.streetAdress}</Text>
               </View>
             }
               </View>
               <View style={{borderBottomWidth:0.7,marginTop:"2%",marginHorizontal:"3%",borderColor:"#999999"}}></View> 
                <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}>
               <View>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}>City</Text>
+              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>City</Text>
               </View>
                {(props?.getuseraddresslist && props?.getuseraddresslist?.length>0) &&
               <View>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"SourceSansPro-Semibold",color:"#1A1A1A"}}>{props?.getuseraddresslist[0]?.city}</Text>
+              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Semibold",color:"#1A1A1A"}}>{props?.getuseraddresslist[0]?.city}</Text>
               </View>
           }
               </View>
               <View style={{borderBottomWidth:0.7,marginTop:"2%",marginHorizontal:"3%",borderColor:"#999999"}}></View> 
                <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}>
               <View>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}>State</Text>
+              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>State</Text>
               </View>
                {(props?.getuseraddresslist && props?.getuseraddresslist?.length>0) &&
               <View>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"SourceSansPro-Semibold",color:"#1A1A1A"}}>{props?.getuseraddresslist[0]?.state}</Text>
+              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Semibold",color:"#1A1A1A"}}>{props?.getuseraddresslist[0]?.state}</Text>
               </View>
           }
               </View>
               <View style={{borderBottomWidth:0.7,marginTop:"2%",marginHorizontal:"3%",borderColor:"#999999"}}></View>  
               <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%",marginBottom:"3%"}}>
               <View>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}>Country</Text>
+              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>Country</Text>
               </View>
                {(props?.getuseraddresslist && props?.getuseraddresslist?.length>0) &&
                   <View>
-                  <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"SourceSansPro-Semibold",color:"#1A1A1A"}}>{props?.getuseraddresslist[0]?.country}</Text>
+                  <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Semibold",color:"#1A1A1A"}}>{props?.getuseraddresslist[0]?.country}</Text>
                   </View>
               }
               </View>
@@ -316,7 +316,7 @@ const Account = (props) => {
                <View style={{marginTop:"3%",marginHorizontal:"3%",borderRadius:10,backgroundColor:"#ffffff"}}>
               <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}>
               <View>
-              <Text style={{fontSize:20,fontWeight:"bold",fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}>Payment Details</Text>
+              <Text style={{fontSize:20,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>Payment Details</Text>
               </View>
                <TouchableOpacity onPress={()=>props.navigation.navigate("paymentedit")}>
               <Image source={ImageIcons.edit} style={{width:35,height:35}}/> 
@@ -325,44 +325,44 @@ const Account = (props) => {
               
               <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}>
               <View>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}>Payment Type</Text>
+              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>Payment Type</Text>
               </View>
                {(props?.getusercardlist && props?.getusercardlist?.length>0) &&
               <View>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"SourceSansPro-Semibold",color:"#1A1A1A"}}>{props?.getusercardlist[0]?.cardtype}</Text>
+              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Semibold",color:"#1A1A1A"}}>{props?.getusercardlist[0]?.cardtype}</Text>
               </View>
           }
               </View>
               <View style={{borderBottomWidth:0.7,marginTop:"2%",marginHorizontal:"3%",borderColor:"#999999"}}></View> 
                <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}>
               <View>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}>Cashholder Name</Text>
+              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>Cashholder Name</Text>
               </View>
                {(props?.getusercardlist && props?.getusercardlist?.length>0) &&
               <View>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"SourceSansPro-Semibold",color:"#1A1A1A"}}>{props?.getusercardlist[0]?.name}</Text>
+              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Semibold",color:"#1A1A1A"}}>{props?.getusercardlist[0]?.name}</Text>
               </View>
           }
               </View>
               <View style={{borderBottomWidth:0.7,marginTop:"2%",marginHorizontal:"3%",borderColor:"#999999"}}></View> 
                <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}>
               <View>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}>Card Number</Text>
+              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>Card Number</Text>
               </View>
                {(props?.getusercardlist && props?.getusercardlist?.length>0) &&
               <View>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"SourceSansPro-Semibold",color:"#1A1A1A"}}>{props?.getusercardlist[0]?.cardNumber}</Text>
+              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Semibold",color:"#1A1A1A"}}>{props?.getusercardlist[0]?.cardNumber}</Text>
               </View>
           }
               </View>
               <View style={{borderBottomWidth:0.7,marginTop:"2%",marginHorizontal:"3%",borderColor:"#999999"}}></View>  
               <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%",marginBottom:"3%"}}>
               <View>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}>Expiry Date</Text>
+              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>Expiry Date</Text>
               </View>
               {(props?.getusercardlist && props?.getusercardlist?.length>0) &&
               <View>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"SourceSansPro-Semibold",color:"#1A1A1A"}}>{props?.getusercardlist[0]?.expiry}</Text>
+              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Semibold",color:"#1A1A1A"}}>{props?.getusercardlist[0]?.expiry}</Text>
               </View>
           }
               </View>
@@ -372,7 +372,7 @@ const Account = (props) => {
                <View style={{marginTop:"3%",marginHorizontal:"3%",borderRadius:10,backgroundColor:"#ffffff",}}>
               <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}>
               <View>
-              <Text style={{fontSize:20,fontWeight:"bold",fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}>Account Settings</Text>
+              <Text style={{fontSize:20,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>Account Settings</Text>
               </View>
               <View>
               <Image source={ImageIcons.edit} style={{width:35,height:35}}/> 
@@ -381,7 +381,7 @@ const Account = (props) => {
               
               <TouchableOpacity  onPress={() => props.navigation.navigate("Dashsupportacc")} style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}>
               <View>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}>Customer Support</Text>
+              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>Customer Support</Text>
               </View>
               <View>
               <Image source={ImageIcons.rightpop} style={{width:10,height:15}}/>
@@ -390,7 +390,7 @@ const Account = (props) => {
               <View style={{borderBottomWidth:0.7,marginTop:"2%",marginHorizontal:"3%",borderColor:"#999999"}}></View> 
                <TouchableOpacity onPress={() => props.navigation.navigate("editpassword")} style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}>
               <View>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}>Change Password</Text>
+              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>Change Password</Text>
               </View>
               <View>
               <Image source={ImageIcons.rightpop} style={{width:10,height:15}}/>
@@ -399,7 +399,7 @@ const Account = (props) => {
               <View style={{borderBottomWidth:0.7,marginTop:"2%",marginHorizontal:"3%",borderColor:"#999999"}}></View> 
                <TouchableOpacity onPress={() => props.navigation.navigate("deletaccount")} style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}>
               <View style={{marginBottom:"3%"}}>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}>Delete Account</Text>
+              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>Delete Account</Text>
               </View>
               <View>
               <Image source={ImageIcons.rightpop} style={{width:10,height:15}}/>
@@ -411,11 +411,15 @@ const Account = (props) => {
               <View style={{marginHorizontal:"3%",marginVertical:"5%"}}>
               <Image source={ImageIcons.signout} style={{width:21,height:21}}/>
               </View>
+              
               <View style={{marginVertical:"4%"}}>
-              <Text style={{fontSize:20,fontFamily:"SourceSansPro-Regular",fontWeight:"bold",color:"#1A1A1A"}}>
-              Sign Out
+              <TouchableOpacity onPress={() => props.navigation.navigate("Golive")}>
+              <Text style={{fontSize:20,fontFamily:"hinted-AvertaStd-Regular",fontWeight:"bold",color:"#1A1A1A"}}>
+              Sign Out 
               </Text>
+              </TouchableOpacity>
               </View>
+              
               </View>
 
 

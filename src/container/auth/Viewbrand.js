@@ -13,7 +13,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-    branddetails
+    branddetails 
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Viewbrand);

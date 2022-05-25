@@ -3,7 +3,7 @@ import {
     Text, TextInput, Image, View, TouchableOpacity,
     ImageBackground, ScrollView, Alert, KeyboardAvoidingView, Platform, Keyboard, Linking
 } from 'react-native';
-
+ 
 import LinearGradient from 'react-native-linear-gradient';
 import messaging from '@react-native-firebase/messaging';
 import CheckBox from '@react-native-community/checkbox';
@@ -21,7 +21,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { useValidation } from 'react-native-form-validator';
 import PasswordInputText from '../../components/react-native-hide-show-password-input';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
-import { LoginManager } from "react-native-fbsdk-next";
+//import { LoginManager } from "react-native-fbsdk-next";
 import InstagramLogin from 'react-native-instagram-login';
 import RNTwitterSignIn from '@react-native-twitter-signin/twitter-signin';
 import LinkedInModal from 'react-native-linkedin'
@@ -52,8 +52,8 @@ const RegistrationShop = (props) => {
     const [deviceToken, setDeviceToken] = useState();
     const [isCheckPrivacy, setIsCheckPrivacy] = useState(false)
     const [text, onChangeText] = React.useState("fullName");
-    const [email, onChangeText1] = React.useState("lav@yopmail.com");
-    const [password, onChangeText2] = React.useState("Dropship@123");
+    const [email, onChangeText1] = React.useState("");
+    const [password, onChangeText2] = React.useState("");
     const [text3, onChangeText3] = React.useState("Confirm password");
     const [UserID, setUserID] = useState("");
     const { validate, isFieldInError, getErrorsInField, getErrorMessages } =
@@ -120,18 +120,18 @@ const RegistrationShop = (props) => {
         }
     } 
     const facebookSignIn = async () => {
-        LoginManager.logInWithPermissions(["public_profile", "email"]).then(
-            function (result) {
-                if (result.isCancelled) {
-                    console.log("Login cancelled");
-                } else {
-                    console.log("Login Success ", JSON.stringify(result));
-                }
-            },
-            function (error) {
-                console.log("Login fail with error: " + error);
-            }
-        );
+        // LoginManager.logInWithPermissions(["public_profile", "email"]).then(
+        //     function (result) {
+        //         if (result.isCancelled) {
+        //             console.log("Login cancelled");
+        //         } else {
+        //             console.log("Login Success ", JSON.stringify(result));
+        //         }
+        //     },
+        //     function (error) {
+        //         console.log("Login fail with error: " + error);
+        //     }
+        // );
     }
     const instaLoginWeb = (data) => {
         console.log('InstaLogin', data)
@@ -169,9 +169,10 @@ const RegistrationShop = (props) => {
     return (
         <View style={{ backgroundColor: '#ffffff', flex: 1 }}>
 
-            <View style={[styles.heading, { marginTop: '15%', marginBottom: '5%' }]}>
-                <Image source={ImageIcons.logored_1} style={styles.setlogonewdata} />
-            </View>
+            
+              <View style={{alignItems:'center',marginTop:'18%'}}>
+                  <Image source={ImageIcons.logored_1} style={styles.setlogonewdatarow}  />
+              </View>
             <View>
                 <Text style={styles.headingText1}>Login</Text>
             </View>
@@ -222,49 +223,16 @@ const RegistrationShop = (props) => {
 
             <Loader isVisible={props?.loginLoader} />
 
-            <View style={styles.twotextviewcreate}>
+            <View style={styles.twotextviewcreatetop}>
                 <Text style={styles.customertext}>Forgot your password?</Text>
                 <TouchableOpacity onPress={() => props.navigation.navigate("ForgetPassword")}>
                     <Text style={styles.customertextred}> Click here.</Text>
                 </TouchableOpacity>
             </View>
 
-            <View style={[styles.devider1, { marginTop: '10%' }]}>
-                <View style={styles.devider2} />
-                <Text style={styles.devider3}>OR</Text>
-                <View style={styles.devider2} />
-            </View>
+            
 
-
-            <View style={styles.accountmainview}>
-                <TouchableOpacity onPress={() => googleSignIn()}>
-                    <View style={styles.showimge}>
-                        <Image source={ImageIcons.google} style={styles.google1} />
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => facebookSignIn()}>
-                    <View style={styles.showimge}>
-                        <Image source={ImageIcons.facebook} style={styles.facebook1} />
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => instaLogin.current.show()}>
-                    <View style={styles.showimge}>
-                        <Image source={ImageIcons.message} style={styles.message1} />
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => twitterSignIn()}>
-                    <View style={[styles.showimge, { padding: 10 }]}>
-                        <Image source={ImageIcons.twitter} style={styles.twitter1} />
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={()=>linkedInLogin.current.open()}>
-                    <View style={[styles.showimge, { padding: 10 }]}>
-                        <Image source={ImageIcons.linkin} style={styles.linkin1} />
-                    </View>
-                </TouchableOpacity>
-            </View>
-
-            <View style={styles.twotextviewcreate}>
+            <View style={styles.twotextviewcreatetop}>
                 <Text style={styles.customertext}>Don’t have an account yet?</Text>
                 <TouchableOpacity onPress={() => props.navigation.navigate("CreateAccountShop")}>
                     <Text style={styles.customertextred}> Sign up here.</Text>

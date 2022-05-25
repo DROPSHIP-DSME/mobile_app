@@ -16,7 +16,7 @@ import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper
 import CheckBox from '@react-native-community/checkbox';
 import { v4 as uuid } from "uuid";
 import BraintreeDropIn from 'react-native-braintree-dropin-ui';
-import Footer3 from '../../screens/common/Footer3';
+import Footer3 from '../../screens/auth/Footer3';
 
 
 const StoreOwner = (props) => {

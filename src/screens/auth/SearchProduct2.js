@@ -18,7 +18,7 @@ import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper';
 import { Rating, AirbnbRating } from 'react-native-ratings';
-import Footer2 from '../../screens/common/Footer2';
+import Footer2 from '../../screens/auth/Footer2';
 import AsyncStorage from '@react-native-community/async-storage'; 
 
 const SearchProduct2 = (props) => {
@@ -188,7 +188,7 @@ const SearchProduct2 = (props) => {
                 <View >
                  <View style={styles.maincartview}>
                  
-                    <TouchableOpacity style={styles.addView} onPress={() => props.navigation.navigate("AddProduct",{todopage:'SearchProduct2'} )}>
+                    <TouchableOpacity style={styles.addView} onPress={() => props.navigation.navigate("AddProduct2",{todopage:'SearchProduct2'} )}>
                      <Text style={styles.addViewtext}>Add product</Text>
                     </TouchableOpacity>
 

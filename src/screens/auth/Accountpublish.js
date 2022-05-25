@@ -15,16 +15,16 @@ import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import Swipeout from 'react-native-swipeout';
 import HorizontalSlider from 'react-horizontal-slider';
-import Footer2 from '../../screens/common/Footer2';
-import SellHeader from '../../screens/common/Sellheader';
-import Shopheader from '../../screens/common/Shopheader';
+import Footer2 from '../../screens/auth/Footer2';
+import SellHeader from '../../screens/auth/Sellheader';
+import Shopheader from '../../screens/auth/Shopheader';
 
 import AsyncStorage from '@react-native-community/async-storage'; 
 import { useFocusEffect } from '@react-navigation/native';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import { Provider , Portal,} from 'react-native-paper';
 import Modal from 'react-native-modal'
-import Footer3 from '../../screens/common/Footer3';
+import Footer3 from '../../screens/auth/Footer3';
 
 
 import {
@@ -316,7 +316,7 @@ const deviceWidth = Dimensions.get('window').width;
            <View style={{marginTop:5,}}>
             <Text style={{fontSize:14,width:'80%',marginLeft:'5%'}}>{item.text}</Text>
             <View style={{height:14,width:14,backgroundColor:'#e6e6e6',borderRadius:3,alignSelf:'flex-end',marginRight:'9%',marginTop:-10,}}></View>
-            <Text style={{fontSize:16,width:'80%',fontFamily:'SourceSansPro-Bold',marginLeft:'5%'}}>{item.text1}</Text>
+            <Text style={{fontSize:16,width:'80%',fontFamily:'hinted-AvertaStd-Bold',marginLeft:'5%'}}>{item.text1}</Text>
              <View>
                 <Rating
                 type='custom'
@@ -327,7 +327,7 @@ const deviceWidth = Dimensions.get('window').width;
                 style={{ paddingVertical: 5,width:100,marginLeft:5}}
                 />
              </View>
-             <Text style={{fontSize:14,width:'80%',marginLeft:'5%',fontFamily:'SourceSansPro-Regular',color:'#4d4d4d',marginBottom:'20%'}}>{item.text2}</Text>
+             <Text style={{fontSize:14,width:'80%',marginLeft:'5%',fontFamily:'hinted-AvertaStd-Regular',color:'#4d4d4d',marginBottom:'20%'}}>{item.text2}</Text>
           </View>
         </View>  
   );
@@ -400,13 +400,13 @@ const deviceWidth = Dimensions.get('window').width;
     }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} >
 
      <View style={{flexDirection:"row",marginHorizontal:"4%",marginTop:"12%"}}>
-              <Text style={{fontSize:15,fontFamily:"SourceSansPro-Regular",color:"#999999"}}>MY STORES /</Text>
-              <Text style={{fontSize:15,fontFamily:"SourceSansPro-Regular",color:"#999999"}}> MANAGE BRANDS /</Text>
-              <Text style={{fontSize:15,fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}> CREATE A BRAND</Text>
+              <Text style={{fontSize:15,fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}>MY STORES /</Text>
+              <Text style={{fontSize:15,fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}> MANAGE BRANDS /</Text>
+              <Text style={{fontSize:15,fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}> CREATE A BRAND</Text>
               </View> 
           
                <View style={{marginTop:'5%',}}>
-                <Text style={{fontSize:26,color:'#1a1a1a',fontFamily:'SourceSansPro-Bold',textAlign:'center'}}>Your Store is Ready to Be Published!</Text>
+                <Text style={{fontSize:26,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Bold',textAlign:'center'}}>Your Store is Ready to Be Published!</Text>
                </View>
                <Text style={styles.storecamtexttodayy12}>Congrats! You’re almost there. Preview your store before publishing to confirm the details or go live immediately. </Text>
 
@@ -414,9 +414,9 @@ const deviceWidth = Dimensions.get('window').width;
                 <TouchableOpacity onPress={()=>props.navigation.navigate("Accountbrandlist")}>
                 <Image source={ImageIcons.colortodayshoe} style={{width:85,height:85,borderRadius:30,alignSelf:'center'}}/>
                 </TouchableOpacity>
-                  <Text style={{fontSize:20,fontFamily:'SourceSansPro-SemiBold',textAlign:'center'}}>Sneakers Store</Text>
+                  <Text style={{fontSize:20,fontFamily:'hinted-AvertaStd-Semibold',textAlign:'center'}}>Sneakers Store</Text>
 
-                  <Text style={{fontSize:16,fontFamily:'SourceSansPro-SemiBold',textAlign:'center',color:'#2F80ED',marginVertical:5}}>store.dropship.com</Text>
+                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',textAlign:'center',color:'#2F80ED',marginVertical:5}}>store.dropship.com</Text>
                  
                <View style={{alignSelf:'center'}}>
                <Text style={styles.storecamtexttodayy12}>Congrats! You’re almost there. Preview your store before publishing to confirm the details or go live immediately. </Text>

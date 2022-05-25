@@ -14,7 +14,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
     getorderdetail,
     updateorderdetail
-};
+}; 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Order);
 

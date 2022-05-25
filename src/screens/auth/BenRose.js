@@ -477,11 +477,11 @@ const BenRose = (props) => {
                     }
                     <View style={{marginBottom:15,}}>
                         <Image source={ImageIcons.Vector} style={newstyles.imgvector} />
-                        <Text style={newstyles.liketext}>400</Text>
+                        <Text style={newstyles.liketext}>0</Text>
                     </View>
                     <View style={{marginBottom:15,}}>
                         <Image source={ImageIcons.copy} style={newstyles.imgvector2}  />
-                        <Text style={newstyles.liketext}>400</Text>
+                        <Text style={newstyles.liketext}>0</Text>
                     </View>
                     { isbroadcaster == false &&
                     <TouchableOpacity  onPress={() => props.navigation.navigate("Cart") }>
@@ -673,7 +673,7 @@ const BenRose = (props) => {
                     <Portal>
                     <Modal visible={showsidebar} onDismiss={hidesidebar} contentContainerStyle={{ zIndex:1011,justifyContent:'center',backgroundColor: 'white', marginTop:60,marginBottom:0, padding: 10,marginLeft:'40%', width:'60%'}}>
                     <View>
-                        <Text style={{fontFamily:'SourceSansPro-Regular', color:'#333333',marginTop:10}}>Live Streams</Text>
+                        <Text style={{fontFamily:'hinted-AvertaStd-Regular', color:'#333333',marginTop:10}}>Live Streams</Text>
                         <ScrollView style={{zIndex:1011, marginBottom:20,marginLeft:10}}>
                             <FlatList
                                 data={props?.getalleventdata}

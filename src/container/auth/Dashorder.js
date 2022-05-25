@@ -1,6 +1,6 @@
  import { connect } from 'react-redux';
 import { Dashorder } from '../../screens/auth';
-import { getselldeshboard,gettopsell,getincomingtlist,liveeventdetail } from '../../redux/actions/Auth'
+import { getselldeshboard,gettopsell,getincomingtlist,liveeventdetail,Brandslist } from '../../redux/actions/Auth'
 
 
 const mapStateToProps = (state) => ({
@@ -9,8 +9,9 @@ const mapStateToProps = (state) => ({
     loginuserid: state.auth.loginuserid,
     loginuserstatus: state.auth.loginuserstatus,
     getlistselldeshboard: state.auth.getlistselldeshboard,
-    gettopsellproduct: state.auth.gettopsellproduct,
+    gettopsellproduct: state.auth.gettopsellproduct, 
     getinconeorderlist: state.auth.getinconeorderlist,
+    Brandlistdata: state.auth.Brandlistdata,
     
 });
 
@@ -18,7 +19,8 @@ const mapDispatchToProps = {
    getselldeshboard,
    gettopsell,
    getincomingtlist,
-   liveeventdetail
+   liveeventdetail,
+   Brandslist
    // signup
 
 };

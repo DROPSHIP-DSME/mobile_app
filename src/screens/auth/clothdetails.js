@@ -110,7 +110,7 @@ const clothdetails = (props) => {
               </View>
               <View>
               <Text style={[styles.boldproduct,{marginLeft:'7%'}]}>Clothing items to be sold</Text>
-              <Text style={styles.clothcamtext}>$90</Text>
+              <Text style={styles.clothcamtext}>$0</Text>
               </View>
              </View>
              <View >

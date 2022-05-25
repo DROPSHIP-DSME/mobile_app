@@ -13,12 +13,12 @@ import { phoneRegExp } from '../../services/helper';
 import DropdownField from '../../components/dropdown/DropDownMenu';
 import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
-import Footer3 from '../../screens/common/Footer3';
+import Footer3 from '../../screens/auth/Footer3';
 import AsyncStorage from '@react-native-community/async-storage'; 
 import { useFocusEffect } from '@react-navigation/native';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import { Rating, AirbnbRating } from 'react-native-ratings';
-import Shopheader from '../../screens/common/Shopheader';
+import Shopheader from '../../screens/auth/Shopheader';
 
 const editaddress = (props) => {
 
@@ -146,7 +146,7 @@ const editaddress = (props) => {
     <View style={{marginHorizontal:"3%",backgroundColor:"#FFFFFF",marginTop:"4%",elevation:1,borderRadius:10,padding:6}}>
               <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%", marginTop:"1%"}}>
               
-                 <Text style={{fontSize:18,fontFamily:"SourceSansPro-Regular",color:"#1A1A1A",padding:"2%"}}>{item?.firstName} {"\n"}{item?.streetAdress}{"\n"}{item?.city},{item?.state},{item?.zipCode}{"\n"}{item?.country}</Text>
+                 <Text style={{fontSize:18,fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A",padding:"2%"}}>{item?.firstName} {"\n"}{item?.streetAdress}{"\n"}{item?.city},{item?.state},{item?.zipCode}{"\n"}{item?.country}</Text>
                <View style={{flexDirection:'row'}}>
                <TouchableOpacity onPress={()=>props.navigation.navigate("editviewaddress")}>
                  <Image source={ImageIcons.edit} style={{width:45,height:40}}/>
@@ -175,18 +175,18 @@ const editaddress = (props) => {
              }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#E5E5E5'}} >
              
               <View style={{flexDirection:"row",marginHorizontal:"3%",marginVertical:"6%"}}>
-              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"SourceSansPro-Regular",color:"#999999"}}>PERSONAL DETAILS /</Text>
-              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}>ADDRESSES</Text>
+              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}>PERSONAL DETAILS /</Text>
+              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>ADDRESSES</Text>
               
               </View>
                
                <View style={{marginHorizontal:"3%"}}>
-               <Text style={{fontSize:26,fontFamily:"SourceSansPro-Regular",fontWeight:"bold"}}>My Addresses</Text>
+               <Text style={{fontSize:26,fontFamily:"hinted-AvertaStd-Regular",fontWeight:"bold"}}>My Addresses</Text>
                </View>
 
                <View style={{marginHorizontal:"3%",borderRadius:10,elevation:1 ,backgroundColor:"#ffffff",marginTop:"5%",padding:4}}>
               <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"2%",marginTop:"2%"}}>
-                 <View style={{backgroundColor:"#E6E6E6",width:deviceWidth/3,height:25,paddingTop:"1%",borderRadius:5}}><Text style={{textAlign:"center", color:"#2F80ED",fontSize:12,fontWeight:"bold",fontFamily:"SourceSansPro-Regular"}}>
+                 <View style={{backgroundColor:"#E6E6E6",width:deviceWidth/3,height:25,paddingTop:"1%",borderRadius:5}}><Text style={{textAlign:"center", color:"#2F80ED",fontSize:12,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular"}}>
                  DEFAULT ADDRESS</Text></View>
                  <View style={{flexDirection:'row'}}>
                  <TouchableOpacity onPress={()=>props.navigation.navigate("editviewaddress")}>
@@ -198,7 +198,7 @@ const editaddress = (props) => {
                  </View>
 
               </View>
-              <Text style={{fontSize:18,fontFamily:"SourceSansPro-Regular",color:"#1A1A1A",padding:"2%"}}>Marry Davis {"\n"}2501 Stevens Ev{"\n"}Miniapolis MN,54404{"\n"}USA</Text>
+              <Text style={{fontSize:18,fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A",padding:"2%"}}>Marry Davis {"\n"}2501 Stevens Ev{"\n"}Miniapolis MN,54404{"\n"}USA</Text>
               </View>
 
               

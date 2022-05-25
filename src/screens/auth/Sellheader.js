@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState,useEffect } from 'react';
 import { Text, View,Image,TextInput,TouchableOpacity, Dimensions,ImageBackground, Picker,ScrollView, Alert,   KeyboardAvoidingView, Platform,Keyboard} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { withFormik } from 'formik';
@@ -17,12 +17,14 @@ import { useNavigation } from '@react-navigation/native';
 const deviceHeight = Dimensions.get('window').height;
 const deviceWidth = Dimensions.get('window').width;
 
+
 const Sellheader = (props) => {
  
     const {
         values,
         errors,
         handleChange,
+        branddata,
         handleSubmit,
     } = props;
 
@@ -33,12 +35,14 @@ const Sellheader = (props) => {
     const phoneRef = useRef();
     const bisinessnameRef = useRef();
     const fullnameRef = useRef();
+    const brandId = props?.route?.params?.brandId;
+    const brandName = props?.route?.params?.brandName;
 
     // Local states
     const [wayToContact, setWayToContact] = useState("Phone");
     const [showvisible, setshowvisible] = React.useState(false);
     const [visible1, setVisible1] = React.useState(true);
-    const [selectedValue, setSelectedValue] = useState("");
+    const [selectedValue, setSelectedValue] = useState("sh");
     const [showclassName, setshowclassName] = useState("#B80000");
     const [wayToContactList, setWayToContactList] = useState([
         {
@@ -50,6 +54,11 @@ const Sellheader = (props) => {
             value: "Email"
         }
     ]);
+    useEffect(() => {
+     
+      //rootprops.Brandslist(); 
+    }, [])
+  
 
     const openpopup = () => {
         if(showvisible==true){
@@ -82,17 +91,14 @@ const Sellheader = (props) => {
                                     style={{ height: 30, width: '100%',color:'#4d4d4d',}}
                                     onValueChange={(itemValue, itemIndex) =>setSelectedValue(itemValue)}
                                 >
-                                    <Picker.Item label="Sneakers Store" value="1" />
-                                    <Picker.Item label="2" value="2" />
-                                    <Picker.Item label="3" value="3" />
-                                    <Picker.Item label="4" value="4" />
-                                    <Picker.Item label="5" value="5" />
-                                    <Picker.Item label="6" value="6" />
-                                    <Picker.Item label="7" value="7" />
-                                    <Picker.Item label="8" value="8" />
-                                    <Picker.Item label="9" value="9" />
+                                   {branddata && branddata.map((item, index) => {
+
+                                      return (
+                                          <Picker.Item label={item.brandName} value={item.brandName} key={index} />
+                                      )
+                                  })}
                                   </Picker>
-                                  <Text style={{color:'#ffffff',fontSize:14,marginLeft:-35,fontFamily:'SourceSansPro-SemiBold'}}>store.dropship.shopping</Text>
+                                  <Text style={{color:'#ffffff',fontSize:14,marginLeft:-35,fontFamily:'hinted-AvertaStd-Semibold'}}>{selectedValue}.dropship.shopping</Text>
                             </View>
 
                         <TouchableOpacity onPress={() => navigation.navigate("Dashsetting")}>

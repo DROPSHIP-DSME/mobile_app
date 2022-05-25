@@ -3,14 +3,17 @@ import Registration from './Registration';
 import OTPVerification from './OTPVerification';
 import StoreOwner from './StoreOwner';
 import SearchProduct2 from './SearchProduct2';
+import watchlist from './watchlist';
+import Footer3 from './Footer3';
 import clothing from './clothing';
 import clothdetails from './clothdetails';
 import coming from './coming';
 import Popevent from './Popevent';
 import upcoming from './upcoming';
 import changepassword from './changepassword';
+import schedule from './schedule';
 import shop from './shop';
-
+import Blurbackground from './Blurbackground';
 import videocall from './videocall';
 import RegistrationShop from './RegistrationShop';
 import Viewbrand from './Viewbrand';
@@ -18,7 +21,7 @@ import Addbrand2 from './Addbrand2';
 import Search from './Search';
 import Goliveshop from './Goliveshop';
 import Newprofile from './Newprofile';
-import Editprofiledetail from './Editprofiledetail'; 
+import Editprofiledetail from './Editprofiledetail';
 import shippinginfo from './shippinginfo';
 import shippinglist from './shippinglist';
 import addPayment from './addPayment';
@@ -34,6 +37,7 @@ import editviewaddress from './editviewaddress';
 import editpassword from './editpassword';
 
 
+import Selectproduct from './Selectproduct';
 import Addcategory from './Addcategory';
 import Golive from './Golive';
 import Savedgoods from './Savedgoods';
@@ -41,8 +45,13 @@ import Goback from './Goback';
 import Profilee from './Profilee';
 import Neworder from './Neworder';
 import More from './More';
+import Inorder from './Inorder';
 import Cart from './Cart';
 import Processorder from './Processorder';
+import Overview from './Overview';
+import Dashproduct from './Dashproduct';
+import Dashorder from './Dashorder';
+import Dashsuccess from './Dashsuccess';
 import Accountfav from './Accountfav';
 import Accountdata from './Accountdata';
 import Accountfav1 from './Accountfav1';
@@ -51,9 +60,24 @@ import Accountfollow from './Accountfollow';
 import Accountbrand from './Accountbrand';
 import Accountpublish from './Accountpublish';
 import Accountstore from './Accountstore';
-
-
-
+import Dashchats from './Dashchats';
+import Dashreturn from './Dashreturn';
+import Dashsale from './Dashsale';
+import Dashsubscribe from './Dashsubscribe';
+import Dashsubscribe2 from './Dashsubscribe2';
+import Dashadvertise from './Dashadvertise';
+import Dashaccount from './Dashaccount';
+import Dashaccountlist from './Dashaccountlist';
+import Dashwith from './Dashwith';
+import Dashbrand from './Dashbrand';
+import Dashimport from './Dashimport';
+import Dashsetting from './Dashsetting';
+import Dashsupport from './Dashsupport';
+import Dashsupportacc from './Dashsupportacc';
+import Dashlive from './Dashlive';
+import Dashlive2 from './Dashlive2';
+import Dashlive3 from './Dashlive3';
+import Dashdetail from './Dashdetail';
 
 import Topselling from './Topselling';
 import Livechannel from './Livechannel';
@@ -64,19 +88,22 @@ import Park from './Park';
 
 import AddStore from './AddStore';
 import AddProduct from './AddProduct';
+import AddProduct2 from './AddProduct2';
 import Addbrand from './Addbrand';
 
-
+import CreateStore from './CreateStore';
+import Accountproduct from './Accountproduct';
 import Order from './Order';
 import Notification from './Notification';
 import ForgetPassword from './ForgetPassword';
 import ResetPassword from './ResetPassword';
-import CreateAccount from './CreateAccount';
+import Codeconfirm from './Codeconfirm';
 import CreateAccountShop from './CreateAccountShop';
 import Category from './Category';
 import Product from './Product';
 import SearchProduct from './SearchProduct';
 import NameStore from './NameStore';
+import ProductDetails from './ProductDetails';
 import ProductDetails2 from './ProductDetails2';
 import ProductDetails3 from './ProductDetails3';
 import AddStore2 from './AddStore2';
@@ -84,6 +111,10 @@ import AddStore2 from './AddStore2';
 import Store from './Store';
 import EmmaRose from './EmmaRose';
 import DeGaulle from './DeGaulle';
+import Verification from './Verification';
+import StartRecording from './StartRecording';
+
+import Footer2 from './Footer2';
 import Support from './Support';
 import SalesAnalytic from './SalesAnalytic';
 import BenRose from './BenRose';
@@ -105,38 +136,13 @@ import Account from './Account';
 import Accountsum from './Accountsum';
 import Accountview2 from './Accountview2';
 import ProductStore from './ProductStore';
-
-
-import Blurbackground from '../common/Blurbackground';
-import Dashorder      from '../seller/sellerorders/Dashorder';
-import Dashsale       from '../seller/analytics/Dashsale';
-import Dashsubscribe  from '../seller/subscriptions/Dashsubscribe';
-import Dashsubscribe2 from '../seller/subscriptions/Dashsubscribe2';
-import Dashadvertise  from '../seller/advertisements/Dashadvertise';
-import Dashchats      from '../seller/chat/Dashchats';
-import Dashdetail     from '../seller/sellerorders/Dashdetail';
-import Dashsuccess    from '../seller/sellerorders/Dashsuccess';
-import Dashproduct    from '../seller/products/Dashproduct';
-import CreateStore    from '../seller/products/CreateStore';
-import Accountproduct from '../seller/products/Accountproduct';
-import ProductDetails from '../seller/products/ProductDetails';
-import Overview       from '../seller/sellerdashboard/Overview';
-import Dashwith       from '../seller/settings/Dashwith';
-import Dashsetting    from '../seller/settings/Dashsetting';
-import Dashaccount    from '../seller/myaccounts/Dashaccount';
-import Dashaccountlist from '../seller/myaccounts/Dashaccountlist';
-import Dashreturn     from '../seller/sellerorders/Dashreturn';
-import Dashbrand      from '../seller/settings/Dashbrand';
-import Dashimport     from '../seller/settings/Dashimport';
-import Dashsupport    from '../seller/settings/Dashsupport';
-import Dashsupportacc from '../seller/settings/Dashsupportacc';
-import Dashlive       from '../seller/golive/Dashlive';
-import Selectproduct  from '../seller/golive/Selectproduct';
-import watchlist      from '../customer/home/watchlist';
-
-
+import Sellheader from './Sellheader';
 
 export {
+    //EmmaRose,
+    //DeGaulle,
+
+    //BenRose,
     ProductStore,
     deletaccount,
     editpassword,
@@ -167,14 +173,18 @@ export {
     Vedioscreen,
     Processorder,
     Dashlive,
+    Dashlive2,
     Dashbrand,
     Cart,
+    StartRecording,
     Dashaccountlist,
+    Dashlive3,
     Dashsupport,
     Dashsupportacc,
     Dashsetting,
     Dashwith,
     Dashdetail,
+    Inorder,
     Dashproduct,
     Dashsubscribe,
     Dashimport,
@@ -201,11 +211,15 @@ export {
     Golive,
     changepassword,
     Productculture,
+   // CreateAccount,
     Store,
+    Verification,
+   // CreateAccount,
     Addcategory,
-    CreateAccount,
+    Codeconfirm,
     Addbrand,
     AddProduct,
+    AddProduct2,
     AddStore,
     CreateStore,
     Order,
@@ -222,6 +236,8 @@ export {
     Profilee,
     Livechannel,
     ProfileDetail,
+    Footer2,
+    Footer3,
     Support,
     SalesAnalytic,
     BenRose,
@@ -235,6 +251,7 @@ export {
     clothdetails,
     coming,
     upcoming,
+    schedule,
     shop,
     Blurbackground,
     videocall,
@@ -258,5 +275,7 @@ export {
     Notification,
     Viewevent,
     Account,
-    Accountsum
+    Accountsum,
+    Sellheader
+
 }

@@ -20,11 +20,11 @@ import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper';
 import { Rating, AirbnbRating } from 'react-native-ratings';
-import Footer3 from '../../screens/common/Footer3';
+import Footer3 from '../../screens/auth/Footer3';
 import * as Progress from 'react-native-progress';
 import RnIncrementDecrementBtn  from 
 'react-native-increment-decrement-button';
-import Shopheader from '../../screens/common/Shopheader';
+import Shopheader from '../../screens/auth/Shopheader';
 
 
 const Shipprocess = (props) => {
@@ -174,7 +174,7 @@ const Shipprocess = (props) => {
              <View style={{marginHorizontal:'3%',marginTop:'20%',flexDirection:"row"}}>
               <Image source={ImageIcons.backpopup} style={{width:15,height:22}}/>
               <View style={{borderBottomWidth:3,width:40,marginLeft:"-2%",marginBottom:"2.5%"}}></View>
-              <Text style={{fontSize:15,fontFamily:"SourceSansPro-Regular",fontWeight:"bold",paddingLeft:5}}>CONTINUE SHOPPING</Text>
+              <Text style={{fontSize:15,fontFamily:"hinted-AvertaStd-Regular",fontWeight:"bold",paddingLeft:5}}>CONTINUE SHOPPING</Text>
               </View>
               
               
@@ -182,19 +182,19 @@ const Shipprocess = (props) => {
              
 
               <View style={[styles.textviewpop,{margin:"3%"}]}>
-              <Text style={{fontSize:26,color:'#1A1A1A',paddingVertical:'1%',lineHeight:30,fontWeight:'bold',fontFamily:'SourceSansPro-Regular',fontStyle:'normal'}}>Shipping Information</Text>
+              <Text style={{fontSize:26,color:'#1A1A1A',paddingVertical:'1%',lineHeight:30,fontWeight:'bold',fontFamily:'hinted-AvertaStd-Regular',fontStyle:'normal'}}>Shipping Information</Text>
               </View> 
               
 
               
               <View style={{flexDirection:'row',marginHorizontal:'4%'}}>
                 <View style={{height:15,width:15,backgroundColor:'#848484',borderRadius:3,}}></View>
-                 <Text style={{fontSize:16,fontFamily:'SourceSansPro-Regular',color:'#1a1a1a',marginLeft:5}}>Save shipping information</Text>
+                 <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',color:'#1a1a1a',marginLeft:5}}>Save shipping information</Text>
                </View>
 
                 <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
-              <Text style={{fontSize:12,fontFamily:'SourceSansPro-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'2%'}}>First Name</Text>
-              <Text style={{fontSize:18,fontFamily:'SourceSansPro-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'1%'}}>Mary</Text>       
+              <Text style={{fontSize:12,fontFamily:'hinted-AvertaStd-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'2%'}}>First Name</Text>
+              <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'1%'}}>Mary</Text>       
                 </View>
 
                 <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
@@ -273,7 +273,7 @@ const Shipprocess = (props) => {
                 </View>
 
                  <View style={{flexDirection:'row',justifyContent:'space-between',marginHorizontal:'3%',marginVertical:'5%'}}>
-                 <Text style={{fontSize:26,color:'#1a1a1a',fontFamily:'SourceSansPro-SemiBold',}}>Shipping Method</Text>
+                 <Text style={{fontSize:26,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',}}>Shipping Method</Text>
                </View>
               
               <View style={{flexDirection:"row",elevation:1,marginHorizontal:"4%",backgroundColor:"#FAFAFA",marginTop:"2%"}}>
@@ -287,9 +287,9 @@ const Shipprocess = (props) => {
                <View style={{backgroundColor:'#ffffff',width:deviceWidth/1.1,alignSelf:'center',padding:'5%',borderRadius:15,flexDirection:'row'}}>
                <Image source={ImageIcons.righttoday} style={{width:20,height:20,marginTop:6,alignSelf:'center'}}/>
                <View style={{marginLeft:5,alignSelf:'center'}}>
-                  <Text style={{fontSize:18,fontFamily:'SourceSansPro-SemiBold',marginLeft:6,color:'#b80000'}}>Standard Shipping</Text>
-                 <Text style={{fontSize:14,fontFamily:'SourceSansPro-SemiBold',marginLeft:6,color:'#1a1a1a'}}>US$10.00</Text>
-                 <Text style={{fontSize:14,fontFamily:'SourceSansPro-Regular',marginLeft:6,color:'#1a1a1a',width:250}}>Orders placed now will arrive between Sat, Dec 11 - Tues, Dec 14</Text>
+                  <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Semibold',marginLeft:6,color:'#b80000'}}>Standard Shipping</Text>
+                 <Text style={{fontSize:14,fontFamily:'hinted-AvertaStd-Semibold',marginLeft:6,color:'#1a1a1a'}}>US$0</Text>
+                 <Text style={{fontSize:14,fontFamily:'hinted-AvertaStd-Regular',marginLeft:6,color:'#1a1a1a',width:250}}>Orders placed now will arrive between Sat, Dec 11 - Tues, Dec 14</Text>
                </View>
              </View>
               </View>
@@ -306,9 +306,9 @@ const Shipprocess = (props) => {
               <View style={{backgroundColor:'#ffffff',width:deviceWidth/1.1,alignSelf:'center',padding:'5%',borderRadius:15,flexDirection:'row'}}>
                <Image source={ImageIcons.righttoday} style={{width:20,height:20,marginTop:6,alignSelf:'center'}}/>
                <View style={{marginLeft:5,alignSelf:'center'}}>
-                  <Text style={{fontSize:18,fontFamily:'SourceSansPro-SemiBold',marginLeft:6,color:'#808080'}}>Express Shipping</Text>
-                 <Text style={{fontSize:14,fontFamily:'SourceSansPro-SemiBold',marginLeft:6,color:'#1a1a1a'}}>US$10.00</Text>
-                 <Text style={{fontSize:14,fontFamily:'SourceSansPro-Regular',marginLeft:6,color:'#1a1a1a',width:250}}>Orders placed now will arrive between Sat, Dec 11 - Tues, Dec 14</Text>
+                  <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Semibold',marginLeft:6,color:'#808080'}}>Express Shipping</Text>
+                 <Text style={{fontSize:14,fontFamily:'hinted-AvertaStd-Semibold',marginLeft:6,color:'#1a1a1a'}}>US$0</Text>
+                 <Text style={{fontSize:14,fontFamily:'hinted-AvertaStd-Regular',marginLeft:6,color:'#1a1a1a',width:250}}>Orders placed now will arrive between Sat, Dec 11 - Tues, Dec 14</Text>
                </View>
              </View>
               </View>
@@ -318,24 +318,24 @@ const Shipprocess = (props) => {
               
 
               <View style={{flexDirection:'row',justifyContent:'space-between',marginHorizontal:'3%',marginVertical:'5%'}}>
-                 <Text style={{fontSize:26,color:'#1a1a1a',fontFamily:'SourceSansPro-SemiBold',}}>Product Summary</Text>
+                 <Text style={{fontSize:26,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',}}>Product Summary</Text>
                </View>
 
 
                <View style={{alignSelf:'center',borderRadius:15,flexDirection:'row',marginTop:'7%',width:deviceWidth/1.1}}>
                <Image source={ImageIcons.teashop} style={{width:100,height:120,marginTop:6,alignSelf:'center',borderRadius:15}}/>
                <View style={{marginLeft:5,alignSelf:'center'}}>
-                  <Text style={{fontSize:15,fontFamily:'SourceSansPro-SemiBold',marginLeft:6,color:'#1a1a1a'}}>Ribbed Knit Bardot Crossover Top</Text>
-                 <Text style={{fontSize:20,fontFamily:'SourceSansPro-Bold',marginLeft:6,color:'#1a1a1a'}}>$52.50</Text>
+                  <Text style={{fontSize:15,fontFamily:'hinted-AvertaStd-Semibold',marginLeft:6,color:'#1a1a1a'}}>Ribbed Knit Bardot Crossover Top</Text>
+                 <Text style={{fontSize:20,fontFamily:'hinted-AvertaStd-Bold',marginLeft:6,color:'#1a1a1a'}}>$0</Text>
                   <View style={{flexDirection:'row'}}>
-                      <Text style={{fontSize:16,fontFamily:'SourceSansPro-SemiBold',color:'#1a1a1a'}}>Color:</Text>
+                      <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a'}}>Color:</Text>
                        <View style={{height:15,width:15,borderRadius:10,backgroundColor:'#5999F1',marginLeft:2,alignSelf:'center'}}></View>
-                      <Text style={{fontSize:16,fontFamily:'SourceSansPro-SemiBold',color:'#1a1a1a'}}>  Size:</Text>
-                      <Text style={{fontSize:16,fontFamily:'SourceSansPro-Regular',color:'#1a1a1a'}}> 42</Text>
+                      <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a'}}>  Size:</Text>
+                      <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',color:'#1a1a1a'}}> 0</Text>
                     </View>
                      <View style={{flexDirection:'row'}}>
-                       <Text style={{fontSize:16,fontFamily:'SourceSansPro-SemiBold',color:'#1a1a1a'}}>Quantity:</Text>
-                       <Text style={{fontSize:16,fontFamily:'SourceSansPro-Regular',color:'#1a1a1a'}}> x1</Text>
+                       <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a'}}>Quantity:</Text>
+                       <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',color:'#1a1a1a'}}> x1</Text>
                     </View>
                </View>
              </View>
@@ -343,24 +343,24 @@ const Shipprocess = (props) => {
              <View style={{alignSelf:'center',borderRadius:15,flexDirection:'row',marginTop:'7%',width:deviceWidth/1.1}}>
                <Image source={ImageIcons.teashop} style={{width:100,height:120,marginTop:6,alignSelf:'center',borderRadius:15}}/>
                <View style={{marginLeft:5,alignSelf:'center'}}>
-                  <Text style={{fontSize:15,fontFamily:'SourceSansPro-SemiBold',marginLeft:6,color:'#1a1a1a'}}>Ribbed Knit Bardot Crossover Top</Text>
-                 <Text style={{fontSize:20,fontFamily:'SourceSansPro-Bold',marginLeft:6,color:'#1a1a1a'}}>$52.50</Text>
+                  <Text style={{fontSize:15,fontFamily:'hinted-AvertaStd-Semibold',marginLeft:6,color:'#1a1a1a'}}>Ribbed Knit Bardot Crossover Top</Text>
+                 <Text style={{fontSize:20,fontFamily:'hinted-AvertaStd-Bold',marginLeft:6,color:'#1a1a1a'}}>$0</Text>
                   <View style={{flexDirection:'row'}}>
-                      <Text style={{fontSize:16,fontFamily:'SourceSansPro-SemiBold',color:'#1a1a1a'}}>Color:</Text>
+                      <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a'}}>Color:</Text>
                        <View style={{height:15,width:15,borderRadius:10,backgroundColor:'#5999F1',marginLeft:2,alignSelf:'center'}}></View>
-                      <Text style={{fontSize:16,fontFamily:'SourceSansPro-SemiBold',color:'#1a1a1a'}}>  Size:</Text>
-                      <Text style={{fontSize:16,fontFamily:'SourceSansPro-Regular',color:'#1a1a1a'}}> 42</Text>
+                      <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a'}}>  Size:</Text>
+                      <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',color:'#1a1a1a'}}> 0</Text>
                     </View>
                      <View style={{flexDirection:'row'}}>
-                       <Text style={{fontSize:16,fontFamily:'SourceSansPro-SemiBold',color:'#1a1a1a'}}>Quantity:</Text>
-                       <Text style={{fontSize:16,fontFamily:'SourceSansPro-Regular',color:'#1a1a1a'}}> x1</Text>
+                       <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#1a1a1a'}}>Quantity:</Text>
+                       <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',color:'#1a1a1a'}}> x1</Text>
                     </View>
                </View>
              </View>
 
 
              <View style={{flexDirection:'row',justifyContent:'space-between',marginHorizontal:'3%',marginVertical:'5%'}}>
-                 <Text style={{fontSize:26,color:'#1a1a1a',fontFamily:'SourceSansPro-SemiBold',}}>Order Summary</Text>
+                 <Text style={{fontSize:26,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',}}>Order Summary</Text>
                </View>
 
 
@@ -368,16 +368,16 @@ const Shipprocess = (props) => {
                 
                 
                <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:'4%'}}>
-                  <Text style={{fontSize:16,fontFamily:'SourceSansPro-SemiBold',color:'#666666'}}>Subtotal</Text>
-                   <Text style={{fontSize:16,fontFamily:'SourceSansPro-Regular',color:'#1a1a1a'}}>US$167.50</Text>
+                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#666666'}}>Subtotal</Text>
+                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',color:'#1a1a1a'}}>US$167.50</Text>
                </View>
                <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:'4%'}}>
-                  <Text style={{fontSize:16,fontFamily:'SourceSansPro-Regular',color:'#666666'}}>Taxes</Text>
-                   <Text style={{fontSize:16,fontFamily:'SourceSansPro-Regular',color:'#1a1a1a'}}>US$55.00</Text>
+                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',color:'#666666'}}>Taxes</Text>
+                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',color:'#1a1a1a'}}>US$0</Text>
                </View>
                 <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:'4%'}}>
-                  <Text style={{fontSize:16,fontFamily:'SourceSansPro-Regular',color:'#666666'}}>Shipping</Text>
-                   <Text style={{fontSize:16,fontFamily:'SourceSansPro-Regular',color:'#1a1a1a'}}>US$10.00</Text>
+                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',color:'#666666'}}>Shipping</Text>
+                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',color:'#1a1a1a'}}>US$0</Text>
                </View>
 
               
@@ -387,15 +387,15 @@ const Shipprocess = (props) => {
              <View style={{borderBottomWidth:1.5,marginTop:"3%",marginHorizontal:"3%",borderColor:"#000000"}}></View>
               <View style={{marginHorizontal:"3%",marginTop:"4%",bottom:5}}> 
                   <View style={{flexDirection:"row",justifyContent:"space-between"}}> 
-                  <Text style={{color:"#1A1A1A",fontSize:18,fontFamily:'SourceSansPro-Regular'}}>Grand Total:</Text>
-                  <Text style={{color:"#1A1A1A",fontSize:18,fontFamily:'SourceSansPro-Bold'}}>US$232.50</Text>
+                  <Text style={{color:"#1A1A1A",fontSize:18,fontFamily:'hinted-AvertaStd-Regular'}}>Grand Total:</Text>
+                  <Text style={{color:"#1A1A1A",fontSize:18,fontFamily:'hinted-AvertaStd-Bold'}}>US$0</Text>
                   </View>
               </View>
 
               <View style={{ flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}>
               
               { couponcode==false &&  <View>
-               <TextInput  style={{backgroundColor:'#E6E6E6',borderRadius:10,paddingLeft:'5%',fontSize:18,lineHeight:23,letterSpacing:-0.125172,width:'120%',height:50,color:'#878787',fontWeight:'normal',fontStyle:'normal',fontFamily:'SourceSansPro-Regular'}}
+               <TextInput  style={{backgroundColor:'#E6E6E6',borderRadius:10,paddingLeft:'5%',fontSize:18,lineHeight:23,letterSpacing:-0.125172,width:'120%',height:50,color:'#878787',fontWeight:'normal',fontStyle:'normal',fontFamily:'hinted-AvertaStd-Regular'}}
                 placeholder="Enter coupon code"
                 onChangeText={onChangeText1}
                 value={text1}
@@ -404,7 +404,7 @@ const Shipprocess = (props) => {
               </View>
             }
               { couponcode ==true && <View>
-               <TextInput  style={{backgroundColor:'#999999',borderRadius:10,paddingLeft:'5%',fontSize:18,lineHeight:23,letterSpacing:-0.125172,width:'120%',height:50,color:'#878787',fontWeight:'normal',fontStyle:'normal',fontFamily:'SourceSansPro-Regular'}}
+               <TextInput  style={{backgroundColor:'#999999',borderRadius:10,paddingLeft:'5%',fontSize:18,lineHeight:23,letterSpacing:-0.125172,width:'120%',height:50,color:'#878787',fontWeight:'normal',fontStyle:'normal',fontFamily:'hinted-AvertaStd-Regular'}}
                 placeholder="Coupon code applied"
                 onChangeText={onChangeText1}
                 value={text1}
@@ -413,12 +413,12 @@ const Shipprocess = (props) => {
               </View>
             }
               <TouchableOpacity style={{marginTop:"3%", backgroundColor:"#4AFFBD",height:38,width:110,borderRadius:20}}>
-             <Text style={{textAlign:'center',paddingTop:"10%",color:"#1A1A1A",fontSize:12,fontFamily:"SourceSansPro-Bold",fontWeight:"bold"}}>APPLY</Text>
+             <Text style={{textAlign:'center',paddingTop:"10%",color:"#1A1A1A",fontSize:12,fontFamily:"hinted-AvertaStd-Bold",fontWeight:"bold"}}>APPLY</Text>
              </TouchableOpacity>
              </View>
 
              <View style={{marginHorizontal:"3%",marginTop:"6%"}}>
-             <Text style={{color:"#1A1A1A",fontSize:18,fontFamily:"SourceSansPro-Bold",fontWeight:"bold"}}>We Accept:</Text>
+             <Text style={{color:"#1A1A1A",fontSize:18,fontFamily:"hinted-AvertaStd-Bold",fontWeight:"bold"}}>We Accept:</Text>
              </View>
 
              <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"5%",marginBottom:"8%"}}>
@@ -451,8 +451,8 @@ const Shipprocess = (props) => {
          </ScrollView>
           <View style={{marginHorizontal:"3%",marginTop:"4%",bottom:5,elevation:1,}}> 
                   <View style={{flexDirection:"row",justifyContent:"space-between"}}> 
-                  <Text style={{color:"#1A1A1A",fontSize:18,fontFamily:'SourceSansPro-Regular'}}>Grand Total:</Text>
-                  <Text style={{color:"#1A1A1A",fontSize:18,fontFamily:'SourceSansPro-Bold'}}>US$232.50</Text>
+                  <Text style={{color:"#1A1A1A",fontSize:18,fontFamily:'hinted-AvertaStd-Regular'}}>Grand Total:</Text>
+                  <Text style={{color:"#1A1A1A",fontSize:18,fontFamily:'hinted-AvertaStd-Bold'}}>US$0</Text>
                   </View> 
                    
                    
@@ -477,18 +477,18 @@ const Shipprocess = (props) => {
             </View> 
 
              <View style={{marginLeft:"2%"}}>
-                    <Text style={{fontSize:18,fontStyle:'normal',marginVertical:'2%',fontFamily:'SourceSansPro-Regular',color:'#1A1A1A'}}>Ribbed Knit Bardot Crossover Top</Text>
+                    <Text style={{fontSize:18,fontStyle:'normal',marginVertical:'2%',fontFamily:'hinted-AvertaStd-Regular',color:'#1A1A1A'}}>Ribbed Knit Bardot Crossover Top</Text>
             </View>
 
             <View style={{marginLeft:"2%"}}>
-                    <Text style={{fontSize:20,fontStyle:'normal',fontWeight:"bold", marginVertical:'2%',fontFamily:'SourceSansPro-Regular',color:'#1A1A1A'}}>$52.50</Text>
+                    <Text style={{fontSize:20,fontStyle:'normal',fontWeight:"bold", marginVertical:'2%',fontFamily:'hinted-AvertaStd-Regular',color:'#1A1A1A'}}>$0</Text>
             </View>
             
             <View style={{flexDirection:"row"}}>
             <View>
              <View style={{flexDirection:'row',marginHorizontal:'4%',marginTop:'4%'}}>
-               <Text style={{fontSize:18,fontFamily:'SourceSansPro-Bold',}}>Color :</Text>
-                <Text style={{fontSize:18,fontFamily:'SourceSansPro-Regular',marginLeft:5}}>White</Text>
+               <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Bold',}}>Color :</Text>
+                <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular',marginLeft:5}}>White</Text>
              </View> 
 
              <View style={{flexDirection:'row',marginHorizontal:'4%',marginVertical:'2%'}}>
@@ -500,21 +500,21 @@ const Shipprocess = (props) => {
                 
               <View style={{flexDirection:'row',width:100}}>
             <View style={{marginHorizontal:'4%',marginVertical:'3%'}}> 
-              <Text style={{fontSize:18,fontFamily:'SourceSansPro-Bold',}}>Size</Text>
+              <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Bold',}}>Size</Text>
              <View style={{flexDirection:'row'}}>
                 <View style={{height:40,width:40,backgroundColor:'#e6e6e6',borderRadius:4,padding:9,}}>
-                  <Text style={{textAlign:'center',color:'#4d4d4d',fontSize:16,fontFamily:'SourceSansPro-SemiBold'}}>XS</Text>    
+                  <Text style={{textAlign:'center',color:'#4d4d4d',fontSize:16,fontFamily:'hinted-AvertaStd-Semibold'}}>XS</Text>    
                 </View>
                  <View style={{height:40,width:40,backgroundColor:'#e6e6e6',borderRadius:4,padding:9,marginLeft:8}}>
-                  <Text style={{textAlign:'center',color:'#4d4d4d',fontSize:16,fontFamily:'SourceSansPro-SemiBold'}}>S</Text>    
+                  <Text style={{textAlign:'center',color:'#4d4d4d',fontSize:16,fontFamily:'hinted-AvertaStd-Semibold'}}>S</Text>    
                 </View>
                  <View style={{height:40,width:40,backgroundColor:'#8B0000',borderRadius:4,padding:9,marginLeft:8}}>
-                  <Text style={{textAlign:'center',color:'#FFFFFF',fontSize:16,fontFamily:'SourceSansPro-SemiBold'}}>L</Text>    
+                  <Text style={{textAlign:'center',color:'#FFFFFF',fontSize:16,fontFamily:'hinted-AvertaStd-Semibold'}}>L</Text>    
                 </View>
                  
              </View>
              <View style={{height:40,width:40,backgroundColor:'#999999',borderRadius:4,padding:9,marginTop:"2%"}}>
-                  <Text style={{textAlign:'center',color:'#4d4d4d',fontSize:16,fontFamily:'SourceSansPro-SemiBold'}}>XL</Text>    
+                  <Text style={{textAlign:'center',color:'#4d4d4d',fontSize:16,fontFamily:'hinted-AvertaStd-Semibold'}}>XL</Text>    
                 </View>
             </View> 
             </View>

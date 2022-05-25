@@ -212,7 +212,7 @@ const ProductDetails3 = (props) => {
              
               <View>
                <Text style={styles.storetext5}>Beauty brands</Text>
-           <Text style={styles.salestext3}>$75</Text>
+           <Text style={styles.salestext3}>$0</Text>
               </View>
              
              <View >
@@ -250,11 +250,11 @@ const ProductDetails3 = (props) => {
                         onFinishRating={(start) => ratingCompleted(start)}
                         style={{ marginHorizontal:'3%'}}
                         />
-                        <Text style={styles.bluepricetext}>200 sold</Text>
+                        <Text style={styles.bluepricetext}>0 sold</Text>
                      </View>
                      <View style={styles.amazingtextView}>
                      <Image source={ImageIcons.redeye} style={styles.redeye} />
-                     <Text style={styles.TEXT}>Over 750 views todays, so act now</Text>
+                     <Text style={styles.TEXT}>Over 0 views todays, so act now</Text>
                      </View>
                 </View>
                 <View style={styles.amazingtextView}>
@@ -262,7 +262,7 @@ const ProductDetails3 = (props) => {
                     <Text style={styles.TEXT2}>Shipping</Text>
                     </View>
                     <View style={{width:'77%'}}>
-                    <Text style={styles.PRICBLACKTEXT}>$10.50</Text>
+                    <Text style={styles.PRICBLACKTEXT}>$0</Text>
                     <Text style={styles.DELIVERYTEXT}>Estimated delivery time to Africa is 25-40 days</Text>
                     <View style={[styles.orderboxView,{marginVertical:'3%'}]}>
                        <Image source={ImageIcons.chaticon} style={styles.chatimage} />

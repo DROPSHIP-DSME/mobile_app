@@ -41,6 +41,7 @@ const CreateAccountShop = (props) => {
     const [isCheckPrivacy, setIsCheckPrivacy] = useState(false)
     const [FullName, onChangeText] = React.useState("");
     const [email, onChangeText1] = React.useState("");
+    const [username, onChangeText6] = React.useState("");
     const [phone, onChangeText4] = React.useState("");
     const [password, onChangeText2] = React.useState("");
     const [confirmPassword, onChangeText3] = React.useState("");
@@ -74,15 +75,11 @@ const CreateAccountShop = (props) => {
     // Registration request submission
     const handleRegistrationSubmit = () => {
         Keyboard.dismiss();
-        if (FullName == "") {
-            Alert.alert('FullName is required')
-        } else if (email == "") {
+        if (email == "") {
             Alert.alert('email is required')
         }else if(email == "email" ){
             Alert.alert('This email is Already used')
-        }else if (phone == "" || phone.length<10) {
-            Alert.alert('phone is required')
-        } else if (password == "" || password.length<8) {
+        }else if (password == "" || password.length<8) {
             Alert.alert('password is required')
         } else if (confirmPassword == "") {
             Alert.alert('confirmPassword is required')
@@ -92,7 +89,9 @@ const CreateAccountShop = (props) => {
             //props.navigation.navigate("Overview")
             let request = {
                 "email": email,
-                "userName": FullName,
+
+                "userName": email,
+
                 "phone": phone,
                 "countryCode": '+1',
                 "password": password,
@@ -102,7 +101,7 @@ const CreateAccountShop = (props) => {
                 "type":"shop"
                
             }
-            props.shopsignup(request, props.navigation, "user",'shop');
+            props.shopsignup(request, props.navigation,);
         }
     }
 
@@ -119,25 +118,18 @@ const CreateAccountShop = (props) => {
             style={styles.registrationRootscroll}>
         <View style={{flex:1,backgroundColor:'#ffffff'}}>
 
-            <View style={[styles.heading,{marginTop:'15%',marginBottom:'5%'}]}>
-            <Image source={ImageIcons.logored_1} style={styles.setlogonewdata}  />
-        </View>
+            <View style={styles.leftlogView}>
+                <Image source={ImageIcons.left} style={styles.droparrow}  />
+            </View>
+            <View style={{alignItems:'center',marginTop:'-5%'}}>
+                <Image source={ImageIcons.logored_1} style={styles.setlogonewdatarow}  />
+            </View>
         <View>
             <Text style={styles.headingText1}>Sign Up</Text>
         </View>
 
             
             <View>
-                
-                <View >
-                    <TextInput  style={styles.input1}
-                     placeholder="FullName"
-                     onChangeText={onChangeText}
-                     value={FullName}
-                     onSubmitEditing={() => handleRegistrationSubmit()}
-                     placeholderTextColor="#999999" 
-                    />
-                </View>
 
                 <View >
                     <TextInput  style={styles.input1}
@@ -150,13 +142,13 @@ const CreateAccountShop = (props) => {
                 </View>
 
                 <View >
-                     <TextInput  style={styles.input1}
-                     placeholder="Phone number"
-                     onChangeText={onChangeText4}
-                     value={phone}
+                    <TextInput  style={styles.input1}
+                     placeholder="Username"
+                     onChangeText={onChangeText6}
+                     value={username}
                      onSubmitEditing={() => handleRegistrationSubmit()}
                      placeholderTextColor="#999999" 
-                     />
+                    />
                 </View>
 
                 <View>
@@ -165,6 +157,7 @@ const CreateAccountShop = (props) => {
                       placeholderTextColor="#999999"
                       onChangeText={onChangeText2}
                       value={password}
+                      placeholder="Password"
                       secureTextEntry={true}
                       onSubmitEditing={() => handleRegistrationSubmit()}
                     />
@@ -178,6 +171,7 @@ const CreateAccountShop = (props) => {
                       placeholderTextColor="#999999"
                       onChangeText={onChangeText3}
                       value={confirmPassword}
+                      placeholder="confirmPassword"
                       secureTextEntry={true}
                       onSubmitEditing={() => handleRegistrationSubmit()}
                     />
@@ -197,32 +191,9 @@ const CreateAccountShop = (props) => {
                     <Text style={styles.TouchableloginTEXT}>CREATE AN ACCOUNT</Text>
                 </TouchableOpacity>
 
-            <View style={styles.devider1}>
-                    <View style={styles.devider2} />
-                    <Text style={styles.devider3}>OR</Text>
-                    <View style={styles.devider2}  />
-                </View>
+            
 
-
-        <View style={styles.accountmainview}> 
-            <View style={styles.showimge}>
-                <Image source={ImageIcons.google}  style={styles.google1} />
-            </View>
-            <View style={styles.showimge}>
-                <Image source={ImageIcons.facebook}  style={styles.facebook1} />
-            </View>
-            <View style={styles.showimge}>
-                <Image source={ImageIcons.message}  style={styles.message1} />
-            </View>
-            <View style={[styles.showimge,{padding:10}]}>
-                <Image source={ImageIcons.twitter}  style={styles.twitter1} />
-            </View>
-            <View style={[styles.showimge,{padding:10}]}>
-                <Image source={ImageIcons.linkin}  style={styles.linkin1} />
-            </View>
-        </View>
-
-                <View style={styles.twotextviewcreate} >
+                <View style={[styles.twotextviewcreate,{marginTop:'4%'}]} >
                     <Text style={styles.customertext}>Already have an account yet? </Text>
                     <TouchableOpacity onPress={() => props.navigation.navigate("RegistrationShop")}>
                         <Text style={styles.customertextred}> Sign in here.</Text>

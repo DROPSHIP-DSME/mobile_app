@@ -29,7 +29,7 @@ const PasswordInputText = ({
      <TextInput
         {...rest}
         ref={passReference}
-        placeholder="Password"
+        
         secureTextEntry={isPassword}
         style={{color:'#4D4D4D'}}
       />

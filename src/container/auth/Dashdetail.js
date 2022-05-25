@@ -1,6 +1,6 @@
  import { connect } from 'react-redux';
 import { Dashdetail } from '../../screens/auth';
-import { getselldeshboard,gettopsell,getincomingtlist,liveeventdetail } from '../../redux/actions/Auth'
+import { getselldeshboard,gettopsell,getincomingtlist,liveeventdetail,getorderdetail,updateorderdetail } from '../../redux/actions/Auth'
 
 
 const mapStateToProps = (state) => ({
@@ -11,13 +11,16 @@ const mapStateToProps = (state) => ({
     getlistselldeshboard: state.auth.getlistselldeshboard,
     gettopsellproduct: state.auth.gettopsellproduct,
     getinconeorderlist: state.auth.getinconeorderlist,
+    getorderlist: state.auth.getorderlist,
 });
 
 const mapDispatchToProps = {
    getselldeshboard,
    gettopsell,
    getincomingtlist,
-   liveeventdetail
+   liveeventdetail,
+   getorderdetail,
+   updateorderdetail
    // signup
 
 };

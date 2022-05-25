@@ -19,6 +19,9 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import { v4 as uuid } from "uuid";
 
+import AppIntroSlider from 'react-native-app-intro-slider';
+
+
 const Login = (props) => {  
 
     const {
@@ -47,7 +50,43 @@ const Login = (props) => {
     // Animation references
     const fadeAnim = useRef(new Animated.Value(0)).current
     const transformAnim = useRef(new Animated.Value(300)).current
-    
+     
+      const [showRealApp, setShowRealApp] = useState(false);
+
+      const onDone = () => {
+        setShowRealApp(true);
+      };
+      const onSkip = () => {
+        setShowRealApp(true);
+      };
+
+const slides = [
+  {
+    key: 's1',
+    text: 'A live-commerce marketplace for fashion and home goods. ',
+    title: ImageIcons.logoredagain,
+    image: ImageIcons.vedioplays,
+  },
+  {
+    key: 's2',
+    title: 'Flight Booking',
+    text: 'Browse through videos and images of different products. Save your favourites.',
+    image: ImageIcons.sliderimage1,
+  },
+  {
+    key: 's3',
+    title: 'Great Offers',
+    text: 'Create live-shops and advertise your products from the comfort of your own home or store.',
+    image: ImageIcons.newchange,
+  },
+  {
+    key: 's4',
+    title: 'Best Deals',
+    text: 'Create live-shops and advertise your products from the comfort of your own home or store.',
+    image: ImageIcons.sliderimage2,
+  },
+ 
+];
 
 
     useEffect(() => {
@@ -130,6 +169,40 @@ const Login = (props) => {
             props.login(request)
         }
     }
+const RenderItem = ({item,index}) => {
+    return (
+        <View>
+        { index =='0' ?
+            <View style={{ width, height,justifyContent:'center' }}>
+                <Video source={item.image}  // Can be a URL or a local file.
+                    paused={false}
+                    repeat={true}
+                    resizeMode={"cover"}  
+                    style={styles.backgroundVideo} 
+                /> 
+                  <View style={{alignItems:'center',marginTop:'25%',}}>
+                    <Image source={item.title}  style={{width:145, height:117}}  />
+                </View>
+                <View style={{alignItems:'center',justifyContent:'center',marginTop:'15%'}}>
+                    <Text style={styles.goodtext}>{item.text}</Text>
+                </View>
+            </View>
+        :
+            <View style={{ width, height }}>
+                <View style={{flex:1,backgroundColor:'#FFFFFF',justifyContent:'center'}}> 
+                    <View style={styles.groupView}>
+                        <Image source={item.image}  style={styles.groupimg} />
+                    </View>
+                    <View style={{marginVertical:'6%',marginHorizontal:'3%'}}>
+                        <Text style={styles.grouptext}>{item.text}</Text>
+                    </View>      
+                </View>
+            </View>
+
+        }
+        </View>
+    );
+  };
 
 
     return (
@@ -172,14 +245,8 @@ const Login = (props) => {
         //         </View>
         // </View>
         <>
-         <StatusBar barStyle="dark-content" />
+      {showRealApp ? (
       <SafeAreaView style={{ flex: 1 }}>
-        <ScrollView
-          style={{ flex: 1 }}
-          horizontal={true}
-          scrollEventThrottle={16}
-          pagingEnabled={true}
-        >
           <View style={{ width, height,justifyContent:'center' }}>
              <Video source={ImageIcons.vedioplays}  // Can be a URL or a local file.
                 paused={false}
@@ -196,85 +263,31 @@ const Login = (props) => {
                <View style={{alignItems:'center',marginTop:'35%'}}>
                 <Image source={ImageIcons.bar1}  style={{height:12,width:104}}   />
             </View>
-           
-            <TouchableOpacity style={styles.skipviewtoday} onPress={() => navigation.navigate("Golive")} >
-               <Text style={styles.skiptext}>SKIP</Text>
-            </TouchableOpacity>
           </View>
 
-
-          <View style={{ width, height,justifyContent:'center' }}>
-             <TouchableOpacity style={{flex:1,backgroundColor:'#FFFFFF',justifyContent:'center'}}> 
-        <View style={styles.groupView}>
-            <Image source={ImageIcons.redbox}  />
-            <Image source={ImageIcons.shoesbox} style={styles.shoesboximg} />
-            <Image source={ImageIcons.whitesneaker} style={styles.shoeswhiteimg} />
-            <Image source={ImageIcons.like} style={{position:'absolute',width:11,height:10,right:'18%'}} />
-            <Image source={ImageIcons.like} style={{position:'absolute',width:11,height:10,right:'14%',top:'6%'}} />
-            <View style={{position:'absolute',right:47,marginTop:'6%'}}>
-               <Image source={ImageIcons.likecircle}  style={{}}/>
-               <Image source={ImageIcons.like}  style={{width:20,height:19,position:'absolute',alignSelf:'center',top:29}}/>
-            </View>
-        </View>
-        <View style={{marginTop:'15%',marginHorizontal:'4%'}}>
-            <Text style={styles.grouptext}>Browse through videos and images of different products. Save your favourites.</Text>
-        </View>
-
-         <View style={{alignItems:'center',marginTop:'25%',}}>
-                <Image source={ImageIcons.bar2today} style={{height:12,width:104}}   />
-            </View>
-       
-        <TouchableOpacity style={styles.skipview} onPress={() => navigation.navigate("Golive")} >
-           <Text style={styles.skiptext}>SKIP</Text>
-        </TouchableOpacity>
-    </TouchableOpacity>
-          </View>
-
-
-          <View style={{ width, height }}>
-            <TouchableOpacity onPress={() => navigation.navigate("SaleOnboard")} style={{flex:1,backgroundColor:'#FFFFFF',justifyContent:'center'}}> 
-        <View style={styles.groupView}>
-            <Image source={ImageIcons.newchange}  style={styles.groupimg} />
-        </View>
-        <View style={{marginVertical:'6%',marginHorizontal:'3%'}}>
-            <Text style={styles.grouptext}>Create live-shops and advertise your products from the comfort of your own home or store.</Text>
-        </View>
-         <View style={{alignItems:'center',marginTop:'15%'}}>
-                <Image source={ImageIcons.bar3today}  style={{height:12,width:104}}   />
-            </View>
-        
-        <TouchableOpacity style={styles.skipview} onPress={() => navigation.navigate("Golive")} >
-           <Text style={styles.skiptext}>SKIP</Text>
-        </TouchableOpacity>
-    </TouchableOpacity>
-          </View>
-
-
-          <View style={{ width, height }}>
-           <View style={{flex:1,backgroundColor:'#FFFFFF',paddingTop:'10%',justifyContent:'center'}}> 
-        <View style={styles.groupView}>
-            <Image source={ImageIcons.redbox}   />
-            <Image source={ImageIcons.sales} style={{position:'absolute',left:"-4%",bottom:10}} />
-            <Image source={ImageIcons.totalincome} style={{position:'absolute',right:0}} />
-        </View>
-        <View style={{marginTop:'15%',marginHorizontal:'3%'}}>
-            <Text style={styles.grouptext}>Create live-shops and advertise your products from the comfort of your own home or store.</Text>
-        </View>
-         <View style={{alignItems:'center',marginTop:'15%'}}>
-                <Image source={ImageIcons.bar4today}  style={{height:12,width:104}}   />
-            </View>
-       
-        <TouchableOpacity style={styles.skipview} onPress={() => navigation.navigate("Golive")} >
-           <Text style={styles.skiptext}>LOGIN</Text>
-        </TouchableOpacity>
-    </View>
-          </View>
-          
-        </ScrollView>
       </SafeAreaView>
-      </>
-    )
-}
+      ) : (
+        <AppIntroSlider
+          data={slides}
+          dotStyle={{backgroundColor:'#cccccc'}}
+          renderItem={RenderItem}
+          onDone={onDone}
+          activeDotStyle={{backgroundColor:'#b80000'}}
+          showSkipButton={false}
+          onSkip={onSkip}
+
+        />
+      )} 
+
+      <View style={{ position:'absolute',zIndex:3001, bottom:70, justifyContent:'center',alignItems:'center',width:'100%'}}>
+         <TouchableOpacity style={styles.skipview} onPress={() => navigation.navigate("Golive")} >
+            <Text style={styles.skiptext}>Login</Text>
+        </TouchableOpacity>
+      </View>
+    </>
+  );
+};
+
 
 
 export default Login

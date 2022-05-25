@@ -12,8 +12,8 @@ import { phoneRegExp } from '../../services/helper';
 import DropdownField from '../../components/dropdown/DropDownMenu';
 import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
-import Footer3 from '../../screens/common/Footer3';
-import Shopheader from '../../screens/common/Shopheader';
+import Footer3 from '../../screens/auth/Footer3';
+import Shopheader from '../../screens/auth/Shopheader';
 
 const Newprofile = (props) => {
  
@@ -62,8 +62,8 @@ const Newprofile = (props) => {
                         <Image source={{uri: props?.getprofileuserlist?.profileImage}}  style={{height:100,width:100,borderRadius:70,borderWidth:1, borderColor:'#333333'}} />
                 </TouchableOpacity>
              <View style={{marginLeft:'5%',flexDirection:'column',justifyContent:'center'}}>                     
-                <Text style={{fontSize:14,fontWeight:'bold',color:'#223263',fontFamily:'SourceSansPro-SemiBold',fontStyle:'normal'}}>{props?.getprofileuserlist?.userName}</Text>
-                <Text style={{fontSize:14,color:'#9098B1',fontWeight:'bold',fontFamily:'SourceSansPro-SemiBold',fontStyle:'normal'}}>@{props?.getprofileuserlist?.userName}</Text>
+                <Text style={{fontSize:14,fontWeight:'bold',color:'#223263',fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal'}}>{props?.getprofileuserlist?.userName}</Text>
+                <Text style={{fontSize:14,color:'#9098B1',fontWeight:'bold',fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal'}}>@{props?.getprofileuserlist?.userName}</Text>
                 <TouchableOpacity onPress={() => props.navigation.navigate("Editprofiledetail")}>
                     <Text style={styles.edittext}>Edit Profile</Text>
                 </TouchableOpacity>

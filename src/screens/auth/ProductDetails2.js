@@ -20,7 +20,7 @@ import Loader from '../../components/modals/Loader';
 import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import {FlatListSlider} from 'react-native-flatlist-slider';
-import Footer2 from '../../screens/common/Footer2';
+import Footer2 from '../../screens/auth/Footer2';
 import AwesomeAlert from 'react-native-awesome-alerts';
 
 const ProductDetails2 = (props) => {
@@ -141,7 +141,7 @@ const ProductDetails2 = (props) => {
                     indicatorActiveColor={'#8A8A8A'}
                     indicatorInActiveColor={'#ffffff'}
                     indicatorActiveWidth={5}
-                    animation
+                    animation 
                 /> 
                 :
                 <View>
@@ -181,7 +181,7 @@ const ProductDetails2 = (props) => {
              <View style={{marginVertical:'5%'}}>
                    
                    <View style={styles.amazingtextView}>
-                    <Text style={styles.TEXT}>5.0</Text>
+                    <Text style={styles.TEXT}>0</Text>
                         <Rating
                         type='custom'
                         imageSize={15}
@@ -196,7 +196,7 @@ const ProductDetails2 = (props) => {
                      </View>
                      <View style={styles.amazingtextView}>
                      <Image source={ImageIcons.redeye} style={styles.redeye} />
-                     <Text style={styles.TEXT}>Over 750 views todays, so act now</Text>
+                     <Text style={styles.TEXT}>Over 0 views todays, so act now</Text>
                      </View>
                 </View>
                 <View style={styles.amazingtextView}>

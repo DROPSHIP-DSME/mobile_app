@@ -15,10 +15,10 @@ import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import Swipeout from 'react-native-swipeout';
 import HorizontalSlider from 'react-horizontal-slider';
-import Footer2 from '../../screens/common/Footer2';
-import SellHeader from '../../screens/common/Sellheader';
-import Shopheader from '../../screens/common/Shopheader';
-import Footer3 from '../../screens/common/Footer3';
+import Footer2 from '../../screens/auth/Footer2';
+import SellHeader from '../../screens/auth/Sellheader';
+import Shopheader from '../../screens/auth/Shopheader';
+import Footer3 from '../../screens/auth/Footer3';
 
 import AsyncStorage from '@react-native-community/async-storage'; 
 import { useFocusEffect } from '@react-navigation/native';
@@ -317,7 +317,7 @@ const deviceWidth = Dimensions.get('window').width;
            <View style={{marginTop:5,flexDirection:'row',marginHorizontal:3}}>
             <View>
             <Text style={{fontSize:14,width:'80%',marginLeft:'5%'}}>{item.text}</Text>
-            <Text style={{fontSize:16,width:'80%',fontFamily:'SourceSansPro-Bold',marginLeft:'5%'}}>{item.text1}</Text>
+            <Text style={{fontSize:16,width:'80%',fontFamily:'hinted-AvertaStd-Bold',marginLeft:'5%'}}>{item.text1}</Text>
              <View style={{marginBottom:'12%'}}>
                 <Rating
                 type='custom'
@@ -410,12 +410,12 @@ const deviceWidth = Dimensions.get('window').width;
     }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} >
 
      <View style={{flexDirection:"row",marginHorizontal:"4%",marginTop:"9%"}}>
-              <Text style={{fontSize:15,fontFamily:"SourceSansPro-Regular",color:"#999999"}}>ACCOUNT SUMMARY /</Text>
-              <Text style={{fontSize:15,fontFamily:"SourceSansPro-Regular",color:"#1A1A1A"}}> MY FAVORITES</Text>
+              <Text style={{fontSize:15,fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}>ACCOUNT SUMMARY /</Text>
+              <Text style={{fontSize:15,fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}> MY FAVORITES</Text>
               </View> 
           
                <View style={{flexDirection:'row',justifyContent:'space-between',marginHorizontal:'3%',marginVertical:'5%'}}>
-                 <Text style={{fontSize:26,color:'#1a1a1a',fontFamily:'SourceSansPro-SemiBold',}}>My Favorites</Text>
+                 <Text style={{fontSize:26,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',}}>My Favorites</Text>
                </View>
 
               <View style={{flexDirection:'row',marginHorizontal:'4%'}}>
@@ -438,7 +438,7 @@ const deviceWidth = Dimensions.get('window').width;
                 </View>
                 <TouchableOpacity onPress={() => props.navigation.navigate("Accountfav")} style={[styles.pickerViewshorttodayagainorder,{marginLeft:'8%',flexDirection:'row',justifyContent:'space-around',padding:4}]}>
                    <Image source={ImageIcons.whitefiltertoday}  style={{height:11,width:11,marginTop:5}} />
-                   <Text style={{fontSize:16,fontFamily:'SourceSansPro-Regular',textAlign:'center',color:'#ffffff'}}>FILTERS</Text> 
+                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',textAlign:'center',color:'#ffffff'}}>FILTERS</Text> 
                 </TouchableOpacity>
               </View>
 

@@ -19,8 +19,8 @@ import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper';
 import { Rating, AirbnbRating } from 'react-native-ratings';
-import Footer3 from '../../screens/common/Footer3';
-import Shopheader from '../../screens/common/Shopheader';
+import Footer3 from '../../screens/auth/Footer3';
+import Shopheader from '../../screens/auth/Shopheader';
 
 import AsyncStorage from '@react-native-community/async-storage'; 
 import moment from 'moment';
@@ -204,7 +204,7 @@ const renderItem = ({ item ,index }) => {
                 <View style={{left:7,top:2}}>
                 <Image source={ImageIcons.iconpath} style={{width:18,height:18}}/>
                 </View>
-                 <Text style={styles.shorttest}>45.8K</Text>
+                 <Text style={styles.shorttest}>0K</Text>
                 </View>
         </View>
         <View style={{flexDirection:"row",marginTop:10}}>
@@ -247,7 +247,7 @@ const renderItem1 = ({ item ,index }) => {
     }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#FFFFFF'}} >
 
              <View style={{marginHorizontal:'3%',paddingTop:'10%'}}>
-             <Text style={{padding:10,fontSize:32,color:"#B80000",fontFamily:'SourceSansPro',fontWeight:"bold"}}>Pop-up Events</Text>
+             <Text style={{padding:10,fontSize:32,color:"#B80000",fontFamily:'hinted-AvertaStd-Bold',fontWeight:"bold"}}>Pop-up Events</Text>
               <View >
                 <FlatList
                     data={DATA1}
@@ -269,7 +269,7 @@ const renderItem1 = ({ item ,index }) => {
                         //val={parseInt(item.productQuantity)}
                         styleBtn={{width:30.6,height:26,backgroundColor:'#F3F3F3'}}
                         styleTextInput={{width:38.25,height:26,backgroundColor:'#F3F3F3'}}
-                        labelStyle={{fontSize:15,marginTop:'1%',color:'#223263',fontFamily:'SourceSansPro-Regular'}}
+                        labelStyle={{fontSize:15,marginTop:'1%',color:'#223263',fontFamily:'hinted-AvertaStd-Regular'}}
                         //handleClick={(val)=> setIncrement(val,item._id)}
                         />
                     </View>   
@@ -281,7 +281,7 @@ const renderItem1 = ({ item ,index }) => {
 
             <View style={{marginTop:"8%"}}><Text style={styles.clothpop}>About the Event</Text></View>
             <View style={{marginBottom:"8%",marginHorizontal:2}}>
-            <Text style={{fontSize:18,fontFamily:"SourceSansPro-Regular"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie ullamcorper porta id nulla pulvinar 
+            <Text style={{fontSize:18,fontFamily:"hinted-AvertaStd-Regular"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie ullamcorper porta id nulla pulvinar 
             pharetra feugiat a consectetur. Tortor, vulputate vitae,
              molestie cras sit ornare enim. Sed dolor, justo, quam elit pulvinar feugiat quam. {'\n'}
             Egestas adipiscing sit orci, varius in id. Integer lacus consectetur cursus netus cursus faucibus. Placerat pretium malesuada pulvinar sed ornare 
@@ -291,7 +291,7 @@ const renderItem1 = ({ item ,index }) => {
 
             <View style={{marginTop:"8%"}}><Text style={styles.clothpop}>Sign Up to Participate</Text></View>
             <View style={{marginHorizontal:2}}>
-            <Text style={{fontSize:18,fontFamily:"SourceSansPro-Regular"}}>Are you a store owner looking to participate in this event? Fill 
+            <Text style={{fontSize:18,fontFamily:"hinted-AvertaStd-Regular"}}>Are you a store owner looking to participate in this event? Fill 
             in your details below or select the brand you’d like to participate with. 
             </Text>
             </View>

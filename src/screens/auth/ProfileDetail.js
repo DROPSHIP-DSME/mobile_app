@@ -106,8 +106,8 @@ return (
                 </TouchableOpacity>
             }             
              <View style={{marginTop:'5%',marginLeft:'3%',flexDirection:'column'}}>                     
-                <Text style={{fontSize:14,paddingLeft:'4%',fontWeight:'bold',color:'#223263',fontFamily:'SourceSansPro-SemiBold',fontStyle:'normal'}}>{props?.getprofileuserlist?.userName}</Text>
-                <Text style={{fontSize:14,paddingLeft:'7%',paddingTop:'3%',color:'#9098B1',fontWeight:'bold',fontFamily:'SourceSansPro-SemiBold',fontStyle:'normal'}}>@{props?.getprofileuserlist?.userName}</Text>
+                <Text style={{fontSize:14,paddingLeft:'4%',fontWeight:'bold',color:'#223263',fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal'}}>{props?.getprofileuserlist?.userName}</Text>
+                <Text style={{fontSize:14,paddingLeft:'7%',paddingTop:'3%',color:'#9098B1',fontWeight:'bold',fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal'}}>@{props?.getprofileuserlist?.userName}</Text>
              </View>
         </View>
         <View style={[styles.profiltextView,{marginTop:'8%'}]}>

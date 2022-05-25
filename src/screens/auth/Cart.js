@@ -16,8 +16,8 @@ import { Rating ,AirbnbRating} from 'react-native-ratings';
 import RnIncrementDecrementBtn  from 
 'react-native-increment-decrement-button';
 import DashedLine from 'react-native-dashed-line';
-import Footer3 from '../../screens/common/Footer3';
-import Shopheader from '../../screens/common/Shopheader';
+import Footer3 from '../../screens/auth/Footer3';
+import Shopheader from '../../screens/auth/Shopheader';
 
 import CheckBox from '@react-native-community/checkbox';
 import AsyncStorage from '@react-native-community/async-storage'; 
@@ -92,7 +92,7 @@ const Cart = (props) => {
               
         } 
 
-    
+     
     const checklogin =  async () => {
         if(props?.loginuserstatus=="1"){
            props.navigation.navigate("StoreOwner")
@@ -128,7 +128,7 @@ const Cart = (props) => {
                         val={parseInt(item.productQuantity)}
                         styleBtn={{width:30.6,height:26,backgroundColor:'#F3F3F3'}}
                         styleTextInput={{width:38.25,height:26,backgroundColor:'#F3F3F3'}}
-                        labelStyle={{fontSize:15,marginTop:'1%',color:'#223263',fontFamily:'SourceSansPro-Regular'}}
+                        labelStyle={{fontSize:15,marginTop:'1%',color:'#223263',fontFamily:'hinted-AvertaStd-Regular'}}
                         handleClick={(val)=> setIncrement(val,item._id)}
                         />
                     </View>
@@ -160,7 +160,7 @@ const Cart = (props) => {
         <View style={{paddingTop:0}}>
         <View style={styles.addstoreView} >
         <View style={{alignSelf:'center'}}>
-              <Text style={{padding:10,fontSize:35,color:"#B80000",fontFamily:'SourceSansPro',fontWeight:"bold"}}>Cart</Text>
+              <Text style={{padding:10,fontSize:35,color:"#B80000",fontFamily:'hinted-AvertaStd-Bold',fontWeight:"bold"}}>Cart</Text>
 
           </View>
            
@@ -182,7 +182,7 @@ const Cart = (props) => {
                 <Text style={styles.crt21}>Check Out</Text> 
             </TouchableOpacity>
         :
-          <Text style={{ textAlign:'center',paddingTop:30,fontFamily:'SourceSansPro-SemiBold',fontStyle:'normal'}}>No Items added in cart yet</Text>
+          <Text style={{ textAlign:'center',paddingTop:30,fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal'}}>No Items added in cart yet</Text>
         } 
       </View>
      </ScrollView>

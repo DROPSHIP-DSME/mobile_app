@@ -6,12 +6,12 @@ import { schuleEventstart,
     getalleventlist,
     cartadd,
     postcomment,
-    getLiveCustomer,
+    getLiveCustomer, 
     getbrandName,
     getchannelbrandName,
     updateaudiancecount,
-    getaudiancecount,
-    cartPrice,chekout, cartdata,updatewatchlist} from '../../redux/actions/Auth'
+    getaudiancecount,getAllproduct,getincomingtlist,
+    cartPrice,chekout, cartdata,updatewatchlist,getLivecommentCustomer} from '../../redux/actions/Auth'
  
 
 const mapStateToProps = (state) => ({
@@ -27,7 +27,10 @@ const mapStateToProps = (state) => ({
     getalleventdata: state.auth.getalleventdata,
     totalcartprice:state.auth.totalcartprice,
     chekoutLoder: state.auth.chekoutLoder,
-    getcalltokendata: state.auth.getcalltokendata
+    getcalltokendata: state.auth.getcalltokendata,
+    getlistproduct: state.auth.getlistproduct,
+    getinconeorderlist: state.auth.getinconeorderlist,
+    livecommentlist:state.auth.getlivecommentlist
 });
 
 const mapDispatchToProps = {
@@ -42,10 +45,13 @@ const mapDispatchToProps = {
     updateleftcount,
     updatediscount,
     getalleventlist,
+    getAllproduct,
     cartPrice,
+    getincomingtlist,
     chekout,
     cartdata,
-    updatewatchlist
+    updatewatchlist,
+    getLivecommentCustomer
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Blurbackground);

@@ -15,10 +15,10 @@ import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import Swipeout from 'react-native-swipeout';
 import HorizontalSlider from 'react-horizontal-slider';
-import Footer2 from '../../screens/common/Footer2';
-import SellHeader from '../../screens/common/Sellheader';
-import Shopheader from '../../screens/common/Shopheader';
-import Footer3 from '../../screens/common/Footer3';
+import Footer2 from '../../screens/auth/Footer2';
+import SellHeader from '../../screens/auth/Sellheader';
+import Shopheader from '../../screens/auth/Shopheader';
+import Footer3 from '../../screens/auth/Footer3';
 
 import AsyncStorage from '@react-native-community/async-storage'; 
 import { useFocusEffect } from '@react-navigation/native';
@@ -66,13 +66,16 @@ const deviceWidth = Dimensions.get('window').width;
     // ]
  
     useEffect(() => {
+
       props.getincomingtlist(props?.loginuserid);
       props.getselldeshboard(props?.loginuserid);
       props.gettopsell(props?.loginuserid,3);
       props.liveeventdetail(props?.loginuserid);
+      props.Brandslist(); 
     }, [])
 
     useEffect(() => {
+
        // AsyncStorage.setItem('UserId','');
        // AsyncStorage.setItem('userLogin','');
         getBrandUserId();
@@ -131,20 +134,7 @@ const deviceWidth = Dimensions.get('window').width;
         }
     ]);
 
-    const [fdata,setfdata]=useState([
-        {total:"Total income",dollar:"100,000",withdraw:"withdraw money",icon:ImageIcons.arroricon},
-          {total:"Total order",dollar:"10,000",withdraw:" "} ,
-          {total:"Total order",dollar:"10,000"},]);
-
-     const [orderdata,setorderdata]=useState([
-        {name:"Kenitled",cloths:"winter cloths",orderby:"koyajosya"},
-          {name:"Kenitled",cloths:"winter cloths",orderby:"koyajosya"},{name:"Kenitled",cloths:"winter cloths",orderby:"koyajosya"},]);
-
-      const [ordertdata,setordertdata]=useState([
-        {name:"Kenitled",cloths:"winter cloths",orderby:"10000"},
-          {name:"Kenitled",cloths:"winter cloths",orderby:"10000"},{name:"Kenitled",cloths:"winter cloths",orderby:"10000"},]);
-
-
+    
        let colors = ['#8862E01A', '#19D8951A', '#E220201A', '#abcdef'];
 
      const openpopup = () => {
@@ -152,221 +142,11 @@ const deviceWidth = Dimensions.get('window').width;
 
         };
     const closepopup = () => {
-             setVisible(false)
-          }
-
-       const data1 = {
-        labels: ["USA", "Canada", "Mexico"], // optional
-        data: [0.4, 0.6, 0.8]
-        };
-
-       const data = {
-        labels: ["Jan", "Feb", "Mar", "Apr", "May",],
-        datasets: [
-        {
-          data: [20, 45, 28, 80, 99,]
-        }
-        ]
-    };
+       setVisible(false)
+    }
 
     const containerStyle = {backgroundColor: 'red', padding: '7%',marginHorizontal:'5%',alignItems:'center',};
-
-       const DATA = [
-       {
-        image:ImageIcons.redincome,
-       },
-
-     ];
-      const DATA3 = [
-       {
-         image:ImageIcons.girlcent,
-        text:"GSHM8U00S0004KH ",
-        text1:"Amy White ",
-        text2:"amywhite@yahoo.com ",
-       },
-       {
-        image:ImageIcons.girlcent,
-        text:"GSHM8U00S0004KH ",
-        text1:"Amy White ",
-        text2:"amywhite@yahoo.com ",
-       },
-       {
-        image:ImageIcons.girlcent,
-        text:"GSHM8U00S0004KH ",
-        text1:"Amy White ",
-        text2:"amywhite@yahoo.com ",
-       },
-       {
-        image:ImageIcons.girlcent,
-        text:"GSHM8U00S0004KH ",
-        text1:"Amy White ",
-        text2:"amywhite@yahoo.com ",
-       },
-       {
-        image:ImageIcons.girlcent,
-        text:"GSHM8U00S0004KH ",
-        text1:"Amy White ",
-        text2:"amywhite@yahoo.com ",
-       },
-        {
-        image:ImageIcons.girlcent,
-        text:"GSHM8U00S0004KH ",
-        text1:"Amy White ",
-        text2:"amywhite@yahoo.com ",
-       },
-        {
-        image:ImageIcons.girlcent,
-        text:"GSHM8U00S0004KH ",
-        text1:"Amy White ",
-        text2:"amywhite@yahoo.com ",
-       },
-        {
-        image:ImageIcons.girlcent,    
-        text:"GSHM8U00S0004KH ",
-        text1:"Amy White ",
-        text2:"amywhite@yahoo.com ",
-       },
-        {
-        image:ImageIcons.girlcent,
-        text:"GSHM8U00S0004KH ",
-        text1:"Amy White ",
-        text2:"amywhite@yahoo.com ",
-       },
-
-     ];
-     const DATA4 = [
-       {
-         image:ImageIcons.girlcent,
-        text1:"Clothing",
-        text:"GSHM8U00S0004KH ",
-       },
-       {
-        image:ImageIcons.girlcent,
-        text1:"Clothing",
-        text:"GSHM8U00S0004KH ",
-       },
-       {
-        image:ImageIcons.girlcent,
-        text1:"Clothing",
-       text:"GSHM8U00S0004KH ",
-       },
-       {
-        image:ImageIcons.girlcent,
-        text1:"Clothing",
-       text:"GSHM8U00S0004KH ",
-       },
-       {
-        image:ImageIcons.girlcent,
-        text1:"Clothing",
-        text:"GSHM8U00S0004KH ",
-       },
-
-     ];
-
-     const DATA2 = [
-       {
-        text:'Sneakers',
-        text1:'$55.00',
-        text2:'Orders (256)',
-        image:ImageIcons.whiteshoetoday,
-       },
-        {
-       text:'Sneakers',
-       text1:'$55.00',
-       text2:'Orders (256)',
-        image:ImageIcons.whiteshoetoday,
-       },
-       {
-       text:'Sneakers',
-       text1:'$55.00',
-       text2:'Orders (256)',
-        image:ImageIcons.whiteshoetoday,
-       },
-       {
-       text:'Sneakers',
-       text1:'$55.00',
-       text2:'Orders (256)',
-        image:ImageIcons.whiteshoetoday,
-       },
-       {
-       text:'Sneakers',
-       text1:'$55.00',
-       text2:'Orders (256)',
-        image:ImageIcons.whiteshoetoday,
-       },
-       {
-       text:'Sneakers',
-       text1:'$55.00',
-       text2:'Orders (256)',
-        image:ImageIcons.whiteshoetoday,
-       },
-       
-
-     ];
-
-    
-    
-
- const renderItem2 = ({ item ,index }) => {
-     return(
-        <View>
-           <View style={{padding:2,marginHorizontal:7}}>
-              <Image source={item.image} style={{height:162,width:162}} />
-           </View>
-           <View style={{marginTop:5,}}>
-            <Text style={{fontSize:14,width:'80%',marginLeft:'5%'}}>{item.text}</Text>
-            <View style={{height:14,width:14,backgroundColor:'#e6e6e6',borderRadius:3,alignSelf:'flex-end',marginRight:'9%',marginTop:-10,}}></View>
-            <Text style={{fontSize:16,width:'80%',fontFamily:'SourceSansPro-Bold',marginLeft:'5%'}}>{item.text1}</Text>
-             <View>
-                <Rating
-                type='custom'
-                imageSize={18}
-                ratingCount={5}
-                ratingColor='#EB5757'
-                tintColor='#FFE7E7'
-                style={{ paddingVertical: 5,width:100,marginLeft:5}}
-                />
-             </View>
-             <Text style={{fontSize:14,width:'80%',marginLeft:'5%',fontFamily:'SourceSansPro-Regular',color:'#4d4d4d',marginBottom:'20%'}}>{item.text2}</Text>
-          </View>
-        </View>  
-  );
-}
-
-     const renderItem3 = ({ item,index }) => {
-   return(
-           <View>
-
-            <View style={styles.seledataViewTODAY}>
-                     <View style={{flexDirection:'row'}}>
-                       <Image source={item.image} style={{width:18,height:18,}}/>
-                       <Text style={styles.seriestexttoday}>{item.text}</Text>
-                     </View>  
-                       <Text style={styles.seriestexttoday}>{item.text1}</Text>
-                       <Text style={styles.seriestexttoday}>{item.text2}</Text>
-                   </View>
-            
-            </View>
-    );
-    }
-
-     const renderItem4 = ({ item,index }) => {
-   return(
-           <View>
-
-            <View style={styles.seledataViewTODAYsecndrender}>
-                    <View style={{flexDirection:'row'}}>
-                      <Image source={item.image} style={{width:24,height:24,}}/>
-                       <Text style={[styles.seriestexttoday,{alignSelf:'center',marginLeft:1}]}>{item.text}</Text>
-                    </View>   
-                       <Text style={styles.seriestexttoday}>{item.text1}</Text>
-                   </View>
-            
-            </View>
-    );
-    }
-
-    const renderItem6 = ({ item }) => {
+      const renderItem6 = ({ item }) => {
             return(
                 <View>
                     { item.userId.userName=='Admin' ?
@@ -387,8 +167,46 @@ const deviceWidth = Dimensions.get('window').width;
                     }
                 </View>
             );
+    };
+
+      const renderItem1 =({item,index}) =>{
+      return(
+        <View>
+        {index ==0 &&
+        <View style={styles.mainbrandsingl}>
+          <View style={styles.dirspcView}>
+            <Text style={styles.mybrdtxt}>My Brands</Text>
+            <TouchableOpacity style={styles.allsebtn} onPress={() => props.navigation.navigate("Accountbrand")}>
+              <Text style={styles.totalincometodayWIDRO}>SEE ALL</Text> 
+            </TouchableOpacity>
+          </View>
+          <View style={styles.dirspcView}>
+            <TouchableOpacity style={styles.heartratingView} onPress={() => props.navigation.navigate("Accountbrandlist")}>
+              <View>
+                <Image source={{uri: item.brandImage}} style={styles.produtbrandimage2} />
+              </View>
+              <View style={{alignSelf:'center'}}>
+                <Text style={styles.droptxttt}>{item.brandName}</Text>
+                <Text style={styles.dropcom}>store.dropship.com</Text>
+              </View>
+            </TouchableOpacity>
+            <View style={{alignSelf:'center'}}>
+              <View style={{flexDirection:'row',marginTop:'2%',}}>
+                 <Image source={ImageIcons.redcolorbag} style={styles.bgsaimg}/>
+                 <Text style={styles.optext}>0 products</Text>
+              </View>
+              <View style={{flexDirection:'row',marginVertical:'3%',}}>
+                 <Image source={ImageIcons.rededit} style={styles.bgsaimg}/>
+                 <Text style={styles.optext}>0 sales</Text>
+              </View>
+            </View>
+            
+          </View>
+        </View>
+      }
+      </View>
+      );
     }
-    
 
     return (
          <View style={{flex:1}}>
@@ -402,18 +220,18 @@ const deviceWidth = Dimensions.get('window').width;
      
           
                <View style={{flexDirection:'row',justifyContent:'space-between',marginHorizontal:'3%',marginTop:'9%'}}>
-                 <Text style={{fontSize:40,color:'#b80000',fontFamily:'SourceSansPro-Bold',}}>My Account</Text>
+                 <Text style={{fontSize:40,color:'#b80000',fontFamily:'hinted-AvertaStd-Bold',}}>My Account</Text>
                </View>
 
                <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",paddingTop:"5%"}}>
                <TouchableOpacity onPress={() => props.navigation.navigate("Account")}>
-              <Text style={{fontSize:16,fontWeight:"bold",fontFamily:"SourceSansPro-Regular",color:"#999999"}}>Personal Details</Text>
+              <Text style={{fontSize:16,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}>Personal Details</Text>
               </TouchableOpacity>
               <TouchableOpacity onPress={() => props.navigation.navigate("Accountstore")}>
-              <Text style={{fontSize:16,fontWeight:"bold",fontFamily:"SourceSansPro-Regular",color:"#1a1a1a"}}>My store</Text>
+              <Text style={{fontSize:16,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#1a1a1a"}}>My store</Text>
               </TouchableOpacity>
               <TouchableOpacity onPress={() => props.navigation.navigate("Accountsum")}>
-              <Text style={{fontSize:16,fontWeight:"bold",fontFamily:"SourceSansPro-Regular",color:"#999999"}}>Account Summary</Text>
+              <Text style={{fontSize:16,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}>Account Summary</Text>
               </TouchableOpacity>
               </View>
 
@@ -423,38 +241,18 @@ const deviceWidth = Dimensions.get('window').width;
               <View style={{borderBottomWidth:2,borderColor:"#999999",width:"40%"}}></View>
               </View>
 
-              <View style={{width:deviceWidth/1.1,backgroundColor:'#ffffff',padding:'4%',marginTop:'8%',borderRadius:15,alignSelf:'center'}}>
-                 <View style={{flexDirection:'row',justifyContent:'space-between'}}>
-                <Text style={{fontSize:20,fontFamily:'SourceSansPro-SemiBold',color:'#1a1a1a'}}>My Brands</Text>
-                 <TouchableOpacity style={{backgroundColor:'#B80000',width:80,borderRadius:20,padding:8,}}>
-                      <Text style={styles.totalincometodayWIDRO}>SEE ALL</Text> 
-                   </TouchableOpacity>
-                </View>
-                 <View style={{flexDirection:'row',justifyContent:'space-between'}}>
-                  <TouchableOpacity onPress={() => props.navigation.navigate("Accountbrand")} style={{flexDirection:'row',marginLeft:-8}}>
-                   <Image source={ImageIcons.colortodayshoe} style={{width:70,height:70,borderRadius:30,}}/>
-                   <View style={{alignSelf:'center'}}>
-                      <Text style={{fontSize:16,fontFamily:'SourceSansPro-SemiBold',color:'#1a1a1a'}}>Sneakers Store</Text>
-                      <Text style={{fontSize:14,fontFamily:'SourceSansPro-SemiBold',color:'#2F80ED',marginTop:2}}>store.dropship.com</Text>
-                   </View>
-                  </TouchableOpacity>
-
-                   <View style={{alignSelf:'center'}}>
-                    <View style={{flexDirection:'row',}}>
-                       <Image source={ImageIcons.redcolorbag} style={{width:15,height:15,marginTop:2}}/>
-                       <Text style={{fontSize:14,fontFamily:'SourceSansPro-Regular',marginLeft:5}}>56 products</Text>
-                    </View>
-                     <View style={{flexDirection:'row',marginTop:5}}>
-                       <Image source={ImageIcons.rededit} style={{width:15,height:15,marginTop:2}}/>
-                       <Text style={{fontSize:14,fontFamily:'SourceSansPro-Regular',marginLeft:5}}>154 sales</Text>
-                    </View>
-                   </View>
-                  </View>  
-                 
-              </View>
+              <View style={{alignItems:'center',}}>
+              <FlatList
+                data={props?.Brandlistdata || []}
+                renderItem={renderItem1}
+                keyExtractor={item => item.id}
+                showsHorizontalScrollIndicator={false}
+                numColumns={2}
+              />
+            </View>
 
              <View style={{flexDirection:'row',width:deviceWidth/1.1,backgroundColor:'#ffffff',padding:'4%',marginHorizontal:'4%',marginVertical:'5%',borderRadius:10,alignSelf:'center',justifyContent:'space-between'}}>
-               <Text style={{fontSize:20,fontFamily:'SourceSansPro-SemiBold',marginLeft:5,color:'#1a1a1a'}}>Seller’s Dashboard</Text>
+               <Text style={{fontSize:20,fontFamily:'hinted-AvertaStd-Semibold',marginLeft:5,color:'#1a1a1a'}}>Seller’s Dashboard</Text>
                 <Image source={ImageIcons.rightpop} style={{width:10,height:15,marginTop:5}}/>
              </View>
 

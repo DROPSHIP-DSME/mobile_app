@@ -106,11 +106,12 @@ const ForgetPassword = (props) => {
 
         <View style={{backgroundColor:'#ffffff',flex:1}}>
         
-        <View style={[styles.heading,{marginTop:'15%',marginBottom:'5%'}]}>
-            <Image source={ImageIcons.logored_1} style={styles.setlogonewdata}  />
-        </View>
+        
+          <View style={{alignItems:'center',marginTop:'18%'}}>
+              <Image source={ImageIcons.logored_1} style={styles.setlogonewdatarow}  />
+          </View>
         <View>
-            <Text style={styles.headingText1}>Forgot Password</Text>
+            <Text style={styles.headingTextfrgt}>Forgot Password</Text>
         </View>
          <View>
             <Text style={styles.headingText1today}>If you've forgotten your password, please enter your registered email address. We'll send you a link to reset your password.</Text>
@@ -138,17 +139,17 @@ const ForgetPassword = (props) => {
 
         <TouchableOpacity style={styles.Touchablelogin}
             onPress={() => handleRegistrationSubmit()}>
-            <Text style={styles.TouchableloginTEXT}>CONFIRM EMAIL</Text>
+            <Text style={styles.TouchableloginTEXT}>Confirm Email</Text>
         </TouchableOpacity>
 
          <Loader isVisible={props?.loginLoader} />
 
-         <View style={styles.twotextviewcreate}>
-            <Text style={styles.customertext}>Return to</Text>
-            <TouchableOpacity onPress={() => props.navigation.navigate("RegistrationShop")}>
-                <Text style={styles.customertextred}> login screen.</Text>
-            </TouchableOpacity>
-        </View>
+        {/* <View style={styles.twotextviewcreate}>
+                    <Text style={styles.customertext}>Return to</Text>
+                    <TouchableOpacity onPress={() => props.navigation.navigate("RegistrationShop")}>
+                        <Text style={styles.customertextred}> login screen.</Text>
+                    </TouchableOpacity>
+                </View>*/}
 
         
 
