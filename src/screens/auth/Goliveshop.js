@@ -1,8 +1,8 @@
 import React, { useEffect,useRef, useState } from 'react';
 import { Text, View,TextInput,
  ImageBackground,Image,
-  ScrollView,TouchableOpacity, 
- Alert, StatusBar, 
+  ScrollView,TouchableOpacity,
+ Alert, StatusBar,
   KeyboardAvoidingView,
    Platform,Keyboard} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
@@ -19,7 +19,7 @@ import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import AsyncStorage from '@react-native-community/async-storage';
 import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper';
-
+import 'react-native-get-random-values';
 import { v4 as uuid } from "uuid";
 import {
   GoogleSignin,
@@ -87,7 +87,7 @@ const Goliveshop = (props) => {
 
     // Local states
 
-    
+
     const [Email, onChangeEmail] = React.useState("");
     const [PhoneNumber, onChangePhoneNumber] = React.useState("");
     const [Street, onChangeStreet] = React.useState("");
@@ -110,24 +110,24 @@ const Goliveshop = (props) => {
     ]);
 
     useEffect(() => {
-         //props.logoutreducerfun(uuid()); 
+         //props.logoutreducerfun(uuid());
          //AsyncStorage.setItem('UserId',uuid());
-         //AsyncStorage.setItem('userLogin',"0"); 
+         //AsyncStorage.setItem('userLogin',"0");
          GoogleSignin.configure();
 
     }, [])
 
     const googlesignin = async () => {
-        try {      
+        try {
           await GoogleSignin.hasPlayServices();
           var userInfo = await GoogleSignin.signIn();
-          console.log('userInfo:',userInfo) 
+          console.log('userInfo:',userInfo)
         } catch (error) {
             props.navigation.navigate('Registration')
-            console.log('google sign error:', error) 
+            console.log('google sign error:', error)
         }
     }
-    
+
 
     const shopifylogin = async () => {
         setshowshopify(true)
@@ -142,12 +142,12 @@ const Goliveshop = (props) => {
     }
     //const [register, setRegister] = React.useState(true);
     const [store, setStore] = React.useState(true);
-   
+
     const showregister =()=>{
 
         setStore(false)
     }
-    
+
     return (
     <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -155,14 +155,14 @@ const Goliveshop = (props) => {
          <StatusBar backgroundColor={'#ffffff00'} barStyle="dark-content" translucent={true} />
          <ScrollView  keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} >
 
-        
+
 
         <View style={{marginTop:'3%',marginHorizontal:'3%',}}>
             <View style={[styles.heading,{marginTop:'15%',marginBottom:0}]}>
         <Image source={ImageIcons.logored_1} style={styles.setlogonewdata}  />
     </View>
 
-                
+
         <View style={{justifyContent:'center',marginHorizontal:'3%',marginTop:'10%'}}>
             <Text style={styles.LIVEpeopleshop}>People buy more when they can see a product, live!</Text>
         </View>
@@ -234,7 +234,7 @@ const Goliveshop = (props) => {
                         <Text style={[styles.startbutton1,{fontSize:13,marginLeft:20,color:'#000000'}]}>CONTINUE WITH BIG COMMERCE</Text>
                     </View>
                 </TouchableOpacity>
-            </View> 
+            </View>
 
             <View style={{alignItems:'center',marginVertical:'4%'}}>
                 <Text style={[styles.startbutton1,{marginLeft:25,color:'#000000'}]}>OR</Text>
@@ -250,7 +250,7 @@ const Goliveshop = (props) => {
             </View>
         </View>
     }
-    </View> 
+    </View>
 </ScrollView>
 
     { (showshopify==true)  &&

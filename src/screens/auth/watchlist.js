@@ -17,8 +17,9 @@ import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper
 import Footer3 from '../../screens/auth/Footer3';
 import {FlatListSlider} from '../../components/react-native-flatlist-slider';
 import { SliderBox } from "react-native-image-slider-box";
+import 'react-native-get-random-values';
 import { v4 as uuid } from "uuid";
-import AsyncStorage from '@react-native-community/async-storage'; 
+import AsyncStorage from '@react-native-community/async-storage';
 import Video from 'react-native-video';
 import { requestMultiplePermisisons } from '../../services/Permissions'
 import moment from 'moment';
@@ -97,7 +98,7 @@ const watchlist = (props) => {
 
     const handleScroll=(pageYOffset)=>{
         if (pageYOffset > 0) {
-            setshowclassName('#B80000');  
+            setshowclassName('#B80000');
         }else{
             setshowclassName('#FFFFFF00');
         }
@@ -131,7 +132,7 @@ const watchlist = (props) => {
        const containerStyle = { position:'absolute', top:'10%', width:'100%',backgroundColor: 'white', padding: '1%',marginHorizontal:'1%',alignItems:'center'};
 
     // Vendor request submission
-   
+
     const SHOWDATSA = [
         {
             name:'ALL',
@@ -190,7 +191,7 @@ const images = [
       'The Ruby Unicorn',
   },
   ]
-    
+
      const DATA = [
        {
         text:'Beauty brands',
@@ -207,8 +208,8 @@ const images = [
         text2:'Live tomorrow at 10PM',
         image:ImageIcons.basket,
        },
-       
-       
+
+
 
      ];
 
@@ -244,11 +245,11 @@ const images = [
         //     setshowalertmsg('Event will start at '+ moment(eventtime).format('MMM DD, hh:mm A'))
         // }
     }
-     
+
 
     const showConfirmDialog = () => {
         if(props?.loginuserstatus=="1"){
-            navigation.navigate('Newprofile'); 
+            navigation.navigate('Newprofile');
         }else {
 
             setshowAlert(true)
@@ -287,7 +288,7 @@ const handleSendRequestSubmit = async () => {
 const renderItem1 = ({ item ,index }) => {
    return(
     <View>
-    <TouchableOpacity onPress={() => joinbroadcast(item._id,item.startNow,item.eventdate)}>        
+    <TouchableOpacity onPress={() => joinbroadcast(item._id,item.startNow,item.eventdate)}>
         <View style={{marginHorizontal:5,borderRadius:5}}>
                 <Image source={{uri: item.products[0]?.productImage}} style={styles.imgbasket} />
                 <Text style={styles.beautyproduct}>{item.products[0]?.productName}</Text>
@@ -311,9 +312,9 @@ const renderItem1 = ({ item ,index }) => {
         </View>
         <Text style={styl.txt2}>50% off Friday Sale for all</Text>
        </TouchableOpacity>
-    </View> 
+    </View>
   );
-} 
+}
 
  const renderItem = ({ item ,index }) => {
    return(
@@ -343,7 +344,7 @@ const renderItem1 = ({ item ,index }) => {
         </View>
         </View>
         <Text style={styl.txt2}>50% off Friday Sale for all</Text>
-    </View> 
+    </View>
   );
 }
  const renderItem2 = ({ item ,index }) => {
@@ -356,7 +357,7 @@ const renderItem1 = ({ item ,index }) => {
                     <Text style={styles.shorttest1}>Live</Text>
                 </View>
                 <View style={styl.comingshort1}>
-                
+
                 </View>
             </View>
             <View style={styl.rowdrop}>
@@ -368,8 +369,8 @@ const renderItem1 = ({ item ,index }) => {
                 </View>
             </View>
             <Text style={styl.txt2}>50% off Friday Sale for all</Text>
- 
-    </View> 
+
+    </View>
   );
 }
 
@@ -418,7 +419,7 @@ const renderItem6 = ({ item }) => {
         );
     }
 
-    
+
 
     return (
         <KeyboardAvoidingView
@@ -426,7 +427,7 @@ const renderItem6 = ({ item }) => {
             style={styles.registrationRoot}>
             <StatusBar backgroundColor={showclassName} barStyle="dark-content" translucent={true} />
             <View style={{flexDirection:'row',backgroundColor:showclassName,alignItems:'center',justifyContent:'space-between',top:'3%',zIndex:1001,position:'absolute',width:'100%',padding:'3%'}}>
-                
+
                 <View>
                 {showclassName=='#FFFFFF00' ?
                     <Image source={ImageIcons.logored_1} style={{width:70,height:57}}/>
@@ -438,11 +439,11 @@ const renderItem6 = ({ item }) => {
                     {/*<TouchableOpacity onPress={() => props.navigation.navigate("Search")}>
                                             <Image source={ImageIcons.white_search} style={{width:21,height:20}}/>
                                         </TouchableOpacity>*/}
-                   
+
                     <TouchableOpacity onPress={() => props.navigation.navigate("Notification")} style={{marginHorizontal:'5%'}}>
                         <Image source={ImageIcons.bell} style={{width:21,height:21,}}/>
                     </TouchableOpacity>
-                    
+
                     <TouchableOpacity onPress={() => { props.navigation.navigate('Cart') }}>
                         <View style={{flexDirection:'row'}}>
                             <Image source={ImageIcons.whitecart} style={{width:18,height:20.6,}}/>
@@ -469,17 +470,17 @@ const renderItem6 = ({ item }) => {
                         indicatorInActiveColor={'#8A8A8A'}
                         indicatorActiveWidth={5}
                         animation
-                    />  
+                    />
                 </View>
 
-            
+
                 <TouchableOpacity onPress={() => props.navigation.navigate("Search")}>
                 <View style={{flexDirection:'row',marginVertical:'5%',height:50,width:deviceWidth/1.1,backgroundColor:'#E6E6E6',borderRadius:10,alignItems:'center',alignSelf:'center'}}>
                     <View style={{marginLeft:'4%',marginTop:'1%'}}>
                     <Image source={ImageIcons.redsearchtoday}  style={{height:14,width:14,}} />
                    </View>
                     <Text style={{marginHorizontal:'2%'}}> Search for anything</Text>
-                    
+
                 </View>
                 </TouchableOpacity>
                 <View style={[styles.maincartview,{marginBottom:'3%',marginTop:'1%'}]}>
@@ -491,8 +492,8 @@ const renderItem6 = ({ item }) => {
                         horizontal={true}
                     />
 
-                    
-                    
+
+
                 </View>
 
                 <View style={{marginLeft:10,marginTop:5}}>
@@ -504,10 +505,10 @@ const renderItem6 = ({ item }) => {
                         horizontal={true}
                     />
                 </View>
-                
-                 
-                 
-               
+
+
+
+
                 <View style={{marginLeft:10,marginTop:35}}>
                     <FlatList
                         data={props?.getlistproduct || []}
@@ -519,12 +520,12 @@ const renderItem6 = ({ item }) => {
                 </View>
                 <View style={{marginHorizontal:'4%',marginTop:"5%"}}>
                     <Image source={ImageIcons.newimg} style={styles.newimg} />
-                </View> 
+                </View>
                 <TouchableOpacity>
                         <Text style={styles.salestextbtn}>VIEW ALL LIVESTREAMS</Text>
                     </TouchableOpacity>
 
-                
+
                 <View style={{marginLeft:10,marginTop:35}}>
                     <FlatList
                         data={props?.getlistproduct || []}
@@ -534,7 +535,7 @@ const renderItem6 = ({ item }) => {
                          horizontal={true}
                     />
                 </View>
-                
+
 
                 <TouchableOpacity>
                     <View style={{marginBottom:'18%',marginLeft:'3%',marginTop:35}}>
@@ -547,23 +548,23 @@ const renderItem6 = ({ item }) => {
                         />
                     </View>
                 </TouchableOpacity>
-                 
+
             </View>
-                 
-                
+
+
         </ScrollView>
        { helppopup ==true &&
         <View style={{flex:1,backgroundColor:'#f9f9f9',margin:20,paddingVertical:10,borderRadius:10,zIndex:4001, position:'absolute',bottom:'20%'}}>
-            
-           
+
+
               <View style={styles.chatViewrose}>
-                    
+
                 <Text style={styles.Benrosetext}>Write to Customer Support</Text>
                 <TouchableOpacity style={{position:'absolute',right:15,top:5}} onPress={() => sethelppopup(false)}>
                     <Image source={ImageIcons.closepopup}  style={styles.sendmsg2} />
                 </TouchableOpacity>
             </View>
-            
+
             <View style={[styles.accountmainview,{marginBottom:50, width:'100%'}]}>
             <View style={{width:'90%'}}>
                 <TextInput  style={[styles.chatinput,{height:120,width:'100%'}]}
@@ -581,13 +582,13 @@ const renderItem6 = ({ item }) => {
             </View>
         </View>
         }
-        
+
             <View style={{ position:'absolute',zIndex:2001,right:20,bottom:70}}>
                <TouchableOpacity onPress={() => sethelppopup(true)}>
                     <Image source={ImageIcons.exporthelp} style={{width:50,height:50}}/>
                 </TouchableOpacity>
             </View>
-        
+
     <Footer3 onSelection="1" />
         <AwesomeAlert
           show={showAlert}

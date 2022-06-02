@@ -4,7 +4,9 @@ import store from './src/redux/Store'
 import RootNavigation from './src/route/RootNavigation';
 import axios from 'axios';
 import api from './src/common/Api';
+import {TailwindProvider} from 'tailwind-rn';
 import SplashScreen from 'react-native-splash-screen';
+import utilities from './tailwind.json';
 
 const App = () => {
   axios.defaults.baseURL = api.baseUri; // BASE URL
@@ -16,6 +18,10 @@ const App = () => {
       <RootNavigation />
     </Provider>
   );
+
+  <TailwindProvider utilities={utilities}>
+		<MyComponent />
+	</TailwindProvider>
 };
 
 export default App;

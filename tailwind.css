@@ -1,0 +1,27 @@
+.static {
+  position: static
+}
+
+.absolute {
+  position: absolute
+}
+
+.relative {
+  position: relative
+}
+
+.flex {
+  display: flex
+}
+
+.grow {
+  flex-grow: 1
+}
+
+.lowercase {
+  text-transform: lowercase
+}
+
+.underline {
+  text-decoration-line: underline
+}

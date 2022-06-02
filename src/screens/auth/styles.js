@@ -64,13 +64,13 @@ stwtxt:{
         width:40,
         height:40,
         marginTop:'5%',left:20
-       
+
     },
      leftIconblack: {
         width:23.33,
         height:13.33,
         left:20,top:'20%'
-       
+
     },
     leftlogView:{
       flexDirection:'row',marginTop:'14%',marginHorizontal:'5%'
@@ -106,10 +106,10 @@ stwtxt:{
         borderWidth:1,borderColor:'#e6e6e6',padding:5, borderRadius:50
     },
     google1: {
-       width:25,height:25   
+       width:25,height:25
     },
     droparrow: {
-       width:18,height:18   
+       width:18,height:18
     },
     copyimg:{
      width:21.4,height:24,
@@ -147,7 +147,7 @@ stwtxt:{
        position:'absolute',bottom:-53
     },
     facebook1: {
-        
+
        width:25, height:25
     },
     newmslimg:{
@@ -196,11 +196,11 @@ stwtxt:{
         marginBottom:2,alignSelf:'center',marginTop:1
     },
     footer4img:{
-       width:18,height:24, 
+       width:18,height:24,
        alignSelf:'center',
     },
      footer4imgtoday:{
-       width:21,height:21, 
+       width:21,height:21,
        alignSelf:'center',marginTop:4
     },
     footersel:{
@@ -213,21 +213,21 @@ stwtxt:{
     },
     cart1: {
          width:20,
-       
+
     },
     tvicon1: {
           width: 20,
-       
+
         //alignItems:'center'
          //marginLeft:'17%',
     },
     share1: {
           width: 20,
-       
+
     },
     prof1: {
         width: 20,
-       
+
     },
     products1: {
          width: wp('8%'),
@@ -245,7 +245,7 @@ stwtxt:{
          width: wp('10%'),
         height: wp('8%'),
     },
-   
+
     phone1: {
         height:40,width:40,
     },
@@ -262,7 +262,7 @@ stwtxt:{
         height:30,
         borderRadius:40,marginLeft:'5%'
     },
-   
+
     next1: {
         width:4,
         height: 8,
@@ -327,11 +327,11 @@ stwtxt:{
         alignSelf:'center', fontFamily: 'hinted-AvertaStd-Regular',paddingHorizontal:20, fontSize: 12, color:'#808080'
     },
     message1: {
-        
-       
+
+
     },
     twitter1: {
-        
+
        width:15, height:15
     },
     linkin1: {
@@ -501,7 +501,7 @@ stwtxt:{
         backgroundColor:'#AFFFE2',
         borderRadius:50,justifyContent:'center',alignItems:'center'
    },
-   
+
    Touchableselltext:{
         width:'70%',height:48,
         backgroundColor:'#AFFFE2',
@@ -518,7 +518,7 @@ stwtxt:{
         color:'#0B0022',
    },
   input1: {
-    
+
     marginHorizontal:'5%',marginTop:'5%',
     borderWidth: 1,borderColor:'#E6E6E6',paddingLeft:'5%',
     borderRadius:12,backgroundColor:'#E6E6E6', color:'#000000', height:50
@@ -535,31 +535,31 @@ stwtxt:{
       marginVertical:'1%'
   },
   inputcategory:{
-     
+
     marginHorizontal:'4%',marginTop:'4%',
     paddingLeft:'5%',borderWidth:1,borderColor:"#4E4E4E",
     borderRadius:5, color:'#000000', height:47,backgroundColor:"#FFFFFF"
    },
     inputcategorytodayy:{
-     
+
     marginHorizontal:'4%',marginTop:'4%',
     paddingLeft:'5%',fontSize:16,
     borderRadius:5, color:'#000000', height:50,backgroundColor:"#e6e6e6"
    },
     inputcategorytodayyaccount:{
-     
+
     marginHorizontal:'4%',
     paddingLeft:'5%',fontSize:16,width:deviceWidth/2.1,
     borderRadius:5, color:'#000000', height:50,backgroundColor:"#e6e6e6"
    },
     inputcategorytodayy123:{
-     
+
     marginHorizontal:'4%',marginTop:'4%',
     paddingLeft:12,fontSize:16,
     borderRadius:5, color:'#000000', height:120,backgroundColor:"#e6e6e6",textAlignVertical:'top'
    },
    inputcategory1:{
-     
+
     marginTop:'4%',
     paddingLeft:'5%',elevation:1,
     borderRadius:5, color:'#000000', height:200,backgroundColor:"#FFFFFF"
@@ -655,9 +655,9 @@ Viewcart:{
 Viewcart2:{
     flexDirection:'row' ,marginVertical:'3%',
     marginHorizontal:'3%',alignItems:'center',borderRadius:5,
-    
+
 },
-crt5:{ 
+crt5:{
     width:68.85, height:72,borderRadius:5
 },
 newdirection:{
@@ -881,47 +881,47 @@ livec23:{height:180,width:180,borderRadius:10,marginLeft:'5%',},
 livec24one:{
  width:deviceWidth/4,
  height:25,
- borderRadius:10, 
+ borderRadius:10,
  backgroundColor:"#E6E6E6",marginHorizontal:8,height:40,padding:6
 },
 
 livec24:{
- 
+
  padding:10,
- borderRadius:10, 
+ borderRadius:10,
  backgroundColor:"#E6E6E6",marginHorizontal:8
 },
 newlivec24:{
     width:deviceWidth/4,
-    borderRadius:30, 
+    borderRadius:30,
     backgroundColor:"#00B84A66",marginHorizontal:8
 },
 newlivec25:{
     width:deviceWidth/5,
     borderRadius:30,marginVertical:4,
-    backgroundColor:"#DCDCDC",marginHorizontal:3 
-}, 
-livec25789:{ 
+    backgroundColor:"#DCDCDC",marginHorizontal:3
+},
+livec25789:{
     width:deviceWidth/4,
     height:25,
     borderRadius:10,
-    backgroundColor:"#B80000",marginHorizontal:8,height:40,padding:6  
-},    
+    backgroundColor:"#B80000",marginHorizontal:8,height:40,padding:6
+},
 
-livec25:{ 
+livec25:{
     width:deviceWidth/4,
     height:25,
     borderRadius:10,
-    backgroundColor:"#B80000",marginHorizontal:8  
+    backgroundColor:"#B80000",marginHorizontal:8
 },
 
 livec26:{
                          width:deviceWidth/4,
-                         
+
                            borderRadius:30,
-                          
+
                            backgroundColor:"#EDEDF0",
-                          
+
                           },
 
 
@@ -1157,7 +1157,7 @@ recodingproduct:{
 
 StoreTouchability:{
       height:57, width:'60%',
-      borderRadius:50, 
+      borderRadius:50,
       backgroundColor:"#E22020",alignSelf:'center',
       marginTop:'2%',justifyContent:'center'
    },
@@ -1177,7 +1177,7 @@ rettext:{
 },
 
 
-tops1:{flexDirection:'row', marginLeft:'6%',marginTop:'15%'}, 
+tops1:{flexDirection:'row', marginLeft:'6%',marginTop:'15%'},
 
 tops2:{fontSize:16,marginLeft:'20%',fontWeight:'600',fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal'},
 
@@ -1329,10 +1329,10 @@ tops2:{fontSize:16,marginLeft:'20%',fontWeight:'600',fontFamily:'hinted-AvertaSt
        alignSelf:'center',width:28,height:22,
     },
     imgcart3:{
-       alignSelf:'center',width:20,height:25, 
+       alignSelf:'center',width:20,height:25,
     },
     imgvector3:{
-       alignSelf:'center',width:24,height:22, 
+       alignSelf:'center',width:24,height:22,
     },
     imgvectorproduct:{
        width:12.5,height:12.5,position:'absolute',top:'13%',right:20
@@ -1358,7 +1358,7 @@ tops2:{fontSize:16,marginLeft:'20%',fontWeight:'600',fontFamily:'hinted-AvertaSt
     livetextred:{
   fontSize:12,fontWeight:'600',fontStyle:'normal',marginHorizontal:'6%',
   color:'#E22020',fontFamily:'hinted-AvertaStd-Semibold',lineHeight:15,
-  
+
 },
 
     seriestext:{
@@ -1369,7 +1369,7 @@ tops2:{fontSize:16,marginLeft:'20%',fontWeight:'600',fontFamily:'hinted-AvertaSt
        fontSize:14,fontWeight:'600',fontStyle:'normal',fontFamily:'hinted-AvertaStd-Semibold',
        lineHeight:16,color:'#282828'
     },
-    
+
     moretbutton:{
         textAlign:'center',fontSize:14,fontFamily:'hinted-AvertaStd-Regular',fontStyle:'normal',
         color:'#FFFFFF',fontWeight:'bold',letterSpacing:0.5
@@ -1384,7 +1384,7 @@ tops2:{fontSize:16,marginLeft:'20%',fontWeight:'600',fontFamily:'hinted-AvertaSt
     pickerViewshort: {
         borderWidth: 1,marginTop:'4%',marginHorizontal:'3%',
         borderColor:'#ABABAB', borderRadius:5,width:50,backgroundColor:'#E6E6E6',height:30
-        
+
     },
     totalincometodaylive:{
     fontFamily: 'hinted-AvertaStd-Bold',
@@ -1543,19 +1543,19 @@ tops2:{fontSize:16,marginLeft:'20%',fontWeight:'600',fontFamily:'hinted-AvertaSt
      pickerViewshorttoday: {
         marginTop:'5%',
         borderColor:'#e6e6e6', borderRadius:5,width:115,backgroundColor:'#e6e6e6',height:30
-        
+
     },
      pickerViewshorttodaysaleing: {
         //marginTop:'4%',
         borderColor:'#e6e6e6', borderRadius:5,width:115,backgroundColor:'#e6e6e6',height:30
-        
+
     },
     modalreasontoday: {
     height:42,
     marginHorizontal:'3%',
     //marginVertical:'1%',
     borderWidth: 1,borderColor:'#000000',
-    borderRadius:5, 
+    borderRadius:5,
     color:'#000000'
   },
    inputedittoday: {
@@ -1601,12 +1601,12 @@ tops2:{fontSize:16,marginLeft:'20%',fontWeight:'600',fontFamily:'hinted-AvertaSt
      pickerViewshorttodayagain: {
         //marginHorizontal:'4%',
         borderColor:'#e6e6e6', borderRadius:5,width:115,backgroundColor:'#e6e6e6',height:30
-        
+
     },
      pickerViewshorttodayagainpending: {
         //marginHorizontal:'4%',
         borderColor:'#e6e6e6', borderRadius:5,width:130,backgroundColor:'#ffe6ff',height:35
-        
+
     },
     dashorderpicker:{
       borderColor:'#e6e6e6', borderRadius:5,width:100,backgroundColor:'#e6e6e6',height:40
@@ -1614,91 +1614,91 @@ tops2:{fontSize:16,marginLeft:'20%',fontWeight:'600',fontFamily:'hinted-AvertaSt
      pickerViewshorttodayagainsmall: {
         //marginHorizontal:'4%',
         borderColor:'#e6e6e6', borderRadius:5,width:85,backgroundColor:'#ffccff',height:24
-        
+
     },
      pickerViewshorttodayagainsale: {
         //marginHorizontal:'4%',
         borderColor:'#e6e6e6', borderRadius:5,width:140,backgroundColor:'#e6e6e6',height:30
-        
+
     },
       pickerViewshorttodayagainlive2: {
         //marginHorizontal:'4%',
         borderColor:'#e6e6e6', borderRadius:10,width:200,backgroundColor:'#e6e6e6',height:45,
         marginHorizontal:'4%',marginTop:'4%',
-        
+
     },
      pickerViewshorttodayAdvertise: {
         //marginHorizontal:'4%',
         borderColor:'#e6e6e6', borderRadius:10,width:deviceWidth/1.1,backgroundColor:'#e6e6e6',height:55,
         alignSelf:'center',marginTop:'7%'
-        
+
     },
      pickerViewshorttodaybrand: {
         //marginHorizontal:'4%',
         borderColor:'#e6e6e6', borderRadius:10,width:deviceWidth/1.1,backgroundColor:'#e6e6e6',height:55,
         alignSelf:'center',
-        
+
     },
      pickerViewshorttodaybranded1234: {
         //marginHorizontal:'4%',
         borderColor:'#e6e6e6', borderRadius:10,width:deviceWidth/1.1,backgroundColor:'#e6e6e6',height:55,
-        
-        
+
+
     },
      pickerViewshorttodaybrandaccount: {
         //marginHorizontal:'4%',
         borderColor:'#e6e6e6', borderRadius:10,width:deviceWidth/2.5,backgroundColor:'#e6e6e6',height:50,
         fontSize:16, color:'#000000'
-        
+
     },
      pickerViewshorttodaybrandaccount123: {
         //marginHorizontal:'4%',
         borderColor:'#e6e6e6', borderRadius:10,width:deviceWidth/3,backgroundColor:'#e6e6e6',height:50,
         marginLeft:-4,color:'#000000'
-        
+
     },
      pickerViewshorttodaybrandtodayy: {
         //marginHorizontal:'4%',
         borderColor:'#e6e6e6', borderRadius:5,width:deviceWidth/1.17,backgroundColor:'#e6e6e6',height:50,
         alignSelf:'center',marginTop:'3%'
-        
+
     },
      pickerViewshorttodaybrandtodayy1: {
         //marginHorizontal:'4%',
         borderColor:'#e6e6e6', borderRadius:5,width:deviceWidth/1.17,backgroundColor:'#e6e6e6',height:50,
         alignSelf:'center',marginTop:'7%'
-        
+
     },
      pickerViewshorttodayAdvertise123: {
         //marginHorizontal:'4%',
         borderColor:'#e6e6e6', borderRadius:20,width:deviceWidth/1.1,backgroundColor:'#e6e6e6',height:50,
         alignSelf:'center',marginTop:'1%'
-        
+
     },
      pickerViewshorttodayagainprodtal: {
         //marginHorizontal:'4%',
         borderColor:'#e6e6e6', borderRadius:5,width:12,backgroundColor:'#f2f2f2',height:30
-        
+
     },
      pickerViewshorttodayagainorder: {
         //marginHorizontal:'4%',
         borderColor:'#e6e6e6', borderRadius:5,width:'30%',backgroundColor:'#999999',height:30
-        
+
     },
       pickerViewshorttodayagainorderstore: {
         //marginHorizontal:'4%',
         borderColor:'#e6e6e6', borderRadius:5,width:'30%',backgroundColor:'#d9d9d9',height:30
-        
+
     },
     pickerViewshorttodaymodal: {
         //marginHorizontal:'4%',
         borderColor:'#e6e6e6', borderRadius:5,width:200,backgroundColor:'#e6e6e6',height:60,alignSelf:'center'
-        
+
     },
      pickerViewshorttodaymodallist: {
         //marginHorizontal:'4%',
         borderColor:'#e6e6e6', borderRadius:10,width:130,backgroundColor:'#e6e6e6',height:40,marginHorizontal:'10%'
-        
+
     },
     pickerView: {
         borderWidth: 1,marginTop:'4%',marginHorizontal:'4%',
@@ -1774,19 +1774,19 @@ inputdescript:{
     borderRadius:5, color:'#000000'
 },
 inputproduct1:{
-    
+
     marginHorizontal:'3%',marginTop:'4%',
     borderWidth: 1,borderColor:'#BDBDBD',paddingLeft:'10%',
     borderRadius:6
 },
 inputSHORT:{
-    
+
     marginHorizontal:'3%',marginTop:'4%',
     borderWidth: 1,borderColor:'#ABABAB',paddingLeft:'10%',
     borderRadius:5, color:'#000000', height:40
 },
 inputstore:{
-    
+
     marginHorizontal:'3%',marginTop:'4%',
     paddingLeft:'10%',backgroundColor:'#FFF0F0',
     borderRadius:5, color:'#000000'
@@ -1944,14 +1944,14 @@ dropcom:{
 },
 beautyproductView:{
      borderWidth: 1,borderColor:'#FFE7E7',
-    borderRadius:5,backgroundColor:'#FFE7E7', 
+    borderRadius:5,backgroundColor:'#FFE7E7',
     shadowColor: '#470000',  shadowOffset: {width: 1, height: 1},
     shadowOpacity: 0.5,
     elevation: 2
 },
 beautyproductView2345:{
      borderWidth: 1,borderColor:'#FFE7E7',
-    borderRadius:5,backgroundColor:'#f2f2f2', 
+    borderRadius:5,backgroundColor:'#f2f2f2',
     shadowColor: '#470000',  shadowOffset: {width: 1, height: 1},
     shadowOpacity: 0.5,
     elevation: 2
@@ -2000,11 +2000,11 @@ produtimage:{
     height:47,width:50,marginTop:'15%'
 },
 produtbrandimage:{
-    
+
     width:70,height:70,borderRadius:40,alignSelf:'center'
 },
 produtbrandimage2:{
-    
+
     width:70,height:70,borderRadius:40,
 },
 themeimage:{
@@ -2833,7 +2833,7 @@ upfclothtext:{
 buyblurtext:{
   fontSize:15,fontWeight:'600',fontStyle:'normal',color:'#FFFFFF',
  fontFamily:'hinted-AvertaStd-Semibold',
-}, 
+},
 sharetext:{
     fontSize:12,fontWeight:'bold',fontStyle:'normal',color:'rgba(61, 90, 128, 0.5)',marginVertical:'5%',
  fontFamily:'hinted-AvertaStd-Semibold',textAlign:'center',lineHeight:15
@@ -2870,15 +2870,15 @@ detailtext:{
    fontFamily:'hinted-AvertaStd-Semibold',marginHorizontal:'3%'
 },
 footerView:{
-    width: '100%', 
+    width: '100%',
     backgroundColor: '#FFFFFF',
     height: 66,justifyContent:'center',
      shadowColor: '#000000',  shadowOffset: {width: 1, height: 1},
         shadowOpacity: 1,
         elevation: 5,
-   
-    
-    position:'absolute', 
+
+
+    position:'absolute',
     bottom:0
 },
 twotextviewlive:{
@@ -2997,7 +2997,7 @@ nametext:{
 addresstext:{
      fontSize:15,color:'#000000',paddingVertical:'1%',
     fontWeight:'normal',fontFamily:'hinted-AvertaStd-Regular',fontStyle:'normal',
-    
+
 },
 plusstext:{
      fontSize:25,color:'#000000',textAlign:'center',

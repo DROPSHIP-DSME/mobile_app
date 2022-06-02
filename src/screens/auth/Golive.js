@@ -1,7 +1,7 @@
 import React, { useEffect,useRef, useState } from 'react';
 import { Text, View,TextInput,
  ImageBackground,Image,
-  ScrollView,TouchableOpacity, 
+  ScrollView,TouchableOpacity,
  Alert,  StatusBar,
   KeyboardAvoidingView,
    Platform,Keyboard,NativeModules,Picker} from 'react-native';
@@ -19,6 +19,7 @@ import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import AsyncStorage from '@react-native-community/async-storage';
 import { v4 as uuid } from "uuid";
+import 'react-native-get-random-values';
 import {
   GoogleSignin,
   GoogleSigninButton,
@@ -79,7 +80,7 @@ const Golive = (props) => {
 
     useEffect(() => {
         props.countrylist();
-         //props.logoutreducerfun(uuid()); 
+         //props.logoutreducerfun(uuid());
          //AsyncStorage.setItem('UserId',uuid());
          //AsyncStorage.setItem('userLogin',"0");
          //GoogleSignin.configure();
@@ -94,20 +95,20 @@ const Golive = (props) => {
                   googleServicePlistPath: '', // [iOS] if you renamed your GoogleService-Info file, new name here, e.g. GoogleService-Info-Staging
                   openIdRealm: '', // [iOS] The OpenID2 realm of the home web server. This allows Google to include the user's OpenID Identifier in the OpenID Connect ID token.
                   profileImageSize: 120, // [iOS] The desired height (and width) of the profile image. Defaults to 120px
-                }); 
+                });
     }, [])
 
     const googlesignin = async () => {
-        try {    
-        
+        try {
+
           await GoogleSignin.hasPlayServices();
           var userInfo = await GoogleSignin.signIn();
-          console.log('userInfo:',userInfo) 
+          console.log('userInfo:',userInfo)
           props.navigation.navigate('watchlist')
         } catch (error) {
             //alert('Dropship has not updated on stores yet, please upload app on stores to proceed')
             //props.navigation.navigate('watchlist')
-            console.log('google sign error:', error) 
+            console.log('google sign error:', error)
         }
     }
 
@@ -127,7 +128,7 @@ const facebooksignin = async () => {
         RNTwitterSignIn.init(Constants.TWITTER_COMSUMER_KEY, Constants.TWITTER_CONSUMER_SECRET)
         RNTwitterSignIn.logIn()
           .then(loginData => {
-            
+
             console.log(loginData)
             const { authToken, authTokenSecret } = loginData
             if (authToken && authTokenSecret) {
@@ -152,7 +153,7 @@ const facebooksignin = async () => {
         if (PhoneNumber == "" || PhoneNumber.length !=10 ) {
             Alert.alert('phone is required')
         }else {
-            
+
             let request = {
                 "phone": PhoneNumber
             }
@@ -188,7 +189,7 @@ const facebooksignin = async () => {
             style={styles.registrationRoot}>
              <StatusBar backgroundColor={'#ffffff00'} barStyle="dark-content" translucent={true} />
         <View style={{backgroundColor:'#ffffff',flex:1}}>
-          
+
           <View style={{alignItems:'center',marginTop:'18%'}}>
               <Image source={ImageIcons.logored_1} style={styles.setlogonewdatarow}  />
           </View>
@@ -202,7 +203,7 @@ const facebooksignin = async () => {
                     <Text style={[styles.startbutton1,{fontSize:18,marginLeft:20,color:'#000000'}]}>Sign in with Google</Text>
                 </View>
             </TouchableOpacity>
-        </View> 
+        </View>
         <View style={{alignItems:'center',marginTop:'4%'}}>
             <TouchableOpacity
                 style={styles.Touchablestarttextnew}
@@ -213,29 +214,29 @@ const facebooksignin = async () => {
                     <Text style={[styles.startbutton1,{fontSize:18,marginLeft:20,color:'#000000'}]}>Sign in with Facebook</Text>
                 </View>
             </TouchableOpacity>
-        </View> 
+        </View>
         <View style={[styles.devider1, { marginTop: '10%' }]}>
             <View style={styles.devider2} />
             <Text style={styles.devider3}>OR</Text>
             <View style={styles.devider2} />
         </View>
-        
+
 
         <TouchableOpacity style={[styles.Touchablelogin,{width:'90%',marginTop:'5%',marginHorizontal:'2%'}]}
             onPress={() => navigation.navigate("RegistrationShop")}>
             <Text style={[styles.TouchableloginTEXT,{fontSize:18,fontWeight:'700'}]}>Sign in with Email</Text>
         </TouchableOpacity>
 
-         <View style={styles.twotextviewcreatetop}> 
+         <View style={styles.twotextviewcreatetop}>
                 <Text style={styles.customertext}>Don’t have an account yet?</Text>
                 <TouchableOpacity onPress={() => props.navigation.navigate("CreateAccountShop")}>
                     <Text style={styles.customertextred}> Sign up here.</Text>
                 </TouchableOpacity>
-            </View> 
-        
+            </View>
 
-        
-        </View>  
+
+
+        </View>
          </KeyboardAvoidingView>
     )
 }

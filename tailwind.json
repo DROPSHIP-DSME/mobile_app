@@ -1,0 +1,37 @@
+{
+	"static": {
+		"style": {
+			"position": "static"
+		}
+	},
+	"absolute": {
+		"style": {
+			"position": "absolute"
+		}
+	},
+	"relative": {
+		"style": {
+			"position": "relative"
+		}
+	},
+	"flex": {
+		"style": {
+			"display": "flex"
+		}
+	},
+	"grow": {
+		"style": {
+			"flexGrow": 1
+		}
+	},
+	"lowercase": {
+		"style": {
+			"textTransform": "lowercase"
+		}
+	},
+	"underline": {
+		"style": {
+			"textDecorationLine": "underline"
+		}
+	}
+}
