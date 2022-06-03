@@ -4,24 +4,23 @@ import store from './src/redux/Store'
 import RootNavigation from './src/route/RootNavigation';
 import axios from 'axios';
 import api from './src/common/Api';
-import {TailwindProvider} from 'tailwind-rn';
 import SplashScreen from 'react-native-splash-screen';
+import {TailwindProvider} from 'tailwind-rn';
 import utilities from './tailwind.json';
 
 const App = () => {
   axios.defaults.baseURL = api.baseUri; // BASE URL
-  useEffect(() => {
-    SplashScreen.hide();
-}, []);
-  return (
-    <Provider store={store}>
-      <RootNavigation />
-    </Provider>
-  );
+    useEffect(() => {
+      SplashScreen.hide();
+  }, []);
+    return (
+      <TailwindProvider utilities={utilities}>
+        <Provider store={store}>
+          <RootNavigation />
+        </Provider>
+      </TailwindProvider>
+    );
 
-  <TailwindProvider utilities={utilities}>
-		<MyComponent />
-	</TailwindProvider>
 };
 
 export default App;

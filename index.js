@@ -20,7 +20,7 @@ import PushNotification from "react-native-push-notification";
         if (remoteMessage?.data?.vendor) {
             let vendorBody = JSON.parse(remoteMessage?.data?.vendor);
             console.log("vendorBody===>",vendorBody)
-            
+
         }
         // process the notification
 
@@ -58,7 +58,7 @@ import PushNotification from "react-native-push-notification";
      * - if not, you must call PushNotificationsHandler.requestPermissions() later
      * - if you are not using remote notification or do not have Firebase installed, use this:
      *     requestPermissions: Platform.OS === 'ios'
-     
+
     requestPermissions: true,
 });*/
 

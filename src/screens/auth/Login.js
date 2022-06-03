@@ -9,7 +9,6 @@ import { withFormik } from 'formik';
 import * as Yup from 'yup';
 import styles from './styles';
 import { Colors, CommonStrings } from '../../common';
-import {useTailwind} from 'tailwind-rn';
 import ImageIcons from '../../common/ImageIcons';
 import InputField from '../../components/forms/inputField';
 import { LinkButton, RoundedButton } from '../../components/forms/button';
@@ -20,6 +19,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import 'react-native-get-random-values';
 import { v4 as uuid } from "uuid";
+import {useTailwind} from 'tailwind-rn';
 
 import AppIntroSlider from 'react-native-app-intro-slider';
 
@@ -187,17 +187,17 @@ const RenderItem = ({item,index}) => {
                     <Image source={item.title}  style={{width:145, height:117}}  />
                 </View>
                 <View style={{alignItems:'center',justifyContent:'center',marginTop:'15%'}}>
-                    <Text style={styles.goodtext}>{item.text}</Text>
+                    <Text style={tailwind('px-2 text-3xl text-white text-center')}>{item.text}</Text>
                 </View>
             </View>
         :
             <View style={{ width, height }}>
                 <View style={{flex:1,backgroundColor:'#FFFFFF',justifyContent:'center'}}>
-                    <View style={styles.groupView}>
-                        <Image source={item.image}  style={styles.groupimg} />
+                    <View style={tailwind('mt-6 items-center')}>
+                        <Image source={item.image}  style={tailwind('h-80 w-72')} />
                     </View>
-                    <View style={{marginVertical:'6%',marginHorizontal:'3%'}}>
-                        <Text style={styles.grouptext}>{item.text}</Text>
+                    <View style={{marginVertical:'6%'}}>
+                        <Text style={tailwind('px-4 text-2xl text-black text-center')}>{item.text}</Text>
                     </View>
                 </View>
             </View>
@@ -257,13 +257,13 @@ const RenderItem = ({item,index}) => {
                 resizeMode={"cover"}
                 style={styles.backgroundVideo}
             />
-              <View style={{alignItems:'center',marginTop:'25%',}}>
+              <View style={tailwind('mt-6 items-center')}>
                 <Image source={ImageIcons.logoredagain}  style={{width:145, height:117}}  />
             </View>
-            <View style={{alignItems:'center',justifyContent:'center',marginTop:'15%'}}>
-                <Text style={styles.goodtext}>A live-commerce marketplace for fashion and home goods. </Text>
+            <View style={tailwind('mt-6 items-center')}>
+                <Text style={tailwind('px-2 text-3xl text-white text-center')}>A live-commerce marketplace for fashion and home goods. </Text>
             </View>
-               <View style={{alignItems:'center',marginTop:'35%'}}>
+               <View style={tailwind('items-center mt-6')}>
                 <Image source={ImageIcons.bar1}  style={{height:12,width:104}}   />
             </View>
           </View>
@@ -283,8 +283,10 @@ const RenderItem = ({item,index}) => {
       )}
 
       <View style={{ position:'absolute',zIndex:3001, bottom:70, justifyContent:'center',alignItems:'center',width:'100%'}}>
-         <TouchableOpacity style={styles.skipview} onPress={() => navigation.navigate("Golive")} >
-            <Text style={styles.skiptext}>Login</Text>
+         <TouchableOpacity onPress={() => navigation.navigate("Golive")} >
+            <View style={tailwind('items-center px-10 py-2 border border-transparent text-base leading-4 font-medium rounded-full text-white bg-red-800')}>
+              <Text style={tailwind('text-base font-bold text-white text-center')}>Login</Text>
+            </View>
         </TouchableOpacity>
       </View>
     </>
