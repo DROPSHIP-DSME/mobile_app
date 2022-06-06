@@ -350,7 +350,7 @@ const deviceWidth = Dimensions.get('window').width;
 
               <View style={{flexDirection:'row',marginHorizontal:'4%'}}>
                 <TouchableOpacity onPress={() => props.navigation.navigate("Dashlive")} style={{backgroundColor:'#e6e6e6',width:'40%',borderRadius:10,padding:10,}}>
-                      <Text style={styles.totalincometodayWIDRO17}>GO LIVE NOW hy</Text> 
+                      <Text style={styles.totalincometodayWIDRO17}>GO LIVE NOW</Text> 
                    </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => props.navigation.navigate("Dashsubscribe2")} style={{backgroundColor:'#b80000',width:'57%',borderRadius:10,padding:10,marginLeft:10}}>

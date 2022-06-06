@@ -18,6 +18,7 @@ import Footer3 from '../../screens/auth/Footer3';
 import Shopheader from '../../screens/auth/Shopheader';
 import styl from './styledrop';
 import Moment from 'moment';
+import { useTailwind } from 'tailwind-rn';
 
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
@@ -58,6 +59,7 @@ const upcoming = (props) => {
     }, [])
 
     //Reference
+    const tailwind = useTailwind();
     const emailRef = useRef();
     const phoneRef = useRef();
     const bisinessnameRef = useRef();
@@ -200,10 +202,10 @@ const upcoming = (props) => {
     ];
     const renderItemview = ({ item, index }) => {
         return (
-            <View style={{ margin: 10 }}>
-                <View style={{ flexDirection: 'row', alignItems: 'center', marginVertical: 5 }}>
-                    <Image source={item.image} style={{ width: 30, height: 30 }} />
-                    <Text style={{ fontSize: 14, color: '#1A1A1A', fontWeight: '400', textAlign: 'center', marginHorizontal: 6 }}>Andrea Miller</Text>
+            <View style={tailwind('m-2')}>
+                <View style={tailwind('flex flex-row items-center my-1')}>
+                    <Image source={item.image} style={tailwind('h-12 w-12')} />
+                    <Text style={tailwind('text-base text-gray-800 text-center mx-2')}>Andrea Miller</Text>
                 </View>
             </View>
         );
@@ -262,42 +264,40 @@ const upcoming = (props) => {
             style={styles.registrationRoot}>
             <StatusBar backgroundColor={'#B80000'} barStyle="dark-content" translucent={true} />
             <Shopheader />
-            <View style={{ marginTop: '7%', marginHorizontal: '3%' }}>
-                <Text style={{ fontSize: 26, color: '#1A1A1A', fontFamily: 'AvertaStd-Bold' }}>Livestream Recap</Text>
+            <View style={tailwind('mt-6 mx-3')}>
+                <Text style={tailwind('text-2xl text-gray-800 font-bold')}>Livestream Recap</Text>
             </View>
 
-            <ScrollView keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#F5F5F5' }} >
+            <ScrollView keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={tailwind('bg-gray-100')} >
 
-                <View style={{ marginHorizontal: '3%', paddingTop: '2%', }}>
-
-
-                    <View style={{ flexDirection: 'row', justifyContent: 'space-between', borderColor: '#999999', borderBottomWidth: 1, }}>
-                        <TouchableOpacity onPress={() => { settab1(true); settab2(false); settab3(false); }} style={{ backgroundColor: '#f2f2f2', margin: '3%', borderColor: '#1A1A1A' }} >
+                <View style={tailwind('pt-2 mx-5')}>
+                    <View style={tailwind('flex flex-row justify-between border-gray-800 border-b-2')}>
+                        <TouchableOpacity onPress={() => { settab1(true); settab2(false); settab3(false); }} style={tailwind('m-3')} >
                             {tab1 == false ?
-                                <Text style={{ fontSize: 16, fontWeight: '600' }}>Stats</Text>
+                                <Text style={tailwind('text-base text-gray-700')}>Stats</Text>
                                 :
-                                <Text style={{ fontSize: 16, fontWeight: '800', fontFamily: "hinted-AvertaStd-Bold" }}>Stats</Text>
+                                <Text style={tailwind('text-base text-gray-800 font-bold')}>Stats</Text>
                             }
                         </TouchableOpacity >
-                        <TouchableOpacity onPress={() => { settab1(false); settab2(true); settab3(false); }} style={{ backgroundColor: '#f2f2f2', margin: '3%' }}>
+                        <TouchableOpacity onPress={() => { settab1(false); settab2(true); settab3(false); }} style={tailwind('m-3')}>
 
                             {tab2 == false ?
-                                <Text style={{ fontSize: 16, fontWeight: '600' }}>Orders(0)</Text>
+                                <Text style={tailwind('text-base text-gray-700')}>Orders(0)</Text>
                                 :
-                                <Text style={{ fontSize: 16, fontWeight: '800', fontFamily: "hinted-AvertaStd-Bold" }}>Orders(0)</Text>
+                                <Text style={tailwind('text-base text-gray-800 font-bold')}>Orders(0)</Text>
                             }
                         </TouchableOpacity >
-                        <TouchableOpacity onPress={() => { settab1(false); settab2(false); settab3(true); }} style={{ backgroundColor: '#f2f2f2', margin: '3%' }} >
+                        <TouchableOpacity onPress={() => { settab1(false); settab2(false); settab3(true); }} style={tailwind('m-3')} >
                             {tab3 == false ?
-                                <Text style={{ fontSize: 16, fontWeight: '600' }}>Messages({props?.livestreamrecaplist?.geteventcomment?.length})</Text>
+                                <Text style={tailwind('text-base text-gray-700')}>Messages({props?.livestreamrecaplist?.geteventcomment?.length})</Text>
                                 :
-                                <Text style={{ fontSize: 16, fontWeight: '800', fontFamily: "hinted-AvertaStd-Bold" }}>Messages({props?.livestreamrecaplist?.geteventcomment?.length})</Text>
+                                <Text style={tailwind('text-base text-gray-800 font-bold')}>Messages({props?.livestreamrecaplist?.geteventcomment?.length})</Text>
                             }
                         </TouchableOpacity >
                     </View>
 
                     {tab2 == true &&
-                        <View style={{ height: '100%', width: '100%', backgroundColor: '#F5F5F5', padding: 10 }} >
+                        <View style={tailwind('h-screen w-screen p-6')} >
                             <FlatList
                                 data={props?.getinconeorderlist || []}
                                 renderItem={Data}
@@ -308,27 +308,22 @@ const upcoming = (props) => {
 
                     {tab1 == true &&
                         <ScrollView>
-                            <View style={{ backgroundColor: '#F5F5F5' }} >
-
-
+                            <View style={tailwind('bg-gray-100')} >
                                 <View style={{ backgroundColor: '#FFFFFF', padding: '4%', borderRadius: 10, marginTop: '4%', elevation: 3 }} >
-
-
-                                    <View style={{ flexDirection: 'row', justifyContent: 'space-between' }} >
-                                        <Text style={{ fontSize: 16, color: '#666666', fontWeight: '400', fontStyle: 'normal', fontFamily: 'SourceSansPro-Regular' }} >Title</Text>
-                                        <Text style={{ fontSize: 16, color: 'black', fontWeight: '600', fontStyle: 'normal', fontFamily: 'SourceSansPro-SemiBold' }} >{props?.livestreamrecaplist?.getBrandDetails?.brandName}</Text>
+                                    <View style={tailwind('flex flex-row justify-between')} >
+                                        <Text style={tailwind('text-base text-gray-600 font-base')} >Title</Text>
+                                        <Text style={tailwind('text-base text-gray-800 font-bold')} >{props?.livestreamrecaplist?.getBrandDetails?.brandName}</Text>
                                     </View>
 
                                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 12 }} >
-                                        <Text style={{ fontSize: 16, color: '#666666', fontWeight: '400', fontStyle: 'normal', fontFamily: 'SourceSansPro-Regular' }}  >Date & Time</Text>
-                                        <Text style={{ fontSize: 16, color: '#1A1A1A', fontStyle: 'normal', fontFamily: 'SourceSansPro-Regular' }} >{props?.livestreamrecaplist?.getBrandDetails?.createdAt}</Text>
+                                        <Text style={tailwind('text-base text-gray-600 font-base')}  >Date & Time</Text>
+                                        <Text style={tailwind('text-base text-gray-800')} >{props?.livestreamrecaplist?.getBrandDetails?.createdAt}</Text>
                                     </View>
 
                                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 12 }} >
-                                        <Text style={{ fontSize: 16, color: '#666666', fontWeight: '400', fontStyle: 'normal', fontFamily: 'SourceSansPro-Regular' }} >Duration</Text>
-                                        <Text style={{ fontSize: 16, color: '#1A1A1A', fontStyle: 'normal', fontFamily: 'SourceSansPro-Regular' }} >{props?.livestreamrecaplist?.getchannelAudiance?.EventDuration}</Text>
+                                        <Text style={tailwind('text-base text-gray-600 font-base')} >Duration</Text>
+                                        <Text style={tailwind('text-base text-gray-800 font-bold')} >{props?.livestreamrecaplist?.getchannelAudiance?.EventDuration}</Text>
                                     </View>
-
                                 </View>
 
                                 {/*<View>
@@ -343,33 +338,33 @@ const upcoming = (props) => {
 
                                 {/*<---------Summary------------>*/}
 
-                                <View style={{ paddingVertial: '3%', margin: '3%', marginVertical: '5%' }}>
-                                    <Text style={{ fontSize: 22, color: '#1A1A1A', fontWeight: '400', fontStyle: 'normal', fontFamily: 'AvertaStd-Semibold' }}>Summary</Text>
-                                    <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginVertical: '3%' }}>
+                                <View style={tailwind('p-3 my-8')}>
+                                    <Text style={tailwind('text-2xl text-gray-700 ')}>Summary</Text>
+                                    <View style={tailwind('flex flex-row justify-between my-3')}>
                                         <View>
-                                            <Text style={{ fontSize: 22, color: '#1A1A1A', fontWeight: '400', fontStyle: 'normal', fontFamily: 'SourceSansPro-SemiBold', textAlign: 'center' }}>{props?.livestreamrecaplist?.getchannelAudiance?.audianceCount}</Text>
-                                            <Text style={{ fontSize: 14, color: '#1A1A1A', fontWeight: '400', fontStyle: 'normal', fontFamily: 'SourceSansPro-Regular' }}>Viewers</Text>
+                                            <Text style={tailwind('text-xl text-gray-800')}>{props?.livestreamrecaplist?.getchannelAudiance?.audianceCount}</Text>
+                                            <Text style={tailwind('text-base text-gray-800')}>Viewers</Text>
                                         </View>
                                         <View>
-                                            <Text style={{ fontSize: 22, color: '#1A1A1A', fontWeight: '400', fontStyle: 'normal', fontFamily: 'SourceSansPro-SemiBold', textAlign: 'center' }}>0</Text>
-                                            <Text style={{ fontSize: 14, color: '#1A1A1A', fontWeight: '400', fontStyle: 'normal', fontFamily: 'SourceSansPro-Regular' }}>Saves</Text>
+                                            <Text style={tailwind('text-xl text-gray-800')}>0</Text>
+                                            <Text style={tailwind('text-base text-gray-800')}>Saves</Text>
                                         </View>
                                         <View>
-                                            <Text style={{ fontSize: 22, color: '#1A1A1A', fontWeight: '400', fontStyle: 'normal', fontFamily: 'SourceSansPro-SemiBold', textAlign: 'center' }}>0</Text>
-                                            <Text style={{ fontSize: 14, color: '#1A1A1A', fontWeight: '400', fontStyle: 'normal', fontFamily: 'SourceSansPro-Regular' }}>Likes</Text>
+                                            <Text style={tailwind('text-xl text-gray-800')}>0</Text>
+                                            <Text style={tailwind('text-base text-gray-800')}>Likes</Text>
                                         </View>
                                         <View>
-                                            <Text style={{ fontSize: 22, color: '#1A1A1A', fontWeight: '400', fontStyle: 'normal', fontFamily: 'SourceSansPro-SemiBold', textAlign: 'center' }}>{props?.livestreamrecaplist?.geteventcomment?.length}</Text>
-                                            <Text style={{ fontSize: 14, color: '#1A1A1A', fontWeight: '400', fontStyle: 'normal', fontFamily: 'SourceSansPro-Regular' }}>Messages</Text>
+                                            <Text style={tailwind('text-xl text-gray-800')}>{props?.livestreamrecaplist?.geteventcomment?.length}</Text>
+                                            <Text style={tailwind('text-base text-gray-800')}>Messages</Text>
                                         </View>
                                     </View>
                                     <View style={{
                                         width: deviceWidth / 1.1, padding: 5, backgroundColor: '#ffffff', marginVertical: '4%',
                                         borderRadius: 16, marginHorizontal: '4%', alignSelf: 'center', elevation: 3
                                     }}>
-                                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginVertical: '4%', marginHorizontal: '3%' }}>
+                                        <View style={tailwind('flex flex-row justify-between my-3')}>
                                             <View>
-                                                <Text style={styles.totalincometodaysale}>Live Attendance</Text>
+                                                <Text style={tailwind('text-xl text-gray-800 font-bold pl-3')}>Live Attendance</Text>
                                             </View>
 
                                         </View>
@@ -413,19 +408,19 @@ const upcoming = (props) => {
                                         width: deviceWidth / 1.1, padding: 5, backgroundColor: '#ffffff', marginVertical: '4%',
                                         borderRadius: 16, marginHorizontal: '4%', alignSelf: 'center', elevation: 3
                                     }}>
-                                        <View style={{ marginVertical: '4%', marginHorizontal: '3%' }}>
+                                        <View style={tailwind('my-2 p-3')}>
                                             <View>
-                                                <Text style={styles.totalincometodaysale}>Livestream Benchmarks</Text>
+                                                <Text style={tailwind('text-xl text-gray-800 font-bold')}>Livestream Benchmarks</Text>
                                             </View>
-                                            <View style={{ flexDirection: 'row', marginTop: '4%' }}>
-                                                <View style={{ backgroundColor: '#E6E6E6', paddingHorizontal: '5%', padding: 10, borderRadius: 6 }}>
-                                                    <Text style={{ fontSize: 12, color: '#4D4D4D', fontWeight: '400' }}>Viewers</Text>
+                                            <View style={tailwind('flex flex-row mt-4')}>
+                                                <View style={tailwind('bg-gray-200 py-2 px-4 rounded-lg')}>
+                                                    <Text style={tailwind('text-base text-gray-700')}>Viewers</Text>
                                                 </View>
-                                                <View style={{ backgroundColor: '#B80000', padding: 10, borderRadius: 6, marginHorizontal: '3%' }}>
-                                                    <Text style={{ fontSize: 12, color: '#FFFFFF', fontWeight: '400' }}>Likes</Text>
+                                                <View style={tailwind('bg-red-800 py-2 px-4 rounded-lg ml-3')}>
+                                                    <Text style={tailwind('text-base text-white')}>Likes</Text>
                                                 </View>
-                                                <View style={{ backgroundColor: '#E6E6E6', padding: 10, borderRadius: 6 }}>
-                                                    <Text style={{ fontSize: 12, color: '#4D4D4D', fontWeight: '400' }}>Saves</Text>
+                                                <View style={tailwind('bg-gray-200 py-2 px-4 rounded-lg ml-3')}>
+                                                    <Text style={tailwind('text-base text-gray-700')}>Saves</Text>
                                                 </View>
                                             </View>
                                         </View>
@@ -503,7 +498,7 @@ const upcoming = (props) => {
 
                     {tab3 == true &&
                         <View style={{ backgroundColor: '#F5F5F5', padding: 10 }} >
-                            
+
                             <View>
 
                                 <FlatList

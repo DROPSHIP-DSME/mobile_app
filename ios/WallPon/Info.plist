@@ -29,9 +29,9 @@
 			</array>
 		</dict>
 		<dict>
-		<key>CFBundleURLSchemes</key>
+			<key>CFBundleURLSchemes</key>
 			<array>
-			<string>twitterkit-qWPj1TXbreMX1SsDvdiQTaF7Y</string>
+				<string>twitterkit-qWPj1TXbreMX1SsDvdiQTaF7Y</string>
 			</array>
 		</dict>
 		<dict>
@@ -62,7 +62,7 @@
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSApplicationCategoryType</key>
-	<string></string>
+	<string/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -137,6 +137,21 @@
 		<string>Octicons.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
+		<string>hinted-AvertaStd-BlackItalic.ttf</string>
+		<string>hinted-AvertaStd-Bold.ttf</string>
+		<string>hinted-AvertaStd-BoldItalic.ttf</string>
+		<string>hinted-AvertaStd-Extrabold.ttf</string>
+		<string>hinted-AvertaStd-ExtraboldItalic.ttf</string>
+		<string>hinted-AvertaStd-Extrathin.ttf</string>
+		<string>hinted-AvertaStd-ExtrathinItalic.ttf</string>
+		<string>hinted-AvertaStd-Light.ttf</string>
+		<string>hinted-AvertaStd-LightItalic.ttf</string>
+		<string>hinted-AvertaStd-Regular.ttf</string>
+		<string>hinted-AvertaStd-RegularItalic.ttf</string>
+		<string>hinted-AvertaStd-Semibold.ttf</string>
+		<string>hinted-AvertaStd-SemiboldItalic.ttf</string>
+		<string>hinted-AvertaStd-Thin.ttf</string>
+		<string>hinted-AvertaStd-ThinItalic.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

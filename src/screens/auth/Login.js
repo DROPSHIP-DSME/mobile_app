@@ -187,7 +187,7 @@ const RenderItem = ({item,index}) => {
                     <Image source={item.title}  style={{width:145, height:117}}  />
                 </View>
                 <View style={{alignItems:'center',justifyContent:'center',marginTop:'15%'}}>
-                    <Text style={tailwind('px-2 text-3xl text-white text-center')}>{item.text}</Text>
+                    <Text style={tailwind('font-sans px-2 text-3xl text-white text-center')}>{item.text}</Text>
                 </View>
             </View>
         :
@@ -284,7 +284,7 @@ const RenderItem = ({item,index}) => {
 
       <View style={{ position:'absolute',zIndex:3001, bottom:70, justifyContent:'center',alignItems:'center',width:'100%'}}>
          <TouchableOpacity onPress={() => navigation.navigate("Golive")} >
-            <View style={tailwind('items-center px-10 py-2 border border-transparent text-base leading-4 font-medium rounded-full text-white bg-red-800')}>
+            <View style={tailwind('items-center px-10 py-2 border border-transparent text-base leading-4 font-medium rounded-full text-white bg-red-700')}>
               <Text style={tailwind('text-base font-bold text-white text-center')}>Login</Text>
             </View>
         </TouchableOpacity>

@@ -6,8 +6,10 @@ import * as Yup from 'yup';
 import styles from './styles';
 import newstyles from './styles';
 import {useTailwind} from 'tailwind-rn';
-import { Colors, CommonStrings } from '../../common'
-import ImageIcons from '../../common/ImageIcons'
+import { Colors, CommonStrings } from '../../common';
+import ImageIcons from '../../common/ImageIcons';
+import { DuplicateIcon } from "react-native-heroicons/solid";
+import { CalendarIcon } from "react-native-heroicons/solid";
 import InputField from '../../components/forms/inputField';
 import { RoundedButton } from '../../components/forms/button';
 import { phoneRegExp } from '../../services/helper';
@@ -19,7 +21,6 @@ import HorizontalSlider from 'react-horizontal-slider';
 import Footer2 from '../../screens/auth/Footer2';
 import SellHeader from '../../screens/auth/Sellheader';
 import CountDown from 'react-native-countdown-component';
-
 import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import { Rating, AirbnbRating } from 'react-native-ratings';
@@ -269,10 +270,10 @@ const Dashlive = (props) => {
             <View style={styles.seledataViewTODAYsecndrender}>
                     <View style={{flexDirection:'row'}}>
                       <Image source={item.image} style={{width:24,height:24,}}/>
-                       <Text style={[styles.seriestexttoday,{alignSelf:'center',marginLeft:1}]}>{item.text}</Text>
+                       <Text style={tailwind('text-base text-gray-600')}>{item.text}</Text>
                     </View>
-                       <Text style={styles.seriestexttoday}>{item.text1}</Text>
-                   </View>
+                       <Text style={tailwind('text-base text-gray-600')}>{item.text1}</Text>
+                    </View>
 
             </View>
     );
@@ -288,114 +289,117 @@ const Dashlive = (props) => {
                 handleScroll(nativeEvent['contentOffset'].y);
               }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={tailwind('bg-white')} >
 
-               <View style={{marginHorizontal:'3%',marginVertical:'5%'}}>
-               <TouchableOpacity onPress={() => props.navigation.navigate("Dashlive2")}>
-                 <Text style={tailwind('text-slate-800 font-semibold text-2xl')}>Go Live</Text>
-                 </TouchableOpacity>
+               <View style={{marginHorizontal:'3%',marginVertical:'3%'}}>
+                 <TouchableOpacity onPress={() => props.navigation.navigate("Dashlive2")}>
+                   <Text style={tailwind('text-slate-800 font-semibold text-2xl')}>Go Live</Text>
+                  </TouchableOpacity>
                </View>
 
              { showstream==true ?
 
-              <View style={{flexDirection:'row',marginHorizontal:'4%'}}>
-                <View style={tailwind('items-center px-2 py-2 border border-transparent rounded-md text-white bg-red-800')}>
-                  <TouchableOpacity onPress={() =>  setshowstream(false)} style={{width:'57%'}}>
-                      <Text style={tailwind('text-slate-700')}>GO</Text>
-
+              <View style={{flexDirection:'row',marginHorizontal:'3%'}}>
+                <View style={tailwind('items-center px-4 py-2 rounded-md bg-gray-200')}>
+                  <TouchableOpacity onPress={() =>  setshowstream(false)} >
+                      <Text style={tailwind('text-slate-700')}>GO LIVE NOW</Text>
                    </TouchableOpacity>
                 </View>
-              <View style={tailwind('items-center px-2 py-2 border border-transparent rounded-md text-white bg-red-800')}>
-                <TouchableOpacity onPress={() => setshowstream(true)} style={{backgroundColor:'#B80000',width:'57%',borderRadius:10,marginLeft:10}}>
-                      <Text style={styles.totalincometodayWIDRO16}>SCHEDULE LIVESTREAM</Text>
-                   </TouchableOpacity>
+                <View style={tailwind('items-center px-4 py-2 ml-3 rounded-lg bg-red-700')}>
+                    <TouchableOpacity onPress={() => setshowstream(true)}>
+                        <Text style={tailwind('text-white text-sm font-medium')}>SCHEDULE LIVESTREAM</Text>
+                     </TouchableOpacity>
                 </View>
               </View>
           :
-           <View style={{flexDirection:'row',marginHorizontal:'4%'}}>
-                <TouchableOpacity onPress={() =>  setshowstream(false)} style={{backgroundColor:'#B80000',width:'40%',borderRadius:10,padding:10,}}>
-                      <Text style={styles.totalincometodayWIDRO16}>GO LIVE NOW</Text>
-                   </TouchableOpacity>
-
-
-                <TouchableOpacity onPress={() => setshowstream(true)} style={{backgroundColor:'#E6E6E6',width:'57%',borderRadius:10,padding:10,marginLeft:10}}>
-                      <Text style={styles.totalincometodayWIDRO17}>SCHEDULE LIVESTREAM</Text>
+           <View style={{flexDirection:'row',marginHorizontal:'3%'}}>
+              <View style={tailwind('items-center px-4 py-2 rounded-lg bg-red-700')}>
+                  <TouchableOpacity onPress={() =>  setshowstream(false)}>
+                      <Text style={tailwind('text-white text-sm font-medium')}>GO LIVE NOW</Text>
                    </TouchableOpacity>
               </View>
+              <View style={tailwind('items-center px-4 py-2 ml-3 rounded-lg bg-gray-200')}>
+                  <TouchableOpacity onPress={() => setshowstream(true)} >
+                      <Text style={tailwind('text-black text-sm font-medium')}>SCHEDULE LIVESTREAM</Text>
+                   </TouchableOpacity>
+              </View>
+            </View>
 
       }
              { showstream==true &&
                 <View>
-              <View style={{marginHorizontal:'3%',marginTop:'5%'}}>
-               <TouchableOpacity onPress={() => props.navigation.navigate("Dashsubscribe")}>
-                 <Text style={{fontSize:22,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',}}>Date & Time</Text>
-                 </TouchableOpacity>
-               </View>
+                    <View style={{marginHorizontal:'3%',marginTop:'5%'}}>
+                      <TouchableOpacity onPress={() => props.navigation.navigate("Dashsubscribe")}>
+                        <Text style={tailwind('text-2xl text-gray-900')}>Date & Time</Text>
+                      </TouchableOpacity>
+                    </View>
 
 
-                <View style={{backgroundColor:'#e6e6e6',width:200,borderRadius:10,padding:10,marginHorizontal:'4%',marginTop:'2%',flexDirection:'row',justifyContent:'space-between'}}>
-                      <Text style={{fontSize:18,color:'#000000',fontFamily:'hinted-AvertaStd-Regular'}}>Select Date</Text>
-                      <Image source={ImageIcons.caltoday} style={{width:15,height:15,marginTop:2}}/>
+                   <View style={{backgroundColor:'#e6e6e6',width:200,borderRadius:10,padding:10,marginHorizontal:'4%',marginTop:'2%',flexDirection:'row',justifyContent:'space-between'}}>
+                      <Text style={tailwind('text-base text-black')}>Select Date</Text>
+                      <Text>
+                         <CalendarIcon color="red" fill="black" size={24} />
+                      </Text>
                    </View>
 
-                 <View style={styles.pickerViewshorttodayagainlive2}>
-                      <Picker
-                        selectedValue={selectedValue}
-                        style={{ height: 42, width: 205,color:'#4d4d4d',}}
-                        onValueChange={(itemValue, itemIndex) =>setSelectedValue(itemValue)}
-                       >
-                        <Picker.Item label="8:00 AM" value="1" />
-                        <Picker.Item label="2" value="2" />
-                        <Picker.Item label="3" value="3" />
-                        <Picker.Item label="4" value="4" />
-                        <Picker.Item label="5" value="5" />
-                        <Picker.Item label="6" value="6" />
-                        <Picker.Item label="7" value="7" />
-                        <Picker.Item label="8" value="8" />
-                        <Picker.Item label="9" value="9" />
-                      </Picker>
-                </View>
+                   <View style={styles.pickerViewshorttodayagainlive2}>
+                        <Picker
+                          selectedValue={selectedValue}
+                          style={{ height: 42, width: 205,color:'#4d4d4d',}}
+                          onValueChange={(itemValue, itemIndex) =>setSelectedValue(itemValue)}
+                         >
+                          <Picker.Item label="8:00 AM" value="1" />
+                          <Picker.Item label="2" value="2" />
+                          <Picker.Item label="3" value="3" />
+                          <Picker.Item label="4" value="4" />
+                          <Picker.Item label="5" value="5" />
+                          <Picker.Item label="6" value="6" />
+                          <Picker.Item label="7" value="7" />
+                          <Picker.Item label="8" value="8" />
+                          <Picker.Item label="9" value="9" />
+                        </Picker>
+                   </View>
                 </View>
 
               }
 
                <View style={{marginHorizontal:'3%',marginTop:'7%'}}>
-               <TouchableOpacity>
-                 <Text style={tailwind('text-slate-800 font-semibold text-2xl')}>Stream Time</Text>
+                 <TouchableOpacity>
+                  <Text style={tailwind('text-slate-800 font-semibold text-2xl')}>Stream Time</Text>
                  </TouchableOpacity>
                </View>
 
               <View style={{flexDirection:'row',marginHorizontal:'4%',marginTop:'4%'}}>
                <TouchableOpacity onPress={() =>setDuration(1200)}>
                 { Duration==1200 ?
-                <View  style={{backgroundColor:'#B80000',width:'100%',borderRadius:10,padding:10,borderWidth:1,borderColor:'#ff0000'}}>
-                      <Text style={styles.totalincometodayWIDRO16}>20 MIN</Text>
-                   </View>
+                  <View  style={tailwind('items-center px-3 py-2 rounded-lg bg-red-700')}>
+                    <Text style={tailwind('text-white text-sm font-medium')}>20 MIN</Text>
+                  </View>
                    :
-                    <View  style={{backgroundColor:'#e6e6e6',width:'100%',borderRadius:10,padding:10,}}>
-                      <Text style={[styles.totalincometodayWIDRO16,{color:'#000000'}]}>20 MIN</Text>
+                    <View  style={tailwind('items-center px-3 py-2 rounded-lg bg-gray-200')}>
+                      <Text style={tailwind('text-black text-sm font-medium')}>20 MIN</Text>
                    </View>
                }
                 </TouchableOpacity>
 
                  <TouchableOpacity onPress={() =>setDuration(1800)}>
                 { Duration==1800 ?
-                <View style={{backgroundColor:'#b80000',width:'95%',borderRadius:10,padding:10,marginLeft:10,borderWidth:1,borderColor:'#ff0000'}}>
-                      <Text style={[styles.totalincometodayWIDRO17,{color:'#ffffff'}]}>30 MIN</Text>
+                   <View style={tailwind('items-center px-3 py-2 ml-4 rounded-lg bg-red-700')}>
+                      <Text style={tailwind('text-white text-sm font-medium')}>30 MIN</Text>
                    </View>
                    :
-                    <View style={{backgroundColor:'#e6e6e6',width:'95%',borderRadius:10,padding:10,marginLeft:10}}>
-                      <Text style={styles.totalincometodayWIDRO17}>30 MIN</Text>
+                    <View style={tailwind('items-center px-3 py-2 ml-4 rounded-lg bg-gray-200')}>
+                      <Text style={tailwind('text-black text-sm font-medium')}>30 MIN</Text>
                    </View>
                }
                    </TouchableOpacity>
 
                    <TouchableOpacity onPress={() =>setDuration(2700)}>
-                        { Duration==2700 ?
-                    <View style={{backgroundColor:'#b80000',width:'95%',borderRadius:10,padding:10,marginLeft:10,borderWidth:1,borderColor:'#ff0000'}}>
-                      <Text style={[styles.totalincometodayWIDRO17,{color:'#ffffff'}]}>45 MIN</Text>
+                    { Duration==2700 ?
+                    <View style={tailwind('items-center px-3 py-2 ml-4 rounded-lg bg-red-700')}>
+                      <Text style={tailwind('text-white text-sm font-medium')}>45 MIN</Text>
                    </View>
                    :
-                    <View style={{backgroundColor:'#e6e6e6',width:'95%',borderRadius:10,padding:10,marginLeft:10}}>
-                      <Text style={styles.totalincometodayWIDRO17}>45 MIN</Text>
+                    <View style={tailwind('items-center px-3 py-2 ml-4 rounded-lg bg-gray-200')}>
+                      <Text style={tailwind('text-black text-sm font-medium')}>45 MIN</Text>
                    </View>
                }
                    </TouchableOpacity>
@@ -406,10 +410,12 @@ const Dashlive = (props) => {
 
                  <View style={{marginTop:'8%',}}>
                    <View style={{flexDirection:'row',justifyContent:'space-between',marginHorizontal:'4%',marginVertical:'2%'}}>
-                     <Text style={{fontSize:22,fontFamily:'hinted-AvertaStd-Semibold'}}>Products</Text>
-                      <TouchableOpacity onPress={() => props.navigation.navigate("SearchProduct")} style={{backgroundColor:'#B80000',width:'40%',borderRadius:20,padding:10,}}>
-                      <Text style={styles.totalincometodayWIDRO}>ADD PRODUCT</Text>
-                   </TouchableOpacity>
+                     <Text style={tailwind('text-slate-800 font-bold text-xl')}>Products</Text>
+                       <TouchableOpacity onPress={() => props.navigation.navigate("SearchProduct")}>
+                            <View style={tailwind('items-center px-6 py-2 rounded-full bg-red-700')}>
+                              <Text style={styles.totalincometodayWIDRO}>ADD PRODUCT</Text>
+                            </View>
+                      </TouchableOpacity>
                     </View>
                     <View style={{marginLeft:'5%'}}>
                     <FlatList
@@ -423,23 +429,26 @@ const Dashlive = (props) => {
                </View>
 
 
-                 <View style={{marginHorizontal:'4%',marginVertical:'6%',}}>
-                  <Text style={{fontSize:22,fontFamily:'hinted-AvertaStd-Semibold',marginHorizontal:'3%'}}>Invite Audience</Text>
-                <TextInput
-                  style={styles.inputedittoday1234}
-                  placeholder=""
-                  placeholderTextColor="#4d4d4d"
-                  value={livedetailId}
-                  paddingLeft={15}
-                  width={330}
-                  multiline
-                  onChangeText={(text) => {}}
-                />
-                <View style={{position:'absolute',alignSelf:'flex-end',marginTop:'14%',right:'5%'}}>
-                        <TouchableOpacity onPress={() =>  openshare() } >
-                            <Image source={ImageIcons.copytoday} style={{height:21,width:21}} />
+              <View style={{marginHorizontal:'3%',marginVertical:'6%',}}>
+                  <Text style={tailwind('text-slate-800 ml-1 font-bold text-xl')}>Invite Audience</Text>
+                  <TextInput
+                    style={styles.inputedittoday1234}
+                    placeholder=""
+                    placeholderTextColor="#4d4d4d"
+                    value={livedetailId}
+                    paddingLeft={15}
+                    width={365}
+                    multiline
+                    onChangeText={(text) => {}}
+                  />
+
+                  <View style={{position:'absolute',alignSelf:'flex-end',marginTop:'14%',right:'5%'}} >
+                        <TouchableOpacity onPress={() =>  openshare() }>
+                         <Text>
+                            <DuplicateIcon color="red" fill="black" size={24} />
+                         </Text>
                         </TouchableOpacity>
-                    </View>
+                  </View>
               </View>
 
               { timer>0 &&
@@ -458,17 +467,24 @@ const Dashlive = (props) => {
                                     showSeparator
                                   />
                             </View>
+
                         </View>
                     }
 
                  { showstream==true ?
-                <TouchableOpacity  onPress={() => startlivebtn() }  style={{backgroundColor:'#b80000',width:320,borderRadius:30,padding:'5%',alignSelf:'center',marginTop:'4%',marginBottom:'25%'}}>
-                      <Text style={styles.totalincometodaycompaign}>SCHEDULE LIVESTREAM</Text>
-                   </TouchableOpacity>
+                    <TouchableOpacity  onPress={() => startlivebtn() } >
+                        <View style={tailwind('items-center py-4 rounded-full bg-red-700')}>
+                          <Text style={tailwind('text-lg text-white font-semibold')}>SCHEDULE LIVESTREAM</Text>
+                        </View>
+                    </TouchableOpacity>
                 :
-                 <TouchableOpacity  onPress={() => startlivebtn()} style={{backgroundColor:'#b80000',width:320,borderRadius:30,padding:'5%',alignSelf:'center',marginTop:'4%',marginBottom:'25%'}}>
-                      <Text style={styles.totalincometodaycompaign}>START LIVESTREAM</Text>
-                   </TouchableOpacity>
+                  <View style={tailwind('mx-2')}>
+                    <TouchableOpacity  onPress={() => startlivebtn()} >
+                       <View style={tailwind('items-center py-4 rounded-full bg-red-700')}>
+                         <Text style={tailwind('text-lg text-white font-semibold')}>START LIVESTREAM</Text>
+                       </View>
+                    </TouchableOpacity>
+                  </View>
                  }
 
 
@@ -505,7 +521,7 @@ const Dashlive = (props) => {
                 <View style={{borderBottomWidth:2,borderColor:'#e6e6e6',width:'90%',marginVertical:'7%',alignSelf:'center'}}></View>
 
                 <Text style={{marginVertical:'3%',marginHorizontal:'11%',fontSize:14,fontFamily:'hinted-AvertaStd-Semibold'}}>Adjust Quantity</Text>
-              <View style={styles.pickerViewshorttodaymodal}>
+                    <View style={styles.pickerViewshorttodaymodal}>
                       <Picker
                         selectedValue={selectedValue}
                         style={{ height: 50, width: 200,color:'#4d4d4d',}}
@@ -521,7 +537,7 @@ const Dashlive = (props) => {
                         <Picker.Item label="8" value="8" />
                         <Picker.Item label="9" value="9" />
                       </Picker>
-                </View>
+                    </View>
 
                 <View style={{borderBottomWidth:2,borderColor:'#e6e6e6',width:'90%',marginVertical:'7%',alignSelf:'center'}}></View>
 
@@ -544,9 +560,9 @@ const Dashlive = (props) => {
                       </Picker>
                 </View>
 
-                <TouchableOpacity onPress={() => closepopup()} style={{backgroundColor:'#B80000',width:200,borderRadius:25,padding:15,alignSelf:'center',marginVertical:'8%'}}>
+                  <TouchableOpacity onPress={() => closepopup()} style={{backgroundColor:'#B80000',width:200,borderRadius:25,padding:15,alignSelf:'center',marginVertical:'8%'}}>
                       <Text style={styles.totalincometodaySAVECHANGE}>SAVE CHANGES</Text>
-                   </TouchableOpacity>
+                  </TouchableOpacity>
 
 
 
