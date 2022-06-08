@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Text, View, Image, FlatList, Dimensions, StatusBar, Picker, ImageBackground, TouchableOpacity, ScrollView, Alert, KeyboardAvoidingView, Platform, Keyboard } from 'react-native';
+import { Text, View, Image, FlatList, Dimensions, StatusBar, Picker, ImageBackground, TouchableOpacity, ScrollView, Alert, TextInput, KeyboardAvoidingView, Platform, Keyboard } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
@@ -20,6 +20,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import { Rating, AirbnbRating } from 'react-native-ratings';
+import { RadioButton, Provider, Modal, Portal, Button, } from 'react-native-paper';
 
 const shop = (props) => {
 
@@ -50,6 +51,9 @@ const shop = (props) => {
     const fullnameRef = useRef();
 
     // Local states
+    const [visible, setVisible] = React.useState(false);
+    const [max, setMax] = React.useState("");
+    const [min, setMin] = React.useState("");
     const [starCount, setstarCount] = useState(5);
     const [selectedValue, setSelectedValue] = useState("java");
     const [wayToContact, setWayToContact] = useState("Phone");
@@ -73,6 +77,15 @@ const shop = (props) => {
         }
     }
 
+    const openpopup = () => {
+        setVisible(true)
+
+    }
+    const closepopup = () => {
+        setVisible(false)
+    }
+    const containerStyle = { backgroundColor: 'white', padding: '3%', marginHorizontal: '8%', borderRadius: 10, alignSelf: 'center' };
+
     const ratingCompleted = (ratingdata) => {
         console.log('rating', ratingdata)
         if (ratingdata != "" && ratingdata != undefined) {
@@ -90,22 +103,7 @@ const shop = (props) => {
     }
 
 
-    const DATA = [
-        {
-            text: "Beauty brands",
-            text1: "$75",
-            image: ImageIcons.addstore,
 
-        },
-        {
-            text: "Beauty brands",
-            text1: "$75",
-            image: ImageIcons.clothes,
-
-        },
-
-
-    ];
     const renderItem = ({ item, index }) => {
         return (
             <View style={styles.maincartviewshopTODAYY}>
@@ -206,16 +204,12 @@ const shop = (props) => {
             style={styles.registrationRoot}>
             <StatusBar backgroundColor={showclassName} barStyle="dark-content" translucent={true} />
             <Shopheader />
+            <View style={{ flex: 1, }}>
 
-            <ScrollView onScroll={({ nativeEvent }) => {
-                handleScroll(nativeEvent['contentOffset'].y);
-            }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#FFFFFF' }} >
                 <View style={{ marginHorizontal: '3%', paddingTop: '10%' }}>
                     <Text style={{ fontSize: 26, color: "#1A1A1A", fontFamily: 'hinted-AvertaStd-Bold', fontWeight: "bold" }}>Shop</Text>
                 </View>
-                {/*<View style={{ marginHorizontal: "3%" }}>
-                    <Text style={{ fontWeight: "bold", fontFamily: "hinted-AvertaStd-Regular", fontSize: 16, color: "#666666" }}>{props?.getlistshop?.length} products</Text>
-        </View>*/}
+
                 <View style={{ width: '100%' }}>
                     <FlatList
                         data={data}
@@ -227,7 +221,7 @@ const shop = (props) => {
                 </View>
 
                 <View style={{ borderBottomWidth: 1, marginTop: "8%", marginHorizontal: "3%", borderColor: "#B6B6B6" }}></View>
-                <View style={{ flexDirection: "row", marginHorizontal: "3%", marginTop: "5%" }}>
+                <View style={{ flexDirection: "row", marginHorizontal: "3%", marginVertical: "5%" }}>
                     <View style={{ backgroundColor: '#E6E6E6', borderRadius: 10, height: 40 }}>
                         <Picker
                             selectedValue={selectedValue}
@@ -239,11 +233,13 @@ const shop = (props) => {
                         </Picker>
                     </View>
 
-                    <TouchableOpacity style={{ flexDirection: "row", backgroundColor: '#E6E6E6', borderRadius: 10, marginHorizontal: "2%", padding: '2%', paddingHorizontal: '3%',  }}>
+                    <TouchableOpacity style={{ flexDirection: "row", backgroundColor: '#E6E6E6', borderRadius: 10, marginHorizontal: "2%", padding: '2%', paddingHorizontal: '3%', }}
+                        onPress={() => openpopup()}>
                         <Image source={ImageIcons.filter} style={styles.fiterimg} />
                         <Text style={[styles.filterpop, { alignSelf: 'center' }]}>FILTERS</Text>
                     </TouchableOpacity>
                 </View>
+
                 <View style={{ marginHorizontal: '3%', marginBottom: 90 }}>
                     <FlatList
                         data={props?.getlistshop || []}
@@ -253,9 +249,68 @@ const shop = (props) => {
                         numColumns={2}
                     />
                 </View>
-            </ScrollView>
+                {openpopup &&
+                    <Provider>
+                        <Portal>
+                            <Modal visible={visible} contentContainerStyle={containerStyle}>
+
+                                <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                                    <Text style={{ color: "#000000", fontWeight: '700', fontSize: 22 }}>Filter</Text>
+                                    <TouchableOpacity onPress={() => closepopup()}>
+                                        <Image source={ImageIcons.closepopup} style={{ width: 30, height: 30 }} />
+                                    </TouchableOpacity>
+                                </View>
+                                <View style={{ marginVertical: '3%' }}>
+                                    <Text style={{ color: "#000000", fontWeight: '600', fontSize: 18 }}>Country</Text>
+                                    <View style={{ backgroundColor: '#E6E6E6', borderRadius: 10, height: 40, width: 200, marginVertical: '4%' }}>
+                                        <Picker
+                                            selectedValue={selectedValue}
+                                            style={{ height: 35, width: 200 }}
+                                            onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+                                        >
+                                            <Picker.Item label="United States" value="United States" />
+                                            <Picker.Item label="JavaScript" value="js" />
+                                        </Picker>
+                                    </View>
+                                </View>
+
+                                <View style={{ marginVertical: '1%',marginBottom:'4%' }}>
+                                    <Text style={{ color: "#000000", fontWeight: '600', fontSize: 18 }}>Price Range</Text>
+                                    <View style={{ marginTop: '3%', flexDirection: 'row', }}>
+                                        <View style={styles.shopmodallabelview}>
+                                            <TextInput
+                                                style={styles.shopmodalinput}
+                                                onChangeText={text => setMin(text)}
+                                                value={min}
+                                                placeholder="Min"
+                                                placeholderTextColor="#999999"
+                                            />
+
+                                        </View>
+                                        <View style={styles.shopmodallabelview}>
+                                            <TextInput
+                                                style={styles.shopmodalinput}
+                                                onChangeText={text => setMax(text)}
+                                                value={max}
+                                                placeholder="Max"
+                                                placeholderTextColor="#999999"
+                                            />
+
+                                        </View>
+                                    </View>
+                                </View>
+
+                                <TouchableOpacity onPress={() => { closepopup(); setVisiblebag(true) }} style={{ width: deviceWidth / 1.3, backgroundColor: "#B80000", borderRadius: 30, marginVertical: "3%", height: 38, justifyContent: 'center', marginHorizontal: "3%" }} >
+                                    <Text style={{ textAlign: 'center', color: "#FFFFFF", fontWeight: 'bold', fontSize: 15 }}>Apply</Text>
+                                </TouchableOpacity>
+                            </Modal>
+                        </Portal>
+                    </Provider>
+                }
 
 
+
+            </View>
             <Footer3 onSelection="4" />
 
             <AwesomeAlert

@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import styles from './style'
 import newstyles from './styles';
 import { Colors, fonts, Images } from '../../common';
-import Loader from '../../components/modals/Loader';
+import Loader from '../../components/modals/Loader'; 
 import { requestMultiplePermisisons } from '../../services/Permissions'
 import { socketUri } from '../../common/Api'
 import Orientation from 'react-native-orientation-locker';
@@ -16,7 +16,6 @@ const SCREEN_HEIGHT = Dimensions.get('screen').height;
 import CountDown from 'react-native-countdown-component';
 import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper';
 import Share from 'react-native-share';
-import 'react-native-get-random-values';
 import { v4 as uuid } from "uuid";
 import { CreditCardInput } from 'react-native-payment-card';
 import ModalSelector from 'react-native-modal-selector';
@@ -69,7 +68,7 @@ const Blurbackground = (props) => {
     const [cardType, setcardType] = useState();
     const [showcardNumber, setcardNumber] = useState();
 
-
+    
     const [First, onChangeFirst] = React.useState("");
     const [Lastname, onChangeLastname] = React.useState("");
     const [Address, onChangeAddress] = React.useState("");
@@ -112,11 +111,11 @@ const Blurbackground = (props) => {
 
 
         if (Platform.OS === 'android') await requestMultiplePermisisons();
-
-        //  AgoraEngine.current = await RtcEngine.create("0c96ec2a0c9744c0bb3d21330bb0911d");
+        
+        //  AgoraEngine.current = await RtcEngine.create("0c96ec2a0c9744c0bb3d21330bb0911d"); 
         AgoraEngine.current = await RtcEngine.create("ccb0f65b5af549c383620f289af77cbf");   //appId used for testing
         // AgoraEngine.current = await RtcEngine.create("04c68745a5c94f16b02f3608abf51669"); //appId given by roadman
-
+         
         await AgoraEngine.current.enableVideo();
         await AgoraEngine.current.startPreview()
         if (isback) {
@@ -141,7 +140,7 @@ const Blurbackground = (props) => {
         });
 
         //await AgoraEngine.current.userJoined( Setgetaudiance(getaudiance+1) )
-
+        
     };
 
     useEffect(() => {
@@ -204,10 +203,10 @@ const Blurbackground = (props) => {
     const hidepress = () => {
         setIsPress(false)
     }
-
-
+    
+    
     const showAddpayment = () => {
-
+      
       setcheckview(false);
       setcartview(false);
       setAddpayment(true);
@@ -241,12 +240,12 @@ const Blurbackground = (props) => {
         //     alert(cardType)
         //     console.log('request',request)
         // }
-
+       
     }
 
     const showAddshipping = () => {
       setAddshipping(true);
-
+      
     }
 
     const hideAddshipping = () => {
@@ -321,7 +320,7 @@ const Blurbackground = (props) => {
     const hidecheckshipping =()=>{
         setcheckshipping(false)
     }
-
+    
     const hidepopup =()=>{
         setcartview(false)
         setAddshipping(false);
@@ -330,7 +329,7 @@ const Blurbackground = (props) => {
         setcheckshipping(false);
     }
 
-
+    
 
     const openlikePress = () => {
         setlikePress(true);
@@ -338,7 +337,7 @@ const Blurbackground = (props) => {
     const closelikePress = () => {
         setlikePress(false);
     }
-
+    
     const opensidebar = () => {
         setsidevalue('Product left');
         setshowsidebar(true);
@@ -392,7 +391,7 @@ const Blurbackground = (props) => {
        setsharePress(sharePress+1);
     }
 
-
+    
     const setselected = (value,index) =>{
         if(index==1){ setSelectedValue1(value) }
         if(index==2){ setSelectedValue2(value) }
@@ -407,7 +406,7 @@ const Blurbackground = (props) => {
         if(index==2){ var productQuantity = selectedValue2;  }
         if(index==3){ var productQuantity = selectedValue3;  }
         if(index==4){ var productQuantity = selectedValue4;  }
-
+        
         let request = {
             "productId":productid,
             "userId":props?.loginuserid,
@@ -419,7 +418,7 @@ const Blurbackground = (props) => {
         //console.log('request',request)
         props.cartadd(request, props.navigation, "vendor");
     }
-    const saveAddshipping = () =>{
+    const saveAddshipping = () =>{ 
         showAddshipping(false);
         setcheckview(true);
         let request = {
@@ -440,8 +439,8 @@ const Blurbackground = (props) => {
             }
             props.chekout(request, props.navigation, "vendor");
     }
-
-
+   
+    
     const containerStyle = {backgroundColor: 'white', padding: '7%',marginHorizontal:'5%',alignItems:'center'};
     const containerStyle2 = {backgroundColor: 'white', padding: '5%',marginHorizontal:'5%',};
 
@@ -451,7 +450,7 @@ const Blurbackground = (props) => {
 
     useEffect(() => {
         //alert(channel)
-        props.getchannelbrandName(channel);
+        props.getchannelbrandName(channel); 
         props.getLiveCustomer(channel);
         if (isbroadcaster) {
            // props.updateaudiancecount(channel,0);
@@ -461,7 +460,7 @@ const Blurbackground = (props) => {
         }
         //Orientation.lockToPortrait();
         AppState.addEventListener('change', inBackground)
-
+        
 
         //const tokenA = RtcTokenBuilder.buildTokenWithUid(appID, appCertificate, channel, 2882341273, 1, privilegeExpiredTs);
         //alert(props?.getcalltokendata)
@@ -499,11 +498,11 @@ const Blurbackground = (props) => {
         videoStateMessage(broadcasterVideoState)
     }, [broadcasterVideoState])
 
-
+    
     const resetchannel = (channeldata)=>{
         AgoraEngine.current.destroy();
         setshowsidebar(false)
-        props.navigation.navigate("SearchProduct", { isback: false, channel: channeldata, isbroadcaster: false })
+        props.navigation.navigate("SearchProduct", { isback: false, channel: channeldata, isbroadcaster: false }) 
     }
 
     const inBackground = (nextState) => {
@@ -610,7 +609,7 @@ const Blurbackground = (props) => {
     const Header = () => {
         return (
             <View style={{ marginTop: Platform.OS == 'android' ? 30 : 60,zIndex:1001, paddingTop:20,position:'relative',flexDirection: 'row', justifyContent: 'space-between',marginHorizontal:'5%' }}>
-
+                 
                 <View style={{ width:'60%'}}>
                     <Text style={{fontFamily:'hinted-AvertaStd-Semibold',color:'#ffffff',fontSize:20}}>50% off Friday Sale!</Text>
                     <Text style={{fontFamily:'hinted-AvertaStd-Semibold',color:'#ffffff',fontSize:16}}>SNEAKERS STORE</Text>
@@ -626,7 +625,7 @@ const Blurbackground = (props) => {
                         <Text style={newstyles.shorttest}>0K</Text>
                     </View>
                 </View>
-
+                
             </View>
         )
     }
@@ -668,7 +667,7 @@ const Blurbackground = (props) => {
                         {item.message}
                     </Text>
                 </Text>
-
+              
             </View>
         )
     }
@@ -688,9 +687,9 @@ const Blurbackground = (props) => {
         );
     }
     const renderItemcart = ({ item, index }) => {
-
-
-
+        
+       
+       
 
        return(
         <View style={newstyles.Viewcart2} >
@@ -723,12 +722,12 @@ const Blurbackground = (props) => {
                     <Text style={newstyles.beautygreytext}>Quantity : 0</Text>
                 }
                 <View  style={{flexDirection: 'row',marginVertical:'4%',}} >
-
+                    
                     <View style={{flexDirection: 'row',}}>
                         <Text style={[newstyles.beautygreytext,{marginRight:'5%'}]}>Move to</Text>
                         {index ==0 &&
-                            <View>
-                                { Movecart == true ?
+                            <View> 
+                                { Movecart == true ?   
                                     <TouchableOpacity onPress={() => { setMovecart(false); addtowatchlist(item._id,false);} } >
                                         <Image source={ImageIcons.redlike}  style={newstyles.likeimgred} />
                                     </TouchableOpacity>
@@ -740,8 +739,8 @@ const Blurbackground = (props) => {
                             </View>
                         }
                         {index ==1 &&
-                            <View>
-                                { Movecart1 == true ?
+                            <View> 
+                                { Movecart1 == true ?   
                                     <TouchableOpacity onPress={() => { setMovecart1(false); addtowatchlist(item._id,false);} } >
                                         <Image source={ImageIcons.redlike}  style={newstyles.likeimgred} />
                                     </TouchableOpacity>
@@ -753,8 +752,8 @@ const Blurbackground = (props) => {
                             </View>
                         }
                         {index ==2 &&
-                            <View>
-                                { Movecart2 == true ?
+                            <View> 
+                                { Movecart2 == true ?   
                                     <TouchableOpacity onPress={() => { setMovecart2(false); addtowatchlist(item._id,false);} } >
                                         <Image source={ImageIcons.redlike}  style={newstyles.likeimgred} />
                                     </TouchableOpacity>
@@ -766,8 +765,8 @@ const Blurbackground = (props) => {
                             </View>
                         }
                         {index ==3 &&
-                            <View>
-                                { Movecart3 == true ?
+                            <View> 
+                                { Movecart3 == true ?   
                                     <TouchableOpacity onPress={() => { setMovecart3(false); addtowatchlist(item._id,false);} } >
                                         <Image source={ImageIcons.redlike}  style={newstyles.likeimgred} />
                                     </TouchableOpacity>
@@ -780,8 +779,8 @@ const Blurbackground = (props) => {
                         }
 
                         {index ==4 &&
-                            <View>
-                                { Movecart4 == true ?
+                            <View> 
+                                { Movecart4 == true ?   
                                     <TouchableOpacity onPress={() => { setMovecart4(false); addtowatchlist(item._id,false);} } >
                                         <Image source={ImageIcons.redlike}  style={newstyles.likeimgred} />
                                     </TouchableOpacity>
@@ -814,7 +813,7 @@ const Blurbackground = (props) => {
                 <View style={{position:'absolute',bottom:'7%',left:10}}>
                     <Text style={newstyles.upcomingtext2}>{item.userId?.userName}</Text>
                 </View>
-            </View>
+            </View> 
             </TouchableOpacity>
         </View>
       );
@@ -831,13 +830,13 @@ const Blurbackground = (props) => {
     }
 
     const doComment = () => {
-
+        
                let request ={
                       "liveevent":channel,
                       "message":comment
                     }
                 props.postcomment(request, props.navigation, "vendor");
-
+            
             try {
                 if (comment) {
                     let i = 0;
@@ -846,14 +845,14 @@ const Blurbackground = (props) => {
                         message: comment
                     }
                     socketRef.current.emit('live-stream-comments', ({ currentUser, channel }));
-
+                    
                    // console.log("new commments from my side => ", { currentUser, channel });
                     setcomment('');
                 }
             } catch (error) {
                 //console.log("error is for send message => ", error)
             }
-
+         
     }
 
 
@@ -897,20 +896,20 @@ const Blurbackground = (props) => {
                     }
 
 
-
+                   
                         <TouchableOpacity onPress={() => openshare() } >
                             <View style={{marginBottom:1,marginRight:5}}>
                                 <Image source={ImageIcons.copy} style={newstyles.imgvector2}  />
                                 <Text style={newstyles.liketext}>{sharePress}</Text>
                             </View>
                         </TouchableOpacity>
-
+                    
                     { isbroadcaster == false &&
                     <TouchableOpacity  onPress={() => props.navigation.navigate("Cart") }>
                     <View style={{marginBottom:1,marginRight:7}}>
                         <Image source={ImageIcons.Vectorcart} style={newstyles.imgcart3} />
                         <Text style={newstyles.liketext}>{purchaseCount}</Text>
-                    </View>
+                    </View> 
                     </TouchableOpacity>
                     }
                     <TouchableOpacity onPress={muteaudio}>
@@ -935,13 +934,13 @@ const Blurbackground = (props) => {
                         <Text style={newstyles.blueboxtext}>IN STOCK</Text>
                     </View>
                 </View>
-
+                
                 <View>
-
+                    
                     <View style={{marginTop:'2%',marginLeft:20}}>
                         <Text style={newstyles.blurrtext}>{props?.showbrandName?.brandName}</Text>
                     </View>
-
+                    
                     <View style={{flexDirection:'row',marginHorizontal:'0%',marginTop:20,marginLeft:5}}>
                         <Image source={ImageIcons.timer} style={newstyles.imgtimer} />
                         <View style={{marginLeft:-14,marginTop:-5}}>
@@ -959,10 +958,10 @@ const Blurbackground = (props) => {
                           />
                         }
                           </View>
-
+                          
                     </View>
-
-
+                    
+                    
                 { isbroadcaster == false &&
                     <View style={{flexDirection:'row',marginTop:isKeyboardVisible?'1%':'3%',marginHorizontal:'3%'}}>
                       <TouchableOpacity>
@@ -977,7 +976,7 @@ const Blurbackground = (props) => {
                     <Image source={ImageIcons.client} style={newstyles.audioimg} />
                     <Text style={[newstyles.audiencetext,{paddingTop:3}]}>{props?.audiancecount?.audianceCount} audience</Text>
                 </View>
-
+                    
                 </View>
                    { ( props?.getliveeventlist?.eventType =='overstock') ?
                         <View style={[newstyles.Viewleftnewsell2,{marginLeft:20}]} >
@@ -994,7 +993,7 @@ const Blurbackground = (props) => {
                             <Text style={newstyles.yellowboxtext}>On Sale </Text>
                         </View>
                     </TouchableOpacity>
-
+                    
                     { isbroadcaster == false &&
                         <View style={{marginLeft:5}}>
                         <TouchableOpacity>
@@ -1031,7 +1030,7 @@ const Blurbackground = (props) => {
                             </TouchableOpacity>
                         </View>
                     }
-                        </View>
+                        </View>             
                     }
                 <View style={{ justifyContent: 'flex-end', flex: 1, marginHorizontal: 6, }}>
                     <View style={{ justifyContent: 'flex-end', flexDirection:'row', marginBottom: 1 }}>
@@ -1053,7 +1052,7 @@ const Blurbackground = (props) => {
                                 renderItem={({ index, item }) => Comments(index, item)}
                             />
                         }
-
+                        
 
                         { isbroadcaster == false &&
                         <View style={{marginRight:10}}>
@@ -1079,13 +1078,13 @@ const Blurbackground = (props) => {
                                 horizontal={false}
                             />
                             </View>
-
+                        
                         </View>
                     }
 
                     { isbroadcaster == true &&
                         <View style={{marginVertical:'5%',right:10,}}>
-
+                            
                             <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center' }}>
                                 <View style={{ ...styles.live, alignSelf: 'center', width:'auto', height:27,marginLeft:30,marginTop:15 }}>
                                      <Text style={{ ...styles.homecontinuebutton, color: Colors.white, textAlign: 'center',paddingTop:3, paddingHorizontal:10}}>Accept Call</Text>
@@ -1096,7 +1095,7 @@ const Blurbackground = (props) => {
                     }
                     </View>
                     <View style={newstyles.directionViewble}>
-                        <View style={styles.box}>
+                        <View style={styles.box}>  
                             <TextInput
                                 value={comment}
                                 style={{ color: Colors.white, ...styles.input, }}
@@ -1113,16 +1112,16 @@ const Blurbackground = (props) => {
                             </TouchableOpacity>
                         </View>
                         <View>
-
+                        
                             <View style={{marginTop:-10}}>
                                 <TouchableOpacity onPress={() => props.navigation.navigate("Viewbrand",{brandId:props?.showbrandName?._id})}>
                                     <Image source={{uri:props?.showbrandName?.brandImage}} style={{width:40, height:40, borderRadius:25}} />
                                 </TouchableOpacity>
                             </View>
-
+                        
                         </View>
                     </View>
-
+                    
                 </View>
 
             { cartview  &&
@@ -1175,7 +1174,7 @@ const Blurbackground = (props) => {
                     <Text style={newstyles.textshopcheck}>{props?.cartlistdata1?.length} Items</Text>
                     <View style={{marginVertical:'3%'}}>
                         <FlatList
-                            data={props?.cartlistdata1 || []}
+                            data={props?.cartlistdata1 || []} 
                             renderItem={renderItemcheck}
                             keyExtractor={item => item.id}
                             showsHorizontalScrollIndicator={false}
@@ -1208,7 +1207,7 @@ const Blurbackground = (props) => {
             }
             { checkshipping  &&
                 <View style={{backgroundColor:'#FFE7E7',width:'100%',position:'absolute',zIndex:2001,bottom:0}}>
-
+                
                 <View style={newstyles.textshoop3}>
                    <View style={newstyles.textshoop2}>
                     <TouchableOpacity onPress={() => { setcheckshipping(false); setcartview(true);} }>
@@ -1232,7 +1231,7 @@ const Blurbackground = (props) => {
                             style={{ maxHeight: 280,marginRight:0, marginBottom:0 }}
                         />
                     </View>
-
+                    
                     <View  style={{flexDirection: 'row',justifyContent:'center',marginVertical:'4%',marginHorizontal:'4%'}} >
                         <View>
                             <Text style={newstyles.textshipcheck}>shipping</Text>
@@ -1259,7 +1258,7 @@ const Blurbackground = (props) => {
             { Addshipping  &&
                 <View style={{backgroundColor:'#FFE7E7',position:'absolute',zIndex:2001,bottom:0}}>
                  <ScrollView  keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#FFE7E7',height:'auto'}} >
-
+                    
                     <View style={newstyles.textshoop3}>
                    <View style={newstyles.textshoop2}>
                     <TouchableOpacity onPress={() => { setAddshipping(false); setcheckview(true);} }>
@@ -1335,7 +1334,7 @@ const Blurbackground = (props) => {
                         <View style={{width:'30%',justifyContent:'center'}}>
                             <Text style={newstyles.labeltext}>Address Line 2</Text>
                         </View>
-                        <View style={{width:'70%'}}>
+                        <View style={{width:'70%'}}> 
                             <TextInput
                              style={newstyles.inputshipping}
                              onChangeText={(text) => onChangeAddress2(text)}
@@ -1391,7 +1390,7 @@ const Blurbackground = (props) => {
                             />
                         </View>
                     </View>
-
+                   
                     <TouchableOpacity style={newstyles.saveView} onPress={() =>saveAddshipping() }>
                         <Text style={newstyles.textshipcheck}>Save</Text>
                     </TouchableOpacity>
@@ -1400,10 +1399,10 @@ const Blurbackground = (props) => {
             }
 
             { Addpayment  &&
-
+                
                  <View style={{backgroundColor:'#FFE7E7',width:'100%',position:'absolute',zIndex:2001,bottom:0}}>
                  <ScrollView  keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#FFE7E7',height:'auto'}} >
-
+                    
                     <View style={newstyles.textshoop3}>
                    <View style={newstyles.textshoop2}>
                     <TouchableOpacity onPress={() => { setAddpayment(false); setcheckview(true);} }>
@@ -1436,7 +1435,7 @@ const Blurbackground = (props) => {
                 { showsidebar  &&
                     <Provider>
                     <Portal>
-                    <Modal visible={showsidebar} onDismiss={hidesidebar}
+                    <Modal visible={showsidebar} onDismiss={hidesidebar} 
                     contentContainerStyle={{ zIndex:1011,justifyContent:'center',backgroundColor: 'white', marginBottom:0, padding: 10,borderRadius:5,paddingHorizontal:'10%',alignSelf:'center',alignItems:'center',marginHorizontal:'4%' }}>
                     <View>
                         <Text style={{fontFamily:'hinted-AvertaStd-Semibold',fontSize:15,fontWeight:'600', color:'#000000',}}>{sidevalue}</Text>
@@ -1504,3 +1503,4 @@ const Blurbackground = (props) => {
 }
 
 export default Blurbackground
+

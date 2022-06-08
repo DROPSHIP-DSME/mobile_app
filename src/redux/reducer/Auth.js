@@ -76,6 +76,8 @@ import {
   SEARCH_LIST_ITMES,
   ALLSEARCH_LIST_DATA,
   LIVESTREAM_RECAP,
+  SET_RATING_REVIEW,
+  GET_ALL_RATING,
 } from '../actions/ActionTypes';
 
 // Redux states
@@ -158,8 +160,10 @@ const initialState = {
   seteditprofileuser: null,
   setdeleteuser: null,
   livestreamrecaplist: null,
-
+  ratingloder: null,
+  retingreviewlist: null,
 };
+
 
 const Auth = (state = initialState, action) => {
   switch (action.type) {
@@ -287,6 +291,19 @@ const Auth = (state = initialState, action) => {
       return {
         ...state,
         productLoader3: action.payload,
+      };
+
+    case SET_RATING_REVIEW:
+       return{
+        ...state,
+        ratingloder: action.payload,
+       };
+
+    case GET_ALL_RATING:
+    console.log("ratingprint------<<<<",action.payload)
+      return {
+        ...state,
+        retingreviewlist: action.payload,
       };
 
     case SET_SUPPORT_LOADER:

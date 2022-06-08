@@ -43,7 +43,7 @@ const Cart = (props) => {
 
     useEffect(() => {
        getBrandUserId();
-       console.log(props?.cartlistdata1,'poonam')
+       console.log('cartdataaa',props?.cartlistdata1)
     }, [])
 
     const getBrandUserId = async () => {
@@ -128,7 +128,7 @@ const Cart = (props) => {
                         val={parseInt(item.productQuantity)}
                         styleBtn={{width:30.6,height:26,backgroundColor:'#F3F3F3'}}
                         styleTextInput={{width:38.25,height:26,backgroundColor:'#F3F3F3'}}
-                        labelStyle={{fontSize:15,marginTop:'1%',color:'#223263',fontFamily:'hinted-AvertaStd-Regular'}}
+                        labelStyle={{fontSize:14,marginTop:-2,color:'#223263',fontFamily:'hinted-AvertaStd-Regular'}}
                         handleClick={(val)=> setIncrement(val,item._id)}
                         />
                     </View>

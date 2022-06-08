@@ -79,12 +79,12 @@ const Shopheader = (props) => {
                     <View style={{marginHorizontal:'5%'}}>
                        <TouchableOpacity onPress={() => navigation.navigate("Notification")}>
                             <Image source={ImageIcons.bell} style={{width:21,height:21,}}/>
-                        </TouchableOpacity>
+                        </TouchableOpacity> 
                     </View>
                     <TouchableOpacity onPress={() => { navigation.navigate('Cart') }}>
                         <View style={{flexDirection:'row'}}>
                             <Image source={ImageIcons.whitecart} style={{width:18,height:20.6,}}/>
-                            <Text style={styles.numtext}>0</Text>
+                            <Text style={styles.numtext}>{props?.cartlistdata1?.length}</Text>
                         </View>
                     </TouchableOpacity>
                 </View>

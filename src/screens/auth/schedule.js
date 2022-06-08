@@ -15,9 +15,8 @@ import Loader from '../../components/modals/Loader';
 import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper';
 import CalendarPicker from 'react-native-calendar-picker';
 import {TimePicker} from 'react-native-simple-time-picker';
-import 'react-native-get-random-values';
 import { v4 as uuid } from "uuid";
-import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-community/async-storage'; 
 import moment from 'moment';
 import SimplePicker from 'react-native-simple-picker';
 import Share from 'react-native-share';
@@ -37,14 +36,14 @@ const schedule = (props) => {
     useEffect(() => {
         //alert('d')
         getBrandUserId();
-        props.getbrandName(props?.loginuserid);
-
+        props.getbrandName(props?.loginuserid); 
+        
     }, [])
 
      const getBrandUserId = async () => {
 
         var getUserId = await AsyncStorage.getItem('UserId');
-
+        
         props.liveeventdetail(props?.loginuserid);
         setUserID(props?.loginuserid);
     }
@@ -62,7 +61,7 @@ const schedule = (props) => {
     const phoneRef = useRef();
     const bisinessnameRef = useRef();
     const fullnameRef = useRef();
-
+  
     // Local states
      const [checked, setChecked] = React.useState('second');
      const [hours, setHours] = React.useState('8:00 AM');
@@ -70,7 +69,7 @@ const schedule = (props) => {
      const [UserID, setUserID] = useState("");
 
      const [selectedStartDate, setSelectedStartDate] = useState(new Date());
-     const [selectedEndDate, setSelectedEndDate] = useState(null);
+     const [selectedEndDate, setSelectedEndDate] = useState(null); 
 
     const [Name, onChangeName] = React.useState("");
     const [Lastname, onChangeLastname] = React.useState("Last name");
@@ -100,7 +99,7 @@ const schedule = (props) => {
         }
     ]);
 
-
+    
 
     const setdeletedata = async (eventId,product_id) => {
      Alert.alert(
@@ -122,8 +121,8 @@ const schedule = (props) => {
       cancelable: true,
     }
   );
-
-
+           
+         
      };
     const schedulebutton = async () => {
        // alert(props?.livedetail[0]._id)
@@ -149,7 +148,7 @@ const handleChange1 = (value: {hours: number, minutes: number}) => {
      const showTimepicker = () => {
     showMode('time');
   };
-
+    
     const openshare=()=>{
         let options = {
           message: 'To join our broadcast, click here',
@@ -214,7 +213,7 @@ const handleChange1 = (value: {hours: number, minutes: number}) => {
 
     // Vendor request submission
     const handleSendRequestSubmit = async () => {
-
+        
     }
 
     const onDateChange = (date, type) => {
@@ -224,7 +223,7 @@ const handleChange1 = (value: {hours: number, minutes: number}) => {
       setSelectedEndDate(date);
     } else {
       setSelectedEndDate(null);
-
+      
     }
     var getdate= moment(date).format("YYYY-MM-DD")
     //var getTime= moment(date).format("HH:mm")
@@ -253,14 +252,14 @@ const handleChange1 = (value: {hours: number, minutes: number}) => {
         image:ImageIcons.winterimage,
         image1:ImageIcons.reddelete,
        },
-
-
+       
+       
 
      ];
 
 const renderItem = ({ item }) => {
      console.log('itemorder',item)
-
+  
    return(
             <View >
               <FlatList
@@ -269,14 +268,14 @@ const renderItem = ({ item }) => {
                 showsHorizontalScrollIndicator={false}
                 horizontal={true}
             />
-            </View>
+            </View>       
   );
 }
-
+ 
 const renderItem1 = ({ item ,index }) => {
    return(
     <View style={{marginRight:20,marginTop:10}}>
-
+        
         <View>
           <View style={{position:'absolute', right:10,top:10,zIndex:2001,shadowColor: "#000",
 shadowOffset: {width: 0,height: 2,},shadowOpacity: 0.25,shadowRadius: 3.84,elevation: 5}}>
@@ -289,8 +288,8 @@ shadowOffset: {width: 0,height: 2,},shadowOpacity: 0.25,shadowRadius: 3.84,eleva
             <Text style={{color:'#000000',fontSize:15,fontFamily:'hinted-AvertaStd-Semibold',lineHeight:19}}>{item.productName}</Text>
             <Text style={{color:'#000000',fontSize:12,fontFamily:'hinted-AvertaStd-Regular',lineHeight:15}}>${item.productPrice}</Text>
           </View>
-        </View>
-    </View>
+        </View>      
+    </View> 
   );
 }
 
@@ -332,7 +331,7 @@ const renderItem2 =({ item }) =>{
            <Image source={ImageIcons.reddelete} style={styles.reddeleteimg}  />
            </TouchableOpacity>
           </View>
-
+            
         </View>
         <View style={styles.boderlineview} />
         </View>
@@ -341,21 +340,21 @@ const renderItem2 =({ item }) =>{
 
     return (
          <View style={{flex:1,backgroundColor:'#FFE7E7'}}>
-
-
+           
+            
 <ScrollView  keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#FFE7E7',marginBottom:60}} >
              <View style={{marginHorizontal:'3%',marginTop:'4%',}}>
                 <View style={{marginTop:'2%',flexDirection: 'row',}}>
-                   <TouchableOpacity  onPress={() => {props.navigation.navigate("StartRecording") }}>
+                   <TouchableOpacity  onPress={() => {props.navigation.navigate("StartRecording") }}> 
                     <View style={{flexDirection: 'row',}}>
                      <Image source={ImageIcons.ci_radio} />
                         <Text style={styles.recodingtext}>Start livestream</Text>
                     </View>
                     </TouchableOpacity>
-                    <TouchableOpacity  onPress={() => {props.navigation.navigate("") }}>
+                    <TouchableOpacity  onPress={() => {props.navigation.navigate("") }}> 
                     <View style={{flexDirection: 'row',marginLeft:'3%'}}>
                     <Image source={ImageIcons.ci_radio_filled} />
-                    <Text style={styles.recodingtext2}>Schedule live event</Text>
+                    <Text style={styles.recodingtext2}>Schedule live event</Text> 
                     </View>
                     </TouchableOpacity>
                 </View>
@@ -368,12 +367,12 @@ const renderItem2 =({ item }) =>{
                     maxDate={new Date(2050, 6, 3)}
                     weekdays={
                     [
-                    'Mon',
-                    'Tue',
-                    'Wed',
-                    'Thur',
-                    'Fri',
-                    'Sat',
+                    'Mon', 
+                    'Tue', 
+                    'Wed', 
+                    'Thur', 
+                    'Fri', 
+                    'Sat', 
                     'Sun'
                     ]}
                     months={[
@@ -407,7 +406,7 @@ const renderItem2 =({ item }) =>{
                         <Text style={styles.linketext}>Set time</Text>
                      </View>
                     <View style={{ marginBottom:10,paddingLeft:10, marginTop:10,flexDirection:'row', justifyContent:'space-between', width:'100%', borderWidth:1,borderRadius:5, borderColor:'#ABABAB'}}>
-
+                      
                         <Picker
                             selectedValue={hours}
                             style={{ paddingLeft:10, width: '90%', borderColor:'#f9f9f9',borderWidth:1,fontSize:10,fontFamily:'hinted-AvertaStd-Regular' }}
@@ -461,14 +460,14 @@ const renderItem2 =({ item }) =>{
                             <Picker.Item label={'10:30 PM'} value={'10:30 PM'} key={46} />
                             <Picker.Item label={'11:00 PM'} value={'11:00 PM'} key={47} />
                             <Picker.Item label={'11:30 PM'} value={'11:30 PM'} key={48} />
-
+                            
                         </Picker>
                     </View>
                     <View style={{marginHorizontal:'1%',marginVertical:'2%'}}>
                         <Text style={styles.selectlinketext}>Select stream time</Text>
                         <View style={{marginTop:10, marginBottom:20,flexDirection: 'row',justifyContent:'space-around',paddingRight:'22%'}}>
-
-                        <TouchableOpacity onPress={() =>setDuration(1200)}>
+                       
+                        <TouchableOpacity onPress={() =>setDuration(1200)}> 
                         { Duration==1200 ?
                             <View style={{backgroundColor:'#20639B',borderRadius:5,borderWidth:1,borderColor:'#ff0000'}}>
                                <Text style={styles.recodingtextmint}>20 minutes</Text>
@@ -479,7 +478,7 @@ const renderItem2 =({ item }) =>{
                             </View>
                         }
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() =>setDuration(1800)}>
+                    <TouchableOpacity onPress={() =>setDuration(1800)}> 
                         { Duration==1800 ?
                             <View style={{backgroundColor:'#3CAEA3',borderRadius:5,borderWidth:1,borderColor:'#ff0000'}}>
                                <Text style={styles.recodingtextmint}>30 minutes</Text>
@@ -490,7 +489,7 @@ const renderItem2 =({ item }) =>{
                             </View>
                         }
                     </TouchableOpacity>
-
+                    
                     <TouchableOpacity onPress={() =>setDuration(2700)}>
                         { Duration==2700 ?
                             <View style={{backgroundColor:'#F6D55C',borderRadius:5,borderWidth:1,borderColor:'#ff0000'}}>
@@ -500,9 +499,9 @@ const renderItem2 =({ item }) =>{
                             <View style={{backgroundColor:'#F6D55C',borderRadius:5}}>
                                <Text style={[styles.recodingtextmint,{color:'#000000'}]}>45 minutes</Text>
                             </View>
-                        }
+                        } 
                     </TouchableOpacity>
-
+                        
                         </View>
                     </View>
                     <View style={{marginVertical:'1%'}}>
@@ -543,7 +542,7 @@ const renderItem2 =({ item }) =>{
                                 </View>
                             </TouchableOpacity>
                     </View>
-
+                    
                     <View>
                         <FlatList
                             data={props?.livedetail || []}
@@ -553,9 +552,9 @@ const renderItem2 =({ item }) =>{
                      </View>
          </View>
                 <TouchableOpacity onPress={() =>  openshare() } >
-                   <View style={styles.produview}>
+                   <View style={styles.produview}>   
                         <Text style={styles.invitetext}>Invite audience</Text>
-                        <Image source={ImageIcons.shareicon} style={{alignSelf:'center',marginLeft:5}}/>
+                        <Image source={ImageIcons.shareicon} style={{alignSelf:'center',marginLeft:5}}/> 
                     </View>
                 </TouchableOpacity>
                <View style={{marginBottom:'8%',marginHorizontal:'2%'}} >
@@ -581,7 +580,7 @@ const renderItem2 =({ item }) =>{
                         <Text style={styles.recodingbutton}>Schedule</Text>
                     </TouchableOpacity>
                </View>
-               </ScrollView>
+               </ScrollView>  
                 <View style={styles.footerView}>
            <View style={styles.maincartviewfooter}>
        <TouchableOpacity onPress={() => navigation.navigate("Overview")} >
@@ -590,38 +589,38 @@ const renderItem2 =({ item }) =>{
          <Text style={styles.customertextfooter}>Home</Text>
         </View>
         </TouchableOpacity>
-
+ 
         <TouchableOpacity onPress={() => navigation.navigate("SearchProduct2")} >
         <View>
          <Image source={ImageIcons.products}  style={styles.footer5img} />
-         <Text style={styles.customertextfooter}>Products</Text>
+         <Text style={styles.customertextfooter}>Products</Text>         
         </View>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => props.navigation.navigate("StartRecording",{userId:props?.loginuserid})} >
         <View style={{alignItems:'center'}}>
          <Image source={ImageIcons.golivered}  style={styles.footer3img} />
-         <Text style={styles.customertextfooter2}>Go Live</Text>
+         <Text style={styles.customertextfooter2}>Go Live</Text>        
         </View>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => navigation.navigate("Inorder")} >
          <View>
          <Image source={ImageIcons.neworder}  style={styles.footer4img} />
-         <Text style={styles.customertextfooter}>Orders</Text>
+         <Text style={styles.customertextfooter}>Orders</Text>         
         </View>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => navigation.navigate("More")} >
          <View >
          <Image source={ImageIcons.more}  style={styles.footer2img} />
-         <Text style={styles.customertextfooter}>More</Text>
+         <Text style={styles.customertextfooter}>More</Text>         
         </View>
         </TouchableOpacity>
 
         </View>
 
-       </View>
+       </View>     
         </View>
     )
 }

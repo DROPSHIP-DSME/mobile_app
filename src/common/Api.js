@@ -111,6 +111,8 @@ const api = {
   editUser:`/users/editUser`,
   deleteUser:`/users/deleteUser`,
   getlivestreamrecap:`/shops/livestreamrecap`,
+  postratingnew:`/rating/addrating`,
+  getpostratingnew:`/rating/getrating`,
 };
 
 export default api; 

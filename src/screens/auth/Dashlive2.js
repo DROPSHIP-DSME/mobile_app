@@ -18,7 +18,7 @@ import HorizontalSlider from 'react-horizontal-slider';
 import Footer2 from '../../screens/auth/Footer2';
 import SellHeader from '../../screens/auth/Sellheader';
 
-import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-community/async-storage'; 
 import { useFocusEffect } from '@react-navigation/native';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import { Provider , Portal,} from 'react-native-paper';
@@ -56,13 +56,13 @@ const deviceWidth = Dimensions.get('window').width;
     const fullnameRef = useRef();
     const userId = props?.route?.params?.userId;
     const brandId = props?.route?.params?.brandId;
-
+    
     //     var swipeoutBtns = [
     //   {
     //     text: 'Button'
     //   }
     // ]
-
+ 
     useEffect(() => {
       props.getincomingtlist(props?.loginuserid);
       props.getselldeshboard(props?.loginuserid);
@@ -83,14 +83,14 @@ const deviceWidth = Dimensions.get('window').width;
      const ratingCompleted = (ratingdata) => {
             console.log('rating',ratingdata)
                if(ratingdata!="" && ratingdata!=undefined){
-                //setstarCount(ratingdata)
+                //setstarCount(ratingdata)  
                }
-
-        }
+              
+        }  
 
      const handleScroll=(pageYOffset)=>{
         if (pageYOffset > 0) {
-            setshowclassName('#B80000');
+            setshowclassName('#B80000');  
         }else{
             setshowclassName('#B80000');
         }
@@ -102,7 +102,7 @@ const deviceWidth = Dimensions.get('window').width;
             await AsyncStorage.setItem('userLogin',"1");
         }
     }
-
+   
     const golivepage = async () => {
         props.liveeventdetail(props?.loginuserid);
         setTimeout(function(){ props.navigation.navigate("StartRecording",{userId:userId})},500)
@@ -267,12 +267,12 @@ const deviceWidth = Dimensions.get('window').width;
        text2:'Orders (0)',
         image:ImageIcons.whiteshoetoday,
        },
-
+       
 
      ];
 
-
-
+    
+    
 
  const renderItem2 = ({ item ,index }) => {
      return(
@@ -295,10 +295,10 @@ const deviceWidth = Dimensions.get('window').width;
                 />
              </View>
              <TouchableOpacity onPress={() => props.navigation.navigate("Dashsubscribe2")} style={{backgroundColor:'#ffe6ff',width:90,borderRadius:5,padding:6,marginHorizontal:'4%',marginBottom:'12%'}}>
-                      <Text style={{fontSize:12,color:'#E25424',fontFamily:'hinted-AvertaStd-Semibold',textAlign:'center'}}>NEW STOCK</Text>
+                      <Text style={{fontSize:12,color:'#E25424',fontFamily:'hinted-AvertaStd-Semibold',textAlign:'center'}}>NEW STOCK</Text> 
                    </TouchableOpacity>
           </View>
-        </View>
+        </View>  
   );
 }
 
@@ -311,7 +311,7 @@ const deviceWidth = Dimensions.get('window').width;
                        <Text style={styles.seriestexttoday}>{item.text1}</Text>
                        <Text style={styles.seriestexttoday}>{item.text2}</Text>
                    </View>
-
+            
             </View>
     );
     }
@@ -324,14 +324,14 @@ const deviceWidth = Dimensions.get('window').width;
                     <View style={{flexDirection:'row'}}>
                       <Image source={item.image} style={{width:24,height:24,}}/>
                        <Text style={[styles.seriestexttoday,{alignSelf:'center',marginLeft:1}]}>{item.text}</Text>
-                    </View>
+                    </View>   
                        <Text style={styles.seriestexttoday}>{item.text1}</Text>
                    </View>
-
+            
             </View>
     );
     }
-
+    
 
     return (
          <View style={{flex:1}}>
@@ -340,8 +340,8 @@ const deviceWidth = Dimensions.get('window').width;
 
        <ScrollView onScroll={({nativeEvent}) => {
                 handleScroll(nativeEvent['contentOffset'].y);
-    }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#ffffff'}} >
-
+    }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#ffffff'}} > 
+          
                <View style={{marginHorizontal:'3%',marginVertical:'5%'}}>
                <View>
                  <Text style={{fontSize:22,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',}}>Go Live</Text>
@@ -354,23 +354,23 @@ const deviceWidth = Dimensions.get('window').width;
                    </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => props.navigation.navigate("Dashsubscribe2")} style={{backgroundColor:'#b80000',width:'57%',borderRadius:10,padding:10,marginLeft:10}}>
-                      <Text style={styles.totalincometodayWIDRO16}>SCHEDULE LIVESTREAM</Text>
+                      <Text style={styles.totalincometodayWIDRO16}>SCHEDULE LIVESTREAM</Text> 
                    </TouchableOpacity>
               </View>
 
-
+              
                <View style={{marginHorizontal:'3%',marginTop:'5%'}}>
                <TouchableOpacity onPress={() => props.navigation.navigate("Dashsubscribe")}>
                  <Text style={{fontSize:22,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',}}>Date & Time</Text>
                  </TouchableOpacity>
                </View>
 
-
+              
                 <View style={{backgroundColor:'#e6e6e6',width:200,borderRadius:10,padding:10,marginHorizontal:'4%',marginTop:'2%',flexDirection:'row',justifyContent:'space-between'}}>
-                      <Text style={{fontSize:18,color:'#000000',fontFamily:'hinted-AvertaStd-Regular'}}>Select Date</Text>
+                      <Text style={{fontSize:18,color:'#000000',fontFamily:'hinted-AvertaStd-Regular'}}>Select Date</Text> 
                       <Image source={ImageIcons.caltoday} style={{width:15,height:15,marginTop:2}}/>
                    </View>
-
+                 
                  <View style={styles.pickerViewshorttodayagainlive2}>
                       <Picker
                         selectedValue={selectedValue}
@@ -388,7 +388,7 @@ const deviceWidth = Dimensions.get('window').width;
                         <Picker.Item label="9" value="9" />
                       </Picker>
                 </View>
-
+              
 
 
 
@@ -403,26 +403,26 @@ const deviceWidth = Dimensions.get('window').width;
 
               <View style={{flexDirection:'row',marginHorizontal:'4%',marginTop:'4%'}}>
                 <TouchableOpacity style={{backgroundColor:'#B80000',width:'25%',borderRadius:10,padding:10,}}>
-                      <Text style={styles.totalincometodayWIDRO16}>20 MIN</Text>
+                      <Text style={styles.totalincometodayWIDRO16}>20 MIN</Text> 
                    </TouchableOpacity>
 
                 <TouchableOpacity style={{backgroundColor:'#e6e6e6',width:'25%',borderRadius:10,padding:10,marginLeft:10}}>
-                      <Text style={styles.totalincometodayWIDRO17}>30 MIN</Text>
+                      <Text style={styles.totalincometodayWIDRO17}>30 MIN</Text> 
                    </TouchableOpacity>
 
                     <TouchableOpacity style={{backgroundColor:'#e6e6e6',width:'25%',borderRadius:10,padding:10,marginLeft:10}}>
-                      <Text style={styles.totalincometodayWIDRO17}>45 MIN</Text>
+                      <Text style={styles.totalincometodayWIDRO17}>45 MIN</Text> 
                    </TouchableOpacity>
               </View>
 
+              
 
-
-
+              
                  <View style={{marginTop:'8%',}}>
                    <View style={{flexDirection:'row',justifyContent:'space-between',marginHorizontal:'4%',marginVertical:'2%'}}>
                      <Text style={{fontSize:22,fontFamily:'hinted-AvertaStd-Semibold'}}>Products</Text>
                       <TouchableOpacity onPress={() => props.navigation.navigate("Dashlive3")} style={{backgroundColor:'#B80000',width:'40%',borderRadius:20,padding:10,}}>
-                      <Text style={styles.totalincometodayWIDRO}>ADD PRODUCT</Text>
+                      <Text style={styles.totalincometodayWIDRO}>ADD PRODUCT</Text> 
                    </TouchableOpacity>
                    </View>
                    <View style={{marginLeft:'5%'}}>
@@ -434,7 +434,7 @@ const deviceWidth = Dimensions.get('window').width;
                         numColumns={2}
                         />
                     </View>
-               </View>
+               </View>  
 
 
                  <View style={{marginHorizontal:'4%',marginVertical:'6%',}}>
@@ -454,17 +454,17 @@ const deviceWidth = Dimensions.get('window').width;
                         </TouchableOpacity>
                     </View>
               </View>
-
-
+           
+              
 
                 <TouchableOpacity style={{backgroundColor:'#b80000',width:320,borderRadius:30,padding:'5%',alignSelf:'center',marginTop:'4%',marginBottom:'25%'}}>
-                      <Text style={styles.totalincometodaycompaign}>SCHEDULE LIVESTREAM</Text>
+                      <Text style={styles.totalincometodaycompaign}>SCHEDULE LIVESTREAM</Text> 
                    </TouchableOpacity>
+  
 
 
 
-
-                <View>
+                <View>   
 
 
         { openpopup  &&
@@ -473,8 +473,8 @@ const deviceWidth = Dimensions.get('window').width;
                     <Modal visible={visible} style={{backgroundColor:'rgba(0, 0, 0, 0.8)',marginHorizontal:-20,marginVertical:-5}} onDismiss={closepopup} contentContainerStyle={containerStyle}>
           <View style={{ marginTop:150,position: 'absolute', textAlign: 'center',justifyContent: 'center',alignItems: 'center',top: 10,left: 0,right: 0 }}>
             <View style={{ width: 250, borderRadius: 10, backgroundColor:'#fff', borderColor:'#999', borderWidth:2 }}>
-
-
+              
+             
               <Text style={{marginVertical:'4%',marginHorizontal:'11%',fontSize:14,fontFamily:'hinted-AvertaStd-Semibold'}}>Adjust Price</Text>
               <View style={styles.pickerViewshorttodaymodal}>
                       <Picker
@@ -537,11 +537,11 @@ const deviceWidth = Dimensions.get('window').width;
                 </View>
 
                 <TouchableOpacity onPress={() => closepopup()} style={{backgroundColor:'#B80000',width:200,borderRadius:25,padding:15,alignSelf:'center',marginVertical:'8%'}}>
-                      <Text style={styles.totalincometodaySAVECHANGE}>SAVE CHANGES</Text>
+                      <Text style={styles.totalincometodaySAVECHANGE}>SAVE CHANGES</Text> 
                    </TouchableOpacity>
 
-
-
+               
+                  
 
 
             </View>
@@ -551,7 +551,7 @@ const deviceWidth = Dimensions.get('window').width;
                     </Provider>
                 }
          </View>
-
+        
                </ScrollView>
             <Footer2 onSelelection="3"  />
         </View>

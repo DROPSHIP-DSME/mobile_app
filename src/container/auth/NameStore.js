@@ -1,6 +1,13 @@
 import { connect } from 'react-redux';
 import { NameStore } from '../../screens/auth';
-import { shopproduct,shopsellcount,getAllproductdetails,getAllshop,cartadd } from '../../redux/actions/Auth'
+import { shopproduct,
+    shopsellcount,
+    getAllproductdetails,
+    getAllshop,
+    cartadd ,
+    postrating,
+    getpostrating
+} from '../../redux/actions/Auth'
 
 
 const mapStateToProps = (state) => ({
@@ -13,6 +20,8 @@ const mapStateToProps = (state) => ({
     getlistproductdetails: state.auth.getlistproductdetails,
     getlistshop: state.auth.getlistshop,
     addcartLoader: state.auth.addcartLoader,
+    ratingloder: state.auth.ratingloder,
+    retingreviewlist: state.auth.retingreviewlist,
 });
 
 const mapDispatchToProps = {
@@ -20,7 +29,9 @@ const mapDispatchToProps = {
     shopsellcount,
     getAllproductdetails,
     getAllshop,
-    cartadd
+    cartadd,
+    postrating,
+    getpostrating,
 };
  
 export default connect(mapStateToProps, mapDispatchToProps)(NameStore);

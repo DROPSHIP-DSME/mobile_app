@@ -17,7 +17,7 @@ import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper
 const clothdetails = (props) => {
 
     const {
-        navigation,
+        navigation, 
         values,
         errors,
         handleChange,

@@ -18,7 +18,6 @@ import Footer3 from '../../screens/auth/Footer3';
 import Shopheader from '../../screens/auth/Shopheader';
 import styl from './styledrop';
 import Moment from 'moment';
-import { useTailwind } from 'tailwind-rn';
 
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
@@ -53,13 +52,10 @@ const upcoming = (props) => {
 
         props.getalleventlist(1);
         props.getincomingtlist();
-        props.getlivestreamrecap("6263d7ed034c210138cdb9b3");
 
-        console.log("liststream-------->", props?.livestreamrecaplist)
     }, [])
 
     //Reference
-    const tailwind = useTailwind();
     const emailRef = useRef();
     const phoneRef = useRef();
     const bisinessnameRef = useRef();
@@ -74,6 +70,9 @@ const upcoming = (props) => {
     const [tab2, settab2] = useState(false);
     const [tab3, settab3] = useState(false);
 
+    const [showlist, setshowlist] = useState(true);
+
+
     const [wayToContact, setWayToContact] = useState("Phone");
     const [wayToContactList, setWayToContactList] = useState([
         {
@@ -85,10 +84,12 @@ const upcoming = (props) => {
             value: "Email"
         }
     ]);
-    const joinbroadcast = (itemid, startnow, eventtime) => {
+    const joinbroadcast = (itemid) => {
 
+        props.getlivestreamrecap(itemid);
+        setshowlist(false)
         // if (startnow == true){
-        props.navigation.navigate("Blurbackground", { isback: false, channel: itemid, isbroadcaster: false });
+       // props.navigation.navigate("Blurbackground", { isback: false, channel: itemid, isbroadcaster: false });
         //} else {
         // alert('Event will start at '+ moment(eventtime).format('MMM DD, hh:mm A'))
         //}
@@ -173,46 +174,21 @@ const upcoming = (props) => {
             image: ImageIcons.profileimage,
 
         },
-        {
-            text: "Beauty brands",
-            image: ImageIcons.profileimage,
-
-        },
-        {
-            text: "Beauty brands",
-            image: ImageIcons.profileimage,
-
-        },
-        {
-            text: "Beauty brands",
-            image: ImageIcons.profileimage,
-
-        },
-        {
-            text: "Beauty brands",
-            image: ImageIcons.profileimage,
-
-        },
-        {
-            text: "Beauty brands",
-            image: ImageIcons.profileimage,
-
-        },
+        
 
     ];
     const renderItemview = ({ item, index }) => {
         return (
-            <View style={tailwind('m-2')}>
-                <View style={tailwind('flex flex-row items-center my-1')}>
-                    <Image source={item.image} style={tailwind('h-12 w-12')} />
-                    <Text style={tailwind('text-base text-gray-800 text-center mx-2')}>Andrea Miller</Text>
+            <View style={{ margin: 10 }}>
+                <View style={{ flexDirection: 'row', alignItems: 'center', marginVertical: 5 }}>
+                    <Image source={item.image} style={{ width: 30, height: 30 }} />
+                    <Text style={{ fontSize: 14, color: '#1A1A1A', fontWeight: '400', textAlign: 'center', marginHorizontal: 6 }}>Andrea Miller</Text>
                 </View>
             </View>
         );
     }
 
     const rendermessage = ({ item }) => {
-        console.log("message------->", item)
         return (
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 25 }} >
                 <Image source={ImageIcons.profile} style={{ height: 36, width: 36, borderRadius: 20 }} />
@@ -230,7 +206,6 @@ const upcoming = (props) => {
 
 
     const Data = ({ item }) => {
-        console.log("itemdata------->", item)
         return (
             <TouchableOpacity style={{ marginHorizontal: 2, borderRadius: 10, backgroundColor: '#FFF', padding: 15, marginVertical: 5 }} onPress={() => props.navigation.navigate("Dashdetail", { orderNumber: item.orderNumber })}>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
@@ -258,282 +233,330 @@ const upcoming = (props) => {
         )
     }
 
+    const renderItem5 = ({ item ,index }) => {
+       return(
+        <View>
+        <TouchableOpacity onPress={() => joinbroadcast(item._id)}>        
+            <View style={{marginHorizontal:5,borderRadius:5}}>
+                    <Image source={{uri: item.products[0]?.productImage}} style={styles.imgbasket} />
+                    <Text style={styles.beautyproduct}></Text>
+                    <View style={{borderRadius:50,position:'absolute',top:10,left:10, backgroundColor:'#E22020'}}>
+                        <Text style={styles.shorttest1}>Live</Text>
+                    </View>
+                    <View style={styl.comingshort1}>
+                        <View style={{left:7,top:2}}>
+                            <Image source={ImageIcons.iconpath} style={{width:18,height:18}}/>
+                        </View>
+                        <Text style={styles.shorttest}>0K</Text>
+                    </View>
+            </View>
+            <View style={styl.rowdrop}>
+            <View>
+              <Image source={ImageIcons.profileimage} style={{width:35,height:35}}/>
+            </View>
+            <View style={{paddingTop:10,paddingLeft:10}}>
+            <Text style={styl.txt1}>{item.products[0]?.productName}</Text>
+            </View>
+            </View>
+            <Text style={styl.txt2}></Text>
+           </TouchableOpacity>
+        </View> 
+      );
+    }
+
     return (
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={styles.registrationRoot}>
             <StatusBar backgroundColor={'#B80000'} barStyle="dark-content" translucent={true} />
             <Shopheader />
-            <View style={tailwind('mt-6 mx-3')}>
-                <Text style={tailwind('text-2xl text-gray-800 font-bold')}>Livestream Recap</Text>
-            </View>
 
-            <ScrollView keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={tailwind('bg-gray-100')} >
+            {showlist==true ?
+                <View style={{ marginTop: '7%', marginHorizontal: '3%', minHeight:'86%' }}>
+                 <Text style={{ fontSize: 26, color: '#1A1A1A', fontFamily: 'AvertaStd-Bold' }}>Livestreams</Text>
+                   <View style={{marginTop:15}}>
+                    {props?.getalleventdata?.length>0 ?
+                    <FlatList
+                        data={props?.getalleventdata || []}
+                        renderItem={renderItem5}
+                        keyExtractor={item => item.id}
+                        showsHorizontalScrollIndicator={false}
+                        numColumns={2}
+                    />
+                    :
+                        <Text style={{ fontSize: 18, textAlign:'center', marginTop:150, color: '#1A1A1A', fontFamily: 'AvertaStd-Bold' }}>No Events Found</Text>
+                    }
+                    </View>
+                </View>
+            :
+            <View style={{ marginTop: '7%', marginHorizontal: '3%' }}>
 
-                <View style={tailwind('pt-2 mx-5')}>
-                    <View style={tailwind('flex flex-row justify-between border-gray-800 border-b-2')}>
-                        <TouchableOpacity onPress={() => { settab1(true); settab2(false); settab3(false); }} style={tailwind('m-3')} >
-                            {tab1 == false ?
-                                <Text style={tailwind('text-base text-gray-700')}>Stats</Text>
-                                :
-                                <Text style={tailwind('text-base text-gray-800 font-bold')}>Stats</Text>
-                            }
-                        </TouchableOpacity >
-                        <TouchableOpacity onPress={() => { settab1(false); settab2(true); settab3(false); }} style={tailwind('m-3')}>
-
-                            {tab2 == false ?
-                                <Text style={tailwind('text-base text-gray-700')}>Orders(0)</Text>
-                                :
-                                <Text style={tailwind('text-base text-gray-800 font-bold')}>Orders(0)</Text>
-                            }
-                        </TouchableOpacity >
-                        <TouchableOpacity onPress={() => { settab1(false); settab2(false); settab3(true); }} style={tailwind('m-3')} >
-                            {tab3 == false ?
-                                <Text style={tailwind('text-base text-gray-700')}>Messages({props?.livestreamrecaplist?.geteventcomment?.length})</Text>
-                                :
-                                <Text style={tailwind('text-base text-gray-800 font-bold')}>Messages({props?.livestreamrecaplist?.geteventcomment?.length})</Text>
-                            }
-                        </TouchableOpacity >
+                    <View>
+                        <Text style={{ fontSize: 26, color: '#1A1A1A', fontFamily: 'AvertaStd-Bold' }}>Livestream Recap</Text>
                     </View>
 
-                    {tab2 == true &&
-                        <View style={tailwind('h-screen w-screen p-6')} >
-                            <FlatList
-                                data={props?.getinconeorderlist || []}
-                                renderItem={Data}
-                            />
-                        </View>
+                    <ScrollView keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#F5F5F5' }} >
 
-                    }
+                        <View style={{ marginHorizontal: '3%', paddingTop: '2%', }}>
 
-                    {tab1 == true &&
-                        <ScrollView>
-                            <View style={tailwind('bg-gray-100')} >
-                                <View style={{ backgroundColor: '#FFFFFF', padding: '4%', borderRadius: 10, marginTop: '4%', elevation: 3 }} >
-                                    <View style={tailwind('flex flex-row justify-between')} >
-                                        <Text style={tailwind('text-base text-gray-600 font-base')} >Title</Text>
-                                        <Text style={tailwind('text-base text-gray-800 font-bold')} >{props?.livestreamrecaplist?.getBrandDetails?.brandName}</Text>
-                                    </View>
 
-                                    <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 12 }} >
-                                        <Text style={tailwind('text-base text-gray-600 font-base')}  >Date & Time</Text>
-                                        <Text style={tailwind('text-base text-gray-800')} >{props?.livestreamrecaplist?.getBrandDetails?.createdAt}</Text>
-                                    </View>
+                            <View style={{ flexDirection: 'row', justifyContent: 'space-between', borderColor: '#999999', borderBottomWidth: 1, }}>
+                                <TouchableOpacity onPress={() => { settab1(true); settab2(false); settab3(false); }} style={{ backgroundColor: '#f2f2f2', margin: '3%', borderColor: '#1A1A1A' }} >
+                                    {tab1 == false ?
+                                        <Text style={{ fontSize: 16, fontWeight: '600' }}>Stats</Text>
+                                        :
+                                        <Text style={{ fontSize: 16, fontWeight: '800', fontFamily: "hinted-AvertaStd-Bold" }}>Stats</Text>
+                                    }
+                                </TouchableOpacity >
+                                <TouchableOpacity onPress={() => { settab1(false); settab2(true); settab3(false); }} style={{ backgroundColor: '#f2f2f2', margin: '3%' }}>
 
-                                    <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 12 }} >
-                                        <Text style={tailwind('text-base text-gray-600 font-base')} >Duration</Text>
-                                        <Text style={tailwind('text-base text-gray-800 font-bold')} >{props?.livestreamrecaplist?.getchannelAudiance?.EventDuration}</Text>
-                                    </View>
-                                </View>
+                                    {tab2 == false ?
+                                        <Text style={{ fontSize: 16, fontWeight: '600' }}>Orders(0)</Text>
+                                        :
+                                        <Text style={{ fontSize: 16, fontWeight: '800', fontFamily: "hinted-AvertaStd-Bold" }}>Orders(0)</Text>
+                                    }
+                                </TouchableOpacity >
+                                <TouchableOpacity onPress={() => { settab1(false); settab2(false); settab3(true); }} style={{ backgroundColor: '#f2f2f2', margin: '3%' }} >
+                                    {tab3 == false ?
+                                        <Text style={{ fontSize: 16, fontWeight: '600' }}>Messages({props?.livestreamrecaplist?.geteventcomment?.length})</Text>
+                                        :
+                                        <Text style={{ fontSize: 16, fontWeight: '800', fontFamily: "hinted-AvertaStd-Bold" }}>Messages({props?.livestreamrecaplist?.geteventcomment?.length})</Text>
+                                    }
+                                </TouchableOpacity >
+                            </View>
 
-                                {/*<View>
+                            {tab2 == true &&
+                                <View style={{ height: '100%', width: '100%', backgroundColor: '#F5F5F5', padding: 10 }} >
                                     <FlatList
-                                        data={props?.getalleventdata || []}
-                                        renderItem={renderItem}
-                                        keyExtractor={item => item.id}
-                                        showsHorizontalScrollIndicator={false}
-                                        numColumns={2}
+                                        data={props?.getinconeorderlist || []}
+                                        renderItem={Data}
                                     />
-                                </View>*/}
-
-                                {/*<---------Summary------------>*/}
-
-                                <View style={tailwind('p-3 my-8')}>
-                                    <Text style={tailwind('text-2xl text-gray-700 ')}>Summary</Text>
-                                    <View style={tailwind('flex flex-row justify-between my-3')}>
-                                        <View>
-                                            <Text style={tailwind('text-xl text-gray-800')}>{props?.livestreamrecaplist?.getchannelAudiance?.audianceCount}</Text>
-                                            <Text style={tailwind('text-base text-gray-800')}>Viewers</Text>
-                                        </View>
-                                        <View>
-                                            <Text style={tailwind('text-xl text-gray-800')}>0</Text>
-                                            <Text style={tailwind('text-base text-gray-800')}>Saves</Text>
-                                        </View>
-                                        <View>
-                                            <Text style={tailwind('text-xl text-gray-800')}>0</Text>
-                                            <Text style={tailwind('text-base text-gray-800')}>Likes</Text>
-                                        </View>
-                                        <View>
-                                            <Text style={tailwind('text-xl text-gray-800')}>{props?.livestreamrecaplist?.geteventcomment?.length}</Text>
-                                            <Text style={tailwind('text-base text-gray-800')}>Messages</Text>
-                                        </View>
-                                    </View>
-                                    <View style={{
-                                        width: deviceWidth / 1.1, padding: 5, backgroundColor: '#ffffff', marginVertical: '4%',
-                                        borderRadius: 16, marginHorizontal: '4%', alignSelf: 'center', elevation: 3
-                                    }}>
-                                        <View style={tailwind('flex flex-row justify-between my-3')}>
-                                            <View>
-                                                <Text style={tailwind('text-xl text-gray-800 font-bold pl-3')}>Live Attendance</Text>
-                                            </View>
-
-                                        </View>
-                                        {/*<BarChart
-                                            data={{
-                                                labels: ["This stream stats", "Average stream stats",],
-                                                datasets: [
-                                                    {
-                                                        data: props?.livestreamrecaplist(item => {
-                                                            return (
-
-                                                                item.audianceCount
-
-                                                            )
-                                                        })
-
-                                                    }
-                                                ]
-                                            }}
-                                            width={deviceWidth / 1.13}
-                                            height={200}
-                                            yAxisSuffix="k"
-                                            yAxisInterval={2}
-                                            chartConfig={{
-                                                backgroundColor: "#e26a00",
-                                                backgroundGradientFrom: "#ffffff",
-                                                backgroundGradientTo: "#ffffff",
-                                                color: (opacity = 1) => `rgba(0, 153, 0, ${opacity})`,
-                                                labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-
-                                            }}
-                                            style={{
-                                                //marginVertical: 8,
-                                                borderRadius: 16,
-                                                //marginHorizontal:'4%'
-                                            }}
-                                            verticalLabelRotation={0}
-                                        />*/}
-                                    </View>
-                                    <View style={{
-                                        width: deviceWidth / 1.1, padding: 5, backgroundColor: '#ffffff', marginVertical: '4%',
-                                        borderRadius: 16, marginHorizontal: '4%', alignSelf: 'center', elevation: 3
-                                    }}>
-                                        <View style={tailwind('my-2 p-3')}>
-                                            <View>
-                                                <Text style={tailwind('text-xl text-gray-800 font-bold')}>Livestream Benchmarks</Text>
-                                            </View>
-                                            <View style={tailwind('flex flex-row mt-4')}>
-                                                <View style={tailwind('bg-gray-200 py-2 px-4 rounded-lg')}>
-                                                    <Text style={tailwind('text-base text-gray-700')}>Viewers</Text>
-                                                </View>
-                                                <View style={tailwind('bg-red-800 py-2 px-4 rounded-lg ml-3')}>
-                                                    <Text style={tailwind('text-base text-white')}>Likes</Text>
-                                                </View>
-                                                <View style={tailwind('bg-gray-200 py-2 px-4 rounded-lg ml-3')}>
-                                                    <Text style={tailwind('text-base text-gray-700')}>Saves</Text>
-                                                </View>
-                                            </View>
-                                        </View>
-                                        <BarChart
-                                            data={data2}
-                                            width={deviceWidth / 1.13}
-                                            height={200}
-                                            yAxisSuffix="k"
-                                            yAxisInterval={2}
-                                            chartConfig={{
-                                                backgroundColor: "#e26a00",
-                                                backgroundGradientFrom: "#ffffff",
-                                                backgroundGradientTo: "#ffffff",
-                                                color: (opacity = 1) => `rgba(0, 153, 0, ${opacity})`,
-                                                labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-
-                                            }}
-                                            style={{
-                                                //marginVertical: 8,
-                                                borderRadius: 16,
-                                                //marginHorizontal:'4%'
-                                            }}
-                                            verticalLabelRotation={0}
-                                        />
-                                    </View>
-                                    <View style={{
-                                        width: deviceWidth / 1.1, padding: 5, backgroundColor: '#ffffff', marginVertical: '4%',
-                                        borderRadius: 16, marginHorizontal: '4%', alignSelf: 'center', elevation: 3
-                                    }}>
-                                        <View>
-                                            <Text style={styles.totalincometodaylive}>Livestream Viewers</Text>
-                                        </View>
-                                        <ProgressChart
-                                            data={data1}
-                                            width={deviceWidth / 1.15}
-                                            height={220}
-                                            strokeWidth={16}
-                                            radius={32}
-                                            chartConfig={{
-                                                backgroundColor: "#e26a00",
-                                                backgroundGradientFrom: "#ffffff",
-                                                backgroundGradientTo: "#ffffff",
-                                                decimalPlaces: 1, // optional, defaults to 2dp
-                                                color: (opacity = 1) => `rgba(0, 153, 0, ${opacity})`,
-                                                labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-
-                                            }}
-                                            hideLegend={false}
-                                        />
-                                    </View>
                                 </View>
 
-                                <View style={{ marginHorizontal: '2%' }}>
-                                    <Text style={{ fontSize: 22, color: '#1A1A1A', fontWeight: '400' }}>Viewers</Text>
-                                    <View>
-                                        <FlatList
-                                            data={viewprofile}
-                                            renderItem={renderItemview}
-                                            keyExtractor={item => item.id}
-                                            showsHorizontalScrollIndicator={false}
-                                            numColumns={2}
-                                        />
+                            }
+
+                            {tab1 == true &&
+                                <ScrollView>
+                                    <View style={{ backgroundColor: '#F5F5F5' }} >
+
+
+                                        <View style={{ backgroundColor: '#FFFFFF', padding: '4%', borderRadius: 10, marginTop: '4%', elevation: 3 }} >
+
+
+                                            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }} >
+                                                <Text style={{ fontSize: 16, color: '#666666', fontWeight: '400', fontStyle: 'normal', fontFamily: 'SourceSansPro-Regular' }} >Title</Text>
+                                                <Text style={{ fontSize: 16, color: 'black', fontWeight: '600', fontStyle: 'normal', fontFamily: 'SourceSansPro-SemiBold' }} >{props?.livestreamrecaplist?.getBrandDetails?.brandName}</Text>
+                                            </View>
+
+                                            <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 12 }} >
+                                                <Text style={{ fontSize: 16, color: '#666666', fontWeight: '400', fontStyle: 'normal', fontFamily: 'SourceSansPro-Regular' }}  >Date & Time</Text>
+                                                <Text style={{ fontSize: 16, color: '#1A1A1A', fontStyle: 'normal', fontFamily: 'SourceSansPro-Regular' }} >{props?.livestreamrecaplist?.getBrandDetails?.createdAt}</Text>
+                                            </View>
+
+                                            <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 12 }} >
+                                                <Text style={{ fontSize: 16, color: '#666666', fontWeight: '400', fontStyle: 'normal', fontFamily: 'SourceSansPro-Regular' }} >Duration</Text>
+                                                <Text style={{ fontSize: 16, color: '#1A1A1A', fontStyle: 'normal', fontFamily: 'SourceSansPro-Regular' }} >{props?.livestreamrecaplist?.getchannelAudiance?.EventDuration}</Text>
+                                            </View>
+
+                                        </View>
+
+                                        {/*<View>
+                                            <FlatList
+                                                data={props?.getalleventdata || []}
+                                                renderItem={renderItem}
+                                                keyExtractor={item => item.id}
+                                                showsHorizontalScrollIndicator={false}
+                                                numColumns={2}
+                                            />
+                                        </View>*/}
+
+                                        {/*<---------Summary------------>*/}
+
+                                        <View style={{ paddingVertial: '3%', margin: '3%', marginVertical: '5%' }}>
+                                            <Text style={{ fontSize: 22, color: '#1A1A1A', fontWeight: '400', fontStyle: 'normal', fontFamily: 'AvertaStd-Semibold' }}>Summary</Text>
+                                            <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginVertical: '3%' }}>
+                                                <View>
+                                                    <Text style={{ fontSize: 22, color: '#1A1A1A', fontWeight: '400', fontStyle: 'normal', fontFamily: 'SourceSansPro-SemiBold', textAlign: 'center' }}>{props?.livestreamrecaplist?.getchannelAudiance?.audianceCount}</Text>
+                                                    <Text style={{ fontSize: 14, color: '#1A1A1A', fontWeight: '400', fontStyle: 'normal', fontFamily: 'SourceSansPro-Regular' }}>Viewers</Text>
+                                                </View>
+                                                <View>
+                                                    <Text style={{ fontSize: 22, color: '#1A1A1A', fontWeight: '400', fontStyle: 'normal', fontFamily: 'SourceSansPro-SemiBold', textAlign: 'center' }}>0</Text>
+                                                    <Text style={{ fontSize: 14, color: '#1A1A1A', fontWeight: '400', fontStyle: 'normal', fontFamily: 'SourceSansPro-Regular' }}>Saves</Text>
+                                                </View>
+                                                <View>
+                                                    <Text style={{ fontSize: 22, color: '#1A1A1A', fontWeight: '400', fontStyle: 'normal', fontFamily: 'SourceSansPro-SemiBold', textAlign: 'center' }}>0</Text>
+                                                    <Text style={{ fontSize: 14, color: '#1A1A1A', fontWeight: '400', fontStyle: 'normal', fontFamily: 'SourceSansPro-Regular' }}>Likes</Text>
+                                                </View>
+                                                <View>
+                                                    <Text style={{ fontSize: 22, color: '#1A1A1A', fontWeight: '400', fontStyle: 'normal', fontFamily: 'SourceSansPro-SemiBold', textAlign: 'center' }}>{props?.livestreamrecaplist?.geteventcomment?.length}</Text>
+                                                    <Text style={{ fontSize: 14, color: '#1A1A1A', fontWeight: '400', fontStyle: 'normal', fontFamily: 'SourceSansPro-Regular' }}>Messages</Text>
+                                                </View>
+                                            </View>
+                                            <View style={{
+                                                width: deviceWidth / 1.1, padding: 5, backgroundColor: '#ffffff', marginVertical: '4%',
+                                                borderRadius: 16, marginHorizontal: '4%', alignSelf: 'center', elevation: 3
+                                            }}>
+                                                <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginVertical: '4%', marginHorizontal: '3%' }}>
+                                                    <View>
+                                                        <Text style={styles.totalincometodaysale}>Live Attendance</Text>
+                                                    </View>
+
+                                                </View>
+                                                {/*<BarChart
+                                                    data={{
+                                                        labels: ["This stream stats", "Average stream stats",],
+                                                        datasets: [
+                                                            {
+                                                                data: props?.livestreamrecaplist(item => {
+                                                                    return (
+
+                                                                        item.audianceCount
+
+                                                                    )
+                                                                })
+
+                                                            }
+                                                        ]
+                                                    }}
+                                                    width={deviceWidth / 1.13}
+                                                    height={200}
+                                                    yAxisSuffix="k"
+                                                    yAxisInterval={2}
+                                                    chartConfig={{
+                                                        backgroundColor: "#e26a00",
+                                                        backgroundGradientFrom: "#ffffff",
+                                                        backgroundGradientTo: "#ffffff",
+                                                        color: (opacity = 1) => `rgba(0, 153, 0, ${opacity})`,
+                                                        labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+
+                                                    }}
+                                                    style={{
+                                                        //marginVertical: 8,
+                                                        borderRadius: 16,
+                                                        //marginHorizontal:'4%'
+                                                    }}
+                                                    verticalLabelRotation={0}
+                                                />*/}
+                                            </View>
+                                            <View style={{
+                                                width: deviceWidth / 1.1, padding: 5, backgroundColor: '#ffffff', marginVertical: '4%',
+                                                borderRadius: 16, marginHorizontal: '4%', alignSelf: 'center', elevation: 3
+                                            }}>
+                                                <View style={{ marginVertical: '4%', marginHorizontal: '3%' }}>
+                                                    <View>
+                                                        <Text style={styles.totalincometodaysale}>Livestream Benchmarks</Text>
+                                                    </View>
+                                                    <View style={{ flexDirection: 'row', marginTop: '4%' }}>
+                                                        <View style={{ backgroundColor: '#E6E6E6', paddingHorizontal: '5%', padding: 10, borderRadius: 6 }}>
+                                                            <Text style={{ fontSize: 12, color: '#4D4D4D', fontWeight: '400' }}>Viewers</Text>
+                                                        </View>
+                                                        <View style={{ backgroundColor: '#B80000', padding: 10, borderRadius: 6, marginHorizontal: '3%' }}>
+                                                            <Text style={{ fontSize: 12, color: '#FFFFFF', fontWeight: '400' }}>Likes</Text>
+                                                        </View>
+                                                        <View style={{ backgroundColor: '#E6E6E6', padding: 10, borderRadius: 6 }}>
+                                                            <Text style={{ fontSize: 12, color: '#4D4D4D', fontWeight: '400' }}>Saves</Text>
+                                                        </View>
+                                                    </View>
+                                                </View>
+                                                <BarChart
+                                                    data={data2}
+                                                    width={deviceWidth / 1.13}
+                                                    height={200}
+                                                    yAxisSuffix="k"
+                                                    yAxisInterval={2}
+                                                    chartConfig={{
+                                                        backgroundColor: "#e26a00",
+                                                        backgroundGradientFrom: "#ffffff",
+                                                        backgroundGradientTo: "#ffffff",
+                                                        color: (opacity = 1) => `rgba(0, 153, 0, ${opacity})`,
+                                                        labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+
+                                                    }}
+                                                    style={{
+                                                        //marginVertical: 8,
+                                                        borderRadius: 16,
+                                                        //marginHorizontal:'4%'
+                                                    }}
+                                                    verticalLabelRotation={0}
+                                                />
+                                            </View>
+                                            <View style={{
+                                                width: deviceWidth / 1.1, padding: 5, backgroundColor: '#ffffff', marginVertical: '4%',
+                                                borderRadius: 16, marginHorizontal: '4%', alignSelf: 'center', elevation: 3
+                                            }}>
+                                                <View>
+                                                    <Text style={styles.totalincometodaylive}>Livestream Viewers</Text>
+                                                </View>
+                                                <ProgressChart
+                                                    data={data1}
+                                                    width={deviceWidth / 1.15}
+                                                    height={220}
+                                                    strokeWidth={16}
+                                                    radius={32}
+                                                    chartConfig={{
+                                                        backgroundColor: "#e26a00",
+                                                        backgroundGradientFrom: "#ffffff",
+                                                        backgroundGradientTo: "#ffffff",
+                                                        decimalPlaces: 1, // optional, defaults to 2dp
+                                                        color: (opacity = 1) => `rgba(0, 153, 0, ${opacity})`,
+                                                        labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+
+                                                    }}
+                                                    hideLegend={false}
+                                                />
+                                            </View>
+                                        </View>
+
+                                        <View style={{ marginHorizontal: '2%' }}>
+                                            <Text style={{ fontSize: 22, color: '#1A1A1A', fontWeight: '400' }}>Viewers</Text>
+                                            <View>
+                                                <FlatList
+                                                    data={viewprofile}
+                                                    renderItem={renderItemview}
+                                                    keyExtractor={item => item.id}
+                                                    showsHorizontalScrollIndicator={false}
+                                                    numColumns={2}
+                                                />
+                                            </View>
+
+                                        </View>
+
+                                        <TouchableOpacity style={{ backgroundColor: '#B80000', marginStart: 20, marginEnd: 20, marginTop: 45, borderRadius: 50, marginBottom: 137 }} >
+                                            <Text style={{ color: 'white', fontSize: 18, fontWeight: 'bold', textAlign: 'center', marginTop: 20, marginBottom: 20 }} >Delete Stream</Text>
+                                        </TouchableOpacity>
+
                                     </View>
-
-                                </View>
-
-                                <TouchableOpacity style={{ backgroundColor: '#B80000', marginStart: 20, marginEnd: 20, marginTop: 45, borderRadius: 50, marginBottom: 137 }} >
-                                    <Text style={{ color: 'white', fontSize: 18, fontWeight: 'bold', textAlign: 'center', marginTop: 20, marginBottom: 20 }} >Delete Stream</Text>
-                                </TouchableOpacity>
-
-                            </View>
-                        </ScrollView>
-                    }
+                                </ScrollView>
+                            }
 
 
-                    {tab3 == true &&
-                        <View style={{ backgroundColor: '#F5F5F5', padding: 10 }} >
-
-                            <View>
-
-                                <FlatList
-                                    data={props?.livestreamrecaplist?.geteventcomment || []}
-                                    renderItem={rendermessage}
-                                    keyExtractor={item => item.id}
-                                />
-
-                            </View>
-
-                        </View >
-                    }
-
-
-
-
-
-
-
+                            {tab3 == true &&
+                                <View style={{ backgroundColor: '#F5F5F5', padding: 10,marginBottom:'20%' }} >
+                                    <FlatList
+                                        data={props?.livestreamrecaplist?.geteventcomment || []}
+                                        renderItem={rendermessage}
+                                        keyExtractor={item => item.id}
+                                    />
+                                </View >
+                            }
+                        </View>
+                        {openpopup &&
+                            <Provider>
+                                <Portal>
+                                    <Modal visible={visible} onDismiss={closepopup} contentContainerStyle={containerStyle}>
+                                        <Image source={ImageIcons.sucess} style={styles.sucessimage} />
+                                        <Text style={styles.Modaltext}>Purchase successful</Text>
+                                        <Text style={styles.modalsuceestext}>You have successfully the goods in your chart. We will update you as the goods gets dispatched</Text>
+                                        <TouchableOpacity style={styles.modalbutton}
+                                            onPress={() => props.navigation.navigate("SearchProduct")}>
+                                            <Text style={styles.modaltouchablitytext} >Continue Shopping</Text></TouchableOpacity>
+                                    </Modal>
+                                </Portal>
+                            </Provider>
+                        }
+                    </ScrollView>
                 </View>
-                {openpopup &&
-                    <Provider>
-                        <Portal>
-                            <Modal visible={visible} onDismiss={closepopup} contentContainerStyle={containerStyle}>
-                                <Image source={ImageIcons.sucess} style={styles.sucessimage} />
-                                <Text style={styles.Modaltext}>Purchase successful</Text>
-                                <Text style={styles.modalsuceestext}>You have successfully the goods in your chart. We will update you as the goods gets dispatched</Text>
-                                <TouchableOpacity style={styles.modalbutton}
-                                    onPress={() => props.navigation.navigate("SearchProduct")}>
-                                    <Text style={styles.modaltouchablitytext} >Continue Shopping</Text></TouchableOpacity>
-                            </Modal>
-                        </Portal>
-                    </Provider>
-                }
-            </ScrollView>
+            }
             <Footer3 onSelection="2" />
         </KeyboardAvoidingView>
     )
