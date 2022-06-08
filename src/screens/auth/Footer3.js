@@ -4,8 +4,13 @@ import LinearGradient from 'react-native-linear-gradient';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
 import styles from './styles';
-import { Colors, CommonStrings } from '../../common'
-import ImageIcons from '../../common/ImageIcons'
+import { Colors, CommonStrings } from '../../common';
+import ImageIcons from '../../common/ImageIcons';
+import { HomeIcon } from "react-native-heroicons/solid";
+import { VideoCameraIcon } from "react-native-heroicons/solid";
+import { CashIcon } from "react-native-heroicons/solid";
+import { SpeakerphoneIcon } from "react-native-heroicons/solid";
+import { UserIcon } from "react-native-heroicons/solid";
 import InputField from '../../components/forms/inputField';
 import { RoundedButton } from '../../components/forms/button';
 import { phoneRegExp } from '../../services/helper';
@@ -14,12 +19,13 @@ import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import { useNavigation } from '@react-navigation/native';
 import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper';
-import AsyncStorage from '@react-native-community/async-storage'; 
+import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
+import {useTailwind} from 'tailwind-rn';
 
 
 const Footer3 = (props) => {
- 
+
     const {
         values,
         errors,
@@ -31,6 +37,7 @@ const Footer3 = (props) => {
     const navigation = useNavigation();
 
     //Reference
+    const tailwind = useTailwind();
     const emailRef = useRef();
     const phoneRef = useRef();
     const bisinessnameRef = useRef();
@@ -39,7 +46,7 @@ const Footer3 = (props) => {
     // Local states
     const [visible, setVisible] = React.useState(false);
     const [IsLogin, setIsLogin] = React.useState('');
-    
+
     const [wayToContact, setWayToContact] = useState("Phone");
     const [wayToContactList, setWayToContactList] = useState([
         {
@@ -65,13 +72,13 @@ const Footer3 = (props) => {
         () => {
         getBrandUserId();
      })
-  
+
     const containerStyle = {backgroundColor: 'white', padding: '7%',marginHorizontal:'5%',alignItems:'center'};
-       
+
     const showConfirmDialog = () => {
         alert(props?.loginuserstatus)
        /* if(props?.loginuserstatus=="1"){
-            navigation.navigate('Profilee'); 
+            navigation.navigate('Profilee');
         }else {
             return Alert.alert(
               "",
@@ -90,88 +97,108 @@ const Footer3 = (props) => {
      };
 
 
-  
+
 
     return (
 
         <View style={styles.footerView}>
-         
+
          <View style={styles.maincartviewfooter}>
-         
+
 
           <TouchableOpacity onPress={() => { navigation.navigate('watchlist'); }}>
             {onSelection==1 ?
-                <View>
-                     <Image source={ImageIcons.blackhome}  style={[styles.home2,{marginTop:2,tintColor:'#b80000'}]} />
-                     <Text style={styles.customertextrednew}>Home</Text>        
-                </View>
-            :
-                <View>
-                     <Image source={ImageIcons.blackhome}  style={[styles.home2,{marginTop:2}]} />
-                     <Text style={styles.customertext}>Home</Text>        
-                </View>
+              <View style={tailwind('items-center')}>
+                  <Text>
+                     <HomeIcon color="red" fill="#b80000" size={24} />
+                  </Text>
+                   <Text style={tailwind('text-sm text-right font-normal text-red-700')}>Home</Text>
+              </View>
+          :
+              <View style={tailwind('items-center')}>
+                  <Text>
+                     <HomeIcon color="red" fill="gray" size={24} />
+                  </Text>
+                   <Text style={tailwind('text-sm text-right font-normal text-gray-700')}>Home</Text>
+              </View>
             }
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => { navigation.navigate('upcoming'); }}>
             {onSelection==2 ?
-                <View>
-                     <Image source={ImageIcons.camera}  style={[styles.home2,{tintColor:'#b80000'}]} />
-                     <Text style={styles.customertextrednew}>Livestreams</Text>         
-                </View>
-            :
-                <View>
-                     <Image source={ImageIcons.camera}  style={styles.home2} />
-                     <Text style={styles.customertext}>Livestreams</Text>         
-                </View>
+              <View style={tailwind('items-center')}>
+                  <Text>
+                     <VideoCameraIcon color="red" fill="#b80000" size={24} />
+                  </Text>
+                   <Text style={tailwind('text-sm text-right font-normal text-red-700')}>Livestreams</Text>
+              </View>
+          :
+              <View style={tailwind('items-center')}>
+                  <Text>
+                     <VideoCameraIcon color="red" fill="gray" size={24} />
+                  </Text>
+                   <Text style={tailwind('text-sm text-right font-normal text-gray-700')}>Livestreams</Text>
+              </View>
             }
-        </TouchableOpacity> 
+        </TouchableOpacity>
 
         <TouchableOpacity onPress={() => navigation.navigate("Overview")} >
             {onSelection==3 ?
-                <View>
-                     <Image source={ImageIcons.sell}  style={[styles.home2,{tintColor:'#b80000',height:20}]} />
-                     <Text style={[styles.customertextrednew,{paddingTop:5}]}>Sell</Text>
-                </View>
-             :
-                 <View>
-                     <Image source={ImageIcons.sell}  style={[styles.home2,{height:20,tintColor:'#828282'}]} />
-                     <Text style={[styles.customertext,{paddingTop:5}]}>Sell</Text>
-                </View>
+              <View style={tailwind('items-center')}>
+                  <Text>
+                     <CashIcon color="red" fill="#b80000" size={24} />
+                  </Text>
+                   <Text style={tailwind('text-sm text-right font-normal text-red-700')}>Sell</Text>
+              </View>
+          :
+              <View style={tailwind('items-center')}>
+                  <Text>
+                     <CashIcon color="red" fill="gray" size={24} />
+                  </Text>
+                   <Text style={tailwind('text-sm text-right font-normal text-gray-700')}>Sell</Text>
+              </View>
             }
 
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => { navigation.navigate('shop'); }}>
          {onSelection==4 ?
-             <View>
-                 <Image source={ImageIcons.event}  style={[styles.home2,{tintColor:'#b80000'}]} />
-                 <Text style={styles.customertextrednew}>Seller</Text>         
-            </View>
-        :
-            <View>
-                 <Image source={ImageIcons.event}  style={styles.home2} />
-                 <Text style={styles.customertext}>Seller</Text>         
-            </View>
+           <View style={tailwind('items-center')}>
+               <Text>
+                  <SpeakerphoneIcon color="red" fill="#b80000" size={24} />
+               </Text>
+                <Text style={tailwind('text-sm text-right font-normal text-red-700')}>Seller</Text>
+           </View>
+       :
+           <View style={tailwind('items-center')}>
+               <Text>
+                  <SpeakerphoneIcon color="red" fill="gray" size={24} />
+               </Text>
+                <Text style={tailwind('text-sm text-right font-normal text-gray-700')}>Seller</Text>
+           </View>
         }
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => { navigation.navigate('Account');  }}>
          {onSelection==5 ?
-             <View>
-                 <Image source={ImageIcons.account}  style={[styles.home2,{tintColor:'#b80000'}]}  />
-                 <Text style={styles.customertextrednew}>Account</Text>         
-            </View>
-        :
-            <View>
-                 <Image source={ImageIcons.account}  style={styles.home2} />
-                 <Text style={styles.customertext}>Account</Text>         
-            </View>
+           <View style={tailwind('items-center')}>
+               <Text>
+                  <UserIcon color="red" fill="#b80000" size={24} />
+               </Text>
+                <Text style={tailwind('text-sm text-right font-normal text-red-700')}>Account</Text>
+           </View>
+       :
+           <View style={tailwind('items-center')}>
+               <Text>
+                  <UserIcon color="red" fill="gray" size={24} />
+               </Text>
+                <Text style={tailwind('text-sm text-right font-normal text-gray-700')}>Account</Text>
+           </View>
         }
         </TouchableOpacity>
 
         </View>
-       
+
         </View>
 
     )

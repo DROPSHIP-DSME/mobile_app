@@ -25,7 +25,7 @@ import Footer3 from '../../screens/auth/Footer3';
 import Shopheader from '../../screens/auth/Shopheader';
 
 const ProductStore = (props) => {
- 
+
     const {
         navigation,
         values,

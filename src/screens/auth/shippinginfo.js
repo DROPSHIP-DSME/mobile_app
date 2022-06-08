@@ -16,6 +16,7 @@ import ImagePicker from 'react-native-image-crop-picker';
 import { launchImageLibrary } from 'react-native-image-picker';
 import AsyncStorage from '@react-native-community/async-storage';
 import CheckBox from '@react-native-community/checkbox';
+import 'react-native-get-random-values';
 import { v4 as uuid } from "uuid";
 import Footer3 from '../../screens/auth/Footer3';
 import { useValidation } from 'react-native-form-validator';
@@ -23,7 +24,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 
 
 const shippinginfo = (props) => {
- 
+
     const {
         navigation,
         values,
@@ -34,7 +35,7 @@ const shippinginfo = (props) => {
 
     useEffect(() => {
         //alert('d')
-        props.getprofileuser(props?.loginuserid); 
+        props.getprofileuser(props?.loginuserid);
     }, [])
 
 
@@ -82,10 +83,10 @@ const manageretakeFlag = () => {
         setRetakeFlag(true)
     }
 }
- 
-    const saveAddshipping = () =>{ 
+
+    const saveAddshipping = () =>{
         Keyboard.dismiss();
-        
+
           validate({
             First: { required: true },
             Lastname: { required: true },
@@ -94,10 +95,10 @@ const manageretakeFlag = () => {
              City: { required: true },
             State: { required: true },
              Zip: { required: true },
-            
-        })   
+
+        })
         if (First !== "" && Lastname !=="" && Address !== "" && Address2 !=="" && City !=="" && State !=="" && Zip !=="") {
-        
+
         let request = {
                 "userId":props?.loginuserid,
                 "firstName":First,
@@ -111,11 +112,11 @@ const manageretakeFlag = () => {
             props.saveaddress(request, props.navigation, "vendor");
         }
     }
-    
+
     // Vendor request submission
     const userprofile = async () => {
-       
-           
+
+
         }
 return (
     <KeyboardAwareScrollView  contentContainerStyle={{flexGrow: 1}}
@@ -178,7 +179,7 @@ return (
                             <Picker.Item label={'USA'} value={'USA'} key={1} />
                             <Picker.Item label={'Ghana'} value={'Ghana'} key={1} />
                             <Picker.Item label={'India'} value={'India'} key={1} />
-                            
+
                             </Picker>
                         </View>
                     </View>
@@ -258,7 +259,7 @@ return (
                         <View style={{width:'30%',justifyContent:'center'}}>
                             <Text style={styles.labeltext}>Zip Code</Text>
                         </View>
-                        <View style={{width:'70%'}}> 
+                        <View style={{width:'70%'}}>
                             <TextInput
                              style={styles.inputshipping}
                              onChangeText={(text) => onChangeZip(text)}
@@ -272,12 +273,12 @@ return (
                             }
                         </View>
                     </View>
-                    
+
                     <View style={[styles.maincartviewfooter,{marginTop:'10%'}]}>
                         <View style={{width:'30%',justifyContent:'center'}}>
                             <Text style={styles.labeltext}>Remember Card</Text>
                         </View>
-                        <View style={{width:'70%',marginLeft:6}}> 
+                        <View style={{width:'70%',marginLeft:6}}>
                             <CheckBox
                              checkedColor='black'
                              value={retakeFlag}
@@ -290,22 +291,22 @@ return (
                 </View>
         </View>
         <View style={styles.footerView}>
-         
+
         <View style={styles.maincartviewfooter}>
 
         <TouchableOpacity onPress={() => { navigation.navigate('watchlist'); }}>
             <View >
                 <Image source={ImageIcons.tvicon}  style={[styles.home1,{marginTop:2}]} />
-                <Text style={styles.customerfoottext}>Live channels</Text>        
+                <Text style={styles.customerfoottext}>Live channels</Text>
             </View>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => { navigation.navigate('Cart'); }}>
             <View >
                 <Image source={ImageIcons.cart}  style={styles.homecart} />
-                <Text style={styles.customerfoottext}>Cart</Text>         
+                <Text style={styles.customerfoottext}>Cart</Text>
             </View>
-        </TouchableOpacity> 
+        </TouchableOpacity>
 
         <TouchableOpacity onPress={() => navigation.navigate("shop")} >
             <View >
@@ -317,14 +318,14 @@ return (
         <TouchableOpacity onPress={() => { navigation.navigate('Search'); }}>
             <View >
                 <Image source={ImageIcons.searchicon}  style={styles.home1} />
-                <Text style={styles.customerfoottext}>Search</Text>         
+                <Text style={styles.customerfoottext}>Search</Text>
             </View>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => { navigation.navigate('Newprofile'); }}>
             <View>
                 <Image source={ImageIcons.prof}  style={styles.home1} />
-                <Text style={[styles.customerfoottext,{paddingTop:'1%'}]}>Profile</Text>         
+                <Text style={[styles.customerfoottext,{paddingTop:'1%'}]}>Profile</Text>
             </View>
         </TouchableOpacity>
 

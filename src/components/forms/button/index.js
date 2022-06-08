@@ -1,12 +1,13 @@
 import React from 'react';
 import { Text, TextInput, TouchableOpacity, View, Image } from 'react-native';
-import { Colors, Fonts } from '../../../common'
+import { Colors, Fonts } from '../../../common';
+import {useTailwind} from 'tailwind-rn';
 import styles from './styles';
 
-export const RoundedButton = ({ customStyle, text, isOutline, ...others }) => {
+export const RoundedButton = () => {
     return (
         <TouchableOpacity
-            style={[isOutline ? styles.outline : styles.root, customStyle]}
+            style={[styles.root, customStyle]}
             {...others}
         >
             <Text style={[isOutline ? styles.outlineButtonText : styles.buttonText]}>{text}</Text>

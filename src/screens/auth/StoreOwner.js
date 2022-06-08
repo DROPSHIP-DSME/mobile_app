@@ -14,6 +14,7 @@ import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper';
 import CheckBox from '@react-native-community/checkbox';
+import 'react-native-get-random-values';
 import { v4 as uuid } from "uuid";
 import BraintreeDropIn from 'react-native-braintree-dropin-ui';
 import Footer3 from '../../screens/auth/Footer3';
@@ -60,7 +61,7 @@ const StoreOwner = (props) => {
     const [Debit, onChangeDebit] = React.useState("Debit Card");
 
     const [wayToContact, setWayToContact] = useState("Phone");
-    
+
     const openpopup = () => {
         setVisible(true)
 
@@ -82,7 +83,7 @@ const StoreOwner = (props) => {
           googlePay: true,
           applePay: true,
           vaultManager: true,
-          payPal: true, 
+          payPal: true,
           cardDisabled: false,
           darkTheme: true,
         })
@@ -116,7 +117,7 @@ const StoreOwner = (props) => {
         }  else if (Zip == "") {
             Alert.alert('Zip is required')
         }  else if (City == "") {
-            Alert.alert('City is required') 
+            Alert.alert('City is required')
         } else {
             let request = {
                 "userId":props?.loginuserid,
@@ -180,7 +181,7 @@ const StoreOwner = (props) => {
                          placeholderTextColor="#999999"
                         />
                     </View>
-                    
+
                      <View>
                         <TextInput
                         style={styles.inputcategory}
@@ -230,17 +231,17 @@ const StoreOwner = (props) => {
                     selectedValue={selectedValue}
                     style={{ height: 50, width: '90%', borderWidth:1, borderColor:'#333333' }}
                     onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-                    > 
+                    >
                     <Picker.Item label="Select Country" value="" />
                     {props.countrylistdata && props.countrylistdata?.map((item, index) => {
-                        return ( 
+                        return (
                          <Picker.Item label={item.name} value={item.name} key={index} />
                         )
                     })}
                     </Picker>
                 </View>
-                     <View>   
-      
+                     <View>
+
 
     </View>
             <View style={{marginTop:'2%',flexDirection: 'row',marginLeft:'3%'}}>
@@ -267,8 +268,8 @@ const StoreOwner = (props) => {
                                 }
                             </View>
                          </TouchableOpacity>
-                    </View> 
-                       
+                    </View>
+
                     <View style={styles.checkboxView}>
                        <Text style={{marginLeft:'2%',alignSelf:'center'}}>Affirm</Text>
                         <TouchableOpacity onPress={() => setChecked('second')}>
@@ -285,7 +286,7 @@ const StoreOwner = (props) => {
                     <TouchableOpacity
                         style={styles.TouchableOpacitybrand}
                         activeOpacity = { .5}
-                        onPress={() => handleSendRequestSubmit()}> 
+                        onPress={() => handleSendRequestSubmit()}>
                         <Text style={styles.buttontext}>Pay {props?.totalcartprice}</Text>
                     </TouchableOpacity>
                </View>

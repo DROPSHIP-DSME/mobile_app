@@ -22,6 +22,7 @@ import { RNCamera } from 'react-native-camera';
 import ImagePicker from 'react-native-image-crop-picker';
 import { launchImageLibrary } from 'react-native-image-picker';
 import AsyncStorage from '@react-native-community/async-storage';
+import 'react-native-get-random-values';
 import { v4 as uuid } from "uuid";
 import Footer2 from '../../screens/auth/Footer2';
 import { useValidation } from 'react-native-form-validator';
@@ -61,10 +62,10 @@ const AddProduct2 = (props) => {
     const [Price, onChangePrice] = React.useState("");
     const [isSelected, setSelection] = useState(false);
     const [uploadId, setuploadId] = useState(uuid());
-   
+
     const [City, onChangeCity] = React.useState("");
     const [Country, onChangeCountry] = React.useState("");
-    
+
     const [selectedProduct, setselectedProduct] = useState("");
     const [selectedValue, setSelectedValue] = useState("");
     const [UserID, setUserID] = useState("");
@@ -122,7 +123,7 @@ const AddProduct2 = (props) => {
                 if(counter==3){ setBillImgPath4(file); }
                 if(counter==4){ setBillImgPath5(file); }
                 setcounter(counter+1);
-                
+
                 const formData1 = new FormData();
                 formData1.append("productAllImage", file);
                 formData1.append("uploadId", uploadId);
@@ -135,7 +136,7 @@ const AddProduct2 = (props) => {
         alert('You can add upto 5 images')
        }
     }
-    
+
     // Vendor request submission
     const handleSendRequestSubmit = async () => {
         Keyboard.dismiss();
@@ -146,10 +147,10 @@ const AddProduct2 = (props) => {
             Price: { required: true },
             Weight: { required: true },
             Inventory: { required: true },
-            
-        }) 
+
+        })
         if (billImgPath !== "" && Name !== "" && Product !== "" && Price !== "" && Weight !== "" && Inventory !== "") {
-        
+
             let request = {
                 "productName":Name,
                 "categoryId":selectedValue,
@@ -179,11 +180,11 @@ const AddProduct2 = (props) => {
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={styles.registrationRoot}>
-           
+
             <ScrollView  keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#FFE7E7'}} >
 
              <View style={{marginHorizontal:'3%',paddingBottom:'15%'}}>
-            
+
              <View style={styles.uploadimageView}>
                 <TouchableOpacity onPress={() => selectPhoto()}>
                 <Image source={ImageIcons.uploadcloud} style={styles.uploadimage} />
@@ -191,7 +192,7 @@ const AddProduct2 = (props) => {
                 <Text style={styles.addimagetext}> Add image of this product</Text>
              </View>
 
-             
+
              <View style={{ flexDirection:'row',marginHorizontal:'4%'}}>
                 { billImgPath1 !== "" &&
                     <Image source={{ uri: billImgPath1.uri }} style={styles.loadimage1} />
@@ -223,7 +224,7 @@ const AddProduct2 = (props) => {
                     value={Name}
                      placeholder="Name of the product"
                      onSubmitEditing={() => handleSendRequestSubmit()}
-                     placeholderTextColor="#999999" 
+                     placeholderTextColor="#999999"
                     />
                     {isFieldInError('Name') &&
                         <Text style={styles.stringerror}>must be required field</Text>
@@ -236,7 +237,7 @@ const AddProduct2 = (props) => {
                     value={Product}
                      placeholder="Product description"
                      onSubmitEditing={() => handleSendRequestSubmit()}
-                     placeholderTextColor="#999999" 
+                     placeholderTextColor="#999999"
                     />
                     {isFieldInError('Product') &&
                         <Text style={styles.stringerror}>must be required field</Text>
@@ -253,13 +254,13 @@ const AddProduct2 = (props) => {
                         value={Price}
                          placeholder="Price"
                          onSubmitEditing={() => handleSendRequestSubmit()}
-                         placeholderTextColor="#999999" 
+                         placeholderTextColor="#999999"
                         />
                         {isFieldInError('Price') &&
                         <Text style={styles.stringerror}>must be required field</Text>
                     }
                     </View>
-                    
+
                 </View>
                 <View style={{marginTop:'6%',}}>
                  <View>
@@ -273,7 +274,7 @@ const AddProduct2 = (props) => {
                         value={Weight}
                          placeholder="Weight"
                          onSubmitEditing={() => handleSendRequestSubmit()}
-                         placeholderTextColor="#999999" 
+                         placeholderTextColor="#999999"
                         />
                         {isFieldInError('Weight') &&
                             <Text style={styles.stringerror}>must be required field</Text>
@@ -286,7 +287,7 @@ const AddProduct2 = (props) => {
                         value={Inventory}
                          placeholder="Inventory"
                          onSubmitEditing={() => handleSendRequestSubmit()}
-                         placeholderTextColor="#999999" 
+                         placeholderTextColor="#999999"
                         />
                         {isFieldInError('Inventory') &&
                             <Text style={styles.stringerror}>must be required field</Text>
@@ -300,7 +301,7 @@ const AddProduct2 = (props) => {
                     style={{ marginTop:0, width: '100%' }}
                     onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
                     >
-                    
+
                     {props.getlistcategory && props.getlistcategory?.map((item, index) => {
                         return (
                             <Picker.Item label={item.categoryName} value={item._id} key={index} />
@@ -308,7 +309,7 @@ const AddProduct2 = (props) => {
                     })}
                     </Picker>
                 </View>
-                
+
                 <View style={{marginTop:'2%',flexDirection: 'row',marginLeft:'3%'}}>
                     <CheckBox
                     checkedColor='red'
@@ -335,32 +336,32 @@ const AddProduct2 = (props) => {
                  <Text style={styles.customertextfooter}>Home</Text>
             </View>
         </TouchableOpacity>
- 
+
         <TouchableOpacity onPress={() => navigation.navigate("SearchProduct2")} >
             <View>
                  <Image source={ImageIcons.redproducts}  style={styles.footer5img} />
-                 <Text style={styles.customertextfooter2}>Products</Text>         
+                 <Text style={styles.customertextfooter2}>Products</Text>
             </View>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => props.navigation.navigate("StartRecording",{userId:props?.loginuserid})} >
             <View style={{alignItems:'center'}}>
                  <Image source={ImageIcons.cart2}  style={styles.footer3img} />
-                 <Text style={styles.customertextfooter}>Go Live</Text>        
+                 <Text style={styles.customertextfooter}>Go Live</Text>
             </View>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => navigation.navigate("Inorder")} >
              <View>
                  <Image source={ImageIcons.neworder}  style={styles.footer4img} />
-                 <Text style={styles.customertextfooter}>Orders</Text>         
+                 <Text style={styles.customertextfooter}>Orders</Text>
             </View>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => navigation.navigate("More")} >
              <View >
                  <Image source={ImageIcons.more}  style={styles.footer2img} />
-                 <Text style={styles.customertextfooter}>More</Text>         
+                 <Text style={styles.customertextfooter}>More</Text>
             </View>
         </TouchableOpacity>
 

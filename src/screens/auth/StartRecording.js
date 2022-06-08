@@ -13,8 +13,9 @@ import DropdownField from '../../components/dropdown/DropDownMenu';
 import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper';
+import 'react-native-get-random-values';
 import { v4 as uuid } from "uuid";
-import AsyncStorage from '@react-native-community/async-storage'; 
+import AsyncStorage from '@react-native-community/async-storage';
 import Share from 'react-native-share';
 import CountDown from 'react-native-countdown-component';
 import { requestMultiplePermisisons } from '../../services/Permissions'
@@ -35,7 +36,7 @@ const StartRecording = (props) => {
          if (Platform.OS === 'android') requestMultiplePermisisons();
         //alert('d')
         getBrandUserId();
-        props.getbrandName(props?.loginuserid); 
+        props.getbrandName(props?.loginuserid);
 
     }, [])
 
@@ -106,8 +107,8 @@ const StartRecording = (props) => {
       cancelable: true,
     }
   );
-           
-         
+
+
      }
 
 
@@ -130,7 +131,7 @@ const StartRecording = (props) => {
     }
 
     const startBrodcast = ()=>{
-       
+
         props.navigation.navigate("Blurbackground", { isback: false, channel:props?.livedetail[0]._id, isbroadcaster: true })
     }
 
@@ -218,13 +219,13 @@ const StartRecording = (props) => {
         image:ImageIcons.winterimage,
         image1:ImageIcons.reddelete,
        },
-       
-       
+
+
 
      ];
 
     const renderItem = ({ item }) => {
-        
+
         return(
             <View>
               <FlatList
@@ -234,7 +235,7 @@ const StartRecording = (props) => {
                 showsHorizontalScrollIndicator={false}
                 horizontal={true}
                 />
-            </View>       
+            </View>
         );
     }
 
@@ -242,7 +243,7 @@ const StartRecording = (props) => {
 const renderItem1 = ({ item ,index }) => {
    return(
     <View style={{marginRight:20,marginTop:10}}>
-        
+
         <View>
           <View style={{position:'absolute', right:10,top:10,zIndex:2001,shadowColor: "#000",
 shadowOffset: {width: 0,height: 2,},shadowOpacity: 0.25,shadowRadius: 3.84,elevation: 5}}>
@@ -255,15 +256,15 @@ shadowOffset: {width: 0,height: 2,},shadowOpacity: 0.25,shadowRadius: 3.84,eleva
             <Text style={{color:'#000000',fontSize:15,fontFamily:'hinted-AvertaStd-Semibold',lineHeight:19}}>{item.productName}</Text>
             <Text style={{color:'#000000',fontSize:12,fontFamily:'hinted-AvertaStd-Regular',lineHeight:15}}>${item.productPrice}</Text>
           </View>
-        </View>      
-    </View> 
+        </View>
+    </View>
   );
 }
 
 
 const renderItem3 =({ item }) =>{
     return(
-        
+
         <View>
            <Image source={{ uri:item.productImage }} style={styles.jeansimg2} />
             <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center'}}>
@@ -278,31 +279,31 @@ const renderItem3 =({ item }) =>{
                 </View>
             </View>
         </View>
-    
+
 
  );
 }
     return (
          <View style={{flex:1,backgroundColor:'#FFE7E7'}}>
-           
-            <ScrollView  keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#FFE7E7',marginBottom:60}} > 
+
+            <ScrollView  keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#FFE7E7',marginBottom:60}} >
              <View style={{marginHorizontal:'4%',marginTop:'4%',flex:1}}>
                 <View style={{marginTop:'2%',flexDirection: 'row',justifyContent:'space-between'}}>
                     <View style={{flexDirection: 'row',}}>
                         <Image source={ImageIcons.ci_radio_filled} />
                         <Text style={styles.recodingtext}>Start livestream</Text>
                     </View>
-                    <TouchableOpacity  onPress={() => {props.navigation.navigate("schedule") }}> 
+                    <TouchableOpacity  onPress={() => {props.navigation.navigate("schedule") }}>
                     <View style={{flexDirection: 'row',marginHorizontal:'3%',backgroundColor:'#FFFFFF',borderRadius:5,}}>
-                        <Text style={styles.recodingtextred}>Schedule live event</Text> 
+                        <Text style={styles.recodingtextred}>Schedule live event</Text>
                     </View>
                     </TouchableOpacity>
                 </View>
                 <View style={{marginHorizontal:'1%',marginVertical:'2%'}}>
                     <Text style={styles.selectlinketext}>Select stream time</Text>
                     <View style={{marginTop:10, marginBottom:20,flexDirection: 'row',justifyContent:'space-around',paddingRight:'22%'}}>
-                   
-                    <TouchableOpacity onPress={() =>setDuration(1200)}> 
+
+                    <TouchableOpacity onPress={() =>setDuration(1200)}>
                         { Duration==1200 ?
                             <View style={{backgroundColor:'#20639B',borderRadius:5,borderWidth:1,borderColor:'#ff0000'}}>
                                <Text style={styles.recodingtextmint}>20 minutes</Text>
@@ -313,7 +314,7 @@ const renderItem3 =({ item }) =>{
                             </View>
                         }
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() =>setDuration(1800)}> 
+                    <TouchableOpacity onPress={() =>setDuration(1800)}>
                         { Duration==1800 ?
                             <View style={{backgroundColor:'#3CAEA3',borderRadius:5,borderWidth:1,borderColor:'#ff0000'}}>
                                <Text style={styles.recodingtextmint}>30 minutes</Text>
@@ -324,7 +325,7 @@ const renderItem3 =({ item }) =>{
                             </View>
                         }
                     </TouchableOpacity>
-                    
+
                     <TouchableOpacity onPress={() =>setDuration(2700)}>
                         { Duration==2700 ?
                             <View style={{backgroundColor:'#F6D55C',borderRadius:5,borderWidth:1,borderColor:'#ff0000'}}>
@@ -334,9 +335,9 @@ const renderItem3 =({ item }) =>{
                             <View style={{backgroundColor:'#F6D55C',borderRadius:5}}>
                                <Text style={[styles.recodingtextmint,{color:'#000000'}]}>45 minutes</Text>
                             </View>
-                        } 
+                        }
                     </TouchableOpacity>
-                    
+
                     </View>
                 </View>
             <View style={{marginVertical:'1%'}}>
@@ -369,18 +370,18 @@ const renderItem3 =({ item }) =>{
                 </View>
             </View>
             <View>
-                <View style={styles.directionView}> 
+                <View style={styles.directionView}>
                     <Text style={styles.linketext}>Products to sell</Text>
 
                      { (props?.livedetail?.length>0 && props?.livedetail[0]?.products?.length>0) ?
-                        <TouchableOpacity  onPress={() => { props.navigation.navigate("Selectproduct",{ eventId:props?.livedetail[0]._id,pageName:'StartRecording' }) }}> 
+                        <TouchableOpacity  onPress={() => { props.navigation.navigate("Selectproduct",{ eventId:props?.livedetail[0]._id,pageName:'StartRecording' }) }}>
                             <View style={styles.productcircletext}>
                                 <Image source={ImageIcons.circle} />
                                 <Text  style={styles.addredtext}>Add Product</Text>
                             </View>
                         </TouchableOpacity>
                      :
-                        <TouchableOpacity onPress={() => props.navigation.navigate("Category",{todopage:'SearchProduct2'} )}> 
+                        <TouchableOpacity onPress={() => props.navigation.navigate("Category",{todopage:'SearchProduct2'} )}>
                             <View style={styles.productcircletext}>
                                 <Image source={ImageIcons.circle} />
                                 <Text  style={styles.addredtext}>Add Product</Text>
@@ -395,12 +396,12 @@ const renderItem3 =({ item }) =>{
                             keyExtractor={item => item.id}
                         />
                     </View>
-                    
+
             </View>
             <TouchableOpacity onPress={() =>  openshare() } >
-                <View style={styles.produview}>   
+                <View style={styles.produview}>
                     <Text style={styles.invitetext}>Invite audience</Text>
-                    <Image source={ImageIcons.shareicon} style={{alignSelf:'center',marginLeft:5}}/> 
+                    <Image source={ImageIcons.shareicon} style={{alignSelf:'center',marginLeft:5}}/>
                 </View>
                 </TouchableOpacity>
                    <View style={{marginBottom:'1%',marginHorizontal:'1%'}} >
@@ -421,13 +422,13 @@ const renderItem3 =({ item }) =>{
                              placeholderTextColor="#999999"
                             />
                         }
-                        
+
                         <View style={{position:'absolute',backgroundColor:'#FFF0F0',paddingLeft:10,width:30,height:15,alignSelf:'flex-end',marginTop:'7%',right:'6%'}}>
                             <TouchableOpacity onPress={() =>  copyToClipboard() } >
                                 <Image source={ImageIcons.copypaste} style={styles.copyimg} />
                              </TouchableOpacity>
                         </View>
-                       
+
                     </View>
                     { timer>0 &&
                         <View style={{marginTop:'6%'}}>
@@ -452,14 +453,14 @@ const renderItem3 =({ item }) =>{
                         style={styles.TouchableOpacitybrand}
                         activeOpacity = { .5}
                        onPress={() => startlivebtn()}>
-                        <Text style={styles.recodingbutton}>Start 
+                        <Text style={styles.recodingbutton}>Start
                         livestream</Text>
                     </TouchableOpacity>
                 </View>
-                     
-            
+
+
             </View>
-         </ScrollView>  
+         </ScrollView>
 
          <View style={styles.footerView}>
            <View style={styles.maincartviewfooter}>
@@ -469,38 +470,38 @@ const renderItem3 =({ item }) =>{
          <Text style={styles.customertextfooter}>Home</Text>
         </View>
         </TouchableOpacity>
- 
+
         <TouchableOpacity onPress={() => navigation.navigate("SearchProduct2")} >
         <View>
          <Image source={ImageIcons.products}  style={styles.footer5img} />
-         <Text style={styles.customertextfooter}>Products</Text>         
+         <Text style={styles.customertextfooter}>Products</Text>
         </View>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => props.navigation.navigate("StartRecording",{userId:props?.loginuserid})} >
         <View style={{alignItems:'center'}}>
          <Image source={ImageIcons.golivered}  style={styles.footer3img} />
-         <Text style={styles.customertextfooter2}>Go Live</Text>        
+         <Text style={styles.customertextfooter2}>Go Live</Text>
         </View>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => navigation.navigate("Inorder")} >
          <View>
          <Image source={ImageIcons.neworder}  style={styles.footer4img} />
-         <Text style={styles.customertextfooter}>Orders</Text>         
+         <Text style={styles.customertextfooter}>Orders</Text>
         </View>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => navigation.navigate("More")} >
          <View >
          <Image source={ImageIcons.more}  style={styles.footer2img} />
-         <Text style={styles.customertextfooter}>More</Text>         
+         <Text style={styles.customertextfooter}>More</Text>
         </View>
         </TouchableOpacity>
 
         </View>
 
-       </View>      
+       </View>
         </View>
     )
 }

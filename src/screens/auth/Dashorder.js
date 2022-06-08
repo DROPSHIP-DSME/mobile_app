@@ -24,6 +24,7 @@ import { Rating, AirbnbRating } from 'react-native-ratings';
 import { Provider, Portal, } from 'react-native-paper';
 import Modal from 'react-native-modal';
 import Moment from 'moment';
+import { useTailwind } from 'tailwind-rn';
 
 
 import {
@@ -51,6 +52,7 @@ const Dashorder = (props) => {
   } = props;
 
   //Reference
+  const tailwind = useTailwind();
   const emailRef = useRef();
   const phoneRef = useRef();
   const bisinessnameRef = useRef();
@@ -87,7 +89,7 @@ const Dashorder = (props) => {
   const ratingCompleted = (ratingdata) => {
     console.log('rating', ratingdata)
     if (ratingdata != "" && ratingdata != undefined) {
-      //setstarCount(ratingdata)  
+      //setstarCount(ratingdata)
     }
 
   }
@@ -238,15 +240,15 @@ const Dashorder = (props) => {
         handleScroll(nativeEvent['contentOffset'].y);
       }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#f2f2f2' }} >
 
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginHorizontal: '3%', marginVertical: '5%' }}>
-          <Text style={{ fontSize: 26, color: '#1a1a1a', fontFamily: 'hinted-AvertaStd-Semibold', }}>Orders ({props?.getinconeorderlist?.length})</Text>
+        <View style={tailwind('mt-5 mb-5 ml-4')}>
+          <Text style={tailwind('text-2xl text-gray-800 font-bold')}>Orders ({props?.getinconeorderlist?.length})</Text>
         </View>
 
-        <View style={{ flexDirection: 'row', marginHorizontal: '4%' }}>
-          <View style={styles.dashorderpicker}>
+        <View style={tailwind('flex flex-row pl-3 text-sm')}>
+          <View style={tailwind('basis-36 border-gray-300 bg-gray-200 rounded-lg text-justify')}>
             <Picker
               selectedValue={selectedValue}
-              style={{ height: 35, width: 105, color: '#4d4d4d', }}
+              style={tailwind('h-9 w-36 text-gray-800 bg-black')}
               onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
             >
               <Picker.Item label="sort" value="1" />
@@ -259,7 +261,7 @@ const Dashorder = (props) => {
           </View>
 
         </View>
-        <View style={{ backgroundColor: '#F5F5F5', padding: 10, marginHorizontal: '1%' }} >
+        <View style={tailwind('bg-slate-100 p-4 mx-2')} >
           <FlatList
             data={props?.getinconeorderlist || []}
             renderItem={Data}

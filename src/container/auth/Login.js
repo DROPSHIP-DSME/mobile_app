@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { Login } from '../../screens/auth';
-import { logoutreducerfun } from '../../redux/actions/Auth'
+import {logoutreducerfun} from '../../redux/actions/Auth'
 
 const mapStateToProps = (state) => ({
     loginLoader:state.auth.loginLoader,

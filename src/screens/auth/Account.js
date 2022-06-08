@@ -104,14 +104,7 @@ const Account = (props) => {
             setshowAlert(true)
         }  
     }
-    
-    const logout =  async () => {
-        await AsyncStorage.setItem('UserId',"");
-        await AsyncStorage.setItem('userLogin',"");
-        props.navigation.navigate("Golive")
-    }
    
-
 
     const DATA = [
        {
@@ -416,11 +409,11 @@ const Account = (props) => {
               
               <View style={{flexDirection:"row",marginBottom:'20%',borderRadius:10,backgroundColor:"#ffffff",marginHorizontal:"3%",marginTop:"3%"}}>
               <View style={{marginHorizontal:"3%",marginVertical:"5%"}}>
-                    <Image source={ImageIcons.signout} style={{width:21,height:21}}/>
+              <Image source={ImageIcons.signout} style={{width:21,height:21}}/>
               </View>
               
               <View style={{marginVertical:"4%"}}>
-              <TouchableOpacity onPress={() => logout()}>
+              <TouchableOpacity onPress={() => props.navigation.navigate("Golive")}>
               <Text style={{fontSize:20,fontFamily:"hinted-AvertaStd-Regular",fontWeight:"bold",color:"#1A1A1A"}}>
               Sign Out 
               </Text>

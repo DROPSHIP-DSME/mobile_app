@@ -4,8 +4,13 @@ import LinearGradient from 'react-native-linear-gradient';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
 import styles from './styles';
-import { Colors, CommonStrings } from '../../common'
-import ImageIcons from '../../common/ImageIcons'
+import { Colors, CommonStrings } from '../../common';
+import ImageIcons from '../../common/ImageIcons';
+import { HomeIcon } from "react-native-heroicons/solid";
+import { TagIcon } from "react-native-heroicons/solid";
+import { VideoCameraIcon } from "react-native-heroicons/solid";
+import { ShoppingBagIcon } from "react-native-heroicons/solid";
+import { PresentationChartLineIcon } from "react-native-heroicons/solid";
 import InputField from '../../components/forms/inputField';
 import { RoundedButton } from '../../components/forms/button';
 import { phoneRegExp } from '../../services/helper';
@@ -14,6 +19,7 @@ import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
+import {useTailwind} from 'tailwind-rn';
 
 const Footer2 = (props) => {
 
@@ -27,6 +33,7 @@ const Footer2 = (props) => {
 
     const navigation = useNavigation();
     //Reference
+    const tailwind = useTailwind();
     const emailRef = useRef();
     const phoneRef = useRef();
     const bisinessnameRef = useRef();
@@ -73,81 +80,101 @@ const Footer2 = (props) => {
     const closepopup = () => {
           setVisible(false)
     }
-    
+
     const containerStyle = {backgroundColor: 'white', padding: '5%',marginHorizontal:'5%',alignItems:'center'};
 
-    
+
 
     return (
        <View style={styles.footerView}>
             <View style={styles.maincartviewfooter}>
                 <TouchableOpacity onPress={() => navigation.navigate("watchlist")} >
                     {onSelelection==1 ?
-                        <View>
-                             <Image source={ImageIcons.sell}  style={[styles.footer3imgtoday,styles.footersel]} />
-                             <Text style={[styles.customertextfooter,styles.footersel]}>Dashboard</Text>         
+                        <View style={tailwind('items-center')}>
+                            <Text>
+                               <HomeIcon color="red" fill="#B80000" size={24} />
+                            </Text>
+                             <Text style={tailwind('text-sm text-right font-normal text-red-700')}>Dashboard</Text>
                         </View>
                     :
-                        <View>
-                             <Image source={ImageIcons.sell}  style={styles.footer3imgtoday} />
-                             <Text style={styles.customertextfooter}>Dashboard</Text>         
+                        <View style={tailwind('items-center')}>
+                            <Text>
+                               <HomeIcon color="red" fill="gray" size={24} />
+                            </Text>
+                             <Text style={tailwind('text-sm text-right font-normal text-gray-700')}>Dashboard</Text>
                         </View>
                     }
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => navigation.navigate("Dashorder")} >
                     {onSelelection==2 ?
-                        <View>
-                             <Image source={ImageIcons.ordtoday}  style={[styles.footer4imgtoday,styles.footersel]} />
-                             <Text style={[styles.customertextfooter,styles.footersel]}>Orders</Text>         
-                        </View>
-                    :
-                        <View>
-                             <Image source={ImageIcons.ordtoday}  style={styles.footer4imgtoday} />
-                             <Text style={styles.customertextfooter}>Orders</Text>         
-                        </View>
+                      <View style={tailwind('items-center')}>
+                          <Text>
+                             <TagIcon color="red" fill="#B80000" size={24} />
+                          </Text>
+                           <Text style={tailwind('text-sm text-right font-normal text-red-700')}>Orders</Text>
+                      </View>
+                  :
+                      <View style={tailwind('items-center')}>
+                          <Text>
+                             <TagIcon color="red" fill="gray" size={24} />
+                          </Text>
+                           <Text style={tailwind('text-sm text-right font-normal text-gray-700')}>Orders</Text>
+                      </View>
                     }
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => navigation.navigate("Dashlive") } >
                     {onSelelection==3 ?
-                        <View>
-                             <Image source={ImageIcons.livetvtoday}  style={[styles.footer4imgtoday,styles.footersel]} />
-                             <Text style={[styles.customertextfooter,styles.footersel]}>Go Live</Text>         
-                        </View>
-                    :
-                        <View>
-                             <Image source={ImageIcons.livetvtoday}  style={styles.footer4imgtoday} />
-                             <Text style={styles.customertextfooter}>Go Live</Text>         
-                        </View>
+                      <View style={tailwind('items-center')}>
+                          <Text>
+                             <VideoCameraIcon color="red" fill="#b80000" size={24} />
+                          </Text>
+                           <Text style={tailwind('text-sm text-right font-normal text-red-700')}>Go Live</Text>
+                      </View>
+                  :
+                      <View style={tailwind('items-center')}>
+                          <Text>
+                             <VideoCameraIcon color="red" fill="gray" size={24} />
+                          </Text>
+                           <Text style={tailwind('text-sm text-right font-normal text-gray-700')}>Go Live</Text>
+                      </View>
                     }
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => navigation.navigate("Dashproduct")} >
                     {onSelelection==4 ?
-                        <View>
-                             <Image source={ImageIcons.prodtoday}  style={[styles.footer4imgtoday,styles.footersel]} />
-                             <Text style={[styles.customertextfooter,styles.footersel]}>Products</Text>         
-                        </View>
-                    :
-                        <View>
-                             <Image source={ImageIcons.prodtoday}  style={styles.footer4imgtoday} />
-                             <Text style={styles.customertextfooter}>Products</Text>         
-                        </View>
+                      <View style={tailwind('items-center')}>
+                          <Text>
+                             <ShoppingBagIcon color="red" fill="#b80000" size={24} />
+                          </Text>
+                           <Text style={tailwind('text-sm text-right font-normal text-red-700')}>Products</Text>
+                      </View>
+                  :
+                      <View style={tailwind('items-center')}>
+                          <Text>
+                             <ShoppingBagIcon color="red" fill="gray" size={24} />
+                          </Text>
+                           <Text style={tailwind('text-sm text-right font-normal text-gray-700')}>Products</Text>
+                      </View>
                     }
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => navigation.navigate("Dashsale")} >
                     {onSelelection==5 ?
-                        <View>
-                             <Image source={ImageIcons.analysetoday}  style={[styles.footer4imgtoday,styles.footersel]} />
-                             <Text style={[styles.customertextfooter,styles.footersel]}>Analytics</Text>         
-                        </View>
-                    :
-                        <View>
-                             <Image source={ImageIcons.analysetoday}  style={styles.footer4imgtoday} />
-                             <Text style={styles.customertextfooter}>Analytics</Text>         
-                        </View>
+                      <View style={tailwind('items-center')}>
+                          <Text>
+                             <PresentationChartLineIcon color="red" fill="#b80000" size={24} />
+                          </Text>
+                           <Text style={tailwind('text-sm text-right font-normal text-red-700')}>Account</Text>
+                      </View>
+                  :
+                      <View style={tailwind('items-center')}>
+                          <Text>
+                             <PresentationChartLineIcon color="red" fill="gray" size={24} />
+                          </Text>
+                           <Text style={tailwind('text-sm text-right font-normal text-gray-700')}>Account</Text>
+                      </View>
                     }
                 </TouchableOpacity>
             </View>
