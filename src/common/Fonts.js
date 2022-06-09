@@ -1,10 +1,10 @@
-const RalewayExtraBold = "Raleway-ExtraBold"; //similar GothamBold
-const QuestrialRegular = "Questrial-Regular"; //  similar GothamBook //Raleway-Medium  //Raleway-Regular
-const RalewaySemiBold = "Raleway-SemiBold";  // similar GothamMedium
-const RalewayLight = "Raleway-Light";
-const RalewayThin = "Raleway-Thin";
-const SfproSemibold = "SFProText-Semibold";
-const HomepageBaukastenBold = "HomepageBaukasten-Bold"; // Number
+const RalewayExtraBold = "hinted-AvertaStd-ExtraBold"; //similar GothamBold
+const QuestrialRegular = "hinted-AvertaStd-Regular"; //  similar GothamBook //Raleway-Medium  //Raleway-Regular
+const RalewaySemiBold = "hinted-AvertaStd-SemiBold";  // similar GothamMedium
+const RalewayLight = "hinted-AvertaStd-Light";
+const RalewayThin = "hinted-AvertaStd-Thin";
+const SfproSemibold = "hinted-AvertaStd-Semibold";
+const HomepageBaukastenBold = "hinted-AvertaStd-Bold"; // Number
 
 export default Fonts = {
     RalewayExtraBold,

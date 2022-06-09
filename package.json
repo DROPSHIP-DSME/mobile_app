@@ -74,6 +74,7 @@
     "react-native-geolocation-service": "^5.2.0",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-get-random-values": "^1.7.0",
+    "react-native-global-font": "^1.0.3",
     "react-native-google-places-autocomplete": "^2.2.0",
     "react-native-heroicons": "^2.2.0",
     "react-native-hide-show-password-input": "^1.2.0",

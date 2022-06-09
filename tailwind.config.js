@@ -8,16 +8,16 @@ module.exports = {
   corePlugins: { transform: false, translate: false, boxShadow: false },
   theme: {
     fontFamily: {
-      'sans': ['Averta Standard','ui-sans-serif', 'system-ui'],
+      'sans': ['hinted-AvertaStd','ui-sans-serif'],
       'serif': ['ui-serif', 'Georgia'],
-      'display': ['Averta Standard','Oswald'],
-      'body': ['"Averta Standard"'],
+      'display': ['hinted-AvertaStd'],
+      'body': ['hinted-AvertaStd'],
     },
     extend: {
       colors: {
       },
       fontFamily: {
-        'sans': ['Averta Standard'], // outputs "font-sans"
+        'sans': ['hinted-AvertaStd'], // outputs "font-sans"
       },
       backgroundColor: {
         'primary': '#B80000',

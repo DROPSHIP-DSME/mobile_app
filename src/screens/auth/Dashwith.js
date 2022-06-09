@@ -360,7 +360,7 @@ const deviceWidth = Dimensions.get('window').width;
                </View>
 
                <TouchableOpacity onPress={() => props.navigation.navigate("Dashwith")} style={tailwind('ml-5 mt-4')}>
-                 <Text style={tailwind('text-3xl mt-5 text-gray-800 font-bold')}>Withdrawals</Text>
+                 <Text style={tailwind('text-3xl mt-5 text-gray-800 font-bold font-sans')}>Withdrawals</Text>
                </TouchableOpacity>
 
               <View style={tailwind('mt-3 mx-6 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg h-16 w-auto')}>
@@ -431,7 +431,7 @@ const deviceWidth = Dimensions.get('window').width;
 
                <View style={tailwind('items-center')}>
                   <TouchableOpacity  onPress={() => openpopup() }  style={tailwind('items-center w-11/12 py-3 mt-5 border border-transparent font-medium rounded-full text-white bg-red-800')}>
-                     <Text style={tailwind('text-lg font-bold text-white')}>ADD WITHDRAWALS</Text>
+                     <Text style={tailwind('text-lg font-bold text-white font-sans')}>ADD WITHDRAWALS</Text>
                   </TouchableOpacity>
                </View>
 
