@@ -108,11 +108,11 @@ const CreateAccountShop = (props) => {
     }
 
     const openPrivacyPolicy = () => {
-        Linking.openURL('https://wallpon.com/privacy-policy');
+        Linking.openURL('');
     }
 
     const openTerms = () => {
-        Linking.openURL('http://vendor.wallpon.com/terms-and-conditions.html');
+        Linking.openURL('');
     }
 
     return (
