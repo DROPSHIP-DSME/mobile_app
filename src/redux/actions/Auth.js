@@ -79,8 +79,6 @@ import {
   SEARCH_LIST_ITMES,
   ALLSEARCH_LIST_DATA,
   LIVESTREAM_RECAP,
-  SET_RATING_REVIEW,
-  GET_ALL_RATING,
 } from '../actions/ActionTypes';
 import { Alert } from 'react-native';
 import { Api, Utilise } from '../../common';
@@ -99,9 +97,9 @@ export const setNetworkConnection = (networkState) => {
 //logout
 export const logoutreducerfun = (dummyuserId) => {
   return async (dispatch, getState) => {
-    dispatch({ type: LOGIN_USER_ID, payload: dummyuserId });
-    dispatch({ type: LOGIN_USER_STATUS, payload: 1 });
-  }
+  dispatch({ type: LOGIN_USER_ID, payload: dummyuserId });
+  dispatch({ type: LOGIN_USER_STATUS, payload: 0 });
+}
 }
 // LOGIN      
 
@@ -183,7 +181,7 @@ export const shoplogin = (loginCredentials,navigation,type, usertype) => {
     if (isInternetConnected) {
       try {
         dispatch({ type: SET_LOGIN_LOADER, payload: true });
-       // dispatch({ type: LOGIN_USER_ID, payload: ''});
+        dispatch({ type: LOGIN_USER_ID, payload: ''});
 
         let response = await Utilise.apiCalling('POST', Api.login, loginCredentials);
         dispatch({ type: SET_LOGIN_LOADER, payload: false });
@@ -193,13 +191,12 @@ export const shoplogin = (loginCredentials,navigation,type, usertype) => {
           global.authToken = response?.data?.token || null;
           await AsyncStorage.setItem('UserId',response.data._id);
           await AsyncStorage.setItem('userLogin',"1");
-          //alert(response.data._id)
           dispatch({ type: LOGIN_USER_ID, payload: response.data._id });
           dispatch({ type: LOGIN_USER_STATUS, payload: 1 });
           setTimeout(function(){ navigation.navigate("watchlist",{ userId:response.data._id }); },1);
         } else {
            
-          //Alert.alert("DROPSHIP", String(response?.message))
+          Alert.alert("DROPSHIP", String(response?.message))
         }
       } catch (error) {
         dispatch({ type: SET_LOGIN_LOADER, payload: false });
@@ -256,60 +253,6 @@ export const shoplogin = (loginCredentials,navigation,type, usertype) => {
     }
   }
 };
-
-//postrating
-export const postrating = (signupRequest, navigation, role) => {
-    console.log("lavleshpostresponserating=====>",signupRequest)
-  return async (dispatch, getState) => {
-    let isInternetConnected = await getState().auth?.isInternetConnected;
-    if (isInternetConnected) {
-      try {
-        //dispatch({ type: SET_RATING_REVIEW, payload: [] });
-        let response = await Utilise.apiCalling('POST', Api.postratingnew, signupRequest);
-        console.log('lavleshpostresponserating=====>',response)
-        if (response?.status) {
-          
-          dispatch({ type: SET_RATING_REVIEW, payload: response.data });
-
-        }else{
-          //Alert.alert("DROPSHIP", "Category added successfully")
-        }
-      } catch (error) {
-         console.log("lavleshpostresponserating=====>",error)
-       // Alert.alert("DROPSHIP", String(error?.message))
-      }
-    }
-  }
-};
-
-//getpostrating
-export const getpostrating = (productId) => {
-  //alert(productId)
-    let request = {
-      productId:productId,
-    }
-    console.log('showserating=====>',request)
-    return async (dispatch, getState) => {
-        let isInternetConnected = await getState().auth?.isInternetConnected; 
-        if (isInternetConnected) {
-            try {
-                //dispatch({ type: GET_ALL_RATING, payload: [] });
-                let response = await Utilise.apiCalling('POST', `${Api.getpostratingnew}`,  request);
-                console.log('newshowserating=====>',response)
-                if (response?.status) {
-                    dispatch({ type: GET_ALL_RATING, payload: response.data});
-                } else {
-                    //Alert.alert("DROPSHIP", String(response?.message))
-                }
-            } catch (error) {
-               console.log('showserating=====>',error)
-                dispatch({ type: GET_ALL_RATING, payload: [] });
-                //Alert.alert("DROPSHIP", String(error?.message))
-            }
-        };
-    }
-};
-
 
 //getchanneltoken
 export const getchanneltoken = (signupRequest, navigation, role) => {
@@ -965,7 +908,7 @@ export const changeLoginCredentials = (loginCredentials) => {
         if (isInternetConnected) {
             try {
                 let response = await Utilise.apiCalling('POST', `${Api.liveeventdetail}`,  request);
-                console.log('liveeventdetailstatus',response.data);
+                
                 if (response?.status) {
                   // Alert.alert("DROPSHIP", 'Livedetail successfully')
                     dispatch({ type: LIVE_LIST_DATA, payload: response.data });

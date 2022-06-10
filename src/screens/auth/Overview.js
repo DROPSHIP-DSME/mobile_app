@@ -81,10 +81,10 @@ const deviceWidth = Dimensions.get('window').width;
     }
 
     const getBrandUserId = async () => {
-        // if(userId!="" && userId!=undefined){
-        //     await AsyncStorage.setItem('UserId',userId);
-        //     await AsyncStorage.setItem('userLogin',"1");
-        // }
+        if(userId!="" && userId!=undefined){
+            await AsyncStorage.setItem('UserId',userId);
+            await AsyncStorage.setItem('userLogin',"1");
+        }
     }
 
     const golivepage = async () => {
