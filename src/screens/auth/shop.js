@@ -15,6 +15,7 @@ import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import Footer3 from '../../screens/auth/Footer3';
 import Shopheader from '../../screens/auth/Shopheader';
+import { useTailwind } from 'tailwind-rn';
 
 import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
@@ -48,6 +49,7 @@ const shop = (props) => {
     const phoneRef = useRef();
     const bisinessnameRef = useRef();
     const fullnameRef = useRef();
+    const tailwind = useTailwind();
 
     // Local states
     const [starCount, setstarCount] = useState(5);
@@ -108,16 +110,16 @@ const shop = (props) => {
     ];
     const renderItem = ({ item, index }) => {
         return (
-            <View style={styles.maincartviewshopTODAYY}>
+            <View style={tailwind('flex flex-row mt-[5%] mx-[2%] rounded-[10px]')}>
                 <TouchableOpacity onPress={() => { props.navigation.navigate("ProductStore", { productId: item._id, shopId: item._id, shopName: item.shopName }) }}>
-                    <View style={{ padding: 2 }}>
+                    <View style={tailwind('p-0.5')}>
                         <Image source={{ uri: item.shopImage }} style={{ height: 150, width: deviceWidth / 2.4, borderRadius: 10 }} onPress={() => { props.navigation.navigate("clothing") }} />
                     </View>
-                    <View style={{ flexDirection: "row", marginTop: 10, justifyContent: "space-between" }}>
-                        <View style={{ paddingLeft: 8 }}>
-                            <Text style={{ color: "#1A1A1A", fontSize: 12, fontFamily: 'hinted-AvertaStd-Regular' }}>{item.shopName}</Text>
-                            <Text style={{ color: "#1A1A1A", fontSize: 16, fontFamily: 'hinted-AvertaStd-Bold', }}>$0</Text>
-                            <View style={{ flexDirection: 'row', marginTop: 5 }}>
+                    <View style={tailwind('flex flex-row mt-2.5 justify-between')}>
+                        <View style={tailwind('pl-2')}>
+                            <Text style={tailwind('text-[#1A1A1A] text-xs font-normal')}>{item.shopName}</Text>
+                            <Text style={tailwind('text-[#1A1A1A] text-base font-bold')}>$0</Text>
+                            <View style={tailwind('flex flex-row mt-[5px]')}>
                                 <Rating
                                     type='custom'
                                     imageSize={15}
@@ -126,15 +128,15 @@ const shop = (props) => {
                                     //tintColor='#FFE7E7'
                                     value={starCount}
                                     onFinishRating={(start) => ratingCompleted(start)}
-                                    style={{ marginLeft: '2%' }}
+                                    style={tailwind('ml-[2%]')}
                                 />
-                                <Text style={styles.TEXT}>4.0</Text>
+                                <Text style={tailwind('text-sm mx-[2%] text-black font-normal')}>4.0</Text>
 
                             </View>
                         </View>
-                        <View style={{ marginRight: 8 }}>
-                            <Image source={ImageIcons.Iconlock} style={{ width: 30, height: 30 }} />
-                            <Image source={ImageIcons.iconheart} style={{ width: 30, height: 30, marginTop: 5 }} />
+                        <View style={tailwind('mr-2')}>
+                            <Image source={ImageIcons.Iconlock} style={tailwind('w-[30px] h-[30px]')} />
+                            <Image source={ImageIcons.iconheart} style={tailwind('w-[30px] h-[30px] mt-[5px]')} />
                         </View>
                     </View>
                 </TouchableOpacity>
@@ -183,7 +185,7 @@ const shop = (props) => {
     const renderItem1 = ({ item, index }) => {
         return (
             <View>
-                <View style={styles.inorder11}>
+                <View style={tailwind('flex flex-row ml-2 mt-2')}>
                     <TouchableOpacity>
                         {index == 1 ?
                             <View style={[styles.livec24, { width: 'auto', padding: 10, backgroundColor: '#B80000', height: 'auto' }]}>
@@ -203,20 +205,20 @@ const shop = (props) => {
     return (
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
-            style={styles.registrationRoot}>
+            style={tailwind('flex-1 justify-center')}>
             <StatusBar backgroundColor={showclassName} barStyle="dark-content" translucent={true} />
             <Shopheader />
 
             <ScrollView onScroll={({ nativeEvent }) => {
                 handleScroll(nativeEvent['contentOffset'].y);
-            }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#FFFFFF' }} >
-                <View style={{ marginHorizontal: '3%', paddingTop: '10%' }}>
-                    <Text style={{ fontSize: 26, color: "#1A1A1A", fontFamily: 'hinted-AvertaStd-Bold', fontWeight: "bold" }}>Shop</Text>
+            }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={tailwind('bg-white')} >
+                <View style={tailwind('mx-[3%] pt-[10%]')}>
+                    <Text style={tailwind('text-[26px] text-[#1A1A1A] font-bold')}>Shop</Text>
                 </View>
                 {/*<View style={{ marginHorizontal: "3%" }}>
                     <Text style={{ fontWeight: "bold", fontFamily: "hinted-AvertaStd-Regular", fontSize: 16, color: "#666666" }}>{props?.getlistshop?.length} products</Text>
         </View>*/}
-                <View style={{ width: '100%' }}>
+                <View style={tailwind('w-full')}>
                     <FlatList
                         data={data}
                         renderItem={renderItem1}
@@ -226,12 +228,12 @@ const shop = (props) => {
                     />
                 </View>
 
-                <View style={{ borderBottomWidth: 1, marginTop: "8%", marginHorizontal: "3%", borderColor: "#B6B6B6" }}></View>
-                <View style={{ flexDirection: "row", marginHorizontal: "3%", marginTop: "5%" }}>
-                    <View style={{ backgroundColor: '#E6E6E6', borderRadius: 10, height: 40 }}>
+                <View style={tailwind('border-b mt-[8%] mx-[3%] border-[#B6B6B6]')}></View>
+                <View style={tailwind('flex flex-row mx-[3%] mt-[5%]')}>
+                    <View style={tailwind('bg-[#E6E6E6] rounded-[10px] h-10')}>
                         <Picker
                             selectedValue={selectedValue}
-                            style={{ height: 35, width: 100 }}
+                            style={tailwind('h-[35px] w-[100px]')}
                             onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
                         >
                             <Picker.Item label="Sort" value="Sort" />
@@ -239,12 +241,12 @@ const shop = (props) => {
                         </Picker>
                     </View>
 
-                    <TouchableOpacity style={{ flexDirection: "row", backgroundColor: '#E6E6E6', borderRadius: 10, marginHorizontal: "2%", padding: '2%', paddingHorizontal: '3%',  }}>
-                        <Image source={ImageIcons.filter} style={styles.fiterimg} />
-                        <Text style={[styles.filterpop, { alignSelf: 'center' }]}>FILTERS</Text>
+                    <TouchableOpacity style={tailwind('flex flex-row bg-[#E6E6E6] rounded-[10px] mx-[2%] p-[2%] px-[3%]')}>
+                        <Image source={ImageIcons.filter} style={tailwind('w-[17px] h-[19px] mr-2 mt-1')} />
+                        <Text style={tailwind('text-base text-[#4D4D4D] font-semibold self-center')}>FILTERS</Text>
                     </TouchableOpacity>
                 </View>
-                <View style={{ marginHorizontal: '3%', marginBottom: 90 }}>
+                <View style={tailwind('mx-[3%] mb-[90px]')}>
                     <FlatList
                         data={props?.getlistshop || []}
                         renderItem={renderItem}
