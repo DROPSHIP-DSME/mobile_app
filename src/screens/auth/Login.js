@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Text, Image, View, ImageBackground, TouchableOpacity,
- SafeAreaView, ScrollView, Alert,
+import { Text, Image, View, ImageBackground,TouchableOpacity,
+ SafeAreaView, ScrollView, Alert, 
    Animated, KeyboardAvoidingView,
   Platform, Keyboard, StatusBar } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
@@ -8,8 +8,8 @@ import CheckBox from '@react-native-community/checkbox';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
 import styles from './styles';
-import { Colors, CommonStrings } from '../../common';
-import ImageIcons from '../../common/ImageIcons';
+import { Colors, CommonStrings } from '../../common'
+import ImageIcons from '../../common/ImageIcons'
 import InputField from '../../components/forms/inputField';
 import { LinkButton, RoundedButton } from '../../components/forms/button';
 import Loader from '../../components/modals/Loader';
@@ -17,14 +17,12 @@ import messaging from '@react-native-firebase/messaging';
 import Video from 'react-native-video';
 import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
-import 'react-native-get-random-values';
 import { v4 as uuid } from "uuid";
-import {useTailwind} from 'tailwind-rn';
 
 import AppIntroSlider from 'react-native-app-intro-slider';
 
 
-const Login = (props) => {
+const Login = (props) => {  
 
     const {
         navigation,
@@ -38,7 +36,6 @@ const Login = (props) => {
     //Reference
     const emailInputRef = useRef();
     const passwordInputRef = useRef();
-    const tailwind = useTailwind();
 
     // Local states
     const Reactdim = require('react-native');
@@ -53,7 +50,7 @@ const Login = (props) => {
     // Animation references
     const fadeAnim = useRef(new Animated.Value(0)).current
     const transformAnim = useRef(new Animated.Value(300)).current
-
+     
       const [showRealApp, setShowRealApp] = useState(false);
 
       const onDone = () => {
@@ -88,23 +85,21 @@ const slides = [
     text: 'Create live-shops and advertise your products from the comfort of your own home or store.',
     image: ImageIcons.sliderimage2,
   },
-
+ 
 ];
 
 
     useEffect(() => {
         animateLogo();
     }, [fadeAnim, transformAnim])
-
-    useEffect(() => {
-       // alert(props?.loginuserid)
-         if(props?.loginuserid==null || props?.loginuserid==undefined){
-                props.logoutreducerfun(uuid());
-         }
-
+ 
+    useEffect(() => { 
+        getBrandUserId();
+        
+         
     }, [])
 
-    useEffect(() => {
+    useEffect(() => { 
         requestUserPermission();
     }, [])
 
@@ -113,11 +108,17 @@ const slides = [
      })
 
     const getBrandUserId = async () => {
-         await AsyncStorage.setItem('UserId','');
-         await AsyncStorage.setItem('userLogin',"");
+         var loginuserid = await AsyncStorage.getItem('UserId');
+        // alert(loginuserid)
+         if(loginuserid==null || loginuserid==undefined || loginuserid==""){
+                //props.logoutreducerfun(uuid()); 
+         }else {
+            props.logoutreducerfun(loginuserid); 
+            props.navigation.navigate('watchlist');
+         }
     }
 
-    // Animation
+    // Animation 
     const animateLogo = () => {
         Animated.parallel([
             Animated.timing(
@@ -154,7 +155,7 @@ const slides = [
         }
     }
 
-    // Login request submision
+    // Login request submision 
     const handleLoginSubmit = async () => {
         Keyboard.dismiss();
         if (errors.email) {
@@ -162,7 +163,7 @@ const slides = [
         } else if (errors.password) {
             Alert.alert(CommonStrings.AppName, errors.password)
         } else {
-
+           
             let request = {
                 "email": values.email,
                 "password": values.password,
@@ -180,25 +181,25 @@ const RenderItem = ({item,index}) => {
                 <Video source={item.image}  // Can be a URL or a local file.
                     paused={false}
                     repeat={true}
-                    resizeMode={"cover"}
-                    style={styles.backgroundVideo}
-                />
+                    resizeMode={"cover"}  
+                    style={styles.backgroundVideo} 
+                /> 
                   <View style={{alignItems:'center',marginTop:'25%',}}>
                     <Image source={item.title}  style={{width:145, height:117}}  />
                 </View>
                 <View style={{alignItems:'center',justifyContent:'center',marginTop:'15%'}}>
-                    <Text style={tailwind('font-sans px-2 text-3xl text-white text-center')}>{item.text}</Text>
+                    <Text style={styles.goodtext}>{item.text}</Text>
                 </View>
             </View>
         :
             <View style={{ width, height }}>
-                <View style={{flex:1,backgroundColor:'#FFFFFF',justifyContent:'center'}}>
-                    <View style={tailwind('mt-6 items-center')}>
-                        <Image source={item.image}  style={tailwind('h-80 w-72')} />
+                <View style={{flex:1,backgroundColor:'#FFFFFF',justifyContent:'center'}}> 
+                    <View style={styles.groupView}>
+                        <Image source={item.image}  style={styles.groupimg} />
                     </View>
-                    <View style={{marginVertical:'6%'}}>
-                        <Text style={tailwind('px-4 text-2xl text-black text-center')}>{item.text}</Text>
-                    </View>
+                    <View style={{marginVertical:'6%',marginHorizontal:'3%'}}>
+                        <Text style={styles.grouptext}>{item.text}</Text>
+                    </View>      
                 </View>
             </View>
 
@@ -210,7 +211,7 @@ const RenderItem = ({item,index}) => {
 
     return (
         // <View style={styles.registrationRoot}>
-        //     <StatusBar backgroundColor={'#B80000'} barStyle="dark-content" translucent={true} />
+        //     <StatusBar backgroundColor={'#B80000'} barStyle="dark-content" translucent={true} /> 
 
         //      <View style={{ position:'absolute', top:25, left: 0, zIndex:1001}}>
         //          <Image source={ImageIcons.videologo} />
@@ -218,11 +219,11 @@ const RenderItem = ({item,index}) => {
         //     <Video source={ImageIcons.vedioplays}  // Can be a URL or a local file.
         //         paused={false}
         //         repeat={true}
-        //         resizeMode={"cover"}
-        //         style={styles.backgroundVideo}
+        //         resizeMode={"cover"}  
+        //         style={styles.backgroundVideo} 
         //     />
 
-
+               
         //         <View style={{alignItems:'center',marginTop:'90%'}}>
         //             <TouchableOpacity
         //                 style={styles.Touchableselltext}
@@ -254,16 +255,16 @@ const RenderItem = ({item,index}) => {
              <Video source={ImageIcons.vedioplays}  // Can be a URL or a local file.
                 paused={false}
                 repeat={true}
-                resizeMode={"cover"}
-                style={styles.backgroundVideo}
-            />
-              <View style={tailwind('mt-6 items-center')}>
+                resizeMode={"cover"}  
+                style={styles.backgroundVideo} 
+            /> 
+              <View style={{alignItems:'center',marginTop:'25%',}}>
                 <Image source={ImageIcons.logoredagain}  style={{width:145, height:117}}  />
             </View>
-            <View style={tailwind('mt-6 items-center')}>
-                <Text style={tailwind('px-2 text-3xl text-white text-center')}>A live-commerce marketplace for fashion and home goods. </Text>
+            <View style={{alignItems:'center',justifyContent:'center',marginTop:'15%'}}>
+                <Text style={styles.goodtext}>A live-commerce marketplace for fashion and home goods. </Text>
             </View>
-               <View style={tailwind('items-center mt-6')}>
+               <View style={{alignItems:'center',marginTop:'35%'}}>
                 <Image source={ImageIcons.bar1}  style={{height:12,width:104}}   />
             </View>
           </View>
@@ -275,18 +276,16 @@ const RenderItem = ({item,index}) => {
           dotStyle={{backgroundColor:'#cccccc'}}
           renderItem={RenderItem}
           onDone={onDone}
-          activeDotStyle={{backgroundColor:'#B80000'}}
+          activeDotStyle={{backgroundColor:'#b80000'}}
           showSkipButton={false}
           onSkip={onSkip}
 
         />
-      )}
+      )} 
 
       <View style={{ position:'absolute',zIndex:3001, bottom:70, justifyContent:'center',alignItems:'center',width:'100%'}}>
-         <TouchableOpacity onPress={() => navigation.navigate("Golive")} >
-            <View style={tailwind('items-center px-10 py-2 border border-transparent text-base leading-4 font-medium rounded-full text-white bg-red-700')}>
-              <Text style={tailwind('text-base font-bold text-white text-center')}>Login</Text>
-            </View>
+         <TouchableOpacity style={styles.skipview} onPress={() => navigation.navigate("Golive")} >
+            <Text style={styles.skiptext}>Login</Text>
         </TouchableOpacity>
       </View>
     </>
