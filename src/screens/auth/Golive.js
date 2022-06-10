@@ -1,7 +1,7 @@
 import React, { useEffect,useRef, useState } from 'react';
 import { Text, View,TextInput,
  ImageBackground,Image,
-  ScrollView,TouchableOpacity, 
+  ScrollView,TouchableOpacity,
  Alert,  StatusBar,
   KeyboardAvoidingView,
    Platform,Keyboard,NativeModules,Picker} from 'react-native';
@@ -19,14 +19,25 @@ import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import AsyncStorage from '@react-native-community/async-storage';
 import { v4 as uuid } from "uuid";
+import 'react-native-get-random-values';
+import {useTailwind} from 'tailwind-rn';
 import {
   GoogleSignin,
   GoogleSigninButton,
   statusCodes,
 } from '@react-native-google-signin/google-signin';
+const { RNTwitterSignIn } = NativeModules;
 import ModalSelector from 'react-native-modal-selector'
 
- 
+
+//import { RNTwitterSignIn } from 'react-native-login-twitter';
+
+
+const Constants = {
+  //Dev Parse keys
+  TWITTER_COMSUMER_KEY: "qWPj1TXbreMX1SsDvdiQTaF7Y",
+  TWITTER_CONSUMER_SECRET: "4t0cRfGWXZvySIa5sS0M38AnT8a8B8hwcX2lZiaStSWStD4B4Z"
+}
 
 
 const Golive = (props) => {
@@ -39,6 +50,7 @@ const Golive = (props) => {
     } = props;
 
     //Reference
+    const tailwind = useTailwind();
     const emailRef = useRef();
     const phoneRef = useRef();
     const bisinessnameRef = useRef();
@@ -70,6 +82,7 @@ const Golive = (props) => {
 
     useEffect(() => {
         props.countrylist();
+         //props.logoutreducerfun(uuid());
          //AsyncStorage.setItem('UserId',uuid());
          //AsyncStorage.setItem('userLogin',"0");
          //GoogleSignin.configure();
@@ -84,20 +97,20 @@ const Golive = (props) => {
                   googleServicePlistPath: '', // [iOS] if you renamed your GoogleService-Info file, new name here, e.g. GoogleService-Info-Staging
                   openIdRealm: '', // [iOS] The OpenID2 realm of the home web server. This allows Google to include the user's OpenID Identifier in the OpenID Connect ID token.
                   profileImageSize: 120, // [iOS] The desired height (and width) of the profile image. Defaults to 120px
-                }); 
+                });
     }, [])
 
     const googlesignin = async () => {
-        try {    
-        
+        try {
+
           await GoogleSignin.hasPlayServices();
           var userInfo = await GoogleSignin.signIn();
-          console.log('userInfo:',userInfo) 
+          console.log('userInfo:',userInfo)
           props.navigation.navigate('watchlist')
         } catch (error) {
             //alert('Dropship has not updated on stores yet, please upload app on stores to proceed')
             //props.navigation.navigate('watchlist')
-            console.log('google sign error:', error) 
+            console.log('google sign error:', error)
         }
     }
 
@@ -113,7 +126,27 @@ const facebooksignin = async () => {
         // })
     }
 
-   
+    const _twitterSignIn = async () => {
+        RNTwitterSignIn.init(Constants.TWITTER_COMSUMER_KEY, Constants.TWITTER_CONSUMER_SECRET)
+        RNTwitterSignIn.logIn()
+          .then(loginData => {
+
+            console.log(loginData)
+            const { authToken, authTokenSecret } = loginData
+            if (authToken && authTokenSecret) {
+               let request = {
+                    "phone": '3107287960'
+                }
+                props.shopsignupphone(request, props.navigation, "user",'shop');
+                props.navigation.navigate('watchlist')
+            }
+          })
+          .catch(error => {
+            //props.navigation.navigate('watchlist')
+            console.log(error)
+          }
+        )
+    }
 
 
     // Registration request submission
@@ -122,7 +155,7 @@ const facebooksignin = async () => {
         if (PhoneNumber == "" || PhoneNumber.length !=10 ) {
             Alert.alert('phone is required')
         }else {
-            
+
             let request = {
                 "phone": PhoneNumber
             }
@@ -158,54 +191,55 @@ const facebooksignin = async () => {
             style={styles.registrationRoot}>
              <StatusBar backgroundColor={'#ffffff00'} barStyle="dark-content" translucent={true} />
         <View style={{backgroundColor:'#ffffff',flex:1}}>
-          
+
           <View style={{alignItems:'center',marginTop:'18%'}}>
               <Image source={ImageIcons.logored_1} style={styles.setlogonewdatarow}  />
           </View>
-        <View style={{alignItems:'center',marginTop:'19%'}}>
+        <View style={tailwind('mt-12 items-center')}>
             <TouchableOpacity
-                style={styles.Touchablestarttextnew}
+                style={tailwind('items-center w-10/12 py-4 border border-solid border-slate-300 font-medium rounded-full text-white bg-white')}
                 activeOpacity = { .5}
                 onPress={() => navigation.navigate('watchlist')}>
-                <View style={{flexDirection:'row',  justifyContent:'center',padding:10}}>
+                <View style={{flexDirection:'row',  justifyContent:'center'}}>
                     <Image source={ImageIcons.googleicon} style={{ width:25,height:23,}} />
-                    <Text style={[styles.startbutton1,{fontSize:18,marginLeft:20,color:'#000000'}]}>Sign in with Google</Text>
+                    <Text style={tailwind('text-base font-bold ml-2 text-black')}>Sign in with Google</Text>
                 </View>
             </TouchableOpacity>
-        </View> 
-        <View style={{alignItems:'center',marginTop:'4%'}}>
+        </View>
+        <View style={tailwind('mt-5 items-center')}>
             <TouchableOpacity
-                style={styles.Touchablestarttextnew}
+                style={tailwind('items-center w-10/12 py-4 border border-solid border-slate-300 font-medium rounded-full text-white bg-white')}
                 activeOpacity = { .5}
                 onPress={() => bigcommercelogin()}>
-                <View style={{flexDirection:'row',  justifyContent:'center',padding:10}}>
+                <View style={{flexDirection:'row',  justifyContent:'center'}}>
                     <Image source={ImageIcons.facebook} style={{ width:14,height:24,}} />
-                    <Text style={[styles.startbutton1,{fontSize:18,marginLeft:20,color:'#000000'}]}>Sign in with Facebook</Text>
+                    <Text style={tailwind('text-base font-bold ml-3 text-black')}>Sign in with Facebook</Text>
                 </View>
             </TouchableOpacity>
-        </View> 
+        </View>
         <View style={[styles.devider1, { marginTop: '10%' }]}>
             <View style={styles.devider2} />
             <Text style={styles.devider3}>OR</Text>
             <View style={styles.devider2} />
         </View>
-        
 
-        <TouchableOpacity style={[styles.Touchablelogin,{width:'90%',marginTop:'5%',marginHorizontal:'2%'}]}
-            onPress={() => navigation.navigate("RegistrationShop")}>
-            <Text style={[styles.TouchableloginTEXT,{fontSize:18,fontWeight:'700'}]}>Sign in with Email</Text>
-        </TouchableOpacity>
+        <View style={tailwind('items-center')}>
+          <TouchableOpacity style={tailwind('items-center w-10/12 py-3 border border-transparent font-medium rounded-full text-white bg-red-800')}
+              onPress={() => navigation.navigate("RegistrationShop")}>
+              <Text style={tailwind('text-lg font-bold text-white')}>Sign in with Email</Text>
+          </TouchableOpacity>
+        </View>
 
-         <View style={styles.twotextviewcreatetop}> 
-                <Text style={styles.customertext}>Don’t have an account yet?</Text>
+         <View style={styles.twotextviewcreatetop}>
+                <Text style={tailwind('text-sm font-medium text-slate-800')}>Don’t have an account yet?</Text>
                 <TouchableOpacity onPress={() => props.navigation.navigate("CreateAccountShop")}>
-                    <Text style={styles.customertextred}> Sign up here.</Text>
+                    <Text style={tailwind('text-sm font-medium text-red-700 ml-1')}> Sign up here.</Text>
                 </TouchableOpacity>
-            </View> 
-        
+            </View>
 
-        
-        </View>  
+
+
+        </View>
          </KeyboardAvoidingView>
     )
 }

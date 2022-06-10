@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { Goliveshop } from '../../screens/auth';
-import { signup,shopsignupphone } from '../../redux/actions/Auth'
+import { signup,logoutreducerfun,shopsignupphone } from '../../redux/actions/Auth'
 
 
 const mapStateToProps = (state) => ({
@@ -10,6 +10,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
     signup,
+    logoutreducerfun,
     shopsignupphone
 };
 

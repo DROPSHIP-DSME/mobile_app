@@ -73,8 +73,6 @@ const deviceWidth = Dimensions.get('window').width;
     const [Price, onChangePrice] = React.useState("");
     const [counter, setcounter] = useState(0);
     const [selectedValue, setSelectedValue] = useState("");
-    const [selectedValue1, setSelectedValue1] = useState("");
-    const [selectedValue2, setSelectedValue2] = useState("");
     const [Productoption, onChangeProductoption] = React.useState("");
     const [ProductSize, onChangeProductSize] = React.useState("");
     const [ProductColor, onChangeProductColor] = React.useState("");
@@ -230,6 +228,7 @@ const deviceWidth = Dimensions.get('window').width;
             props.createproduct(formData, props.navigation, "vendor",true);
             //setTimeout(function(){ props.getAllproduct(props?.loginuserid);},100);
         }
+
     }
 
     const DATA = [
@@ -375,10 +374,9 @@ const renderItem6 = ({ item }) => {
                      <TextInput 
                       placeholder='Name of Product' 
                       value={Name}
-                      onChangeText={onChangeName}
                       onSubmitEditing={() => handleSendRequestSubmit1()}
                       placeholderTextColor='#4D4D4D' 
-                      style={{ backgroundColor: '#E6E6E6',color:'#333333', paddingTop: 18, paddingBottom: 18, paddingStart: 15, marginTop: 15, marginStart: 20, marginEnd: 20, borderRadius: 12 }} />
+                      style={{ backgroundColor: '#E6E6E6', paddingTop: 18, paddingBottom: 18, paddingStart: 15, marginTop: 15, marginStart: 20, marginEnd: 20, borderRadius: 12 }} />
                         
                          {isFieldInError('Name') &&
                         <Text style={styles.stringerror}>must be required field</Text>
@@ -387,10 +385,10 @@ const renderItem6 = ({ item }) => {
 
                     <TextInput 
                     onChangeText={onChangeProduct}
-                    value={Product}
+                        value={Product}
                     onSubmitEditing={() => handleSendRequestSubmit()}
                     placeholder='Provide more details about your product (500 characters max)' placeholderTextColor='#4D4D4D' 
-                    style={{ backgroundColor: '#E6E6E6',color:'#333333', paddingTop: 18, paddingStart: 15, marginTop: 20, marginStart: 20, marginEnd: 20, borderRadius: 12, fontSize: 16, paddingBottom: 92, paddingEnd: 15, paddingEnd: 15 }} />
+                    style={{ backgroundColor: '#E6E6E6', paddingTop: 18, paddingStart: 15, marginTop: 20, marginStart: 20, marginEnd: 20, borderRadius: 12, fontSize: 16, paddingBottom: 92, paddingEnd: 15, paddingEnd: 15 }} />
 
 
                  </View>
@@ -417,9 +415,9 @@ const renderItem6 = ({ item }) => {
                 <View style={styles.pickerViewshorttodaybrandtodayy1}>
              
                       <Picker
-                        selectedValue={selectedValue1}
+                        selectedValue={selectedValue}
                         style={{ height: 50, width: 320,color:'#848484',}}
-                        onValueChange={(itemValue, itemIndex) => setSelectedValue1(itemValue)}
+                        onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
                        >
                         <Picker.Item label="Choose a Brand" value="1" />
                        
@@ -430,9 +428,9 @@ const renderItem6 = ({ item }) => {
                 <View style={styles.pickerViewshorttodaybrandtodayy1}>
              
                       <Picker
-                        selectedValue={selectedValue2}
+                        selectedValue={selectedValue}
                         style={{ height: 50, width: 320,color:'#848484',}}
-                        onValueChange={(itemValue, itemIndex) => setSelectedValue2(itemValue)}
+                        onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
                        >
                         <Picker.Item label="Product Conditions" value="1" />
                         <Picker.Item label="New Stock" value="New Stock" />
@@ -475,16 +473,8 @@ const renderItem6 = ({ item }) => {
                             <Text style={{ fontSize: 12 }} >Price</Text>
                             <Text style={{ fontSize: 14, color: 'black', fontWeight: '400', marginTop: 3 }} >US$</Text>
                         </View>
-                        <TextInput 
-                      placeholder='0.00' 
-                      value={Price}
-                      onChangeText={onChangePrice}
-                      keyboardType={'numeric'}
-                      onSubmitEditing={() => handleSendRequestSubmit1()}
-                      placeholderTextColor='#4D4D4D' 
-                      style={{ backgroundColor: '#E6E6E6',color:'#333333', paddingTop: 13, paddingBottom: 18, paddingStart: 15, marginTop: 15, marginStart: 20, marginEnd: 20, borderRadius: 12 }} />
 
-                       
+                        <Text style={{ fontSize: 16, marginTop: 27, marginStart: 10 }} >0.00</Text>
 
                         
                     </View>
@@ -495,16 +485,7 @@ const renderItem6 = ({ item }) => {
                                 Discount
                             </Text>
                             <View style={{ flexDirection: 'row', paddingBottom: 12, marginTop: 3 }} >
-                                <TextInput 
-                      placeholder='0.00' 
-                      value={SelectedDiscount}
-                      onChangeText={setSelectedDiscount}
-                      keyboardType={'numeric'}
-                      onSubmitEditing={() => handleSendRequestSubmit1()}
-                      placeholderTextColor='#4D4D4D' 
-                      style={{ backgroundColor: '#E6E6E6',color:'#333333', paddingTop: 1, paddingBottom: 1, paddingStart: 1, marginTop: 1, marginStart: 1, marginEnd: 1, borderRadius: 12 }} />
-
-                       
+                                <Text style={{ fontSize: 16 }}>0</Text>
                                 <Text style={{ marginStart: 10, color: 'black', fontSize: 16 }} >%</Text></View>
                         </View>
                        
