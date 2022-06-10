@@ -162,6 +162,16 @@
 			"marginRight": "20%"
 		}
 	},
+	"ml-0.5": {
+		"style": {
+			"marginLeft": 2
+		}
+	},
+	"ml-0": {
+		"style": {
+			"marginLeft": 0
+		}
+	},
 	"mt-2": {
 		"style": {
 			"marginTop": 8
@@ -412,6 +422,11 @@
 			"height": 96
 		}
 	},
+	"h-[15px]": {
+		"style": {
+			"height": 15
+		}
+	},
 	"h-[55px]": {
 		"style": {
 			"height": 55
@@ -555,6 +570,11 @@
 	"w-[41px]": {
 		"style": {
 			"width": 41
+		}
+	},
+	"w-[25px]": {
+		"style": {
+			"width": 25
 		}
 	},
 	"w-32": {

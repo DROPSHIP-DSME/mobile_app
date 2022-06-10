@@ -587,12 +587,12 @@ const NameStore = (props) => {
           <View style={tailwind('flex flex-row justify-between mx-[5%] my-[4%]')}>
             <TouchableOpacity onPress={() => sethelppopup(false)}>
               <View style={tailwind('border border-[#e6e6e6] p-[5px] rounded-[50px]')}>
-                <Image source={ImageIcons.google} style={styles.google1} />
+                <Image source={ImageIcons.google} style={tailwind('w-[25px] h-[25px]')} />
               </View>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => facebookSignIn()}>
               <View style={tailwind('border border-[#e6e6e6] p-[5px] rounded-[50px]')}>
-                <Image source={ImageIcons.facebook} style={styles.facebook1} />
+                <Image source={ImageIcons.facebook} style={tailwind('w-[25px] h-[25px]')} />
               </View>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => instaLogin.current.show()}>
@@ -602,12 +602,12 @@ const NameStore = (props) => {
             </TouchableOpacity>
             <TouchableOpacity onPress={() => twitterSignIn()}>
               <View style={tailwind('border border-[#e6e6e6] p-[10px] rounded-[50px]')}>
-                <Image source={ImageIcons.twitter} style={styles.twitter1} />
+                <Image source={ImageIcons.twitter} style={tailwind('w-[15px] h-[15px]')} />
               </View>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => linkedInLogin.current.open()}>
               <View style={tailwind('border border-[#e6e6e6] p-[10px] rounded-[50px]')}>
-                <Image source={ImageIcons.linkin} style={styles.linkin1} />
+                <Image source={ImageIcons.linkin} style={tailwind('w-[15px] h-[15px]')} />
               </View>
             </TouchableOpacity>
           </View>

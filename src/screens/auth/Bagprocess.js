@@ -193,7 +193,7 @@ const Bagprocess = (props) => {
             <Image source={ImageIcons.teashop} style={tailwind('w-[100px] height-[150px] rounded-[10px]')} />
           </TouchableOpacity>
 
-          <View style={{ alignSelf: 'center', marginLeft: 2 }} >
+          <View style={tailwind('self-center ml-0.5')} >
 
             <View style={{}}>
               <Text style={{ fontSize: 16, fontStyle: 'normal', marginVertical: '2%', fontFamily: 'hinted-AvertaStd-Regular', color: '#1A1A1A' }}>Ribbed Knit Bardot Crossover Top</Text>

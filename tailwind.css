@@ -119,6 +119,14 @@
   margin-right: 20%
 }
 
+.ml-0\.5 {
+  margin-left: 0.125rem
+}
+
+.ml-0 {
+  margin-left: 0px
+}
+
 .mt-2 {
   margin-top: 0.5rem
 }
@@ -319,6 +327,10 @@
   height: 96px
 }
 
+.h-\[15px\] {
+  height: 15px
+}
+
 .h-\[55px\] {
   height: 55px
 }
@@ -433,6 +445,10 @@
 
 .w-\[41px\] {
   width: 41px
+}
+
+.w-\[25px\] {
+  width: 25px
 }
 
 .w-32 {
