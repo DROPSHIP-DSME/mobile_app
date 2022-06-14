@@ -18,6 +18,7 @@ import { RadioButton, Provider, Modal, Portal, Button, } from 'react-native-pape
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import Footer3 from '../../screens/auth/Footer3';
 import Shopheader from '../../screens/auth/Shopheader';
+import { useTailwind } from 'tailwind-rn';
 
 import * as Progress from 'react-native-progress';
 import RnIncrementDecrementBtn from
@@ -44,6 +45,7 @@ const NameStore = (props) => {
   const productId = props?.route?.params?.productId;
   const shopId = props?.route?.params?.shopId;
   const categoryId = props?.route?.params?.categoryId;
+  const tailwind = useTailwind();
 
   // Local states
   const [checked, setChecked] = React.useState('first');
@@ -116,7 +118,7 @@ const NameStore = (props) => {
     }
   }
 
-  const containerStyle = { backgroundColor: 'white', padding: '3%', marginHorizontal: '8%', borderRadius: 10,alignSelf:'center',justifyContent:'center' };
+  const containerStyle = { backgroundColor: 'white', padding: '3%', marginHorizontal: '8%', borderRadius: 10, alignSelf: 'center', justifyContent: 'center' };
 
 
   const DATA = [
@@ -151,18 +153,18 @@ const NameStore = (props) => {
 
   const renderItem1 = ({ item, index }) => {
     return (
-      <View style={styles.maincartviewshopTODAYY}>
+      <View style={tailwind('flex flex-row mt-[5%] mx-[2%] rounded-[10px]')}>
         <TouchableOpacity onPress={() => { props.navigation.navigate("NameStore", { shopId: item._id, shopName: item.shopName }) }}>
-          <View style={{ padding: 2 }}>
+          <View style={tailwind('p-0.5')}>
             <Image source={ImageIcons.winterimage} style={{ height: 150, width: deviceWidth / 2.4, borderRadius: 10 }} onPress={() => { props.navigation.navigate("clothing") }} />
 
 
           </View>
-          <View style={{ flexDirection: "row", marginTop: 10, justifyContent: "space-between" }}>
-            <View style={{ paddingLeft: 8 }}>
-              <Text style={{ color: "#1A1A1A", fontSize: 12, fontFamily: 'hinted-AvertaStd-Regular' }}>Blue Purse</Text>
-              <Text style={{ color: "#1A1A1A", fontSize: 16, fontFamily: 'hinted-AvertaStd-Bold', }}>$0</Text>
-              <View style={{ flexDirection: 'row', marginTop: 5 }}>
+          <View style={tailwind('flex flex-row mt-2.5 justify-between')}>
+            <View style={tailwind('pl-2')}>
+              <Text style={tailwind('text-[#1A1A1A] text-xs font-normal')}>Blue Purse</Text>
+              <Text style={tailwind('text-[#1A1A1A] text-base font-bold')}>$0</Text>
+              <View style={tailwind('flex flex-row mt-[5px]')}>
                 <Rating
                   type='custom'
                   imageSize={15}
@@ -171,15 +173,15 @@ const NameStore = (props) => {
                   tintColor='#FFE7E7'
                   value={starCount}
                   onFinishRating={(start) => ratingCompleted(start)}
-                  style={{ marginLeft: '2%' }}
+                  style={tailwind('ml-[2%]')}
                 />
-                <Text style={styles.TEXT}>4.0</Text>
+                <Text style={tailwind('text-sm mx-[2%] text-black font-normal')}>4.0</Text>
 
               </View>
             </View>
-            <View style={{ marginRight: 8 }}>
-              <Image source={ImageIcons.Iconlock} style={{ width: 30, height: 30 }} />
-              <Image source={ImageIcons.iconheart} style={{ width: 30, height: 30, marginTop: 5 }} />
+            <View style={tailwind('mr-2')}>
+              <Image source={ImageIcons.Iconlock} style={tailwind('w-[30px] h-[30px]')} />
+              <Image source={ImageIcons.iconheart} style={tailwind('w-[30px] h-[30px] mt-[5px]')} />
             </View>
           </View>
 
@@ -195,13 +197,13 @@ const NameStore = (props) => {
   const renderItem = ({ item }) => {
 
     return (
-      <View style={styles.maincartviewshop}>
+      <View style={tailwind('flex flex-row justify-between mt-[5%] mx-[2%] bg-[#f9f9f9] rounded-[10px]')}>
         <TouchableOpacity onPress={() => { props.navigation.navigate("ProductDetails2", { productId: item._id, shopId: shopId, userType: 'shopside' }) }}>
           <View >
-            <Image source={{ uri: item.productImage }} style={styles.jeansimgshop} />
+            <Image source={{ uri: item.productImage }} style={{ height: deviceWidth / 2.2 + 80, borderRadius: 5, width: deviceWidth / 2.3 }} />
             <View>
-              <Text style={styles.boldproduct}>{item.productName}</Text>
-              <Text style={styles.salestext}>${item.productPrice}</Text>
+              <Text style={tailwind('text-sm mx-[2%] text-black font-normal')}>{item.productName}</Text>
+              <Text style={tailwind('text-xs font-normal text-black')}>${item.productPrice}</Text>
             </View>
           </View>
         </TouchableOpacity>
@@ -212,38 +214,38 @@ const NameStore = (props) => {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
-      style={styles.registrationRoot}>
+      style={tailwind('flex-1 justify-center')}>
       <StatusBar backgroundColor={showclassName} barStyle="dark-content" translucent={true} />
       <Shopheader />
 
       <ScrollView onScroll={({ nativeEvent }) => {
         handleScroll(nativeEvent['contentOffset'].y);
-      }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#FFFFFF' }} >
+      }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={tailwind('bg-white')} >
 
-        <View style={{ marginHorizontal: '3%' }}>
+        <View style={tailwind('mx-[3%]')}>
           <TouchableOpacity onPress={() => props.navigation.navigate("shop")}>
-            <View style={{ marginTop: '10%', flexDirection: "row" }}>
-              <Image source={ImageIcons.backpopup} style={{ width: 10, height: 17 }} />
-              <View style={{ borderBottomWidth: 3, width: 40, marginLeft: "-2%", marginBottom: "3%" }}></View>
-              <Text style={{ fontSize: 14, fontFamily: "hinted-AvertaStd-Regular", fontWeight: "bold", paddingLeft: 5 }}>GO BACK</Text>
+            <View style={tailwind('flex flex-row mt-[10%]')}>
+              <Image source={ImageIcons.backpopup} style={tailwind('w-2.5 h-[17px]')} />
+              <View style={tailwind('border-b-[3px] w-10 ml-[-2%] mb-[3%]')}></View>
+              <Text style={tailwind('text-sm font-bold pl-[5px]')}>GO BACK</Text>
             </View>
           </TouchableOpacity>
         </View>
         <View>
 
           {props?.getlistproductdetails?.ProductImages?.length > 0 ?
-            <View style={{ marginHorizontal: '4%', marginTop: "5%" }}>
+            <View style={tailwind('mx-[4%] mt-[5%]')}>
               <Image source={{ uri: props?.getlistproductdetails?.data?.productImage }} style={{ width: deviceWidth / 1.1, height: 365, borderRadius: 10 }} />
-              <View style={{ position: "absolute", margin: "40%", }}>
-                <Image source={ImageIcons.playicon} style={{ width: 59, height: 51 }} />
+              <View style={tailwind('absolute m-[40%]')}>
+                <Image source={ImageIcons.playicon} style={tailwind('absolute m-[40%]')} />
               </View>
             </View>
             :
-            <View style={{ marginHorizontal: '4%', marginTop: "5%", flexDirection: "row" }}>
-              <View style={{ marginHorizontal: '2%' }}>
-                <Image source={{ uri: props?.getlistproductdetails?.data?.productImage }} style={{ width: 70, height: 70, borderRadius: 10 }} />
-                <View style={{ position: "absolute", margin: "40%", }}>
-                  <Image source={ImageIcons.camera} style={{ width: 15, height: 10 }} />
+            <View style={tailwind('flex flex-row mx-[4%] mt-[5%]')}>
+              <View style={tailwind('mx-[2%]')}>
+                <Image source={{ uri: props?.getlistproductdetails?.data?.productImage }} style={tailwind('w-[70px] h-[70px] rounded-[10px]')} />
+                <View style={tailwind('absolute m-[40%]')}>
+                  <Image source={ImageIcons.camera} style={tailwind('w-[15px] h-2.5')} />
                 </View>
               </View>
 
@@ -251,38 +253,38 @@ const NameStore = (props) => {
           }
         </View>
 
-        <View style={{marginHorizontal:'3%', flexDirection: "row", flexDirection: 'row', justifyContent: 'space-between', marginTop: '1%', }}>
-          <Text style={styles.clothpop}>{props?.getlistproductdetails?.data?.productName}</Text>
-          <TouchableOpacity style={{ marginRight: 3 }} onPress={() => sethelppopup(true)}>
-            <Image source={ImageIcons.shareshop} style={{ width: 45, height: 40 }} />
+        <View style={tailwind('flex flex-row mx-[3%] justify-between mt-[1%]')}>
+          <Text style={tailwind('text-lg font-bold text-[#1A1A1A] py-[1%]')}>{props?.getlistproductdetails?.data?.productName}</Text>
+          <TouchableOpacity style={tailwind('mr-[3px]')} onPress={() => sethelppopup(true)}>
+            <Image source={ImageIcons.shareshop} style={tailwind('w-[45px] h-[40px]')} />
           </TouchableOpacity>
         </View>
-        <View style={[styles.textviewpop, { marginTop: "1%",marginHorizontal:'3%' }]}>
-          <Text style={{ fontSize: 24, color: '#1A1A1A', lineHeight: 30, fontWeight: 'bold', fontFamily: 'hinted-AvertaStd-Regular', fontStyle: 'normal' }}>${props?.getlistproductdetails?.data?.productPrice}</Text>
+        <View style={tailwind('flex flex-row justify-between mt-[3%] mr-[20%] mt-[1%] mx-[3%]')}>
+          <Text style={tailwind('text-2xl text-[#1A1A1A] font-bold')}>${props?.getlistproductdetails?.data?.productPrice}</Text>
         </View>
 
-        <View style={{ borderBottomWidth: 1, marginTop: "4%", marginHorizontal: "3%", borderColor: "#B6B6B6" }}></View>
-        <View style={{ flexDirection: 'row', marginTop: "4%", marginHorizontal: '3%' }}>
-          <View style={{ marginTop: "3%" }}>
-            <Image source={{ uri: props?.getlistproductdetails?.getbrands?.brandImage }} style={{ width: 50, height: 50, borderRadius: 40 }} />
+        <View style={tailwind('border-b mt-[4%] mx-[3%] border-[#B6B6B6]')}></View>
+        <View style={tailwind('flex flex-row mt-[4%] mx-[3%]')}>
+          <View style={tailwind('mt-[3%]')}>
+            <Image source={{ uri: props?.getlistproductdetails?.getbrands?.brandImage }} style={tailwind('w-[50px] h-[50px] rounded-[40px]')} />
           </View>
 
-          <View style={{ paddingTop: 10, paddingLeft: 10 }}>
-            <Text style={styles.stwtxt}>{props?.getlistproductdetails?.getbrands?.brandName}</Text>
-            <View style={{ flexDirection: "row" }}>
-              <TouchableOpacity style={styles.fllowview}>
-                <Text style={styles.flltxt}>FOLLOW</Text>
+          <View style={tailwind('pt-2.5 pl-2.5')}>
+            <Text style={tailwind('text-[#1A1A1A] text-sm font-bold')}>{props?.getlistproductdetails?.getbrands?.brandName}</Text>
+            <View style={tailwind('flex flex-row')}>
+              <TouchableOpacity style={tailwind('mt-[3%] bg-[#B80000] h-[25px] w-[74px] px-[2%] rounded-[20px]')}>
+                <Text style={tailwind('text-center pt-[3%] text-white text-xs font-bold')}>FOLLOW</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.strtxt}>
-                <Text style={styles.flltxt}>OPEN STORE</Text>
+              <TouchableOpacity style={tailwind('mx-[3%] mt-[3%} bg-[#4AFFBD] h-[25px] w-[90px] rounded-[20px]')}>
+                <Text style={tailwind('text-center pt-[3%] text-white text-xs font-bold')}>OPEN STORE</Text>
               </TouchableOpacity>
             </View>
           </View>
 
         </View>
 
-        <View style={{ marginHorizontal: "3%", marginTop: "3%" }}>
-          <Text style={{ color: "#1A1A1A", fontSize: 18, fontFamily: "hinted-AvertaStd-Regular", }}>{props?.getlistproductdetails?.data?.productDescription}</Text>
+        <View style={tailwind('mx-[3%] mt-[3%}')}>
+          <Text style={tailwind('text-[#1A1A1A] text-lg font-normal')}>{props?.getlistproductdetails?.data?.productDescription}</Text>
         </View>
 
 
@@ -298,7 +300,7 @@ const NameStore = (props) => {
         </View>
         */}
 
-        <View style={{ flexDirection: 'row', marginTop: '1%' }}>
+        <View style={tailwind('flex flex-row mt-[1%]')}>
           {/*<View style={{ marginHorizontal: '4%', marginVertical: '3%' }}>
             <Text style={styles.txtsyz}>Size</Text>
             <View style={{ flexDirection: 'row' }}>
@@ -309,20 +311,20 @@ const NameStore = (props) => {
             </View>
       </View>*/}
 
-          <View style={{ marginVertical: '3%', marginLeft: '6%' }}>
-            <Text style={styles.txtsyz}>Quantity</Text>
+          <View style={tailwind('flex flex-row mt-[1%]')}>
+            <Text style={tailwind('text-lg font-bold')}>Quantity</Text>
 
-            <View style={{ height: 40, width: 40, backgroundColor: '#e6e6e6', borderRadius: 4, padding: 9, }}>
-              <Text style={{ textAlign: 'center', color: '#4d4d4d', fontSize: 16, fontFamily: 'hinted-AvertaStd-Semibold' }}>{props?.getlistproductdetails?.data?.productInventory}</Text>
+            <View style={tailwind('h-[40px] w-[40px] bg-[#e6e6e6] rounded p-[9px]')}>
+              <Text style={tailwind('text-center text-[#4d4d4d] text-base font-bold')}>{props?.getlistproductdetails?.data?.productInventory}</Text>
             </View>
           </View>
         </View>
-        <View style={{ flexDirection: "row" }}>
-          <TouchableOpacity onPress={() => { cartdataSubmit(props?.getlistproductdetails?.data?._id) }} style={{ justifyContent:'center',width: deviceWidth / 2, backgroundColor: "#B80000", borderRadius: 30, marginTop: "3%", height: 50, marginHorizontal: "5%" }}>
-            <Text style={{ textAlign: 'center', color: "#FFFFFF", fontWeight: 'bold', fontSize: 16, }}>ADD TO BAG</Text>
+        <View style={tailwind('flex flex-row')}>
+          <TouchableOpacity onPress={() => { cartdataSubmit(props?.getlistproductdetails?.data?._id) }} style={{ justifyContent: 'center', width: deviceWidth / 2, backgroundColor: "#B80000", borderRadius: 30, marginTop: "3%", height: 50, marginHorizontal: "5%" }}>
+            <Text style={tailwind('text-center text-[#FFFFFF] text-base font-bold')}>ADD TO BAG</Text>
           </TouchableOpacity>
-          <View style={{ marginLeft: "2%", marginTop: "4%" }}>
-            <Image source={ImageIcons.iconheart} style={{ width: 49, height: 41 }} />
+          <View style={tailwind('ml-[2%] mt-[4%]')}>
+            <Image source={ImageIcons.iconheart} style={tailwind('w-[49px] h-[41px]')} />
           </View>
         </View>
         {/*<View style={{marginTop:"4%",marginHorizontal:"4%"}}>
@@ -488,38 +490,38 @@ const NameStore = (props) => {
             <Portal>
               <Modal visible={visible} contentContainerStyle={containerStyle}>
 
-                <View style={{ flexDirection: 'row' }}>
-                  <View style={{ marginTop: '3%', marginRight: "2%" }}>
-                    <Image source={{ uri: props?.getlistproductdetails?.data?.productImage }} style={{ width: 83, height: 96, borderRadius: 10 }} />
+                <View style={tailwind('flex flex-row')}>
+                  <View style={tailwind('mt-[3%] mr-[2%]')}>
+                    <Image source={{ uri: props?.getlistproductdetails?.data?.productImage }} style={tailwind('w-[83px] h-[96px] rounded-[10px]')} />
                   </View>
 
                   <View>
-                    <View style={{ flexDirection: "row" }}>
-                      <View style={{ width: "60%" }}>
-                        <Text style={{ fontSize: 16, lineHeight: 20, fontStyle: 'normal', fontWeight: '400', marginVertical: '4%', fontFamily: 'hinted-AvertaStd-Regular', color: '#1A1A1A' }}>{props?.getlistproductdetails?.data?.productName}</Text>
+                    <View style={tailwind('flex flex-row')}>
+                      <View style={tailwind('w-[60%]')}>
+                        <Text style={tailwind('text-base font-normal my-[4%] text-[#1A1A1A]')}>{props?.getlistproductdetails?.data?.productName}</Text>
                       </View>
-                      <View style={{ marginLeft: "10%", marginTop: "2%" }}>
-                        <Image source={ImageIcons.del} style={{ width: 41, height: 36 }} />
+                      <View style={tailwind('ml-[10%] mt-[2%]')}>
+                        <Image source={ImageIcons.del} style={tailwind('w-[41px] h-9')} />
                       </View>
                     </View>
 
                     <View>
-                      <Text style={{ fontSize: 18, fontWeight: 'bold',fontFamily: 'hinted-AvertaStd-Regular', color: '#1A1A1A' }}>${props?.getlistproductdetails?.data?.productPrice}</Text>
+                      <Text style={tailwind('text-lg font-bold text-[#1A1A1A]')}>${props?.getlistproductdetails?.data?.productPrice}</Text>
                     </View>
 
 
-                    <View style={{ flexDirection: "row" }}>
+                    <View style={tailwind('flex flex-row')}>
                       {/*<View>
                         <Text style={{ fontSize: 16, fontWeight: 'bold', marginVertical: '1%', fontFamily: 'hinted-AvertaStd-Regular', color: '#1A1A1A' }}>Color:</Text>
                       </View>
                       <View style={{ height: 20, width: 20, borderRadius: 10, backgroundColor: '#b3b3b3', marginLeft: "1%" }}></View>*/}
-                      <Text style={{ fontSize: 16, fontWeight: 'bold', fontFamily: 'hinted-AvertaStd-Regular', color: '#1A1A1A' }}>Size : S</Text>
+                      <Text style={tailwind('text-base font-bold text-[#1A1A1A]')}>Size : S</Text>
                     </View>
 
 
 
-                    <View style={{ flexDirection: "row" }}>
-                      <View style={{ marginTop: "4%" }}>
+                    <View style={tailwind('flex flex-row')}>
+                      <View style={tailwind('flex flex-row')}>
                         <RnIncrementDecrementBtn
                           minVal={1}
                           minreq={1}
@@ -539,14 +541,14 @@ const NameStore = (props) => {
                   </View>
                 </View>
 
-                <View style={{ borderBottomWidth: 1, marginTop: "3%", borderColor: "#B3B3B3" }}></View>
+                <View style={tailwind('border-b mt-[3%] border-[#B3B3B3]')}></View>
 
-                <View style={{ flexDirection: "row", justifyContent: "flex-end" }}>
-                  <Text style={{ color: "#1A1A1A", fontSize: 20, fontFamily: 'hinted-AvertaStd-Regular' }}>Total:</Text>
-                  <Text style={{ color: "#1A1A1A", fontSize: 20, fontFamily: 'hinted-AvertaStd-Bold' }}>$52.50</Text>
+                <View style={tailwind('flex flex-row justify-end')}>
+                  <Text style={tailwind('text-[#1A1A1A] text-xl font-normal')}>Total:</Text>
+                  <Text style={tailwind('text-[#1A1A1A] text-xl font-bold')}>$52.50</Text>
                 </View>
 
-                <TouchableOpacity onPress={() => { closepopup(); setVisiblebag(true) }} style={{ width: deviceWidth / 1.3, backgroundColor: "#B80000", borderRadius: 30, marginVertical: "3%", height: 38,justifyContent:'center', marginHorizontal: "3%" }} >
+                <TouchableOpacity onPress={() => { closepopup(); setVisiblebag(true) }} style={{ width: deviceWidth / 1.3, backgroundColor: "#B80000", borderRadius: 30, marginVertical: "3%", height: 38, justifyContent: 'center', marginHorizontal: "3%" }} >
                   <Text style={{ textAlign: 'center', color: "#FFFFFF", fontWeight: 'bold', fontSize: 15 }}>VIEW BAG</Text>
                 </TouchableOpacity>
               </Modal>
@@ -577,35 +579,35 @@ const NameStore = (props) => {
         <View style={{ flex: 1, backgroundColor: '#ffffff', width: deviceWidth / 1.5, paddingVertical: 10, borderRadius: 10, zIndex: 4001, position: 'absolute', bottom: '40%', margin: "20%" }}>
 
 
-          <View style={[styles.chatViewrose, { alignSelf: 'center' }]}>
+          <View style={tailwind('flex flex-row mt-[8%] mb-[5%] self-center')}>
 
             <Text style={{ fontSize: 14, color: '#1a1a1a', fontFamily: 'hinted-AvertaStd-Regular', }}>Share this product:</Text>
 
           </View>
-          <View style={styles.accountmainview}>
+          <View style={tailwind('flex flex-row justify-between mx-[5%] my-[4%]')}>
             <TouchableOpacity onPress={() => sethelppopup(false)}>
-              <View style={styles.showimge}>
-                <Image source={ImageIcons.google} style={styles.google1} />
+              <View style={tailwind('border border-[#e6e6e6] p-[5px] rounded-[50px]')}>
+                <Image source={ImageIcons.google} style={tailwind('w-[25px] h-[25px]')} />
               </View>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => facebookSignIn()}>
-              <View style={styles.showimge}>
-                <Image source={ImageIcons.facebook} style={styles.facebook1} />
+              <View style={tailwind('border border-[#e6e6e6] p-[5px] rounded-[50px]')}>
+                <Image source={ImageIcons.facebook} style={tailwind('w-[25px] h-[25px]')} />
               </View>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => instaLogin.current.show()}>
-              <View style={styles.showimge}>
+              <View style={tailwind('border border-[#e6e6e6] p-[5px] rounded-[50px]')}>
                 <Image source={ImageIcons.message} style={styles.message1} />
               </View>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => twitterSignIn()}>
-              <View style={[styles.showimge, { padding: 10 }]}>
-                <Image source={ImageIcons.twitter} style={styles.twitter1} />
+              <View style={tailwind('border border-[#e6e6e6] p-[10px] rounded-[50px]')}>
+                <Image source={ImageIcons.twitter} style={tailwind('w-[15px] h-[15px]')} />
               </View>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => linkedInLogin.current.open()}>
-              <View style={[styles.showimge, { padding: 10 }]}>
-                <Image source={ImageIcons.linkin} style={styles.linkin1} />
+              <View style={tailwind('border border-[#e6e6e6] p-[10px] rounded-[50px]')}>
+                <Image source={ImageIcons.linkin} style={tailwind('w-[15px] h-[15px]')} />
               </View>
             </TouchableOpacity>
           </View>
@@ -618,13 +620,13 @@ const NameStore = (props) => {
         <View style={{ backgroundColor: '#ffffff', width: '90%', alignSelf: 'center', paddingVertical: 10, borderRadius: 10, position: 'absolute', marginTop: "8%", marginRight: "2%", elevation: 1, }}>
 
 
-          <View style={styles.chatViewrose}>
+          <View style={tailwind('flex flex-row mt-[8%] mb-[5%] self-center')}>
 
             <TouchableOpacity style={{ position: 'absolute', right: 15 }} onPress={() => setreportpopup(false)}>
-              <Image source={ImageIcons.closepopup} style={styles.sendmsg2} />
+              <Image source={ImageIcons.closepopup} style={tailwind('w-9 h-[27px]')} />
             </TouchableOpacity>
 
-            <Text style={[styles.Benrosetext, { marginTop: "10%" }]}>Reason for reporting the following comment:</Text>
+            <Text style={tailwind('text-xl font-bold text-[#282828] pl-[5%] mt-[10%]')}>Reason for reporting the following comment:</Text>
 
           </View>
           <View style={{ borderRadius: 5, borderWidth: 1, marginHorizontal: "4%", backgroundColor: "#FAFAFA" }}>
