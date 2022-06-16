@@ -9,6 +9,7 @@ import { withFormik } from 'formik';
 import * as Yup from 'yup';
 import styles from './styles';
 import { Colors, CommonStrings } from '../../common';
+import Smallbutton from '../../components/dropshipbutton/Smallbutton';
 import BaseText from '../../components/BaseText';
 import ImageIcons from '../../common/ImageIcons';
 import InputField from '../../components/forms/inputField';
@@ -285,11 +286,10 @@ const RenderItem = ({item,index}) => {
       )}
 
       <View style={{ position:'absolute',zIndex:3001, bottom:70, justifyContent:'center',alignItems:'center',width:'100%'}}>
-         <TouchableOpacity onPress={() => navigation.navigate("Golive")} >
-            <View style={tailwind('items-center px-10 py-2 border border-transparent text-base leading-4 font-medium rounded-full text-white bg-red-700')}>
-              <Text style={tailwind('text-white text-center')}>Login</Text>
-            </View>
-        </TouchableOpacity>
+        <Smallbutton
+          text="Login"
+          onPress={() => props.navigation.navigate("Golive")}
+        />
       </View>
     </>
   );
