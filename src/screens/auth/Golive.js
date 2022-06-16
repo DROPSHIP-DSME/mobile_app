@@ -224,12 +224,10 @@ const facebooksignin = async () => {
             <View style={styles.devider2} />
         </View>
 
-        <View style={tailwind('items-center')}>
-          <TouchableOpacity style={tailwind('items-center w-10/12 py-3 border border-transparent font-medium rounded-full text-white bg-red-800')}
-              onPress={() => navigation.navigate("RegistrationShop")}>
-              <Text style={tailwind('text-lg font-bold text-white')}>Sign in with Email</Text>
-          </TouchableOpacity>
-        </View>
+            <Largebutton
+              text="Sign in with Email"
+              onPress={() => props.navigation.navigate("RegistrationShop")}
+            />
 
             <View style={styles.twotextviewcreatetop}>
                 <Text style={tailwind('text-sm font-medium text-slate-800')}>Don’t have an account yet?</Text>
@@ -238,10 +236,7 @@ const facebooksignin = async () => {
                 </TouchableOpacity>
             </View>
 
-            <Largebutton
-              text="Sign in with a t"
-              onPress={() => props.navigation.navigate("CreateAccountShop")}
-            />
+
 
 
         </View>
