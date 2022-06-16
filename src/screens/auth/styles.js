@@ -42,11 +42,14 @@ const styles = StyleSheet.create({
     width:16,
     height:16
  },
+ textBold: {
+   fontFamily: 'hinted-AvertaStd-Bold'
+ },
  stringerror:{
     color:'#cc0000',marginHorizontal:'5%',marginVertical:'1%'
  },
  txtsyz:{
-  fontSize:18,fontFamily:'hinted-AvertaStd-Bold'
+  fontFamily:'hinted-AvertaStd-Bold'
 },
  fllowview:{
   marginTop:"3%", backgroundColor:"#B80000",height:25,width:74,paddingHorizontal:'2%',borderRadius:20

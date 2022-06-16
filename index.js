@@ -8,6 +8,9 @@ import { name as appName } from './app.json';
 import { name1 as appName1 } from './app.json';
 import PushNotificationIOS from "@react-native-community/push-notification-ios";
 import PushNotification from "react-native-push-notification";
+import { typography } from './src/components/typography';
+
+  typography()
 
 /*PushNotification.configure({
     // (optional) Called when Token is generated (iOS and Android)

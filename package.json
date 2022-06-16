@@ -146,5 +146,8 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "rnpm": {
+   "assets": ["./res/assets/fonts/AvertaStd/"]
   }
 }

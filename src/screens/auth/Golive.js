@@ -9,8 +9,9 @@ import LinearGradient from 'react-native-linear-gradient';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
 import styles from './styles';
-import { Colors, CommonStrings } from '../../common'
-import ImageIcons from '../../common/ImageIcons'
+import { Colors, CommonStrings } from '../../common';
+import Largebutton from '../../components/dropshipbutton/Largebutton';
+import ImageIcons from '../../common/ImageIcons';
 import InputField from '../../components/forms/inputField';
 import { RoundedButton } from '../../components/forms/button';
 import { phoneRegExp } from '../../services/helper';
@@ -230,13 +231,17 @@ const facebooksignin = async () => {
           </TouchableOpacity>
         </View>
 
-         <View style={styles.twotextviewcreatetop}>
+            <View style={styles.twotextviewcreatetop}>
                 <Text style={tailwind('text-sm font-medium text-slate-800')}>Don’t have an account yet?</Text>
                 <TouchableOpacity onPress={() => props.navigation.navigate("CreateAccountShop")}>
                     <Text style={tailwind('text-sm font-medium text-red-700 ml-1')}> Sign up here.</Text>
                 </TouchableOpacity>
             </View>
 
+            <Largebutton
+              text="Sign in with a t"
+              onPress={() => props.navigation.navigate("CreateAccountShop")}
+            />
 
 
         </View>

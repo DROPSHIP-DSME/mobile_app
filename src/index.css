@@ -1,9 +1,22 @@
-@tailwind base;
+
+a@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   html {
-    font-family: hinted-AvertaStd;
+    font-family: hinted-AvertaStd-Regular, hinted-AvertaStd-Bold;
+  },
+  @font-face {
+     font-family: 'hinted-AvertaStd-Regular';
+     src: url('./res/assets/fonts/AvertaStd/hinted-AvertaStd-Regular.ttf') format('truetype'),
+     font-weight: normal;
+     font-style: normal;
+  },
+  @font-face {
+     font-family: 'hinted-AvertaStd-Bold';
+     src: url('./res/assets/fonts/AvertaStd/hinted-AvertaStd-Bold.ttf') format('truetype'),
+     font-weight: bold;
+     font-style: normal;
   }
 }

@@ -9,6 +9,7 @@ import { withFormik } from 'formik';
 import * as Yup from 'yup';
 import styles from './styles';
 import { Colors, CommonStrings } from '../../common';
+import BaseText from '../../components/BaseText';
 import ImageIcons from '../../common/ImageIcons';
 import InputField from '../../components/forms/inputField';
 import { LinkButton, RoundedButton } from '../../components/forms/button';
@@ -20,6 +21,7 @@ import { useFocusEffect } from '@react-navigation/native';
 import 'react-native-get-random-values';
 import { v4 as uuid } from "uuid";
 import {useTailwind} from 'tailwind-rn';
+
 
 import AppIntroSlider from 'react-native-app-intro-slider';
 
@@ -187,7 +189,7 @@ const RenderItem = ({item,index}) => {
                     <Image source={item.title}  style={{width:145, height:117}}  />
                 </View>
                 <View style={{alignItems:'center',justifyContent:'center',marginTop:'15%'}}>
-                    <Text style={tailwind('font-sans px-2 text-3xl text-white text-center')}>{item.text}</Text>
+                    <Text style={tailwind('px-2 text-3xl text-white text-center')}>{item.text}</Text>
                 </View>
             </View>
         :
@@ -285,7 +287,7 @@ const RenderItem = ({item,index}) => {
       <View style={{ position:'absolute',zIndex:3001, bottom:70, justifyContent:'center',alignItems:'center',width:'100%'}}>
          <TouchableOpacity onPress={() => navigation.navigate("Golive")} >
             <View style={tailwind('items-center px-10 py-2 border border-transparent text-base leading-4 font-medium rounded-full text-white bg-red-700')}>
-              <Text style={tailwind('text-base font-bold text-white text-center')}>Login</Text>
+              <Text style={tailwind('text-white text-center')}>Login</Text>
             </View>
         </TouchableOpacity>
       </View>

@@ -355,6 +355,10 @@
   height: 100vh
 }
 
+.w-10\/12 {
+  width: 83.333333%
+}
+
 .w-2\.5 {
   width: 0.625rem
 }
@@ -389,10 +393,6 @@
 
 .w-80 {
   width: 20rem
-}
-
-.w-10\/12 {
-  width: 83.333333%
 }
 
 .w-72 {
@@ -523,16 +523,16 @@
   overflow: hidden
 }
 
+.rounded-full {
+  border-radius: 9999px
+}
+
 .rounded-\[10px\] {
   border-radius: 10px
 }
 
 .rounded-lg {
   border-radius: 0.5rem
-}
-
-.rounded-full {
-  border-radius: 9999px
 }
 
 .rounded-md {
@@ -575,13 +575,13 @@
   border-style: solid
 }
 
+.border-transparent {
+  border-color: transparent
+}
+
 .border-gray-300 {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity))
-}
-
-.border-transparent {
-  border-color: transparent
 }
 
 .border-slate-300 {
@@ -609,6 +609,11 @@
   border-color: rgb(31 41 55 / var(--tw-border-opacity))
 }
 
+.bg-red-800 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(153 27 27 / var(--tw-bg-opacity))
+}
+
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity))
@@ -622,11 +627,6 @@
 .bg-gray-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity))
-}
-
-.bg-red-800 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(153 27 27 / var(--tw-bg-opacity))
 }
 
 .bg-red-700 {
@@ -705,14 +705,14 @@
   padding: 1.5rem
 }
 
-.py-\[1\%\] {
-  padding-top: 1%;
-  padding-bottom: 1%
-}
-
 .py-3 {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem
+}
+
+.py-\[1\%\] {
+  padding-top: 1%;
+  padding-bottom: 1%
 }
 
 .px-4 {
@@ -813,11 +813,7 @@
 }
 
 .font-sans {
-  font-family: Averta Standard
-}
-
-.text-\[15px\] {
-  font-size: 15px
+  font-family: hinted-AvertaStd-Regular
 }
 
 .text-2xl {
@@ -825,14 +821,18 @@
   line-height: 2rem
 }
 
-.text-sm {
-  font-size: 0.875rem;
-  line-height: 1.25rem
-}
-
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem
+}
+
+.text-\[15px\] {
+  font-size: 15px
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem
 }
 
 .text-base {
@@ -864,12 +864,12 @@
   font-size: 26px
 }
 
-.font-bold {
-  font-weight: 700
-}
-
 .font-medium {
   font-weight: 500
+}
+
+.font-bold {
+  font-weight: 700
 }
 
 .font-semibold {
@@ -888,24 +888,24 @@
   line-height: 1rem
 }
 
-.text-\[\#1A1A1A\] {
-  --tw-text-opacity: 1;
-  color: rgb(26 26 26 / var(--tw-text-opacity))
-}
-
 .text-gray-700 {
   --tw-text-opacity: 1;
   color: rgb(55 65 81 / var(--tw-text-opacity))
 }
 
-.text-red-700 {
-  --tw-text-opacity: 1;
-  color: rgb(185 28 28 / var(--tw-text-opacity))
-}
-
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity))
+}
+
+.text-\[\#1A1A1A\] {
+  --tw-text-opacity: 1;
+  color: rgb(26 26 26 / var(--tw-text-opacity))
+}
+
+.text-red-700 {
+  --tw-text-opacity: 1;
+  color: rgb(185 28 28 / var(--tw-text-opacity))
 }
 
 .text-slate-800 {
