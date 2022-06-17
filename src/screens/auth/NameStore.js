@@ -38,10 +38,7 @@ const NameStore = (props) => {
   //Reference
   const deviceWidth = Dimensions.get('window').width;
   const deviceHeight = Dimensions.get('window').height;
-  const emailRef = useRef();
-  const phoneRef = useRef();
-  const bisinessnameRef = useRef();
-  const fullnameRef = useRef();
+  
   const productId = props?.route?.params?.productId;
   const shopId = props?.route?.params?.shopId;
   const categoryId = props?.route?.params?.categoryId;
@@ -56,18 +53,7 @@ const NameStore = (props) => {
   const [helppopup, sethelppopup] = React.useState(false);
   const [reportpopup, setreportpopup] = React.useState(false);
   const [text1, onChangeText1] = React.useState("");
-  const [wayToContact, setWayToContact] = useState("Phone");
-  const [wayToContactList, setWayToContactList] = useState([
-    {
-      label: "Phone",
-      value: "Phone"
-    },
-    {
-      label: "Email",
-      value: "Email"
-    }
-  ]);
-
+  
   useEffect(() => {
     props.getAllproductdetails(productId);
     props.shopproduct(shopId);

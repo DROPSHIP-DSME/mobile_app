@@ -55,18 +55,8 @@ const Dashlive = (props) => {
 
     //Reference
     const tailwind = useTailwind();
-    const emailRef = useRef();
-    const phoneRef = useRef();
-    const bisinessnameRef = useRef();
-    const fullnameRef = useRef();
     const userId = props?.route?.params?.userId;
     const brandId = props?.route?.params?.brandId;
-
-    //     var swipeoutBtns = [
-    //   {
-    //     text: 'Button'
-    //   }
-    // ]
 
     useEffect(() => {
 
@@ -84,22 +74,10 @@ const Dashlive = (props) => {
     }, [props?.livedetail])
 
     useEffect(() => {
-       // AsyncStorage.setItem('UserId','');
-       // AsyncStorage.setItem('userLogin','');
-        getBrandUserId();
+       getBrandUserId();
     }, [])
 
-    // useFocusEffect(() => {
-    //     getBrandUserId();
-    //  })
-
-     const ratingCompleted = (ratingdata) => {
-            console.log('rating',ratingdata)
-               if(ratingdata!="" && ratingdata!=undefined){
-                //setstarCount(ratingdata)
-               }
-
-        }
+   
 
      const handleScroll=(pageYOffset)=>{
         if (pageYOffset > 0) {
@@ -113,50 +91,26 @@ const Dashlive = (props) => {
     }
 
     const getBrandUserId = async () => {
-         var getUserId = await AsyncStorage.getItem('UserId');
+        var getUserId = await AsyncStorage.getItem('UserId');
         setUserID(getUserId);
-         props.getAllproduct(props?.loginuserid);
-        // if(userId!="" && userId!=undefined){
-        //     await AsyncStorage.setItem('UserId',userId);
-        //     await AsyncStorage.setItem('userLogin',"1");
-        // }
+        props.getAllproduct(props?.loginuserid);
     }
 
-    const golivepage = async () => {
-        props.liveeventdetail(props?.loginuserid);
-        setTimeout(function(){ props.navigation.navigate("StartRecording",{userId:userId})},500)
-    }
+    
     // Local states
 
     const [showstream, setshowstream] = useState(false);
     const [UserID, setUserID] = useState("");
-    const [showname, setShowname] = useState(false);
-    const [subMsg, onChangeText1] = React.useState("");
-    const [msg, onChangeText2] = React.useState("");
     const [isModalVisible, setModalVisible] = useState(false);
-    const [isSelected, setSelection] = useState(false);
     const [visible, setVisible] = React.useState(false);
     const [selectedValue, setSelectedValue] = useState("");
     const [showclassName, setshowclassName] = useState("#B80000");
-    const [wayToContact, setWayToContact] = useState("Phone");
     const [timer, settimer] = useState(0);
     const [Duration, setDuration] = React.useState(1200);
     const [livedetailId, setlivedetailId] = React.useState('');
 
     const [producttype, setproducttype] = React.useState('new');
-    const [wayToContactList, setWayToContactList] = useState([
-        {
-            label: "Phone",
-            value: "Phone"
-        },
-        {
-            label: "Email",
-            value: "Email"
-        }
-    ]);
-
-    let colors = ['#8862E01A', '#19D8951A', '#E220201A', '#abcdef'];
-
+    
     const openpopup = () => {
         setVisible(true);
     };
@@ -165,30 +119,8 @@ const Dashlive = (props) => {
         setVisible(false);
     }
 
-    const data1 = {
-        labels: ["USA", "Canada", "Mexico"], // optional
-        data: [0.4, 0.6, 0.8]
-    };
-
-    const data = {
-        labels: ["Jan", "Feb", "Mar", "Apr", "May",],
-        datasets: [
-        {
-          data: [20, 45, 28, 80, 99,]
-        }
-        ]
-    };
-
+    
     const containerStyle = {backgroundColor: 'red', padding: '7%',marginHorizontal:'5%',alignItems:'center',};
-
-       const DATA = [
-       {
-        image:ImageIcons.redincome,
-       },
-
-     ];
-
-
 
     const startlivebtn = ()=>{
         let request = {
@@ -249,37 +181,8 @@ const Dashlive = (props) => {
   );
 }
 
-    const renderItem3 = ({ item,index }) => {
-   return(
-           <View>
 
-            <View style={styles.seledataViewTODAY}>
-                       <Text style={styles.seriestexttoday}>{item.text}</Text>
-                       <Text style={styles.seriestexttoday}>{item.text1}</Text>
-                       <Text style={styles.seriestexttoday}>{item.text2}</Text>
-                   </View>
-
-            </View>
-    );
-    }
-
-     const renderItem4 = ({ item,index }) => {
-   return(
-           <View>
-
-            <View style={styles.seledataViewTODAYsecndrender}>
-                    <View style={{flexDirection:'row'}}>
-                      <Image source={item.image} style={{width:24,height:24,}}/>
-                       <Text style={tailwind('text-base text-gray-600')}>{item.text}</Text>
-                    </View>
-                       <Text style={tailwind('text-base text-gray-600')}>{item.text1}</Text>
-                    </View>
-
-            </View>
-    );
-    }
-
-
+    
     return (
          <View style={{flex:1}}>
          <StatusBar backgroundColor={'#B80000'} barStyle="dark-content" translucent={true} />
@@ -564,10 +467,6 @@ const Dashlive = (props) => {
                       <Text style={styles.totalincometodaySAVECHANGE}>SAVE CHANGES</Text>
                   </TouchableOpacity>
 
-
-
-
-
             </View>
           </View>
        </Modal>
@@ -580,9 +479,6 @@ const Dashlive = (props) => {
 
             <Footer2 onSelelection="3"  />
         </View>
-
     )
 }
-
-
 export default Dashlive

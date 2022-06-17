@@ -27,18 +27,7 @@ import {
   GoogleSigninButton,
   statusCodes,
 } from '@react-native-google-signin/google-signin';
-const { RNTwitterSignIn } = NativeModules;
 import ModalSelector from 'react-native-modal-selector'
-
-
-//import { RNTwitterSignIn } from 'react-native-login-twitter';
-
-
-const Constants = {
-  //Dev Parse keys
-  TWITTER_COMSUMER_KEY: "qWPj1TXbreMX1SsDvdiQTaF7Y",
-  TWITTER_CONSUMER_SECRET: "4t0cRfGWXZvySIa5sS0M38AnT8a8B8hwcX2lZiaStSWStD4B4Z"
-}
 
 
 const Golive = (props) => {
@@ -52,34 +41,11 @@ const Golive = (props) => {
 
     //Reference
     const tailwind = useTailwind();
-    const emailRef = useRef();
-    const phoneRef = useRef();
-    const bisinessnameRef = useRef();
-    const fullnameRef = useRef();
+    
 
     // Local states
-
-    const [First, onChangeFirst] = React.useState("");
-    const [Lastname, onChangeLastname] = React.useState("");
-    const [Email, onChangeEmail] = React.useState("");
-    const [PhoneNumber, onChangePhoneNumber] = React.useState("");
-    const [Street, onChangeStreet] = React.useState("");
-    const [Zip, onChangeZip] = React.useState("");
     const [City, onChangeCity] = React.useState("");
     const [Country, onChangeCountry] = React.useState("");
-    const [SelectedValue, setSelectedValue] = useState('+1');
-
-    const [wayToContact, setWayToContact] = useState("Phone");
-    const [wayToContactList, setWayToContactList] = useState([
-        {
-            label: "Phone",
-            value: "Phone"
-        },
-        {
-            label: "Email",
-            value: "Email"
-        }
-    ]);
 
     useEffect(() => {
         props.countrylist();
@@ -115,76 +81,7 @@ const Golive = (props) => {
         }
     }
 
-const facebooksignin = async () => {
-        //FBLoginManager.setLoginBehavior(FBLoginManager.LoginBehaviors.Native); // defaults to Native
-        props.navigation.navigate('RegistrationShop')
-        // FBLoginManager.loginWithPermissions(["email","user_friends"], function(error, data){
-        //   if (!error) {
-        //     console.log("Login data: ", data);
-        //   } else {
-        //     console.log("Error: ", error);
-        //   }
-        // })
-    }
 
-    const _twitterSignIn = async () => {
-        RNTwitterSignIn.init(Constants.TWITTER_COMSUMER_KEY, Constants.TWITTER_CONSUMER_SECRET)
-        RNTwitterSignIn.logIn()
-          .then(loginData => {
-
-            console.log(loginData)
-            const { authToken, authTokenSecret } = loginData
-            if (authToken && authTokenSecret) {
-               let request = {
-                    "phone": '3107287960'
-                }
-                props.shopsignupphone(request, props.navigation, "user",'shop');
-                props.navigation.navigate('watchlist')
-            }
-          })
-          .catch(error => {
-            //props.navigation.navigate('watchlist')
-            console.log(error)
-          }
-        )
-    }
-
-
-    // Registration request submission
-    const handleRegistrationSubmit = () => {
-        Keyboard.dismiss();
-        if (PhoneNumber == "" || PhoneNumber.length !=10 ) {
-            Alert.alert('phone is required')
-        }else {
-
-            let request = {
-                "phone": PhoneNumber
-            }
-            props.shopsignupphone(request, props.navigation, "user",'shop');
-            props.navigation.navigate('watchlist')
-        }
-    }
-
-    let index = 0;
-    const data = [
-        { key: index++, label: '+1' },
-        { key: index++, label: '+233' },
-        { key: index++, label: '+254' },
-        { key: index++, label: '+255' },
-        { key: index++, label: '+33' },
-        { key: index++, label: '+49' },
-        { key: index++, label: '+45' },
-        { key: index++, label: '+46' },
-        { key: index++, label: '+27' },
-        { key: index++, label: '+61' },
-        { key: index++, label: '+55' },
-        { key: index++, label: '+52' },
-        { key: index++, label: '+54' },
-        { key: index++, label: '+39' },
-        { key: index++, label: '+91' },
-        { key: index++, label: '+86' },
-        { key: index++, label: '+62' }
-    ];
 
     return (
          <KeyboardAvoidingView

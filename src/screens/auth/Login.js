@@ -39,8 +39,6 @@ const Login = (props) => {
     } = props;
 
     //Reference
-    const emailInputRef = useRef();
-    const passwordInputRef = useRef();
     const tailwind = useTailwind();
 
     // Local states
@@ -157,24 +155,7 @@ const slides = [
         }
     }
 
-    // Login request submision
-    const handleLoginSubmit = async () => {
-        Keyboard.dismiss();
-        if (errors.email) {
-            Alert.alert(CommonStrings.AppName, errors.email)
-        } else if (errors.password) {
-            Alert.alert(CommonStrings.AppName, errors.password)
-        } else {
-
-            let request = {
-                "email": values.email,
-                "password": values.password,
-                "deviceToken": deviceToken,
-                // "isWallPon":false
-            }
-            props.login(request)
-        }
-    }
+    
 const RenderItem = ({item,index}) => {
     return (
         <View>
@@ -212,44 +193,6 @@ const RenderItem = ({item,index}) => {
 
 
     return (
-        // <View style={styles.registrationRoot}>
-        //     <StatusBar backgroundColor={'#B80000'} barStyle="dark-content" translucent={true} />
-
-        //      <View style={{ position:'absolute', top:25, left: 0, zIndex:1001}}>
-        //          <Image source={ImageIcons.videologo} />
-        //     </View>
-        //     <Video source={ImageIcons.vedioplays}  // Can be a URL or a local file.
-        //         paused={false}
-        //         repeat={true}
-        //         resizeMode={"cover"}
-        //         style={styles.backgroundVideo}
-        //     />
-
-
-        //         <View style={{alignItems:'center',marginTop:'90%'}}>
-        //             <TouchableOpacity
-        //                 style={styles.Touchableselltext}
-        //                 activeOpacity = { .5}
-        //                 onPress={() => props.navigation.navigate("Golive")}>
-        //                 <Text style={styles.sellbutton}>Go to Shop</Text>
-        //             </TouchableOpacity>
-        //         </View>
-        //         <View style={{alignItems:'center',marginTop:'5%'}}>
-        //             <TouchableOpacity
-        //                 style={styles.TouchableOpacitytext}
-        //                 activeOpacity = { .5}
-        //                 onPress={() => props.navigation.navigate("Goliveshop")}>
-        //                 <Text style={styles.homecontinuebutton}>Start selling live</Text>
-        //             </TouchableOpacity>
-        //        </View>
-
-        //         <View style={styles.twotextview}>
-        //             <Text style={styles.alreadytext}>Already have an account ?</Text>
-        //             <TouchableOpacity onPress={() => props.navigation.navigate("RegistrationShop")} >
-        //                 <Text style={styles.alreadytextlogin}> Log In</Text>
-        //             </TouchableOpacity>
-        //         </View>
-        // </View>
         <>
       {showRealApp ? (
       <SafeAreaView style={{ flex: 1 }}>
@@ -294,7 +237,4 @@ const RenderItem = ({item,index}) => {
     </>
   );
 };
-
-
-
 export default Login

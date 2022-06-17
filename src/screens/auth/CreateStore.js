@@ -29,12 +29,7 @@ const CreateStore = (props) => {
     } = props;
 
     //Reference
-    const emailRef = useRef();
-    const phoneRef = useRef();
-    const bisinessnameRef = useRef();
-    const fullnameRef = useRef();
-
-    // Local states
+   
     const [billImgPath, setBillImgPath] = useState("");
     const [retakeFlag, setRetakeFlag] = useState(false);
     const [fromGallery, setFromGallery] = useState(false);

@@ -57,11 +57,7 @@ const deviceWidth = Dimensions.get('window').width;
     const userId = props?.route?.params?.userId;
     const brandId = props?.route?.params?.brandId;
     
-    //     var swipeoutBtns = [
-    //   {
-    //     text: 'Button'
-    //   }
-    // ]
+    
  
     useEffect(() => {
       props.getincomingtlist(props?.loginuserid);
@@ -80,14 +76,7 @@ const deviceWidth = Dimensions.get('window').width;
         getBrandUserId();
      })
 
-     const ratingCompleted = (ratingdata) => {
-            console.log('rating',ratingdata)
-               if(ratingdata!="" && ratingdata!=undefined){
-                //setstarCount(ratingdata)  
-               }
-              
-        }  
-
+    
      const handleScroll=(pageYOffset)=>{
         if (pageYOffset > 0) {
             setshowclassName('#B80000');  
@@ -103,10 +92,7 @@ const deviceWidth = Dimensions.get('window').width;
         }
     }
    
-    const golivepage = async () => {
-        props.liveeventdetail(props?.loginuserid);
-        setTimeout(function(){ props.navigation.navigate("StartRecording",{userId:userId})},500)
-    }
+    
     // Local states
     const [subMsg, onChangeText1] = React.useState("");
       const [msg, onChangeText2] = React.useState("");
