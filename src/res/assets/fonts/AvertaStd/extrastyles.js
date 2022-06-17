@@ -1,8 +1,8 @@
 {
 	"font-averta-bold": {
-            "fontFamily": "hinted-AvertaStd-Bold"
+            "fontFamily": "hintedavertastdbold"
 	},
 	"font-averta-semibold": {
-            "fontFamily": "hinted-AvertaStd-Semibold"
+            "fontFamily": "hintedavertastdsemibold"
 	}
 }
