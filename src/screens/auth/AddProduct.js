@@ -69,17 +69,7 @@ const AddProduct = (props) => {
     const [isLogin, setisLogin] = useState("");
     const [selectedValue, setSelectedValue] = useState("");
     const [UserID, setUserID] = useState("");
-    const [wayToContact, setWayToContact] = useState("Phone");
-    const [wayToContactList, setWayToContactList] = useState([
-        {
-            label: "Phone",
-            value: "Phone"
-        },
-        {
-            label: "Email",
-            value: "Email"
-        }
-    ]);
+    
     const { validate, isFieldInError, getErrorsInField, getErrorMessages } =
     useValidation({
       state: { billImgPath,Name, Product,Weight,Inventory,Price },

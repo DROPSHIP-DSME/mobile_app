@@ -34,12 +34,6 @@ const Addbrand2 = (props) => {
     } = props;
 
     //Reference
-    const emailRef = useRef();
-    const phoneRef = useRef();
-    const bisinessnameRef = useRef();
-    const fullnameRef = useRef();
-
-    // Local states
     const [billImgPath, setBillImgPath] = useState("");
     const [retakeFlag, setRetakeFlag] = useState(false);
     const [fromGallery, setFromGallery] = useState(false);
@@ -57,17 +51,6 @@ const Addbrand2 = (props) => {
 
     const [UserID, setUserID] = useState("");
 
-    const [wayToContact, setWayToContact] = useState("Phone");
-    const [wayToContactList, setWayToContactList] = useState([
-        {
-            label: "Phone",
-            value: "Phone"
-        },
-        {
-            label: "Email",
-            value: "Email"
-        }
-    ]);
     const { validate, isFieldInError, getErrorsInField, getErrorMessages } =
     useValidation({
       state: { billImgPath,Brand, AboutBrand },
@@ -105,34 +88,6 @@ const Addbrand2 = (props) => {
             console.log("Error in image cropping,", error)
         });
 
-        /*
-        let options = {
-            mediaType: "photo",
-            quality: 0.5,
-            maxWidth: 720,
-            maxHeight: 906
-        }
-        launchImageLibrary(options, (res) => {
-            console.log("image====>", res?.uri)
-            if (res?.uri) {
-                ImagePicker.openCropper({
-                    path: res?.uri,
-                    width: 720,
-                    height: 906
-                }).then(image => {
-                    console.log("image2", image?.path)
-                    if (image?.path) {
-                       // setFromGallery(true);
-                        //setRetakeFlag(!retakeFlag);
-                        setBillImgPath(image.path || res?.uri);
-                    }
-                }).catch((error) => {
-                    console.log("Error in image cropping,", error)
-                    setBillImgPath(res?.uri);
-                })
-
-            }
-        })*/
     }
    
     // Vendor request submission

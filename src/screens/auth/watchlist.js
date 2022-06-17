@@ -307,10 +307,10 @@ const renderItem1 = ({ item ,index }) => {
         <Image source={ImageIcons.profileimage} style={{width:35,height:35}}/>
         </View>
         <View style={{paddingTop:10,paddingLeft:10}}>
-        <Text style={styl.txt1}>MARTHA STEWART</Text>
+        <Text style={styl.txt1}>{item.products[0]?.productName}</Text>
         </View>
         </View>
-        <Text style={styl.txt2}>50% off Friday Sale for all</Text>
+        <Text style={styl.txt2}></Text>
        </TouchableOpacity>
     </View>
   );
@@ -321,7 +321,7 @@ const renderItem1 = ({ item ,index }) => {
     <View>
         <TouchableOpacity style={{marginHorizontal:5}} onPress={()=>props.navigation.navigate("NameStore",{productId:item._id,userId:item._id, productQuantity:item.productQuantity})}>
             <Image source={{uri: item.productImage}} style={styles.imgbasket} />
-            <Text style={styles.beautyproduct}>{item.productName}</Text>
+            <Text style={styles.beautyproduct}></Text>
             <Text style={styles.uplivetext}>{item.productName}</Text>
 
             <View style={{borderRadius:50,position:'absolute',top:10,left:10, backgroundColor:'#E22020'}}>
@@ -340,10 +340,10 @@ const renderItem1 = ({ item ,index }) => {
         <Image source={ImageIcons.profileimage} style={{width:35,height:35}}/>
         </View>
         <View style={{paddingTop:10,paddingLeft:10}}>
-        <Text style={styl.txt1}>MARTHA STEWART</Text>
+        <Text style={styl.txt1}>{item.productName}</Text>
         </View>
         </View>
-        <Text style={styl.txt2}>50% off Friday Sale for all</Text>
+        <Text style={styl.txt2}></Text>
     </View>
   );
 }
@@ -368,7 +368,7 @@ const renderItem1 = ({ item ,index }) => {
                     <Text style={styl.txt1}>MARTHA STEWART</Text>
                 </View>
             </View>
-            <Text style={styl.txt2}>50% off Friday Sale for all</Text>
+            <Text style={styl.txt2}></Text>
 
     </View>
   );

@@ -38,10 +38,7 @@ const AddProduct2 = (props) => {
     } = props;
 
     //Reference
-    const emailRef = useRef();
-    const phoneRef = useRef();
-    const bisinessnameRef = useRef();
-    const fullnameRef = useRef();
+   
     const eventId = props?.route?.params?.eventId;
     const todopage = props?.route?.params?.todopage;
     // Local states
@@ -69,17 +66,7 @@ const AddProduct2 = (props) => {
     const [selectedProduct, setselectedProduct] = useState("");
     const [selectedValue, setSelectedValue] = useState("");
     const [UserID, setUserID] = useState("");
-    const [wayToContact, setWayToContact] = useState("Phone");
-    const [wayToContactList, setWayToContactList] = useState([
-        {
-            label: "Phone",
-            value: "Phone"
-        },
-        {
-            label: "Email",
-            value: "Email"
-        }
-    ]);
+    
     const { validate, isFieldInError, getErrorsInField, getErrorMessages } =
     useValidation({
       state: { billImgPath,Name, Product,Weight,Inventory,Price },

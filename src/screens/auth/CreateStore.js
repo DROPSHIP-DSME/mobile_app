@@ -135,41 +135,7 @@ const CreateStore = (props) => {
         }
     }
 
-    const DATA = [
-       {
-        item:"color",
-        color:'#EB5757',
-       },
-        {
-        item:"color",
-        color:'#7070db',
-       },
-        {
-        item:"color",
-        color:'#993399',
-       },
-        {
-        item:"color",
-        color:'#1266d3',
-       },
-        {
-        item:"color",
-        color:'#b37700',
-       },
-        {
-        item:"color",
-        color:'#669900',
-       },
-        {
-        item:"color",
-        color:'#3399ff',
-       },
-        {
-        item:"color",
-        color:'#990000',
-       }
-
-     ];
+    
     const renderItem = ({ item }) => {
   return(
     <TouchableOpacity onPress={() => selectcolor(item.color)}>

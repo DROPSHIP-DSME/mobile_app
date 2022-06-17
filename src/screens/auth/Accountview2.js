@@ -41,66 +41,44 @@ const Accountview2 = (props) => {
     //Reference
     const deviceWidth = Dimensions.get('window').width; 
     const deviceHeight = Dimensions.get('window').height; 
-    const emailRef = useRef();
-    const phoneRef = useRef();
-    const bisinessnameRef = useRef();
-    const fullnameRef = useRef();
 
     const shopId = props?.route?.params?.shopId;
     const shopName = props?.route?.params?.shopName;
     // Local states
-     const [text3, onChangeText3] = React.useState("");
+    const [text3, onChangeText3] = React.useState("");
     const [helppopup1, sethelppopup1] = React.useState(false);
-     const [checked, setChecked] = React.useState('first');
-    const [selectedValue, setSelectedValue] = useState("java");
     const [visible, setVisible] = React.useState(false);
     const [starCount, setstarCount] = useState(3);
     const [visiblebag, setVisiblebag] = React.useState(false);
     const [couponcode, setcouponcode] = React.useState(false);
-    const [isModalVisible, setModalVisible] = useState(false);
-
-    const [Paypal, onChangePaypal] = React.useState("Paypal");
-    const [Debit, onChangeDebit] = React.useState("Debit Card");
     const [helppopup, sethelppopup] = React.useState(false);
-    const [reportpopup, setreportpopup] = React.useState(false);
     const [showclassName, setshowclassName] = useState("#B80000");
-    const [text1, onChangeText1] = React.useState("");
-    const [wayToContact, setWayToContact] = useState("Phone");
-    const [wayToContactList, setWayToContactList] = useState([
-        {
-            label: "Phone",
-            value: "Phone"
-        },
-        {
-            label: "Email",
-            value: "Email"
-        }
-    ]);
-     useEffect(() => {
+    
+    useEffect(() => {
        props.shopproduct(shopId);
        props.shopsellcount(shopId);
     }, [])
+
     const openpopup = () => {
         setVisible(true)
+    }
 
-        }
-            const closepopup = () => {
-          setVisible(false)
-        }
+    const closepopup = () => {
+        setVisible(false)
+    }
 
-        
-            const closebagpopup = () => {
-          setVisiblebag(false)
-        }
+    const closebagpopup = () => {
+        setVisiblebag(false)
+    }
 
      const ratingCompleted = (ratingdata) => {
-            console.log('rating',ratingdata)
-               if(ratingdata!="" && ratingdata!=undefined){
-                setstarCount(ratingdata)  
-               }
-              
-        } 
-        const handleScroll=(pageYOffset)=>{
+        console.log('rating',ratingdata)
+        if(ratingdata!="" && ratingdata!=undefined){
+            setstarCount(ratingdata)  
+        }   
+    } 
+    
+    const handleScroll=(pageYOffset)=>{
         if (pageYOffset > 0) {
             setshowclassName('#B80000');  
         }else{
@@ -108,107 +86,10 @@ const Accountview2 = (props) => {
         }
     }  
 
-       const containerStyle = {backgroundColor: 'white', padding: '3%',marginHorizontal:'5%',borderRadius:10};
-
-   
-    const DATA = [
-       {
-        height:30,
-        width:30,
-        image:ImageIcons.twit,
-       },
-        {
-        height:29.82,
-        width:30,
-        image:ImageIcons.fb,
-       },
-        {
-        height:30,
-        width:30,
-        image:ImageIcons.insta,
-       },
-        {
-        height:30,
-        width:30,    
-        image:ImageIcons.whatsapp,
-       },
-        {
-        height:30,
-        width:30,    
-        image:ImageIcons.mail,
-       },
-        {
-        height:25,
-        width:25,    
-        image:ImageIcons.email,
-       },
-       
-
-     ];
-
-    
-
-        const DATA1 = [
-       {
-        text:"Beauty brands",
-        text1:"$75",
-        image:ImageIcons.winterimage,
-        
-       },
-       {
-        text:"Beauty brands",
-        text1:"$75",
-        image:ImageIcons.winterimage,
-        
-       },]
+    const containerStyle = {backgroundColor: 'white', padding: '3%',marginHorizontal:'5%',borderRadius:10};
 
 
-     const renderItem1 = ({ item ,index }) => {
-   return(
-    <View style={styles.maincartviewshop}>
-    <TouchableOpacity  onPress={() => {props.navigation.navigate("NameStore",{shopId:item._id, shopName:item.shopName}) }}>        
-       <View style={{marginHorizontal:4}}>
-            <Image source={ImageIcons.winterimage} style={{height:176,width:176,borderRadius:10}} onPress={() => { props.navigation.navigate("clothing") }} />
-           
-                
-        </View>
-        <View style={{flexDirection:"row",marginTop:10,justifyContent:"space-between"}}>
-        <View style={{paddingTop:10,paddingLeft:8}}>
-        <Text style={{color:"#1A1A1A",fontSize:12,fontFamily:'hinted-AvertaStd-Regular'}}>Blue Purse</Text>
-        </View>
-        <View style={{marginRight:8}}>
-        <Image source={ImageIcons.Iconlock} style={{width:35,height:35}}/>
-        </View>
-        </View>
-         <View style={{flexDirection:"row",marginTop:6,justifyContent:"space-between"}}>
-        <View style={{paddingLeft:8}}>
-        <Text style={{color:"#1A1A1A",fontSize:16,fontFamily:'hinted-AvertaStd-Bold'}}>$0</Text>
-        <View style={{flexDirection:'row'}}>
-                        <Rating
-                        type='custom'
-                        imageSize={18}
-                        ratingCount={5}
-                        ratingColor='#EB5757'
-                        tintColor='#FFE7E7'
-                        value={starCount}
-                        onFinishRating={(start) => ratingCompleted(start)}
-                        style={{ marginLeft:'3%'}}
-                        />
-                        <Text style={styles.TEXT}>0</Text>
-                        
-                     </View>
-                     
-        </View>
-        <View style={{marginRight:8}}>
-        <Image source={ImageIcons.iconheart} style={{width:35,height:35}}/>
-        </View>
-        </View>
-        </TouchableOpacity>
-    </View> 
-  );
-}
-
- const renderItem6 = ({ item }) => {
+    const renderItem6 = ({ item }) => {
             return(
                 <View>
                     { item.userId.userName=='Admin' ?

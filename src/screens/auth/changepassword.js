@@ -27,26 +27,14 @@ const changepassword = (props) => {
     } = props;
 
     //Reference
-    const emailRef = useRef();
-    const passwordRef = useRef();
-    const passwordConfirmRef = useRef();
-    const phoneRef = useRef();
-    const fullnameRef = useRef();
 
     // Local States
-    const [isShowPassword, setIsShowPassword] = useState(true);
-    const [isShowConfirmPassword, setIsShowConfirmPassword] = useState(true);
     const [deviceToken, setDeviceToken] = useState();
-    const [isCheckPrivacy, setIsCheckPrivacy] = useState(false)
-    const [FullName, onChangeText] = React.useState("");
-    const [email, onChangeText1] = React.useState("");
-    const [phone, onChangeText4] = React.useState("");
     const [password, onChangeText2] = React.useState("");
     const [confirmPassword, onChangeText3] = React.useState("");
     const [UserID, setUserID] = useState("");
 
     useEffect(() => {
-        requestUserPermission();
         getBrandUserId();
     }, [])
 
@@ -54,20 +42,6 @@ const changepassword = (props) => {
          var getUserId = await AsyncStorage.getItem('UserId');
          setUserID(getUserId);
          //alert(getUserId)
-    }
-
-    // Request FCM Permission & get device token
-    const requestUserPermission = async () => {
-        const authStatus = await messaging().requestPermission();
-        const enabled =
-            authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
-            authStatus === messaging.AuthorizationStatus.PROVISIONAL;
-
-        if (enabled) {
-            // console.log('Authorization status:', authStatus);
-            const _deviceToken = await messaging().getToken();
-            setDeviceToken(_deviceToken)
-        }
     }
 
     // Registration request submission
@@ -91,11 +65,11 @@ const changepassword = (props) => {
     }
 
     const openPrivacyPolicy = () => {
-        Linking.openURL('https://wallpon.com/privacy-policy');
+        Linking.openURL('');
     }
 
     const openTerms = () => {
-        Linking.openURL('http://vendor.wallpon.com/terms-and-conditions.html');
+        Linking.openURL('');
     }
 
     return (

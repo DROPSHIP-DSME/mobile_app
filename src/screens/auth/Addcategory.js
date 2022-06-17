@@ -48,17 +48,7 @@ const Addcategory = (props) => {
     const [Country, onChangeCountry] = React.useState("");
     const [UserID, setUserID] = useState("");
     const [isLogin, setisLogin] = useState("");
-    const [wayToContact, setWayToContact] = useState("Phone");
-    const [wayToContactList, setWayToContactList] = useState([
-        {
-            label: "Phone",
-            value: "Phone"
-        },
-        {
-            label: "Email",
-            value: "Email"
-        }
-    ]);
+    
     const { validate, isFieldInError, getErrorsInField, getErrorMessages } =
     useValidation({
       state: {Category },

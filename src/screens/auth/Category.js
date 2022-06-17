@@ -40,40 +40,12 @@ const Category = (props) => {
     }
 
     //Reference
-    const emailRef = useRef();
-    const phoneRef = useRef();
-    const bisinessnameRef = useRef();
-    const fullnameRef = useRef();
 
     // Local states
-     const [checked, setChecked] = React.useState('first');
-
-    const [First, onChangeFirst] = React.useState("First name");
-    const [Lastname, onChangeLastname] = React.useState("Last name");
-    const [Email, onChangeEmail] = React.useState("Email address");
-    const [PhoneNumber, onChangePhoneNumber] = React.useState("Phone number");
-    const [Street, onChangeStreet] = React.useState("Street address");
-    const [Zip, onChangeZip] = React.useState("Zip");
-    const [City, onChangeCity] = React.useState("City");
-    const [Country, onChangeCountry] = React.useState("Country");
     const [UserID, setUserID] = useState("");
     const [visible, setVisible] = React.useState(false);
-
-    const [Paypal, onChangePaypal] = React.useState("Paypal");
-    const [Debit, onChangeDebit] = React.useState("Debit Card");
-
     const [BrandId, setBrandId] = useState("");
-    const [wayToContact, setWayToContact] = useState("Phone");
-    const [wayToContactList, setWayToContactList] = useState([
-        {
-            label: "Phone",
-            value: "Phone"
-        },
-        {
-            label: "Email",
-            value: "Email"
-        }
-    ]);
+    
 
     const setdeletecategory = async (categoryId) => {
      Alert.alert(
@@ -98,34 +70,9 @@ const Category = (props) => {
            
          
      };
-    const openpopup = () => {
-        setVisible(true)
-
-        }
-            const closepopup = () => {
-          setVisible(false)
-        }
-       const containerStyle = {backgroundColor: 'white', padding: '5%',marginHorizontal:'5%',alignItems:'center'};
-
+   
     
-
-    const DATA = [
-       {
-        text:"Beauty brands",
-        text1:"$75",
-        image:ImageIcons.addstore,
-        
-       },
-       {
-        text:"Beauty brands",
-        text1:"$75",
-        image:ImageIcons.clothes,
-        
-       },
-       
-
-     ];
-
+    
       const renderItem = ({ item ,index }) => {
     
 

@@ -33,16 +33,12 @@ const Accountproduct = (props) => {
     } = props;
 
     //Reference
-    const emailRef = useRef();
-    const phoneRef = useRef();
-    const bisinessnameRef = useRef();
-    const fullnameRef = useRef();
     const categoryId = props?.route?.params?.categoryId;
     const categoryName = props?.route?.params?.categoryName;
 
     const { Dimensions } = Reactdim;
-const deviceHeight = Dimensions.get('window').height;
-const deviceWidth = Dimensions.get('window').width;
+    const deviceHeight = Dimensions.get('window').height;
+    const deviceWidth = Dimensions.get('window').width;
 
     // Local states
     const [billImgPath, setBillImgPath] = useState("");
@@ -55,9 +51,7 @@ const deviceWidth = Dimensions.get('window').width;
     const [billImgPath4, setBillImgPath4] = useState("");
     const [billImgPath5, setBillImgPath5] = useState("");
 
-     const [checked, setChecked] = React.useState('first');
       const [text1, onChangeText3] = React.useState("");
-    const [subMsg, onChangeText1] = React.useState("");
      const [helppopup, sethelppopup] = React.useState(false);
 
     const [Store, onChangeStore] = React.useState("");
@@ -130,15 +124,6 @@ const deviceWidth = Dimensions.get('window').width;
         });
     }
 
-
-    const openpopup = () => {
-        setVisible(true)
-
-        }
-            const closepopup = () => {
-          setVisible(false)
-        }
-       const containerStyle = {backgroundColor: 'white', padding: '5%',marginHorizontal:'5%',alignItems:'center'};
 
     // Vendor request submission
     const handleSendRequestSubmit = async () => {
@@ -231,50 +216,7 @@ const deviceWidth = Dimensions.get('window').width;
 
     }
 
-    const DATA = [
-       {
-        item:"color",
-        color:'#EB5757',
-       },
-        {
-        item:"color",
-        color:'#7070db',
-       },
-        {
-        item:"color",
-        color:'#993399',
-       },
-        {
-        item:"color",
-        color:'#1266d3',
-       },
-        {
-        item:"color",
-        color:'#b37700',
-       },
-        {
-        item:"color",
-        color:'#669900',
-       },
-        {
-        item:"color",
-        color:'#3399ff',
-       },
-        {
-        item:"color",
-        color:'#990000',
-       }
 
-     ];
-    const renderItem = ({ item }) => {
-  return(
-    <TouchableOpacity onPress={() => selectcolor(item.color)}>
-    <View style={{marginHorizontal:15, }}>
-     <View style={{backgroundColor:item.color,borderRadius:20,width:20,height:20,}}></View>
-     </View>
-     </TouchableOpacity>
-  );
-}
 
 const renderItem6 = ({ item }) => {
             return(
