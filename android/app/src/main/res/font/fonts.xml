@@ -3,13 +3,13 @@
     <font
         android:fontStyle="normal"
         android:fontWeight="400"
-        android:font="@font/hintedAvertaStdRegular" />
+        android:font="@font/hintedavertastdregular" />
     <font
         android:fontStyle="normal"
         android:fontWeight="800"
-        android:font="@font/hintedAvertaStdBold" />
+        android:font="@font/hintedavertastdbold" />
     <font
         android:fontStyle="normal"
         android:fontWeight="600"
-        android:font="@font/hintedAvertaStdSemibold" />
+        android:font="@font/hintedavertastdsemibold" />
 </font-family>
