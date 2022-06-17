@@ -3,7 +3,7 @@ import {
     Text, TextInput, Image, View, TouchableOpacity,
     ImageBackground, ScrollView, Alert, KeyboardAvoidingView, Platform, Keyboard, Linking
 } from 'react-native';
- 
+
 import LinearGradient from 'react-native-linear-gradient';
 import messaging from '@react-native-firebase/messaging';
 import CheckBox from '@react-native-community/checkbox';
@@ -14,6 +14,7 @@ import { Colors, CommonStrings } from '../../common'
 import ImageIcons from '../../common/ImageIcons'
 import InputField from '../../components/forms/inputField';
 import { RoundedButton } from '../../components/forms/button';
+import Largebutton from '../../components/dropshipbutton/Largebutton';
 import { passwordValidationRegx, phoneRegExp } from '../../services/helper';
 import Loader from '../../components/modals/Loader';
 import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
@@ -24,7 +25,8 @@ import { GoogleSignin } from '@react-native-google-signin/google-signin';
 //import { LoginManager } from "react-native-fbsdk-next";
 import InstagramLogin from 'react-native-instagram-login';
 import RNTwitterSignIn from '@react-native-twitter-signin/twitter-signin';
-import LinkedInModal from 'react-native-linkedin'
+import LinkedInModal from 'react-native-linkedin';
+import {useTailwind} from 'tailwind-rn';
 
 const RegistrationShop = (props) => {
 
@@ -37,6 +39,7 @@ const RegistrationShop = (props) => {
     } = props;
 
     //Reference
+    const tailwind = useTailwind();
     const emailRef = useRef();
     const passwordRef = useRef();
     const passwordConfirmRef = useRef();
@@ -118,7 +121,7 @@ const RegistrationShop = (props) => {
         } catch (error) {
             console.log('ERROR', JSON.stringify(error))
         }
-    } 
+    }
     const facebookSignIn = async () => {
         // LoginManager.logInWithPermissions(["public_profile", "email"]).then(
         //     function (result) {
@@ -169,7 +172,7 @@ const RegistrationShop = (props) => {
     return (
         <View style={{ backgroundColor: '#ffffff', flex: 1 }}>
 
-            
+
               <View style={{alignItems:'center',marginTop:'18%'}}>
                   <Image source={ImageIcons.logored_1} style={styles.setlogonewdatarow}  />
               </View>
@@ -206,20 +209,20 @@ const RegistrationShop = (props) => {
                         <Text style={styles.stringerror}>must be required field</Text>
                     }
                 </View>
-                <View style={{ marginTop: '2%', flexDirection: 'row', marginLeft: '5%' }}>
+                <View style={tailwind('mt-3 flex flex-row ml-3 mb-4')}>
                     <CheckBox
                         checkedColor='red'
                         value={true}
                     />
-                    <Text style={{ marginTop: '1%', marginLeft: 0 }}>Remember me</Text>
+                    <Text style={tailwind('mt-1')}>Remember me</Text>
                 </View>
 
             </View>
 
-            <TouchableOpacity style={styles.Touchablelogin}
-                onPress={() => handleRegistrationSubmit()}>
-                <Text style={styles.TouchableloginTEXT}>LOGIN</Text>
-            </TouchableOpacity>
+            <Largebutton
+              text="LOGIN"
+              onPress={() => handleRegistrationSubmit()}
+            />
 
             <Loader isVisible={props?.loginLoader} />
 
@@ -230,7 +233,7 @@ const RegistrationShop = (props) => {
                 </TouchableOpacity>
             </View>
 
-            
+
 
             <View style={styles.twotextviewcreatetop}>
                 <Text style={styles.customertext}>Don’t have an account yet?</Text>
