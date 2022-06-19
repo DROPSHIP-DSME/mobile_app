@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Text, Image, View, ImageBackground, TouchableOpacity,
+import { Text, Image, View, ImageBackground,TouchableOpacity,
  SafeAreaView, ScrollView, Alert,
    Animated, KeyboardAvoidingView,
   Platform, Keyboard, StatusBar } from 'react-native';
@@ -11,6 +11,7 @@ import styles from './styles';
 import { Colors, CommonStrings } from '../../common';
 import Smallbutton from '../../components/dropshipbutton/Smallbutton';
 import ImageIcons from '../../common/ImageIcons';
+
 import InputField from '../../components/forms/inputField';
 
 import Loader from '../../components/modals/Loader';
@@ -18,9 +19,10 @@ import messaging from '@react-native-firebase/messaging';
 import Video from 'react-native-video';
 import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
-import 'react-native-get-random-values';
 import { v4 as uuid } from "uuid";
-import {useTailwind} from 'tailwind-rn';
+import { useTailwind } from 'tailwind-rn';
+
+
 import AppIntroSlider from 'react-native-app-intro-slider';
 
 
@@ -36,8 +38,6 @@ const Login = (props) => {
     } = props;
 
     //Reference
-    const emailInputRef = useRef();
-    const passwordInputRef = useRef();
     const tailwind = useTailwind();
 
     // Local states
@@ -96,10 +96,8 @@ const slides = [
     }, [fadeAnim, transformAnim])
 
     useEffect(() => {
-       // alert(props?.loginuserid)
-         if(props?.loginuserid==null || props?.loginuserid==undefined){
-                props.logoutreducerfun(uuid());
-         }
+        getBrandUserId();
+
 
     }, [])
 
@@ -112,8 +110,14 @@ const slides = [
      })
 
     const getBrandUserId = async () => {
-         await AsyncStorage.setItem('UserId','');
-         await AsyncStorage.setItem('userLogin',"");
+         var loginuserid = await AsyncStorage.getItem('UserId');
+        // alert(loginuserid)
+         if(loginuserid==null || loginuserid==undefined || loginuserid==""){
+                //props.logoutreducerfun(uuid());
+         }else {
+            props.logoutreducerfun(loginuserid);
+            props.navigation.navigate('watchlist');
+         }
     }
 
     // Animation
@@ -153,24 +157,7 @@ const slides = [
         }
     }
 
-    // Login request submision
-    const handleLoginSubmit = async () => {
-        Keyboard.dismiss();
-        if (errors.email) {
-            Alert.alert(CommonStrings.AppName, errors.email)
-        } else if (errors.password) {
-            Alert.alert(CommonStrings.AppName, errors.password)
-        } else {
 
-            let request = {
-                "email": values.email,
-                "password": values.password,
-                "deviceToken": deviceToken,
-                // "isWallPon":false
-            }
-            props.login(request)
-        }
-    }
 const RenderItem = ({item,index}) => {
     return (
         <View>
@@ -187,16 +174,17 @@ const RenderItem = ({item,index}) => {
                 </View>
                 <View style={tailwind('items-center mt-14')}>
                     <Text style={tailwind('px-2 text-3xl text-white text-center')}>{item.text}</Text>
+
                 </View>
             </View>
         :
-            <View>
-                <View style={tailwind('flex justify-center')}>
-                    <View style={tailwind('mt-14 mb-8 items-center')}>
-                        <Image source={item.image}  style={tailwind('h-96 max-w-sm')} />
+            <View style={{ width, height }}>
+                <View style={{flex:1,backgroundColor:'#FFFFFF',justifyContent:'center'}}>
+                    <View style={styles.groupView}>
+                        <Image source={item.image}  style={styles.groupimg} />
                     </View>
-                    <View>
-                        <Text style={tailwind('px-4 text-2xl text-black text-center')}>{item.text}</Text>
+                    <View style={{marginVertical:'6%',marginHorizontal:'3%'}}>
+                        <Text style={styles.grouptext}>{item.text}</Text>
                     </View>
                 </View>
             </View>
@@ -249,11 +237,28 @@ const RenderItem = ({item,index}) => {
                 />
             </View>
           </View>
-        )}
-      </>
+
+      </SafeAreaView>
+      ) : (
+        <AppIntroSlider
+          data={slides}
+          dotStyle={{backgroundColor:'#cccccc'}}
+          renderItem={RenderItem}
+          onDone={onDone}
+          activeDotStyle={{backgroundColor:'#b80000'}}
+          showSkipButton={false}
+          onSkip={onSkip}
+
+        />
+      )}
+
+      <View style={{ position:'absolute',zIndex:3001, bottom:70, justifyContent:'center',alignItems:'center',width:'100%'}}>
+        <Smallbutton
+          text="Login"
+          onPress={() => props.navigation.navigate("Golive")}
+        />
+      </View>
+    </>
   );
 };
-
-
-
 export default Login

@@ -23,10 +23,7 @@ import { useValidation } from 'react-native-form-validator';
 import PasswordInputText from '../../components/react-native-hide-show-password-input';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 //import { LoginManager } from "react-native-fbsdk-next";
-import InstagramLogin from 'react-native-instagram-login';
-import RNTwitterSignIn from '@react-native-twitter-signin/twitter-signin';
-import LinkedInModal from 'react-native-linkedin';
-import {useTailwind} from 'tailwind-rn';
+import { useTailwind } from 'tailwind-rn';
 
 const RegistrationShop = (props) => {
 
@@ -140,29 +137,7 @@ const RegistrationShop = (props) => {
         console.log('InstaLogin', data)
         instaLogin.current.hide()
     }
-    const twitterSignIn = () => {
-        RNTwitterSignIn.init(
-            'qWPj1TXbreMX1SsDvdiQTaF7Y',
-            '4t0cRfGWXZvySIa5sS0M38AnT8a8B8hwcX2lZiaStSWStD4B4Z',
-        );
-        RNTwitterSignIn.logIn()
-            .then(loginData => {
-                console.log(loginData);
-            })
-            .catch(error => {
-                console.log(error);
-            });
-    };
-    const getLinkedinProfileData = (data) =>{
-        fetch('https://api.linkedin.com/v2/me',{
-            headers:{
-                'Authorization':'Bearer '+data.access_token
-            }
-        }).then((res)=>res.json())
-        .then((responseJson)=>{
-            console.log('PROFILE DATA',responseJson)
-        })
-    }
+
     const getLinkedToken = (data) => {
         console.log(data)
         getLinkedinProfileData(data)
@@ -213,7 +188,7 @@ const RegistrationShop = (props) => {
                 <View style={tailwind('mt-3 flex flex-row ml-3 mb-4')}>
                     <CheckBox
                         onCheckColor='#b80000'
-                        value={false}         
+                        value={false}
                     />
                     <Text style={tailwind('mt-1 text-base')}>Remember me</Text>
                 </View>
@@ -241,25 +216,7 @@ const RegistrationShop = (props) => {
                     <Text style={tailwind('text-base text-blue-500 items-center tracking-wide')}> Sign up here.</Text>
                 </TouchableOpacity>
             </View>
-            <InstagramLogin
-                ref={instaLogin}
-                appId='982976512583210'
-                appSecret='331ec3451634223e5950ff7beb83cc4a'
-                redirectUrl='https://dropship.shopping/'
-                incognito={true}
-                scopes={['user_profile', 'user_media']}
-                onLoginSuccess={instaLoginWeb}
-                onLoginFailure={(data) => console.log(data)}
-                language='en'
-            />
-            <LinkedInModal
-                linkText=''
-                ref={linkedInLogin}
-                clientID="78xuyz0ig4h5my"
-                clientSecret="JPScp3pNy7HYoRsn"
-                redirectUri="https://dropship.shopping/"
-                onSuccess={getLinkedToken}
-            />
+
         </View>
 
 

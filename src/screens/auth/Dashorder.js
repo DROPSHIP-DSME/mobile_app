@@ -53,23 +53,11 @@ const Dashorder = (props) => {
 
   //Reference
   const tailwind = useTailwind();
-  const emailRef = useRef();
-  const phoneRef = useRef();
-  const bisinessnameRef = useRef();
-  const fullnameRef = useRef();
   const userId = props?.route?.params?.userId;
   const brandId = props?.route?.params?.brandId;
 
-  //     var swipeoutBtns = [
-  //   {
-  //     text: 'Button'
-  //   }
-  // ]
-
   useEffect(() => {
-    //alert(props?.loginuserid)
     props.getincomingtlist();
-    console.log('pkk', props.getincomingtlist(props?.loginuserid))
     props.getselldeshboard(props?.loginuserid);
     props.gettopsell(props?.loginuserid, 3);
     props.liveeventdetail(props?.loginuserid);
@@ -77,8 +65,6 @@ const Dashorder = (props) => {
   }, [])
 
   useEffect(() => {
-    // AsyncStorage.setItem('UserId','');
-    // AsyncStorage.setItem('userLogin','');
     getBrandUserId();
   }, [])
 
@@ -86,13 +72,6 @@ const Dashorder = (props) => {
     getBrandUserId();
   })
 
-  const ratingCompleted = (ratingdata) => {
-    console.log('rating', ratingdata)
-    if (ratingdata != "" && ratingdata != undefined) {
-      //setstarCount(ratingdata)
-    }
-
-  }
 
   const handleScroll = (pageYOffset) => {
     if (pageYOffset > 0) {
@@ -109,99 +88,23 @@ const Dashorder = (props) => {
     }
   }
 
-  const golivepage = async () => {
-    props.liveeventdetail(props?.loginuserid);
-    setTimeout(function () { props.navigation.navigate("StartRecording", { userId: userId }) }, 500)
-  }
   // Local states
-  const [showview, setShowview] = React.useState(true);
-  const [msg, onChangeText2] = React.useState("");
   const [isModalVisible, setModalVisible] = useState(false);
   const [isSelected, setSelection] = useState(false);
   const [visible, setVisible] = React.useState(false);
   const [selectedValue, setSelectedValue] = useState("");
   const [showclassName, setshowclassName] = useState("#B80000");
-  const [wayToContact, setWayToContact] = useState("Phone");
-  const [wayToContactList, setWayToContactList] = useState([
-    {
-      label: "Phone",
-      value: "Phone"
-    },
-    {
-      label: "Email",
-      value: "Email"
-    }
-  ]);
-
-
-  let colors = ['#8862E01A', '#19D8951A', '#E220201A', '#abcdef'];
 
   const openpopup = () => {
     setVisible(true)
 
-  };
+  }
+
   const closepopup = () => {
     setVisible(false)
   }
 
 
-  const containerStyle = { backgroundColor: 'red', padding: '7%', marginHorizontal: '5%', alignItems: 'center', };
-
-  const name = [
-    {
-      title: 'Purchased by Anna.M ',
-      date: 'jan 11, 2022',
-      id: 'Order Number:',
-      Number: 'GSHMU00S0004KH',
-      status: 'Pending'
-    },
-
-    {
-      title: 'Purchased by Anna.M ',
-      date: 'jan 11, 2022',
-      id: 'Order Number:',
-      Number: 'GSHMU00S0004KH',
-      status: 'Processing'
-
-    },
-
-    {
-      title: 'Purchased by Anna.M ',
-      date: 'jan 11, 2022',
-      id: 'Order Number:',
-      Number: 'GSHMU00S0004KH',
-      status: 'Processing'
-
-    },
-
-    {
-      title: 'Purchased by Anna.M ',
-      date: 'jan 11, 2022',
-      id: 'Order Number:',
-      Number: 'GSHMU00S0004KH',
-      status: 'Processing'
-
-    }
-  ]
-
-
-  const renderItem = ({ item, index }) => {
-    console.log('itemproduct', item);
-    return (
-      <View>
-
-        <TouchableOpacity onPress={() => props.navigation.navigate("Dashdetail", { orderNumber: item.orderNumber })} style={styles.seledataViewTODAY}>
-          <View style={{ flexDirection: 'row' }}>
-            <Image source={{ uri: item?.productId?.productImage }} style={{ width: 40, height: 40, borderRadius: 5 }} />
-            <Text style={[styles.seriestexttoday, { width: 150 }]}>{item?.orderNumber}</Text>
-          </View>
-          <Text style={styles.seriestexttoday}>{item?.loggedInUserId?.userName}</Text>
-          <Text style={styles.seriestexttoday}>{item?.loggedInUserId?.userName}</Text>
-        </TouchableOpacity>
-
-      </View>
-    );
-  };
   const Data = ({ item }) => {
     return (
       <View style={{ marginHorizontal: 2, borderRadius: 10, backgroundColor: '#FFF', padding: 15, marginVertical: 5 }}>
@@ -273,6 +176,5 @@ const Dashorder = (props) => {
 
   )
 }
-
 
 export default Dashorder

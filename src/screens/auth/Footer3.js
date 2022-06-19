@@ -38,26 +38,11 @@ const Footer3 = (props) => {
 
     //Reference
     const tailwind = useTailwind();
-    const emailRef = useRef();
-    const phoneRef = useRef();
-    const bisinessnameRef = useRef();
-    const fullnameRef = useRef();
-
     // Local states
     const [visible, setVisible] = React.useState(false);
     const [IsLogin, setIsLogin] = React.useState('');
 
-    const [wayToContact, setWayToContact] = useState("Phone");
-    const [wayToContactList, setWayToContactList] = useState([
-        {
-            label: "Phone",
-            value: "Phone"
-        },
-        {
-            label: "Email",
-            value: "Email"
-        }
-    ]);
+    
 
     useEffect(() => {
        getBrandUserId();
@@ -72,31 +57,6 @@ const Footer3 = (props) => {
         () => {
         getBrandUserId();
      })
-
-    const containerStyle = {backgroundColor: 'white', padding: '7%',marginHorizontal:'5%',alignItems:'center'};
-
-    const showConfirmDialog = () => {
-        alert(props?.loginuserstatus)
-       /* if(props?.loginuserstatus=="1"){
-            navigation.navigate('Profilee');
-        }else {
-            return Alert.alert(
-              "",
-              "You need to login to access this screen",
-              [
-                // The "Yes" button
-                {
-                  text: "Login",
-                  onPress: () => {
-                   navigation.navigate('RegistrationShop');
-                  },
-                },
-              ]
-            );
-        }*/
-     };
-
-
 
 
     return (
@@ -203,6 +163,4 @@ const Footer3 = (props) => {
 
     )
 }
-
-
 export default Footer3

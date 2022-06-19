@@ -50,18 +50,10 @@ const deviceWidth = Dimensions.get('window').width;
     } = props;
 
     //Reference
-    const emailRef = useRef();
-    const phoneRef = useRef();
-    const bisinessnameRef = useRef();
-    const fullnameRef = useRef();
     const userId = props?.route?.params?.userId;
     const brandId = props?.route?.params?.brandId;
     const orderNumber = props?.route?.params?.orderNumber;
-    //     var swipeoutBtns = [
-    //   {
-    //     text: 'Button'
-    //   }
-    // ]
+   
  
     useEffect(() => {
       props.getincomingtlist(props?.loginuserid);
@@ -95,30 +87,12 @@ const deviceWidth = Dimensions.get('window').width;
             await AsyncStorage.setItem('userLogin',"1");
         }
     }
-   
-    const golivepage = async () => {
-        props.liveeventdetail(props?.loginuserid);
-        setTimeout(function(){ props.navigation.navigate("StartRecording",{userId:userId})},500)
-    }
+
     // Local states
-    const [subMsg, onChangeText1] = React.useState("");
-      const [msg, onChangeText2] = React.useState("");
-    const [isModalVisible, setModalVisible] = useState(false);
-    const [isSelected, setSelection] = useState(false);
     const [visible, setVisible] = React.useState(false);
-     const [selectedValue, setSelectedValue] = useState("");
+    const [selectedValue, setSelectedValue] = useState("");
     const [showclassName, setshowclassName] = useState("#B80000");
-    const [wayToContact, setWayToContact] = useState("Phone");
-    const [wayToContactList, setWayToContactList] = useState([
-        {
-            label: "Phone",
-            value: "Phone"
-        },
-        {
-            label: "Email",
-            value: "Email"
-        }
-    ]);
+    
    useEffect(() => {
         
         props.getorderdetail(orderNumber);
@@ -129,35 +103,15 @@ const deviceWidth = Dimensions.get('window').width;
         setSelectedValue(itemValue)
         props.updateorderdetail(orderNumber,itemValue);
     }
-     const openpopup = () => {
-        setVisible(true)
-
-        };
-    const closepopup = () => {
-             setVisible(false)
-          }
-
-      
-
-    const containerStyle = {backgroundColor: 'red', padding: '7%',marginHorizontal:'5%',alignItems:'center',};
-
-      const data=[
-      {
-        Text:'ajdjvb'
-      },
-      {
-        Text:'ajdjvb'
-      },
-      ] 
-
+    
     
     const renderItem = ({ item,index }) => {
-    return(
-        <View style={styles.heartratingView}>
-          <View style={{marginHorizontal:10,padding:5,alignItems:'center'}}>
-                  <Image source={{uri: item?.productId?.productImage}} style={{width:80,height:80,marginVertical:5,borderRadius:5,alignSelf:'center'}}/>
-                  <Text style={styles.pdnme}>{item?.productId?.productName}</Text>
-                  <Text style={styles.prctxt}>${item.productPrice}</Text>
+        return(
+            <View style={styles.heartratingView}>
+                <View style={{marginHorizontal:10,padding:5,alignItems:'center'}}>
+                    <Image source={{uri: item?.productId?.productImage}} style={{width:80,height:80,marginVertical:5,borderRadius:5,alignSelf:'center'}}/>
+                    <Text style={styles.pdnme}>{item?.productId?.productName}</Text>
+                    <Text style={styles.prctxt}>${item.productPrice}</Text>
                     <View style={styles.heartratingView}>
                       <Text style={styles.pdclr}>Color:{item.productColor}</Text>
                        <View style={{height:15,width:15,borderRadius:10,backgroundColor:'#5999F1',marginLeft:2,alignSelf:'center'}}></View>
@@ -168,10 +122,10 @@ const deviceWidth = Dimensions.get('window').width;
                        <Text style={styles.pdclr}>Quantity:</Text>
                        <Text style={styles.pdnme}> {item.productQuantity}</Text>
                     </View>   
-               </View>
-        </View>
-    );
-}
+                </View>
+            </View>
+        );
+    }
 
  
 

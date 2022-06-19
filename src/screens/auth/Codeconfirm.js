@@ -28,100 +28,30 @@ const Codeconfirm = (props) => {
     } = props; 
 
     //Reference
-    const emailRef = useRef();
-    const passwordRef = useRef();
-    const passwordConfirmRef = useRef();
-    const phoneRef = useRef();
-    const fullnameRef = useRef();
-
-    // Local States
-    const [isShowPassword, setIsShowPassword] = useState(true);
-    const [isShowConfirmPassword, setIsShowConfirmPassword] = useState(true);
+    
     const [deviceToken, setDeviceToken] = useState();
-    const [isCheckPrivacy, setIsCheckPrivacy] = useState(false)
     const [FullName, onChangeText] = React.useState("");
     const [email, onChangeText1] = React.useState("");
     const [phone, onChangeText4] = React.useState("");
     const [password, onChangeText2] = React.useState("");
-    const [confirmPassword, onChangeText3] = React.useState("");
     const [UserID, setUserID] = useState("");
 
     useEffect(() => {
-        requestUserPermission();
         getBrandUserId();
     }, [])
 
     const getBrandUserId = async () => {
          var getUserId = await AsyncStorage.getItem('UserId');
          setUserID(getUserId);
-         //alert(getUserId)
-    }
-
-    // Request FCM Permission & get device token
-    const requestUserPermission = async () => {
-        const authStatus = await messaging().requestPermission();
-        const enabled =
-            authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
-            authStatus === messaging.AuthorizationStatus.PROVISIONAL;
-
-        if (enabled) {
-            // console.log('Authorization status:', authStatus);
-            const _deviceToken = await messaging().getToken();
-            setDeviceToken(_deviceToken)
-        }
     }
 
     // Registration request submission
-    const handleRegistrationSubmit = () => {
-        Keyboard.dismiss();
-        if (FullName == "") {
-            Alert.alert('FullName is required')
-        } else if (email == "") {
-            Alert.alert('email is required')
-        }else if(email == "email" ){
-            Alert.alert('This email is Already used')
-        }else if (phone == "" || phone.length<10) {
-            Alert.alert('phone is required')
-        } else if (password == "" || password.length<8) {
-            Alert.alert('password is required')
-        } else if (confirmPassword == "") {
-            Alert.alert('confirmPassword is required')
-        } else if (confirmPassword !== password) {
-            Alert.alert("Password does not match.")
-        } else {
-            //props.navigation.navigate("Overview")
-            let request = {
-                "email": email,
-                "userName": FullName,
-                "phone": phone,
-                "countryCode": '+1',
-                "password": password,
-                "role": "user",
-                "deviceToken": deviceToken,
-                "otheruserid":UserID,
-                "type":"shop"
-               
-            }
-            props.signup(request, props.navigation, "user",'shop');
-        }
-    }
-    const [register, setRegister] = React.useState(true);
-    const [store, setStore] = React.useState(true);
-
-    const showregister =()=>{
-        setRegister(true);
-        setStore(false)
-    }
-    const showstore =()=>{
-        setStore(true);
-        setRegister(false)
-    }
     const openPrivacyPolicy = () => {
-        Linking.openURL('https://wallpon.com/privacy-policy');
+        Linking.openURL('');
     }
 
     const openTerms = () => {
-        Linking.openURL('http://vendor.wallpon.com/terms-and-conditions.html');
+        Linking.openURL('');
     }
 
     return (
@@ -154,6 +84,5 @@ const Codeconfirm = (props) => {
        </KeyboardAwareScrollView>
     )
 }
-
 
 export default Codeconfirm

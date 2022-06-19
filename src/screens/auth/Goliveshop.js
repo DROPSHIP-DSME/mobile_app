@@ -80,11 +80,7 @@ const Goliveshop = (props) => {
     } = props;
 
     //Reference
-    const emailRef = useRef();
-    const phoneRef = useRef();
-    const bisinessnameRef = useRef();
-    const fullnameRef = useRef();
-
+    
     // Local states
 
 
@@ -97,18 +93,7 @@ const Goliveshop = (props) => {
     const [showshopify, setshowshopify] = React.useState(false);
     const [showbigcommerce, setshowbigcommerce] = React.useState(false);
     const [showsetsy, setshowsetsy] = React.useState(false);
-    const [wayToContact, setWayToContact] = useState("Phone");
-    const [wayToContactList, setWayToContactList] = useState([
-        {
-            label: "Phone",
-            value: "Phone"
-        },
-        {
-            label: "Email",
-            value: "Email"
-        }
-    ]);
-
+    
     useEffect(() => {
          //props.logoutreducerfun(uuid());
          //AsyncStorage.setItem('UserId',uuid());
@@ -308,7 +293,4 @@ const Goliveshop = (props) => {
         </KeyboardAvoidingView>
     )
 }
-
-
-
 export default Goliveshop

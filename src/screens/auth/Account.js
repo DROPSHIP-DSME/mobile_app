@@ -40,35 +40,10 @@ const Account = (props) => {
         
     }, [])
 
-   
-    
-    
-     const deviceWidth = Dimensions.get('window').width; 
-    const deviceHeight = Dimensions.get('window').height; 
-
-    //Reference
-    const emailRef = useRef();
-    const phoneRef = useRef();
-    const bisinessnameRef = useRef();
-    const fullnameRef = useRef();
-   
     // Local states
     const [text1, onChangeText1] = React.useState("");
     const [helppopup, sethelppopup] = React.useState(false);
-    const [starCount, setstarCount] = useState(5);
-    const [selectedValue, setSelectedValue] = useState("java");
-    const [wayToContact, setWayToContact] = useState("Phone");
-    const [showAlert, setshowAlert] = React.useState(false);
-    const [wayToContactList, setWayToContactList] = useState([
-        {
-            label: "Phone",
-            value: "Phone"
-        },
-        {
-            label: "Email",
-            value: "Email"
-        }
-    ]);
+    
     const [showclassName, setshowclassName] = useState("#B80000");
      const handleScroll=(pageYOffset)=>{
         if (pageYOffset > 0) {
@@ -78,16 +53,7 @@ const Account = (props) => {
         }
     } 
    
-    const ratingCompleted = (ratingdata) => {
-            console.log('rating',ratingdata)
-               if(ratingdata!="" && ratingdata!=undefined){
-                f(ratingdata)  
-               }
-              
-        } 
-
-
-        const handleSendRequestSubmit = async () => {
+    const handleSendRequestSubmit = async () => {
         let request = {
             "userId":props?.loginuserid,
             "message":text1,
@@ -96,32 +62,7 @@ const Account = (props) => {
         onChangeText1('');
         props.support(request, props.navigation, "vendor");
     }
-   
-    const checklogin =  async () => {
-        if(props?.loginuserstatus=="1"){
-           props.navigation.navigate("AddStore")
-        }else {
-            setshowAlert(true)
-        }  
-    }
-   
 
-    const DATA = [
-       {
-        text:"Beauty brands",
-        text1:"$75",
-        image:ImageIcons.addstore,
-        
-       },
-       {
-        text:"Beauty brands",
-        text1:"$75",
-        image:ImageIcons.clothes,
-        
-       },
-       
-
-     ];
    const renderItem6 = ({ item }) => {
             return(
                 <View>
@@ -145,41 +86,6 @@ const Account = (props) => {
             );
     }
 
-// //     const renderItem = ({ 
-    
-  
-//    return(
-
-//     <View style={styles.maincartviewshop}>
-//         <TouchableOpacity  onPress={() => {props.navigation.navigate("NameStore",{shopId:item._id, shopName:item.shopName}) }}>
-
-//          <View style={styles.comingViewflatshop}>
-//            <Image source={{uri: item.shopImage}} style={styles.storeimageflat} />
-//            <View>
-//                <View style={{flexDirection:'row',marginTop:'10%',width:160,justifyContent:'center'}}>
-//                     <Text style={[styles.namestoretext,{ textAlign:'center', justifyContent:'center'}]} numberOfLines={1}>{item.shopName}</Text>
-//                     <Image source={ImageIcons.brandicon} style={styles.bagimage} />
-//                 </View>
-//             <Text style={styles.storedropship}>{item.shopName}.dropship.com</Text>
-//            </View>
-           
-//         </View>
-         
-//         </TouchableOpacity>
-        
-//     </View>
-   
-//   );
-// }
-//  <View style={{marginHorizontal:'3%', marginBottom:90}}>
-//            <FlatList
-//                 data={props?.getlistshop || []}
-//                 renderItem={renderItem}
-//                 keyExtractor={item => item.id}
-//                 showsHorizontalScrollIndicator={false}
-//                 numColumns={2}
-//                 />
-//         </View>
 
     return (
         <KeyboardAvoidingView
@@ -409,11 +315,11 @@ const Account = (props) => {
               
               <View style={{flexDirection:"row",marginBottom:'20%',borderRadius:10,backgroundColor:"#ffffff",marginHorizontal:"3%",marginTop:"3%"}}>
               <View style={{marginHorizontal:"3%",marginVertical:"5%"}}>
-              <Image source={ImageIcons.signout} style={{width:21,height:21}}/>
+                    <Image source={ImageIcons.signout} style={{width:21,height:21}}/>
               </View>
               
               <View style={{marginVertical:"4%"}}>
-              <TouchableOpacity onPress={() => props.navigation.navigate("Golive")}>
+              <TouchableOpacity onPress={() => logout()}>
               <Text style={{fontSize:20,fontFamily:"hinted-AvertaStd-Regular",fontWeight:"bold",color:"#1A1A1A"}}>
               Sign Out 
               </Text>
@@ -473,27 +379,6 @@ const Account = (props) => {
         
     <Footer3 onSelection="5"/>
 
-       
-    <AwesomeAlert
-          show={showAlert}
-          showProgress={false}
-          title="DROPSHIP"
-          message="You need to login to access this screen!"
-          closeOnTouchOutside={true}
-          closeOnHardwareBackPress={false}
-          showCancelButton={true}
-          showConfirmButton={true}
-          cancelText="Cancel"
-          confirmText="Login"
-          confirmButtonColor="#E22020"
-          onCancelPressed={() => {
-            setshowAlert(false)
-          }}
-          onConfirmPressed={() => {
-             setshowAlert(false)
-             navigation.navigate('Golive');
-          }}
-        />
     </KeyboardAvoidingView>
         
     )

@@ -27,41 +27,12 @@ const deviceWidth = Dimensions.get('window').width;
     } = props;
 
     //Reference
-    const emailRef = useRef();
-    const phoneRef = useRef();
-    const bisinessnameRef = useRef();
-    const fullnameRef = useRef();
-
-    // Local states
-    const [wayToContact, setWayToContact] = useState("Phone");
-    const [wayToContactList, setWayToContactList] = useState([
-        {
-            label: "Phone",
-            value: "Phone"
-        },
-        {
-            label: "Email",
-            value: "Email"
-        }
-    ]);
-
-    
     return (
         <View style={{flex:1,backgroundColor:'#fce8e8'}}>
-        
- 
-                
-        
               <View style={{marginLeft:'10%',marginTop:'15%'}}>
-                           <Image source={ImageIcons.vphoto} style={styles.goback2} />
-                           
-                      
-              </View>
-
-              
+                    <Image source={ImageIcons.vphoto} style={styles.goback2} /> 
+              </View> 
          </View>
     )
 }
-
-
 export default Goback

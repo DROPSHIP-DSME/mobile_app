@@ -39,10 +39,8 @@ import {
 
 const Accountbrandlist = (props) => {
 
-     const deviceHeight = Dimensions.get('window').height;
-const deviceWidth = Dimensions.get('window').width;
+    const deviceWidth = Dimensions.get('window').width;
 
-//const brandId1 = '61b2e247ddb2bd19c2b95329';
     const {
         navigation,
         values,
@@ -52,38 +50,22 @@ const deviceWidth = Dimensions.get('window').width;
     } = props;
 
     //Reference
-    const emailRef = useRef();
-    const phoneRef = useRef();
-    const bisinessnameRef = useRef();
-    const fullnameRef = useRef();
     const userId = props?.route?.params?.userId;
     const brandId = props?.route?.params?.brandId;
     
-    //     var swipeoutBtns = [
-    //   {
-    //     text: 'Button'
-    //   }
-    // ]
- 
     useEffect(() => {
-      
       props.getincomingtlist(props?.loginuserid);
       props.getselldeshboard(props?.loginuserid);
       props.gettopsell(props?.loginuserid,3);
       props.liveeventdetail(props?.loginuserid);
-      
     }, [])
 
-     useEffect(() => {
-      alert(brandId)
+    useEffect(() => {
        props.branddetails(brandId);
-       console.log(props?.getBranddetails,'newresult')
      }, [])
 
     useEffect(() => {
-       // AsyncStorage.setItem('UserId','');
-       // AsyncStorage.setItem('userLogin','');
-        getBrandUserId();
+       getBrandUserId();
 
     }, [])
 
@@ -113,96 +95,27 @@ const deviceWidth = Dimensions.get('window').width;
             await AsyncStorage.setItem('userLogin',"1");
         }
     }
-   
-    const golivepage = async () => {
-        props.liveeventdetail(props?.loginuserid);
-        setTimeout(function(){ props.navigation.navigate("StartRecording",{userId:userId})},500)
-    }
+
     // Local states
 
     const [text1, onChangeText3] = React.useState("");
     const [helppopup, sethelppopup] = React.useState(false);
-    const [subMsg, onChangeText1] = React.useState("");
-      const [msg, onChangeText2] = React.useState("");
-    const [isModalVisible, setModalVisible] = useState(false);
-    const [isSelected, setSelection] = useState(false);
     const [visible, setVisible] = React.useState(false);
-     const [selectedValue, setSelectedValue] = useState("");
+    const [selectedValue, setSelectedValue] = useState("");
     const [showclassName, setshowclassName] = useState("#B80000");
-    const [wayToContact, setWayToContact] = useState("Phone");
-    const [wayToContactList, setWayToContactList] = useState([
-        {
-            label: "Phone",
-            value: "Phone"
-        },
-        {
-            label: "Email",
-            value: "Email"
-        }
-    ]);
 
-  
-       let colors = ['#8862E01A', '#19D8951A', '#E220201A', '#abcdef'];
-
-     const openpopup = () => {
+    const openpopup = () => {
         setVisible(true)
+    }
 
-        };
     const closepopup = () => {
-             setVisible(false)
-          }
-
-       
+        setVisible(false)
+    }
 
     const containerStyle = {backgroundColor: 'red', padding: '7%',marginHorizontal:'5%',alignItems:'center',};
 
-  
-     const DATA2 = [
-       {
-        text:'Sneakers',
-        text1:'$55.00',
-        text2:'Orders (256)',
-        image:ImageIcons.blackshoetoday,
-       },
-        {
-       text:'Sneakers',
-       text1:'$55.00',
-       text2:'Orders (256)',
-        image:ImageIcons.blackshoetoday,
-       },
-       {
-       text:'Sneakers',
-       text1:'$55.00',
-       text2:'Orders (256)',
-        image:ImageIcons.blackshoetoday,
-       },
-       {
-       text:'Sneakers',
-       text1:'$55.00',
-       text2:'Orders (256)',
-        image:ImageIcons.blackshoetoday,
-       },
-       {
-       text:'Sneakers',
-       text1:'$55.00',
-       text2:'Orders (256)',
-        image:ImageIcons.blackshoetoday,
-       },
-       {
-       text:'Sneakers',
-       text1:'$55.00',
-       text2:'Orders (256)',
-        image:ImageIcons.blackshoetoday,
-       },
-       
-
-     ];
-
-    
-    
-
- const renderItem = ({ item ,index }) => {
-     return(
+    const renderItem = ({ item ,index }) => {
+        return(
         <View>
            <TouchableOpacity style={{padding:2,marginHorizontal:7}} onPress={()=>props.navigation.navigate("ProductDetails",{productId:item._id, })}>
               <Image source={{uri: item.productImage}} style={{height:162,width:deviceWidth/2.5,borderRadius:10}} />

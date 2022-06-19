@@ -32,9 +32,7 @@ const LiveStreamRecap = () => {
         </View >
     )
 }
-
 export default LiveStreamRecap
-
 const style = StyleSheet.create({
     Container: {
         height: '100%',

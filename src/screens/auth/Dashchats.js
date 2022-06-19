@@ -50,18 +50,10 @@ const deviceWidth = Dimensions.get('window').width;
     } = props;
 
     //Reference
-    const emailRef = useRef();
-    const phoneRef = useRef();
-    const bisinessnameRef = useRef();
-    const fullnameRef = useRef();
     const userId = props?.route?.params?.userId;
     const brandId = props?.route?.params?.brandId;
     
-    //     var swipeoutBtns = [
-    //   {
-    //     text: 'Button'
-    //   }
-    // ]
+    
  
     useEffect(() => {
       props.getincomingtlist(props?.loginuserid);
@@ -80,13 +72,7 @@ const deviceWidth = Dimensions.get('window').width;
         getBrandUserId();
      })
 
-     const ratingCompleted = (ratingdata) => {
-            console.log('rating',ratingdata)
-               if(ratingdata!="" && ratingdata!=undefined){
-                //setstarCount(ratingdata)  
-               }
-              
-        }  
+    
 
      const handleScroll=(pageYOffset)=>{
         if (pageYOffset > 0) {
@@ -103,234 +89,33 @@ const deviceWidth = Dimensions.get('window').width;
         }
     }
    
-    const golivepage = async () => {
-        props.liveeventdetail(props?.loginuserid);
-        setTimeout(function(){ props.navigation.navigate("StartRecording",{userId:userId})},500)
-    }
     // Local states
-    const [subMsg, onChangeText1] = React.useState("");
-      const [msg, onChangeText2] = React.useState("");
     const [isModalVisible, setModalVisible] = useState(false);
-    const [isSelected, setSelection] = useState(false);
     const [visible, setVisible] = React.useState(false);
-     const [selectedValue, setSelectedValue] = useState("");
+    const [selectedValue, setSelectedValue] = useState("");
     const [showclassName, setshowclassName] = useState("#B80000");
-    const [wayToContact, setWayToContact] = useState("Phone");
-    const [wayToContactList, setWayToContactList] = useState([
-        {
-            label: "Phone",
-            value: "Phone"
-        },
-        {
-            label: "Email",
-            value: "Email"
-        }
-    ]);
+    
 
-    const [fdata,setfdata]=useState([
-        {total:"Total income",dollar:"100,000",withdraw:"withdraw money",icon:ImageIcons.arroricon},
-          {total:"Total order",dollar:"10,000",withdraw:" "} ,
-          {total:"Total order",dollar:"10,000"},]);
-
-     const [orderdata,setorderdata]=useState([
-        {name:"Kenitled",cloths:"winter cloths",orderby:"koyajosya"},
-          {name:"Kenitled",cloths:"winter cloths",orderby:"koyajosya"},{name:"Kenitled",cloths:"winter cloths",orderby:"koyajosya"},]);
-
-      const [ordertdata,setordertdata]=useState([
-        {name:"Kenitled",cloths:"winter cloths",orderby:"10000"},
-          {name:"Kenitled",cloths:"winter cloths",orderby:"10000"},{name:"Kenitled",cloths:"winter cloths",orderby:"10000"},]);
-
-
-       let colors = ['#8862E01A', '#19D8951A', '#E220201A', '#abcdef'];
-
-     const openpopup = () => {
+    const openpopup = () => {
         setVisible(true)
-
-        };
-    const closepopup = () => {
-             setVisible(false)
-          }
-
-       const data1 = {
-        labels: ["USA", "Canada", "Mexico"], // optional
-        data: [0.4, 0.6, 0.8]
-        };
-
-       const data = {
-        labels: ["Jan", "Feb", "Mar", "Apr", "May",],
-        datasets: [
-        {
-          data: [20, 45, 28, 80, 99,]
-        }
-        ]
     };
 
-    const containerStyle = {backgroundColor: 'red', padding: '7%',marginHorizontal:'5%',alignItems:'center',};
+    const closepopup = () => {
+         setVisible(false)
+    }
 
-       const DATA = [
-       {
-        image:ImageIcons.redincome,
-       },
-
-     ];
-      const DATA3 = [
+    
+    const DATA3 = [
        {
          image:ImageIcons.girlcent,
         text1:"GSHM8U00S0004KH ",
         text:"Amy White ",
         text2:"Pending ",
-       },
-       {
-        image:ImageIcons.girlcent,
-        text1:"GSHM8U00S0004KH ",
-        text:"Amy White ",
-        text2:"Pending ",
-       },
-       {
-        image:ImageIcons.girlcent,
-        text1:"GSHM8U00S0004KH ",
-        text:"Amy White ",
-        text2:"Pending ",
-       },
-       {
-        image:ImageIcons.girlcent,
-        text1:"GSHM8U00S0004KH ",
-        text:"Amy White ",
-        text2:"Delete ",
-       },
-       {
-        image:ImageIcons.girlcent,
-        text1:"GSHM8U00S0004KH ",
-        text:"Amy White ",
-        text2:"Delete",
-       },
-        {
-        image:ImageIcons.girlcent,
-        text1:"GSHM8U00S0004KH ",
-        text:"Amy White ",
-        text2:"Delete",
-       },
-        {
-        image:ImageIcons.girlcent,
-        text1:"GSHM8U00S0004KH ",
-        text:"Amy White ",
-        text2:"Pending",
-       },
-        {
-        image:ImageIcons.girlcent,    
-        text1:"GSHM8U00S0004KH ",
-        text:"Amy White ",
-        text2:"Delete",
-       },
-        {
-        image:ImageIcons.girlcent,
-        text1:"GSHM8U00S0004KH ",
-        text:"Amy White ",
-        text2:"Delete",
-       },
-
-     ];
-     const DATA4 = [
-       {
-         image:ImageIcons.girlcent,
-        text1:"Clothing",
-        text:"GSHM8U00S0004KH ",
-       },
-       {
-        image:ImageIcons.girlcent,
-        text1:"Clothing",
-        text:"GSHM8U00S0004KH ",
-       },
-       {
-        image:ImageIcons.girlcent,
-        text1:"Clothing",
-       text:"GSHM8U00S0004KH ",
-       },
-       {
-        image:ImageIcons.girlcent,
-        text1:"Clothing",
-       text:"GSHM8U00S0004KH ",
-       },
-       {
-        image:ImageIcons.girlcent,
-        text1:"Clothing",
-        text:"GSHM8U00S0004KH ",
-       },
-
+       }
      ];
 
-     const DATA2 = [
-       {
-        text:'Sneakers',
-        text1:'$55.00',
-        text2:'Orders (256)',
-        image:ImageIcons.whiteshoetoday,
-       },
-        {
-       text:'Sneakers',
-       text1:'$55.00',
-       text2:'Orders (256)',
-        image:ImageIcons.whiteshoetoday,
-       },
-       {
-       text:'Sneakers',
-       text1:'$55.00',
-       text2:'Orders (256)',
-        image:ImageIcons.whiteshoetoday,
-       },
-       {
-       text:'Sneakers',
-       text1:'$55.00',
-       text2:'Orders (256)',
-        image:ImageIcons.whiteshoetoday,
-       },
-       {
-       text:'Sneakers',
-       text1:'$55.00',
-       text2:'Orders (256)',
-        image:ImageIcons.whiteshoetoday,
-       },
-       {
-       text:'Sneakers',
-       text1:'$55.00',
-       text2:'Orders (256)',
-        image:ImageIcons.whiteshoetoday,
-       },
-       
-
-     ];
-
-    
-    
-
- const renderItem2 = ({ item ,index }) => {
-     return(
-        <View>
-           <View style={{padding:2,marginHorizontal:7}}>
-              <Image source={item.image} style={{height:162,width:162}} />
-           </View>
-           <View style={{marginTop:5,}}>
-            <Text style={{fontSize:14,width:'80%',marginLeft:'5%'}}>{item.text}</Text>
-            <View style={{height:14,width:14,backgroundColor:'#e6e6e6',borderRadius:3,alignSelf:'flex-end',marginRight:'9%',marginTop:-10,}}></View>
-            <Text style={{fontSize:16,width:'80%',fontFamily:'hinted-AvertaStd-Bold',marginLeft:'5%'}}>{item.text1}</Text>
-             <View>
-                <Rating
-                type='custom'
-                imageSize={18}
-                ratingCount={5}
-                ratingColor='#EB5757'
-                tintColor='#FFE7E7'
-                style={{ paddingVertical: 5,width:100,marginLeft:5}}
-                />
-             </View>
-             <Text style={{fontSize:14,width:'80%',marginLeft:'5%',fontFamily:'hinted-AvertaStd-Regular',color:'#4d4d4d',marginBottom:'20%'}}>{item.text2}</Text>
-          </View>
-        </View>  
-  );
-}
-
-     const renderItem3 = ({ item,index }) => {
-   return(
+    const renderItem3 = ({ item,index }) => {
+        return(
            <View>
 
             <TouchableOpacity  onPress={() => props.navigation.navigate("Dashreturn")} style={styles.seledataViewTODAYchat}>
@@ -346,24 +131,9 @@ const deviceWidth = Dimensions.get('window').width;
 
             
             </View>
-    );
+        );
     }
 
-     const renderItem4 = ({ item,index }) => {
-   return(
-           <View>
-
-            <View style={styles.seledataViewTODAYsecndrender}>
-                    <View style={{flexDirection:'row'}}>
-                      <Image source={item.image} style={{width:24,height:24,}}/>
-                       <Text style={[styles.seriestexttoday,{alignSelf:'center',marginLeft:1}]}>{item.text}</Text>
-                    </View>   
-                       <Text style={styles.seriestexttoday}>{item.text1}</Text>
-                   </View>
-            
-            </View>
-    );
-    }
     
 
     return (
@@ -403,55 +173,39 @@ const deviceWidth = Dimensions.get('window').width;
                 </View>
               </View>
 
-              <View style={{marginHorizontal:'4%',marginVertical:'4%',flexDirection:'row'}}>
-               <View style={[styles.pickerViewshorttodayagain,{flexDirection:'row',justifyContent:'space-around',padding:4}]}>
-                  <View style={{height:14,width:14,backgroundColor:'#ffffff',borderRadius:3,marginTop:3}}></View>
-                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',textAlign:'center',}}>Select All</Text> 
-                </View>
-                <TouchableOpacity onPress={() => openpopup() } style={{height:30,width:30,backgroundColor:'#e6e6e6',borderRadius:4,marginLeft:'5%',padding:4}}>
-                  <Image source={ImageIcons.edittoday}  style={{height:11,width:11,marginTop:5,alignSelf:'center'}} />
-                </TouchableOpacity>
-                <View style={{height:30,width:30,backgroundColor:'#e6e6e6',borderRadius:4,marginLeft:'5%',padding:4}}>
-                  <Image source={ImageIcons.deletetoday}  style={{height:11,width:11,marginTop:5,alignSelf:'center'}} />
-                </View>
-              </View> 
+                    <View style={{marginHorizontal:'4%',marginVertical:'4%',flexDirection:'row'}}>
+                       <View style={[styles.pickerViewshorttodayagain,{flexDirection:'row',justifyContent:'space-around',padding:4}]}>
+                          <View style={{height:14,width:14,backgroundColor:'#ffffff',borderRadius:3,marginTop:3}}></View>
+                           <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',textAlign:'center',}}>Select All</Text> 
+                        </View>
+                        <TouchableOpacity onPress={() => openpopup() } style={{height:30,width:30,backgroundColor:'#e6e6e6',borderRadius:4,marginLeft:'5%',padding:4}}>
+                          <Image source={ImageIcons.edittoday}  style={{height:11,width:11,marginTop:5,alignSelf:'center'}} />
+                        </TouchableOpacity>
+                        <View style={{height:30,width:30,backgroundColor:'#e6e6e6',borderRadius:4,marginLeft:'5%',padding:4}}>
+                          <Image source={ImageIcons.deletetoday}  style={{height:11,width:11,marginTop:5,alignSelf:'center'}} />
+                        </View>
+                      </View> 
 
               
-                 <View style={{backgroundColor:'#ffffff',padding:'4%',width:'92%',borderRadius:15,marginHorizontal:'3%',marginVertical:'6%',marginBottom:'25%'}}>
-                   
-                   <View style={styles.salesViewTODAY}>
-                       <Text style={styles.seriestext}>Order Number</Text>
-                       <Text style={styles.seriestext}>Ordered By</Text>
-                       <Text style={styles.seriestext}>Status </Text>
-                   </View>
-                <View style={{marginLeft:-10}}>
-                    <FlatList
-                    data={DATA3}
-                    renderItem={renderItem3}
-                    keyExtractor={item => item.id}
-                    showsHorizontalScrollIndicator={false}
-                    horizontal={false}
-                    />
-                </View>
-                </View>   
- 
-
-
-       
-        
+                    <View style={{backgroundColor:'#ffffff',padding:'4%',width:'92%',borderRadius:15,marginHorizontal:'3%',marginVertical:'6%',marginBottom:'25%'}}>
+                        <View style={styles.salesViewTODAY}>
+                           <Text style={styles.seriestext}>Order Number</Text>
+                           <Text style={styles.seriestext}>Ordered By</Text>
+                           <Text style={styles.seriestext}>Status </Text>
+                        </View>
+                        <View style={{marginLeft:-10}}>
+                            <FlatList
+                            data={DATA3}
+                            renderItem={renderItem3}
+                            keyExtractor={item => item.id}
+                            showsHorizontalScrollIndicator={false}
+                            horizontal={false}
+                            />
+                        </View>
+                    </View>   
                </ScrollView>
-            
-            
-            
-
-
-
             <Footer2 />
-             </View>
-
-
-                
-        
+        </View>
     )
 }
 

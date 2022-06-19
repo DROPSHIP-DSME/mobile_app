@@ -31,14 +31,7 @@ const ForgetPassword = (props) => {
     } = props;
 
     //Reference
-    const emailRef = useRef();
-    const passwordRef = useRef();
-    const passwordConfirmRef = useRef();
-    const phoneRef = useRef();
-    const fullnameRef = useRef();
-
     
-
     // Local States
     const [isShowPassword, setIsShowPassword] = useState(true);
     const [isShowConfirmPassword, setIsShowConfirmPassword] = useState(true);
@@ -119,7 +112,7 @@ const ForgetPassword = (props) => {
         <View>
        
 
-        <View >
+        <View>
         <TextInput  style={styles.input1}
         placeholder="Email address"
          autoCompleteType='email'
@@ -132,36 +125,13 @@ const ForgetPassword = (props) => {
             <Text style={styles.stringerror}>must be required field</Text>
         }
         </View>
-        
-       
-            
         </View>
-
         <TouchableOpacity style={styles.Touchablelogin}
             onPress={() => handleRegistrationSubmit()}>
             <Text style={styles.TouchableloginTEXT}>Confirm Email</Text>
         </TouchableOpacity>
-
          <Loader isVisible={props?.loginLoader} />
-
-        {/* <View style={styles.twotextviewcreate}>
-                    <Text style={styles.customertext}>Return to</Text>
-                    <TouchableOpacity onPress={() => props.navigation.navigate("RegistrationShop")}>
-                        <Text style={styles.customertextred}> login screen.</Text>
-                    </TouchableOpacity>
-                </View>*/}
-
-        
-
-
-       
-
-        </View>        
-       
-
+        </View>
    ) 
-
 }
-
-
 export default ForgetPassword

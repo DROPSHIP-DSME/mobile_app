@@ -50,21 +50,10 @@ const deviceWidth = Dimensions.get('window').width;
     } = props;
 
     //Reference
-    const emailRef = useRef();
-    const phoneRef = useRef();
-    const bisinessnameRef = useRef();
-    const fullnameRef = useRef();
     const userId = props?.route?.params?.userId;
     const brandId = props?.route?.params?.brandId;
     const productreload = props?.route?.params?.productreload;
     
-    
-    //     var swipeoutBtns = [
-    //   {
-    //     text: 'Button'
-    //   }
-    // ]
-
     useEffect(() => {
       props.getincomingtlist(props?.loginuserid);
       props.getselldeshboard(props?.loginuserid);
@@ -90,16 +79,7 @@ const deviceWidth = Dimensions.get('window').width;
         }, [])
     );
 
-
-     const ratingCompleted = (ratingdata) => {
-            console.log('rating',ratingdata)
-               if(ratingdata!="" && ratingdata!=undefined){
-                //setstarCount(ratingdata)  
-               }
-              
-        }  
-
-     const handleScroll=(pageYOffset)=>{
+    const handleScroll=(pageYOffset)=>{
         if (pageYOffset > 0) {
             setshowclassName('#B80000');  
         }else{
@@ -109,25 +89,12 @@ const deviceWidth = Dimensions.get('window').width;
 
 
     const getBrandUserId = async () => {
-        //alert("okkkkk");
-         var getUserId = await AsyncStorage.getItem('UserId');
+        var getUserId = await AsyncStorage.getItem('UserId');
         setUserID(getUserId);
-        //alert(getUserId);
-         //props.getAllproduct(props?.loginuserid);
-         callnewfun();
-         //console.log("getAllproduct",getAllproduct);
-          props.getbrandName(props?.loginuserid);
-
-        // if(userId!="" && userId!=undefined){
-        //     await AsyncStorage.setItem('UserId',userId);
-        //     await AsyncStorage.setItem('userLogin',"1");
-        // }
+        callnewfun();
+        props.getbrandName(props?.loginuserid);
     }
    
-    const golivepage = async () => {
-        props.liveeventdetail(props?.loginuserid);
-        setTimeout(function(){ props.navigation.navigate("StartRecording",{userId:userId})},500)
-    }
     // Local states
     const [UserID, setUserID] = useState("");
     const [subMsg, onChangeText1] = React.useState("");
@@ -139,18 +106,13 @@ const deviceWidth = Dimensions.get('window').width;
     const [selectedValue, setSelectedValue] = useState("");
     const [showclassName, setshowclassName] = useState("#B80000");
     
-   
-       let colors = ['#8862E01A', '#19D8951A', '#E220201A', '#abcdef'];
-
-     const openpopup = () => {
+    const openpopup = () => {
         setVisible(true)
+    }
 
-        };
     const closepopup = () => {
         setVisible(false)
     }
-
-       
 
     const containerStyle = {backgroundColor: 'red', padding: '7%',marginHorizontal:'5%',alignItems:'center',};
 
@@ -369,31 +331,20 @@ const deviceWidth = Dimensions.get('window').width;
                       </Picker>
                 </View>
 
-                <TouchableOpacity onPress={() => closepopup()} style={{backgroundColor:'#B80000',width:200,borderRadius:25,padding:15,alignSelf:'center',marginVertical:'8%'}}>
+                    <TouchableOpacity onPress={() => closepopup()} style={{backgroundColor:'#B80000',width:200,borderRadius:25,padding:15,alignSelf:'center',marginVertical:'8%'}}>
                       <Text style={styles.totalincometodaySAVECHANGE}>SAVE CHANGES</Text> 
                    </TouchableOpacity>
-
-               
-                  
-
-
-            </View>
-          </View>
-       </Modal>
-                    </Portal>
-                    </Provider>
+                    </View>
+                </View>
+            </Modal>
+            </Portal>
+        </Provider>
                 }
          </View>
         
                </ScrollView>
             <Footer2 onSelelection="4"  />
         </View>
-
-
-                
-        
     )
 }
-
-
 export default Dashproduct

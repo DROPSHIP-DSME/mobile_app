@@ -30,15 +30,8 @@ const CreateAccountShop = (props) => {
 
     //Reference
     const tailwind = useTailwind();
-    const emailRef = useRef();
-    const passwordRef = useRef();
-    const passwordConfirmRef = useRef();
-    const phoneRef = useRef();
-    const fullnameRef = useRef();
 
     // Local States
-    const [isShowPassword, setIsShowPassword] = useState(true);
-    const [isShowConfirmPassword, setIsShowConfirmPassword] = useState(true);
     const [deviceToken, setDeviceToken] = useState();
     const [isCheckPrivacy, setIsCheckPrivacy] = useState(false)
     const [FullName, onChangeText] = React.useState("");
@@ -108,11 +101,11 @@ const CreateAccountShop = (props) => {
     }
 
     const openPrivacyPolicy = () => {
-        Linking.openURL('https://wallpon.com/privacy-policy');
+        Linking.openURL('');
     }
 
     const openTerms = () => {
-        Linking.openURL('http://vendor.wallpon.com/terms-and-conditions.html');
+        Linking.openURL('');
     }
 
     return (

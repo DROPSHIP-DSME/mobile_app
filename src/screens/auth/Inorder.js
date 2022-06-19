@@ -34,38 +34,7 @@ const Inorder = (props) => {
         //props.getincomingtlist(props?.loginuserid);
      })
     //Reference
-    const emailRef = useRef();
-    const phoneRef = useRef();
-    const bisinessnameRef = useRef();
-    const fullnameRef = useRef();
-
-    // Local states
-    const [wayToContact, setWayToContact] = useState("Phone");
-    const [wayToContactList, setWayToContactList] = useState([
-        {
-            label: "Phone",
-            value: "Phone"
-        },
-        {
-            label: "Email",
-            value: "Email"
-        }
-    ]);
-
-
-     const [orderdata,setorderdata]=useState([
-        {
-            name:"Kenitled",cloths:"winter cloths",orderby:"koyajosya"
-        },
-          {
-            name:"Kenitled",cloths:"winter cloths",orderby:"koyajosya"
-        },
-        {
-            name:"Kenitled",cloths:"winter cloths",orderby:"koyajosya"
-        },
-         ]);
-
-   
+    
 
     const renderItem = ({ item,index }) => {
    return(
@@ -167,16 +136,7 @@ const Inorder = (props) => {
         </View>
 
    </View>
-</View>
-
-
-
-
-                
-        
+</View>       
     )
 }
-
-
-
 export default Inorder

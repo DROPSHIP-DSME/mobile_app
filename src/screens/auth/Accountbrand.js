@@ -52,10 +52,7 @@ const deviceWidth = Dimensions.get('window').width;
     } = props;
 
     //Reference
-    const emailRef = useRef();
-    const phoneRef = useRef();
-    const bisinessnameRef = useRef();
-    const fullnameRef = useRef();
+
     const userId = props?.route?.params?.userId;
     const brandId = props?.route?.params?.brandId;
     
@@ -74,24 +71,14 @@ const deviceWidth = Dimensions.get('window').width;
     }, [])
 
     useEffect(() => {
-       // AsyncStorage.setItem('UserId','');
-       // AsyncStorage.setItem('userLogin','');
-        getBrandUserId();
+       getBrandUserId();
     }, [])
 
     useFocusEffect(() => {
         getBrandUserId();
      })
 
-     const ratingCompleted = (ratingdata) => {
-            console.log('rating',ratingdata)
-               if(ratingdata!="" && ratingdata!=undefined){
-                //setstarCount(ratingdata)  
-               }
-              
-        }  
-
-     const handleScroll=(pageYOffset)=>{
+    const handleScroll=(pageYOffset)=>{
         if (pageYOffset > 0) {
             setshowclassName('#B80000');  
         }else{
@@ -105,62 +92,11 @@ const deviceWidth = Dimensions.get('window').width;
             await AsyncStorage.setItem('userLogin',"1");
         }
     }
-   
-    const golivepage = async () => {
-        props.liveeventdetail(props?.loginuserid);
-        setTimeout(function(){ props.navigation.navigate("StartRecording",{userId:userId})},500)
-    }
     // Local states
     const [text1, onChangeText3] = React.useState("");
-    const [subMsg, onChangeText1] = React.useState("");
-      const [msg, onChangeText2] = React.useState("");
-    const [isModalVisible, setModalVisible] = useState(false);
-     const [helppopup, sethelppopup] = React.useState(false);
-    const [isSelected, setSelection] = useState(false);
-    const [visible, setVisible] = React.useState(false);
-     const [selectedValue, setSelectedValue] = useState("");
+    const [helppopup, sethelppopup] = React.useState(false);
     const [showclassName, setshowclassName] = useState("#B80000");
-    const [wayToContact, setWayToContact] = useState("Phone");
-    const [wayToContactList, setWayToContactList] = useState([
-        {
-            label: "Phone",
-            value: "Phone"
-        },
-        {
-            label: "Email",
-            value: "Email"
-        }
-    ]);
-
-    const [fdata,setfdata]=useState([
-        {total:"Total income",dollar:"100,000",withdraw:"withdraw money",icon:ImageIcons.arroricon},
-          {total:"Total order",dollar:"10,000",withdraw:" "} ,
-          {total:"Total order",dollar:"10,000"},]);
-
-     const [orderdata,setorderdata]=useState([
-        {name:"Kenitled",cloths:"winter cloths",orderby:"koyajosya"},
-          {name:"Kenitled",cloths:"winter cloths",orderby:"koyajosya"},{name:"Kenitled",cloths:"winter cloths",orderby:"koyajosya"},]);
-
-      const [ordertdata,setordertdata]=useState([
-        {name:"Kenitled",cloths:"winter cloths",orderby:"10000"},
-          {name:"Kenitled",cloths:"winter cloths",orderby:"10000"},{name:"Kenitled",cloths:"winter cloths",orderby:"10000"},]);
-
-
-       let colors = ['#8862E01A', '#19D8951A', '#E220201A', '#abcdef'];
-
-     const openpopup = () => {
-        setVisible(true)
-
-        };
-    const closepopup = () => {
-             setVisible(false)
-          }
-
-
-    const containerStyle = {backgroundColor: 'red', padding: '7%',marginHorizontal:'5%',alignItems:'center',};
-
- 
-
+    
     const renderItem = ({ item }) => {
             return(
                 <View>
@@ -296,8 +232,7 @@ const deviceWidth = Dimensions.get('window').width;
         </View>
         }
 
-
-               <Footer3 onSelection="5"/>
+             <Footer3 onSelection="5"/>
         </View>
     )
 }

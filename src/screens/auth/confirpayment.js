@@ -40,63 +40,32 @@ const confirpayment = (props) => {
     //Reference
     const deviceWidth = Dimensions.get('window').width; 
     const deviceHeight = Dimensions.get('window').height; 
-    const emailRef = useRef();
-    const phoneRef = useRef();
-    const bisinessnameRef = useRef();
-    const fullnameRef = useRef();
 
     const shopId = props?.route?.params?.shopId;
     const shopName = props?.route?.params?.shopName;
     // Local states
-     const [checked, setChecked] = React.useState('first');
-    const [selectedValue, setSelectedValue] = useState("java");
     const [visible, setVisible] = React.useState(false);
     const [starCount, setstarCount] = useState(3);
     const [visiblebag, setVisiblebag] = React.useState(false);
     const [couponcode, setcouponcode] = React.useState(false);
-
-    const [Paypal, onChangePaypal] = React.useState("Paypal");
-    const [Debit, onChangeDebit] = React.useState("Debit Card");
-    const [helppopup, sethelppopup] = React.useState(false);
-    const [reportpopup, setreportpopup] = React.useState(false);
     const [showclassName, setshowclassName] = useState("#B80000");
-    const [text1, onChangeText1] = React.useState("");
-    const [wayToContact, setWayToContact] = useState("Phone");
-    const [wayToContactList, setWayToContactList] = useState([
-        {
-            label: "Phone",
-            value: "Phone"
-        },
-        {
-            label: "Email",
-            value: "Email"
-        }
-    ]);
-     useEffect(() => {
+
+    useEffect(() => {
        props.shopproduct(shopId);
        props.shopsellcount(shopId);
     }, [])
-    const openpopup = () => {
-        setVisible(true)
 
-        }
-            const closepopup = () => {
-          setVisible(false)
-        }
-
-        
-            const closebagpopup = () => {
+    const closebagpopup = () => {
           setVisiblebag(false)
-        }
+    }
 
      const ratingCompleted = (ratingdata) => {
-            console.log('rating',ratingdata)
-               if(ratingdata!="" && ratingdata!=undefined){
-                setstarCount(ratingdata)  
-               }
-              
-        } 
-        const handleScroll=(pageYOffset)=>{
+        if(ratingdata!="" && ratingdata!=undefined){
+            setstarCount(ratingdata)  
+        }  
+    }
+
+    const handleScroll=(pageYOffset)=>{
         if (pageYOffset > 0) {
             setshowclassName('#B80000');  
         }else{
@@ -104,47 +73,8 @@ const confirpayment = (props) => {
         }
     }  
 
-       const containerStyle = {backgroundColor: 'white', padding: '3%',marginHorizontal:'5%',borderRadius:10};
 
-   
-    const DATA = [
-       {
-        height:30,
-        width:30,
-        image:ImageIcons.twit,
-       },
-        {
-        height:29.82,
-        width:30,
-        image:ImageIcons.fb,
-       },
-        {
-        height:30,
-        width:30,
-        image:ImageIcons.insta,
-       },
-        {
-        height:30,
-        width:30,    
-        image:ImageIcons.whatsapp,
-       },
-        {
-        height:30,
-        width:30,    
-        image:ImageIcons.mail,
-       },
-        {
-        height:25,
-        width:25,    
-        image:ImageIcons.email,
-       },
-       
-
-     ];
-
-    
-
-        const DATA1 = [
+    const DATA1 = [
        {
         text:"Beauty brands",
         text1:"$75",
@@ -156,7 +86,8 @@ const confirpayment = (props) => {
         text1:"$75",
         image:ImageIcons.winterimage,
         
-       },]
+       }
+    ]
 
 
      const renderItem1 = ({ item ,index }) => {

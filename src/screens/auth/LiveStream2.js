@@ -30,49 +30,19 @@ const LiveStreamRecap2 = () => {
             id: 'Order Number:',
             Number: 'GSHMU00S0004KH',
             status: 'Pending'
-        },
-
-        {
-            title: 'Purchased by Anna.M ',
-            date: 'jan 11, 2022',
-            id: 'Order Number:',
-            Number: 'GSHMU00S0004KH',
-            status: 'Processing'
-
-        },
-
-        {
-            title: 'Purchased by Anna.M ',
-            date: 'jan 11, 2022',
-            id: 'Order Number:',
-            Number: 'GSHMU00S0004KH',
-            status: 'Processing'
-
-        },
-
-        {
-            title: 'Purchased by Anna.M ',
-            date: 'jan 11, 2022',
-            id: 'Order Number:',
-            Number: 'GSHMU00S0004KH',
-            status: 'Processing'
-
         }
     ]
     return (
-        <View style={style.Container} >
-
-
+        <View style={style.Container}>
             <FlatList
                 data={name}
                 renderItem={Data}
             />
-
         </View>
     )
 }
-export default LiveStreamRecap2
 
+export default LiveStreamRecap2
 const style = StyleSheet.create({
     Container: {
         height: '100%',

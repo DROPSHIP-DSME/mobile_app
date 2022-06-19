@@ -35,10 +35,7 @@ const Cart = (props) => {
     } = props;
 
     useEffect(() => {
-        //alert('d')
-       
-        //props.cartlist(props?.loginuserid);
-        //console.log('asdsd',props.getcartlist);
+        
     }, [])
 
     useEffect(() => {
@@ -52,27 +49,12 @@ const Cart = (props) => {
     }
 
     //Reference
-    const emailRef = useRef();
-    const phoneRef = useRef();
-    const bisinessnameRef = useRef();
-    const fullnameRef = useRef();
     const [UserID, setUserID] = useState("");
     const [IsLogin, setIsLogin] = useState("");
     // Local states
-    const [wayToContact, setWayToContact] = useState("Phone");
     const [showAlert, setshowAlert] = React.useState(false);
-     const [Incval, setIncval] = useState(1);
-    const [wayToContactList, setWayToContactList] = useState([
-        {
-            label: "Phone",
-            value: "Phone"
-        },
-        {
-            label: "Email",
-            value: "Email"
-        }
-    ]);
-    
+    const [Incval, setIncval] = useState(1);
+
 
     const setIncrement = async (Incval,cartId) => {
            props.increcartlist(cartId, Incval);  
@@ -83,16 +65,7 @@ const Cart = (props) => {
          props.cartdata(props?.loginuserid); 
      }
 
-   const [starCount, setstarCount] = useState(3);
-     const ratingCompleted = (ratingdata) => {
-            console.log('rating',ratingdata)
-               if(ratingdata!="" && ratingdata!=undefined){
-                setstarCount(ratingdata)  
-               }
-              
-        } 
-
-     
+   
     const checklogin =  async () => {
         if(props?.loginuserstatus=="1"){
            props.navigation.navigate("StoreOwner")

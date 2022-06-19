@@ -30,28 +30,7 @@ const deviceWidth = Dimensions.get('window').width;
     } = props;
 
     //Reference
-    const emailRef = useRef();
-    const phoneRef = useRef();
-    const bisinessnameRef = useRef();
-    const fullnameRef = useRef();
-
-    // Local states
-    const [wayToContact, setWayToContact] = useState("Phone");
-    const [wayToContactList, setWayToContactList] = useState([
-        {
-            label: "Phone",
-            value: "Phone"
-        },
-        {
-            label: "Email",
-            value: "Email"
-        }
-    ]);
-
-   
-
     return (
-        
        <View style={{flex:1,backgroundColor:'#fce8e8'}}> 
        <ScrollView style={{marginBottom:80}}>
                      <View style={styles.more1}> 
@@ -117,7 +96,7 @@ const deviceWidth = Dimensions.get('window').width;
 
 </ScrollView>
 
-                     <View style={styles.footerView}>
+        <View style={styles.footerView}>
             <View style={styles.maincartviewfooter}>
        <TouchableOpacity onPress={() => navigation.navigate("Overview")} >
         <View>
@@ -158,12 +137,7 @@ const deviceWidth = Dimensions.get('window').width;
 
        </View> 
                      
-               </View>
-                
-        
+        </View>
     )
 }
-
-
-
 export default More

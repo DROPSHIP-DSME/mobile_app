@@ -28,34 +28,14 @@ const DeGaulle = (props) => {
      
 
     //Reference
-    const emailRef = useRef();
-    const phoneRef = useRef();
-    const bisinessnameRef = useRef();
-    const fullnameRef = useRef();
     const shopId = props?.route?.params?.shopId;
     const brandId = props?.route?.params?.brandId;
     const brandUserId = props?.route?.params?.branduserId;
     const brandName = props?.route?.params?.brandName;
     const brandDesc = props?.route?.params?.branddesc;
     // Local states
-     const [checked, setChecked] = React.useState('first');
-
+    const [checked, setChecked] = React.useState('first');
     const [visible, setVisible] = React.useState(false);
-
-    const [Paypal, onChangePaypal] = React.useState("Paypal");
-    const [Debit, onChangeDebit] = React.useState("Debit Card");
-
-    const [wayToContact, setWayToContact] = useState("Phone");
-    const [wayToContactList, setWayToContactList] = useState([
-        {
-            label: "Phone",
-            value: "Phone"
-        },
-        {
-            label: "Email",
-            value: "Email"
-        }
-    ]);
 
     useEffect(() => {
         console.log(props.getlistshop,'newdata')
@@ -63,49 +43,23 @@ const DeGaulle = (props) => {
         //console.log('asdsd',props.getcartlist);
     }, [])
 
-    const openpopup = () => {
-        setVisible(true)
 
-        }
-            const closepopup = () => {
-          setVisible(false)
-        }
-       const containerStyle = {backgroundColor: 'white', padding: '5%',marginHorizontal:'5%',alignItems:'center'};
 
-    
 
-    const DATA = [
-       {
-        text:"Beauty brands",
-        text1:"$75",
-        image:ImageIcons.addstore,
+    const renderItem = ({ item ,index }) => {
+
+       return(
         
-       },
-       {
-        text:"Beauty brands",
-        text1:"$75",
-        image:ImageIcons.clothes,
-        
-       },
-       
-
-     ];
-
-      const renderItem = ({ item ,index }) => {
-    
-  
-   return(
-    
-   <View >
-        <TouchableOpacity style={styles.maincartview} onPress={() => props.navigation.navigate("Park",{shopId:shopId,brandName:brandName,brandUserId:brandUserId,categoryId:item._id})}>
-         <Text style={styles.Linesorttext}>{item.categoryName}</Text>
-         <Image source={ImageIcons.next}  style={styles.next1} />
-        </TouchableOpacity>
-        <View style={styles.boderlineview}>
-        </View>
-   </View>
-  );
-}
+       <View >
+            <TouchableOpacity style={styles.maincartview} onPress={() => props.navigation.navigate("Park",{shopId:shopId,brandName:brandName,brandUserId:brandUserId,categoryId:item._id})}>
+             <Text style={styles.Linesorttext}>{item.categoryName}</Text>
+             <Image source={ImageIcons.next}  style={styles.next1} />
+            </TouchableOpacity>
+            <View style={styles.boderlineview}>
+            </View>
+       </View>
+      );
+    }
 
 
     return (

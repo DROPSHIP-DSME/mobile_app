@@ -17,8 +17,8 @@ import Footer3 from '../../screens/auth/Footer3';
 
 const Livechannel = (props) => {
 
-     const deviceHeight = Dimensions.get('window').height;
-const deviceWidth = Dimensions.get('window').width;
+    const deviceHeight = Dimensions.get('window').height;
+    const deviceWidth = Dimensions.get('window').width;
 
     const {
         navigation,
@@ -29,33 +29,15 @@ const deviceWidth = Dimensions.get('window').width;
     } = props;
 
     useEffect(() => {
-        console.log(props.getlistshop,'newdata')
         props.getAllcategory(1);
         props.getAllproduct(1);
-        //console.log('asdsd',props.getcartlist);
     }, [])
 
     //Reference
-    const emailRef = useRef();
-    const phoneRef = useRef();
-    const bisinessnameRef = useRef();
-    const fullnameRef = useRef();
 
     // Local states
-
-    const [wayToContact, setWayToContact] = useState("Phone");
     const [CatId, setCatId] = useState("");
-    const [wayToContactList, setWayToContactList] = useState([
-        {
-            label: "Phone",
-            value: "Phone"
-        },
-        {
-            label: "Email",
-            value: "Email"
-        }
-    ]);
-
+    
     const categoryproduct = async (categoryId) => {
         setCatId(categoryId);
         let request = {
@@ -64,15 +46,7 @@ const deviceWidth = Dimensions.get('window').width;
         props.createcategoryproduct(request);
     };
 
-    const DATA = [
-       {
-        text:"Beauty brands",
-        text1:"$75",
-        image:ImageIcons.addstore,
-        
-       },
-
-     ];
+    
     const renderItem = ({ item ,index }) => {
    return(
         <View style={styles.maincartviewlist}>
@@ -88,24 +62,6 @@ const deviceWidth = Dimensions.get('window').width;
     );
 }
 
-const data = [
-       {
-        text:"Fashion",
-       },
-        {
-        text:"Jewelry",
-       },
-        {
-        text:"Fashion",
-       },
-        {
-        text:"Fashion",
-       },
-        {
-        text:"Fashion",
-       },
-
-     ];
 
     const renderItem2 = ({ item ,index }) => {
         return(
@@ -192,17 +148,9 @@ const data = [
                 <Text style={[styles.customerfoottext,{paddingTop:'1%'}]}>Profile</Text>         
             </View>
         </TouchableOpacity>
-
     </View>
-
-     </View>
-                    
+     </View>         
     </View>
-                
-        
     )
 }
-
-
-
 export default Livechannel

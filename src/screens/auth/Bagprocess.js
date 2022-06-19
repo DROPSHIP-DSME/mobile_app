@@ -43,10 +43,7 @@ const Bagprocess = (props) => {
   //Reference
   const deviceWidth = Dimensions.get('window').width;
   const deviceHeight = Dimensions.get('window').height;
-  const emailRef = useRef();
-  const phoneRef = useRef();
-  const bisinessnameRef = useRef();
-  const fullnameRef = useRef();
+  
   const tailwind = useTailwind();
 
   const shopId = props?.route?.params?.shopId;
@@ -59,23 +56,9 @@ const Bagprocess = (props) => {
   const [visiblebag, setVisiblebag] = React.useState(false);
   const [couponcode, setcouponcode] = React.useState(false);
 
-  const [Paypal, onChangePaypal] = React.useState("Paypal");
-  const [Debit, onChangeDebit] = React.useState("Debit Card");
-  const [helppopup, sethelppopup] = React.useState(false);
-  const [reportpopup, setreportpopup] = React.useState(false);
   const [showclassName, setshowclassName] = useState("#B80000");
   const [text1, onChangeText1] = React.useState("");
-  const [wayToContact, setWayToContact] = useState("Phone");
-  const [wayToContactList, setWayToContactList] = useState([
-    {
-      label: "Phone",
-      value: "Phone"
-    },
-    {
-      label: "Email",
-      value: "Email"
-    }
-  ]);
+  
   useEffect(() => {
     props.shopproduct(shopId);
     props.shopsellcount(shopId);
@@ -93,13 +76,6 @@ const Bagprocess = (props) => {
     setVisiblebag(false)
   }
 
-  const ratingCompleted = (ratingdata) => {
-    console.log('rating', ratingdata)
-    if (ratingdata != "" && ratingdata != undefined) {
-      setstarCount(ratingdata)
-    }
-
-  }
   const handleScroll = (pageYOffset) => {
     if (pageYOffset > 0) {
       setshowclassName('#B80000');
@@ -107,62 +83,6 @@ const Bagprocess = (props) => {
       setshowclassName('#B80000');
     }
   }
-
-  const containerStyle = { backgroundColor: 'white', padding: '3%', marginHorizontal: '5%', borderRadius: 10 };
-
-
-  const DATA = [
-    {
-      height: 30,
-      width: 30,
-      image: ImageIcons.twit,
-    },
-    {
-      height: 29.82,
-      width: 30,
-      image: ImageIcons.fb,
-    },
-    {
-      height: 30,
-      width: 30,
-      image: ImageIcons.insta,
-    },
-    {
-      height: 30,
-      width: 30,
-      image: ImageIcons.whatsapp,
-    },
-    {
-      height: 30,
-      width: 30,
-      image: ImageIcons.mail,
-    },
-    {
-      height: 25,
-      width: 25,
-      image: ImageIcons.email,
-    },
-
-
-  ];
-
-  const DATA1 = [
-    {
-      text: "Beauty brands",
-      text1: "$75",
-      image: ImageIcons.winterimage,
-
-    },
-    {
-      text: "Beauty brands",
-      text1: "$75",
-      image: ImageIcons.winterimage,
-
-    },]
-
-
-
-
 
   return (
     <KeyboardAvoidingView

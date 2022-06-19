@@ -27,20 +27,12 @@ const AddStore2 = (props) => {
     } = props;
 
     //Reference
-    const emailRef = useRef();
-    const phoneRef = useRef();
-    const bisinessnameRef = useRef();
-    const fullnameRef = useRef();
-
-    // Local states
-    const [checked, setChecked] = React.useState('first');
     const productId = props?.route?.params?.productId;
     const shopId = props?.route?.params?.shopId;
     const categoryId = props?.route?.params?.categoryId;
 
     const [Suggested, onChangeSuggested] = React.useState("");
     const [Margin, onChangeMargin] = React.useState("");
-    const [Lastname, onChangeLastname] = React.useState("Last name");
     const [originalprice, onChangeoriginalprice] = React.useState("");
     const [Price, onChangePrice] = React.useState(props?.getlistproductdetails?.data?.productPrice);
     const [Profit, onChangeProfit] = React.useState("");
@@ -49,44 +41,11 @@ const AddStore2 = (props) => {
     const [Weight, onChangeWeight] = React.useState(props?.getlistproductdetails?.data?.productWeight);
     const [Inventory, onChangeInventory] = React.useState(props?.getlistproductdetails?.data?.productInventory);
 
-    const [visible, setVisible] = React.useState(false);
-
-    const [Paypal, onChangePaypal] = React.useState("Paypal");
-    const [Debit, onChangeDebit] = React.useState("Debit Card");
-
-    const [wayToContact, setWayToContact] = useState("Phone");
-    const [wayToContactList, setWayToContactList] = useState([
-        {
-            label: "Phone",
-            value: "Phone"
-        },
-        {
-            label: "Email",
-            value: "Email"
-        }
-    ]);
-
     useEffect(() => {
         props.getAllproductdetails(productId);
         //console.log('asdsd',props.getcartlist);
     }, [])
 
-    const openpopup = () => {
-        setVisible(true)
-
-        }
-            const closepopup = () => {
-          setVisible(false)
-        }
-
-         const ratingCompleted = (ratingdata) => {
-            console.log('rating',ratingdata)
-               if(ratingdata!="" && ratingdata!=undefined){
-                setstarCount(ratingdata)  
-               }
-              
-        } 
-       const containerStyle = {backgroundColor: 'white', padding: '5%',marginHorizontal:'5%',alignItems:'center'};
 
     // Vendor request submission
     const handleSendRequestSubmit = async () => {

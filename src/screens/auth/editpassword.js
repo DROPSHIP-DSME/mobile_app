@@ -42,10 +42,6 @@ const editpassword = (props) => {
     const deviceHeight = Dimensions.get('window').height; 
 
     //Reference
-    const emailRef = useRef();
-    const phoneRef = useRef();
-    const bisinessnameRef = useRef();
-    const fullnameRef = useRef();
    
     // Local states
     const [password, onChangeText2] = React.useState("");
@@ -53,20 +49,8 @@ const editpassword = (props) => {
     const [visible, setVisible] = React.useState(false);
     const [text1, onChangeText1] = React.useState("");
     const [helppopup, sethelppopup] = React.useState(false);
-    const [starCount, setstarCount] = useState(5);
-    const [selectedValue, setSelectedValue] = useState("java");
-    const [wayToContact, setWayToContact] = useState("Phone");
     const [showAlert, setshowAlert] = React.useState(false);
-    const [wayToContactList, setWayToContactList] = useState([
-        {
-            label: "Phone",
-            value: "Phone"
-        },
-        {
-            label: "Email",
-            value: "Email"
-        }
-    ]);
+    
     const [showclassName, setshowclassName] = useState("#B80000");
 
 
@@ -99,50 +83,19 @@ const editpassword = (props) => {
         }
     } 
    
-    const ratingCompleted = (ratingdata) => {
-            console.log('rating',ratingdata)
-               if(ratingdata!="" && ratingdata!=undefined){
-                f(ratingdata)  
-               }
-              
-        } 
-   
-    const checklogin =  async () => {
-        if(props?.loginuserstatus=="1"){
-           props.navigation.navigate("AddStore")
-        }else {
-            setshowAlert(true)
-        }  
-    }
 
     const openpopup = () => {
         setVisible(true)
+    }
 
-        }
-
-        const closepopup = () => {
-          setVisible(false)
-        }
+    const closepopup = () => {
+      setVisible(false)
+    }
    
    const containerStyle = {backgroundColor: 'white',padding:15, marginHorizontal:'5%',borderRadius:10};
 
-    const DATA = [
-       {
-        text:"Beauty brands",
-        text1:"$75",
-        image:ImageIcons.addstore,
-        
-       },
-       {
-        text:"Beauty brands",
-        text1:"$75",
-        image:ImageIcons.clothes,
-        
-       },
-       
 
-     ];
-   const renderItem6 = ({ item }) => {
+    const renderItem6 = ({ item }) => {
             return(
                 <View>
                     { item.userId.userName=='Admin' ?
@@ -165,41 +118,7 @@ const editpassword = (props) => {
             );
     }
 
-// //     const renderItem = ({ 
-    
-  
-//    return(
 
-//     <View style={styles.maincartviewshop}>
-//         <TouchableOpacity  onPress={() => {props.navigation.navigate("NameStore",{shopId:item._id, shopName:item.shopName}) }}>
-
-//          <View style={styles.comingViewflatshop}>
-//            <Image source={{uri: item.shopImage}} style={styles.storeimageflat} />
-//            <View>
-//                <View style={{flexDirection:'row',marginTop:'10%',width:160,justifyContent:'center'}}>
-//                     <Text style={[styles.namestoretext,{ textAlign:'center', justifyContent:'center'}]} numberOfLines={1}>{item.shopName}</Text>
-//                     <Image source={ImageIcons.brandicon} style={styles.bagimage} />
-//                 </View>
-//             <Text style={styles.storedropship}>{item.shopName}.dropship.com</Text>
-//            </View>
-           
-//         </View>
-         
-//         </TouchableOpacity>
-        
-//     </View>
-   
-//   );
-// }
-//  <View style={{marginHorizontal:'3%', marginBottom:90}}>
-//            <FlatList
-//                 data={props?.getlistshop || []}
-//                 renderItem={renderItem}
-//                 keyExtractor={item => item.id}
-//                 showsHorizontalScrollIndicator={false}
-//                 numColumns={2}
-//                 />
-//         </View>
 
     return (
         <KeyboardAvoidingView

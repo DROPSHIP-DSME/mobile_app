@@ -35,12 +35,6 @@ const  Editprofiledetail = (props) => {
 
 
     //Reference
-    const emailRef = useRef();
-    const phoneRef = useRef();
-    const bisinessnameRef = useRef();
-    const fullnameRef = useRef();
-
-    // Local states
     const [billImgPath, setBillImgPath] = useState("");
     const [retakeFlag, setRetakeFlag] = useState(false);
     const [fromGallery, setFromGallery] = useState(false);
@@ -53,18 +47,6 @@ const  Editprofiledetail = (props) => {
     const [Location, onChangeLocation] = React.useState("");
     
     
-    const [wayToContact, setWayToContact] = useState("Phone");
-    const [wayToContactList, setWayToContactList] = useState([
-        {
-            label: "Phone",
-            value: "Phone"
-        },
-        {
-            label: "Email",
-            value: "Email"
-        }
-    ]);
-
     const selectPhoto = async () => {
 
         ImagePicker.openPicker({

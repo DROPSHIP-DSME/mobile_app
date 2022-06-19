@@ -44,29 +44,13 @@ const editaddress = (props) => {
      const deviceWidth = Dimensions.get('window').width; 
     const deviceHeight = Dimensions.get('window').height; 
 
-    //Reference
-    const emailRef = useRef();
-    const phoneRef = useRef();
-    const bisinessnameRef = useRef();
-    const fullnameRef = useRef();
+    //Referenc
    
     // Local states
     const [text1, onChangeText1] = React.useState("");
     const [helppopup, sethelppopup] = React.useState(false);
-    const [starCount, setstarCount] = useState(5);
-    const [selectedValue, setSelectedValue] = useState("java");
-    const [wayToContact, setWayToContact] = useState("Phone");
     const [showAlert, setshowAlert] = React.useState(false);
-    const [wayToContactList, setWayToContactList] = useState([
-        {
-            label: "Phone",
-            value: "Phone"
-        },
-        {
-            label: "Email",
-            value: "Email"
-        }
-    ]);
+    
     const [showclassName, setshowclassName] = useState("#B80000");
      const handleScroll=(pageYOffset)=>{
         if (pageYOffset > 0) {
@@ -75,40 +59,7 @@ const editaddress = (props) => {
             setshowclassName('#B80000');
         }
     } 
-   
-    const ratingCompleted = (ratingdata) => {
-            console.log('rating',ratingdata)
-               if(ratingdata!="" && ratingdata!=undefined){
-                f(ratingdata)  
-               }
-              
-        } 
-   
-    const checklogin =  async () => {
-        if(props?.loginuserstatus=="1"){
-           props.navigation.navigate("AddStore")
-        }else {
-            setshowAlert(true)
-        }  
-    }
-   
-
-    const DATA = [
-       {
-        text:"Beauty brands",
-        text1:"$75",
-        image:ImageIcons.addstore,
-        
-       },
-       {
-        text:"Beauty brands",
-        text1:"$75",
-        image:ImageIcons.clothes,
-        
-       },
-       
-
-     ];
+    
 
      const setdeleteaddress = async (id) => {
         props.deleteaddress(id);
