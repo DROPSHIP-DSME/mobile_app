@@ -81,10 +81,6 @@ const NameStore = (props) => {
     setVisible(false)
   }
 
-
-  const closebagpopup = () => {
-    setVisiblebag(false)
-  }
   const setIncrement = async (Incval, cartId) => {
     props.increcartlist(cartId, Incval);
   };
@@ -107,36 +103,7 @@ const NameStore = (props) => {
   const containerStyle = { backgroundColor: 'white', padding: '3%', marginHorizontal: '8%', borderRadius: 10, alignSelf: 'center', justifyContent: 'center' };
 
 
-  const DATA = [
-    {
-      height: 30,
-      width: 30,
-      image: ImageIcons.twit,
-    },
-    {
-      height: 29.82,
-      width: 30,
-      image: ImageIcons.fb,
-    },
-
-
-  ];
-
-  const DATA1 = [
-    {
-      text: "Beauty brands",
-      text1: "$75",
-      image: ImageIcons.winterimage,
-
-    },
-    {
-      text: "Beauty brands",
-      text1: "$75",
-      image: ImageIcons.winterimage,
-
-    },]
-
-
+  
   const renderItem1 = ({ item, index }) => {
     return (
       <View style={tailwind('flex flex-row mt-[5%] mx-[2%] rounded-[10px]')}>
@@ -287,16 +254,6 @@ const NameStore = (props) => {
         */}
 
         <View style={tailwind('flex flex-row mt-[1%]')}>
-          {/*<View style={{ marginHorizontal: '4%', marginVertical: '3%' }}>
-            <Text style={styles.txtsyz}>Size</Text>
-            <View style={{ flexDirection: 'row' }}>
-              <View style={{ height: 40, width: 40, backgroundColor: '#e6e6e6', borderRadius: 4, padding: 9, }}>
-                <Text style={{ textAlign: 'center', color: '#4d4d4d', fontSize: 16, fontFamily: 'hinted-AvertaStd-Semibold' }}>{props?.getlistproductdetails?.data?.productSize}</Text>
-              </View>
-
-            </View>
-      </View>*/}
-
           <View style={tailwind('flex flex-row mt-[1%]')}>
             <Text style={tailwind('text-lg font-bold')}>Quantity</Text>
 
@@ -313,164 +270,7 @@ const NameStore = (props) => {
             <Image source={ImageIcons.iconheart} style={tailwind('w-[49px] h-[41px]')} />
           </View>
         </View>
-        {/*<View style={{marginTop:"4%",marginHorizontal:"4%"}}>
-  <Text style={styles.clothpop}>Customer Reviews (0)</Text>
-  </View>
-  <View style={{flexDirection:'row',marginTop:"5%"}}>
-  <Rating
-  type='custom'
-  imageSize={18}
-  ratingCount={5}
-  ratingColor='#EB5757'
-  tintColor='#FFE7E7'
-  value={starCount}
-  onFinishRating={(start) => ratingCompleted(start)}
-  style={{ marginLeft:'3%',marginTop:"1%"}}
-  />
-  <Text style={[styles.TEXT,{fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",fontSize:18}]}>Avg. Rating 4.5</Text>
-  </View>
-  <View style={{flexDirection:'row',marginTop:"5%"}}>
-  <Rating
-  type='custom'
-  imageSize={18}
-  ratingCount={5}
-  ratingColor='#EB5757'
-  tintColor='#FFE7E7'
-  value={starCount}
-  onFinishRating={(start) => ratingCompleted(start)}
-  style={{ marginLeft:'3%',marginTop:"1%"}}
-  />
-  <View style={{marginLeft:"2%",backgroundColor:"#B3B3B3",borderRadius:5,height:21}}>
-  <Progress.Bar progress={0.84} width={200} height={20} color={"#B80000"} />
-  </View>
-  <Text style={[styles.TEXT,{fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",fontSize:18}]}>84%</Text>
-  </View>
-  <View style={{flexDirection:'row',marginTop:"5%"}}>
-  <Rating
-  type='custom'
-  imageSize={18}
-  ratingCount={5}
-  ratingColor='#EB5757'
-  tintColor='#FFE7E7'
-  value={starCount}
-  onFinishRating={(start) => ratingCompleted(start)}
-  style={{ marginLeft:'3%',marginTop:"1%"}}
-  />
-  <View style={{marginLeft:"2%",backgroundColor:"#B3B3B3",borderRadius:5,height:21}}>
-  <Progress.Bar progress={0.10} width={200} height={20} color={"#B80000"} />
-  </View>
-  <Text style={[styles.TEXT,{fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",fontSize:18}]}>10%</Text>
-  </View>
-  <View style={{flexDirection:'row',marginTop:"5%"}}>
-  <Rating
-  type='custom'
-  imageSize={18}
-  ratingCount={5}
-  ratingColor='#EB5757'
-  tintColor='#FFE7E7'
-  value={starCount}
-  onFinishRating={(start) => ratingCompleted(start)}
-  style={{ marginLeft:'3%',marginTop:"1%"}}
-  />
-  <View style={{marginLeft:"2%",backgroundColor:"#B3B3B3",borderRadius:5,height:21}}>
-  <Progress.Bar progress={0.03} width={200} height={20} color={"#B80000"} />
-  </View>
-  <Text style={[styles.TEXT,{fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",fontSize:18}]}>3%</Text>
-  </View>
-  <View style={{flexDirection:'row',marginTop:"5%"}}>
-  <Rating
-  type='custom'
-  imageSize={18}
-  ratingCount={5}
-  ratingColor='#EB5757'
-  tintColor='#FFE7E7'
-  value={starCount}
-  onFinishRating={(start) => ratingCompleted(start)}
-  style={{ marginLeft:'3%',marginTop:"1%"}}
-  />
-  <View style={{marginLeft:"2%",backgroundColor:"#B3B3B3",borderRadius:5,height:21}}>
-  <Progress.Bar progress={0.01} width={200} height={20} borderWidth={1} color={"#B80000"} />
-  </View>
-  <Text style={[styles.TEXT,{fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",fontSize:18}]}>1%</Text>
-  </View>
-  <View style={{flexDirection:'row',marginTop:"5%"}}>
-  <Rating
-  type='custom'
-  imageSize={18}
-  ratingCount={5}
-  ratingColor='#EB5757'
-  tintColor='#FFE7E7'
-  value={starCount}
-  onFinishRating={(start) => ratingCompleted(start)}
-  style={{ marginLeft:'3%',marginTop:"1%"}}
-  />
-  <View style={{marginLeft:"2%",backgroundColor:"#B3B3B3",borderRadius:5,height:21}}>
-  <Progress.Bar progress={0.01} width={200} height={20} color={"#B80000"} />
-  </View>
-  <Text style={[styles.TEXT,{fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",fontSize:18}]}>1%</Text>
-  </View>
-  <View style={{flexDirection:"row",marginHorizontal:"3%",marginTop:"5%"}}>
-  <View style={{backgroundColor:'#E6E6E6',borderRadius:10,height:40}}>
-  <Picker
-  selectedValue={selectedValue}
-  style={{ height: 35, width: 140 }}
-  onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-  >
-  <Picker.Item label="View" value="Sort" />
-  <Picker.Item label="JavaScript" value="js" />
-  </Picker>
-  </View>
-
-  <View style={{backgroundColor:'#E6E6E6',borderRadius:10,height:40,marginLeft:"4%"}}>
-  <Picker
-  selectedValue={selectedValue}
-  style={{ height: 35, width: 140 }}
-  onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-  >
-  <Picker.Item label="Sort" value="Sort" />
-  <Picker.Item label="JavaScript" value="js" />
-  </Picker>
-  </View>
-  </View>
-
-  <View style={{flexDirection:'row',marginTop:"5%",}}>
-  <Text style={[styles.TEXT,{fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",fontSize:18,marginLeft:'4%'}]}>Alex Davis</Text>
-  <Rating
-  type='custom'
-  imageSize={18}
-  ratingCount={5}
-  ratingColor='#EB5757'
-  tintColor='#FFE7E7'
-  value={starCount}
-  onFinishRating={(start) => ratingCompleted(start)}
-  style={{ marginLeft:'3%',marginTop:"1%"}}
-  />
-
-  </View>
-  <View style={{marginHorizontal:"4%"}}>
-  <Text style={{fontSize:16,color:"#1A1A1A",fontFamily:"hinted-AvertaStd-Regular,lineHeight:20"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget bibendum ultrices non malesuada mattis. Id suscipit enim in pretium nunc viverra. Scelerisque est id mauris semper quis. At tincidunt bibendum enim justo nisi. Fames eget massa elit, arcu consectetur 
-  venenatis ac pretium. Quis nunc nulla quis sit mattis id. Donec risus amet donec enim.</Text>
-  <Text style={{fontFamily:"hinted-AvertaStd-Regular",fontSize:16,color:"#808080"}}>05 Jan ‘22</Text>
-  </View>
-  <View style={{marginHorizontal:"4%",marginTop:"3%",flexDirection:"row"}}>
-  <Image source={ImageIcons.likethumb} style={{width:16,height:15}}/>
-  <Text style={[styles.TEXT,{fontWeight:"bold",fontFamily:"hinted-AvertaStd-Bold",fontSize:14}]}>0 users </Text><Text style={{fontSize:14,color:"#1A1A1A",fontFamily:"hinted-AvertaStd-Regular,lineHeight:20"}}>found this helpful</Text>
-  <TouchableOpacity onPress={() => setreportpopup(true)} style={{backgroundColor:"#E6E6E6",marginLeft:"1%",width:deviceWidth/3,height:25,paddingTop:"1%",borderRadius:5}}>
-  <Text style={{textAlign:"center", color:"#4D4D4D",fontSize:12,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular"}}>REPORT COMMENT</Text></TouchableOpacity>
-  </View>*/}
-        {/*<View style={{ marginTop: "6%", marginHorizontal: "4%" }}>
-          <Text style={styles.clothpop}>More Products from this Store</Text>
-        </View>
-
-        <View style={{ marginHorizontal: '3%', marginBottom: 90 }}>
-          <FlatList
-            data={DATA1}
-            renderItem={renderItem1}
-            keyExtractor={item => item.id}
-            showsHorizontalScrollIndicator={false}
-            numColumns={2}
-          />
-        </View>*/}
+        
         {openpopup &&
           <Provider>
             <Portal>
@@ -497,10 +297,7 @@ const NameStore = (props) => {
 
 
                     <View style={tailwind('flex flex-row')}>
-                      {/*<View>
-                        <Text style={{ fontSize: 16, fontWeight: 'bold', marginVertical: '1%', fontFamily: 'hinted-AvertaStd-Regular', color: '#1A1A1A' }}>Color:</Text>
-                      </View>
-                      <View style={{ height: 20, width: 20, borderRadius: 10, backgroundColor: '#b3b3b3', marginLeft: "1%" }}></View>*/}
+                     
                       <Text style={tailwind('text-base font-bold text-[#1A1A1A]')}>Size : S</Text>
                     </View>
 
@@ -672,7 +469,4 @@ const NameStore = (props) => {
     </KeyboardAvoidingView>
   )
 }
-
-
-
 export default NameStore

@@ -30,26 +30,6 @@ const Newprofile = (props) => {
         props.getprofileuser(props?.loginuserid); 
         
     }, [])
-
-    //Reference
-    const emailRef = useRef();
-    const phoneRef = useRef();
-    const bisinessnameRef = useRef();
-    const fullnameRef = useRef();
-
-    // Local states
-    const [wayToContact, setWayToContact] = useState("Phone");
-    const [wayToContactList, setWayToContactList] = useState([
-        {
-            label: "Phone",
-            value: "Phone"
-        },
-        {
-            label: "Email",
-            value: "Email"
-        }
-    ]);
-
     
 
     return (
@@ -122,6 +102,4 @@ const Newprofile = (props) => {
     </View>
     )
 }
-
-
 export default Newprofile

@@ -25,67 +25,34 @@ const Neworder = (props) => {
     } = props;
 
     //Reference
-    const emailRef = useRef();
-    const phoneRef = useRef();
-    const bisinessnameRef = useRef();
-    const fullnameRef = useRef();
-
-    // Local states
-    const [wayToContact, setWayToContact] = useState("Phone");
-    const [wayToContactList, setWayToContactList] = useState([
-        {
-            label: "Phone",
-            value: "Phone"
-        },
-        {
-            label: "Email",
-            value: "Email"
-        }
-    ]);
 
      useEffect(() => {
         props.getincomingtlist(props?.loginuserid);
         //console.log('props?.getchatsupportlist1',props.getchatsupportlist1)
     }, [])
 
-     const [orderdata,setorderdata]=useState([
-        {name:"Kenitled",cloths:"winter cloths",orderby:"koyajosya"},
-          {name:"Kenitled",cloths:"winter cloths",orderby:"koyajosya"},{name:"Kenitled",cloths:"winter cloths",orderby:"koyajosya"},
-         {name:"Kenitled",cloths:"winter cloths",orderby:"koyajosya"},
-          {name:"Kenitled",cloths:"winter cloths",orderby:"koyajosya"},{name:"Kenitled",cloths:"winter cloths",orderby:"koyajosya"},
-           {name:"Kenitled",cloths:"winter cloths",orderby:"koyajosya"},
-          {name:"Kenitled",cloths:"winter cloths",orderby:"koyajosya"},{name:"Kenitled",cloths:"winter cloths",orderby:"koyajosya"},
-           {name:"Kenitled",cloths:"winter cloths",orderby:"koyajosya"},
-          {name:"Kenitled",cloths:"winter cloths",orderby:"koyajosya"},{name:"Kenitled",cloths:"winter cloths",orderby:"koyajosya"},
-
-          ]);
-
-
     
-
-     const renderItem = ({ item,index }) => {
-   return(
-    <View>
-           
-           <View>     
-                <View style={styles.over15}>
-                  <Image source={{uri: item.productId.productImage}}  style={styles.over16} />
-                  <View style={{width:'40%',marginLeft:'2%'}}> 
-                        <Text style={styles.over29}>{item.productId.productName}</Text>
-                        <Text style={styles.over29}>${item.productId.productPrice}</Text>
-                   </View> 
-                    <View style={{flexDirection:'row',marginHorizontal:'0%'}}> 
-                       <Text style={styles.over30}>{item.loggedInUserId.userName}</Text>
-                       <TouchableOpacity onPress={() => {props.navigation.navigate("Order",{orderNumber:item.orderNumber}) }}>
-                              <Image source={ImageIcons.arroricon}  style={styles.over31} />
-                       </TouchableOpacity>      
-                    </View>      
+    const renderItem = ({ item,index }) => {
+        return(
+            <View>
+                <View>     
+                    <View style={styles.over15}>
+                      <Image source={{uri: item.productId.productImage}}  style={styles.over16} />
+                      <View style={{width:'40%',marginLeft:'2%'}}> 
+                            <Text style={styles.over29}>{item.productId.productName}</Text>
+                            <Text style={styles.over29}>${item.productId.productPrice}</Text>
+                       </View> 
+                        <View style={{flexDirection:'row',marginHorizontal:'0%'}}> 
+                           <Text style={styles.over30}>{item.loggedInUserId.userName}</Text>
+                           <TouchableOpacity onPress={() => {props.navigation.navigate("Order",{orderNumber:item.orderNumber}) }}>
+                                  <Image source={ImageIcons.arroricon}  style={styles.over31} />
+                           </TouchableOpacity>      
+                        </View>      
+                    </View>
+                    <View style={styles.over21} ></View>
                 </View>
-              <View style={styles.over21} ></View>
             </View>
-          
-            </View>
-    );
+        );
     }
 
     return (
@@ -162,12 +129,8 @@ const Neworder = (props) => {
 
         </View>
 
-   </View>
-  
+        </View>
         </KeyboardAvoidingView>
-
-                
-        
     )
 }
 
