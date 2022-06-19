@@ -41,7 +41,6 @@ const Login = (props) => {
     //Reference
     const tailwind = useTailwind();
 
-
     // Local states
     const Reactdim = require('react-native');
     const { Dimensions } = Reactdim;
