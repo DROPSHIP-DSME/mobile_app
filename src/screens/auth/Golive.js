@@ -1,7 +1,7 @@
 import React, { useEffect,useRef, useState } from 'react';
 import { Text, View,TextInput,
  ImageBackground,Image,
-  ScrollView,TouchableOpacity,
+  ScrollView,TouchableOpacity, 
  Alert,  StatusBar,
   KeyboardAvoidingView,
    Platform,Keyboard,NativeModules,Picker} from 'react-native';
@@ -20,14 +20,13 @@ import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import AsyncStorage from '@react-native-community/async-storage';
 import { v4 as uuid } from "uuid";
-import 'react-native-get-random-values';
-import {useTailwind} from 'tailwind-rn';
 import {
   GoogleSignin,
   GoogleSigninButton,
   statusCodes,
 } from '@react-native-google-signin/google-signin';
 import ModalSelector from 'react-native-modal-selector'
+
 
 
 const Golive = (props) => {
@@ -41,7 +40,7 @@ const Golive = (props) => {
 
     //Reference
     const tailwind = useTailwind();
-    
+ 
 
     // Local states
     const [City, onChangeCity] = React.useState("");
@@ -49,7 +48,6 @@ const Golive = (props) => {
 
     useEffect(() => {
         props.countrylist();
-         //props.logoutreducerfun(uuid());
          //AsyncStorage.setItem('UserId',uuid());
          //AsyncStorage.setItem('userLogin',"0");
          //GoogleSignin.configure();
@@ -64,20 +62,20 @@ const Golive = (props) => {
                   googleServicePlistPath: '', // [iOS] if you renamed your GoogleService-Info file, new name here, e.g. GoogleService-Info-Staging
                   openIdRealm: '', // [iOS] The OpenID2 realm of the home web server. This allows Google to include the user's OpenID Identifier in the OpenID Connect ID token.
                   profileImageSize: 120, // [iOS] The desired height (and width) of the profile image. Defaults to 120px
-                });
+                }); 
     }, [])
 
     const googlesignin = async () => {
-        try {
-
+        try {    
+        
           await GoogleSignin.hasPlayServices();
           var userInfo = await GoogleSignin.signIn();
-          console.log('userInfo:',userInfo)
+          console.log('userInfo:',userInfo) 
           props.navigation.navigate('watchlist')
         } catch (error) {
             //alert('Dropship has not updated on stores yet, please upload app on stores to proceed')
             //props.navigation.navigate('watchlist')
-            console.log('google sign error:', error)
+            console.log('google sign error:', error) 
         }
     }
 
@@ -89,37 +87,38 @@ const Golive = (props) => {
             style={styles.registrationRoot}>
              <StatusBar backgroundColor={'#ffffff00'} barStyle="dark-content" translucent={true} />
         <View style={{backgroundColor:'#ffffff',flex:1}}>
-
+          
           <View style={{alignItems:'center',marginTop:'18%'}}>
               <Image source={ImageIcons.logored_1} style={styles.setlogonewdatarow}  />
           </View>
-        <View style={tailwind('mt-12 items-center')}>
+        <View style={{alignItems:'center',marginTop:'19%'}}>
             <TouchableOpacity
-                style={tailwind('items-center w-10/12 py-4 border border-solid border-slate-300 font-medium rounded-full text-white bg-white')}
+                style={styles.Touchablestarttextnew}
                 activeOpacity = { .5}
                 onPress={() => navigation.navigate('watchlist')}>
-                <View style={{flexDirection:'row',  justifyContent:'center'}}>
+                <View style={{flexDirection:'row',  justifyContent:'center',padding:10}}>
                     <Image source={ImageIcons.googleicon} style={{ width:25,height:23,}} />
-                    <Text style={tailwind('text-base font-bold ml-2 text-black')}>Sign in with Google</Text>
+                    <Text style={[styles.startbutton1,{fontSize:18,marginLeft:20,color:'#000000'}]}>Sign in with Google</Text>
                 </View>
             </TouchableOpacity>
-        </View>
-        <View style={tailwind('mt-5 items-center')}>
+        </View> 
+        <View style={{alignItems:'center',marginTop:'4%'}}>
             <TouchableOpacity
-                style={tailwind('items-center w-10/12 py-4 border border-solid border-slate-300 font-medium rounded-full text-white bg-white')}
+                style={styles.Touchablestarttextnew}
                 activeOpacity = { .5}
                 onPress={() => bigcommercelogin()}>
-                <View style={{flexDirection:'row',  justifyContent:'center'}}>
+                <View style={{flexDirection:'row',  justifyContent:'center',padding:10}}>
                     <Image source={ImageIcons.facebook} style={{ width:14,height:24,}} />
-                    <Text style={tailwind('text-base font-bold ml-3 text-black')}>Sign in with Facebook</Text>
+                    <Text style={[styles.startbutton1,{fontSize:18,marginLeft:20,color:'#000000'}]}>Sign in with Facebook</Text>
                 </View>
             </TouchableOpacity>
-        </View>
+        </View> 
         <View style={[styles.devider1, { marginTop: '10%' }]}>
             <View style={styles.devider2} />
             <Text style={styles.devider3}>OR</Text>
             <View style={styles.devider2} />
         </View>
+        
 
             <Largebutton
               text="Sign in with Email"
@@ -128,19 +127,15 @@ const Golive = (props) => {
 
             <View style={styles.twotextviewcreatetop}>
                 <Text style={tailwind('text-sm font-medium text-slate-800')}>Don’t have an account yet?</Text>
+
                 <TouchableOpacity onPress={() => props.navigation.navigate("CreateAccountShop")}>
-                    <Text style={tailwind('text-sm font-medium text-red-700 ml-1')}> Sign up here.</Text>
+                    <Text style={styles.customertextred}> Sign up here.</Text>
                 </TouchableOpacity>
-            </View>
-
-
-
+            </View> 
 
         </View>
+
          </KeyboardAvoidingView>
     )
 }
-
-
-
 export default Golive

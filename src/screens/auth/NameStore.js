@@ -19,6 +19,7 @@ import { Rating, AirbnbRating } from 'react-native-ratings';
 import Footer3 from '../../screens/auth/Footer3';
 import Shopheader from '../../screens/auth/Shopheader';
 import { useTailwind } from 'tailwind-rn';
+import Moment from 'moment';
 
 import * as Progress from 'react-native-progress';
 import RnIncrementDecrementBtn from
@@ -46,18 +47,21 @@ const NameStore = (props) => {
 
   // Local states
   const [checked, setChecked] = React.useState('first');
+  const [selectedValue, setSelectedValue] = useState("java");
   const [visible, setVisible] = React.useState(false);
-  const [starCount, setstarCount] = useState(3);
+  const [starCount, setstarCount] = useState(0);
   const [visiblebag, setVisiblebag] = React.useState(false);
   const [showclassName, setshowclassName] = useState("#B80000");
   const [helppopup, sethelppopup] = React.useState(false);
   const [reportpopup, setreportpopup] = React.useState(false);
   const [text1, onChangeText1] = React.useState("");
-  
+
   useEffect(() => {
     props.getAllproductdetails(productId);
     props.shopproduct(shopId);
     props.shopsellcount(shopId);
+    props.getpostrating(productId);
+    console.log("listrating--->>>", props?.retingreviewlist)
   }, [])
 
   const cartdataSubmit = async (productId, productQuantity) => {
@@ -73,6 +77,19 @@ const NameStore = (props) => {
     props.cartadd(request, props.navigation, "vendor");
   }
 
+  const handleReviewsubmit = async () => {
+
+    let request = {
+      "productId": productId,
+      "userId": props?.loginuserid,
+      "ratingcount": starCount,
+      "description": review,
+    }
+
+    props.postrating(request, props.navigation, "vendor");
+    props.getpostrating(productId);
+  }
+
   const openpopup = () => {
     setVisible(true)
 
@@ -81,6 +98,18 @@ const NameStore = (props) => {
     setVisible(false)
   }
 
+  const reportopenpopup = () => {
+    setreportpopup(true)
+
+  }
+  const reportclosepopup = () => {
+    setreportpopup(false)
+  }
+
+
+  const closebagpopup = () => {
+    setVisiblebag(false)
+  }
   const setIncrement = async (Incval, cartId) => {
     props.increcartlist(cartId, Incval);
   };
@@ -102,9 +131,55 @@ const NameStore = (props) => {
 
   const containerStyle = { backgroundColor: 'white', padding: '3%', marginHorizontal: '8%', borderRadius: 10, alignSelf: 'center', justifyContent: 'center' };
 
+  const containerStylereport = { backgroundColor: 'white', padding: '3%', marginHorizontal: '5%', borderRadius: 10, alignSelf: 'center', justifyContent: 'center'}
+
+  const DATA = [
+    {
+      height: 30,
+      width: 30,
+      image: ImageIcons.twit,
+    },
+    {
+      height: 29.82,
+      width: 30,
+      image: ImageIcons.fb,
+    },
+
+
+  ];
+
+  const ratingdata = [
+    {
+      name: "Alex Davis",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget bibendum ultrices non malesuada mattis. Id suscipit enim in pretium nunc viverra. Scelerisque est id mauris semper quis.",
+      date: "05 jan 22",
+
+    },
+    {
+      name: "Alex Davis",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget bibendum ultrices non malesuada mattis. Id suscipit enim in pretium nunc viverra. Scelerisque est id mauris semper quis.",
+      date: "05 jan 22",
+
+    },]
+
+  const DATA1 = [
+    {
+      text: "Beauty brands",
+      text1: "$75",
+      image: ImageIcons.winterimage,
+
+    },
+    {
+      text: "Beauty brands",
+      text1: "$75",
+      image: ImageIcons.winterimage,
+
+    },]
+
 
   
   const renderItem1 = ({ item, index }) => {
+
     return (
       <View style={tailwind('flex flex-row mt-[5%] mx-[2%] rounded-[10px]')}>
         <TouchableOpacity onPress={() => { props.navigation.navigate("NameStore", { shopId: item._id, shopName: item.shopName }) }}>
@@ -123,7 +198,8 @@ const NameStore = (props) => {
                   imageSize={15}
                   ratingCount={5}
                   ratingColor='#EB5757'
-                  tintColor='#FFE7E7'
+                  tintColor='#FFFFFF'
+                  ratingBackgroundColor='#c8c7c8'
                   value={starCount}
                   onFinishRating={(start) => ratingCompleted(start)}
                   style={tailwind('ml-[2%]')}
@@ -137,18 +213,12 @@ const NameStore = (props) => {
               <Image source={ImageIcons.iconheart} style={tailwind('w-[30px] h-[30px] mt-[5px]')} />
             </View>
           </View>
-
-
-
-
-
         </TouchableOpacity>
       </View>
     );
   }
 
   const renderItem = ({ item }) => {
-
     return (
       <View style={tailwind('flex flex-row justify-between mt-[5%] mx-[2%] bg-[#f9f9f9] rounded-[10px]')}>
         <TouchableOpacity onPress={() => { props.navigation.navigate("ProductDetails2", { productId: item._id, shopId: shopId, userType: 'shopside' }) }}>
@@ -241,17 +311,16 @@ const NameStore = (props) => {
         </View>
 
 
-        {/*<View style={{ flexDirection: 'row', marginHorizontal: '4%', marginTop: '4%' }}>
+        <View style={{ flexDirection: 'row', marginHorizontal: '4%', marginTop: '4%' }}>
           <Text style={styles.txtsyz}>Color :</Text>
           <Text style={{ fontSize: 18, fontFamily: 'hinted-AvertaStd-Regular', marginLeft: 5 }}>{props?.getlistproductdetails?.data?.productColor}</Text>
         </View>
 
         <View style={{ flexDirection: 'row', marginHorizontal: '4%', marginVertical: '2%' }}>
-          <View style={{ height: 20, width: 20, borderRadius: 10, backgroundColor: '#b3b3b3' }}></View>
-          <View style={{ height: 20, width: 20, borderRadius: 10, backgroundColor: '#363e4d', marginLeft: '4%' }}></View>
-          <View style={{ height: 20, width: 20, borderRadius: 10, backgroundColor: '#40b7c8', marginLeft: '4%' }}></View>
+          <View style={{ height: 20, width: 20, borderRadius: 10, backgroundColor: `${props?.getlistproductdetails?.data?.productColor}` }}></View>
+
         </View>
-        */}
+
 
         <View style={tailwind('flex flex-row mt-[1%]')}>
           <View style={tailwind('flex flex-row mt-[1%]')}>
@@ -269,8 +338,7 @@ const NameStore = (props) => {
           <View style={tailwind('ml-[2%] mt-[4%]')}>
             <Image source={ImageIcons.iconheart} style={tailwind('w-[49px] h-[41px]')} />
           </View>
-        </View>
-        
+        </View>        
         {openpopup &&
           <Provider>
             <Portal>
@@ -294,7 +362,11 @@ const NameStore = (props) => {
                     <View>
                       <Text style={tailwind('text-lg font-bold text-[#1A1A1A]')}>${props?.getlistproductdetails?.data?.productPrice}</Text>
                     </View>
+                  </View>
 
+                  <View>
+                    <Text style={{ fontSize: 18, fontWeight: 'bold', fontFamily: 'hinted-AvertaStd-Regular', color: '#1A1A1A' }}>${props?.getlistproductdetails?.data?.productPrice}</Text>
+                  </View>
 
                     <View style={tailwind('flex flex-row')}>
                      
@@ -320,10 +392,9 @@ const NameStore = (props) => {
                         <Text style={{ color: "#1A1A1A", fontSize: 16, fontFamily: 'hinted-AvertaStd-Regular' }}>Total:</Text>
                         <Text style={{ color: "#1A1A1A", fontSize: 16, fontFamily: 'hinted-AvertaStd-Bold' }}>$52.50</Text>
                       </View>*/}
-                    </View>
                   </View>
                 </View>
-
+              </View>
                 <View style={tailwind('border-b mt-[3%] border-[#B3B3B3]')}></View>
 
                 <View style={tailwind('flex flex-row justify-end')}>
@@ -340,7 +411,7 @@ const NameStore = (props) => {
         }
 
 
-      </ScrollView>
+
       {visiblebag == true &&
         <View style={{ flex: 1, backgroundColor: '#ffffff', paddingVertical: 10, borderRadius: 10, zIndex: 4001, position: 'absolute', bottom: '40%', margin: "10%" }}>
 
@@ -359,7 +430,7 @@ const NameStore = (props) => {
         </View>
       }
       {helppopup == true &&
-        <View style={{ flex: 1, backgroundColor: '#ffffff', width: deviceWidth / 1.5, paddingVertical: 10, borderRadius: 10, zIndex: 4001, position: 'absolute', bottom: '40%', margin: "20%" }}>
+        <View style={{ flex: 1, backgroundColor: '#ffffff', width: deviceWidth / 1.4, paddingVertical: 10, borderRadius: 10, zIndex: 4001, position: 'absolute', bottom: '40%', margin: "20%", shadowColor: '#000', elevation: 5 }}>
 
 
           <View style={tailwind('flex flex-row mt-[8%] mb-[5%] self-center')}>
@@ -391,14 +462,15 @@ const NameStore = (props) => {
             <TouchableOpacity onPress={() => linkedInLogin.current.open()}>
               <View style={tailwind('border border-[#e6e6e6] p-[10px] rounded-[50px]')}>
                 <Image source={ImageIcons.linkin} style={tailwind('w-[15px] h-[15px]')} />
+
               </View>
             </TouchableOpacity>
+            
           </View>
 
 
         </View>
       }
-
       {reportpopup == true &&
         <View style={{ backgroundColor: '#ffffff', width: '90%', alignSelf: 'center', paddingVertical: 10, borderRadius: 10, position: 'absolute', marginTop: "8%", marginRight: "2%", elevation: 1, }}>
 
@@ -448,24 +520,44 @@ const NameStore = (props) => {
           </View>
 
 
-          <View style={{ margin: '3%' }}>
-            <TextInput style={{ backgroundColor: '#E6E6E6', borderRadius: 10, paddingLeft: '5%', fontSize: 18, lineHeight: 23, letterSpacing: -0.125172, width: '100%', height: 100, color: '#878787', fontWeight: 'normal', fontStyle: 'normal', fontFamily: 'hinted-AvertaStd-Regular' }}
-              placeholder="Add more details about your reason (optional)"
-              onChangeText={onChangeText1}
-              value={text1}
-              placeholderTextColor="#999999"
-            />
-          </View>
-          <TouchableOpacity style={{ width: deviceWidth / 1.3, backgroundColor: "#B80000", borderRadius: 30, marginTop: "3%", height: 38, width: 300, marginHorizontal: "3%" }}>
-            <Text style={{ textAlign: 'center', color: "#FFFFFF", fontWeight: 'bold', fontSize: 18, top: 8 }}>REPORT COMMENT</Text>
-          </TouchableOpacity>
+                <View style={styles.shop_reportmodal_radiobutton}>
+                  <RadioButton
+                    value="second"
+                    status={checked === 'second' ? 'checked' : 'unchecked'}
+                    onPress={() => setChecked('second')}
+                  />
+                  <Text style={styles.shop_reportmodal_radiobutton_text2}>This comment is spam.</Text>
+                </View>
 
+                <View style={styles.shop_reportmodal_radiobutton}>
+                  <RadioButton
+                    value="third"
+                    status={checked === 'third' ? 'checked' : 'unchecked'}
+                    onPress={() => setChecked('third')}
+                  />
+                  <Text style={styles.shop_reportmodal_radiobutton_text2}>I don’t have a specific reason.</Text>
+                </View>
 
-        </View>
+              </View>
+              <View style={{ margin: '1%' }}>
+                <TextInput style={styles.shop_reportmodal_radiobutton_textinput}
+                  placeholder="Add more details about your reason (optional)"
+                  onChangeText={onChangeText1}
+                  value={text1}
+                  placeholderTextColor="#999999"
+                  multiline
+                  numberOfLines={7}
+                />
+              </View>
+              <TouchableOpacity style={{ width: deviceWidth / 1.3, backgroundColor: "#B80000", borderRadius: 30, marginVertical: "5%", height: 40,justifyContent:'center', marginHorizontal: "1%" }}>
+                <Text style={{ textAlign: 'center', color: "#FFFFFF", fontWeight: '700', fontSize: 16, }}>REPORT COMMENT</Text>
+              </TouchableOpacity>
+
+            </Modal>
+          </Portal>
+        </Provider>
       }
-
       <Footer3 onSelection="4" />
-
     </KeyboardAvoidingView>
   )
 }
