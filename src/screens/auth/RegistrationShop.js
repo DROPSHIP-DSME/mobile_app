@@ -173,7 +173,7 @@ const RegistrationShop = (props) => {
         <View style={{ backgroundColor: '#ffffff', flex: 1 }}>
 
 
-              <View style={{alignItems:'center',marginTop:'18%'}}>
+              <View style={tailwind('items-center mt-[18%]')}>
                   <Image source={ImageIcons.logored_1} style={styles.setlogonewdatarow}  />
               </View>
             <View>
@@ -182,11 +182,11 @@ const RegistrationShop = (props) => {
             <View>
 
 
-                <View >
-                    <TextInput style={styles.input1}
+                <View style={tailwind('mx-1 my-3 flex rounded-md items-center')}>
+                    <TextInput style={tailwind('w-11/12 rounded-lg sm:text-sm bg-zinc-200 border-gray-300 pl-3')}
                         placeholder="Email address"
                         autoCompleteType='email'
-                        placeholderTextColor="#999999"
+                        placeholderTextColor="#000000"
                         onChangeText={onChangeText1}
                         value={email}
                         onSubmitEditing={() => handleRegistrationSubmit()}
@@ -196,10 +196,11 @@ const RegistrationShop = (props) => {
                     }
                 </View>
 
-                <View >
+                <View style={tailwind('mx-1 mt-3 mb-1 flex rounded-md items-center')} >
                     <PasswordInputText
-                        style={styles.input2}
-                        placeholderTextColor="#999999"
+                        style={tailwind('w-11/12 rounded-lg sm:text-sm bg-zinc-200 border-gray-300 pl-3')}
+                        placeholder="Password"
+                        placeholderTextColor="#000000"
                         onChangeText={onChangeText2}
                         value={password}
                         secureTextEntry={true}
@@ -211,34 +212,33 @@ const RegistrationShop = (props) => {
                 </View>
                 <View style={tailwind('mt-3 flex flex-row ml-3 mb-4')}>
                     <CheckBox
-                        checkedColor='red'
-                        value={true}
+                        onCheckColor='#b80000'
+                        value={false}         
                     />
-                    <Text style={tailwind('mt-1')}>Remember me</Text>
+                    <Text style={tailwind('mt-1 text-base')}>Remember me</Text>
                 </View>
 
             </View>
 
             <Largebutton
-              text="LOGIN"
+              text="Login"
               onPress={() => handleRegistrationSubmit()}
             />
 
             <Loader isVisible={props?.loginLoader} />
 
-            <View style={styles.twotextviewcreatetop}>
-                <Text style={styles.customertext}>Forgot your password?</Text>
+            <View style={tailwind('flex flex-row justify-center mt-6')}>
+                <Text style={tailwind('text-base text-gray-600 items-center tracking-wide')}>Forgot your password?</Text>
                 <TouchableOpacity onPress={() => props.navigation.navigate("ForgetPassword")}>
-                    <Text style={styles.customertextred}> Click here.</Text>
+                    <Text style={tailwind('text-base text-blue-500 items-center tracking-wide')}> Click here.</Text>
                 </TouchableOpacity>
             </View>
 
 
-
             <View style={styles.twotextviewcreatetop}>
-                <Text style={styles.customertext}>Don’t have an account yet?</Text>
+                <Text style={tailwind('text-base text-gray-600 items-center tracking-wide')}>Don’t have an account yet?</Text>
                 <TouchableOpacity onPress={() => props.navigation.navigate("CreateAccountShop")}>
-                    <Text style={styles.customertextred}> Sign up here.</Text>
+                    <Text style={tailwind('text-base text-blue-500 items-center tracking-wide')}> Sign up here.</Text>
                 </TouchableOpacity>
             </View>
             <InstagramLogin

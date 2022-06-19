@@ -14,6 +14,18 @@
   position: relative
 }
 
+.bottom-7 {
+  bottom: 1.75rem
+}
+
+.-z-\[10\] {
+  z-index: -10
+}
+
+.z-\[5001\] {
+  z-index: 5001
+}
+
 .m-\[3\%\] {
   margin: 3%
 }
@@ -77,6 +89,11 @@
 .my-3 {
   margin-top: 0.75rem;
   margin-bottom: 0.75rem
+}
+
+.mx-1 {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem
 }
 
 .my-1 {
@@ -179,8 +196,12 @@
   margin-top: 3rem
 }
 
-.mt-6 {
-  margin-top: 1.5rem
+.mt-14 {
+  margin-top: 3.5rem
+}
+
+.mb-8 {
+  margin-bottom: 2rem
 }
 
 .mt-\[5\%\] {
@@ -255,8 +276,20 @@
   margin-bottom: 1.75rem
 }
 
+.mt-\[18\%\] {
+  margin-top: 18%
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem
+}
+
 .mb-4 {
   margin-bottom: 1rem
+}
+
+.mt-6 {
+  margin-top: 1.5rem
 }
 
 .mt-\[7\%\] {
@@ -295,8 +328,12 @@
   height: 14rem
 }
 
-.h-80 {
-  height: 20rem
+.h-32 {
+  height: 8rem
+}
+
+.h-96 {
+  height: 24rem
 }
 
 .h-\[30px\] {
@@ -359,8 +396,12 @@
   height: 100vh
 }
 
-.w-10\/12 {
-  width: 83.333333%
+.min-h-full {
+  min-height: 100%
+}
+
+.w-11\/12 {
+  width: 91.666667%
 }
 
 .w-8\/12 {
@@ -391,10 +432,6 @@
   width: 2.25rem
 }
 
-.w-11\/12 {
-  width: 91.666667%
-}
-
 .w-36 {
   width: 9rem
 }
@@ -407,8 +444,12 @@
   width: 20rem
 }
 
-.w-72 {
-  width: 18rem
+.w-10\/12 {
+  width: 83.333333%
+}
+
+.w-40 {
+  width: 10rem
 }
 
 .w-\[30px\] {
@@ -481,6 +522,10 @@
 
 .w-screen {
   width: 100vw
+}
+
+.max-w-sm {
+  max-width: 24rem
 }
 
 .flex-1 {
@@ -676,6 +721,11 @@
   background-color: rgb(230 230 230 / var(--tw-bg-opacity))
 }
 
+.bg-zinc-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(228 228 231 / var(--tw-bg-opacity))
+}
+
 .bg-gray-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity))
@@ -777,6 +827,14 @@
 
 .pb-5 {
   padding-bottom: 1.25rem
+}
+
+.pt-28 {
+  padding-top: 7rem
+}
+
+.pt-8 {
+  padding-top: 2rem
 }
 
 .pl-2 {
@@ -891,6 +949,10 @@
   text-transform: lowercase
 }
 
+.tracking-wide {
+  letter-spacing: 0.025em
+}
+
 .text-gray-700 {
   --tw-text-opacity: 1;
   color: rgb(55 65 81 / var(--tw-text-opacity))
@@ -959,6 +1021,11 @@
 .text-green-600 {
   --tw-text-opacity: 1;
   color: rgb(22 163 74 / var(--tw-text-opacity))
+}
+
+.text-blue-500 {
+  --tw-text-opacity: 1;
+  color: rgb(59 130 246 / var(--tw-text-opacity))
 }
 
 .text-\[\#4D4D4D\] {

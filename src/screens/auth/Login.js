@@ -10,10 +10,9 @@ import * as Yup from 'yup';
 import styles from './styles';
 import { Colors, CommonStrings } from '../../common';
 import Smallbutton from '../../components/dropshipbutton/Smallbutton';
-import BaseText from '../../components/BaseText';
 import ImageIcons from '../../common/ImageIcons';
 import InputField from '../../components/forms/inputField';
-import { LinkButton, RoundedButton } from '../../components/forms/button';
+
 import Loader from '../../components/modals/Loader';
 import messaging from '@react-native-firebase/messaging';
 import Video from 'react-native-video';
@@ -22,8 +21,6 @@ import { useFocusEffect } from '@react-navigation/native';
 import 'react-native-get-random-values';
 import { v4 as uuid } from "uuid";
 import {useTailwind} from 'tailwind-rn';
-
-
 import AppIntroSlider from 'react-native-app-intro-slider';
 
 
@@ -93,7 +90,6 @@ const slides = [
   },
 
 ];
-
 
     useEffect(() => {
         animateLogo();
@@ -179,27 +175,27 @@ const RenderItem = ({item,index}) => {
     return (
         <View>
         { index =='0' ?
-            <View style={{ width, height,justifyContent:'center' }}>
+            <View style={tailwind('items-center min-h-full pt-28')}>
                 <Video source={item.image}  // Can be a URL or a local file.
                     paused={false}
                     repeat={true}
                     resizeMode={"cover"}
                     style={styles.backgroundVideo}
                 />
-                  <View style={{alignItems:'center',marginTop:'25%',}}>
-                    <Image source={item.title}  style={{width:145, height:117}}  />
+                  <View style={tailwind('items-center')}>
+                    <Image source={item.title}  style={tailwind('w-40 h-32')}  />
                 </View>
-                <View style={{alignItems:'center',justifyContent:'center',marginTop:'15%'}}>
+                <View style={tailwind('items-center mt-14')}>
                     <Text style={tailwind('px-2 text-3xl text-white text-center')}>{item.text}</Text>
                 </View>
             </View>
         :
-            <View style={{ width, height }}>
-                <View style={{flex:1,backgroundColor:'#FFFFFF',justifyContent:'center'}}>
-                    <View style={tailwind('mt-6 items-center')}>
-                        <Image source={item.image}  style={tailwind('h-80 w-72')} />
+            <View>
+                <View style={tailwind('flex justify-center')}>
+                    <View style={tailwind('mt-14 mb-8 items-center')}>
+                        <Image source={item.image}  style={tailwind('h-96 max-w-sm')} />
                     </View>
-                    <View style={{marginVertical:'6%'}}>
+                    <View>
                         <Text style={tailwind('px-4 text-2xl text-black text-center')}>{item.text}</Text>
                     </View>
                 </View>
@@ -211,87 +207,50 @@ const RenderItem = ({item,index}) => {
   };
 
 
-    return (
-        // <View style={styles.registrationRoot}>
-        //     <StatusBar backgroundColor={'#B80000'} barStyle="dark-content" translucent={true} />
-
-        //      <View style={{ position:'absolute', top:25, left: 0, zIndex:1001}}>
-        //          <Image source={ImageIcons.videologo} />
-        //     </View>
-        //     <Video source={ImageIcons.vedioplays}  // Can be a URL or a local file.
-        //         paused={false}
-        //         repeat={true}
-        //         resizeMode={"cover"}
-        //         style={styles.backgroundVideo}
-        //     />
-
-
-        //         <View style={{alignItems:'center',marginTop:'90%'}}>
-        //             <TouchableOpacity
-        //                 style={styles.Touchableselltext}
-        //                 activeOpacity = { .5}
-        //                 onPress={() => props.navigation.navigate("Golive")}>
-        //                 <Text style={styles.sellbutton}>Go to Shop</Text>
-        //             </TouchableOpacity>
-        //         </View>
-        //         <View style={{alignItems:'center',marginTop:'5%'}}>
-        //             <TouchableOpacity
-        //                 style={styles.TouchableOpacitytext}
-        //                 activeOpacity = { .5}
-        //                 onPress={() => props.navigation.navigate("Goliveshop")}>
-        //                 <Text style={styles.homecontinuebutton}>Start selling live</Text>
-        //             </TouchableOpacity>
-        //        </View>
-
-        //         <View style={styles.twotextview}>
-        //             <Text style={styles.alreadytext}>Already have an account ?</Text>
-        //             <TouchableOpacity onPress={() => props.navigation.navigate("RegistrationShop")} >
-        //                 <Text style={styles.alreadytextlogin}> Log In</Text>
-        //             </TouchableOpacity>
-        //         </View>
-        // </View>
-        <>
-      {showRealApp ? (
-      <SafeAreaView style={{ flex: 1 }}>
-          <View style={{ width, height,justifyContent:'center' }}>
-             <Video source={ImageIcons.vedioplays}  // Can be a URL or a local file.
-                paused={false}
-                repeat={true}
-                resizeMode={"cover"}
-                style={styles.backgroundVideo}
-            />
-              <View style={tailwind('mt-6 items-center')}>
-                <Image source={ImageIcons.logoredagain}  style={{width:145, height:117}}  />
+  return (
+      <>
+        {showRealApp ? (
+        <SafeAreaView style={tailwind('flex flex-1')}>
+            <View style={tailwind('items-center -z-[10]')}>
+               <Video source={ImageIcons.vedioplays}  // Can be a URL or a local file.
+                  paused={false}
+                  repeat={true}
+                  resizeMode={"cover"}
+                  style={styles.backgroundVideo}
+              />
+                <View style={tailwind('mt-2 items-center')}>
+                  <Image source={ImageIcons.logoredagain}  style={tailwind('w-40 h-32')}  />
+              </View>
+              <View style={tailwind('items-center')}>
+                  <Text style={tailwind('px-2 text-3xl text-black text-center')}>A live-commerce marketplace for fashion and home goods. </Text>
             </View>
-            <View style={tailwind('mt-6 items-center')}>
-                <Text style={tailwind('px-2 text-3xl text-white text-center')}>A live-commerce marketplace for fashion and home goods. </Text>
             </View>
-               <View style={tailwind('items-center mt-6')}>
+               <View style={tailwind('items-center')}>
                 <Image source={ImageIcons.bar1}  style={{height:12,width:104}}   />
             </View>
+        </SafeAreaView>
+        ) : (
+          <View style={tailwind('flex-1')}>
+            <StatusBar translucent backgroundColor="transparent" />
+            <AppIntroSlider
+              data={slides}
+              dotStyle={{backgroundColor:'#cccccc'}}
+              renderItem={RenderItem}
+              activeDotStyle={{backgroundColor:'#B80000'}}
+              showSkipButton={false}
+              showNextButton={false}
+              showDoneButton={false}
+              onSkip={onSkip}
+            />
+            <View style={tailwind('justify-center items-center z-[5001] bottom-7 pt-8')}>
+                <Smallbutton
+                  text="Login"
+                  onPress={() => props.navigation.navigate("Golive")}
+                />
+            </View>
           </View>
-
-      </SafeAreaView>
-      ) : (
-        <AppIntroSlider
-          data={slides}
-          dotStyle={{backgroundColor:'#cccccc'}}
-          renderItem={RenderItem}
-          onDone={onDone}
-          activeDotStyle={{backgroundColor:'#B80000'}}
-          showSkipButton={false}
-          onSkip={onSkip}
-
-        />
-      )}
-
-      <View style={{ position:'absolute',zIndex:3001, bottom:70, justifyContent:'center',alignItems:'center',width:'100%'}}>
-        <Smallbutton
-          text="Login"
-          onPress={() => props.navigation.navigate("Golive")}
-        />
-      </View>
-    </>
+        )}
+      </>
   );
 };
 
