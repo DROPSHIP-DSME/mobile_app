@@ -21,6 +21,7 @@ import Video from 'react-native-video';
 import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import { v4 as uuid } from "uuid";
+import { useTailwind } from 'tailwind-rn';
 
 
 import AppIntroSlider from 'react-native-app-intro-slider';
