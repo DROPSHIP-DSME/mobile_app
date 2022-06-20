@@ -23,6 +23,7 @@ import { useValidation } from 'react-native-form-validator';
 import PasswordInputText from '../../components/react-native-hide-show-password-input';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 //import { LoginManager } from "react-native-fbsdk-next";
+import Logobase from '../../components/baseassets/Logobase';
 import { useTailwind } from 'tailwind-rn';
 
 const RegistrationShop = (props) => {
@@ -147,18 +148,17 @@ const RegistrationShop = (props) => {
     return (
         <View style={{ backgroundColor: '#ffffff', flex: 1 }}>
 
+              <Logobase/>
 
-              <View style={tailwind('items-center mt-[18%]')}>
-                  <Image source={ImageIcons.logored_1} style={styles.setlogonewdatarow}  />
-              </View>
             <View>
                 <Text style={styles.headingText1}>Login</Text>
             </View>
-            <View>
+        <View>
 
 
                 <View style={tailwind('mx-1 my-3 flex rounded-md items-center')}>
-                    <TextInput style={tailwind('w-11/12 rounded-lg sm:text-sm bg-zinc-200 border-gray-300 pl-3')}
+                    <TextInput
+                        style={tailwind('w-11/12 rounded-lg sm:text-sm bg-zinc-200 border-gray-300 pl-3')}
                         placeholder="Email address"
                         autoCompleteType='email'
                         placeholderTextColor="#000000"
@@ -167,7 +167,7 @@ const RegistrationShop = (props) => {
                         onSubmitEditing={() => handleRegistrationSubmit()}
                     />
                     {isFieldInError('email') &&
-                        <Text style={styles.stringerror}>must be required field</Text>
+                        <Text style={tailwind('text-red-700 mx-8 my-2')}>must be required field</Text>
                     }
                 </View>
 
@@ -182,10 +182,10 @@ const RegistrationShop = (props) => {
                         onSubmitEditing={() => handleRegistrationSubmit()}
                     />
                     {isFieldInError('password') &&
-                        <Text style={styles.stringerror}>must be required field</Text>
+                        <Text style={tailwind('text-red-700 mx-8 my-2')}>must be required field</Text>
                     }
                 </View>
-                <View style={tailwind('mt-3 flex flex-row ml-3 mb-4')}>
+                <View style={tailwind('mt-2 flex flex-row ml-3 mb-4')}>
                     <CheckBox
                         onCheckColor='#b80000'
                         value={false}

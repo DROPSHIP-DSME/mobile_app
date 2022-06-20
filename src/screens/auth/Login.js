@@ -11,9 +11,7 @@ import styles from './styles';
 import { Colors, CommonStrings } from '../../common';
 import Smallbutton from '../../components/dropshipbutton/Smallbutton';
 import ImageIcons from '../../common/ImageIcons';
-
 import InputField from '../../components/forms/inputField';
-
 import Loader from '../../components/modals/Loader';
 import messaging from '@react-native-firebase/messaging';
 import Video from 'react-native-video';
@@ -21,8 +19,6 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import { v4 as uuid } from "uuid";
 import { useTailwind } from 'tailwind-rn';
-
-
 import AppIntroSlider from 'react-native-app-intro-slider';
 
 
@@ -169,7 +165,7 @@ const RenderItem = ({item,index}) => {
                     resizeMode={"cover"}
                     style={styles.backgroundVideo}
                 />
-                  <View style={tailwind('items-center')}>
+                <View style={tailwind('items-center')}>
                     <Image source={item.title}  style={tailwind('w-40 h-32')}  />
                 </View>
                 <View style={tailwind('items-center mt-14')}>
@@ -197,68 +193,15 @@ const RenderItem = ({item,index}) => {
 
   return (
       <>
-        {showRealApp ? (
-        <SafeAreaView style={tailwind('flex flex-1')}>
-            <View style={tailwind('items-center -z-[10]')}>
-               <Video source={ImageIcons.vedioplays}  // Can be a URL or a local file.
-                  paused={false}
-                  repeat={true}
-                  resizeMode={"cover"}
-                  style={styles.backgroundVideo}
-              />
-                <View style={tailwind('mt-2 items-center')}>
-                  <Image source={ImageIcons.logoredagain}  style={tailwind('w-40 h-32')}  />
-              </View>
-              <View style={tailwind('items-center')}>
-                  <Text style={tailwind('px-2 text-3xl text-black text-center')}>A live-commerce marketplace for fashion and home goods. </Text>
-            </View>
-            </View>
-               <View style={tailwind('items-center')}>
-                <Image source={ImageIcons.bar1}  style={{height:12,width:104}}   />
-            </View>
-        </SafeAreaView>
-        ) : (
-          <View style={tailwind('flex-1')}>
-            <StatusBar translucent backgroundColor="transparent" />
-            <AppIntroSlider
-              data={slides}
-              dotStyle={{backgroundColor:'#cccccc'}}
-              renderItem={RenderItem}
-              activeDotStyle={{backgroundColor:'#B80000'}}
-              showSkipButton={false}
-              showNextButton={false}
-              showDoneButton={false}
-              onSkip={onSkip}
-            />
-            <View style={tailwind('justify-center items-center z-[5001] bottom-7 pt-8')}>
-                <Smallbutton
-                  text="Login"
-                  onPress={() => props.navigation.navigate("Golive")}
-                />
-            </View>
-          </View>
+       
 
-      </SafeAreaView>
-      ) : (
-        <AppIntroSlider
-          data={slides}
-          dotStyle={{backgroundColor:'#cccccc'}}
-          renderItem={RenderItem}
-          onDone={onDone}
-          activeDotStyle={{backgroundColor:'#b80000'}}
-          showSkipButton={false}
-          onSkip={onSkip}
-
-        />
-      )}
-
-      <View style={{ position:'absolute',zIndex:3001, bottom:70, justifyContent:'center',alignItems:'center',width:'100%'}}>
-        <Smallbutton
-          text="Login"
-          onPress={() => props.navigation.navigate("Golive")}
-        />
-      </View>
-    </>
-  );
+        <View style={{ position:'absolute',zIndex:3001, bottom:70, justifyContent:'center',alignItems:'center',width:'100%'}}>
+          <Smallbutton
+            text="Login"
+            onPress={() => props.navigation.navigate("Golive")}
+          />
+        </View>
+      </>
+    );
 };
 export default Login
