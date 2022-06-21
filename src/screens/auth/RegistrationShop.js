@@ -23,7 +23,6 @@ import { useValidation } from 'react-native-form-validator';
 import PasswordInputText from '../../components/react-native-hide-show-password-input';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 //import { LoginManager } from "react-native-fbsdk-next";
-import Logobase from '../../components/baseassets/Logobase';
 import { useTailwind } from 'tailwind-rn';
 
 const RegistrationShop = (props) => {
@@ -148,12 +147,13 @@ const RegistrationShop = (props) => {
     return (
         <View style={{ backgroundColor: '#ffffff', flex: 1 }}>
 
-              <Logobase/>
-
+              <View style={tailwind('items-center mt-[16%]')}>
+                  <Image source={ImageIcons.logored_1} style={tailwind('w-[90] h-[73]')}  />
+              </View>
             <View>
                 <Text style={styles.headingText1}>Login</Text>
             </View>
-        <View>
+          <View>
 
 
                 <View style={tailwind('mx-1 my-3 flex rounded-md items-center')}>
@@ -204,7 +204,8 @@ const RegistrationShop = (props) => {
 
             <View style={tailwind('flex flex-row justify-center mt-6')}>
                 <Text style={tailwind('text-base text-gray-600 items-center tracking-wide')}>Forgot your password?</Text>
-                <TouchableOpacity onPress={() => props.navigation.navigate("ForgetPassword")}>
+                <TouchableOpacity
+                    onPress={() => props.navigation.navigate("ForgetPassword")}>
                     <Text style={tailwind('text-base text-blue-500 items-center tracking-wide')}> Click here.</Text>
                 </TouchableOpacity>
             </View>

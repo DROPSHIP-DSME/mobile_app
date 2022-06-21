@@ -18,15 +18,19 @@ import Footer3 from '../../screens/auth/Footer3';
 import {FlatListSlider} from '../../components/react-native-flatlist-slider';
 import { SliderBox } from "react-native-image-slider-box";
 import { v4 as uuid } from "uuid";
-import AsyncStorage from '@react-native-community/async-storage'; 
+import AsyncStorage from '@react-native-community/async-storage';
 import Video from 'react-native-video';
 import { requestMultiplePermisisons } from '../../services/Permissions'
 import moment from 'moment';
-
 import AwesomeAlert from 'react-native-awesome-alerts';
+import Smallbutton from '../../components/dropshipbutton/Smallbutton';
+import { useTailwind } from 'tailwind-rn';
+import { SearchIcon } from "react-native-heroicons/solid";
+import { UsersIcon } from "react-native-heroicons/solid";
+
 const deviceHeight = Dimensions.get('window').height;
 const deviceWidth = Dimensions.get('window').width;
- 
+
 const watchlist = (props) => {
 
     const {
@@ -40,6 +44,7 @@ const watchlist = (props) => {
 
 
     //Reference
+    const tailwind = useTailwind();
     const emailRef = useRef();
     const phoneRef = useRef();
     const bisinessnameRef = useRef();
@@ -98,7 +103,7 @@ const watchlist = (props) => {
 
     const handleScroll=(pageYOffset)=>{
         if (pageYOffset > 0) {
-            setshowclassName('#B80000');  
+            setshowclassName('#B80000');
         }else{
             setshowclassName('#FFFFFF00');
         }
@@ -117,6 +122,8 @@ const watchlist = (props) => {
         }
     }
 
+    const image = { uri: "https://media.vogue.fr/photos/5d40515bc93b83000833392f/master/w_1920,h_1280,c_limit/020-Sneakers-Encyclopaedia-Vogueint-Jul24-Getty-Images.jpg" };
+
     const newtrending =() =>{
         props.getalleventlist(1);
         props.getwatchlistproduct(props?.loginuserid);
@@ -132,7 +139,7 @@ const watchlist = (props) => {
        const containerStyle = { position:'absolute', top:'10%', width:'100%',backgroundColor: 'white', padding: '1%',marginHorizontal:'1%',alignItems:'center'};
 
     // Vendor request submission
-   
+
     const SHOWDATSA = [
         {
             name:'ALL',
@@ -191,7 +198,7 @@ const images = [
       'The Ruby Unicorn',
   },
   ]
-    
+
      const DATA = [
        {
         text:'Beauty brands',
@@ -208,8 +215,8 @@ const images = [
         text2:'Live tomorrow at 10PM',
         image:ImageIcons.basket,
        },
-       
-       
+
+
 
      ];
 
@@ -245,11 +252,11 @@ const images = [
         //     setshowalertmsg('Event will start at '+ moment(eventtime).format('MMM DD, hh:mm A'))
         // }
     }
-     
+
 
     const showConfirmDialog = () => {
         if(props?.loginuserstatus=="1"){
-            navigation.navigate('Newprofile'); 
+            navigation.navigate('Newprofile');
         }else {
 
             setshowAlert(true)
@@ -288,63 +295,64 @@ const handleSendRequestSubmit = async () => {
 const renderItem1 = ({ item ,index }) => {
    return(
     <View>
-    <TouchableOpacity onPress={() => joinbroadcast(item._id,item.startNow,item.eventdate)}>        
+      <TouchableOpacity onPress={() => joinbroadcast(item._id,item.startNow,item.eventdate)}>
         <View style={{marginHorizontal:5,borderRadius:5}}>
                 <Image source={{uri: item.products[0]?.productImage}} style={styles.imgbasket} />
-                <Text style={styles.beautyproduct}></Text>
-                <View style={{borderRadius:50,position:'absolute',top:10,left:10, backgroundColor:'#E22020'}}>
-                    <Text style={styles.shorttest1}>Live</Text>
+                  <Text style={styles.beautyproduct}></Text>
+
+                <View style={tailwind('flex flex-row bg-red-700 w-16 h-6 rounded-lg px-1 absolute top-4 left-2')}>
+                    <Text style={tailwind('px-3 text-sm text-white text-center')}>Live</Text>
                 </View>
-                <View style={styl.comingshort1}>
-                    <View style={{left:7,top:2}}>
-                        <Image source={ImageIcons.iconpath} style={{width:18,height:18}}/>
+                <View style={tailwind('flex flex-row bg-green-200 w-16 h-6 rounded-lg px-2 pt-1 absolute top-4 left-[55%]')}>
+                    <View style={tailwind('pt-[2%]')}>
+                        <UsersIcon color="red" fill="#000000" size={14} />
                     </View>
-                    <Text style={styles.shorttest}>0K</Text>
+                    <Text style={tailwind('text-xs text-gray-800 pl-1')}>68.3k</Text>
                 </View>
         </View>
+
         <View style={styl.rowdrop}>
-        <View>
-        <Image source={ImageIcons.profileimage} style={{width:35,height:35}}/>
+          <View>
+            <Image source={ImageIcons.profileimage} style={tailwind('h-6 w-6 rounded-full')}/>
+          </View>
+          <View style={tailwind('pl-2 pt-1')}>
+            <Text style={tailwind('text-gray-500 text-xs')}>{item.products[0]?.productName}</Text>
+          </View>
         </View>
-        <View style={{paddingTop:10,paddingLeft:10}}>
-        <Text style={styl.txt1}>{item.products[0]?.productName}</Text>
-        </View>
-        </View>
-        <Text style={styl.txt2}></Text>
+          <Text style={tailwind('text-gray-600 text-sm')}>Mens Classic Watch</Text>
        </TouchableOpacity>
-    </View> 
+    </View>
   );
-} 
+}
 
  const renderItem = ({ item ,index }) => {
    return(
     <View>
         <TouchableOpacity style={{marginHorizontal:5}} onPress={()=>props.navigation.navigate("NameStore",{productId:item._id,userId:item._id, productQuantity:item.productQuantity})}>
             <Image source={{uri: item.productImage}} style={styles.imgbasket} />
-            <Text style={styles.beautyproduct}></Text>
+            <Text style={styles.beautyproduct}> hello</Text>
             <Text style={styles.uplivetext}>{item.productName}</Text>
 
-
-            <View style={{borderRadius:50,position:'absolute',top:10,left:10, backgroundColor:'#E22020'}}>
-                <Text style={styles.shorttest1}>Live</Text>
+            <View style={tailwind('flex flex-row bg-red-700 w-16 h-6 rounded-lg px-1 absolute top-4 left-2')}>
+                <Text style={tailwind('px-3 text-sm text-white text-center')}>Live</Text>
             </View>
-            <View style={styl.comingshort1}>
-                <View style={{left:7,top:2}}>
-                    <Image source={ImageIcons.iconpath} style={{width:18,height:18}}/>
+            <View style={tailwind('flex flex-row bg-green-200 w-16 h-6 rounded-lg px-2 pt-1 absolute top-4 left-[55%]')}>
+                <View style={tailwind('pt-[2%]')}>
+                    <UsersIcon color="red" fill="#000000" size={14} />
                 </View>
-                <Text style={styles.shorttest}>0K</Text>
+                <Text style={tailwind('text-xs text-gray-800 pl-1')}>68.3k</Text>
             </View>
 
         </TouchableOpacity>
       <View style={styl.rowdrop}>
         <View>
-        <Image source={ImageIcons.profileimage} style={{width:35,height:35}}/>
+        <Image source={ImageIcons.profileimage} style={tailwind('h-6 w-6 rounded-full')}/>
         </View>
-        <View style={{paddingTop:10,paddingLeft:10}}>
-        <Text style={styl.txt1}>{item.productName}</Text>
+        <View style={tailwind('pl-2 pt-1')}>
+          <Text style={tailwind('text-gray-500 text-xs')}>{item.productName}</Text>
         </View>
         </View>
-        <Text style={styl.txt2}></Text>
+        <Text style={tailwind('text-gray-600 text-sm')}>Mens Watch</Text>
     </View>
   );
 }
@@ -358,7 +366,7 @@ const renderItem1 = ({ item ,index }) => {
                     <Text style={styles.shorttest1}>Live</Text>
                 </View>
                 <View style={styl.comingshort1}>
-                
+
                 </View>
             </View>
             <View style={styl.rowdrop}>
@@ -379,17 +387,17 @@ const renderItem6 = ({ item }) => {
                 <View>
                     { item.userId.userName=='Admin' ?
                        <View>
-                        <View style={styles.chatrightView}>
-                           <Text style={styles.hellotext}>{item.message}</Text>
-                        </View>
-                         <Text style={styles.chattingtime}>{ moment(item.msgDate).format('hh:mm A')}</Text>
+                          <View style={styles.chatrightView}>
+                             <Text style={styles.hellotext}>{item.message}</Text>
+                          </View>
+                           <Text style={styles.chattingtime}>{ moment(item.msgDate).format('hh:mm A')}</Text>
                         </View>
                     :
                         <View>
-                        <View style={styles.chatlongView}>
-                          <Text style={styles.chattingtext}>{item.message}</Text>
-                        </View>
-                        <Text style={styles.chattingtime2}>{moment(item.msgDate).format('hh:mm A')}</Text>
+                          <View style={styles.chatlongView}>
+                            <Text style={styles.chattingtext}>{item.message}</Text>
+                          </View>
+                          <Text style={styles.chattingtime2}>{moment(item.msgDate).format('hh:mm A')}</Text>
                         </View>
 
                     }
@@ -419,7 +427,7 @@ const renderItem6 = ({ item }) => {
         );
     }
 
-    
+
 
     return (
         <KeyboardAvoidingView
@@ -427,7 +435,7 @@ const renderItem6 = ({ item }) => {
             style={styles.registrationRoot}>
             <StatusBar backgroundColor={showclassName} barStyle="dark-content" translucent={true} />
             <View style={{flexDirection:'row',backgroundColor:showclassName,alignItems:'center',justifyContent:'space-between',top:'3%',zIndex:1001,position:'absolute',width:'100%',padding:'3%'}}>
-                
+
                 <View>
                 {showclassName=='#FFFFFF00' ?
                     <Image source={ImageIcons.logored_1} style={{width:70,height:57}}/>
@@ -439,11 +447,11 @@ const renderItem6 = ({ item }) => {
                     {/*<TouchableOpacity onPress={() => props.navigation.navigate("Search")}>
                                             <Image source={ImageIcons.white_search} style={{width:21,height:20}}/>
                                         </TouchableOpacity>*/}
-                   
+
                     <TouchableOpacity onPress={() => props.navigation.navigate("Notification")} style={{marginHorizontal:'5%'}}>
                         <Image source={ImageIcons.bell} style={{width:21,height:21,}}/>
                     </TouchableOpacity>
-                    
+
                     <TouchableOpacity onPress={() => { props.navigation.navigate('Cart') }}>
                         <View style={{flexDirection:'row'}}>
                             <Image source={ImageIcons.whitecart} style={{width:18,height:20.6,}}/>
@@ -461,7 +469,7 @@ const renderItem6 = ({ item }) => {
                 <View>
                     <FlatListSlider
                         data={images}
-                        height={375}
+                        height={250}
                         timer={10000}
                         loop={false}
                         contentContainerStyle={{paddingHorizontal: 0}}
@@ -470,19 +478,19 @@ const renderItem6 = ({ item }) => {
                         indicatorInActiveColor={'#8A8A8A'}
                         indicatorActiveWidth={5}
                         animation
-                    />  
+                    />
                 </View>
 
-            
+
                 <TouchableOpacity onPress={() => props.navigation.navigate("Search")}>
-                <View style={{flexDirection:'row',marginVertical:'5%',height:50,width:deviceWidth/1.1,backgroundColor:'#E6E6E6',borderRadius:10,alignItems:'center',alignSelf:'center'}}>
-                    <View style={{marginLeft:'4%',marginTop:'1%'}}>
-                    <Image source={ImageIcons.redsearchtoday}  style={{height:14,width:14,}} />
-                   </View>
-                    <Text style={{marginHorizontal:'2%'}}> Search for anything</Text>
-                    
-                </View>
+                  <View style={tailwind('flex flex-row my-6 h-14 bg-zinc-200 mx-4 rounded-lg items-center')}>
+                      <View style={tailwind('mt-1 ml-4')}>
+                        <SearchIcon color="red" fill="#B80000" size={20} />
+                     </View>
+                      <Text style={tailwind('ml-2')}> Search for anything</Text>
+                  </View>
                 </TouchableOpacity>
+
                 <View style={[styles.maincartview,{marginBottom:'3%',marginTop:'1%'}]}>
                     <FlatList
                         data={SHOWDATSA}
@@ -491,9 +499,6 @@ const renderItem6 = ({ item }) => {
                         showsHorizontalScrollIndicator={false}
                         horizontal={true}
                     />
-
-                    
-                    
                 </View>
 
                 <View style={{marginLeft:10,marginTop:5}}>
@@ -505,27 +510,7 @@ const renderItem6 = ({ item }) => {
                         horizontal={true}
                     />
                 </View>
-                
-                 
-                 
-               
-                <View style={{marginLeft:10,marginTop:35}}>
-                    <FlatList
-                        data={props?.getlistproduct || []}
-                        renderItem={renderItem}
-                        keyExtractor={item => item.id}
-                        showsHorizontalScrollIndicator={false}
-                         horizontal={true}
-                    />
-                </View>
-                <View style={{marginHorizontal:'4%',marginTop:"5%"}}>
-                    <Image source={ImageIcons.newimg} style={styles.newimg} />
-                </View> 
-                <TouchableOpacity onPress={() => props.navigation.navigate('upcoming')}>
-                        <Text style={styles.salestextbtn}>VIEW ALL LIVESTREAMS</Text>
-                    </TouchableOpacity>
 
-                
                 <View style={{marginLeft:10,marginTop:35}}>
                     <FlatList
                         data={props?.getlistproduct || []}
@@ -535,7 +520,37 @@ const renderItem6 = ({ item }) => {
                          horizontal={true}
                     />
                 </View>
-                
+
+                <View style={tailwind('flex flex-1 bg-white overflow-hidden h-40 mt-6')}>
+
+                   <ImageBackground source={image} resizeMode="cover" style={tailwind('flex flex-1 justify-center p-6')}>
+                    <View style={tailwind('absolute bottom-10 left-3 h-16 w-10/12')}>
+                       <Text style={tailwind('text-lg text-white')}>Sneakers Store</Text>
+                       <Text style={tailwind('text-sm text-white')}>New Products Released</Text>
+                    </View>
+                     <View style={tailwind('absolute bottom-5 left-3 w-36 py-2 px-2 rounded-full text-white bg-red-700')}>
+                       <TouchableOpacity style={tailwind('items-center')}
+                           onPress={props.navigation.navigate('upcoming')}>
+                           <Text style={tailwind('text-xs text-white')}>Check out store</Text>
+                       </TouchableOpacity>
+                     </View>
+                   </ImageBackground>
+
+                 </View>
+
+
+
+
+                <View style={{marginLeft:10,marginTop:35}}>
+                    <FlatList
+                        data={props?.getlistproduct || []}
+                        renderItem={renderItem}
+                        keyExtractor={item => item.id}
+                        showsHorizontalScrollIndicator={false}
+                         horizontal={true}
+                    />
+                </View>
+
 
                 <TouchableOpacity>
                     <View style={{marginBottom:'18%',marginLeft:'3%',marginTop:35}}>
@@ -548,23 +563,23 @@ const renderItem6 = ({ item }) => {
                         />
                     </View>
                 </TouchableOpacity>
-                 
+
             </View>
-                 
-                
+
+
         </ScrollView>
        { helppopup ==true &&
         <View style={{flex:1,backgroundColor:'#f9f9f9',margin:20,paddingVertical:10,borderRadius:10,zIndex:4001, position:'absolute',bottom:'20%'}}>
-            
-           
+
+
               <View style={styles.chatViewrose}>
-                    
+
                 <Text style={styles.Benrosetext}>Write to Customer Support</Text>
                 <TouchableOpacity style={{position:'absolute',right:15,top:5}} onPress={() => sethelppopup(false)}>
                     <Image source={ImageIcons.closepopup}  style={styles.sendmsg2} />
                 </TouchableOpacity>
             </View>
-            
+
             <View style={[styles.accountmainview,{marginBottom:50, width:'100%'}]}>
             <View style={{width:'90%'}}>
                 <TextInput  style={[styles.chatinput,{height:120,width:'100%'}]}
@@ -582,13 +597,13 @@ const renderItem6 = ({ item }) => {
             </View>
         </View>
         }
-        
+
             <View style={{ position:'absolute',zIndex:2001,right:20,bottom:70}}>
                <TouchableOpacity onPress={() => sethelppopup(true)}>
                     <Image source={ImageIcons.exporthelp} style={{width:50,height:50}}/>
                 </TouchableOpacity>
             </View>
-        
+
     <Footer3 onSelection="1" />
         <AwesomeAlert
           show={showAlert}
@@ -631,6 +646,6 @@ const renderItem6 = ({ item }) => {
         </KeyboardAvoidingView>
     )
 }
- 
+
 
 export default watchlist;

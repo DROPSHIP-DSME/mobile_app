@@ -9,6 +9,7 @@ import ImageIcons from '../../common/ImageIcons'
 import { useTailwind } from 'tailwind-rn';
 
 const Logobase = () => {
+
     const tailwind = useTailwind();
 
     return (

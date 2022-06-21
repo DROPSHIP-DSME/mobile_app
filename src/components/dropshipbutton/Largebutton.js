@@ -12,7 +12,7 @@ const tailwind = useTailwind();
 
     return (
       <View style={tailwind('items-center')}>
-        <TouchableOpacity style={tailwind('items-center w-11/12 py-3 border border-transparent font-medium rounded-full text-white bg-red-800')}
+        <TouchableOpacity style={tailwind('items-center w-11/12 py-4 border border-transparent font-medium rounded-full text-white bg-red-800')}
             onPress={onPress}>
             <Text style={tailwind('text-lg text-white')}>{text}</Text>
         </TouchableOpacity>
