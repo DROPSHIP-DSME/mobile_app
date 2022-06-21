@@ -155,21 +155,21 @@ const deviceWidth = Dimensions.get('window').width;
     }
 
     return (
-         <View style={{flex:1}}>
+         <KeyboardAvoidingView  behavior={Platform.OS === "ios" ? "padding" : "height"}
+         style={styles.registrationRoot}>
          <StatusBar backgroundColor={'#B80000'} barStyle="dark-content" translucent={true} />
             <Shopheader />
 
        <ScrollView onScroll={({nativeEvent}) => {
                 handleScroll(nativeEvent['contentOffset'].y);
-    }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} >
+             }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#E5E5E5'}} >
 
      
           
-               <View style={{flexDirection:'row',justifyContent:'space-between',marginHorizontal:'3%',marginTop:'9%'}}>
-                 <Text style={{fontSize:40,color:'#b80000',fontFamily:'hinted-AvertaStd-Bold',}}>My Account</Text>
-               </View>
-
-               <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",paddingTop:"5%"}}>
+               <View style={{marginHorizontal:'3%',paddingTop:'10%'}}>
+                   <Text style={{fontSize:35,color:"#B80000",fontFamily:'hinted-AvertaStd-Bold',fontWeight:"bold"}}>My Account</Text>
+              </View>
+               <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",paddingTop:"8%"}}>
                <TouchableOpacity onPress={() => props.navigation.navigate("Account")}>
               <Text style={{fontSize:16,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}>Personal Details</Text>
               </TouchableOpacity>
@@ -252,7 +252,7 @@ const deviceWidth = Dimensions.get('window').width;
 
 
             <Footer3 onSelection="5"  />
-        </View>
+        </KeyboardAvoidingView>
     )
 }
 

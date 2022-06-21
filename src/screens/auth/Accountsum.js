@@ -33,7 +33,9 @@ const Accountsum = (props) => {
    
     useEffect(() => {
        props.getAllshop(1);
+       alert(props?.loginuserid)
        props.getselldeshboard(props?.loginuserid);
+       console.log('getselldeshboard--->',props?.getlistselldeshboard)
     }, [])
     useFocusEffect(() => {
          //props.getAllshop(1);
@@ -132,16 +134,21 @@ const Accountsum = (props) => {
                    <View>
                     <Text style={styles.totalincometodaysale}>Order History</Text>
                     </View>
-                    <TouchableOpacity  onPress={() => props.navigation.navigate("Accountorderhist")} style={{backgroundColor:'#B80000',width:90,borderRadius:15,padding:6,}}>
-                      <Text style={styles.totalincometodayWIDRO}>SEE ALL</Text> 
-                   </TouchableOpacity> 
-                  </View> 
-                   <View style={styles.salesViewTODAY}>
-                       <Text style={styles.seriestext}>Order Number</Text>
-                       <Text style={styles.seriestext}>Ordered by</Text>
-                       <Text style={styles.seriestext}>Email </Text>
+                    {props?.getlistselldeshboard?.length>0 &&
+                        <TouchableOpacity  onPress={() => props.navigation.navigate("Accountorderhist")} style={{backgroundColor:'#B80000',width:90,borderRadius:15,padding:6,}}>
+                          <Text style={styles.totalincometodayWIDRO}>SEE ALL</Text> 
+                        </TouchableOpacity>
+                   } 
+                  </View>
+                   <View style={{marginHorizontal:4, backgroundColor:'#ffffff'}}>
+                       <View style={styles.salesViewTODAY}>
+                           <Text style={styles.seriestext}>Order Number</Text>
+                           <Text style={styles.seriestext}>Ordered by</Text>
+                           <Text style={styles.seriestext}>Email </Text>
+                       </View>
                    </View>
-                <View style={{marginLeft:-10}}>
+                <View style={{marginLeft:10}}>
+                    {props?.getlistselldeshboard?.length>0 ?
                     <FlatList
                     data={props?.getlistselldeshboard || []}
                     renderItem={renderItem3}
@@ -149,6 +156,9 @@ const Accountsum = (props) => {
                     showsHorizontalScrollIndicator={false}
                     horizontal={false}
                     />
+                    :
+                        <Text style={{ justifyContent:'center',width:'100%',alignItems:'center'}}>No Record Found</Text>
+                    }
                 </View>
                 </View>  
                
@@ -162,7 +172,7 @@ const Accountsum = (props) => {
               </View>
               </View>
               
-              <TouchableOpacity  onPress={() => props.navigation.navigate("Accountfav1")} style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}>
+              <TouchableOpacity  style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}>
               <View>
               <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>My Favourites</Text>
               </View>
@@ -171,7 +181,7 @@ const Accountsum = (props) => {
               </View>
               </TouchableOpacity>
               <View style={{borderBottomWidth:0.7,marginTop:"2%",marginHorizontal:"3%",borderColor:"#999999"}}></View> 
-               <TouchableOpacity onPress={() => props.navigation.navigate("Accountdata")} style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}>
+               <TouchableOpacity style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}>
               <View>
               <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>Bookmarks</Text>
               </View>
@@ -180,7 +190,7 @@ const Accountsum = (props) => {
               </View>
               </TouchableOpacity>
               <View style={{borderBottomWidth:0.7,marginTop:"2%",marginHorizontal:"3%",borderColor:"#999999"}}></View> 
-               <TouchableOpacity onPress={() => props.navigation.navigate("Accountfollow")} style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}>
+               <TouchableOpacity style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}>
               <View style={{marginBottom:"3%"}}>
               <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>Following</Text>
               </View>

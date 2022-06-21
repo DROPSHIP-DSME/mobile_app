@@ -229,7 +229,10 @@ const images = [
      ];
 
     const joinbroadcast = (itemid,startnow,eventtime) =>{
-        //if (startnow == true){
+        var getTime = moment(new Date()).format('MMM DD');
+        var eventTime = moment(eventtime).format('MMM DD');
+
+        if (getTime==eventTime){
             let request1 = {
                 "channelName":itemid,
                 "appID":"0c96ec2a0c9744c0bb3d21330bb0911d",
@@ -240,10 +243,12 @@ const images = [
             setTimeout(function(){
                 props.navigation.navigate("Blurbackground", { isback: false, channel:itemid , isbroadcaster: false });
             },1000);
-        // } else {
-        //     setshowotherAlert(true)
-        //     setshowalertmsg('Event will start at '+ moment(eventtime).format('MMM DD, hh:mm A'))
-        // }
+        } else {
+            //setshowotherAlert(true)
+            //setshowalertmsg('Event will start at '+ moment(eventtime).format('MMM DD, hh:mm A'))
+            setshowotherAlert(true)
+            setshowalertmsg('Event has ended at '+ moment(eventtime).format('MMM DD, hh:mm A'))
+        }
     }
      
 

@@ -385,7 +385,7 @@ export const newprofile = (request, navigation, role) => {
   return async (dispatch, getState) => {
     let isInternetConnected = await getState().auth?.isInternetConnected;
     if (isInternetConnected) {
-      try {
+      try { 
         let response = await Utilise.apiCalling('POST', Api.newprofile, request);
        
         if (response?.status) {
