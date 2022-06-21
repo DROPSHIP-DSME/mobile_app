@@ -61,9 +61,28 @@ const editaddress = (props) => {
     } 
     
 
-     const setdeleteaddress = async (id) => {
-        props.deleteaddress(id);
-        setTimeout(function(){ props.getuseraddress(props?.loginuserid); },100);   
+    const setdeleteaddress = async (id) => {
+        return Alert.alert(
+          "Are your sure?",
+          "Are you sure you want to remove this address?",
+          [
+            // The "Yes" button
+            {
+              text: "Yes",
+              onPress: () => {
+                    props.deleteaddress(id);
+                    setTimeout(function(){ props.getuseraddress(props?.loginuserid); },100); 
+              },
+            },
+            // The "No" button
+            // Does nothing but dismiss the dialog when tapped
+            {
+              text: "No",
+            },
+          ]
+        );
+
+          
      }
 
    const renderItem6 = ({ item }) => {
@@ -89,19 +108,21 @@ const editaddress = (props) => {
             );
     }
 
-     const renderItem = ({ item }) => {
+     const renderItem = ({ item, index }) => {
     
   
     return(
 
     <View style={{marginHorizontal:"3%",backgroundColor:"#FFFFFF",marginTop:"4%",elevation:1,borderRadius:10,padding:6}}>
+              {index==0 &&
+               <View style={{backgroundColor:"#E6E6E6",width:deviceWidth/3,height:25,paddingTop:"1%",borderRadius:5}}><Text style={{textAlign:"center", color:"#2F80ED",fontSize:12,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular"}}>
+                 DEFAULT ADDRESS</Text></View>
+            }
               <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%", marginTop:"1%"}}>
               
-                 <Text style={{fontSize:18,fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A",padding:"2%"}}>{item?.firstName} {"\n"}{item?.streetAdress}{"\n"}{item?.city},{item?.state},{item?.zipCode}{"\n"}{item?.country}</Text>
+                 <Text style={{fontSize:18,fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A",padding:"2%"}}>{item?.firstName} {item?.lastName} {"\n"}{item?.streetAdress}, {item?.phoneNumber}{"\n"}{item?.city}{"\n"}{item?.zipCode}</Text>
                <View style={{flexDirection:'row'}}>
-               <TouchableOpacity onPress={()=>props.navigation.navigate("editviewaddress")}>
-                 <Image source={ImageIcons.edit} style={{width:45,height:40}}/>
-              </TouchableOpacity>
+               
               <TouchableOpacity   onPress={() =>setdeleteaddress(item._id)}>
                  <Image source={ImageIcons.del} style={{width:45,height:40,marginLeft:8}}/>
               </TouchableOpacity>
@@ -117,132 +138,41 @@ const editaddress = (props) => {
     return (
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
-            style={styles.registrationRoot}>
+            style={{flex:1}}>
           <StatusBar backgroundColor={showclassName} barStyle="dark-content" translucent={true} />
             <Shopheader />
              
-            <ScrollView onScroll={({nativeEvent}) => {
-                handleScroll(nativeEvent['contentOffset'].y);
-             }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#E5E5E5'}} >
+            <View >
              
               <View style={{flexDirection:"row",marginHorizontal:"3%",marginVertical:"6%"}}>
               <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}>PERSONAL DETAILS /</Text>
-              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>ADDRESSES</Text>
+              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>ADDRESS</Text>
               
               </View>
                
                <View style={{marginHorizontal:"3%"}}>
-               <Text style={{fontSize:26,fontFamily:"hinted-AvertaStd-Regular",fontWeight:"bold"}}>My Addresses</Text>
+               <Text style={{fontSize:26,fontFamily:"hinted-AvertaStd-Regular",fontWeight:"bold"}}>My Address</Text>
                </View>
 
-               <View style={{marginHorizontal:"3%",borderRadius:10,elevation:1 ,backgroundColor:"#ffffff",marginTop:"5%",padding:4}}>
-              <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"2%",marginTop:"2%"}}>
-                 <View style={{backgroundColor:"#E6E6E6",width:deviceWidth/3,height:25,paddingTop:"1%",borderRadius:5}}><Text style={{textAlign:"center", color:"#2F80ED",fontSize:12,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular"}}>
-                 DEFAULT ADDRESS</Text></View>
-                 <View style={{flexDirection:'row'}}>
-                 <TouchableOpacity onPress={()=>props.navigation.navigate("editviewaddress")}>
-                 <Image source={ImageIcons.edit} style={{width:45,height:40}}/>
-                 </TouchableOpacity>
-                  <View>
-                 <Image source={ImageIcons.del} style={{width:45,height:40,marginLeft:8}}/>
-                 </View>
-                 </View>
-
-              </View>
-              <Text style={{fontSize:18,fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A",padding:"2%"}}>Marry Davis {"\n"}2501 Stevens Ev{"\n"}Miniapolis MN,54404{"\n"}USA</Text>
-              </View>
-
-              
-
-              
-
-               <View style={{ marginBottom:30}}>
-           <FlatList
-                data={props?.getuseraddresslist || []}
-                renderItem={renderItem}
-                keyExtractor={item => item.id}
-               showsHorizontalScrollIndicator={false}
-                />
-        </View>
+                <ScrollView style={{height:deviceHeight/1.8}}>
+                    <View style={{ marginBottom:0}}>
+                        <FlatList
+                            data={props?.getuseraddresslist || []}
+                            renderItem={renderItem}
+                            keyExtractor={item => item.id}
+                            showsHorizontalScrollIndicator={false}
+                        />
+                    </View>
                
-                
-              
-                 <TouchableOpacity style={{width:deviceWidth/1.1, backgroundColor:"#B80000",borderRadius:30,marginTop:"12%",height:63,marginLeft:"4%" }} >
+              </ScrollView>
+              </View>
+               <TouchableOpacity onPress={()=>props.navigation.navigate("editviewaddress")} style={{width:deviceWidth/1.1, backgroundColor:"#B80000",borderRadius:30,marginTop:"5%",height:63,marginLeft:"4%" }} >
                     <Text style={{textAlign:'center',color:"#FFFFFF",fontWeight:'bold',fontSize:18,top:18}}>ADD A NEW ADDRESS</Text> 
                  </TouchableOpacity>
-              
 
-
-              
-              </ScrollView>
-
-               <View style={{ position:'absolute',zIndex:2001,right:20,bottom:70}}>
-               <TouchableOpacity onPress={() => sethelppopup(true)}>
-                    <Image source={ImageIcons.exporthelp} style={{width:50,height:50}}/>
-                </TouchableOpacity>
-               </View>
-
-               { helppopup ==true &&
-        <View style={{flex:1,backgroundColor:'#ffffff',margin:20,paddingVertical:10,borderRadius:10,zIndex:4001, position:'absolute',bottom:'10%'}}>
-            
-           
-              <View style={styles.chatViewrose}>
-                    
-                <Text style={styles.Benrosetext}>Chat with customer support</Text>
-                <TouchableOpacity style={{position:'absolute',right:15,top:5}} onPress={() => sethelppopup(false)}>
-                    <Image source={ImageIcons.closepopup}  style={styles.sendmsg2} />
-                </TouchableOpacity>
-            </View>
-            <ScrollView  keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#ffffff', height:200}} >
-            <View style={{marginVertical:'2%'}}>
-                <FlatList
-                    data={props?.getchatsupportlist1 || []}
-                    renderItem={renderItem6}
-                    keyExtractor={item => item.id}
-                    showsHorizontalScrollIndicator={false}
-                    horizontal={false}
-                />
-             </View>
-           </ScrollView>
-            <View style={[styles.accountmainview,{marginBottom:10, width:'100%'}]}>
-            <View style={{width:'90%'}}>
-                <TextInput  style={styles.chatinput}
-                placeholder="Type here..."
-                onChangeText={onChangeText1}
-                value={text1}
-                placeholderTextColor="#999999"
-                />
-            </View>
-            <TouchableOpacity style={{position:'absolute',right:55,top:5}} onPress={() => handleSendRequestSubmit()}>
-                    <Image source={ImageIcons.sendchat}  style={styles.sendmsg1} />
-                </TouchableOpacity>
-            </View>
-        </View>
-        }
-           
-        
     <Footer3 onSelection="5"/>
        
-    <AwesomeAlert
-          show={showAlert}
-          showProgress={false}
-          title="DROPSHIP"
-          message="You need to login to access this screen!"
-          closeOnTouchOutside={true}
-          closeOnHardwareBackPress={false}
-          showCancelButton={true}
-          showConfirmButton={true}
-          cancelText="Cancel"
-          confirmText="Login"
-          confirmButtonColor="#E22020"
-          onCancelPressed={() => {
-            setshowAlert(false)
-          }}
-          onConfirmPressed={() => {
-             setshowAlert(false)
-             navigation.navigate('Golive');
-          }}
-        />
+    
     </KeyboardAvoidingView>
         
     )

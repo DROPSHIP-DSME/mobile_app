@@ -267,7 +267,8 @@ const images = [
             setshowAlert(true)
         }
     };
-const data = [
+
+    const data = [
        {
         text:"Fashion",
 
@@ -284,8 +285,7 @@ const data = [
         {
         text:"Fashion",
        },
-
-     ];
+    ];
 
 const handleSendRequestSubmit = async () => {
         let request = {
@@ -335,18 +335,18 @@ const renderItem1 = ({ item ,index }) => {
     <View>
         <TouchableOpacity style={{marginHorizontal:5}} onPress={()=>props.navigation.navigate("NameStore",{productId:item._id,userId:item._id, productQuantity:item.productQuantity})}>
             <Image source={{uri: item.productImage}} style={styles.imgbasket} />
-            <Text style={styles.beautyproduct}> hello</Text>
+            <Text style={styles.beautyproduct}> </Text>
             <Text style={styles.uplivetext}>{item.productName}</Text>
 
-            <View style={tailwind('flex flex-row bg-red-700 w-16 h-6 rounded-lg px-1 absolute top-4 left-2')}>
+            {/* <View style={tailwind('flex flex-row bg-red-700 w-16 h-6 rounded-lg px-1 absolute top-4 left-2')}>
                 <Text style={tailwind('px-3 text-sm text-white text-center')}>Live</Text>
             </View>
             <View style={tailwind('flex flex-row bg-green-200 w-16 h-6 rounded-lg px-2 pt-1 absolute top-4 left-[55%]')}>
                 <View style={tailwind('pt-[2%]')}>
                     <UsersIcon color="red" fill="#000000" size={14} />
                 </View>
-                <Text style={tailwind('text-xs text-gray-800 pl-1')}>68.3k</Text>
-            </View>
+                <Text style={tailwind('text-xs text-gray-800 pl-1')}>0k</Text>
+            </View> */}
 
         </TouchableOpacity>
       <View style={styl.rowdrop}>
@@ -357,7 +357,7 @@ const renderItem1 = ({ item ,index }) => {
           <Text style={tailwind('text-gray-500 text-xs')}>{item.productName}</Text>
         </View>
         </View>
-        <Text style={tailwind('text-gray-600 text-sm')}>Mens Watch</Text>
+        <Text style={tailwind('text-gray-600 text-sm')}></Text>
     </View>
   );
 }
@@ -535,7 +535,7 @@ const renderItem6 = ({ item }) => {
                     </View>
                      <View style={tailwind('absolute bottom-5 left-3 w-36 py-2 px-2 rounded-full text-white bg-red-700')}>
                        <TouchableOpacity style={tailwind('items-center')}
-                           onPress={props.navigation.navigate('upcoming')}>
+                           onPress={() => props.navigation.navigate('upcoming')}> 
                            <Text style={tailwind('text-xs text-white')}>Check out store</Text>
                        </TouchableOpacity>
                      </View>

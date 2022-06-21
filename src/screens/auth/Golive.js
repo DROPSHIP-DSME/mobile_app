@@ -27,7 +27,6 @@ import {
   statusCodes,
 } from '@react-native-google-signin/google-signin';
 import ModalSelector from 'react-native-modal-selector'
- import { useTailwind } from 'tailwind-rn';
 
 
 

@@ -19,6 +19,7 @@ import { useFocusEffect } from '@react-navigation/native';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import Shopheader from '../../screens/auth/Shopheader';
+import Moment from 'moment';
 
 const Accountsum = (props) => {
 
@@ -32,10 +33,7 @@ const Accountsum = (props) => {
 
    
     useEffect(() => {
-       props.getAllshop(1);
-       alert(props?.loginuserid)
-       props.getselldeshboard(props?.loginuserid);
-       console.log('getselldeshboard--->',props?.getlistselldeshboard)
+       props.getincomingtlist(props?.loginuserid);
     }, [])
     useFocusEffect(() => {
          //props.getAllshop(1);
@@ -61,19 +59,27 @@ const Accountsum = (props) => {
         }
     } 
    
-      const renderItem3 = ({ item,index }) => {
-   return(
-           <View>
-
-            <TouchableOpacity  onPress={() => props.navigation.navigate("Accountorderview")} style={styles.seledataViewTODAYaccountsummary}>
-                     
-                       <Text style={styles.seriestexttoday}>{item?.totalorder}</Text>
-                       <Text style={styles.seriestexttoday}>{item?.totalorder}</Text>
-                       <Text style={styles.seriestexttoday}>{item?.totalorder}</Text>
-                   </TouchableOpacity>
-            
+      const renderItem3 = ({ item, index }) => {
+        if(index==0){
+        return (
+          <View style={{ marginHorizontal: 2, borderRadius: 10, backgroundColor: '#FFF', padding: 15, marginVertical: 5,borderBottomWidth:1,borderBottomColor:'#ccc' }}>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
+              <View>
+                <Text style={{ fontSize: 14, color: '#1A1A1A', fontFamily: 'AvertaStd-SemiBold' }} >{item?.productId?.productName}</Text>
+                <Text style={{ color: '#808080', fontSize: 12, marginTop: 3 }} >{Moment(item.createdAt).format('MMM DD YYYY')}</Text>
+              </View>
+              <View style={{ marginTop: 5 }}>
+                <Text style={{ color: '#2F80ED', fontSize: 12, backgroundColor: '#ADD8E6', paddingTop: 3, height: 25, width: 91, textAlign: 'center', borderRadius: 6, fontWeight: 'bold' }} >{item.status}</Text>
+              </View>
             </View>
-    );
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
+              <View style={{ width: 230, marginVertical: 3 }}>
+                <Text style={{ fontSize: 12, color: 'black', }} >Order Number:<Text style={{ fontSize: 12, color: '#2F80ED', fontWeight: 'bold', }} > {item.orderNumber}</Text></Text>
+              </View>
+            </View>
+          </View>
+        )
+        }
     }
    const renderItem6 = ({ item }) => {
             return(
@@ -134,11 +140,11 @@ const Accountsum = (props) => {
                    <View>
                     <Text style={styles.totalincometodaysale}>Order History</Text>
                     </View>
-                    {props?.getlistselldeshboard?.length>0 &&
+                    
                         <TouchableOpacity  onPress={() => props.navigation.navigate("Accountorderhist")} style={{backgroundColor:'#B80000',width:90,borderRadius:15,padding:6,}}>
                           <Text style={styles.totalincometodayWIDRO}>SEE ALL</Text> 
                         </TouchableOpacity>
-                   } 
+                    
                   </View>
                    <View style={{marginHorizontal:4, backgroundColor:'#ffffff'}}>
                        <View style={styles.salesViewTODAY}>
@@ -148,13 +154,13 @@ const Accountsum = (props) => {
                        </View>
                    </View>
                 <View style={{marginLeft:10}}>
-                    {props?.getlistselldeshboard?.length>0 ?
+                    {props?.getinconeorderlist?.length>0 ?
                     <FlatList
-                    data={props?.getlistselldeshboard || []}
-                    renderItem={renderItem3}
-                    keyExtractor={item => item.id}
-                    showsHorizontalScrollIndicator={false}
-                    horizontal={false}
+                        data={props?.getinconeorderlist || []}
+                        renderItem={renderItem3}
+                        keyExtractor={item => item.id}
+                        showsHorizontalScrollIndicator={false}
+                        horizontal={false}
                     />
                     :
                         <Text style={{ justifyContent:'center',width:'100%',alignItems:'center'}}>No Record Found</Text>

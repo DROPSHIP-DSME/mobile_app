@@ -33,11 +33,12 @@ const Account = (props) => {
    useEffect(() => {
 
         //alert(props?.loginuserid)
-        props.getprofileuser(props?.loginuserid); 
-        props.getuseraddress(props?.loginuserid);
-        props.getusercard(props?.loginuserid);
-        props.getsupportlist(props?.loginuserid);
+         props.getprofileuser(props?.loginuserid); 
+         props.getuseraddress(props?.loginuserid);
+        // props.getusercard(props?.loginuserid);
+        //props.getsupportlist(props?.loginuserid);
         
+
     }, [])
 
     // Local states
@@ -182,14 +183,29 @@ const Account = (props) => {
               
               <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}>
               <View>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>Address line1</Text>
+                <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>Address line1</Text>
               </View>
+
               {(props?.getuseraddresslist && props?.getuseraddresslist?.length>0) &&
               <View>
                 <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Semibold",color:"#1A1A1A"}}>{props?.getuseraddresslist[0]?.streetAdress}</Text>
               </View>
             }
               </View>
+ <View style={{borderBottomWidth:0.7,marginTop:"2%",marginHorizontal:"3%",borderColor:"#999999"}}></View> 
+              <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}>
+              <View>
+                <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>Address line2</Text>
+              </View>
+
+              {(props?.getuseraddresslist && props?.getuseraddresslist?.length>0) &&
+              <View>
+                <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Semibold",color:"#1A1A1A"}}>{props?.getuseraddresslist[0]?.phoneNumber}</Text>
+              </View>
+            }
+              </View>
+
+
               <View style={{borderBottomWidth:0.7,marginTop:"2%",marginHorizontal:"3%",borderColor:"#999999"}}></View> 
                <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}>
               <View>
@@ -204,25 +220,15 @@ const Account = (props) => {
               <View style={{borderBottomWidth:0.7,marginTop:"2%",marginHorizontal:"3%",borderColor:"#999999"}}></View> 
                <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}>
               <View>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>State</Text>
+              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>Zipcode</Text>
               </View>
                {(props?.getuseraddresslist && props?.getuseraddresslist?.length>0) &&
               <View>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Semibold",color:"#1A1A1A"}}>{props?.getuseraddresslist[0]?.state}</Text>
+              <Text style={{fontSize:16,fontWeight:"normal",paddingBottom:10,fontFamily:"hinted-AvertaStd-Semibold",color:"#1A1A1A"}}>{props?.getuseraddresslist[0]?.zipCode}</Text>
               </View>
           }
               </View>
-              <View style={{borderBottomWidth:0.7,marginTop:"2%",marginHorizontal:"3%",borderColor:"#999999"}}></View>  
-              <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%",marginBottom:"3%"}}>
-              <View>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>Country</Text>
-              </View>
-               {(props?.getuseraddresslist && props?.getuseraddresslist?.length>0) &&
-                  <View>
-                  <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Semibold",color:"#1A1A1A"}}>{props?.getuseraddresslist[0]?.country}</Text>
-                  </View>
-              }
-              </View>
+              
               </View> 
 
                <View style={{marginTop:"3%",marginHorizontal:"3%",borderRadius:10,backgroundColor:"#ffffff"}}>
@@ -382,6 +388,4 @@ const Account = (props) => {
         
     )
 }
-
-
 export default Account

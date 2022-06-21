@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { Accountorderhist } from '../../screens/auth';
-import { getAllshop } from '../../redux/actions/Auth'
+import { getAllshop,getincomingtlist } from '../../redux/actions/Auth'
 
 
 const mapStateToProps = (state) => ({
@@ -8,10 +8,12 @@ const mapStateToProps = (state) => ({
     getlistshop: state.auth.getlistshop,
     loginuserid: state.auth.loginuserid,
     loginuserstatus: state.auth.loginuserstatus,
+    getinconeorderlist: state.auth.getinconeorderlist,
 });
-
+ 
 const mapDispatchToProps = {
-    getAllshop
+    getAllshop,
+    getincomingtlist
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Accountorderhist);
