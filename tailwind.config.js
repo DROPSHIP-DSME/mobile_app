@@ -3,18 +3,18 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
   content: [
-    './App.js',
-    './src/**/*.{js,jsx,ts,tsx}',
-    './src/**/**/*.{js,jsx,ts,tsx}',
+    './src/screens/**/*.{js,ts,jsx,tsx}',
+    './src/common/**/*.{js,ts,jsx,tsx}',
+    './src/components/**/*.{js,ts,jsx,tsx}',
   ],
   corePlugins: { transform: false, translate: false, boxShadow: false },
   theme: {
     fontFamily: {
       'sans': [
-        'hinted-AvertaStd-Regular',
+        'hintedavertastdregular',
         ...defaultTheme.fontFamily.sans
       ],
-      'serif': ['hinted-AvertaStd-Bold', ...defaultTheme.fontFamily.serif ]
+      'serif': ['hintedavertaStdbold', ...defaultTheme.fontFamily.serif ]
     },
     fontWeight: {
       'hairline': 100,
@@ -33,10 +33,10 @@ module.exports = {
       },
       fontFamily: {
         'sans': [
-          'hinted-AvertaStd-Regular',
+          'hintedavertastdregular',
         ],
         'serif': [
-          'hinted-AvertaStd-Bold',
+          'hintedavertastdbold',
         ],
       },
       backgroundColor: {

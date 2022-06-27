@@ -122,12 +122,14 @@
     "react-native-view-slider": "^1.1.1",
     "react-native-webview": "^11.21.1",
     "react-redux": "^7.2.2",
+    "react-tailwind-table": "^1.1.1",
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "rn-fetch-blob": "^0.12.0",
     "socket.io-client": "2.3.0",
     "tailwind-rn": "^4.2.0",
+    "twrnc": "^3.3.2",
     "yup": "^0.32.9"
   },
   "devDependencies": {
@@ -148,6 +150,8 @@
     "preset": "react-native"
   },
   "rnpm": {
-   "assets": ["./res/assets/fonts/AvertaStd/"]
+    "assets": [
+      "./res/assets/fonts/AvertaStd/"
+    ]
   }
 }

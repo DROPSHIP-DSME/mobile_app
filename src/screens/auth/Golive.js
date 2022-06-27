@@ -1,7 +1,7 @@
 import React, { useEffect,useRef, useState } from 'react';
 import { Text, View,TextInput,
  ImageBackground,Image,
-  ScrollView,TouchableOpacity, 
+  ScrollView,TouchableOpacity,
  Alert,  StatusBar,
   KeyboardAvoidingView,
    Platform,Keyboard,NativeModules,Picker} from 'react-native';
@@ -39,8 +39,6 @@ const Golive = (props) => {
     } = props;
 
     //Reference
-    const tailwind = useTailwind();
- 
 
     // Local states
     const [City, onChangeCity] = React.useState("");
@@ -62,20 +60,20 @@ const Golive = (props) => {
                   googleServicePlistPath: '', // [iOS] if you renamed your GoogleService-Info file, new name here, e.g. GoogleService-Info-Staging
                   openIdRealm: '', // [iOS] The OpenID2 realm of the home web server. This allows Google to include the user's OpenID Identifier in the OpenID Connect ID token.
                   profileImageSize: 120, // [iOS] The desired height (and width) of the profile image. Defaults to 120px
-                }); 
+                });
     }, [])
 
     const googlesignin = async () => {
-        try {    
-        
+        try {
+
           await GoogleSignin.hasPlayServices();
           var userInfo = await GoogleSignin.signIn();
-          console.log('userInfo:',userInfo) 
+          console.log('userInfo:',userInfo)
           props.navigation.navigate('watchlist')
         } catch (error) {
             //alert('Dropship has not updated on stores yet, please upload app on stores to proceed')
             //props.navigation.navigate('watchlist')
-            console.log('google sign error:', error) 
+            console.log('google sign error:', error)
         }
     }
 
@@ -87,7 +85,7 @@ const Golive = (props) => {
             style={styles.registrationRoot}>
              <StatusBar backgroundColor={'#ffffff00'} barStyle="dark-content" translucent={true} />
         <View style={{backgroundColor:'#ffffff',flex:1}}>
-          
+
           <View style={{alignItems:'center',marginTop:'18%'}}>
               <Image source={ImageIcons.logored_1} style={styles.setlogonewdatarow}  />
           </View>
@@ -101,7 +99,7 @@ const Golive = (props) => {
                     <Text style={[styles.startbutton1,{fontSize:18,marginLeft:20,color:'#000000'}]}>Sign in with Google</Text>
                 </View>
             </TouchableOpacity>
-        </View> 
+        </View>
         <View style={{alignItems:'center',marginTop:'4%'}}>
             <TouchableOpacity
                 style={styles.Touchablestarttextnew}
@@ -112,13 +110,13 @@ const Golive = (props) => {
                     <Text style={[styles.startbutton1,{fontSize:18,marginLeft:20,color:'#000000'}]}>Sign in with Facebook</Text>
                 </View>
             </TouchableOpacity>
-        </View> 
+        </View>
         <View style={[styles.devider1, { marginTop: '10%' }]}>
             <View style={styles.devider2} />
             <Text style={styles.devider3}>OR</Text>
             <View style={styles.devider2} />
         </View>
-        
+
 
             <Largebutton
               text="Sign in with Email"
@@ -131,7 +129,7 @@ const Golive = (props) => {
                 <TouchableOpacity onPress={() => props.navigation.navigate("CreateAccountShop")}>
                     <Text style={styles.customertextred}> Sign up here.</Text>
                 </TouchableOpacity>
-            </View> 
+            </View>
 
         </View>
 

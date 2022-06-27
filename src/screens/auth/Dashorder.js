@@ -17,16 +17,12 @@ import Swipeout from 'react-native-swipeout';
 import HorizontalSlider from 'react-horizontal-slider';
 import Footer2 from '../../screens/auth/Footer2';
 import SellHeader from '../../screens/auth/Sellheader';
-
 import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import { Provider, Portal, } from 'react-native-paper';
 import Modal from 'react-native-modal';
 import Moment from 'moment';
-import { useTailwind } from 'tailwind-rn';
-
-
 import {
   LineChart,
   BarChart,
@@ -35,6 +31,9 @@ import {
   ContributionGraph,
   StackedBarChart
 } from "react-native-chart-kit";
+import tw from 'twrnc';
+import Sortorder from '../../components/pickers/Sortorder';
+import Orderstable from '../../components/tables/Orderstable'
 
 
 const Dashorder = (props) => {
@@ -52,7 +51,6 @@ const Dashorder = (props) => {
   } = props;
 
   //Reference
-  const tailwind = useTailwind();
   const userId = props?.route?.params?.userId;
   const brandId = props?.route?.params?.brandId;
 
@@ -135,7 +133,7 @@ const Dashorder = (props) => {
 
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={tw.style('flex-1 bg-white')}>
       <StatusBar backgroundColor={'#B80000'} barStyle="dark-content" translucent={true} />
       <SellHeader branddata={props.Brandlistdata} />
 
@@ -143,33 +141,21 @@ const Dashorder = (props) => {
         handleScroll(nativeEvent['contentOffset'].y);
       }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#f2f2f2' }} >
 
-        <View style={tailwind('mt-5 mb-5 ml-4')}>
-          <Text style={tailwind('text-2xl text-gray-800 font-bold')}>Orders ({props?.getinconeorderlist?.length})</Text>
-        </View>
+        <View style={tw.style('mt-5 mb-5 mx-4')}>
+          <Text style={tw.style('text-2xl text-gray-800 font-bold')}>Orders ({props?.getinconeorderlist?.length})</Text>
 
-        <View style={tailwind('flex flex-row pl-3 text-sm')}>
-          <View style={tailwind('basis-36 border-gray-300 bg-gray-200 rounded-lg text-justify')}>
-            <Picker
-              selectedValue={selectedValue}
-              style={tailwind('h-9 w-36 text-gray-800 bg-black')}
-              onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-            >
-              <Picker.Item label="sort" value="1" />
-              <Picker.Item label="success" value="2" />
-              <Picker.Item label="Pending" value="3" />
-              <Picker.Item label="Processing" value="3" />
-              <Picker.Item label="Canceled" value="3" />
-              <Picker.Item label="Delivered" value="3" />
-            </Picker>
+          <Sortorder />
+
+          <View style={tw.style('bg-zinc-100 mt-6 p-3 ')} >
+            <FlatList
+              data={props?.getinconeorderlist || []}
+              renderItem={Data}
+            />
           </View>
+         </View>
 
-        </View>
-        <View style={tailwind('bg-slate-100 p-4 mx-2')} >
-          <FlatList
-            data={props?.getinconeorderlist || []}
-            renderItem={Data}
-          />
-        </View>
+         <Orderstable />
+
       </ScrollView>
       <Footer2 onSelelection="2" />
     </View>
