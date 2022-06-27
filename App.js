@@ -5,21 +5,21 @@ import RootNavigation from './src/route/RootNavigation';
 import axios from 'axios';
 import api from './src/common/Api';
 import SplashScreen from 'react-native-splash-screen';
-import {TailwindProvider} from 'tailwind-rn';
+import { TailwindProvider } from 'tailwind-rn';
 import utilities from './tailwind.json';
 
 const App = () => {
   axios.defaults.baseURL = api.baseUri; // BASE URL
-    useEffect(() => {
-      SplashScreen.hide();
+  useEffect(() => {
+    SplashScreen.hide();
   }, []);
-    return (
-      <TailwindProvider utilities={utilities}>
-        <Provider store={store}>
-          <RootNavigation />
-        </Provider>
-      </TailwindProvider>
-    );
+  return (
+    <TailwindProvider utilities={utilities}>
+      <Provider store={store}>
+        <RootNavigation />
+      </Provider>
+    </TailwindProvider>
+  );
 
 };
 
