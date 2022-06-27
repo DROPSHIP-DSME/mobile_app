@@ -140,11 +140,7 @@ const watchlist = (props) => {
             color:'#E6E6E6'
         },
         {
-            name:'shops',
-            color:'#E6E6E6'
-        },
-        {
-            name:'Events',
+            name:'Shops',
             color:'#E6E6E6'
         }
     ]
@@ -302,7 +298,7 @@ const data = [
                     <View style={tw.style('pt-[2%]')}>
                         <UsersIcon color="red" fill="#000000" size={14} />
                     </View>
-                    <Text style={tw.style('text-xs text-gray-800 pl-1')}>68.3k</Text>
+                    <Text style={tw.style('text-xs text-gray-800 pl-1')}>0</Text>
                 </View>
             </View>
 
@@ -314,7 +310,7 @@ const data = [
                 <Text style={tw.style('text-gray-500 text-xs')}>{item.products[0]?.productName}</Text>
               </View>
             </View>
-              <Text style={tw.style('text-gray-600 text-sm')}>Mens Classic Watch</Text>
+              
            </TouchableOpacity>
         </View>
     );
@@ -336,7 +332,7 @@ const data = [
                     <View style={tw.style('pt-[2%]')}>
                         <UsersIcon color="red" fill="#000000" size={14} />
                     </View>
-                    <Text style={tw.style('text-xs text-gray-800 pl-1')}>68.3k</Text>
+                    <Text style={tw.style('text-xs text-gray-800 pl-1')}>0</Text>
                 </View>
             </View>
 
@@ -348,7 +344,7 @@ const data = [
                 <Text style={tw.style('text-gray-500 text-xs')}>{item.productName}</Text>
               </View>
             </View>
-              <Text style={tw.style('text-gray-600 text-sm')}>Mens Classic Watch</Text>
+              
            </TouchableOpacity>
         </View>
     );
