@@ -19,6 +19,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import tw from 'twrnc';
 import Sortorder from '../../components/pickers/Sortorder';
+import Sortfilter from '../../components/pickers/Sortfilter';
 import { ChevrondoubleupIcon } from "react-native-heroicons/solid";
 import AwesomeAlert from 'react-native-awesome-alerts';
 import { Rating, AirbnbRating } from 'react-native-ratings';
@@ -228,7 +229,9 @@ const shop = (props) => {
 
                     <Sortorder />
 
-                    <Sortfilter />
+                    <Sortfilter
+                      text="Filter"
+                     />
 
                 </View>
                 <View style={tw.style('mx-[3%] mb-[90px]')}>

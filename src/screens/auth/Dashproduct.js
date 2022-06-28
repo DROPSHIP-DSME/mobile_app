@@ -212,7 +212,9 @@ const deviceWidth = Dimensions.get('window').width;
               <View style={tw.style('flex flex-row mx-4')}>
                 <Sortorder />
 
-                <Sortfilter />
+                <Sortfilter
+                  text="Filter"
+                />
 
               </View>
 

@@ -12,7 +12,7 @@ const Sortfilter = ({text}) => {
           <AdjustmentsIcon color="black" fill="#000000" size={20} />
        </View>
         <TouchableOpacity>
-            <Text style={tw.style('text-base text-gray-600 pt-1.5 ml-1')}>Filters</Text>
+            <Text style={tw.style('text-base text-gray-600 pt-1.5 ml-1')}>{text}</Text>
         </TouchableOpacity>
         </View>
     </View>
