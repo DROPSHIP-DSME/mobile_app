@@ -20,6 +20,7 @@ import tw from 'twrnc';
 import Smallbutton from '../../components/dropshipbutton/Smallbutton';
 import Sortorder from '../../components/pickers/Sortorder';
 import Sortfilter from '../../components/pickers/Sortfilter';
+import { AdjustmentsIcon } from "react-native-heroicons/solid";
 import SellHeader from '../../screens/auth/Sellheader';
 import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
@@ -208,15 +209,11 @@ const deviceWidth = Dimensions.get('window').width;
                  }
                </View>
 
-              <View style={tw.style('flex flex-row m-4')}>
+              <View style={tw.style('flex flex-row mx-4')}>
                 <Sortorder />
 
                 <Sortfilter />
 
-                <TouchableOpacity style={[styles.pickerViewshorttodayagain,{marginLeft:'8%',flexDirection:'row',justifyContent:'space-around',padding:4}]}>
-                   <Image source={ImageIcons.filtertoday}  style={{height:11,width:11,marginTop:5}} />
-                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',textAlign:'center'}}>FILTERS</Text>
-                </TouchableOpacity>
               </View>
 
               <View style={{marginHorizontal:'4%',marginVertical:'4%',flexDirection:'row'}}>
