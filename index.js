@@ -10,7 +10,7 @@ import PushNotificationIOS from "@react-native-community/push-notification-ios";
 import PushNotification from "react-native-push-notification";
 import { typography } from './src/components/typography';
 
-  typography()
+typography()
 
 /*PushNotification.configure({
     // (optional) Called when Token is generated (iOS and Android)

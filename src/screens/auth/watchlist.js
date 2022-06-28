@@ -23,6 +23,7 @@ import Video from 'react-native-video';
 import { requestMultiplePermisisons } from '../../services/Permissions'
 import moment from 'moment';
 import AwesomeAlert from 'react-native-awesome-alerts';
+<<<<<<< HEAD
 import Smallbutton from '../../components/dropshipbutton/Smallbutton';
 import { useTailwind } from 'tailwind-rn';
 import { SearchIcon } from "react-native-heroicons/solid";
@@ -30,6 +31,15 @@ import { UsersIcon } from "react-native-heroicons/solid";
 
 const deviceHeight = Dimensions.get('window').height;
 const deviceWidth = Dimensions.get('window').width;
+=======
+import Productstream from '../../components/product/Productstream';
+import tw from 'twrnc';
+const deviceHeight = Dimensions.get('window').height;
+const deviceWidth = Dimensions.get('window').width;
+import { UsersIcon } from "react-native-heroicons/solid";
+import { PlayIcon } from "react-native-heroicons/solid";
+import { SearchIcon } from "react-native-heroicons/solid";
+>>>>>>> UI-1.1.0
 
 const watchlist = (props) => {
 
@@ -40,8 +50,6 @@ const watchlist = (props) => {
         handleChange,
         handleSubmit,
     } = props;
-
-
 
     //Reference
     const tailwind = useTailwind();
@@ -87,20 +95,6 @@ const watchlist = (props) => {
         }
     ]);
 
-    useEffect(() => {
-       // AsyncStorage.setItem('UserId','');
-        //AsyncStorage.setItem('userLogin','');
-        //getBrandUserId();
-        //alert(props?.loginuserid)
-        props.getsupportlist(props?.loginuserid);
-
-        props.getAllproduct(1);
-        props.getalleventlist(1);
-        props.getwatchlistproduct(props?.loginuserid);
-        console.log('props?.showwatchlistproduct',props?.showwatchlistproduct)
-        if (Platform.OS === 'android') requestMultiplePermisisons();
-    }, [])
-
     const handleScroll=(pageYOffset)=>{
         if (pageYOffset > 0) {
             setshowclassName('#B80000');
@@ -136,37 +130,39 @@ const watchlist = (props) => {
             const closepopup = () => {
           setVisible(false)
         }
-       const containerStyle = { position:'absolute', top:'10%', width:'100%',backgroundColor: 'white', padding: '1%',marginHorizontal:'1%',alignItems:'center'};
+
+    const containerStyle = { position:'absolute', top:'10%', width:'100%',backgroundColor: 'white', padding: '1%',marginHorizontal:'1%',alignItems:'center'};
 
     // Vendor request submission
 
     const SHOWDATSA = [
         {
-            name:'ALL',
+            name:'All',
             color:'#E6E6E6'
         },
         {
-            name:'LIVESTREAMS',
+            name:'Livestreams',
             color:'#B80000'
         },
         {
-            name:'PRODUCTS',
+            name:'Products',
             color:'#E6E6E6'
         },
         {
-            name:'STORES',
+            name:'Stores',
             color:'#E6E6E6'
         },
         {
-            name:'SHOPS',
+            name:'shops',
             color:'#E6E6E6'
         },
         {
-            name:'EVENTS',
+            name:'Events',
             color:'#E6E6E6'
         }
     ]
 
+<<<<<<< HEAD
 const images = [
    /*{
     image:'https://smartops.co.in/images/brandvideo.mp4',
@@ -221,25 +217,106 @@ const images = [
      ];
 
       const DATA2 = [
-       {
-            text:'Beauty brands',
-            image:ImageIcons.basket,
-            imageicon:ImageIcons.theme3,
-            text2:'Live tomorrow at 10PM',
-       },
-        {
-            text:'Beauty brands',
-            text2:'Live tomorrow at 10PM',
-            image:ImageIcons.clothes,
-            imageicon:ImageIcons.theme3,
-       },
-     ];
+=======
+    const images = [
+       /*{
+        image:'https://smartops.co.in/images/brandvideo.mp4',
+        desc: 'Silent Waters in the mountains in midst of Himilayas',
+       },*/
+      {
+        image:'https://drp-s3-1.s3.us-east-2.amazonaws.com/GlowBruleeVideo.mp4',
+        desc:
+          'Glow Brulee',
+      },
+      {
+        image:'https://drp-s3-1.s3.us-east-2.amazonaws.com/Ikevideo.mp4',
+        desc:
+          'IKE NARTEY ESSENTIALS',
+      },
+      {
+        image:'https://drp-s3-1.s3.us-east-2.amazonaws.com/SolrayzVideo.mp4',
+        desc:
+          'Solrayz Jewelry',
+      },
+      {
+        image:'https://drp-s3-1.s3.us-east-2.amazonaws.com/TerraMoonVideo.mp4',
+        desc:
+          'Terra Moon',
+      },
+      {
+        image:'https://drp-s3-1.s3.us-east-2.amazonaws.com/Video.mp4',
+        desc:
+          'The Ruby Unicorn',
+      },
+    ];
 
+    const showConfirmDialog = () => {
+        if(props?.loginuserstatus=="1"){
+            navigation.navigate('Newprofile');
+        }else {
+
+            setshowAlert(true)
+        }
+    };
+
+    useEffect(() => {
+       // AsyncStorage.setItem('UserId','');
+        //AsyncStorage.setItem('userLogin','');
+        //getBrandUserId();
+        //alert(props?.loginuserid)
+        props.getsupportlist(props?.loginuserid);
+
+        props.getAllproduct(1);
+        props.getalleventlist(1);
+        props.getwatchlistproduct(props?.loginuserid);
+        console.log('props?.showwatchlistproduct',props?.showwatchlistproduct)
+        if (Platform.OS === 'android') requestMultiplePermisisons();
+    }, [])
+
+    const DATA = [
+      {
+       text:'Beauty brands',
+       image:ImageIcons.basket,
+       image2:ImageIcons.liveicon,
+      },
+>>>>>>> UI-1.1.0
+       {
+      text:'Beauty brands',
+       text2:'Live tomorrow at 10PM',
+       image:ImageIcons.clothes,
+      },
+       {
+       text:'Beauty brands',
+       text2:'Live tomorrow at 10PM',
+       image:ImageIcons.basket,
+      },
+    ];
+
+<<<<<<< HEAD
     const joinbroadcast = (itemid,startnow,eventtime) =>{
         var getTime = moment(new Date()).format('MMM DD');
         var eventTime = moment(eventtime).format('MMM DD');
 
         if (getTime==eventTime){
+=======
+     const DATA2 = [
+      {
+           text:'Beauty brands',
+           image:ImageIcons.basket,
+           imageicon:ImageIcons.theme3,
+           text2:'Live tomorrow at 10PM',
+      },
+       {
+           text:'Beauty brands',
+           text2:'Live tomorrow at 10PM',
+           image:ImageIcons.clothes,
+           imageicon:ImageIcons.theme3,
+      },
+    ];
+
+    const joinbroadcast = (itemid, startnow, eventtime) =>{
+        //if (startnow == true){
+>>>>>>> UI-1.1.0
             let request1 = {
                 "channelName":itemid,
                 "appID":"0c96ec2a0c9744c0bb3d21330bb0911d",
@@ -250,6 +327,7 @@ const images = [
             setTimeout(function(){
                 props.navigation.navigate("Blurbackground", { isback: false, channel:itemid , isbroadcaster: false });
             },1000);
+<<<<<<< HEAD
         } else {
             //setshowotherAlert(true)
             //setshowalertmsg('Event will start at '+ moment(eventtime).format('MMM DD, hh:mm A'))
@@ -269,9 +347,17 @@ const images = [
     };
 
     const data = [
+=======
+        // } else {
+        //     setshowotherAlert(true)
+        //     setshowalertmsg('Event will start at '+ moment(eventtime).format('MMM DD, hh:mm A'))
+        // }
+    };
+
+const data = [
+>>>>>>> UI-1.1.0
        {
         text:"Fashion",
-
        },
         {
         text:"Jewelry",
@@ -287,7 +373,9 @@ const images = [
        },
     ];
 
-const handleSendRequestSubmit = async () => {
+  const image = { uri: "https://media.vogue.fr/photos/5d40515bc93b83000833392f/master/w_1920,h_1280,c_limit/020-Sneakers-Encyclopaedia-Vogueint-Jul24-Getty-Images.jpg" };
+
+  const handleSendRequestSubmit = async () => {
         let request = {
             "userId":props?.loginuserid,
             "message":text1,
@@ -297,6 +385,7 @@ const handleSendRequestSubmit = async () => {
         props.support(request, props.navigation, "vendor");
     }
 
+<<<<<<< HEAD
 const renderItem1 = ({ item ,index }) => {
    return(
     <View>
@@ -372,21 +461,63 @@ const renderItem1 = ({ item ,index }) => {
                 </View>
                 <View style={styl.comingshort1}>
 
-                </View>
-            </View>
-            <View style={styl.rowdrop}>
-                <View>
-                    <Image source={ImageIcons.profileimage} style={{width:35,height:35}}/>
-                </View>
-                <View style={{paddingTop:10,paddingLeft:10}}>
-                    <Text style={styl.txt1}>MARTHA STEWART</Text>
-                </View>
-            </View>
-            <Text style={styl.txt2}></Text>
-    </View>
-  );
-}
+=======
+  const renderItem1 = ({ item ,index }) => {
+     return(
 
+        <View style={tw.style('ml-2 mr-2 mt-3')}>
+          <TouchableOpacity onPress={() => joinbroadcast(item._id,item.startNow,item.eventdate)}>
+            <View>
+                <Image source={{uri: item.products[0]?.productImage}} style={tw.style('w-40 h-56 rounded-md')} />
+                  <Text style={styles.beautyproduct}></Text>
+
+                <View style={tw.style('flex flex-row bg-red-700 w-16 h-6 rounded-lg px-1 absolute top-4 left-2')}>
+                    <Text style={tw.style('px-3 text-sm text-white text-center')}>Live</Text>
+                </View>
+                <View style={tw.style('flex flex-row bg-green-200 w-16 h-6 rounded-lg px-2 pt-1 absolute top-4 left-[55%]')}>
+                    <View style={tw.style('pt-[2%]')}>
+                        <UsersIcon color="red" fill="#000000" size={14} />
+                    </View>
+                    <Text style={tw.style('text-xs text-gray-800 pl-1')}>68.3k</Text>
+>>>>>>> UI-1.1.0
+                </View>
+            </View>
+
+            <View style={tw.style('flex flex-row mt-2')}>
+              <View>
+                <Image source={ImageIcons.profileimage} style={tw.style('h-6 w-6 rounded-full')}/>
+              </View>
+              <View style={tw.style('pl-2 pt-1')}>
+                <Text style={tw.style('text-gray-500 text-xs')}>{item.products[0]?.productName}</Text>
+              </View>
+            </View>
+              <Text style={tw.style('text-gray-600 text-sm')}>Mens Classic Watch</Text>
+           </TouchableOpacity>
+        </View>
+    );
+  }
+
+   const renderItem = ({ item, index }) => {
+     return(
+        <View style={tw.style('ml-2 mr-2')}>
+          <TouchableOpacity onPress={()=>props.navigation.navigate("NameStore",{productId:item._id,userId:item._id, productQuantity:item.productQuantity})}>
+            <View>
+                <Image source={{uri: item.productImage}} style={tw.style('w-40 h-56 rounded-md')} />
+                  <Text style={styles.beautyproduct}></Text>
+                  <Text style={styles.uplivetext}>{item.productName}</Text>
+
+                <View style={tw.style('flex flex-row bg-red-700 w-16 h-6 rounded-lg px-1 absolute top-4 left-2')}>
+                    <Text style={tw.style('px-3 text-sm text-white text-center')}>Live</Text>
+                </View>
+                <View style={tw.style('flex flex-row bg-green-200 w-16 h-6 rounded-lg px-2 pt-1 absolute top-4 left-[55%]')}>
+                    <View style={tw.style('pt-[2%]')}>
+                        <UsersIcon color="red" fill="#000000" size={14} />
+                    </View>
+                    <Text style={tw.style('text-xs text-gray-800 pl-1')}>68.3k</Text>
+                </View>
+            </View>
+
+<<<<<<< HEAD
 const renderItem6 = ({ item }) => {
             return(
                 <View>
@@ -404,10 +535,69 @@ const renderItem6 = ({ item }) => {
                           </View>
                           <Text style={styles.chattingtime2}>{moment(item.msgDate).format('hh:mm A')}</Text>
                         </View>
+=======
+            <View style={tw.style('flex flex-row mt-2')}>
+              <View>
+                <Image source={ImageIcons.profileimage} style={tw.style('h-6 w-6 rounded-full')}/>
+              </View>
+              <View style={tw.style('pl-2 pt-1')}>
+                <Text style={tw.style('text-gray-500 text-xs')}>{item.productName}</Text>
+              </View>
+            </View>
+              <Text style={tw.style('text-gray-600 text-sm')}>Mens Classic Watch</Text>
+           </TouchableOpacity>
+        </View>
+    );
+  }
+>>>>>>> UI-1.1.0
 
-                    }
-                </View>
-            );
+   const renderItem2 = ({ item ,index }) => {
+     return(
+         <View style={{marginHorizontal:3}}>
+              <Image source={{uri: item.productId.productImage}} style={styles.imgbasket} />
+              <Text style={[styles.beautyproduct,{position:'absolute',top:210,zIndex:2001}]}>{item.productId.productName}</Text>
+              <View style={{flexDirection:'row',position:'absolute',top:5,left:'5%'}}>
+                  <View style={{borderRadius:50,position:'absolute',top:5,left:5, backgroundColor:'#E22020'}}>
+                      <Text style={styles.shorttest1}>Live</Text>
+                  </View>
+                  <View style={styl.comingshort1}>
+
+                  </View>
+              </View>
+              <View style={styl.rowdrop}>
+                  <View>
+                      <Image source={ImageIcons.profileimage} style={{width:35,height:35}}/>
+                  </View>
+                  <View style={{paddingTop:10,paddingLeft:10}}>
+                      <Text style={styl.txt1}>MARTHA STEWART</Text>
+                  </View>
+              </View>
+              <Text style={styl.txt2}></Text>
+      </View>
+    );
+  }
+
+  const renderItem6 = ({ item }) => {
+        return(
+            <View>
+                { item.userId.userName=='Admin' ?
+                   <View>
+                    <View style={styles.chatrightView}>
+                       <Text style={styles.hellotext}>{item.message}</Text>
+                    </View>
+                     <Text style={styles.chattingtime}>{ moment(item.msgDate).format('hh:mm A')}</Text>
+                    </View>
+                :
+                    <View>
+                    <View style={styles.chatlongView}>
+                      <Text style={styles.chattingtext}>{item.message}</Text>
+                    </View>
+                    <Text style={styles.chattingtime2}>{moment(item.msgDate).format('hh:mm A')}</Text>
+                    </View>
+
+                }
+            </View>
+        );
     }
 
     const renderItem3 = ({ item ,index }) => {
@@ -420,15 +610,15 @@ const renderItem6 = ({ item }) => {
         );
     }
 
-    const renderItem5 = ({ item ,index }) => {
+    const renderItem5 = ({ item, index }) => {
         return(
-            <View style={{borderRadius:10,marginRight:10,padding:10,backgroundColor:`${item.color}`}}>
+          <View style={tw.style('inline-flex justify-items-center ml-1 mt-2 px-1 pt-1 {text-color:`${item.color}}')}>
              { item.color=='#B80000'?
-                    <Text style={{color:'#ffffff',fontFamily:'hinted-AvertaStd-Semibold',paddingHorizontal:10}}>{item.name}</Text>
+                <Text style={tw.style('text-lg text-red-700 mx-2 border-b-2 border-zinc-600')}>{item.name}</Text>
                 :
-                    <Text style={{fontFamily:'hinted-AvertaStd-Semibold',paddingHorizontal:10}}>{item.name}</Text>
+                <Text style={tw.style('text-zinc-400 mx-2 text-lg')}>{item.name}</Text>
              }
-            </View>
+          </View>
         );
     }
 
@@ -439,8 +629,12 @@ const renderItem6 = ({ item }) => {
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={styles.registrationRoot}>
             <StatusBar backgroundColor={showclassName} barStyle="dark-content" translucent={true} />
-            <View style={{flexDirection:'row',backgroundColor:showclassName,alignItems:'center',justifyContent:'space-between',top:'3%',zIndex:1001,position:'absolute',width:'100%',padding:'3%'}}>
 
+            <View style={{flexDirection:'row',backgroundColor:showclassName,alignItems:'center',justifyContent:'space-between',top:'3%',zIndex:1001,position:'absolute',width:'100%',padding:'3%'}}>
+<<<<<<< HEAD
+
+=======
+>>>>>>> UI-1.1.0
                 <View>
                 {showclassName=='#FFFFFF00' ?
                     <Image source={ImageIcons.logored_1} style={{width:70,height:57}}/>
@@ -474,7 +668,11 @@ const renderItem6 = ({ item }) => {
                 <View>
                     <FlatListSlider
                         data={images}
+<<<<<<< HEAD
                         height={250}
+=======
+                        height={225}
+>>>>>>> UI-1.1.0
                         timer={10000}
                         loop={false}
                         contentContainerStyle={{paddingHorizontal: 0}}
@@ -488,6 +686,7 @@ const renderItem6 = ({ item }) => {
 
 
                 <TouchableOpacity onPress={() => props.navigation.navigate("Search")}>
+<<<<<<< HEAD
                   <View style={tailwind('flex flex-row my-6 h-14 bg-zinc-200 mx-4 rounded-lg items-center')}>
                       <View style={tailwind('mt-1 ml-4')}>
                         <SearchIcon color="red" fill="#B80000" size={20} />
@@ -497,6 +696,17 @@ const renderItem6 = ({ item }) => {
                 </TouchableOpacity>
 
                 <View style={[styles.maincartview,{marginBottom:'3%',marginTop:'1%'}]}>
+=======
+                 <View style={tw.style('flex flex-row my-3 h-10 bg-zinc-200 mx-3 rounded-lg items-center')}>
+                     <View style={tw.style('mt-1 ml-4')}>
+                       <SearchIcon color="red" fill="#B80000" size={20} />
+                    </View>
+                     <Text style={tw.style('ml-2')}> Search for anything</Text>
+                 </View>
+               </TouchableOpacity>
+
+                <View>
+>>>>>>> UI-1.1.0
                     <FlatList
                         data={SHOWDATSA}
                         renderItem={renderItem5}
@@ -505,8 +715,9 @@ const renderItem6 = ({ item }) => {
                         horizontal={true}
                     />
                 </View>
+                <View style={tw.style('border-b mx-3 mb-4 border-gray-300')}></View>
 
-                <View style={{marginLeft:10,marginTop:5}}>
+                <View style={tw.style('ml-2 mt-1')}>
                     <FlatList
                         data={props?.getalleventdata || []}
                         renderItem={renderItem1}
@@ -516,7 +727,10 @@ const renderItem6 = ({ item }) => {
                     />
                 </View>
 
+<<<<<<< HEAD
                 <View style={{marginLeft:10,marginTop:35}}>
+=======
+                <View style={tw.style('ml-2 mt-8')}>
                     <FlatList
                         data={props?.getlistproduct || []}
                         renderItem={renderItem}
@@ -525,6 +739,34 @@ const renderItem6 = ({ item }) => {
                          horizontal={true}
                     />
                 </View>
+
+                <View style={tw.style('flex flex-1 bg-white overflow-hidden h-40 mt-6')}>
+                   <ImageBackground source={image} resizeMode="cover" style={tw.style('flex flex-1 justify-center p-6')}>
+                    <View style={tw.style('absolute bottom-10 left-3 h-16 w-10/12')}>
+                       <Text style={tw.style('text-lg text-white')}>Sneakers Store</Text>
+                       <Text style={tw.style('text-sm text-white')}>New Products Released</Text>
+                    </View>
+                     <View style={tw.style('absolute bottom-5 left-3 w-36 py-2 px-2 rounded-full text-white bg-red-700')}>
+                       <TouchableOpacity style={tw.style('items-center')}
+                           onPress={() => props.navigation.navigate('upcoming')}>
+                           <Text style={tw.style('text-xs text-white')}>Check out store</Text>
+                       </TouchableOpacity>
+                     </View>
+                   </ImageBackground>
+                 </View>
+
+
+                <View style={tw.style('ml-2 mt-8')}>
+>>>>>>> UI-1.1.0
+                    <FlatList
+                        data={props?.getlistproduct || []}
+                        renderItem={renderItem}
+                        keyExtractor={item => item.id}
+                        showsHorizontalScrollIndicator={false}
+                         horizontal={true}
+                    />
+                </View>
+<<<<<<< HEAD
 
                 <View style={tailwind('flex flex-1 bg-white overflow-hidden h-40 mt-6')}>
 
@@ -556,6 +798,8 @@ const renderItem6 = ({ item }) => {
                     />
                 </View>
 
+=======
+>>>>>>> UI-1.1.0
 
                 <TouchableOpacity>
                     <View style={{marginBottom:'18%',marginLeft:'3%',marginTop:35}}>
@@ -570,9 +814,13 @@ const renderItem6 = ({ item }) => {
                 </TouchableOpacity>
 
             </View>
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> UI-1.1.0
         </ScrollView>
+
        { helppopup ==true &&
         <View style={{flex:1,backgroundColor:'#f9f9f9',margin:20,paddingVertical:10,borderRadius:10,zIndex:4001, position:'absolute',bottom:'20%'}}>
 

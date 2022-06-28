@@ -6,6 +6,7 @@ import * as Yup from 'yup';
 import styles from './styles';
 import { Colors, CommonStrings } from '../../common';
 import ImageIcons from '../../common/ImageIcons';
+import tw from 'twrnc';
 import { HomeIcon } from "react-native-heroicons/solid";
 import { VideoCameraIcon } from "react-native-heroicons/solid";
 import { CashIcon } from "react-native-heroicons/solid";
@@ -21,7 +22,7 @@ import { useNavigation } from '@react-navigation/native';
 import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper';
 import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
-import {useTailwind} from 'tailwind-rn';
+
 
 
 const Footer3 = (props) => {
@@ -37,12 +38,11 @@ const Footer3 = (props) => {
     const navigation = useNavigation();
 
     //Reference
-    const tailwind = useTailwind();
     // Local states
     const [visible, setVisible] = React.useState(false);
     const [IsLogin, setIsLogin] = React.useState('');
 
-    
+
 
     useEffect(() => {
        getBrandUserId();
@@ -61,61 +61,59 @@ const Footer3 = (props) => {
 
     return (
 
-        <View style={styles.footerView}>
-
-         <View style={styles.maincartviewfooter}>
-
+        <View style={tw.style('max-w-fit mx-auto bg-white flex h-14 py-1')}>
+          <View style={tw.style('flex-row justify-between')}>
 
           <TouchableOpacity onPress={() => { navigation.navigate('watchlist'); }}>
             {onSelection==1 ?
-              <View style={tailwind('items-center')}>
+              <View style={tw.style('inline-block items-center px-2 mx-2')}>
                   <Text>
                      <HomeIcon color="red" fill="#b80000" size={24} />
                   </Text>
-                   <Text style={tailwind('text-sm text-right font-normal text-red-700')}>Home</Text>
+                   <Text style={tw.style('text-sm text-right font-normal text-red-700')}>Home</Text>
               </View>
           :
-              <View style={tailwind('items-center')}>
+              <View style={tw.style('inline-block items-center px-2 mx-2')}>
                   <Text>
                      <HomeIcon color="red" fill="gray" size={24} />
                   </Text>
-                   <Text style={tailwind('text-sm text-right font-normal text-gray-700')}>Home</Text>
+                   <Text style={tw.style('text-sm text-right font-normal text-gray-700')}>Home</Text>
               </View>
             }
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => { navigation.navigate('upcoming'); }}>
             {onSelection==2 ?
-              <View style={tailwind('items-center')}>
+              <View style={tw.style('inline-block items-center px-2 mx-2')}>
                   <Text>
                      <VideoCameraIcon color="red" fill="#b80000" size={24} />
                   </Text>
-                   <Text style={tailwind('text-sm text-right font-normal text-red-700')}>Livestreams</Text>
+                   <Text style={tw.style('text-sm text-right font-normal text-red-700')}>Livestreams</Text>
               </View>
           :
-              <View style={tailwind('items-center')}>
+              <View style={tw.style('inline-block items-center px-2 mx-2')}>
                   <Text>
                      <VideoCameraIcon color="red" fill="gray" size={24} />
                   </Text>
-                   <Text style={tailwind('text-sm text-right font-normal text-gray-700')}>Livestreams</Text>
+                   <Text style={tw.style('text-sm text-right font-normal text-gray-700')}>Livestreams</Text>
               </View>
             }
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => navigation.navigate("Overview")} >
             {onSelection==3 ?
-              <View style={tailwind('items-center')}>
+              <View style={tw.style('inline-block items-center px-2 mx-2')}>
                   <Text>
                      <CashIcon color="red" fill="#b80000" size={24} />
                   </Text>
-                   <Text style={tailwind('text-sm text-right font-normal text-red-700')}>Sell</Text>
+                   <Text style={tw.style('text-sm text-right font-normal text-red-700')}>Sell</Text>
               </View>
           :
-              <View style={tailwind('items-center')}>
+              <View style={tw.style('inline-block items-center px-2 mx-2')}>
                   <Text>
                      <CashIcon color="red" fill="gray" size={24} />
                   </Text>
-                   <Text style={tailwind('text-sm text-right font-normal text-gray-700')}>Sell</Text>
+                   <Text style={tw.style('text-sm text-right font-normal text-gray-700')}>Sell</Text>
               </View>
             }
 
@@ -123,36 +121,36 @@ const Footer3 = (props) => {
 
         <TouchableOpacity onPress={() => { navigation.navigate('shop'); }}>
          {onSelection==4 ?
-           <View style={tailwind('items-center')}>
+           <View style={tw.style('inline-blockitems-center px-2 mx-2')}>
                <Text>
                   <SpeakerphoneIcon color="red" fill="#b80000" size={24} />
                </Text>
-                <Text style={tailwind('text-sm text-right font-normal text-red-700')}>Seller</Text>
+                <Text style={tw.style('text-sm text-right font-normal text-red-700')}>Seller</Text>
            </View>
        :
-           <View style={tailwind('items-center')}>
+           <View style={tw.style('inline-block items-center px-2 mx-2')}>
                <Text>
                   <SpeakerphoneIcon color="red" fill="gray" size={24} />
                </Text>
-                <Text style={tailwind('text-sm text-right font-normal text-gray-700')}>Seller</Text>
+                <Text style={tw.style('text-sm text-right font-normal text-gray-700')}>Seller</Text>
            </View>
         }
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => { navigation.navigate('Account');  }}>
          {onSelection==5 ?
-           <View style={tailwind('items-center')}>
+           <View style={tw.style('inline-block items-center px-2 mx-2')}>
                <Text>
                   <UserIcon color="red" fill="#b80000" size={24} />
                </Text>
-                <Text style={tailwind('text-sm text-right font-normal text-red-700')}>Account</Text>
+                <Text style={tw.style('text-sm text-right font-normal text-red-700')}>Account</Text>
            </View>
        :
-           <View style={tailwind('items-center')}>
+           <View style={tw.style('inline-block items-center px-2 mx-2')}>
                <Text>
                   <UserIcon color="red" fill="gray" size={24} />
                </Text>
-                <Text style={tailwind('text-sm text-right font-normal text-gray-700')}>Account</Text>
+                <Text style={tw.style('text-sm text-right font-normal text-gray-700')}>Account</Text>
            </View>
         }
         </TouchableOpacity>

@@ -22,6 +22,7 @@ DerivedData
 *.xcuserstate
 
 # Android/IntelliJ
+#
 build/
 .idea
 .gradle
@@ -60,3 +61,4 @@ ios/SalesmanStoreOwner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
 package-lock.json
 ios/Podfile.lock
 ios/SalesmanStoreOwner.xcodeproj/project.pbxproj
+android

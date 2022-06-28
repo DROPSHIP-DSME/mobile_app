@@ -40,8 +40,11 @@ const Golive = (props) => {
     } = props;
 
     //Reference
+<<<<<<< HEAD
     const tailwind = useTailwind();
 
+=======
+>>>>>>> UI-1.1.0
 
     // Local states
     const [City, onChangeCity] = React.useState("");
@@ -103,7 +106,11 @@ const Golive = (props) => {
                 </View>
             </TouchableOpacity>
         </View>
+<<<<<<< HEAD
         <View style={tailwind('items-center mt-6')}>
+=======
+        <View style={{alignItems:'center',marginTop:'4%'}}>
+>>>>>>> UI-1.1.0
             <TouchableOpacity
                 style={tailwind('w-[90%] h-16 bg-white justify-center text-center rounded-full border border-slate-400')}
                 activeOpacity = { .5}
@@ -126,12 +133,22 @@ const Golive = (props) => {
               onPress={() => props.navigation.navigate("RegistrationShop")}
             />
 
+<<<<<<< HEAD
             <View style={tailwind('flex flex-row justify-center mt-3')}>
                 <Text style={tailwind('text-base font-medium text-slate-700 tracking-wide')}>Don’t have an account yet?</Text>
 
                 <TouchableOpacity onPress={() => props.navigation.navigate("CreateAccountShop")}>
                     <Text style={tailwind('text-base text-blue-500 items-center tracking-wide')}> Sign up here.</Text>
                 </TouchableOpacity>
+=======
+            <View style={styles.twotextviewcreatetop}>
+                <Text style={tailwind('text-sm font-medium text-slate-800')}>Don’t have an account yet?</Text>\
+
+                <Largebutton
+                  text="Start Livestream"
+                  onPress={() => props.navigation.navigate("CreateAccountShop")}
+                />
+>>>>>>> UI-1.1.0
             </View>
 
         </View>

@@ -19,7 +19,7 @@ import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
-import {useTailwind} from 'tailwind-rn';
+import tw from 'twrnc';
 
 const Footer2 = (props) => {
 
@@ -33,97 +33,97 @@ const Footer2 = (props) => {
 
     const navigation = useNavigation();
     //Reference
-    const tailwind = useTailwind();
+
     // Local states
     return (
-       <View style={styles.footerView}>
-            <View style={styles.maincartviewfooter}>
+       <View style={tw.style('max-w-fit mx-auto bg-white flex h-14 py-2')}>
+            <View style={tw.style('flex-row justify-between')}>
                 <TouchableOpacity onPress={() => navigation.navigate("watchlist")} >
                     {onSelelection==1 ?
-                        <View style={tailwind('items-center')}>
+                        <View style={tw.style('inline-block items-center px-1 mx-2')}>
                             <Text>
                                <HomeIcon color="red" fill="#B80000" size={24} />
                             </Text>
-                             <Text style={tailwind('text-sm text-right font-normal text-red-700')}>Dashboard</Text>
+                             <Text style={tw.style('text-sm text-right font-normal text-red-700')}>Dashboard</Text>
                         </View>
                     :
-                        <View style={tailwind('items-center')}>
+                        <View style={tw.style('inline-block items-center px-1 mx-2')}>
                             <Text>
                                <HomeIcon color="red" fill="gray" size={24} />
                             </Text>
-                             <Text style={tailwind('text-sm text-right font-normal text-gray-700')}>Dashboard</Text>
+                             <Text style={tw.style('text-sm text-right font-normal text-gray-700')}>Dashboard</Text>
                         </View>
                     }
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => navigation.navigate("Dashorder")} >
                     {onSelelection==2 ?
-                      <View style={tailwind('items-center')}>
+                      <View style={tw.style('inline-block items-center px-1 mx-2')}>
                           <Text>
                              <TagIcon color="red" fill="#B80000" size={24} />
                           </Text>
-                           <Text style={tailwind('text-sm text-right font-normal text-red-700')}>Orders</Text>
+                           <Text style={tw.style('text-sm text-right font-normal text-red-700')}>Orders</Text>
                       </View>
                   :
-                      <View style={tailwind('items-center')}>
+                      <View style={tw.style('inline-block items-center px-1 mx-2')}>
                           <Text>
                              <TagIcon color="red" fill="gray" size={24} />
                           </Text>
-                           <Text style={tailwind('text-sm text-right font-normal text-gray-700')}>Orders</Text>
+                           <Text style={tw.style('text-sm text-right font-normal text-gray-700')}>Orders</Text>
                       </View>
                     }
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => navigation.navigate("Dashlive") } >
                     {onSelelection==3 ?
-                      <View style={tailwind('items-center')}>
+                      <View style={tw.style('inline-block items-center px-1 mx-2')}>
                           <Text>
                              <VideoCameraIcon color="red" fill="#b80000" size={24} />
                           </Text>
-                           <Text style={tailwind('text-sm text-right font-normal text-red-700')}>Go Live</Text>
+                           <Text style={tw.style('text-sm text-right font-normal text-red-700')}>Go Live</Text>
                       </View>
                   :
-                      <View style={tailwind('items-center')}>
+                      <View style={tw.style('inline-block items-center px-1 mx-2')}>
                           <Text>
                              <VideoCameraIcon color="red" fill="gray" size={24} />
                           </Text>
-                           <Text style={tailwind('text-sm text-right font-normal text-gray-700')}>Go Live</Text>
+                           <Text style={tw.style('text-sm text-right font-normal text-gray-700')}>Go Live</Text>
                       </View>
                     }
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => navigation.navigate("Dashproduct")} >
                     {onSelelection==4 ?
-                      <View style={tailwind('items-center')}>
+                      <View style={tw.style('inline-block items-center px-1 mx-2')}>
                           <Text>
                              <ShoppingBagIcon color="red" fill="#b80000" size={24} />
                           </Text>
-                           <Text style={tailwind('text-sm text-right font-normal text-red-700')}>Products</Text>
+                           <Text style={tw.style('text-sm text-right font-normal text-red-700')}>Products</Text>
                       </View>
                   :
-                      <View style={tailwind('items-center')}>
+                      <View style={tw.style('inline-block items-center px-1 mx-2')}>
                           <Text>
                              <ShoppingBagIcon color="red" fill="gray" size={24} />
                           </Text>
-                           <Text style={tailwind('text-sm text-right font-normal text-gray-700')}>Products</Text>
+                           <Text style={tw.style('text-sm text-right font-normal text-gray-700')}>Products</Text>
                       </View>
                     }
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => navigation.navigate("Dashsale")} >
                     {onSelelection==5 ?
-                      <View style={tailwind('items-center')}>
+                      <View style={tw.style('inline-block items-center px-1 mx-2')}>
                           <Text>
                              <PresentationChartLineIcon color="red" fill="#b80000" size={24} />
                           </Text>
-                           <Text style={tailwind('text-sm text-right font-normal text-red-700')}>Account</Text>
+                           <Text style={tw.style('text-sm text-right font-normal text-red-700')}>Account</Text>
                       </View>
                   :
-                      <View style={tailwind('items-center')}>
+                      <View style={tw.style('inline-block items-center px-1 mx-2')}>
                           <Text>
                              <PresentationChartLineIcon color="red" fill="gray" size={24} />
                           </Text>
-                           <Text style={tailwind('text-sm text-right font-normal text-gray-700')}>Account</Text>
+                           <Text style={tw.style('text-sm text-right font-normal text-gray-700')}>Account</Text>
                       </View>
                     }
                 </TouchableOpacity>
