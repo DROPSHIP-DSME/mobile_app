@@ -14,7 +14,7 @@ module.exports = {
         'hintedavertastdregular',
         ...defaultTheme.fontFamily.sans
       ],
-      'serif': ['hintedavertaStdbold', ...defaultTheme.fontFamily.serif ]
+      'serif': ['hintedavertastdbold', ...defaultTheme.fontFamily.serif ]
     },
     fontWeight: {
       'hairline': 100,

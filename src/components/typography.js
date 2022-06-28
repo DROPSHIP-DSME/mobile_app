@@ -1,5 +1,6 @@
 import React from 'react'
-import { Text, Platform, StyleSheet } from 'react-native'
+import { Text, Platform, StyleSheet } from 'react-native';
+import tw from 'twrnc';
 
 export const typography = () => {
   const oldTextRender = Text.render
@@ -16,6 +17,6 @@ const styles = StyleSheet.create({
     fontFamily: 'hintedavertastdregular',
   },
   titleText: {
-    fontFamily: 'hintedavertaStdbold',
+    fontFamily: 'hintedavertastdregular',
   }
 });

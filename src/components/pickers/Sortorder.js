@@ -9,7 +9,7 @@ const Sortorder = ({text}) => {
   const [selectedValue, setSelectedValue] = useState("");
 
   return (
-    <View style={tw.style('mt-2 rounded-md w-40 bg-zinc-200 px-1 text-justify')}>
+    <View style={tw.style('rounded-md w-40 bg-zinc-200 px-1 text-justify py-1')}>
         <Picker
             selectedValue={selectedValue}
             style={tw.style('w-full h-8', {color:'black'})}

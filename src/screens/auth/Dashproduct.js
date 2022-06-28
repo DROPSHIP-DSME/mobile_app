@@ -16,9 +16,13 @@ import Loader from '../../components/modals/Loader';
 import Swipeout from 'react-native-swipeout';
 import HorizontalSlider from 'react-horizontal-slider';
 import Footer2 from '../../screens/auth/Footer2';
+import tw from 'twrnc';
+import Smallbutton from '../../components/dropshipbutton/Smallbutton';
+import Sortorder from '../../components/pickers/Sortorder';
+import Sortfilter from '../../components/pickers/Sortfilter';
+import { AdjustmentsIcon } from "react-native-heroicons/solid";
 import SellHeader from '../../screens/auth/Sellheader';
-
-import AsyncStorage from '@react-native-community/async-storage'; 
+import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import { Provider , Portal,} from 'react-native-paper';
@@ -53,7 +57,7 @@ const deviceWidth = Dimensions.get('window').width;
     const userId = props?.route?.params?.userId;
     const brandId = props?.route?.params?.brandId;
     const productreload = props?.route?.params?.productreload;
-    
+
     useEffect(() => {
       props.getincomingtlist(props?.loginuserid);
       props.getselldeshboard(props?.loginuserid);
@@ -81,7 +85,7 @@ const deviceWidth = Dimensions.get('window').width;
 
     const handleScroll=(pageYOffset)=>{
         if (pageYOffset > 0) {
-            setshowclassName('#B80000');  
+            setshowclassName('#B80000');
         }else{
             setshowclassName('#B80000');
         }
@@ -94,7 +98,7 @@ const deviceWidth = Dimensions.get('window').width;
         callnewfun();
         props.getbrandName(props?.loginuserid);
     }
-   
+
     // Local states
     const [UserID, setUserID] = useState("");
     const [subMsg, onChangeText1] = React.useState("");
@@ -105,7 +109,7 @@ const deviceWidth = Dimensions.get('window').width;
     const [visible, setVisible] = React.useState(false);
     const [selectedValue, setSelectedValue] = useState("");
     const [showclassName, setshowclassName] = useState("#B80000");
-    
+
     const openpopup = () => {
         setVisible(true)
     }
@@ -122,10 +126,10 @@ const deviceWidth = Dimensions.get('window').width;
        },
 
     ];
-    
+
  const renderItem2 = ({ item ,index }) => {
      return(
-        <View> 
+        <View>
            <TouchableOpacity onPress={() => props.navigation.navigate("ProductDetails",{productId:item._id, })} style={{padding:2,}}>
               <Image source={{uri:item.productImage}} style={{height:159,width:159}} />
            </TouchableOpacity>
@@ -145,20 +149,18 @@ const deviceWidth = Dimensions.get('window').width;
              </View>
              <Text style={{fontSize:14,width:'80%',marginLeft:'5%',fontFamily:'hinted-AvertaStd-Regular',color:'#4d4d4d',marginBottom:'20%'}}>{item.text2}</Text>
           </View>
-        </View>  
+        </View>
   );
 }
 
     const renderItem3 = ({ item,index }) => {
    return(
            <View>
-
             <View style={styles.seledataViewTODAY}>
                        <Text style={styles.seriestexttoday}>{item.text}</Text>
                        <Text style={styles.seriestexttoday}>{item.text1}</Text>
                        <Text style={styles.seriestexttoday}>{item.text2}</Text>
                    </View>
-            
             </View>
     );
     }
@@ -166,19 +168,17 @@ const deviceWidth = Dimensions.get('window').width;
      const renderItem4 = ({ item,index }) => {
    return(
            <View>
-
             <View style={styles.seledataViewTODAYsecndrender}>
                     <View style={{flexDirection:'row'}}>
                       <Image source={item.image} style={{width:24,height:24,}}/>
                        <Text style={[styles.seriestexttoday,{alignSelf:'center',marginLeft:1}]}>{item.text}</Text>
-                    </View>   
+                    </View>
                        <Text style={styles.seriestexttoday}>{item.text1}</Text>
                    </View>
-            
             </View>
     );
     }
-    
+
 
     return (
          <View style={{flex:1}}>
@@ -187,51 +187,41 @@ const deviceWidth = Dimensions.get('window').width;
 
        <ScrollView onScroll={({nativeEvent}) => {
                 handleScroll(nativeEvent['contentOffset'].y);
-    }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#ffffff'}} > 
-          
-               <View style={{flexDirection:'row',justifyContent:'space-between',marginHorizontal:'3%',marginVertical:'5%'}}>
+    }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#ffffff'}} >
+
+               <View style={tw.style('flex flex-row justify-between mx-4 my-6')}>
                <TouchableOpacity>
-                 <Text style={{fontSize:22,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',}}>Products ({props?.getlistproduct?.length})</Text>
+                 <Text style={tw.style('text-2xl font-bold text-gray-600')}>Products ({props?.getlistproduct?.length})</Text>
                  </TouchableOpacity>
                   { props?.brandName ?
-                 <TouchableOpacity onPress={() => props.navigation.navigate("Accountproduct",{brandId:props?.brandName._id})} style={{backgroundColor:'#B80000',width:'40%',borderRadius:20,padding:10,}}>
-                      <Text style={styles.totalincometodayWIDRO}>ADD PRODUCT</Text> 
-                   </TouchableOpacity>
-                   :
-                   <TouchableOpacity onPress={() => props.navigation.navigate("CreateStore")} style={{backgroundColor:'#B80000',width:'40%',borderRadius:20,padding:10,}}>
-                      <Text style={styles.totalincometodayWIDRO}>ADD PRODUCT</Text> 
-                   </TouchableOpacity>
-               }
+
+                     <Smallbutton
+                       text="Add Product"
+                       onPress={() => props.navigation.navigate("Accountproduct",{brandId:props?.brandName._id})}
+                     />
+
+                     :
+
+                     <Smallbutton
+                       text="Add Product"
+                       onPress={() => props.navigation.navigate("CreateStore")}
+                     />
+                 }
                </View>
 
-              <View style={{flexDirection:'row',marginHorizontal:'4%'}}>
-               <View style={styles.pickerViewshorttodayagain}>
-                      <Picker
-                        selectedValue={selectedValue}
-                        style={{ height: 30, width: 125,color:'#4d4d4d',}}
-                        onValueChange={(itemValue, itemIndex) =>setSelectedValue(itemValue)}
-                       >
-                        <Picker.Item label="Sort" value="1" />
-                        <Picker.Item label="2" value="2" />
-                        <Picker.Item label="3" value="3" />
-                        <Picker.Item label="4" value="4" />
-                        <Picker.Item label="5" value="5" />
-                        <Picker.Item label="6" value="6" />
-                        <Picker.Item label="7" value="7" />
-                        <Picker.Item label="8" value="8" />
-                        <Picker.Item label="9" value="9" />
-                      </Picker>
-                </View>
-                <TouchableOpacity style={[styles.pickerViewshorttodayagain,{marginLeft:'8%',flexDirection:'row',justifyContent:'space-around',padding:4}]}>
-                   <Image source={ImageIcons.filtertoday}  style={{height:11,width:11,marginTop:5}} />
-                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',textAlign:'center'}}>FILTERS</Text> 
-                </TouchableOpacity>
+              <View style={tw.style('flex flex-row mx-4')}>
+                <Sortorder />
+
+                <Sortfilter
+                  text="Filter"
+                />
+
               </View>
 
               <View style={{marginHorizontal:'4%',marginVertical:'4%',flexDirection:'row'}}>
                <View style={[styles.pickerViewshorttodayagain,{flexDirection:'row',justifyContent:'space-around',padding:4}]}>
                   <View style={{height:14,width:14,backgroundColor:'#ffffff',borderRadius:3,marginTop:3}}></View>
-                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',textAlign:'center',}}>Select All</Text> 
+                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',textAlign:'center',}}>Select All</Text>
                 </View>
                 <TouchableOpacity onPress={() => openpopup() } style={{height:30,width:30,backgroundColor:'#e6e6e6',borderRadius:4,marginLeft:'5%',padding:4}}>
                   <Image source={ImageIcons.edittoday}  style={{height:11,width:11,marginTop:5,alignSelf:'center'}} />
@@ -239,9 +229,9 @@ const deviceWidth = Dimensions.get('window').width;
                 <TouchableOpacity  style={{height:30,width:30,backgroundColor:'#e6e6e6',borderRadius:4,marginLeft:'5%',padding:4}}>
                   <Image source={ImageIcons.deletetoday}  style={{height:11,width:11,marginTop:5,alignSelf:'center'}} />
                 </TouchableOpacity>
-              </View> 
+              </View>
 
-              
+
                  <View style={{marginTop:'8%',marginBottom:'20%',marginLeft:'5%'}}>
                     {props?.getlistproduct?.length>0 ?
                     <FlatList
@@ -252,14 +242,14 @@ const deviceWidth = Dimensions.get('window').width;
                         numColumns={2}
                         />
                     :
-                     <View style={{ justifyContent:'center',alignItems:'center',paddingTop:40}}>
-                        <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',textAlign:'center'}}>No Product added yet</Text>
+                     <View style={tw.style('justify-center my-8')}>
+                        <Text style={tw.style('text-base font-bold text-center')}>No Product added yet</Text>
                      </View>
                     }
-               </View>  
+               </View>
 
 
-                <View>   
+                <View>
 
 
         { openpopup  &&
@@ -268,8 +258,8 @@ const deviceWidth = Dimensions.get('window').width;
                     <Modal visible={visible} style={{backgroundColor:'rgba(0, 0, 0, 0.8)',marginHorizontal:-20,marginVertical:-5}} onDismiss={closepopup} contentContainerStyle={containerStyle}>
           <View style={{ marginTop:150,position: 'absolute', textAlign: 'center',justifyContent: 'center',alignItems: 'center',top: 10,left: 0,right: 0 }}>
             <View style={{ width: 250, borderRadius: 10, backgroundColor:'#fff', borderColor:'#999', borderWidth:2 }}>
-              
-             
+
+
               <Text style={{marginVertical:'4%',marginHorizontal:'11%',fontSize:14,fontFamily:'hinted-AvertaStd-Semibold'}}>Adjust Price</Text>
               <View style={styles.pickerViewshorttodaymodal}>
                       <Picker
@@ -332,7 +322,7 @@ const deviceWidth = Dimensions.get('window').width;
                 </View>
 
                     <TouchableOpacity onPress={() => closepopup()} style={{backgroundColor:'#B80000',width:200,borderRadius:25,padding:15,alignSelf:'center',marginVertical:'8%'}}>
-                      <Text style={styles.totalincometodaySAVECHANGE}>SAVE CHANGES</Text> 
+                      <Text style={styles.totalincometodaySAVECHANGE}>SAVE CHANGES</Text>
                    </TouchableOpacity>
                     </View>
                 </View>
@@ -341,7 +331,7 @@ const deviceWidth = Dimensions.get('window').width;
         </Provider>
                 }
          </View>
-        
+
                </ScrollView>
             <Footer2 onSelelection="4"  />
         </View>
