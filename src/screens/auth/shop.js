@@ -185,7 +185,7 @@ const shop = (props) => {
 
     const renderItem1 = ({ item, index }) => {
         return(
-            <View style={tw.style('flex flex-row ml-4 mt-2')}>
+            <View style={tw.style('flex flex-row ml-4 mt-4')}>
                   <TouchableOpacity>
                       {index == 1 ?
                           <Text style={tw.style('px-1 py-1 w-auto text-base text-red-700')}>{item.text}</Text>
@@ -208,7 +208,7 @@ const shop = (props) => {
             <ScrollView onScroll={({ nativeEvent }) => {
                 handleScroll(nativeEvent['contentOffset'].y);
             }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={tw.style('bg-white')} >
-                <View style={tw.style('mx-3 mt-8')}>
+                <View style={tw.style('mx-3 mt-9')}>
                     <Text style={tw.style('text-3xl text-gray-700 font-bold')}>Shop</Text>
                 </View>
                 {/*<View style={{ marginHorizontal: "3%" }}>
