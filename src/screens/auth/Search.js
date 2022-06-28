@@ -247,7 +247,7 @@ const renderItem2 = ({ item ,index }) => {
                    />
                 </View>
             </View>
-            <View>   
+            {/* <View>   
                 <Text style={styles.srchistry}>Recommendations</Text>  
                 <View>
                    <FlatList
@@ -258,7 +258,7 @@ const renderItem2 = ({ item ,index }) => {
                     numColumns={4}
                    />
                 </View>
-            </View>
+            </View>*/ }
             <View>
                 <Text style={styles.srchistry}>Discover</Text>
                 <View style={{marginBottom:"20%"}}>
