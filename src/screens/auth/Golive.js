@@ -124,11 +124,12 @@ const Golive = (props) => {
             />
 
             <View style={styles.twotextviewcreatetop}>
-                <Text style={tailwind('text-sm font-medium text-slate-800')}>Don’t have an account yet?</Text>
+                <Text style={tailwind('text-sm font-medium text-slate-800')}>Don’t have an account yet?</Text>\
 
-                <TouchableOpacity onPress={() => props.navigation.navigate("CreateAccountShop")}>
-                    <Text style={styles.customertextred}> Sign up here.</Text>
-                </TouchableOpacity>
+                <Largebutton
+                  text="Start Livestream"
+                  onPress={() => props.navigation.navigate("CreateAccountShop")}
+                />
             </View>
 
         </View>
