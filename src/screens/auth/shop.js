@@ -15,10 +15,11 @@ import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import Footer3 from '../../screens/auth/Footer3';
 import Shopheader from '../../screens/auth/Shopheader';
-import { useTailwind } from 'tailwind-rn';
-
 import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
+import tw from 'twrnc';
+import Sortorder from '../../components/pickers/Sortorder';
+import { ChevrondoubleupIcon } from "react-native-heroicons/solid";
 import AwesomeAlert from 'react-native-awesome-alerts';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 
@@ -49,7 +50,6 @@ const shop = (props) => {
     const phoneRef = useRef();
     const bisinessnameRef = useRef();
     const fullnameRef = useRef();
-    const tailwind = useTailwind();
 
     // Local states
     const [starCount, setstarCount] = useState(5);
@@ -110,16 +110,16 @@ const shop = (props) => {
     ];
     const renderItem = ({ item, index }) => {
         return (
-            <View style={tailwind('flex flex-row mt-[5%] mx-[2%] rounded-[10px]')}>
+            <View style={tw.style('flex flex-row mt-5 mx-4 rounded-md')}>
                 <TouchableOpacity onPress={() => { props.navigation.navigate("ProductStore", { productId: item._id, shopId: item._id, shopName: item.shopName }) }}>
-                    <View style={tailwind('p-0.5')}>
-                        <Image source={{ uri: item.shopImage }} style={{ height: 150, width: deviceWidth / 2.4, borderRadius: 10 }} onPress={() => { props.navigation.navigate("clothing") }} />
+                    <View style={tw.style('p-0.5')}>
+                        <Image source={{ uri: item.shopImage }} style={tw.style('h-14 rounded-lg'),{ height: 150, width: deviceWidth / 2.4}} onPress={() => { props.navigation.navigate("clothing") }} />
                     </View>
-                    <View style={tailwind('flex flex-row mt-2.5 justify-between')}>
-                        <View style={tailwind('pl-2')}>
-                            <Text style={tailwind('text-[#1A1A1A] text-xs font-normal')}>{item.shopName}</Text>
-                            <Text style={tailwind('text-[#1A1A1A] text-base font-bold')}>$0</Text>
-                            <View style={tailwind('flex flex-row mt-[5px]')}>
+                    <View style={tw.style('flex flex-row mt-2.5 justify-between')}>
+                        <View style={tw.style('pl-2')}>
+                            <Text style={tw.style('text-[#1A1A1A] text-xs font-normal')}>{item.shopName}</Text>
+                            <Text style={tw.style('text-[#1A1A1A] text-base font-bold')}>$0</Text>
+                            <View style={tw.style('flex flex-row mt-[5px]')}>
                                 <Rating
                                     type='custom'
                                     imageSize={15}
@@ -128,15 +128,15 @@ const shop = (props) => {
                                     //tintColor='#FFE7E7'
                                     value={starCount}
                                     onFinishRating={(start) => ratingCompleted(start)}
-                                    style={tailwind('ml-[2%]')}
+                                    style={tw.style('ml-[2%]')}
                                 />
-                                <Text style={tailwind('text-sm mx-[2%] text-black font-normal')}>4.0</Text>
+                                <Text style={tw.style('text-sm mx-3 text-black font-normal')}>4.0</Text>
 
                             </View>
                         </View>
-                        <View style={tailwind('mr-2')}>
-                            <Image source={ImageIcons.Iconlock} style={tailwind('w-[30px] h-[30px]')} />
-                            <Image source={ImageIcons.iconheart} style={tailwind('w-[30px] h-[30px] mt-[5px]')} />
+                        <View style={tw.style('mr-2')}>
+                            <Image source={ImageIcons.Iconlock} style={tw.style('w-8 h-8')} />
+                            <Image source={ImageIcons.iconheart} style={tw.style('w-8 h-8 mt-2')} />
                         </View>
                     </View>
                 </TouchableOpacity>
@@ -183,42 +183,37 @@ const shop = (props) => {
     const data = [{ text: "ALL" }, { text: "CLOTHING & SHOES" }, { text: "FURNITURE" }, { text: "BEAUTY & HAIR" }, { text: "ELECTRONICS" }]
 
     const renderItem1 = ({ item, index }) => {
-        return (
-            <View>
-                <View style={tailwind('flex flex-row ml-2 mt-2')}>
-                    <TouchableOpacity>
-                        {index == 1 ?
-                            <View style={[styles.livec24, { width: 'auto', padding: 10, backgroundColor: '#B80000', height: 'auto' }]}>
-                                <Text style={[styles.livec12, { color: '#ffffff' }]}>{item.text}</Text>
-                            </View>
-                            :
-                            <View style={[styles.livec24, { width: 'auto', padding: 10, height: 'auto' }]}>
-                                <Text style={styles.livec12}>{item.text}</Text>
-                            </View>
-                        }
-                    </TouchableOpacity>
-                </View>
-            </View>
+        return(
+            <View style={tw.style('flex flex-row ml-4 mt-2')}>
+                  <TouchableOpacity>
+                      {index == 1 ?
+                          <Text style={tw.style('px-1 py-1 w-auto text-base text-red-700')}>{item.text}</Text>
+                          :
+                          <Text style={tw.style('px-1 py-1 w-auto text-base text-gray-500')}>{item.text}</Text>
+                      }
+                  </TouchableOpacity>
+              </View>
         );
     }
 
     return (
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
-            style={tailwind('flex-1 justify-center')}>
+            style={tw.style('flex-1 justify-center')}>
             <StatusBar backgroundColor={showclassName} barStyle="dark-content" translucent={true} />
+
             <Shopheader />
 
             <ScrollView onScroll={({ nativeEvent }) => {
                 handleScroll(nativeEvent['contentOffset'].y);
-            }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={tailwind('bg-white')} >
-                <View style={tailwind('mx-[3%] pt-[10%]')}>
-                    <Text style={tailwind('text-[26px] text-[#1A1A1A] font-bold')}>Shop</Text>
+            }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={tw.style('bg-white')} >
+                <View style={tw.style('mx-3 mt-8')}>
+                    <Text style={tw.style('text-3xl text-gray-700 font-bold')}>Shop</Text>
                 </View>
                 {/*<View style={{ marginHorizontal: "3%" }}>
                     <Text style={{ fontWeight: "bold", fontFamily: "hinted-AvertaStd-Regular", fontSize: 16, color: "#666666" }}>{props?.getlistshop?.length} products</Text>
         </View>*/}
-                <View style={tailwind('w-full')}>
+                <View style={tw.style('w-full')}>
                     <FlatList
                         data={data}
                         renderItem={renderItem1}
@@ -228,25 +223,20 @@ const shop = (props) => {
                     />
                 </View>
 
-                <View style={tailwind('border-b mt-[8%] mx-[3%] border-[#B6B6B6]')}></View>
-                <View style={tailwind('flex flex-row mx-[3%] mt-[5%]')}>
-                    <View style={tailwind('bg-[#E6E6E6] rounded-[10px] h-10')}>
-                        <Picker
-                            selectedValue={selectedValue}
-                            style={tailwind('h-[35px] w-[100px]')}
-                            onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-                        >
-                            <Picker.Item label="Sort" value="Sort" />
-                            <Picker.Item label="JavaScript" value="js" />
-                        </Picker>
+                <View style={tw.style('border-b mb-4 border-gray-300')}></View>
+                <View style={tw.style('flex flex-row mx-4 mt-4')}>
+
+                    <Sortorder />
+
+                    <View style={tw.style('flex flex-row bg-zinc-400 rounded-md mx-4 p-3 px-3')}>
+                        <TouchableOpacity style={tw.style('w-auto')}>
+                            <ChevrondoubleupIcon color="red" fill="#b80000" size={24} />
+                            <Text style={tw.style('text-base text-[#4D4D4D] font-semibold self-center')}>Filters</Text>
+                        </TouchableOpacity>
                     </View>
 
-                    <TouchableOpacity style={tailwind('flex flex-row bg-[#E6E6E6] rounded-[10px] mx-[2%] p-[2%] px-[3%]')}>
-                        <Image source={ImageIcons.filter} style={tailwind('w-[17px] h-[19px] mr-2 mt-1')} />
-                        <Text style={tailwind('text-base text-[#4D4D4D] font-semibold self-center')}>FILTERS</Text>
-                    </TouchableOpacity>
                 </View>
-                <View style={tailwind('mx-[3%] mb-[90px]')}>
+                <View style={tw.style('mx-[3%] mb-[90px]')}>
                     <FlatList
                         data={props?.getlistshop || []}
                         renderItem={renderItem}

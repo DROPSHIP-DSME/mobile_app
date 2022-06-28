@@ -16,4 +16,4 @@ const Medbutton = ({text, onPress}) => {
     );
 }
 
-export default Medbutton
+export default Medbutton;

@@ -415,11 +415,11 @@ const data = [
 
     const renderItem5 = ({ item, index }) => {
         return(
-          <View style={tw.style('inline-flex justify-items-center my-2 px-1 pt-1 border-zinc-400 border-b-2 {text-color:`${item.color}}')}>
+          <View style={tw.style('inline-flex justify-items-center ml-1 mt-2 px-1 pt-1 {text-color:`${item.color}}')}>
              { item.color=='#B80000'?
-                <Text style={tw.style('font-lg text-red-700 px-2 border-b-2 border-zinc-600')}>{item.name}</Text>
+                <Text style={tw.style('text-lg text-red-700 mx-2 border-b-2 border-zinc-600')}>{item.name}</Text>
                 :
-                <Text style={tw.style('text-zinc-400 px-2 font-lg')}>{item.name}</Text>
+                <Text style={tw.style('text-zinc-400 mx-2 text-lg')}>{item.name}</Text>
              }
           </View>
         );
@@ -497,10 +497,8 @@ const data = [
                         showsHorizontalScrollIndicator={false}
                         horizontal={true}
                     />
-
-
-
                 </View>
+                <View style={tw.style('border-b mx-3 mb-4 border-gray-300')}></View>
 
                 <View style={tw.style('ml-2 mt-1')}>
                     <FlatList
@@ -511,9 +509,6 @@ const data = [
                         horizontal={true}
                     />
                 </View>
-
-
-
 
                 <View style={tw.style('ml-2 mt-8')}>
                     <FlatList
