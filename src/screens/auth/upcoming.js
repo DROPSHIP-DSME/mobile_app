@@ -60,10 +60,7 @@ const upcoming = (props) => {
 
     //Reference
     const tailwind = useTailwind();
-    const emailRef = useRef();
-    const phoneRef = useRef();
-    const bisinessnameRef = useRef();
-    const fullnameRef = useRef();
+    
 
     // Local states
     const [checked, setChecked] = React.useState('first');
@@ -73,25 +70,12 @@ const upcoming = (props) => {
     const [tab1, settab1] = useState(true);
     const [tab2, settab2] = useState(false);
     const [tab3, settab3] = useState(false);
+        const [showlist, setshowlist] = useState(true);
 
-    const [wayToContact, setWayToContact] = useState("Phone");
-    const [wayToContactList, setWayToContactList] = useState([
-        {
-            label: "Phone",
-            value: "Phone"
-        },
-        {
-            label: "Email",
-            value: "Email"
-        }
-    ]);
+    
     const joinbroadcast = (itemid, startnow, eventtime) => {
-
-        // if (startnow == true){
-        props.navigation.navigate("Blurbackground", { isback: false, channel: itemid, isbroadcaster: false });
-        //} else {
-        // alert('Event will start at '+ moment(eventtime).format('MMM DD, hh:mm A'))
-        //}
+        props.getlivestreamrecap(itemid);
+        setshowlist(false)
     }
     const openpopup = () => {
         setVisible(true)
@@ -110,33 +94,6 @@ const upcoming = (props) => {
             id: 'Order Number:',
             Number: 'GSHMU00S0004KH',
             status: 'Pending'
-        },
-
-        {
-            title: 'Purchased by Anna.M ',
-            date: 'jan 11, 2022',
-            id: 'Order Number:',
-            Number: 'GSHMU00S0004KH',
-            status: 'Processing'
-
-        },
-
-        {
-            title: 'Purchased by Anna.M ',
-            date: 'jan 11, 2022',
-            id: 'Order Number:',
-            Number: 'GSHMU00S0004KH',
-            status: 'Processing'
-
-        },
-
-        {
-            title: 'Purchased by Anna.M ',
-            date: 'jan 11, 2022',
-            id: 'Order Number:',
-            Number: 'GSHMU00S0004KH',
-            status: 'Processing'
-
         }
     ]
 
@@ -172,34 +129,42 @@ const upcoming = (props) => {
             text: "Beauty brands",
             image: ImageIcons.profileimage,
 
-        },
-        {
-            text: "Beauty brands",
-            image: ImageIcons.profileimage,
-
-        },
-        {
-            text: "Beauty brands",
-            image: ImageIcons.profileimage,
-
-        },
-        {
-            text: "Beauty brands",
-            image: ImageIcons.profileimage,
-
-        },
-        {
-            text: "Beauty brands",
-            image: ImageIcons.profileimage,
-
-        },
-        {
-            text: "Beauty brands",
-            image: ImageIcons.profileimage,
-
-        },
+        }
 
     ];
+
+    const renderItem5 = ({ item ,index }) => {
+       return(
+        <View>
+        <TouchableOpacity onPress={() => joinbroadcast(item._id)}>        
+            <View style={{marginHorizontal:5,borderRadius:5}}>
+                    <Image source={{uri: item.products[0]?.productImage}} style={styles.imgbasket} />
+                    <Text style={styles.beautyproduct}></Text>
+                    <View style={{borderRadius:50,position:'absolute',top:10,left:10, backgroundColor:'#E22020'}}>
+                        <Text style={styles.shorttest1}>Live</Text>
+                    </View>
+                    <View style={styl.comingshort1}>
+                        <View style={{left:7,top:2}}>
+                            <Image source={ImageIcons.iconpath} style={{width:18,height:18}}/>
+                        </View>
+                        <Text style={styles.shorttest}>0K</Text>
+                    </View>
+            </View>
+            <View style={styl.rowdrop}>
+            <View>
+              <Image source={ImageIcons.profileimage} style={{width:35,height:35}}/>
+            </View>
+            <View style={{paddingTop:10,paddingLeft:10}}>
+            <Text style={styl.txt1}>{item.products[0]?.productName}</Text>
+            </View>
+            </View>
+            <Text style={styl.txt2}></Text>
+           </TouchableOpacity>
+        </View> 
+      );
+    }
+
+
     const renderItemview = ({ item, index }) => {
         return (
             <View style={tailwind('m-2')}>
@@ -230,7 +195,7 @@ const upcoming = (props) => {
 
 
     const Data = ({ item }) => {
-        console.log("itemdata------->", item)
+        console.log('item',item);
         return (
             <TouchableOpacity style={{ marginHorizontal: 2, borderRadius: 10, backgroundColor: '#FFF', padding: 15, marginVertical: 5 }} onPress={() => props.navigation.navigate("Dashdetail", { orderNumber: item.orderNumber })}>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
@@ -261,9 +226,30 @@ const upcoming = (props) => {
     return (
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
-            style={styles.registrationRoot}>
+            style={{flex:1}}>
             <StatusBar backgroundColor={'#B80000'} barStyle="dark-content" translucent={true} />
             <Shopheader />
+
+            {showlist==true ?
+                <View style={{ marginTop: '7%', marginHorizontal: '3%', minHeight:'86%' }}>
+                 <Text style={{ fontSize: 26, color: '#1A1A1A', fontFamily: 'AvertaStd-Bold' }}>Livestreams</Text>
+                   <View style={{marginTop:15}}>
+                    {props?.getalleventdata?.length>0 ?
+                    <FlatList
+                        data={props?.getalleventdata || []}
+                        renderItem={renderItem5}
+                        keyExtractor={item => item.id}
+                        showsHorizontalScrollIndicator={false}
+                        numColumns={2}
+                    />
+                    :
+                        <Text style={{ fontSize: 18, textAlign:'center', marginTop:150, color: '#1A1A1A', fontFamily: 'AvertaStd-Bold' }}>No Events Found</Text>
+                    }
+                    </View>
+                </View>
+            :
+            <View style={{ marginTop: '7%', marginHorizontal: '3%' }}>
+
             <View style={tailwind('mt-6 mx-3')}>
                 <Text style={tailwind('text-2xl text-gray-800 font-bold')}>Livestream Recap</Text>
             </View>
@@ -297,12 +283,18 @@ const upcoming = (props) => {
                     </View>
 
                     {tab2 == true &&
-                        <View style={tailwind('h-screen w-screen p-6')} >
-                            <FlatList
-                                data={props?.getinconeorderlist || []}
-                                renderItem={Data}
-                            />
-                        </View>
+                       <View style={{ backgroundColor: '#F5F5F5', padding: 10 }} >
+
+                            <View>
+
+                                <FlatList
+                                    data={props?.getinconeorderlist || []}
+                                    renderItem={Data}
+                                />
+
+                            </View>
+
+                        </View >
 
                     }
 
@@ -534,6 +526,8 @@ const upcoming = (props) => {
                     </Provider>
                 }
             </ScrollView>
+        </View>
+            }
             <Footer3 onSelection="2" />
         </KeyboardAvoidingView>
     )
