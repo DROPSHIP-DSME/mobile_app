@@ -385,7 +385,7 @@ export const newprofile = (request, navigation, role) => {
   return async (dispatch, getState) => {
     let isInternetConnected = await getState().auth?.isInternetConnected;
     if (isInternetConnected) {
-      try {
+      try { 
         let response = await Utilise.apiCalling('POST', Api.newprofile, request);
        
         if (response?.status) {
@@ -626,7 +626,6 @@ export const saveaddress = (request, navigation, role) => {
     let isInternetConnected = await getState().auth?.isInternetConnected;
     if (isInternetConnected) {
       try {
-        
         let response = await Utilise.apiCalling('POST', Api.saveaddress, request);
         Alert.alert("DROPSHIP", "Shipping information added Successfully")
       } catch (error) {
@@ -1711,7 +1710,6 @@ export const gettopcountry = (userId,limit) => {
   //alert(userId);
     let request = {
       userId:userId,
-
     }
     return async (dispatch, getState) => {
         let isInternetConnected = await getState().auth?.isInternetConnected;
@@ -1971,7 +1969,6 @@ export const getprocesstlist = (userId) => {
 // get incomingorderlist
 export const getincomingtlist = (userId) => {
 
-  
   let request = {
       userId:userId
     }
@@ -1980,10 +1977,8 @@ export const getincomingtlist = (userId) => {
         if (isInternetConnected) {
             try {
                 let response = await Utilise.apiCalling('POST', `${Api.getincomingtlist}`,  request);
-               console.log(response,'darshan')
+                //console.log(response,'darshan')
                 if (response?.status) {
-                   
-                 
                     dispatch({ type: GET_INCOMINGORDER_LIST, payload: response.data });
                 } else {
                     //Alert.alert("DROPSHIP", String(response?.message))

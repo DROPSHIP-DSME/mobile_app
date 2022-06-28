@@ -27,6 +27,7 @@ import * as Progress from 'react-native-progress';
 import RnIncrementDecrementBtn from
   'react-native-increment-decrement-button';
 import Shopheader from '../../screens/auth/Shopheader';
+import { useTailwind } from 'tailwind-rn';
 
 
 const Shipprocess = (props) => {
@@ -42,10 +43,8 @@ const Shipprocess = (props) => {
   //Reference
   const deviceWidth = Dimensions.get('window').width;
   const deviceHeight = Dimensions.get('window').height;
-  const emailRef = useRef();
-  const phoneRef = useRef();
-  const bisinessnameRef = useRef();
-  const fullnameRef = useRef();
+  
+  const tailwind = useTailwind();
 
   const shopId = props?.route?.params?.shopId;
   const shopName = props?.route?.params?.shopName;
@@ -63,17 +62,7 @@ const Shipprocess = (props) => {
   const [reportpopup, setreportpopup] = React.useState(false);
   const [showclassName, setshowclassName] = useState("#B80000");
   const [text1, onChangeText1] = React.useState("");
-  const [wayToContact, setWayToContact] = useState("Phone");
-  const [wayToContactList, setWayToContactList] = useState([
-    {
-      label: "Phone",
-      value: "Phone"
-    },
-    {
-      label: "Email",
-      value: "Email"
-    }
-  ]);
+ 
   useEffect(() => {
     props.shopproduct(shopId);
     props.shopsellcount(shopId);

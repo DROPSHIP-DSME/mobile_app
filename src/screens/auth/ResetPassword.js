@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import { Text,TextInput,Image, View,TouchableOpacity, 
+import { Text,TextInput,Image, View,TouchableOpacity,
  ImageBackground, ScrollView, Alert, KeyboardAvoidingView, Platform, Keyboard, Linking } from 'react-native';
 
 import LinearGradient from 'react-native-linear-gradient';
@@ -19,6 +19,9 @@ import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import AsyncStorage from '@react-native-community/async-storage';
 import { useValidation } from 'react-native-form-validator';
 import PasswordInputText from '../../components/react-native-hide-show-password-input';
+import { useTailwind } from 'tailwind-rn';
+import Largebutton from '../../components/dropshipbutton/Largebutton';
+import { CheckCircleIcon } from 'react-native-heroicons/solid';
 
 const ResetPassword = (props) => {
 
@@ -31,13 +34,14 @@ const ResetPassword = (props) => {
     } = props;
 
     //Reference
+    const tailwind = useTailwind();
     const emailRef = useRef();
     const passwordRef = useRef();
     const passwordConfirmRef = useRef();
     const phoneRef = useRef();
     const fullnameRef = useRef();
 
-    
+
 
     // Local States
     const [isShowPassword, setIsShowPassword] = useState(true);
@@ -80,7 +84,7 @@ const ResetPassword = (props) => {
             setDeviceToken(_deviceToken)
         }
     }
-    
+
 
     // Registration request submission
     const handleRegistrationSubmit = () => {
@@ -92,7 +96,7 @@ const ResetPassword = (props) => {
             //props.navigation.navigate("Overview")
             let request = {
                 "email": email,
-               
+
                 "type":"shop"
             }
             props.navigation.navigate("ResetPassword");
@@ -103,26 +107,25 @@ const ResetPassword = (props) => {
 
     return (
         <View style={{backgroundColor:'#ffffff',flex:1}}>
-            <View style={[styles.heading,{marginTop:'15%',marginBottom:'5%'}]}>
-                <Image source={ImageIcons.logored_1} style={styles.setlogonewdata}  />
+            <View style={tailwind('items-center mt-[16%]')}>
+                <Image source={ImageIcons.logored_1} style={tailwind('w-[90] h-[73]')}  />
             </View>
-            <View style={[styles.heading,{marginTop:'15%',marginBottom:'5%'}]}>
-                <Image source={ImageIcons.greentick}   />
-            </View>
-            <View style={{ justifyContent:'center',width:'100%', alignItems:'center'}}>
-                <Text style={[styles.headingText1,{fontSize:22}]}>Password Reset</Text>
+            <View style={tailwind('mb-7 mt-10 items-center')}>
+                <CheckCircleIcon color="white" fill="green" size={70}/>
             </View>
             <View style={{ justifyContent:'center',width:'100%', alignItems:'center'}}>
-                <Text style={{textAlign:'center', color:"#1A1A1A",
-            fontFamily: 'hinted-AvertaStd-Regular',fontWeight:'400',fontSize:16,width:'80%',marginTop:20}}>An email has been sent with instructions on how to reset your password.</Text>
+                <Text style={tailwind('text-2xl text-gray-700 mt-4 font-bold')}>Password Reset</Text>
             </View>
-            <TouchableOpacity style={styles.Touchablelogin}
-                onPress={() => props.navigation.navigate("Registration")}>
-                <Text style={styles.TouchableloginTEXT}>Return to Login</Text>
-            </TouchableOpacity>
+            <View style={tailwind('justify-center items-center mb-8 mt-4')}>
+                <Text style={tailwind('text-center text-base text-gray-600 w-10/12')}>An email has been sent with instructions on how to reset your password.</Text>
+            </View>
+            <Largebutton
+              text="Return to Login"
+              onPress={() => props.navigation.navigate("Registration")}
+            />
             <Loader isVisible={props?.loginLoader} />
         </View>
-   ) 
+   )
 
 }
 

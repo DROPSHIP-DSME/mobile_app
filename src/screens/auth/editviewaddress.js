@@ -49,6 +49,14 @@ const editviewaddress = (props) => {
     const [starCount, setstarCount] = useState(5);
     const [selectedValue, setSelectedValue] = useState("java");
     const [showAlert, setshowAlert] = React.useState(false);
+
+    const [firstname, setfirstname] = useState("");
+    const [lastname, setlastname] = useState("");
+    const [address1, setaddress1] = useState("");
+    const [address2, setaddress2] = useState("");
+    const [city, setcity] = useState("");
+    const [country, setcountry] = useState("");
+    const [zipcode, setzipcode] = useState("");
     
     const [showclassName, setshowclassName] = useState("#B80000");
      const handleScroll=(pageYOffset)=>{
@@ -59,6 +67,37 @@ const editviewaddress = (props) => {
         }
     } 
    
+   const handleSendRequestSubmit = async () => {
+        Keyboard.dismiss();
+        if (firstname == "") {
+            Alert.alert('First name is required')
+        }else if(lastname ==""){
+            Alert.alert('Last name is required')
+        }else if (address1 == "") {
+            Alert.alert('Address 1 is required')
+        }else if(city ==""){
+             Alert.alert('City is required')
+        }else if(zipcode ==""){
+             Alert.alert('Zipcode is required')
+        } else {
+            let request = {
+                "firstName":firstname,
+                "lastName":lastname,
+                "streetAdress":address1,
+                "phoneNumber":address2,
+                "city":city,
+                "userId":props?.loginuserid,
+                "country":country,
+                "zipCode":zipcode,
+            }
+           props.saveaddress(request, props.navigation, "vendor",0);
+           setTimeout(function(){ 
+                props.getuseraddress(props?.loginuserid); 
+                props.navigation.navigate("editaddress")
+            },1000);
+        }
+    }
+
     
    const renderItem6 = ({ item }) => {
             return(
@@ -97,131 +136,113 @@ const editviewaddress = (props) => {
              }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#FFFFFF'}} >
              
               <View style={{flexDirection:"row",marginHorizontal:"3%",marginVertical:"6%"}}>
-              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}>PERSONAL DETAILS /</Text>
-              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}> ADDRESSES/</Text>
-              <Text style={{fontSize:15,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}> EDIT ADDRESS</Text>
+              <Text style={{fontSize:14,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}>PERSONAL DETAILS /</Text>
+              <Text style={{fontSize:14,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}> ADDRESSES /</Text>
+              <Text style={{fontSize:14,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}> Add ADDRESS</Text>
               </View>
                
                <View style={{marginHorizontal:"3%"}}>
-               <Text style={{fontSize:26,fontFamily:"hinted-AvertaStd-Regular",fontWeight:"bold"}}>Edit Address</Text>
+               <Text style={{fontSize:26,fontFamily:"hinted-AvertaStd-Regular",fontWeight:"bold"}}>Add Address</Text>
                </View>
                
                 <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
-              <Text style={{fontSize:12,fontFamily:'hinted-AvertaStd-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'2%'}}>First Name</Text>
-              <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'1%'}}>Mary</Text>       
+                    <TextInput 
+                         placeholder="First Name"
+                         placeholderTextColor="#1a1a1a"
+                         onChangeText={(firstname) =>setfirstname(firstname)}
+                         style={{color:'#333333',marginTop:5}}
+                         paddingLeft={15}
+                         value={firstname}
+                    />
                 </View>
 
                 <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
-              <Text style={{fontSize:12,fontFamily:'hinted-AvertaStd-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'2%'}}>Last Name</Text>
-              <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'1%'}}>Davis</Text>       
+                    <TextInput 
+                         placeholder="Last Name"
+                         placeholderTextColor="#1a1a1a"
+                         onChangeText={(lastname) =>setlastname(lastname)}
+                         style={{color:'#333333',marginTop:5}}
+                         paddingLeft={15}
+                         value={lastname}
+                    />
                 </View>
 
                 <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
-              <Text style={{fontSize:12,fontFamily:'hinted-AvertaStd-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'2%'}}>Address Line 1</Text>
-              <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'1%'}}>2501 Stevens Ave</Text>       
+                    <TextInput 
+                         placeholder="Address Line 1"
+                         placeholderTextColor="#1a1a1a"
+                         onChangeText={(address1) =>setaddress1(address1)}
+                         style={{color:'#333333',marginTop:5}}
+                         paddingLeft={15}
+                         value={address1}
+                    />
                 </View>
+
 
                 <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
-                 <TextInput 
-                 placeholder="Address Line 2"
-                 placeholderTextColor="#1a1a1a"
-                 paddingLeft={15}
-                 />
+                    <TextInput 
+                         placeholder="Address Line 2"
+                         placeholderTextColor="#1a1a1a"
+                         onChangeText={(address2) =>setaddress2(address2)}
+                         style={{color:'#333333',marginTop:5}}
+                         paddingLeft={15}
+                         value={address2}
+                    />
                 </View>
+
 
                 <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
-              <Text style={{fontSize:12,fontFamily:'hinted-AvertaStd-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'2%'}}>City </Text>
-              <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'1%'}}>Mennieapolis</Text>       
+                    <TextInput 
+                         placeholder="City"
+                         placeholderTextColor="#1a1a1a"
+                         onChangeText={(city) =>setcity(city)}
+                         style={{color:'#333333',marginTop:5}}
+                         paddingLeft={15}
+                         value={city}
+                    />
                 </View>
-    
-
-                
 
                 <View style={{marginHorizontal:'4%',marginTop:'7%'}}>
                  <View style={{height:55,width:deviceWidth/1.1,backgroundColor:'#e6e6e6',borderRadius:10,}}>
-                 <Text style={{padding:5}}>Country</Text>
                       <Picker
                         selectedValue={selectedValue}
-                        style={{ height: 55, width: 395,color:'#4d4d4d',marginTop:-15}}
-                        onValueChange={(itemValue, itemIndex) =>setSelectedValue(itemValue)}
+                        style={{ height: 55,marginHorizontal:10, width: '96%',color:'#4d4d4d',marginTop:0}}
+                        onValueChange={(itemValue, itemIndex) =>setcountry(itemValue)}
                        >
-                        <Picker.Item label="USA" value="1" />
-                        <Picker.Item label="INDIA" value="2" />
-                        <Picker.Item label="UAE" value="3" />
-                        <Picker.Item label="CANADA" value="4" />
-                        <Picker.Item label="POLAND" value="5" />
-                        <Picker.Item label="UKREN" value="6" />
-                        <Picker.Item label="RUSIA" value="7" />
-                        <Picker.Item label="AUSTRELIA" value="8" />
-                        <Picker.Item label="SRI LANKA" value="9" />
+                        <Picker.Item label="USA" value="+1" />
+                        <Picker.Item label="INDIA" value="+91" />
+                        <Picker.Item label="Ghana" value="+233" />
+                        <Picker.Item label="Kanya" value="+270" />
+                        <Picker.Item label="Canada" value="+1" />
                       </Picker>
                 </View>
                 
                 </View>
 
-                 <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
-              <Text style={{fontSize:12,fontFamily:'hinted-AvertaStd-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'2%'}}>Post/Zip Code </Text>
-              <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular',color:'4d4d4d',marginLeft:'5%',marginTop:'1%'}}>55404</Text>       
+                
+                <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
+                    <TextInput 
+                         placeholder="Zipcode"
+                         placeholderTextColor="#1a1a1a"
+                         onChangeText={(zipcode) =>setzipcode(zipcode)}
+                         style={{color:'#333333',marginTop:5}}
+                         paddingLeft={15}
+                         value={zipcode}
+                    />
                 </View>
 
-                 <View style={{flexDirection:'row',marginHorizontal:'4%',marginTop:"10%"}}>
-                <View style={{height:15,width:15,backgroundColor:'#848484',borderRadius:3,}}></View>
-                 <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',color:'#1a1a1a',marginLeft:5}}>Make default shipping method</Text>
-               </View>
+
+
+                <View style={{flexDirection:'row',marginHorizontal:'4%',marginTop:"10%"}}>
+                    <View style={{height:15,width:15,backgroundColor:'#848484',borderRadius:3,}}></View>
+                    <Text style={{fontSize:16,marginTop:-5,marginBottom:15,fontFamily:'hinted-AvertaStd-Regular',color:'#1a1a1a',marginLeft:5}}>Make default shipping method</Text>
+                </View>
               
-                 <TouchableOpacity  onPress={() => props.navigation.navigate("noaddress")} style={{width:deviceWidth/1.1, backgroundColor:"#B80000",borderRadius:30,marginTop:"3%",height:63,marginLeft:"4%",marginBottom:"25%" }} >
+                <TouchableOpacity onPress={()=>{ handleSendRequestSubmit()}} style={{width:deviceWidth/1.1, backgroundColor:"#B80000",borderRadius:30,marginTop:"3%",height:63,marginLeft:"4%",marginBottom:"25%" }} >
                     <Text style={{textAlign:'center',color:"#FFFFFF",fontWeight:'bold',fontSize:18,top:18}}>SAVE CHANGES</Text> 
-                 </TouchableOpacity>
-              
-
-
-              
-              </ScrollView>
-
-               <View style={{ position:'absolute',zIndex:2001,right:20,bottom:70}}>
-               <TouchableOpacity onPress={() => sethelppopup(true)}>
-                    <Image source={ImageIcons.exporthelp} style={{width:50,height:50}}/>
                 </TouchableOpacity>
-               </View>
-
-               { helppopup ==true &&
-        <View style={{flex:1,backgroundColor:'#ffffff',margin:20,paddingVertical:10,borderRadius:10,zIndex:4001, position:'absolute',bottom:'10%'}}>
             
-           
-              <View style={styles.chatViewrose}>
-                    
-                <Text style={styles.Benrosetext}>Chat with customer support</Text>
-                <TouchableOpacity style={{position:'absolute',right:15,top:5}} onPress={() => sethelppopup(false)}>
-                    <Image source={ImageIcons.closepopup}  style={styles.sendmsg2} />
-                </TouchableOpacity>
-            </View>
-            <ScrollView  keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#ffffff', height:200}} >
-            <View style={{marginVertical:'2%'}}>
-                <FlatList
-                    data={props?.getchatsupportlist1 || []}
-                    renderItem={renderItem6}
-                    keyExtractor={item => item.id}
-                    showsHorizontalScrollIndicator={false}
-                    horizontal={false}
-                />
-             </View>
-           </ScrollView>
-            <View style={[styles.accountmainview,{marginBottom:10, width:'100%'}]}>
-            <View style={{width:'90%'}}>
-                <TextInput  style={styles.chatinput}
-                placeholder="Type here..."
-                onChangeText={onChangeText1}
-                value={text1}
-                placeholderTextColor="#999999"
-                />
-            </View>
-            <TouchableOpacity style={{position:'absolute',right:55,top:5}} onPress={() => handleSendRequestSubmit()}>
-                    <Image source={ImageIcons.sendchat}  style={styles.sendmsg1} />
-                </TouchableOpacity>
-            </View>
-        </View>
-        }
-           
+        </ScrollView>
         
     <Footer3 onSelection="5"/>
        

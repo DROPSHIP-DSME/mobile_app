@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, StyleSheet,TextInput } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
+import { BeakerIcon } from '@heroicons/react/solid'
 import PropTypes from "prop-types";
 import { TextField } from "react-native-material-textfield";
 
@@ -27,20 +28,20 @@ const PasswordInputText = ({
   return (
     <View style={style}>
      <TextInput
-        {...rest}
+        // {...rest}
         ref={passReference}
-        
+
         secureTextEntry={isPassword}
         style={{color:'#4D4D4D'}}
       />
       <Icon
         style={styles.icon}
         name={eyeIcon}
-        size={iconSize}
+        // size={iconSize}
         color={iconColor}
         onPress={changePwdType}
       />
-      
+
     </View>
   );
 };

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { editviewaddress } from '../../screens/auth';
-import { getAllshop } from '../../redux/actions/Auth'
+import { getAllshop,saveaddress,getuseraddress } from '../../redux/actions/Auth'
 
 
 const mapStateToProps = (state) => ({
@@ -11,7 +11,9 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-    getAllshop
+    getAllshop,
+    saveaddress,
+    getuseraddress
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(editviewaddress);

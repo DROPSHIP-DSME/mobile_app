@@ -19,6 +19,7 @@ import DropdownField from '../../components/dropdown/DropDownMenu';
 import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import AsyncStorage from '@react-native-community/async-storage';
+import { useTailwind } from 'tailwind-rn';
 import { v4 as uuid } from "uuid";
 import {
   GoogleSignin,
@@ -39,6 +40,10 @@ const Golive = (props) => {
     } = props;
 
     //Reference
+
+    const tailwind = useTailwind();
+
+
 
     // Local states
     const [City, onChangeCity] = React.useState("");
@@ -89,25 +94,26 @@ const Golive = (props) => {
           <View style={{alignItems:'center',marginTop:'18%'}}>
               <Image source={ImageIcons.logored_1} style={styles.setlogonewdatarow}  />
           </View>
-        <View style={{alignItems:'center',marginTop:'19%'}}>
+        <View style={tailwind('items-center mt-12')}>
             <TouchableOpacity
-                style={styles.Touchablestarttextnew}
+                style={tailwind('w-[90%] h-16 bg-white justify-center text-center rounded-full border border-slate-400')}
                 activeOpacity = { .5}
                 onPress={() => navigation.navigate('watchlist')}>
-                <View style={{flexDirection:'row',  justifyContent:'center',padding:10}}>
-                    <Image source={ImageIcons.googleicon} style={{ width:25,height:23,}} />
-                    <Text style={[styles.startbutton1,{fontSize:18,marginLeft:20,color:'#000000'}]}>Sign in with Google</Text>
+                <View style={tailwind('flex flex-row justify-center')}>
+                    <Image source={ImageIcons.googleicon} style={tailwind('w-[25] h-[23] mt-1')} />
+                    <Text style={tailwind('text-lg font-bold ml-3 text-gray-800 tracking-wide')}>Sign in with Google</Text>
                 </View>
             </TouchableOpacity>
         </View>
-        <View style={{alignItems:'center',marginTop:'4%'}}>
+
+        <View style={tailwind('items-center mt-6')}>
             <TouchableOpacity
-                style={styles.Touchablestarttextnew}
+                style={tailwind('w-[90%] h-16 bg-white justify-center text-center rounded-full border border-slate-400')}
                 activeOpacity = { .5}
                 onPress={() => bigcommercelogin()}>
-                <View style={{flexDirection:'row',  justifyContent:'center',padding:10}}>
-                    <Image source={ImageIcons.facebook} style={{ width:14,height:24,}} />
-                    <Text style={[styles.startbutton1,{fontSize:18,marginLeft:20,color:'#000000'}]}>Sign in with Facebook</Text>
+                <View style={tailwind('flex flex-row justify-center')}>
+                    <Image source={ImageIcons.facebook} style={tailwind('w-[14] h-[24] mt-1')} />
+                    <Text style={tailwind('text-lg font-bold ml-3 text-gray-800 tracking-wide')}>Sign in with Facebook</Text>
                 </View>
             </TouchableOpacity>
         </View>
@@ -123,11 +129,11 @@ const Golive = (props) => {
               onPress={() => props.navigation.navigate("RegistrationShop")}
             />
 
-            <View style={styles.twotextviewcreatetop}>
-                <Text style={tailwind('text-sm font-medium text-slate-800')}>Don’t have an account yet?</Text>
+            <View style={tailwind('flex flex-row justify-center mt-3')}>
+                <Text style={tailwind('text-base font-medium text-slate-700 tracking-wide')}>Don’t have an account yet?</Text>
 
                 <TouchableOpacity onPress={() => props.navigation.navigate("CreateAccountShop")}>
-                    <Text style={styles.customertextred}> Sign up here.</Text>
+                    <Text style={tailwind('text-base text-blue-500 items-center tracking-wide')}> Sign up here.</Text>
                 </TouchableOpacity>
             </View>
 

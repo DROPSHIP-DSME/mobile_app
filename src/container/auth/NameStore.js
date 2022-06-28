@@ -3,6 +3,7 @@ import { NameStore } from '../../screens/auth';
 import { shopproduct,shopsellcount,getAllproduct,getAllproductdetails,getAllshop,cartadd } from '../../redux/actions/Auth'
 
 
+
 const mapStateToProps = (state) => ({
     vendorRequestLoader: state.auth.vendorRequestLoader,
     vendorRequestedInfo: state.auth.vendorRequestedInfo,

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import { Text,TextInput,Image, View,TouchableOpacity, 
+import { Text,TextInput,Image, View,TouchableOpacity,
  ImageBackground, ScrollView, Alert, KeyboardAvoidingView, Platform, Keyboard, Linking } from 'react-native';
 
 import LinearGradient from 'react-native-linear-gradient';
@@ -19,6 +19,8 @@ import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import AsyncStorage from '@react-native-community/async-storage';
 import { useValidation } from 'react-native-form-validator';
 import PasswordInputText from '../../components/react-native-hide-show-password-input';
+import { useTailwind } from 'tailwind-rn';
+import Largebutton from '../../components/dropshipbutton/Largebutton';
 
 const ForgetPassword = (props) => {
 
@@ -31,7 +33,8 @@ const ForgetPassword = (props) => {
     } = props;
 
     //Reference
-    
+    const tailwind = useTailwind();
+
     // Local States
     const [isShowPassword, setIsShowPassword] = useState(true);
     const [isShowConfirmPassword, setIsShowConfirmPassword] = useState(true);
@@ -73,7 +76,7 @@ const ForgetPassword = (props) => {
             setDeviceToken(_deviceToken)
         }
     }
-    
+
 
     // Registration request submission
     const handleRegistrationSubmit = () => {
@@ -85,7 +88,7 @@ const ForgetPassword = (props) => {
             //props.navigation.navigate("Overview")
             let request = {
                 "email": email,
-               
+
                 "type":"shop"
             }
             props.navigation.navigate("ResetPassword");
@@ -97,41 +100,43 @@ const ForgetPassword = (props) => {
     return (
 
 
-        <View style={{backgroundColor:'#ffffff',flex:1}}>
-        
-        
-          <View style={{alignItems:'center',marginTop:'18%'}}>
-              <Image source={ImageIcons.logored_1} style={styles.setlogonewdatarow}  />
+      <View style={tailwind('flex flex-1 bg-white')}>
+
+          <View style={tailwind('items-center mt-[16%]')}>
+              <Image source={ImageIcons.logored_1} style={tailwind('w-[90] h-[73]')}  />
+          </View>
+
+          <View>
+              <Text style={tailwind('text-2xl text-gray-700 tracking-wide mt-8 mb-3 ml-5')}>Forgot Password</Text>
+          </View>
+           <View>
+              <Text style={tailwind('text-base font-normal text-gray-600 mx-5')}>If you've forgotten your password, please enter your registered email address. We'll send you a link to reset your password.</Text>
           </View>
         <View>
-            <Text style={styles.headingTextfrgt}>Forgot Password</Text>
-        </View>
-         <View>
-            <Text style={styles.headingText1today}>If you've forgotten your password, please enter your registered email address. We'll send you a link to reset your password.</Text>
-        </View>
-        <View>
-       
 
-        <View>
-        <TextInput  style={styles.input1}
-        placeholder="Email address"
-         autoCompleteType='email'
-         placeholderTextColor="#999999" 
-        onChangeText={onChangeText1}
-        value={email}
-        onSubmitEditing={() => handleRegistrationSubmit()}
-        />
-        {isFieldInError('email') &&
-            <Text style={styles.stringerror}>must be required field</Text>
-        }
+          <View style={tailwind('mx-1 mt-3 mb-1 flex rounded-md items-center my-7')}>
+            <TextInput
+             style={tailwind('w-11/12 rounded-lg text-sm text-gray-700 bg-zinc-200 border-gray-300 pl-3 h-14')}
+             placeholder="Email address"
+             autoCompleteType='email'
+             placeholderTextColor="#999999"
+            onChangeText={onChangeText1}
+            value={email}
+            onSubmitEditing={() => handleRegistrationSubmit()}
+            />
+            {isFieldInError('email') &&
+                <Text style={styles.stringerror}>must be required field</Text>
+            }
+          </View>
         </View>
-        </View>
-        <TouchableOpacity style={styles.Touchablelogin}
-            onPress={() => handleRegistrationSubmit()}>
-            <Text style={styles.TouchableloginTEXT}>Confirm Email</Text>
-        </TouchableOpacity>
+
+          <Largebutton
+            text="Confirm Email"
+            onPress={() => handleRegistrationSubmit()}
+          />
          <Loader isVisible={props?.loginLoader} />
-        </View>
-   ) 
+      </View>
+
+   )
 }
 export default ForgetPassword

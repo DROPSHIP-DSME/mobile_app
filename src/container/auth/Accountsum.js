@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { Accountsum } from '../../screens/auth';
-import { getAllshop,getselldeshboard } from '../../redux/actions/Auth'
+import { getAllshop,getselldeshboard,getincomingtlist } from '../../redux/actions/Auth'
 
 
 const mapStateToProps = (state) => ({
@@ -9,11 +9,14 @@ const mapStateToProps = (state) => ({
     loginuserid: state.auth.loginuserid,
     loginuserstatus: state.auth.loginuserstatus,
     getlistselldeshboard: state.auth.getlistselldeshboard,
+    getinconeorderlist: state.auth.getinconeorderlist,
+
 });
 
 const mapDispatchToProps = {
     getAllshop,
-    getselldeshboard
+    getselldeshboard,
+    getincomingtlist
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Accountsum);

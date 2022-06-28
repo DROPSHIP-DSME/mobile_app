@@ -33,11 +33,12 @@ const Account = (props) => {
    useEffect(() => {
 
         //alert(props?.loginuserid)
-        props.getprofileuser(props?.loginuserid); 
-        props.getuseraddress(props?.loginuserid);
-        props.getusercard(props?.loginuserid);
-        props.getsupportlist(props?.loginuserid);
+         props.getprofileuser(props?.loginuserid); 
+         props.getuseraddress(props?.loginuserid);
+        // props.getusercard(props?.loginuserid);
+        //props.getsupportlist(props?.loginuserid);
         
+
     }, [])
 
     // Local states
@@ -53,6 +54,12 @@ const Account = (props) => {
         }
     } 
    
+    const logout =  async () => {
+        await AsyncStorage.setItem('UserId',"");
+        await AsyncStorage.setItem('userLogin',"");
+        props.navigation.navigate("Golive")
+    }
+
     const handleSendRequestSubmit = async () => {
         let request = {
             "userId":props?.loginuserid,
@@ -121,8 +128,8 @@ const Account = (props) => {
               <View>
               <Text style={{fontSize:20,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Semibold",color:"#1A1A1A"}}>My Profile</Text>
               </View>
-              <TouchableOpacity onPress={() => props.navigation.navigate("emptyaccount")}>
-              <Image  source={ImageIcons.edit} style={{width:35,height:35}}/> 
+              <TouchableOpacity onPress={()=>props.navigation.navigate("editprofile")}> 
+                <Image  source={ImageIcons.edit} style={{width:35,height:35}}/> 
               </TouchableOpacity>
               </View>
               
@@ -140,7 +147,7 @@ const Account = (props) => {
               <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>Last Name</Text>
               </View>
               <View>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Semibold",color:"#1A1A1A"}}>{props?.getprofileuserlist?.lastName}- - - - - - - - -</Text>
+              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Semibold",color:"#1A1A1A"}}>{props?.getprofileuserlist?.lastName}</Text>
               </View>
               </View>
               <View style={{borderBottomWidth:0.7,marginTop:"2%",marginHorizontal:"3%",borderColor:"#999999"}}></View> 
@@ -176,14 +183,29 @@ const Account = (props) => {
               
               <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}>
               <View>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>Address line1</Text>
+                <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>Address line1</Text>
               </View>
+
               {(props?.getuseraddresslist && props?.getuseraddresslist?.length>0) &&
               <View>
                 <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Semibold",color:"#1A1A1A"}}>{props?.getuseraddresslist[0]?.streetAdress}</Text>
               </View>
             }
               </View>
+ <View style={{borderBottomWidth:0.7,marginTop:"2%",marginHorizontal:"3%",borderColor:"#999999"}}></View> 
+              <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}>
+              <View>
+                <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>Address line2</Text>
+              </View>
+
+              {(props?.getuseraddresslist && props?.getuseraddresslist?.length>0) &&
+              <View>
+                <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Semibold",color:"#1A1A1A"}}>{props?.getuseraddresslist[0]?.phoneNumber}</Text>
+              </View>
+            }
+              </View>
+
+
               <View style={{borderBottomWidth:0.7,marginTop:"2%",marginHorizontal:"3%",borderColor:"#999999"}}></View> 
                <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}>
               <View>
@@ -198,35 +220,25 @@ const Account = (props) => {
               <View style={{borderBottomWidth:0.7,marginTop:"2%",marginHorizontal:"3%",borderColor:"#999999"}}></View> 
                <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}>
               <View>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>State</Text>
+              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>Zipcode</Text>
               </View>
                {(props?.getuseraddresslist && props?.getuseraddresslist?.length>0) &&
               <View>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Semibold",color:"#1A1A1A"}}>{props?.getuseraddresslist[0]?.state}</Text>
+              <Text style={{fontSize:16,fontWeight:"normal",paddingBottom:10,fontFamily:"hinted-AvertaStd-Semibold",color:"#1A1A1A"}}>{props?.getuseraddresslist[0]?.zipCode}</Text>
               </View>
           }
               </View>
-              <View style={{borderBottomWidth:0.7,marginTop:"2%",marginHorizontal:"3%",borderColor:"#999999"}}></View>  
-              <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%",marginBottom:"3%"}}>
-              <View>
-              <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>Country</Text>
-              </View>
-               {(props?.getuseraddresslist && props?.getuseraddresslist?.length>0) &&
-                  <View>
-                  <Text style={{fontSize:16,fontWeight:"normal",fontFamily:"hinted-AvertaStd-Semibold",color:"#1A1A1A"}}>{props?.getuseraddresslist[0]?.country}</Text>
-                  </View>
-              }
-              </View>
-              </View>
+              
+              </View> 
 
                <View style={{marginTop:"3%",marginHorizontal:"3%",borderRadius:10,backgroundColor:"#ffffff"}}>
               <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}>
               <View>
               <Text style={{fontSize:20,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>Payment Details</Text>
               </View>
-               <TouchableOpacity onPress={()=>props.navigation.navigate("paymentedit")}>
-              <Image source={ImageIcons.edit} style={{width:35,height:35}}/> 
-              </TouchableOpacity>
+               { /* <TouchableOpacity onPress={()=>props.navigation.navigate("paymentedit")}>
+                    <Image source={ImageIcons.edit} style={{width:35,height:35}}/> 
+              </TouchableOpacity> */}
               </View>
               
               <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}>
@@ -280,9 +292,7 @@ const Account = (props) => {
               <View>
               <Text style={{fontSize:20,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>Account Settings</Text>
               </View>
-              <View>
-              <Image source={ImageIcons.edit} style={{width:35,height:35}}/> 
-              </View>
+              
               </View>
               
               <TouchableOpacity  onPress={() => props.navigation.navigate("Dashsupportacc")} style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%",marginTop:"4%"}}>
@@ -332,12 +342,7 @@ const Account = (props) => {
               
               </ScrollView>
 
-               <View style={{ position:'absolute',zIndex:2001,right:20,bottom:70}}>
-               <TouchableOpacity onPress={() => sethelppopup(true)}>
-                    <Image source={ImageIcons.exporthelp} style={{width:50,height:50}}/>
-                </TouchableOpacity>
-               </View>
-
+               
                { helppopup ==true &&
         <View style={{flex:1,backgroundColor:'#ffffff',margin:20,paddingVertical:10,borderRadius:10,zIndex:4001, position:'absolute',bottom:'10%'}}>
             
@@ -383,6 +388,4 @@ const Account = (props) => {
         
     )
 }
-
-
 export default Account
