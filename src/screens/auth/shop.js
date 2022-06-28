@@ -224,7 +224,7 @@ const shop = (props) => {
                     />
                 </View>
 
-                <View style={tw.style('border-b mb-4 border-gray-300')}></View>
+                <View style={tw.style('border-b mb-4 border-gray-300 mx-4')}></View>
                 <View style={tw.style('flex flex-row mx-4 mt-4')}>
 
                     <Sortorder />
