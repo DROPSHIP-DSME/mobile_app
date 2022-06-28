@@ -124,7 +124,7 @@ const renderItem2 = ({ item,index }) => {
              <Last30days />
           </View>
 
-          <View style={tw.style('flex justify-btween')}>
+          <View style={tw.style('flex justify-between')}>
               <View>
                 <Text style={tw.style('font-bold text-lg text-gray-700 mt-2')}>Total Income</Text>
                 <View style={tw.style('flex-row h-14 mb-1')}>
