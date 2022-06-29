@@ -124,11 +124,11 @@ const Golive = (props) => {
               onPress={() => props.navigation.navigate("RegistrationShop")}
             />
 
-            <View style={tw.style('flex flex-row items-center w-96 mt-3')}>
-                <Text style={tw.style('text-lg text-gray-700 tracking-wide')}>Don’t have an account yet?</Text>
+            <View style={tw.style('flex flex-row justify-center mt-3')}>
+                <Text style={tw.style('text-base text-gray-700 tracking-wide')}>Don’t have an account yet?</Text>
 
-                <TouchableOpacity onPress={() => props.navigation.navigate("CreateAccountShop")}>
-                    <Text style={tw.style('text-base text-red-500 items-center tracking-wide')}> Sign up here.</Text>
+                <TouchableOpacity style={tw.style('w-auto')} onPress={() => props.navigation.navigate("CreateAccountShop")}>
+                    <Text style={tw.style('text-base text-red-800 items-center tracking-wide')}> Sign up here.</Text>
                 </TouchableOpacity>
             </View>
 

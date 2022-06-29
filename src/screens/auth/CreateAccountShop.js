@@ -17,6 +17,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import PasswordInputText from '../../components/react-native-hide-show-password-input';
 import tw from 'twrnc';
+import Largebutton from '../../components/dropshipbutton/Largebutton';
 
 const CreateAccountShop = (props) => {
 
@@ -29,7 +30,7 @@ const CreateAccountShop = (props) => {
     } = props;
 
     //Reference
-  
+
 
     // Local States
     const [deviceToken, setDeviceToken] = useState();
@@ -132,7 +133,7 @@ const CreateAccountShop = (props) => {
                      onChangeText={onChangeText1}
                      value={email}
                      onSubmitEditing={() => handleRegistrationSubmit()}
-                     placeholderTextColor="#999999"
+                     placeholderTextColor="#000000"
                     />
                 </View>
 
@@ -142,14 +143,14 @@ const CreateAccountShop = (props) => {
                      onChangeText={onChangeText6}
                      value={username}
                      onSubmitEditing={() => handleRegistrationSubmit()}
-                     placeholderTextColor="#999999"
+                     placeholderTextColor="#000000"
                     />
                 </View>
 
                 <View style={tw.style('mt-4')}>
                     <PasswordInputText
                       style={tw.style('mx-5 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg')}
-                      placeholderTextColor="#999999"
+                      placeholderTextColor="#000000"
                       onChangeText={onChangeText2}
                       value={password}
                       placeholder="Password"
@@ -162,7 +163,7 @@ const CreateAccountShop = (props) => {
                 <View style={tw.style('mt-4')}>
                      <PasswordInputText
                       style={tw.style('mx-5 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg')}
-                      placeholderTextColor="#999999"
+                      placeholderTextColor="#000000"
                       onChangeText={onChangeText3}
                       value={confirmPassword}
                       placeholder="confirmPassword"
@@ -171,28 +172,24 @@ const CreateAccountShop = (props) => {
                     />
                 </View>
 
-                <View style={{marginTop:'2%',flexDirection: 'row',marginLeft:'5%'}}>
+                <View style={tw.style('flex flex-row mt-2 mx-4 my-4')}>
                 <CheckBox
                     checkedColor='red'
                     value={true}
                  />
-                    <Text style={tw.style('text-sm text-gray-700 mt-2')}>I agree to the <Text style={tw.style('text-sm text-red-700 mt-2')}>Terms & Conditions</Text> and have read the <Text style={tw.style('text-sm text-red-700 mt-2')}>Privacy Policy</Text></Text>
+                    <Text style={tw.style('text-sm text-gray-700 mt-2 w-10/11')}>I agree to the <Text style={tw.style('text-sm text-red-700 mt-2')}>Terms & Conditions</Text> and have read the <Text style={tw.style('text-sm text-red-700 mt-2')}>Privacy Policy</Text></Text>
                 </View>
 
+                <Largebutton
+                  text="Create an account"
+                  onPress={() => handleRegistrationSubmit()}
+                />
 
-                <View style={tw.style('items-center')}>
-                  <TouchableOpacity style={tw.style('items-center w-11/12 py-3 mt-5 border border-transparent font-medium rounded-full text-white bg-red-800')}
-                      onPress={() => handleRegistrationSubmit()}>
-                      <Text style={tw.style('text-lg font-bold text-white')}>CREATE AN ACCOUNT</Text>
-                  </TouchableOpacity>
-                </View>
+                <View style={tw.style('flex flex-row justify-center mt-3')}>
+                    <Text style={tw.style('text-base text-gray-700 tracking-wide')}>Already have an account yet?</Text>
 
-
-
-                <View style={[styles.twotextviewcreate,{marginTop:'4%'}]} >
-                    <Text style={tw.style('text-sm font-medium text-slate-800')}>Already have an account yet? </Text>
-                    <TouchableOpacity onPress={() => props.navigation.navigate("RegistrationShop")}>
-                        <Text style={tw.style('text-sm font-medium text-red-700')}> Sign in here.</Text>
+                    <TouchableOpacity style={tw.style('w-auto')} onPress={() => props.navigation.navigate("RegistrationShop")}>
+                        <Text style={tw.style('text-base text-red-800 items-center tracking-wide')}> Sign up here.</Text>
                     </TouchableOpacity>
                 </View>
             </View>
