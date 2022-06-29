@@ -23,7 +23,7 @@ import { Rating, AirbnbRating } from 'react-native-ratings';
 import { Provider , Portal,} from 'react-native-paper';
 import Modal from 'react-native-modal'
 import SellHeader from '../../screens/auth/Sellheader';
-import { useTailwind } from 'tailwind-rn';
+import tw from 'twrnc';
 
 
 import {
@@ -51,7 +51,7 @@ const deviceWidth = Dimensions.get('window').width;
     } = props;
 
     //Reference
-    const tailwind = useTailwind();
+  
     const userId = props?.route?.params?.userId;
     const brandId = props?.route?.params?.brandId;
 
@@ -113,23 +113,23 @@ const deviceWidth = Dimensions.get('window').width;
                 handleScroll(nativeEvent['contentOffset'].y);
     }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} >
 
-               <View style={tailwind('flex flex-row m-5 ml-3')}>
-                    <ArrowNarrowLeftIcon style={tailwind('basis-7 mr-3')} color="red" fill="black" size={24} />
-                    <Text style={tailwind('basis-auto text-base mt-1')}>
+               <View style={tw.style('flex flex-row m-5 ml-3')}>
+                    <ArrowNarrowLeftIcon style={tw.style('basis-7 mr-3')} color="red" fill="black" size={24} />
+                    <Text style={tw.style('basis-auto text-base mt-1')}>
                       Return To My Account
                     </Text>
 
                </View>
 
-               <TouchableOpacity onPress={() => props.navigation.navigate("Dashwith")} style={tailwind('ml-5 mt-4')}>
-                 <Text style={tailwind('text-3xl mt-5 text-gray-800 font-bold font-sans')}>Withdrawals</Text>
+               <TouchableOpacity onPress={() => props.navigation.navigate("Dashwith")} style={tw.style('ml-5 mt-4')}>
+                 <Text style={tw.style('text-3xl mt-5 text-gray-800 font-bold font-sans')}>Withdrawals</Text>
                </TouchableOpacity>
 
-              <View style={tailwind('mt-3 mx-6 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg h-16 w-auto')}>
-              <Text style={tailwind('text-sm text-gray-600 mt-2 ml-2')}>Choose a Bank Account</Text>
+              <View style={tw.style('mt-3 mx-6 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg h-16 w-auto')}>
+              <Text style={tw.style('text-sm text-gray-600 mt-2 ml-2')}>Choose a Bank Account</Text>
                       <Picker
                         selectedValue={selectedValue}
-                        style={tailwind('pb-5 h-2 w-80 text-gray-800')}
+                        style={tw.style('pb-5 h-2 w-80 text-gray-800')}
                         onValueChange={(itemValue, itemIndex) =>setSelectedValue(itemValue)}
                        >
                         <Picker.Item label="CRDB Bank Limited (8391)" value="1" />
@@ -144,11 +144,11 @@ const deviceWidth = Dimensions.get('window').width;
                       </Picker>
                 </View>
 
-                <View style={tailwind('mt-5 mx-6 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg h-16 w-auto')}>
-                  <Text style={tailwind('text-sm text-gray-600 mt-2 ml-2')}>Amount to Withdraw</Text>
+                <View style={tw.style('mt-5 mx-6 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg h-16 w-auto')}>
+                  <Text style={tw.style('text-sm text-gray-600 mt-2 ml-2')}>Amount to Withdraw</Text>
                       <Picker
                         selectedValue={selectedValue}
-                        style={tailwind('pb-5 h-2 w-80 text-gray-800')}
+                        style={tw.style('pb-5 h-2 w-80 text-gray-800')}
                         onValueChange={(itemValue, itemIndex) =>setSelectedValue(itemValue)}
                        >
                         <Picker.Item label="1,000.00" value="1" />
@@ -163,9 +163,9 @@ const deviceWidth = Dimensions.get('window').width;
                       </Picker>
                 </View>
 
-                 <View style={tailwind('mt-5 mx-6 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg h-16 w-auto')}>
-                    <Text style={tailwind('text-sm text-gray-600 mt-2 ml-2')}>Amount to Deposit*
-                    <TextInput  style={tailwind('mx-5 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg')}
+                 <View style={tw.style('mt-5 mx-6 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg h-16 w-auto')}>
+                    <Text style={tw.style('text-sm text-gray-600 mt-2 ml-2')}>Amount to Deposit*
+                    <TextInput  style={tw.style('mx-5 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg')}
                      placeholder="US$"
                      onChangeText={onChangeText1}
                      onSubmitEditing={() => handleRegistrationSubmit()}
@@ -174,9 +174,9 @@ const deviceWidth = Dimensions.get('window').width;
                     </Text>
                  </View>
 
-              <View style={tailwind('mt-5 mx-6 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg h-56 w-auto')}>
+              <View style={tw.style('mt-5 mx-6 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg h-56 w-auto')}>
                 <TextInput
-                  style={tailwind('pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg')}
+                  style={tw.style('pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg')}
                   placeholder="Description (optional)"
                   placeholderTextColor="#4d4d4d"
                   paddingLeft={3}
@@ -186,14 +186,14 @@ const deviceWidth = Dimensions.get('window').width;
                 />
               </View>
 
-               <View style={tailwind('mt-5 mx-6 pl-3')}>
+               <View style={tw.style('mt-5 mx-6 pl-3')}>
                 <Text style={{fontSize:14,fontFamily:'hinted-AvertaStd-Regular',color:'#000000'}}>*Fee: 15.00 USD</Text>
                 <Text style={{fontSize:14,fontFamily:'hinted-AvertaStd-Regular',color:'#000000'}}>Withdrawals of $1,000.00 and under are subject to a minimum fee of 15.00 USD</Text>
                </View>
 
-               <View style={tailwind('items-center')}>
-                  <TouchableOpacity  onPress={() => openpopup() }  style={tailwind('items-center w-11/12 py-3 mt-5 border border-transparent font-medium rounded-full text-white bg-red-800')}>
-                     <Text style={tailwind('text-lg font-bold text-white font-sans')}>ADD WITHDRAWALS</Text>
+               <View style={tw.style('items-center')}>
+                  <TouchableOpacity  onPress={() => openpopup() }  style={tw.style('items-center w-11/12 py-3 mt-5 border border-transparent font-medium rounded-full text-white bg-red-800')}>
+                     <Text style={tw.style('text-lg font-bold text-white font-sans')}>ADD WITHDRAWALS</Text>
                   </TouchableOpacity>
                </View>
 

@@ -16,7 +16,7 @@ import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import AsyncStorage from '@react-native-community/async-storage';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import PasswordInputText from '../../components/react-native-hide-show-password-input';
-import { useTailwind } from 'tailwind-rn';
+import tw from 'twrnc';
 
 const CreateAccountShop = (props) => {
 
@@ -29,7 +29,7 @@ const CreateAccountShop = (props) => {
     } = props;
 
     //Reference
-    const tailwind = useTailwind();
+  
 
     // Local States
     const [deviceToken, setDeviceToken] = useState();
@@ -120,14 +120,14 @@ const CreateAccountShop = (props) => {
                 <Image source={ImageIcons.logored_1} style={styles.setlogonewdatarow}  />
             </View>
         <View>
-            <Text style={tailwind('text-2xl text-gray-700 font-bold mt-2 ml-5')}>Sign Up</Text>
+            <Text style={tw.style('text-2xl text-gray-700 font-bold mt-2 ml-5')}>Sign Up</Text>
         </View>
 
 
             <View>
 
-                <View style={tailwind('mt-5')}>
-                    <TextInput  style={tailwind('mx-5 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg')}
+                <View style={tw.style('mt-5')}>
+                    <TextInput  style={tw.style('mx-5 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg')}
                      placeholder="Email address"
                      onChangeText={onChangeText1}
                      value={email}
@@ -136,8 +136,8 @@ const CreateAccountShop = (props) => {
                     />
                 </View>
 
-                <View style={tailwind('mt-4')}>
-                    <TextInput  style={tailwind('mx-5 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg')}
+                <View style={tw.style('mt-4')}>
+                    <TextInput  style={tw.style('mx-5 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg')}
                      placeholder="Username"
                      onChangeText={onChangeText6}
                      value={username}
@@ -146,9 +146,9 @@ const CreateAccountShop = (props) => {
                     />
                 </View>
 
-                <View style={tailwind('mt-4')}>
+                <View style={tw.style('mt-4')}>
                     <PasswordInputText
-                      style={tailwind('mx-5 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg')}
+                      style={tw.style('mx-5 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg')}
                       placeholderTextColor="#999999"
                       onChangeText={onChangeText2}
                       value={password}
@@ -159,9 +159,9 @@ const CreateAccountShop = (props) => {
 
                 </View>
 
-                <View style={tailwind('mt-4')}>
+                <View style={tw.style('mt-4')}>
                      <PasswordInputText
-                      style={tailwind('mx-5 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg')}
+                      style={tw.style('mx-5 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg')}
                       placeholderTextColor="#999999"
                       onChangeText={onChangeText3}
                       value={confirmPassword}
@@ -176,23 +176,23 @@ const CreateAccountShop = (props) => {
                     checkedColor='red'
                     value={true}
                  />
-                    <Text style={tailwind('text-sm text-gray-700 mt-2')}>I agree to the <Text style={tailwind('text-sm text-red-700 mt-2')}>Terms & Conditions</Text> and have read the <Text style={tailwind('text-sm text-red-700 mt-2')}>Privacy Policy</Text></Text>
+                    <Text style={tw.style('text-sm text-gray-700 mt-2')}>I agree to the <Text style={tw.style('text-sm text-red-700 mt-2')}>Terms & Conditions</Text> and have read the <Text style={tw.style('text-sm text-red-700 mt-2')}>Privacy Policy</Text></Text>
                 </View>
 
 
-                <View style={tailwind('items-center')}>
-                  <TouchableOpacity style={tailwind('items-center w-11/12 py-3 mt-5 border border-transparent font-medium rounded-full text-white bg-red-800')}
+                <View style={tw.style('items-center')}>
+                  <TouchableOpacity style={tw.style('items-center w-11/12 py-3 mt-5 border border-transparent font-medium rounded-full text-white bg-red-800')}
                       onPress={() => handleRegistrationSubmit()}>
-                      <Text style={tailwind('text-lg font-bold text-white')}>CREATE AN ACCOUNT</Text>
+                      <Text style={tw.style('text-lg font-bold text-white')}>CREATE AN ACCOUNT</Text>
                   </TouchableOpacity>
                 </View>
 
 
 
                 <View style={[styles.twotextviewcreate,{marginTop:'4%'}]} >
-                    <Text style={tailwind('text-sm font-medium text-slate-800')}>Already have an account yet? </Text>
+                    <Text style={tw.style('text-sm font-medium text-slate-800')}>Already have an account yet? </Text>
                     <TouchableOpacity onPress={() => props.navigation.navigate("RegistrationShop")}>
-                        <Text style={tailwind('text-sm font-medium text-red-700')}> Sign in here.</Text>
+                        <Text style={tw.style('text-sm font-medium text-red-700')}> Sign in here.</Text>
                     </TouchableOpacity>
                 </View>
             </View>

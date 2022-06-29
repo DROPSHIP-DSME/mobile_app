@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Text, Image, View, ImageBackground,TouchableOpacity,
- SafeAreaView, ScrollView, Alert, 
+ SafeAreaView, ScrollView, Alert,
    Animated, KeyboardAvoidingView,
   Platform, Keyboard, StatusBar } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
@@ -12,7 +12,6 @@ import { Colors, CommonStrings } from '../../common';
 import Smallbutton from '../../components/dropshipbutton/Smallbutton';
 import BaseText from '../../components/BaseText';
 import ImageIcons from '../../common/ImageIcons';
-
 import InputField from '../../components/forms/inputField';
 import { LinkButton, RoundedButton } from '../../components/forms/button';
 import Loader from '../../components/modals/Loader';
@@ -21,13 +20,13 @@ import Video from 'react-native-video';
 import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import { v4 as uuid } from "uuid";
-import { useTailwind } from 'tailwind-rn';
+import tw from 'twrnc';
 
 
 import AppIntroSlider from 'react-native-app-intro-slider';
 
 
-const Login = (props) => {  
+const Login = (props) => {
 
     const {
         navigation,
@@ -39,8 +38,6 @@ const Login = (props) => {
     } = props;
 
     //Reference
-    const tailwind = useTailwind();
-
     // Local states
     const Reactdim = require('react-native');
     const { Dimensions } = Reactdim;
@@ -54,7 +51,7 @@ const Login = (props) => {
     // Animation references
     const fadeAnim = useRef(new Animated.Value(0)).current
     const transformAnim = useRef(new Animated.Value(300)).current
-     
+
       const [showRealApp, setShowRealApp] = useState(false);
 
       const onDone = () => {
@@ -89,21 +86,21 @@ const slides = [
     text: 'Create live-shops and advertise your products from the comfort of your own home or store.',
     image: ImageIcons.sliderimage2,
   },
- 
+
 ];
 
 
     useEffect(() => {
         animateLogo();
     }, [fadeAnim, transformAnim])
- 
-    useEffect(() => { 
+
+    useEffect(() => {
         getBrandUserId();
-        
-         
+
+
     }, [])
 
-    useEffect(() => { 
+    useEffect(() => {
         requestUserPermission();
     }, [])
 
@@ -115,14 +112,14 @@ const slides = [
          var loginuserid = await AsyncStorage.getItem('UserId');
         // alert(loginuserid)
          if(loginuserid==null || loginuserid==undefined || loginuserid==""){
-                //props.logoutreducerfun(uuid()); 
+                //props.logoutreducerfun(uuid());
          }else {
-            props.logoutreducerfun(loginuserid); 
+            props.logoutreducerfun(loginuserid);
             props.navigation.navigate('watchlist');
          }
     }
 
-    // Animation 
+    // Animation
     const animateLogo = () => {
         Animated.parallel([
             Animated.timing(
@@ -168,26 +165,26 @@ const RenderItem = ({item,index}) => {
                 <Video source={item.image}  // Can be a URL or a local file.
                     paused={false}
                     repeat={true}
-                    resizeMode={"cover"}  
-                    style={styles.backgroundVideo} 
-                /> 
+                    resizeMode={"cover"}
+                    style={styles.backgroundVideo}
+                />
                   <View style={{alignItems:'center',marginTop:'25%',}}>
                     <Image source={item.title}  style={{width:145, height:117}}  />
                 </View>
                 <View style={{alignItems:'center',justifyContent:'center',marginTop:'15%'}}>
-                    <Text style={tailwind('px-2 text-3xl text-white text-center')}>{item.text}</Text>
+                    <Text style={tw.style('px-2 text-3xl text-white text-center')}>{item.text}</Text>
 
                 </View>
             </View>
         :
             <View style={{ width, height }}>
-                <View style={{flex:1,backgroundColor:'#FFFFFF',justifyContent:'center'}}> 
+                <View style={{flex:1,backgroundColor:'#FFFFFF',justifyContent:'center'}}>
                     <View style={styles.groupView}>
                         <Image source={item.image}  style={styles.groupimg} />
                     </View>
                     <View style={{marginVertical:'6%',marginHorizontal:'3%'}}>
                         <Text style={styles.grouptext}>{item.text}</Text>
-                    </View>      
+                    </View>
                 </View>
             </View>
 
@@ -205,9 +202,9 @@ const RenderItem = ({item,index}) => {
              <Video source={ImageIcons.vedioplays}  // Can be a URL or a local file.
                 paused={false}
                 repeat={true}
-                resizeMode={"cover"}  
-                style={styles.backgroundVideo} 
-            /> 
+                resizeMode={"cover"}
+                style={styles.backgroundVideo}
+            />
               <View style={{alignItems:'center',marginTop:'25%',}}>
                 <Image source={ImageIcons.logoredagain}  style={{width:145, height:117}}  />
             </View>
@@ -231,7 +228,7 @@ const RenderItem = ({item,index}) => {
           onSkip={onSkip}
 
         />
-      )} 
+      )}
 
       <View style={{ position:'absolute',zIndex:3001, bottom:70, justifyContent:'center',alignItems:'center',width:'100%'}}>
         <Smallbutton

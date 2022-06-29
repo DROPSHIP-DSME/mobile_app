@@ -27,7 +27,7 @@ import * as Progress from 'react-native-progress';
 import RnIncrementDecrementBtn from
   'react-native-increment-decrement-button';
 import Shopheader from '../../screens/auth/Shopheader';
-import { useTailwind } from 'tailwind-rn';
+import tw from 'twrnc';
 
 
 const Bagprocess = (props) => {
@@ -43,8 +43,8 @@ const Bagprocess = (props) => {
   //Reference
   const deviceWidth = Dimensions.get('window').width;
   const deviceHeight = Dimensions.get('window').height;
-  
-  const tailwind = useTailwind();
+
+
 
   const shopId = props?.route?.params?.shopId;
   const shopName = props?.route?.params?.shopName;
@@ -58,7 +58,7 @@ const Bagprocess = (props) => {
 
   const [showclassName, setshowclassName] = useState("#B80000");
   const [text1, onChangeText1] = React.useState("");
-  
+
   useEffect(() => {
     props.shopproduct(shopId);
     props.shopsellcount(shopId);
@@ -87,33 +87,33 @@ const Bagprocess = (props) => {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
-      style={tailwind('flex-1 justify-center')}>
+      style={tw.style('flex-1 justify-center')}>
       <StatusBar backgroundColor={"#ffffff00"} barStyle="dark-content" translucent={true} />
 
       <ScrollView onScroll={({ nativeEvent }) => {
         handleScroll(nativeEvent['contentOffset'].y);
-      }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={tailwind('bg-white')} >
+      }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={tw.style('bg-white')} >
 
-        <View style={tailwind('flex flex-row mx-[3%] mt-[20%]')}>
-          <Image source={ImageIcons.backpopup} style={tailwind('w-2.5 h-[17px]')} />
-          <View style={tailwind('border-b-[3px] w-[40px] ml-[-2%] mb-[2.8%]')}></View>
-          <Text style={tailwind('text-[15px] font-bold pl-[5px]')}>CONTINUE SHOPPING</Text>
+        <View style={tw.style('flex flex-row mx-[3%] mt-[20%]')}>
+          <Image source={ImageIcons.backpopup} style={tw.style('w-2.5 h-[17px]')} />
+          <View style={tw.style('border-b-[3px] w-[40px] ml-[-2%] mb-[2.8%]')}></View>
+          <Text style={tw.style('text-[15px] font-bold pl-[5px]')}>CONTINUE SHOPPING</Text>
         </View>
 
 
 
 
 
-        <View style={tailwind('flex flex-row justify-between mt-[3%] mr-[20%] m-[3%]')}>
-          <Text style={tailwind('text-2xl text-[#1A1A1A] py-[1%] font-bold')}>Shopping Bag</Text>
+        <View style={tw.style('flex flex-row justify-between mt-[3%] mr-[20%] m-[3%]')}>
+          <Text style={tw.style('text-2xl text-[#1A1A1A] py-[1%] font-bold')}>Shopping Bag</Text>
         </View>
 
-        <View style={tailwind('flex flex-row mx-[3%]')}>
+        <View style={tw.style('flex flex-row mx-[3%]')}>
           <TouchableOpacity onPress={() => { closepopup(); setVisiblebag(true) }} style={{ marginTop: '3%', marginRight: "2%" }}>
-            <Image source={ImageIcons.teashop} style={tailwind('w-[100px] height-[150px] rounded-[10px]')} />
+            <Image source={ImageIcons.teashop} style={tw.style('w-[100px] height-[150px] rounded-[10px]')} />
           </TouchableOpacity>
 
-          <View style={tailwind('self-center ml-0.5')} >
+          <View style={tw.style('self-center ml-0.5')} >
 
             <View style={{}}>
               <Text style={{ fontSize: 16, fontStyle: 'normal', marginVertical: '2%', fontFamily: 'hinted-AvertaStd-Regular', color: '#1A1A1A' }}>Ribbed Knit Bardot Crossover Top</Text>
@@ -126,7 +126,7 @@ const Bagprocess = (props) => {
                 <View>
                   <Text style={{ fontSize: 18, fontStyle: 'normal', marginVertical: '4%', fontFamily: 'hinted-AvertaStd-Bold', color: '#1A1A1A' }}>Style</Text>
                 </View>
-                <View style={tailwind('bg-[#E6E6E6] rounded-[10px]')}>
+                <View style={tw.style('bg-[#E6E6E6] rounded-[10px]')}>
                   <Picker
                     selectedValue={selectedValue}
                     style={{ height: 36, width: 86 }}
@@ -195,7 +195,7 @@ const Bagprocess = (props) => {
                 <View>
                   <Text style={{ fontSize: 18, fontStyle: 'normal', marginVertical: '4%', fontFamily: 'hinted-AvertaStd-Bold', color: '#1A1A1A' }}>Style</Text>
                 </View>
-                <View style={tailwind('bg-[#E6E6E6] rounded-[10px]')}>
+                <View style={tw.style('bg-[#E6E6E6] rounded-[10px]')}>
                   <Picker
                     selectedValue={selectedValue}
                     style={{ height: 36, width: 86 }}
@@ -334,7 +334,7 @@ const Bagprocess = (props) => {
         <View style={{ flex: 1, backgroundColor: '#ffffff', paddingVertical: 10, borderRadius: 10, zIndex: 4001, position: 'absolute', bottom: '12%', width: deviceWidth / 1.05, alignSelf: 'center' }}>
 
           <TouchableOpacity style={{ position: 'absolute', right: 15, top: 7 }} onPress={() => closebagpopup()}>
-            <Image source={ImageIcons.closepopup} style={tailwind('w-9 h-[27px]')} />
+            <Image source={ImageIcons.closepopup} style={tw.style('w-9 h-[27px]')} />
           </TouchableOpacity>
 
           <View style={{ flexDirection: "row", justifyContent: "space-between", marginHorizontal: "4%", marginTop: "8%" }}>

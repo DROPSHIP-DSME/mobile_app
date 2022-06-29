@@ -18,7 +18,7 @@ import Footer3 from '../../screens/auth/Footer3';
 import Shopheader from '../../screens/auth/Shopheader';
 import styl from './styledrop';
 import Moment from 'moment';
-import { useTailwind } from 'tailwind-rn';
+import tw from 'twrnc';
 
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
@@ -59,7 +59,7 @@ const upcoming = (props) => {
     }, [])
 
     //Reference
-    const tailwind = useTailwind();
+  
     const emailRef = useRef();
     const phoneRef = useRef();
     const bisinessnameRef = useRef();
@@ -202,10 +202,10 @@ const upcoming = (props) => {
     ];
     const renderItemview = ({ item, index }) => {
         return (
-            <View style={tailwind('m-2')}>
-                <View style={tailwind('flex flex-row items-center my-1')}>
-                    <Image source={item.image} style={tailwind('h-12 w-12')} />
-                    <Text style={tailwind('text-base text-gray-800 text-center mx-2')}>Andrea Miller</Text>
+            <View style={tw.style('m-2')}>
+                <View style={tw.style('flex flex-row items-center my-1')}>
+                    <Image source={item.image} style={tw.style('h-12 w-12')} />
+                    <Text style={tw.style('text-base text-gray-800 text-center mx-2')}>Andrea Miller</Text>
                 </View>
             </View>
         );
@@ -264,40 +264,40 @@ const upcoming = (props) => {
             style={styles.registrationRoot}>
             <StatusBar backgroundColor={'#B80000'} barStyle="dark-content" translucent={true} />
             <Shopheader />
-            <View style={tailwind('mt-6 mx-3')}>
-                <Text style={tailwind('text-2xl text-gray-800 font-bold')}>Livestream Recap</Text>
+            <View style={tw.style('mt-6 mx-3')}>
+                <Text style={tw.style('text-2xl text-gray-800 font-bold')}>Livestream Recap</Text>
             </View>
 
-            <ScrollView keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={tailwind('bg-gray-100')} >
+            <ScrollView keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={tw.style('bg-gray-100')} >
 
-                <View style={tailwind('pt-2 mx-5')}>
-                    <View style={tailwind('flex flex-row justify-between border-gray-800 border-b-2')}>
-                        <TouchableOpacity onPress={() => { settab1(true); settab2(false); settab3(false); }} style={tailwind('m-3')} >
+                <View style={tw.style('pt-2 mx-5')}>
+                    <View style={tw.style('flex flex-row justify-between border-gray-800 border-b-2')}>
+                        <TouchableOpacity onPress={() => { settab1(true); settab2(false); settab3(false); }} style={tw.style('m-3')} >
                             {tab1 == false ?
-                                <Text style={tailwind('text-base text-gray-700')}>Stats</Text>
+                                <Text style={tw.style('text-base text-gray-700')}>Stats</Text>
                                 :
-                                <Text style={tailwind('text-base text-gray-800 font-bold')}>Stats</Text>
+                                <Text style={tw.style('text-base text-gray-800 font-bold')}>Stats</Text>
                             }
                         </TouchableOpacity >
-                        <TouchableOpacity onPress={() => { settab1(false); settab2(true); settab3(false); }} style={tailwind('m-3')}>
+                        <TouchableOpacity onPress={() => { settab1(false); settab2(true); settab3(false); }} style={tw.style('m-3')}>
 
                             {tab2 == false ?
-                                <Text style={tailwind('text-base text-gray-700')}>Orders(0)</Text>
+                                <Text style={tw.style('text-base text-gray-700')}>Orders(0)</Text>
                                 :
-                                <Text style={tailwind('text-base text-gray-800 font-bold')}>Orders(0)</Text>
+                                <Text style={tw.style('text-base text-gray-800 font-bold')}>Orders(0)</Text>
                             }
                         </TouchableOpacity >
-                        <TouchableOpacity onPress={() => { settab1(false); settab2(false); settab3(true); }} style={tailwind('m-3')} >
+                        <TouchableOpacity onPress={() => { settab1(false); settab2(false); settab3(true); }} style={tw.style('m-3')} >
                             {tab3 == false ?
-                                <Text style={tailwind('text-base text-gray-700')}>Messages({props?.livestreamrecaplist?.geteventcomment?.length})</Text>
+                                <Text style={tw.style('text-base text-gray-700')}>Messages({props?.livestreamrecaplist?.geteventcomment?.length})</Text>
                                 :
-                                <Text style={tailwind('text-base text-gray-800 font-bold')}>Messages({props?.livestreamrecaplist?.geteventcomment?.length})</Text>
+                                <Text style={tw.style('text-base text-gray-800 font-bold')}>Messages({props?.livestreamrecaplist?.geteventcomment?.length})</Text>
                             }
                         </TouchableOpacity >
                     </View>
 
                     {tab2 == true &&
-                        <View style={tailwind('h-screen w-screen p-6')} >
+                        <View style={tw.style('h-screen w-screen p-6')} >
                             <FlatList
                                 data={props?.getinconeorderlist || []}
                                 renderItem={Data}
@@ -308,21 +308,21 @@ const upcoming = (props) => {
 
                     {tab1 == true &&
                         <ScrollView>
-                            <View style={tailwind('bg-gray-100')} >
+                            <View style={tw.style('bg-gray-100')} >
                                 <View style={{ backgroundColor: '#FFFFFF', padding: '4%', borderRadius: 10, marginTop: '4%', elevation: 3 }} >
-                                    <View style={tailwind('flex flex-row justify-between')} >
-                                        <Text style={tailwind('text-base text-gray-600 font-base')} >Title</Text>
-                                        <Text style={tailwind('text-base text-gray-800 font-bold')} >{props?.livestreamrecaplist?.getBrandDetails?.brandName}</Text>
+                                    <View style={tw.style('flex flex-row justify-between')} >
+                                        <Text style={tw.style('text-base text-gray-600 font-base')} >Title</Text>
+                                        <Text style={tw.style('text-base text-gray-800 font-bold')} >{props?.livestreamrecaplist?.getBrandDetails?.brandName}</Text>
                                     </View>
 
                                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 12 }} >
-                                        <Text style={tailwind('text-base text-gray-600 font-base')}  >Date & Time</Text>
-                                        <Text style={tailwind('text-base text-gray-800')} >{props?.livestreamrecaplist?.getBrandDetails?.createdAt}</Text>
+                                        <Text style={tw.style('text-base text-gray-600 font-base')}  >Date & Time</Text>
+                                        <Text style={tw.style('text-base text-gray-800')} >{props?.livestreamrecaplist?.getBrandDetails?.createdAt}</Text>
                                     </View>
 
                                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 12 }} >
-                                        <Text style={tailwind('text-base text-gray-600 font-base')} >Duration</Text>
-                                        <Text style={tailwind('text-base text-gray-800 font-bold')} >{props?.livestreamrecaplist?.getchannelAudiance?.EventDuration}</Text>
+                                        <Text style={tw.style('text-base text-gray-600 font-base')} >Duration</Text>
+                                        <Text style={tw.style('text-base text-gray-800 font-bold')} >{props?.livestreamrecaplist?.getchannelAudiance?.EventDuration}</Text>
                                     </View>
                                 </View>
 
@@ -338,33 +338,33 @@ const upcoming = (props) => {
 
                                 {/*<---------Summary------------>*/}
 
-                                <View style={tailwind('p-3 my-8')}>
-                                    <Text style={tailwind('text-2xl text-gray-700 ')}>Summary</Text>
-                                    <View style={tailwind('flex flex-row justify-between my-3')}>
+                                <View style={tw.style('p-3 my-8')}>
+                                    <Text style={tw.style('text-2xl text-gray-700 ')}>Summary</Text>
+                                    <View style={tw.style('flex flex-row justify-between my-3')}>
                                         <View>
-                                            <Text style={tailwind('text-xl text-gray-800')}>{props?.livestreamrecaplist?.getchannelAudiance?.audianceCount}</Text>
-                                            <Text style={tailwind('text-base text-gray-800')}>Viewers</Text>
+                                            <Text style={tw.style('text-xl text-gray-800')}>{props?.livestreamrecaplist?.getchannelAudiance?.audianceCount}</Text>
+                                            <Text style={tw.style('text-base text-gray-800')}>Viewers</Text>
                                         </View>
                                         <View>
-                                            <Text style={tailwind('text-xl text-gray-800')}>0</Text>
-                                            <Text style={tailwind('text-base text-gray-800')}>Saves</Text>
+                                            <Text style={tw.style('text-xl text-gray-800')}>0</Text>
+                                            <Text style={tw.style('text-base text-gray-800')}>Saves</Text>
                                         </View>
                                         <View>
-                                            <Text style={tailwind('text-xl text-gray-800')}>0</Text>
-                                            <Text style={tailwind('text-base text-gray-800')}>Likes</Text>
+                                            <Text style={tw.style('text-xl text-gray-800')}>0</Text>
+                                            <Text style={tw.style('text-base text-gray-800')}>Likes</Text>
                                         </View>
                                         <View>
-                                            <Text style={tailwind('text-xl text-gray-800')}>{props?.livestreamrecaplist?.geteventcomment?.length}</Text>
-                                            <Text style={tailwind('text-base text-gray-800')}>Messages</Text>
+                                            <Text style={tw.style('text-xl text-gray-800')}>{props?.livestreamrecaplist?.geteventcomment?.length}</Text>
+                                            <Text style={tw.style('text-base text-gray-800')}>Messages</Text>
                                         </View>
                                     </View>
                                     <View style={{
                                         width: deviceWidth / 1.1, padding: 5, backgroundColor: '#ffffff', marginVertical: '4%',
                                         borderRadius: 16, marginHorizontal: '4%', alignSelf: 'center', elevation: 3
                                     }}>
-                                        <View style={tailwind('flex flex-row justify-between my-3')}>
+                                        <View style={tw.style('flex flex-row justify-between my-3')}>
                                             <View>
-                                                <Text style={tailwind('text-xl text-gray-800 font-bold pl-3')}>Live Attendance</Text>
+                                                <Text style={tw.style('text-xl text-gray-800 font-bold pl-3')}>Live Attendance</Text>
                                             </View>
 
                                         </View>
@@ -408,19 +408,19 @@ const upcoming = (props) => {
                                         width: deviceWidth / 1.1, padding: 5, backgroundColor: '#ffffff', marginVertical: '4%',
                                         borderRadius: 16, marginHorizontal: '4%', alignSelf: 'center', elevation: 3
                                     }}>
-                                        <View style={tailwind('my-2 p-3')}>
+                                        <View style={tw.style('my-2 p-3')}>
                                             <View>
-                                                <Text style={tailwind('text-xl text-gray-800 font-bold')}>Livestream Benchmarks</Text>
+                                                <Text style={tw.style('text-xl text-gray-800 font-bold')}>Livestream Benchmarks</Text>
                                             </View>
-                                            <View style={tailwind('flex flex-row mt-4')}>
-                                                <View style={tailwind('bg-gray-200 py-2 px-4 rounded-lg')}>
-                                                    <Text style={tailwind('text-base text-gray-700')}>Viewers</Text>
+                                            <View style={tw.style('flex flex-row mt-4')}>
+                                                <View style={tw.style('bg-gray-200 py-2 px-4 rounded-lg')}>
+                                                    <Text style={tw.style('text-base text-gray-700')}>Viewers</Text>
                                                 </View>
-                                                <View style={tailwind('bg-red-800 py-2 px-4 rounded-lg ml-3')}>
-                                                    <Text style={tailwind('text-base text-white')}>Likes</Text>
+                                                <View style={tw.style('bg-red-800 py-2 px-4 rounded-lg ml-3')}>
+                                                    <Text style={tw.style('text-base text-white')}>Likes</Text>
                                                 </View>
-                                                <View style={tailwind('bg-gray-200 py-2 px-4 rounded-lg ml-3')}>
-                                                    <Text style={tailwind('text-base text-gray-700')}>Saves</Text>
+                                                <View style={tw.style('bg-gray-200 py-2 px-4 rounded-lg ml-3')}>
+                                                    <Text style={tw.style('text-base text-gray-700')}>Saves</Text>
                                                 </View>
                                             </View>
                                         </View>
