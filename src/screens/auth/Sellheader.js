@@ -13,13 +13,14 @@ import DropdownField from '../../components/dropdown/DropDownMenu';
 import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import { useNavigation } from '@react-navigation/native';
+import tw from 'twrnc';
 
 const deviceHeight = Dimensions.get('window').height;
 const deviceWidth = Dimensions.get('window').width;
 
 
 const Sellheader = (props) => {
- 
+
     const {
         values,
         errors,
@@ -55,10 +56,10 @@ const Sellheader = (props) => {
         }
     ]);
     useEffect(() => {
-     
-      //rootprops.Brandslist(); 
+
+      //rootprops.Brandslist();
     }, [])
-  
+
 
     const openpopup = () => {
         if(showvisible==true){
@@ -75,8 +76,8 @@ const Sellheader = (props) => {
 
     return (
         <View>
-        <View style={{backgroundColor:showclassName,alignItems:'center',zIndex:1001,width:'100%',padding:'3.5%'}}>
-            <View style={{flexDirection:'row',top:'5%',width:'100%',height:78}}>    
+        <View style={tw.style('items-center w-full p-4 z-50'),{backgroundColor:showclassName}}>
+            <View style={{flexDirection:'row',top:'5%',width:'100%',height:78}}>
                         <View style={{width:'35%'}}>
                             {showclassName=='#B80000' ?
                                 <Image source={ImageIcons.logored} style={{width:58,height:47}}/>
@@ -117,12 +118,12 @@ const Sellheader = (props) => {
                 <View style={{marginHorizontal:'5%',paddingTop:'10%'}}>
                          <View style={{flexDirection:'row',backgroundColor:'#b80000',width:'100%',justifyContent:'space-between',marginHorizontal:'4%'}}>
                                   <View>
-                                    
+
                                      <TouchableOpacity  onPress={() => navigation.navigate("Overview")}  style={{flexDirection:'row',marginVertical:'15%'}}>
                                        <Image source={ImageIcons.hometoday}  style={{height:21,width:21}} />
                                        <Text style={{color:'#ffffff',fontSize:16,marginLeft:'8%'}}>Home</Text>
                                      </TouchableOpacity>
-                                     
+
                                      <TouchableOpacity  onPress={() => navigation.navigate("Dashproduct")} style={{flexDirection:'row',marginVertical:'15%'}}>
                                        <Image source={ImageIcons.producttoday}  style={{height:21,width:21}} />
                                        <Text style={{color:'#ffffff',fontSize:16,marginLeft:'8%'}}>Products</Text>
@@ -136,12 +137,12 @@ const Sellheader = (props) => {
                                        <Text style={{color:'#ffffff',fontSize:16,marginLeft:'8%'}}>Chats</Text>
                                      </TouchableOpacity>
 
-                                    
+
                                       <TouchableOpacity onPress={() => navigation.navigate("Dashsale")} style={{flexDirection:'row',marginVertical:'15%'}}>
                                        <Image source={ImageIcons.saletoday}  style={{height:21,width:21}} />
                                        <Text style={{color:'#ffffff',fontSize:16,marginLeft:'8%'}}>Sales Analytic</Text>
                                      </TouchableOpacity>
-                                  </View>   
+                                  </View>
 
                                    <View>
                                          <TouchableOpacity onPress={() => navigation.navigate("Dashadvertise")} style={{flexDirection:'row',marginVertical:'15%'}}>
@@ -161,7 +162,7 @@ const Sellheader = (props) => {
                                                <Text style={{color:'#ffffff',fontSize:16,marginLeft:'8%'}}>Setting</Text>
                                          </TouchableOpacity>
 
-                                        
+
 
                                          <TouchableOpacity onPress={() => navigation.navigate("Login")}>
                                           <View style={{flexDirection:'row',marginVertical:'7%'}}>
@@ -169,9 +170,9 @@ const Sellheader = (props) => {
                                                <Text style={{color:'#ffffff',fontSize:16,marginLeft:'8%'}}>Exit Dashboard</Text>
                                          </View>
                                          </TouchableOpacity>
-                                  </View>   
+                                  </View>
                         </View>
-            
+
                         <View style={{marginVertical:'10%'}}>
                             <TextInput style={{height:50,width:deviceWidth/1.1,backgroundColor:'#ffffff',borderRadius:10,alignSelf:'center'}}
                               placeholder="Search"

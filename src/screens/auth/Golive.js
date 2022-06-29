@@ -20,12 +20,13 @@ import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import AsyncStorage from '@react-native-community/async-storage';
 import { v4 as uuid } from "uuid";
+import tw from 'twrnc';
 import {
   GoogleSignin,
   GoogleSigninButton,
   statusCodes,
 } from '@react-native-google-signin/google-signin';
-import ModalSelector from 'react-native-modal-selector'
+import ModalSelector from 'react-native-modal-selector';
 
 
 
@@ -89,28 +90,28 @@ const Golive = (props) => {
           <View style={{alignItems:'center',marginTop:'18%'}}>
               <Image source={ImageIcons.logored_1} style={styles.setlogonewdatarow}  />
           </View>
-        <View style={{alignItems:'center',marginTop:'19%'}}>
-            <TouchableOpacity
-                style={styles.Touchablestarttextnew}
-                activeOpacity = { .5}
-                onPress={() => navigation.navigate('watchlist')}>
-                <View style={{flexDirection:'row',  justifyContent:'center',padding:10}}>
-                    <Image source={ImageIcons.googleicon} style={{ width:25,height:23,}} />
-                    <Text style={[styles.startbutton1,{fontSize:18,marginLeft:20,color:'#000000'}]}>Sign in with Google</Text>
-                </View>
-            </TouchableOpacity>
-        </View>
-        <View style={{alignItems:'center',marginTop:'4%'}}>
-            <TouchableOpacity
-                style={styles.Touchablestarttextnew}
-                activeOpacity = { .5}
-                onPress={() => bigcommercelogin()}>
-                <View style={{flexDirection:'row',  justifyContent:'center',padding:10}}>
-                    <Image source={ImageIcons.facebook} style={{ width:14,height:24,}} />
-                    <Text style={[styles.startbutton1,{fontSize:18,marginLeft:20,color:'#000000'}]}>Sign in with Facebook</Text>
-                </View>
-            </TouchableOpacity>
-        </View>
+          <View style={tw.style('items-center mt-12')}>
+              <TouchableOpacity
+                  style={tw.style('w-10/11 h-16 bg-white justify-center text-center rounded-lg border border-slate-400 shadow-sm')}
+                  activeOpacity = { .5}
+                  onPress={() => navigation.navigate('watchlist')}>
+                  <View style={tw.style('flex flex-row justify-center')}>
+                      <Image source={ImageIcons.googleicon} style={tw.style('w-8 h-8')} />
+                      <Text style={tw.style('text-lg font-bold ml-3 text-gray-800 tracking-wide')}>Sign in with Google</Text>
+                  </View>
+              </TouchableOpacity>
+          </View>
+          <View style={tw.style('mt-4 items-center')}>
+              <TouchableOpacity
+                  style={tw.style('w-10/11 h-16 bg-white justify-center text-center rounded-lg border border-slate-400 shadow-sm ')}
+                  activeOpacity = { .5}
+                  onPress={() => bigcommercelogin()}>
+                  <View style={tw.style('flex flex-row justify-center')}>
+                      <Image source={ImageIcons.facebook} style={tw.style('w-5 h-9')} />
+                      <Text style={tw.style('text-lg font-bold ml-3 mt-1 text-gray-800 tracking-wide')}>Sign in with Facebook</Text>
+                  </View>
+              </TouchableOpacity>
+          </View>
         <View style={[styles.devider1, { marginTop: '10%' }]}>
             <View style={styles.devider2} />
             <Text style={styles.devider3}>OR</Text>
@@ -124,12 +125,7 @@ const Golive = (props) => {
             />
 
             <View style={styles.twotextviewcreatetop}>
-                <Text style={tailwind('text-sm font-medium text-slate-800')}>Don’t have an account yet?</Text>\
-
-                <Largebutton
-                  text="Start Livestream"
-                  onPress={() => props.navigation.navigate("CreateAccountShop")}
-                />
+                <Text style={tw.style('text-sm font-medium text-slate-800')}>Don’t have an account yet?</Text>
             </View>
 
         </View>
