@@ -14,7 +14,6 @@ import { Colors, CommonStrings } from '../../common'
 import ImageIcons from '../../common/ImageIcons'
 import InputField from '../../components/forms/inputField';
 import { RoundedButton } from '../../components/forms/button';
-import Largebutton from '../../components/dropshipbutton/Largebutton';
 import { passwordValidationRegx, phoneRegExp } from '../../services/helper';
 import Loader from '../../components/modals/Loader';
 import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
@@ -23,7 +22,9 @@ import { useValidation } from 'react-native-form-validator';
 import PasswordInputText from '../../components/react-native-hide-show-password-input';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 //import { LoginManager } from "react-native-fbsdk-next";
-import { useTailwind } from 'tailwind-rn';
+import tw from 'twrnc';
+import Largebutton from '../../components/dropshipbutton/Largebutton';
+
 
 const RegistrationShop = (props) => {
 
@@ -36,7 +37,6 @@ const RegistrationShop = (props) => {
     } = props;
 
     //Reference
-    const tailwind = useTailwind();
     const emailRef = useRef();
     const passwordRef = useRef();
     const passwordConfirmRef = useRef();
@@ -145,80 +145,80 @@ const RegistrationShop = (props) => {
         //https://api.linkedin.com/v2/me
     }
     return (
-        <View style={{ backgroundColor: '#ffffff', flex: 1 }}>
+      <View style={{ backgroundColor: '#ffffff', flex: 1 }}>
 
-              <View style={tailwind('items-center mt-[16%]')}>
-                  <Image source={ImageIcons.logored_1} style={tailwind('w-[90] h-[73]')}  />
-              </View>
-            <View>
-                <Text style={styles.headingText1}>Login</Text>
+            <View style={tw.style('items-center mt-18 mb-5 w-full h-24')}>
+                <Image source={ImageIcons.logored_1} style={tw.style('w-[31%] h-24')}  />
             </View>
           <View>
+              <Text style={styles.headingText1}>Login</Text>
+          </View>
+        <View>
 
 
-                <View style={tailwind('mx-1 my-3 flex rounded-md items-center')}>
-                    <TextInput
-                        style={tailwind('w-11/12 rounded-lg sm:text-sm bg-zinc-200 border-gray-300 pl-3')}
-                        placeholder="Email address"
-                        autoCompleteType='email'
-                        placeholderTextColor="#000000"
-                        onChangeText={onChangeText1}
-                        value={email}
-                        onSubmitEditing={() => handleRegistrationSubmit()}
-                    />
-                    {isFieldInError('email') &&
-                        <Text style={tailwind('text-red-700 mx-8 my-2')}>must be required field</Text>
-                    }
-                </View>
+              <View style={tw.style('mx-1 my-3 flex rounded-md items-center')}>
+                  <TextInput
+                      style={tw.style('w-11/12 rounded-lg sm:text-sm bg-zinc-200 border-gray-300 pl-3')}
+                      placeholder="Email address"
+                      autoCompleteType='email'
+                      placeholderTextColor="#000000"
+                      onChangeText={onChangeText1}
+                      value={email}
+                      onSubmitEditing={() => handleRegistrationSubmit()}
+                  />
+                  {isFieldInError('email') &&
+                      <Text style={tw.style('text-red-700 mx-8 my-2')}>must be required field</Text>
+                  }
+              </View>
 
-                <View style={tailwind('mx-1 mt-3 mb-1 flex rounded-md items-center')} >
-                    <PasswordInputText
-                        style={tailwind('w-11/12 rounded-lg sm:text-sm bg-zinc-200 border-gray-300 pl-3')}
-                        placeholder="Password"
-                        placeholderTextColor="#000000"
-                        onChangeText={onChangeText2}
-                        value={password}
-                        secureTextEntry={true}
-                        onSubmitEditing={() => handleRegistrationSubmit()}
-                    />
-                    {isFieldInError('password') &&
-                        <Text style={tailwind('text-red-700 mx-8 my-2')}>must be required field</Text>
-                    }
-                </View>
-                <View style={tailwind('mt-2 flex flex-row ml-3 mb-4')}>
-                    <CheckBox
-                        onCheckColor='#b80000'
-                        value={false}
-                    />
-                    <Text style={tailwind('mt-1 text-base')}>Remember me</Text>
-                </View>
+              <View style={tw.style('mx-1 mt-3 mb-1 flex rounded-md items-center')} >
+                  <PasswordInputText
+                      style={tw.style('w-11/12 rounded-lg sm:text-sm bg-zinc-200 border-gray-300 pl-3')}
+                      placeholder="Password"
+                      placeholderTextColor="#000000"
+                      onChangeText={onChangeText2}
+                      value={password}
+                      secureTextEntry={true}
+                      onSubmitEditing={() => handleRegistrationSubmit()}
+                  />
+                  {isFieldInError('password') &&
+                      <Text style={tw.style('text-red-700 mx-8 my-2')}>must be required field</Text>
+                  }
+              </View>
+              <View style={tw.style('mt-2 flex flex-row ml-3 mb-4')}>
+                  <CheckBox
+                      onCheckColor='#b80000'
+                      value={false}
+                  />
+                  <Text style={tw.style('mt-1 text-base')}>Remember me</Text>
+              </View>
 
-            </View>
+          </View>
 
-            <Largebutton
-              text="Login"
-              onPress={() => handleRegistrationSubmit()}
-            />
+          <Largebutton
+            text="Login"
+            onPress={() => handleRegistrationSubmit()}
+          />
 
-            <Loader isVisible={props?.loginLoader} />
+          <Loader isVisible={props?.loginLoader} />
 
-            <View style={tailwind('flex flex-row justify-center mt-6')}>
-                <Text style={tailwind('text-base text-gray-600 items-center tracking-wide')}>Forgot your password?</Text>
-                <TouchableOpacity
-                    onPress={() => props.navigation.navigate("ForgetPassword")}>
-                    <Text style={tailwind('text-base text-blue-500 items-center tracking-wide')}> Click here.</Text>
-                </TouchableOpacity>
-            </View>
+          <View style={tw.style('flex flex-row justify-center mt-6')}>
+              <Text style={tw.style('text-base text-gray-600 items-center tracking-wide')}>Forgot your password?</Text>
+              <TouchableOpacity
+                  onPress={() => props.navigation.navigate("ForgetPassword")}>
+                  <Text style={tw.style('text-base text-blue-500 items-center tracking-wide')}> Click here.</Text>
+              </TouchableOpacity>
+          </View>
 
 
-            <View style={styles.twotextviewcreatetop}>
-                <Text style={tailwind('text-base text-gray-600 items-center tracking-wide')}>Don’t have an account yet?</Text>
-                <TouchableOpacity onPress={() => props.navigation.navigate("CreateAccountShop")}>
-                    <Text style={tailwind('text-base text-blue-500 items-center tracking-wide')}> Sign up here.</Text>
-                </TouchableOpacity>
-            </View>
+          <View style={styles.twotextviewcreatetop}>
+              <Text style={tw.style('text-base text-gray-600 items-center tracking-wide')}>Don’t have an account yet?</Text>
+              <TouchableOpacity onPress={() => props.navigation.navigate("CreateAccountShop")}>
+                  <Text style={tw.style('text-base text-blue-500 items-center tracking-wide')}> Sign up here.</Text>
+              </TouchableOpacity>
+          </View>
 
-        </View>
+      </View>
 
 
     )

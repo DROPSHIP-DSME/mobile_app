@@ -5,10 +5,10 @@ import {
     widthPercentageToDP as wp,
     heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import {useTailwind} from 'tailwind-rn';
+import tw from 'twrnc';
 
 const Reactdim = require('react-native');
-const tailwind = useTailwind();
+
 
 const { Dimensions } = Reactdim;
 const deviceHeight = Dimensions.get('window').height;

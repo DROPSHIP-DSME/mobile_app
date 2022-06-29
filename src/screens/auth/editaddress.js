@@ -19,7 +19,7 @@ import { useFocusEffect } from '@react-navigation/native';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import Shopheader from '../../screens/auth/Shopheader';
-import { useTailwind } from 'tailwind-rn';
+import tw from 'twrnc';
 
 const editaddress = (props) => {
 
@@ -50,7 +50,6 @@ const editaddress = (props) => {
     const phoneRef = useRef();
     const bisinessnameRef = useRef();
     const fullnameRef = useRef();
-    const tailwind = useTailwind();
 
     // Local states
     const [text1, onChangeText1] = React.useState("");
@@ -168,7 +167,7 @@ const editaddress = (props) => {
     return (
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
-            style={tailwind('flex-1 justify-center')}>
+            style={tw.style('flex-1 justify-center')}>
             <StatusBar backgroundColor={showclassName} barStyle="dark-content" translucent={true} />
             <Shopheader />
 
@@ -237,11 +236,11 @@ const editaddress = (props) => {
                 <View style={{ flex: 1, backgroundColor: '#ffffff', margin: 20, paddingVertical: 10, borderRadius: 10, zIndex: 4001, position: 'absolute', bottom: '10%' }}>
 
 
-                    <View style={tailwind('flex flex-row mt-[8%] mb-[5%]')}>
+                    <View style={tw.style('flex flex-row mt-4 mb-3')}>
 
-                        <Text style={tailwind('text-xl font-bold text-[#282828] pl-[5%]')}>Chat with customer support</Text>
+                        <Text style={tw.style('text-xl font-bold text-[#282828] pl-3')}>Chat with customer support</Text>
                         <TouchableOpacity style={{ position: 'absolute', right: 15, top: 5 }} onPress={() => sethelppopup(false)}>
-                            <Image source={ImageIcons.closepopup} style={tailwind('w-[36px] h-[27px]')} />
+                            <Image source={ImageIcons.closepopup} style={tw.style('w-9 h-7')} />
                         </TouchableOpacity>
                     </View>
                     <ScrollView keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#ffffff', height: 200 }} >
@@ -255,9 +254,9 @@ const editaddress = (props) => {
                             />
                         </View>
                     </ScrollView>
-                    <View style={[tailwind('flex flex-row justify-between mx-[5%] my-[4%]'), { marginBottom: 10, width: '100%' }]}>
+                    <View style={[tw.style('flex flex-row justify-between mx-4 my-4'), { marginBottom: 10, width: '100%' }]}>
                         <View style={{ width: '90%' }}>
-                            <TextInput style={tailwind('bg-[#E6E6E6] rounded-[10px] pl-[5%] text-[11.3px] tracking-[-0.125172px] w-[75%] text-[#878787] font-regular')}
+                            <TextInput style={tw.style('bg-gray-200 rounded-md pl-3 text-xs tracking-[-0.125172px] w-[75%] text-[#878787] font-normal')}
                                 placeholder="Type here..."
                                 onChangeText={onChangeText1}
                                 value={text1}
@@ -265,7 +264,7 @@ const editaddress = (props) => {
                             />
                         </View>
                         <TouchableOpacity style={{ position: 'absolute', right: 55, top: 5 }} onPress={() => handleSendRequestSubmit()}>
-                            <Image source={ImageIcons.sendchat} style={tailwind('w-[49px] h-[41px]')} />
+                            <Image source={ImageIcons.sendchat} style={tw.style('w-12 h-10')} />
                         </TouchableOpacity>
                     </View>
                 </View>
