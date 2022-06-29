@@ -9,8 +9,8 @@
     "test": "jest",
     "lint": "eslint .",
     "postinstall": "rm -rf ./node_modules/react-native-linkedin/node_modules/react-native-webview",
-    "build:tw.style": "tw.stylecss --input input.css --output tw.style.css --no-autoprefixer && tw.style-rn",
-    "dev:tw.style": "concurrently \"tw.stylecss --input input.css --output tw.style.css --no-autoprefixer --watch\" \"tw.style-rn --watch\""
+    "build:tailwind": "tailwind --input input.css --output tailwind.css --no-autoprefixer && tw.style-rn",
+    "dev:tailwind": "concurrently \"tailwind --input input.css --output tw.style.css --no-autoprefixer --watch\" \"tailwind-rn --watch\""
   },
   "dependencies": {
     "@digieggs/rn-country-code-picker": "^1.3.2",
@@ -122,13 +122,13 @@
     "react-native-view-slider": "^1.1.1",
     "react-native-webview": "^11.21.1",
     "react-redux": "^7.2.2",
-    "react-tw.style-table": "^1.1.1",
+    "react-tailwind-table": "^1.1.1",
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "rn-fetch-blob": "^0.12.0",
     "socket.io-client": "2.3.0",
-    "tw.style-rn": "^4.2.0",
+    "tailwind-rn": "^4.2.0",
     "twrnc": "^3.3.2",
     "yup": "^0.32.9"
   },
@@ -144,7 +144,7 @@
     "metro-react-native-babel-preset": "^0.65.2",
     "postcss": "^8.4.14",
     "react-test-renderer": "17.0.1",
-    "tw.stylecss": "^3.1.4"
+     "tailwindcss": "^3.1.4"
   },
   "jest": {
     "preset": "react-native"
