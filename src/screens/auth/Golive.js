@@ -39,7 +39,6 @@ const Golive = (props) => {
         handleSubmit,
     } = props;
 
-    //Reference
 
     // Local states
     const [City, onChangeCity] = React.useState("");
