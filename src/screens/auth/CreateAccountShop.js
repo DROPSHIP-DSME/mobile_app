@@ -117,7 +117,7 @@ const CreateAccountShop = (props) => {
             <View style={styles.leftlogView}>
                 <Image source={ImageIcons.left} style={styles.droparrow}  />
             </View>
-            <View style={{alignItems:'center',marginTop:'-5%'}}>
+            <View style={tw.style('items-center mt-5')}>
                 <Image source={ImageIcons.logored_1} style={styles.setlogonewdatarow}  />
             </View>
         <View>

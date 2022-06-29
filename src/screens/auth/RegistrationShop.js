@@ -147,8 +147,8 @@ const RegistrationShop = (props) => {
     return (
       <View style={{ backgroundColor: '#ffffff', flex: 1 }}>
 
-            <View style={tw.style('items-center mt-[16%]')}>
-                <Image source={ImageIcons.logored_1} style={tw.style('w-[90] h-[73]')}  />
+            <View style={tw.style('items-center mt-18 mb-5 w-full h-24')}>
+                <Image source={ImageIcons.logored_1} style={tw.style('w-[31%] h-24')}  />
             </View>
           <View>
               <Text style={styles.headingText1}>Login</Text>

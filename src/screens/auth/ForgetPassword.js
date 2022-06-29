@@ -99,23 +99,23 @@ const ForgetPassword = (props) => {
     return (
 
 
-      <View style={tailwind('flex flex-1 bg-white')}>
+      <View style={tw.style('flex flex-1 bg-white')}>
 
-        <View style={tailwind('items-center mt-[16%]')}>
-            <Image source={ImageIcons.logored_1} style={tailwind('w-[90] h-[73]')}  />
+        <View style={tw.style('items-center mt-24 w-full')}>
+            <Image source={ImageIcons.logored_1} style={tw.style('w-30 h-24')}  />
         </View>
 
         <View>
-            <Text style={tailwind('text-2xl text-gray-700 tracking-wide mt-8 mb-3 ml-5')}>Forgot Password</Text>
+            <Text style={tw.style('text-2xl text-gray-700 tracking-wide mt-8 mb-3 ml-5')}>Forgot Password</Text>
         </View>
          <View>
-            <Text style={tailwind('text-base font-normal text-gray-600 mx-5')}>If you've forgotten your password, please enter your registered email address. We'll send you a link to reset your password.</Text>
+            <Text style={tw.style('text-base font-normal text-gray-600 mx-5')}>If you've forgotten your password, please enter your registered email address. We'll send you a link to reset your password.</Text>
         </View>
       <View>
 
-        <View style={tailwind('mx-1 mt-3 mb-1 flex rounded-md items-center my-7')}>
+        <View style={tw.style('mx-1 mt-3 mb-1 flex rounded-md items-center my-7')}>
           <TextInput
-           style={tailwind('w-11/12 rounded-lg text-sm text-gray-700 bg-zinc-200 border-gray-300 pl-3 h-14')}
+           style={tw.style('w-11/12 rounded-lg text-sm text-gray-700 bg-zinc-200 border-gray-300 pl-3 h-14')}
            placeholder="Email address"
            autoCompleteType='email'
            placeholderTextColor="#999999"
