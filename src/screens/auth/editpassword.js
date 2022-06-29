@@ -19,7 +19,7 @@ import { useFocusEffect } from '@react-navigation/native';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import { RadioButton, Provider, Modal, Portal, Button, } from 'react-native-paper';
-import { useTailwind } from 'tailwind-rn';
+import tw from 'twrnc';
 
 const editpassword = (props) => {
 
@@ -48,7 +48,6 @@ const editpassword = (props) => {
     const phoneRef = useRef();
     const bisinessnameRef = useRef();
     const fullnameRef = useRef();
-    const tailwind = useTailwind();
 
     // Local states
     const [password, onChangeText2] = React.useState("");
@@ -207,7 +206,7 @@ const editpassword = (props) => {
     return (
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
-            style={tailwind('flex-1 justify-center')}>
+            style={tw.style('flex-1 justify-center')}>
             <StatusBar backgroundColor={showclassName} barStyle="dark-content" translucent={true} />
             <View style={{ flexDirection: 'row', backgroundColor: showclassName, alignItems: 'center', justifyContent: 'space-between', top: '3%', zIndex: 1001, width: '100%', padding: '3%' }}>
 
@@ -227,7 +226,7 @@ const editpassword = (props) => {
                     </View>
                     <View style={{ flexDirection: 'row' }}>
                         <Image source={ImageIcons.whitecart} style={{ width: 18, height: 20.6, }} />
-                        <Text style={tailwind('text-xl font-bold ml-[5px] text-white text-center')}>0</Text>
+                        <Text style={tw.style('text-xl font-bold ml-[5px] text-white text-center')}>0</Text>
                     </View>
                 </View>
             </View>
@@ -246,7 +245,7 @@ const editpassword = (props) => {
                     <Text style={{ fontSize: 26, fontFamily: "hinted-AvertaStd-Regular", fontWeight: "bold" }}>Change Password</Text>
                 </View>
 
-                <View style={[tailwind('border-[#e6e6e6] rounded-[10px] bg-[#e6e6e6] h-[55px] self-center mt-[7%] mx-[3%]'), { width: deviceWidth / 1.1 }]}>
+                <View style={[tw.style('border-gray-200 rounded-md bg-gray-200 h-14 self-center mt-4 mx-2'), { width: deviceWidth / 1.1 }]}>
                     <TextInput
                         placeholder="Old Password"
                         placeholderTextColor="#1a1a1a"
@@ -255,7 +254,7 @@ const editpassword = (props) => {
                     />
                 </View>
 
-                <View style={[tailwind('border-[#e6e6e6] rounded-[10px] bg-[#e6e6e6] h-[55px] self-center mt-[7%] mx-[3%]'), { width: deviceWidth / 1.1 }]}>
+                <View style={[tw.style('border-gray-200 rounded-md bg-gray-200 h-14 self-center mt-4 mx-2'), { width: deviceWidth / 1.1 }]}>
                     <TextInput
                         placeholder="New Password"
                         placeholderTextColor="#1a1a1a"
@@ -267,7 +266,7 @@ const editpassword = (props) => {
 
                     />
                 </View>
-                <View style={[tailwind('border-[#e6e6e6] rounded-[10px] bg-[#e6e6e6] h-[55px] self-center mt-[7%] mx-[3%]'), { width: deviceWidth / 1.1 }]}>
+                <View style={[tw.style('border-gray-200 rounded-md bg-gray-200 h-14 self-center mt-4 mx-2'), { width: deviceWidth / 1.1 }]}>
                     <TextInput
                         placeholder="Confirm New Password"
                         placeholderTextColor="#1a1a1a"
@@ -290,7 +289,7 @@ const editpassword = (props) => {
                             <Modal visible={visible} contentContainerStyle={containerStyle}>
 
                                 <TouchableOpacity style={{ alignItems: "flex-end" }} onPress={() => closepopup()}>
-                                    <Image source={ImageIcons.closepopup} style={tailwind('w-[36px] h-[27px]')} />
+                                    <Image source={ImageIcons.closepopup} style={tw.style('w-9 h-7')} />
                                 </TouchableOpacity>
                                 <View style={{ marginTop: "10%", alignItems: "center" }}>
                                     <Image source={ImageIcons.righticon} style={{ height: 80, width: 80 }} />
@@ -319,11 +318,11 @@ const editpassword = (props) => {
                 <View style={{ flex: 1, backgroundColor: '#ffffff', margin: 20, paddingVertical: 10, borderRadius: 10, zIndex: 4001, position: 'absolute', bottom: '10%' }}>
 
 
-                    <View style={tailwind('flex flex-row mt-[8%] mb-[5%]')}>
+                    <View style={tw.style('flex flex-row mt-4 mb-3')}>
 
-                        <Text style={tailwind('text-xl font-bold text-[#282828] pl-[5%]')}>Chat with customer support</Text>
+                        <Text style={tw.style('text-xl font-bold text-[#282828] pl-[5%]')}>Chat with customer support</Text>
                         <TouchableOpacity style={{ position: 'absolute', right: 15, top: 5 }} onPress={() => sethelppopup(false)}>
-                            <Image source={ImageIcons.closepopup} style={tailwind('w-[49px] h-[41px]')} />
+                            <Image source={ImageIcons.closepopup} style={tw.style('w-12 h-10')} />
                         </TouchableOpacity>
                     </View>
                     <ScrollView keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#ffffff', height: 200 }} >
@@ -337,9 +336,9 @@ const editpassword = (props) => {
                             />
                         </View>
                     </ScrollView>
-                    <View style={[tailwind('flex flex-row justify-between mx-[5%] my-[4%]'), { marginBottom: 10, width: '100%' }]}>
+                    <View style={[tw.style('flex flex-row justify-between mx-4 my-4'), { marginBottom: 10, width: '100%' }]}>
                         <View style={{ width: '90%' }}>
-                            <TextInput style={tailwind('bg-[#E6E6E6] rounded-[10px] pl-[5%] text-[11.3px] tracking-[-0.125172px] w-[75%] text-[#878787] font-normal')}
+                            <TextInput style={tw.style('bg-gray-200 rounded-md pl-3 text-xs tracking-[-0.125172px] w-[75%] text-[#878787] font-normal')}
                                 placeholder="Type here..."
                                 onChangeText={onChangeText1}
                                 value={text1}
@@ -347,7 +346,7 @@ const editpassword = (props) => {
                             />
                         </View>
                         <TouchableOpacity style={{ position: 'absolute', right: 55, top: 5 }} onPress={() => handleSendRequestSubmit()}>
-                            <Image source={ImageIcons.sendchat} style={tailwind('w-[49px] h-[41px]')} />
+                            <Image source={ImageIcons.sendchat} style={tw.style('w-12 h-10')} />
                         </TouchableOpacity>
                     </View>
                 </View>

@@ -20,7 +20,7 @@ import AwesomeAlert from 'react-native-awesome-alerts';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import Shopheader from '../../screens/auth/Shopheader';
 import { RadioButton, Provider, Modal, Portal, Button, } from 'react-native-paper';
-import { useTailwind } from 'tailwind-rn';
+import tw from 'twrnc';
 
 const deletaccount = (props) => {
 
@@ -49,7 +49,6 @@ const deletaccount = (props) => {
   const phoneRef = useRef();
   const bisinessnameRef = useRef();
   const fullnameRef = useRef();
-  const tailwind = useTailwind();
 
 
   // Local states
@@ -190,7 +189,7 @@ const deletaccount = (props) => {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
-      style={tailwind('flex-1 justify-center')}>
+      style={tw.style('flex-1 justify-center')}>
       <StatusBar backgroundColor={showclassName} barStyle="dark-content" translucent={true} />
       <Shopheader />
 
@@ -249,7 +248,7 @@ const deletaccount = (props) => {
 
         </View>
 
-        <View style={[tailwind('border-[#e6e6e6] rounded-[10px] bg-[#e6e6e6] h-[55px] self-center mt-[7%] mx-[3%]'), { width: deviceWidth / 1.1 }]}>
+        <View style={[tw.style('border-gray-200 rounded-md bg-gray-200 h-14 self-center mt-4 mx-2'), { width: deviceWidth / 1.1 }]}>
           <TextInput
             placeholder="Add more details about your reason (optional)"
             placeholderTextColor="#1a1a1a"
@@ -266,7 +265,7 @@ const deletaccount = (props) => {
           <Text style={{ fontSize: 14, fontFamily: "hinted-AvertaStd-Regular", color: "#1A1A1A" }}>To confirm this, type ‘DELETE’ below.</Text>
         </View>
 
-        <View style={[tailwind('border-[#e6e6e6] rounded-[10px] bg-[#e6e6e6] h-[55px]'), { marginTop: '2%', width: deviceWidth / 1.1, width: 260, backgroundColor: "#e6e6e6", marginHorizontal: "3%", borderRadius: 10 }]}>
+        <View style={[tw.style('border-gray-200 rounded-md bg-gray-200 h-14'), { marginTop: '2%', width: deviceWidth / 1.1, width: 260, backgroundColor: "#e6e6e6", marginHorizontal: "3%", borderRadius: 10 }]}>
           <TextInput
 
             placeholderTextColor="#1a1a1a"
@@ -285,7 +284,7 @@ const deletaccount = (props) => {
               <Modal visible={visible} contentContainerStyle={containerStyle}>
 
                 <TouchableOpacity style={{ alignItems: "flex-end" }} onPress={() => closepopup()}>
-                  <Image source={ImageIcons.closepopup} style={tailwind('w-[36px] h-[27px]')} />
+                  <Image source={ImageIcons.closepopup} style={tw.style('w-[36px] h-[27px]')} />
                 </TouchableOpacity>
                 <View style={{ marginTop: "10%", alignItems: "center" }}>
                   <Image source={ImageIcons.righticon} style={{ height: 80, width: 80 }} />
@@ -314,11 +313,11 @@ const deletaccount = (props) => {
         <View style={{ flex: 1, backgroundColor: '#ffffff', margin: 20, paddingVertical: 10, borderRadius: 10, zIndex: 4001, position: 'absolute', bottom: '10%' }}>
 
 
-          <View style={tailwind('flex flex-row mt-[8%] mb-[5%]')}>
+          <View style={tw.style('flex flex-row mt-4 mb-3')}>
 
-            <Text style={tailwind('text-xl font-bold text-[#282828] pl-[5%]')}>Chat with customer support</Text>
+            <Text style={tw.style('text-xl font-bold text-[#282828] pl-[5%]')}>Chat with customer support</Text>
             <TouchableOpacity style={{ position: 'absolute', right: 15, top: 5 }} onPress={() => sethelppopup(false)}>
-              <Image source={ImageIcons.closepopup} style={tailwind('w-[36px] h-[27px]')} />
+              <Image source={ImageIcons.closepopup} style={tw.style('w-9 h-7')} />
             </TouchableOpacity>
           </View>
           <ScrollView keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#ffffff', height: 200 }} >
@@ -329,12 +328,13 @@ const deletaccount = (props) => {
                 keyExtractor={item => item.id}
                 showsHorizontalScrollIndicator={false}
                 horizontal={false}
+
               />
             </View>
           </ScrollView>
-          <View style={[tailwind('flex flex-row justify-between mx-[5%] my-[4%]'), { marginBottom: 10, width: '100%' }]}>
+          <View style={[tw.style('flex flex-row justify-between mx-4 my-3'), { marginBottom: 10, width: '100%' }]}>
             <View style={{ width: '90%' }}>
-              <TextInput style={tailwind('bg-[#E6E6E6] rounded-[10px] pl-[5%] text-[11.3px] tracking-[-0.125172px] w-[75%] text-[#878787] font-normal')}
+              <TextInput style={tw.style('bg-gray-200 rounded-md pl-3 text-xs tracking-[-0.125172px] w-[75%] text-[#878787] font-normal')}
                 placeholder="Type here..."
                 onChangeText={onChangeText1}
                 value={text1}
@@ -342,7 +342,7 @@ const deletaccount = (props) => {
               />
             </View>
             <TouchableOpacity style={{ position: 'absolute', right: 55, top: 5 }} onPress={() => handleSendRequestSubmit()}>
-              <Image source={ImageIcons.sendchat} style={tailwind('w-[49px] h-[41px]')} />
+              <Image source={ImageIcons.sendchat} style={tw.style('w-12 h-10')} />
             </TouchableOpacity>
           </View>
         </View>
