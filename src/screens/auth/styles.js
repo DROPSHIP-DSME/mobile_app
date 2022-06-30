@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     height:16
  },
  textBold: {
-   fontFamily: 'hinted-AvertaStd-Bold'
+   fontFamily: 'hintedavertaStdbold'
  },
  stringerror:{
     color:'#cc0000',marginHorizontal:'5%',marginVertical:'1%'
@@ -2306,7 +2306,7 @@ TEXT2:{
 },
 CHANGETEXTTITLE:{
   fontSize:12,fontWeight:'normal',fontStyle:'normal',
-  fontFamily:'hinted-AvertaStd-Regular',color:'#4F4F4F',marginHorizontal:'3%',marginTop:'1%'
+  fontFamily:'hintedavertastdregular',color:'#4F4F4F',marginHorizontal:'3%',marginTop:'1%'
 },
 startrecordtext:{
   fontSize:12,fontWeight:'normal',fontStyle:'normal',
@@ -2563,11 +2563,11 @@ livetext:{
     fontFamily:'hinted-AvertaStd-Regular',color:'#E22020',lineHeight:9
 },
 DELIVERYTEXT:{
-  fontStyle:'normal',color:'#828282',fontFamily:'hinted-AvertaStd-Regular',fontWeight:'normal',
+  fontStyle:'normal',color:'#828282',fontFamily:'hintedavertastdregular',fontWeight:'normal',
   fontSize:13,marginHorizontal:'1%',
 },
 DELIVERYTEXTTITLE:{
-  fontStyle:'normal',color:'#828282',fontFamily:'hinted-AvertaStd-Regular',fontWeight:'normal',
+  fontStyle:'normal',color:'#828282',fontFamily:'hintedavertastdregular',fontWeight:'normal',
   fontSize:12,marginHorizontal:'4%',
 },
 mobaileView:{

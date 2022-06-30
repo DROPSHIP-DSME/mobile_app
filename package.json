@@ -9,7 +9,7 @@
     "test": "jest",
     "lint": "eslint .",
     "postinstall": "rm -rf ./node_modules/react-native-linkedin/node_modules/react-native-webview",
-    "build:tailwind": "tailwind --input input.css --output tailwind.css --no-autoprefixer && tw.style-rn",
+    "build:tailwind": "tailwind --input input.css --output tailwind.css --no-autoprefixer && tailwind-rn",
     "dev:tailwind": "concurrently \"tailwind --input input.css --output tw.style.css --no-autoprefixer --watch\" \"tailwind-rn --watch\""
   },
   "dependencies": {
