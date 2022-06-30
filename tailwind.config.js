@@ -1,5 +1,5 @@
 
-module.exports = {
+const tw = {
   content: [
     './src/screens/**/*.{js,ts,jsx,tsx}',
     './src/common/**/*.{js,ts,jsx,tsx}',
@@ -46,4 +46,4 @@ module.exports = {
 
 }
 
-module.exports = tws
+module.exports = tw
