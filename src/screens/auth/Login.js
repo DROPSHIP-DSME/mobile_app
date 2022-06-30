@@ -21,9 +21,8 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import 'react-native-get-random-values';
 import { v4 as uuid } from "uuid";
-import tw from 'twrnc';
+import tw from '../../lib/tailwind';
 import Medbutton from '../../components/dropshipbutton/Medbutton';
-
 import AppIntroSlider from 'react-native-app-intro-slider';
 
 
@@ -178,27 +177,27 @@ const Login = (props) => {
     return (
       <View>
         {index == '0' ?
-          <View style={{ width, height, justifyContent: 'center' }}>
+          <View style={tw.style('justify-center'),{ width, height}}>
             <Video source={item.image}  // Can be a URL or a local file.
               paused={false}
               repeat={true}
               resizeMode={"cover"}
               style={styles.backgroundVideo}
             />
-            <View style={{ alignItems: 'center', marginTop: '25%', }}>
+            <View style={tw.style('items-center my-8')}>
               <Image source={item.title} style={{ width: 145, height: 117 }} />
             </View>
-            <View style={{ alignItems: 'center', justifyContent: 'center', marginTop: '15%' }}>
+            <View style={tw.style('items-center mt-36')}>
               <Text style={tw.style('font-sans px-2 text-3xl text-white text-center')}>{item.text}</Text>
             </View>
           </View>
           :
-          <View style={{ width, height }}>
-            <View style={{ flex: 1, backgroundColor: '#FFFFFF', justifyContent: 'center' }}>
-              <View style={tw.style('mt-6 items-center')}>
+          <View style={tw.style('w-full h-10/11 bg-white')}>
+            <View style={tw.style('flex flex-1 bg-white justify-center')}>
+              <View style={tw.style('items-center')}>
                 <Image source={item.image} style={tw.style('h-80 w-72')} />
               </View>
-              <View style={{ marginVertical: '6%' }}>
+              <View style={tw.style('mt-10')}>
                 <Text style={tw.style('px-4 text-2xl text-black text-center')}>{item.text}</Text>
               </View>
             </View>
@@ -251,7 +250,7 @@ const Login = (props) => {
     // </View>
     <>
       {showRealApp ? (
-        <SafeAreaView style={{ flex: 1 }}>
+        <SafeAreaView style={tw.style('flex flex-1')}>
           <View style={{ width, height, justifyContent: 'center' }}>
             <Video source={ImageIcons.vedioplays}  // Can be a URL or a local file.
               paused={false}
@@ -259,11 +258,11 @@ const Login = (props) => {
               resizeMode={"cover"}
               style={styles.backgroundVideo}
             />
-            <View style={tw.style('mt-6 items-center')}>
+            <View style={tw.style('items-center')}>
               <Image source={ImageIcons.logoredagain} style={{ width: 145, height: 117 }} />
             </View>
             <View style={tw.style('mt-6 items-center')}>
-              <Text style={tw.style('px-2 text-3xl text-white text-center')}>A live-commerce marketplace for fashion and home goods. </Text>
+              <Text style={tw.style('px-2 text-3xl font-bold text-white text-center')}>A live-commerce marketplace for fashion and home goods. </Text>
             </View>
             <View style={tw.style('items-center mt-6')}>
               <Image source={ImageIcons.bar1} style={{ height: 12, width: 104 }} />
@@ -272,6 +271,7 @@ const Login = (props) => {
 
         </SafeAreaView>
       ) : (
+
         <AppIntroSlider
           data={slides}
           dotStyle={{ backgroundColor: '#cccccc' }}
@@ -289,6 +289,7 @@ const Login = (props) => {
           text="Login"
           onPress={() => navigation.navigate("Golive")} />
       </View>
+
     </>
   );
 };
