@@ -165,7 +165,7 @@ const Shippayment = (props) => {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
-      style={tailwind('flex-1 justify-center')}>
+      style={tw.style('flex-1 justify-center')}>
       <StatusBar backgroundColor={showclassName} barStyle="dark-content" translucent={true} />
       <Shopheader />
 
@@ -183,7 +183,7 @@ const Shippayment = (props) => {
 
 
 
-        <View style={tailwind('flex flex-row justify-between mt-[3%] mr-[20%] m-[3%]')}>
+        <View style={tw.style('flex flex-row justify-between mt-[3%] mr-[20%] m-[3%]')}>
           <Text style={{ fontSize: 26, color: '#1A1A1A', paddingVertical: '1%', lineHeight: 30, fontWeight: 'bold', fontFamily: 'hinted-AvertaStd-Regular', fontStyle: 'normal' }}>Payment Information</Text>
         </View>
 
@@ -242,7 +242,7 @@ const Shippayment = (props) => {
         </View>
 
 
-        <View style={[tailwind('border-[#e6e6e6] rounded-[10px] bg-[#e6e6e6] h-[55px] self-center mt-[7%] mx-[3%]'), { width: deviceWidth / 1.1 }]}>
+        <View style={[tw.style('border-[#e6e6e6] rounded-[10px] bg-[#e6e6e6] h-[55px] self-center mt-[7%] mx-[3%]'), { width: deviceWidth / 1.1 }]}>
           <TextInput
             placeholder="Address Line 1"
             placeholderTextColor="#1a1a1a"
@@ -250,7 +250,7 @@ const Shippayment = (props) => {
           />
         </View>
 
-        <View style={[tailwind('border-[#e6e6e6] rounded-[10px] bg-[#e6e6e6] h-[55px] self-center mt-[7%] mx-[3%]'), { width: deviceWidth / 1.1 }]}>
+        <View style={[tw.style('border-[#e6e6e6] rounded-[10px] bg-[#e6e6e6] h-[55px] self-center mt-[7%] mx-[3%]'), { width: deviceWidth / 1.1 }]}>
           <TextInput
             placeholder="Address Line 2"
             placeholderTextColor="#1a1a1a"
@@ -258,7 +258,7 @@ const Shippayment = (props) => {
           />
         </View>
 
-        <View style={[tailwind('border-[#e6e6e6] rounded-[10px] bg-[#e6e6e6] h-[55px] self-center mt-[7%] mx-[3%]'), { width: deviceWidth / 1.1 }]}>
+        <View style={[tw.style('border-[#e6e6e6] rounded-[10px] bg-[#e6e6e6] h-[55px] self-center mt-[7%] mx-[3%]'), { width: deviceWidth / 1.1 }]}>
           <TextInput
             placeholder="Postal/Zip Code"
             placeholderTextColor="#1a1a1a"
@@ -266,7 +266,7 @@ const Shippayment = (props) => {
           />
         </View>
 
-        <View style={[tailwind('border-[#e6e6e6] rounded-[10px] bg-[#e6e6e6] h-[55px] self-center mt-[7%] mx-[3%]'), { width: deviceWidth / 1.1 }]}>
+        <View style={[tw.style('border-[#e6e6e6] rounded-[10px] bg-[#e6e6e6] h-[55px] self-center mt-[7%] mx-[3%]'), { width: deviceWidth / 1.1 }]}>
           <TextInput
             placeholder="State/Province"
             placeholderTextColor="#1a1a1a"
@@ -341,7 +341,7 @@ const Shippayment = (props) => {
           </View>
         </View>
 
-        <View style={[tailwind('border-[#e6e6e6] rounded-[10px] bg-[#e6e6e6] h-[55px] self-center mt-[7%] mx-[3%]'), { width: deviceWidth / 1.1 }]}>
+        <View style={[tw.style('border-[#e6e6e6] rounded-[10px] bg-[#e6e6e6] h-[55px] self-center mt-[7%] mx-[3%]'), { width: deviceWidth / 1.1 }]}>
           <TextInput
             placeholder="Card Holder’s Name"
             placeholderTextColor="#1a1a1a"
@@ -349,7 +349,7 @@ const Shippayment = (props) => {
           />
         </View>
 
-        <View style={[tailwind('border-[#e6e6e6] rounded-[10px] bg-[#e6e6e6] h-[55px] self-center mt-[7%] mx-[3%]'), { width: deviceWidth / 1.1 }]}>
+        <View style={[tw.style('border-[#e6e6e6] rounded-[10px] bg-[#e6e6e6] h-[55px] self-center mt-[7%] mx-[3%]'), { width: deviceWidth / 1.1 }]}>
           <TextInput
             placeholder="Card Number"
             placeholderTextColor="#1a1a1a"
@@ -357,7 +357,7 @@ const Shippayment = (props) => {
           />
         </View>
 
-        <View style={[tailwind('border-[#e6e6e6] rounded-[10px] bg-[#e6e6e6] h-[55px] self-center mt-[7%] mx-[3%]'), { width: deviceWidth / 1.1 }]}>
+        <View style={[tw.style('border-[#e6e6e6] rounded-[10px] bg-[#e6e6e6] h-[55px] self-center mt-[7%] mx-[3%]'), { width: deviceWidth / 1.1 }]}>
           <TextInput
             placeholder="- - / - -"
             placeholderTextColor="#1a1a1a"
@@ -365,7 +365,7 @@ const Shippayment = (props) => {
           />
         </View>
 
-        <View style={[tailwind('border-[#e6e6e6] rounded-[10px] bg-[#e6e6e6] h-[55px] self-center mt-[7%] mx-[3%]'), { width: deviceWidth / 1.1 }]}>
+        <View style={[tw.style('border-[#e6e6e6] rounded-[10px] bg-[#e6e6e6] h-[55px] self-center mt-[7%] mx-[3%]'), { width: deviceWidth / 1.1 }]}>
           <TextInput
             placeholder="Security Code"
             placeholderTextColor="#1a1a1a"
@@ -527,7 +527,7 @@ const Shippayment = (props) => {
         <View style={{ flex: 1, backgroundColor: '#ffffff', paddingVertical: 10, borderRadius: 10, zIndex: 4001, position: 'absolute', bottom: '20%', margin: "5%" }}>
 
           <TouchableOpacity style={{ position: 'absolute', right: 15 }} onPress={() => closebagpopup()}>
-            <Image source={ImageIcons.closepopup} style={tailwind('w-9 h-[27px]')} />
+            <Image source={ImageIcons.closepopup} style={tw.style('w-9 h-[27px]')} />
           </TouchableOpacity>
 
           <View style={{ flexDirection: "row", justifyContent: "space-between", marginHorizontal: "1%", marginVertical: "3%" }}>

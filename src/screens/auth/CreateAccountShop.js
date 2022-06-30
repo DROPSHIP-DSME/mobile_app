@@ -16,7 +16,7 @@ import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import AsyncStorage from '@react-native-community/async-storage';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import PasswordInputText from '../../components/react-native-hide-show-password-input';
-import { useTailwind } from 'tailwind-rn';
+import tw from 'twrnc';
 import Largebutton from '../../components/dropshipbutton/Largebutton';
 
 const CreateAccountShop = (props) => {
@@ -30,7 +30,7 @@ const CreateAccountShop = (props) => {
     } = props;
 
     //Reference
-    const tailwind = useTailwind();
+
 
     // Local States
     const [deviceToken, setDeviceToken] = useState();
@@ -111,25 +111,24 @@ const CreateAccountShop = (props) => {
 
     return (
         <KeyboardAwareScrollView
-            style={tailwind('flex flex-1 bg-white')}>
+            style={styles.registrationRootscroll}>
+        <View style={{flex:1,backgroundColor:'#ffffff'}}>
 
-          <View style={tailwind('flex flex-1')}>
-              <View style={tailwind('flex-row mt-11 ml-3')}>
-                  <Image source={ImageIcons.left} style={styles.droparrow}  />
-              </View>
-              <View style={tailwind('items-center')}>
-                  <Image source={ImageIcons.logored_1} style={tailwind('w-[90] h-[73]')}  />
-              </View>
-          <View>
-
-            <Text style={tailwind('text-2xl text-gray-700 font-bold ml-5 mt-6')}>Sign Up</Text>
+            <View style={styles.leftlogView}>
+                <Image source={ImageIcons.left} style={styles.droparrow}  />
+            </View>
+            <View style={tw.style('items-center mt-5')}>
+                <Image source={ImageIcons.logored_1} style={styles.setlogonewdatarow}  />
+            </View>
+        <View>
+            <Text style={tw.style('text-2xl text-gray-700 font-bold mt-2 ml-5')}>Sign Up</Text>
         </View>
 
 
             <View>
 
-                <View style={tailwind('mt-5')}>
-                    <TextInput  style={tailwind('mx-5 pl-3 text-sm border-gray-300 bg-zinc-200 rounded-lg')}
+                <View style={tw.style('mt-5')}>
+                    <TextInput  style={tw.style('mx-5 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg')}
                      placeholder="Email address"
                      onChangeText={onChangeText1}
                      value={email}
@@ -138,8 +137,8 @@ const CreateAccountShop = (props) => {
                     />
                 </View>
 
-                <View style={tailwind('mt-4')}>
-                    <TextInput  style={tailwind('mx-5 pl-3 text-sm border-gray-300 bg-zinc-200 rounded-lg')}
+                <View style={tw.style('mt-4')}>
+                    <TextInput  style={tw.style('mx-5 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg')}
                      placeholder="Username"
                      onChangeText={onChangeText6}
                      value={username}
@@ -148,9 +147,9 @@ const CreateAccountShop = (props) => {
                     />
                 </View>
 
-                <View style={tailwind('mt-4')}>
+                <View style={tw.style('mt-4')}>
                     <PasswordInputText
-                      style={tailwind('mx-5 pl-3 text-sm border-gray-300 bg-zinc-200 rounded-lg')}
+                      style={tw.style('mx-5 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg')}
                       placeholderTextColor="#000000"
                       onChangeText={onChangeText2}
                       value={password}
@@ -161,9 +160,9 @@ const CreateAccountShop = (props) => {
 
                 </View>
 
-                <View style={tailwind('mt-4')}>
+                <View style={tw.style('mt-4')}>
                      <PasswordInputText
-                      style={tailwind('mx-5 pl-3 text-sm border-gray-300 bg-zinc-200 rounded-lg')}
+                      style={tw.style('mx-5 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg')}
                       placeholderTextColor="#000000"
                       onChangeText={onChangeText3}
                       value={confirmPassword}
@@ -173,12 +172,12 @@ const CreateAccountShop = (props) => {
                     />
                 </View>
 
-                <View style={tailwind('flex flex-row mt-5 ml-5 mb-6')}>
+                <View style={tw.style('flex flex-row mt-2 mx-4 my-4')}>
                 <CheckBox
-                    onCheckColor='#b80000'
-                    value={false}
+                    checkedColor='red'
+                    value={true}
                  />
-                    <Text style={tailwind('text-sm text-gray-700 w-10/12 tracking-wide')}>I agree to the <Text style={tailwind('text-sm text-blue-600 mt-2')}>Terms & Conditions</Text> and have read the <Text style={tailwind('text-sm text-blue-600 mt-2')}>Privacy Policy</Text></Text>
+                    <Text style={tw.style('text-sm text-gray-700 mt-2 w-10/11')}>I agree to the <Text style={tw.style('text-sm text-red-700 mt-2')}>Terms & Conditions</Text> and have read the <Text style={tw.style('text-sm text-red-700 mt-2')}>Privacy Policy</Text></Text>
                 </View>
 
                 <Largebutton
@@ -186,11 +185,11 @@ const CreateAccountShop = (props) => {
                   onPress={() => handleRegistrationSubmit()}
                 />
 
+                <View style={tw.style('flex flex-row justify-center mt-3')}>
+                    <Text style={tw.style('text-base text-gray-700 tracking-wide')}>Already have an account yet?</Text>
 
-                <View style={tailwind('flex flex-row justify-center mt-4')} >
-                    <Text style={tailwind('text-sm font-medium text-slate-800')}>Already have an account yet? </Text>
-                    <TouchableOpacity onPress={() => props.navigation.navigate("RegistrationShop")}>
-                        <Text style={tailwind('text-sm font-medium text-blue-600')}> Sign in here.</Text>
+                    <TouchableOpacity style={tw.style('w-auto')} onPress={() => props.navigation.navigate("RegistrationShop")}>
+                        <Text style={tw.style('text-base text-red-800 items-center tracking-wide')}> Sign up here.</Text>
                     </TouchableOpacity>
                 </View>
             </View>

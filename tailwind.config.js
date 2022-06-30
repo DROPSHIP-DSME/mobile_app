@@ -1,5 +1,5 @@
 
-const defaultTheme = require('tailwindcss/defaultTheme')
+const defaultTheme = require('tw.stylecss/defaultTheme')
 
 module.exports = {
   content: [

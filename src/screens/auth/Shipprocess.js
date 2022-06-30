@@ -154,7 +154,7 @@ const Shipprocess = (props) => {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
-      style={tailwind('flex-1 justify-center')}>
+      style={tw.style('flex-1 justify-center')}>
       <StatusBar backgroundColor={showclassName} barStyle="dark-content" translucent={true} />
       <Shopheader />
 
@@ -172,7 +172,7 @@ const Shipprocess = (props) => {
 
 
 
-        <View style={tailwind('flex flex-row justify-between mt-[3%] mr-[20%] m-[3%]')}>
+        <View style={tw.style('flex flex-row justify-between mt-[3%] mr-[20%] m-[3%]')}>
           <Text style={{ fontSize: 26, color: '#1A1A1A', paddingVertical: '1%', lineHeight: 30, fontWeight: 'bold', fontFamily: 'hinted-AvertaStd-Regular', fontStyle: 'normal' }}>Shipping Information</Text>
         </View>
 
@@ -183,19 +183,19 @@ const Shipprocess = (props) => {
           <Text style={{ fontSize: 16, fontFamily: 'hinted-AvertaStd-Regular', color: '#1a1a1a', marginLeft: 5 }}>Save shipping information</Text>
         </View>
 
-        <View style={[tailwind('border-[#e6e6e6] rounded-[10px] bg-[#e6e6e6] h-[55px] self-center mt-[7%] mx-[3%]'), { width: deviceWidth / 1.1 }]}>
+        <View style={[tw.style('border-[#e6e6e6] rounded-[10px] bg-[#e6e6e6] h-[55px] self-center mt-[7%] mx-[3%]'), { width: deviceWidth / 1.1 }]}>
           <Text style={{ fontSize: 12, fontFamily: 'hinted-AvertaStd-Regular', color: '4d4d4d', marginLeft: '5%', marginTop: '2%' }}>First Name</Text>
           <Text style={{ fontSize: 18, fontFamily: 'hinted-AvertaStd-Regular', color: '4d4d4d', marginLeft: '5%', marginTop: '1%' }}>Mary</Text>
         </View>
 
-        <View style={[tailwind('border-[#e6e6e6] rounded-[10px] bg-[#e6e6e6] h-[55px] self-center mt-[7%] mx-[3%]'), { width: deviceWidth / 1.1 }]}>
+        <View style={[tw.style('border-[#e6e6e6] rounded-[10px] bg-[#e6e6e6] h-[55px] self-center mt-[7%] mx-[3%]'), { width: deviceWidth / 1.1 }]}>
           <TextInput
             placeholder="Last Name"
             placeholderTextColor="#1a1a1a"
             paddingLeft={15}
           />
         </View>
-        <View style={[tailwind('border-[#e6e6e6] rounded-[10px] bg-[#e6e6e6] h-[55px] self-center mt-[7%] mx-[3%]'), { width: deviceWidth / 1.1 }]}>
+        <View style={[tw.style('border-[#e6e6e6] rounded-[10px] bg-[#e6e6e6] h-[55px] self-center mt-[7%] mx-[3%]'), { width: deviceWidth / 1.1 }]}>
           <TextInput
             placeholder="Email Address"
             placeholderTextColor="#1a1a1a"
@@ -231,7 +231,7 @@ const Shipprocess = (props) => {
         </View>
 
 
-        <View style={[tailwind('border-[#e6e6e6] rounded-[10px] bg-[#e6e6e6] h-[55px] self-center mt-[7%] mx-[3%]'), { width: deviceWidth / 1.1 }]}>
+        <View style={[tw.style('border-[#e6e6e6] rounded-[10px] bg-[#e6e6e6] h-[55px] self-center mt-[7%] mx-[3%]'), { width: deviceWidth / 1.1 }]}>
           <TextInput
             placeholder="Address Line 1"
             placeholderTextColor="#1a1a1a"
@@ -239,7 +239,7 @@ const Shipprocess = (props) => {
           />
         </View>
 
-        <View style={[tailwind('border-[#e6e6e6] rounded-[10px] bg-[#e6e6e6] h-[55px] self-center mt-[7%] mx-[3%]'), { width: deviceWidth / 1.1 }]}>
+        <View style={[tw.style('border-[#e6e6e6] rounded-[10px] bg-[#e6e6e6] h-[55px] self-center mt-[7%] mx-[3%]'), { width: deviceWidth / 1.1 }]}>
           <TextInput
             placeholder="Address Line 2"
             placeholderTextColor="#1a1a1a"
@@ -247,7 +247,7 @@ const Shipprocess = (props) => {
           />
         </View>
 
-        <View style={[tailwind('border-[#e6e6e6] rounded-[10px] bg-[#e6e6e6] h-[55px] self-center mt-[7%] mx-[3%]'), { width: deviceWidth / 1.1 }]}>
+        <View style={[tw.style('border-[#e6e6e6] rounded-[10px] bg-[#e6e6e6] h-[55px] self-center mt-[7%] mx-[3%]'), { width: deviceWidth / 1.1 }]}>
           <TextInput
             placeholder="Postal/Zip Code"
             placeholderTextColor="#1a1a1a"
@@ -255,7 +255,7 @@ const Shipprocess = (props) => {
           />
         </View>
 
-        <View style={[tailwind('border-[#e6e6e6] rounded-[10px] bg-[#e6e6e6] h-[55px] self-center mt-[7%] mx-[3%]'), { width: deviceWidth / 1.1 }]}>
+        <View style={[tw.style('border-[#e6e6e6] rounded-[10px] bg-[#e6e6e6] h-[55px] self-center mt-[7%] mx-[3%]'), { width: deviceWidth / 1.1 }]}>
           <TextInput
             placeholder="State/Province"
             placeholderTextColor="#1a1a1a"
@@ -455,7 +455,7 @@ const Shipprocess = (props) => {
         <View style={{ flex: 1, backgroundColor: '#ffffff', paddingVertical: 10, borderRadius: 10, zIndex: 4001, position: 'absolute', bottom: '20%', margin: "5%" }}>
 
           <TouchableOpacity style={{ position: 'absolute', right: 15 }} onPress={() => closebagpopup()}>
-            <Image source={ImageIcons.closepopup} style={tailwind('w-9 h-[27px]')} />
+            <Image source={ImageIcons.closepopup} style={tw.style('w-9 h-[27px]')} />
           </TouchableOpacity>
 
           <View style={{ flexDirection: "row", justifyContent: "space-between", marginHorizontal: "1%", marginVertical: "3%" }}>

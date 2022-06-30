@@ -21,7 +21,8 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import 'react-native-get-random-values';
 import { v4 as uuid } from "uuid";
-import { useTailwind } from 'tailwind-rn';
+import tw from 'twrnc';
+import Medbutton from '../../components/dropshipbutton/Medbutton';
 
 import AppIntroSlider from 'react-native-app-intro-slider';
 
@@ -40,7 +41,6 @@ const Login = (props) => {
   //Reference
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
-  const tailwind = useTailwind();
 
   // Local states
   const Reactdim = require('react-native');
@@ -189,17 +189,17 @@ const Login = (props) => {
               <Image source={item.title} style={{ width: 145, height: 117 }} />
             </View>
             <View style={{ alignItems: 'center', justifyContent: 'center', marginTop: '15%' }}>
-              <Text style={tailwind('font-sans px-2 text-3xl text-white text-center')}>{item.text}</Text>
+              <Text style={tw.style('font-sans px-2 text-3xl text-white text-center')}>{item.text}</Text>
             </View>
           </View>
           :
           <View style={{ width, height }}>
             <View style={{ flex: 1, backgroundColor: '#FFFFFF', justifyContent: 'center' }}>
-              <View style={tailwind('mt-6 items-center')}>
-                <Image source={item.image} style={tailwind('h-80 w-72')} />
+              <View style={tw.style('mt-6 items-center')}>
+                <Image source={item.image} style={tw.style('h-80 w-72')} />
               </View>
               <View style={{ marginVertical: '6%' }}>
-                <Text style={tailwind('px-4 text-2xl text-black text-center')}>{item.text}</Text>
+                <Text style={tw.style('px-4 text-2xl text-black text-center')}>{item.text}</Text>
               </View>
             </View>
           </View>
@@ -259,13 +259,13 @@ const Login = (props) => {
               resizeMode={"cover"}
               style={styles.backgroundVideo}
             />
-            <View style={tailwind('mt-6 items-center')}>
+            <View style={tw.style('mt-6 items-center')}>
               <Image source={ImageIcons.logoredagain} style={{ width: 145, height: 117 }} />
             </View>
-            <View style={tailwind('mt-6 items-center')}>
-              <Text style={tailwind('px-2 text-3xl text-white text-center')}>A live-commerce marketplace for fashion and home goods. </Text>
+            <View style={tw.style('mt-6 items-center')}>
+              <Text style={tw.style('px-2 text-3xl text-white text-center')}>A live-commerce marketplace for fashion and home goods. </Text>
             </View>
-            <View style={tailwind('items-center mt-6')}>
+            <View style={tw.style('items-center mt-6')}>
               <Image source={ImageIcons.bar1} style={{ height: 12, width: 104 }} />
             </View>
           </View>
@@ -285,11 +285,9 @@ const Login = (props) => {
       )}
 
       <View style={{ position: 'absolute', zIndex: 3001, bottom: 70, justifyContent: 'center', alignItems: 'center', width: '100%' }}>
-        <TouchableOpacity onPress={() => navigation.navigate("Golive")} >
-          <View style={tailwind('items-center px-10 py-2 border border-transparent text-base leading-4 font-medium rounded-full text-white bg-red-700')}>
-            <Text style={tailwind('text-base font-bold text-white text-center')}>Login</Text>
-          </View>
-        </TouchableOpacity>
+        <Medbutton
+          text="Login"
+          onPress={() => navigation.navigate("Golive")} />
       </View>
     </>
   );

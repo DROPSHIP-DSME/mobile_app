@@ -14,7 +14,7 @@ const Sortfilter = ({text}) => {
         <TouchableOpacity>
             <Text style={tw.style('text-base text-gray-600 pt-1.5 ml-1')}>{text}</Text>
         </TouchableOpacity>
-        </View>
+      </View>
     </View>
 
   );

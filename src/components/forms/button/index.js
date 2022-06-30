@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, TextInput, TouchableOpacity, View, Image } from 'react-native';
 import { Colors, Fonts } from '../../../common';
-import {useTailwind} from 'tailwind-rn';
+import tw from 'twrnc';
 import styles from './styles';
 
 export const RoundedButton = () => {

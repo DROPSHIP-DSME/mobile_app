@@ -1,7 +1,7 @@
 
-a@tailwind base;
-@tailwind components;
-@tailwind utilities;
+a@tw.style base;
+@tw.style components;
+@tw.style utilities;
 
 @layer base {
   html {

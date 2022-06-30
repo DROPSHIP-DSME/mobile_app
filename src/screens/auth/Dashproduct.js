@@ -20,6 +20,9 @@ import tw from 'twrnc';
 import Smallbutton from '../../components/dropshipbutton/Smallbutton';
 import Sortorder from '../../components/pickers/Sortorder';
 import Sortfilter from '../../components/pickers/Sortfilter';
+import Selectall from '../../components/pickers/Selectall';
+import Editbutton from '../../components/pickers/Editbutton';
+import Deletebutton from '../../components/pickers/Deletebutton';
 import { AdjustmentsIcon } from "react-native-heroicons/solid";
 import SellHeader from '../../screens/auth/Sellheader';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -218,21 +221,19 @@ const deviceWidth = Dimensions.get('window').width;
 
               </View>
 
-              <View style={{marginHorizontal:'4%',marginVertical:'4%',flexDirection:'row'}}>
-               <View style={[styles.pickerViewshorttodayagain,{flexDirection:'row',justifyContent:'space-around',padding:4}]}>
-                  <View style={{height:14,width:14,backgroundColor:'#ffffff',borderRadius:3,marginTop:3}}></View>
-                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',textAlign:'center',}}>Select All</Text>
-                </View>
-                <TouchableOpacity onPress={() => openpopup() } style={{height:30,width:30,backgroundColor:'#e6e6e6',borderRadius:4,marginLeft:'5%',padding:4}}>
-                  <Image source={ImageIcons.edittoday}  style={{height:11,width:11,marginTop:5,alignSelf:'center'}} />
-                </TouchableOpacity>
-                <TouchableOpacity  style={{height:30,width:30,backgroundColor:'#e6e6e6',borderRadius:4,marginLeft:'5%',padding:4}}>
-                  <Image source={ImageIcons.deletetoday}  style={{height:11,width:11,marginTop:5,alignSelf:'center'}} />
-                </TouchableOpacity>
+              <View style={tw.style('flex flex-row m-4 ')}>
+                  <Selectall
+                    text="Select All"
+                  />
+
+                  <Editbutton />
+
+                  <Deletebutton />
+                  
               </View>
 
 
-                 <View style={{marginTop:'8%',marginBottom:'20%',marginLeft:'5%'}}>
+                 <View style={tw.style('m-4 mb-2')}>
                     {props?.getlistproduct?.length>0 ?
                     <FlatList
                         data={props?.getlistproduct || []}
