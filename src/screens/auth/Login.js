@@ -21,7 +21,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import 'react-native-get-random-values';
 import { v4 as uuid } from "uuid";
-import tw from '../../lib/tailwind';
+import tw from 'twrnc';
 import Medbutton from '../../components/dropshipbutton/Medbutton';
 import AppIntroSlider from 'react-native-app-intro-slider';
 
