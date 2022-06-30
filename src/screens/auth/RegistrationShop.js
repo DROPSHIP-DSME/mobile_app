@@ -98,6 +98,7 @@ const RegistrationShop = (props) => {
             email: { email: true },
             password: { password: true },
         }); {
+            alert(email+':password:'+password)
             //props.navigation.navigate("Overview")
             let request = {
                 "email": email,
@@ -106,7 +107,10 @@ const RegistrationShop = (props) => {
                 "otheruserid": props?.loginuserid,
                 "type": "shop"
             }
-            props.shoplogin(request, props.navigation, 'user', 'shop')
+            if(email!="" && password!=""){
+                console.log('valdashoprequestdata',request);
+                props.shoplogin(request, props.navigation, 'user', 'shop')
+            }
             //props.signup(request, props.navigation, "salesman");
         }
     }
@@ -172,7 +176,7 @@ const RegistrationShop = (props) => {
                 </View>
 
                 <View style={tailwind('mx-1 mt-3 mb-1 flex rounded-md items-center')} >
-                    <PasswordInputText
+                    <TextInput
                         style={tailwind('w-11/12 rounded-lg sm:text-sm bg-zinc-200 border-gray-300 pl-3')}
                         placeholder="Password"
                         placeholderTextColor="#000000"
