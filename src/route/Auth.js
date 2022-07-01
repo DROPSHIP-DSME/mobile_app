@@ -290,15 +290,14 @@ const Auth = (props) => {
         name="upcoming"
         component={upcoming}
         options={({ navigation }) => ({
-                        headerShown: false,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: " ",
+                         headerShown: true,
+                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerTitle: "",
                         headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor:'#fce8e8', elevation: 0, shadowOpacity: 0 },
+                        headerTitleStyle: styles.titleheaderstyle,
+                        headerStyle: styles.headerbackgroundstyle,
                     })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
       />
       
       <Stack.Screen
@@ -474,7 +473,7 @@ const Auth = (props) => {
                         headerTitle: " ",
                         headerTitleAlign: "center",
                         headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor:'#fce8e8', elevation: 0, shadowOpacity: 0 },
+                        headerStyle: { backgroundColor:'#B80000', elevation: 0, shadowOpacity: 0 },
                     })}
         //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
       />
@@ -483,15 +482,14 @@ const Auth = (props) => {
         name="watchlist"
         component={watchlist}
         options={({ navigation }) => ({
-                        headerShown: false,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Watchlist",
+                        headerShown: true,
+                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerTitle: "",
                         headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor:'#fce8e8', elevation: 0, shadowOpacity: 0 },
+                        headerTitleStyle: styles.titleheaderstyle,
+                        headerStyle: styles.headerbackgroundstyle,
                     })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
       />
 
       <Stack.Screen
@@ -1019,7 +1017,7 @@ const Auth = (props) => {
         component={EmmaRose}
         options={({ navigation }) => ({
                         headerShown: true,
-                        headerLeft: () => <LeftMenuItem2 navigation={navigation}  />,
+                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
                         //headerRight: () => <RightMenuItem navigation={navigation}  />,
                         headerTitle:(<>
                 <Image source={ImageIcons.man}   />
@@ -1667,60 +1665,40 @@ const Auth = (props) => {
 
 const LeftMenuItem = ({ navigation, isMenu }) => {
     return (
-        <TouchableOpacity
-            
-             onPress={() => {
+       <View style={styles.leftLabel}>
+           <TouchableOpacity onPress={() => {
                 if (isMenu) {
                     navigation?.toggleDrawer()
                 } else {
                     navigation?.goBack();
                 }
             }}
-            style={styles.leftButton}
-        >
-            <Image source={isMenu ? ImageIcons.menuIcon : ImageIcons.backlefticon} style={styles.leftIcon}  />
-        </TouchableOpacity>
-    )
-}
-const LeftMenuItem2 = ({ navigation, isMenu }) => {
-    return (
-        <TouchableOpacity
-            
-             onPress={() => {
-                if (isMenu) {
-                    navigation?.toggleDrawer()
-                } else {
-                    navigation?.goBack();
-                }
-            }}
-            style={styles.leftButton}
-        >
-            <Image source={isMenu ? ImageIcons.menuIcon : ImageIcons.backlefticon} style={styles.leftIcon}  />
-        </TouchableOpacity>
+            style={{ marginLeft: '5%',marginRight:15 }}>
+                <Image source={isMenu ? ImageIcons.logored : ImageIcons.backlefticon} style={{width:65,height:53}}/>
+            </TouchableOpacity>
+        </View>
     )
 }
 
-const LeftMenuItem3 = ({ navigation, isMenu }) => {
-    return (
-        <TouchableOpacity
-            
-             onPress={() => {
-                if (isMenu) {
-                    navigation?.toggleDrawer()
-                } else {
-                    navigation?.navigate("SearchProduct")
-                }
-            }}
-            style={styles.leftButton}
-        >
-            <Image source={isMenu ? ImageIcons.menuIcon : ImageIcons.arrow} style={styles.leftIcon}  />
-        </TouchableOpacity>
-    )
-}
+
+
 const RightMenuItem = () => {
     return (
         <View style={styles.rightLabel}>
-            <Text style={styles.rightText}>Header</Text>
+           <TouchableOpacity onPress={() => props.navigation.navigate("Search")} style={{ marginHorizontal: '5%',marginRight:15 }}>
+                <Image source={ImageIcons.white_search} style={{width:21,height:20}}/>
+            </TouchableOpacity>
+
+           <TouchableOpacity onPress={() => props.navigation.navigate("Notification")} style={{ marginHorizontal: '5%',marginRight:15 }}>
+              <Image source={ImageIcons.bell} style={{ width: 21, height: 21, }} />
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => { props.navigation.navigate('Cart') }}>
+              <View style={{ flexDirection: 'row' }}>
+                  <Image source={ImageIcons.whitecart} style={{ width: 18, height: 20.6,marginRight:2}} />
+                  <Text style={styles.numtext1}>0</Text>
+              </View>
+          </TouchableOpacity>
         </View>
     )
 }
@@ -1735,26 +1713,46 @@ const mapDispatchToProps = {
 
 const styles = StyleSheet.create({
     leftButton: {
-        height: wp('6%'),
+        width: 70, 
+        height: 57,
         marginLeft: 15,
         paddingHorizontal: 8,
         justifyContent: 'center'
     },
+    leftLabel: {
+        height: wp('6%'),
+        width: wp('25%'),
+        paddingHorizontal: 8,
+        marginRight: 20,
+        justifyContent: 'center',
+        flexDirection:'row',
+        marginTop:-40
+    },
     rightLabel: {
         height: wp('6%'),
+        width: wp('25%'),
         paddingHorizontal: 8,
-        marginRight: 10,
-        justifyContent: 'center'
+        marginRight: 20,
+        justifyContent: 'center',
+        flexDirection:'row'
     },
     leftIcon: {
-        width: wp('6%'),
-        height: wp('7%'),
-        // marginLeft: 15,
-        tintColor: Colors.BLACK
+        width: 70, 
+        height: 57
     },
     rightText: {
         fontSize: 12
-    }
+    },
+    headerbackgroundstyle:{
+       backgroundColor:'#B80000', elevation: 0, shadowOpacity: 0
+    },
+    titleheaderstyle:{
+      color: Colors.WHITE, fontFamily: Fonts.RalewayExtraBold 
+    },
+    numtext1:{
+         fontSize:20,fontWeight:'bold',fontStyle:'normal',lineHeight:25,marginLeft:5,
+        fontFamily:'hinted-AvertaStd-Bold',color:'#FFFFFF',textAlign:'center',
+    },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Auth);

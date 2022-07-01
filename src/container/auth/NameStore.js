@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { NameStore } from '../../screens/auth';
-import { shopproduct,shopsellcount,getAllproductdetails,getAllshop,cartadd,getAllproduct } from '../../redux/actions/Auth'
+import { shopproduct,shopsellcount,getAllproduct,getAllproductdetails,getAllshop,cartadd } from '../../redux/actions/Auth'
+
 
 
 const mapStateToProps = (state) => ({

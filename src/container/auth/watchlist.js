@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { watchlist } from '../../screens/auth';
-import { support,getAllproduct,getsupportlist,getalleventlist,getwatchlistproduct,getchanneltoken,getAllcategory } from '../../redux/actions/Auth'
+import { support,Brandslist,getAllproduct,getAllshop,getsupportlist,getalleventlist,getwatchlistproduct,getchanneltoken,getAllcategory } from '../../redux/actions/Auth'
 
 
 const mapStateToProps = (state) => ({
@@ -21,7 +21,9 @@ const mapDispatchToProps = {
     getwatchlistproduct,
     getchanneltoken,
     getsupportlist,
-    support
+    support,
+    getAllshop,
+    Brandslist
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(watchlist);

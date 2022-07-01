@@ -129,7 +129,7 @@
     "rn-fetch-blob": "^0.12.0",
     "socket.io-client": "2.3.0",
     "tailwind-rn": "^4.2.0",
-    "twrnc": "^3.3.2",
+    "twrnc": "^3.3.3",
     "yup": "^0.32.9"
   },
   "devDependencies": {
@@ -144,7 +144,7 @@
     "metro-react-native-babel-preset": "^0.65.2",
     "postcss": "^8.4.14",
     "react-test-renderer": "17.0.1",
-     "tailwindcss": "^3.1.4"
+    "tailwindcss": "^3.1.4"
   },
   "jest": {
     "preset": "react-native"

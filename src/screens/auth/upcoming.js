@@ -262,8 +262,6 @@ const upcoming = (props) => {
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={styles.registrationRoot}>
-            <StatusBar backgroundColor={'#B80000'} barStyle="dark-content" translucent={true} />
-            <Shopheader />
             <View style={tw.style('mt-6 mx-3')}>
                 <Text style={tw.style('text-2xl text-gray-800 font-bold')}>Livestream Recap</Text>
             </View>

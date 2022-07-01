@@ -280,7 +280,7 @@ const Login = (props) => {
           activeDotStyle={{ backgroundColor: '#B80000' }}
           showSkipButton={false}
           onSkip={onSkip}
-
+          style={{backgroundColor: '#ffffff'}}
         />
       )}
 
