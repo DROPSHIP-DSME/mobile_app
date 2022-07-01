@@ -19,7 +19,7 @@ import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import AsyncStorage from '@react-native-community/async-storage';
 import { useValidation } from 'react-native-form-validator';
 import PasswordInputText from '../../components/react-native-hide-show-password-input';
-import { useTailwind } from 'tailwind-rn';
+import tw from 'twrnc';
 import Largebutton from '../../components/dropshipbutton/Largebutton';
 import { CheckCircleIcon } from 'react-native-heroicons/solid';
 
@@ -34,7 +34,6 @@ const ResetPassword = (props) => {
     } = props;
 
     //Reference
-    const tailwind = useTailwind();
     const emailRef = useRef();
     const passwordRef = useRef();
     const passwordConfirmRef = useRef();
@@ -106,25 +105,27 @@ const ResetPassword = (props) => {
     }
 
     return (
-        <View style={{backgroundColor:'#ffffff',flex:1}}>
-            <View style={tailwind('items-center mt-[16%]')}>
-                <Image source={ImageIcons.logored_1} style={tailwind('w-[90] h-[73]')}  />
-            </View>
-            <View style={tailwind('mb-7 mt-10 items-center')}>
-                <CheckCircleIcon color="white" fill="green" size={70}/>
-            </View>
-            <View style={{ justifyContent:'center',width:'100%', alignItems:'center'}}>
-                <Text style={tailwind('text-2xl text-gray-700 mt-4 font-bold')}>Password Reset</Text>
-            </View>
-            <View style={tailwind('justify-center items-center mb-8 mt-4')}>
-                <Text style={tailwind('text-center text-base text-gray-600 w-10/12')}>An email has been sent with instructions on how to reset your password.</Text>
-            </View>
-            <Largebutton
-              text="Return to Login"
-              onPress={() => props.navigation.navigate("Registration")}
-            />
-            <Loader isVisible={props?.loginLoader} />
-        </View>
+      <View style={tw.style('flex flex-1 bg-white')}>
+         <View style={tw.style('items-center mt-32')}>
+             <Image source={ImageIcons.logored_1} style={tw.style('w-40 h-32')}  />
+         </View>
+         <View style={tw.style('mb-7 mt-10 items-center')}>
+             <CheckCircleIcon color="white" fill="green" size={70}/>
+         </View>
+         <View style={{ justifyContent:'center',width:'100%', alignItems:'center'}}>
+             <Text style={tw.style('text-2xl text-gray-700 mt-4 font-bold')}>Password Reset</Text>
+         </View>
+         <View style={tw.style('justify-center items-center mb-8 mt-4')}>
+             <Text style={tw.style('text-center text-base text-gray-600 w-10/12')}>An email has been sent with instructions on how to reset your password.</Text>
+         </View>
+         <View style={tw.style('mt-30')}>
+           <Largebutton
+             text="Return to Login"
+             onPress={() => props.navigation.navigate("Registration")}
+           />
+         </View>
+         <Loader isVisible={props?.loginLoader} />
+     </View>
    )
 
 }
