@@ -129,7 +129,7 @@
     "rn-fetch-blob": "^0.12.0",
     "socket.io-client": "2.3.0",
     "tailwind-rn": "^4.2.0",
-    "twrnc": "^3.3.2",
+    "twrnc": "^3.3.3",
     "yup": "^0.32.9"
   },
   "devDependencies": {

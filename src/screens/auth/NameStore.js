@@ -567,7 +567,7 @@ const NameStore = (props) => {
             <Text style={{ fontSize: 20, fontFamily: "hinted-AvertaStd-Regular", color: "#666666", paddingLeft: "16%" }}>Your shopping bag is empty.</Text>
 
           </View>
-          <TouchableOpacity onPress={() => { setVisiblebag(false); props.navigation.navigate("Bagprocess") }} style={{ width: deviceWidth / 1.3, backgroundColor: "#B80000", borderRadius: 30, marginTop: "10%", height: 38, marginHorizontal: "3%" }} >
+          <TouchableOpacity onPress={() => { setVisiblebag(false); }} style={{ width: deviceWidth / 1.3, backgroundColor: "#B80000", borderRadius: 30, marginTop: "10%", height: 38, marginHorizontal: "3%" }} >
             <Text style={{ textAlign: 'center', color: "#FFFFFF", fontWeight: 'bold', fontSize: 18, top: 8 }}>START SHOPPING</Text>
           </TouchableOpacity>
 

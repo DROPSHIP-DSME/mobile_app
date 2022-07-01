@@ -62,3 +62,4 @@ package-lock.json
 ios/Podfile.lock
 ios/SalesmanStoreOwner.xcodeproj/project.pbxproj
 android
+android/

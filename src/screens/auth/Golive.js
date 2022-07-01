@@ -27,6 +27,7 @@ import {
   statusCodes,
 } from '@react-native-google-signin/google-signin';
 import ModalSelector from 'react-native-modal-selector';
+import { useTailwind } from 'tailwind-rn';
 
 
 
@@ -38,6 +39,12 @@ const Golive = (props) => {
         handleChange,
         handleSubmit,
     } = props;
+
+
+    //Reference
+
+    const tailwind = useTailwind();
+
 
 
     // Local states
@@ -111,6 +118,7 @@ const Golive = (props) => {
                   </View>
               </TouchableOpacity>
           </View>
+
         <View style={[styles.devider1, { marginTop: '10%' }]}>
             <View style={styles.devider2} />
             <Text style={styles.devider3}>OR</Text>
