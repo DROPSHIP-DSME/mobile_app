@@ -98,7 +98,6 @@ const RegistrationShop = (props) => {
             email: { email: true },
             password: { password: true },
         }); {
-            alert(email+':password:'+password)
             //props.navigation.navigate("Overview")
             let request = {
                 "email": email,
@@ -152,7 +151,7 @@ const RegistrationShop = (props) => {
       <View style={{ backgroundColor: '#ffffff', flex: 1 }}>
 
             <View style={tw.style('items-center mt-18 mb-5 w-full h-24')}>
-                <Image source={ImageIcons.logored_1} style={tw.style('w-[31%] h-24')}  />
+                <Image source={ImageIcons.logored_1} style={tw.style('w-[33%] h-28')}  />
             </View>
           <View>
               <Text style={styles.headingText1}>Login</Text>
@@ -176,7 +175,7 @@ const RegistrationShop = (props) => {
               </View>
 
               <View style={tw.style('mx-1 mt-3 mb-1 flex rounded-md items-center')} >
-                  <PasswordInputText
+                  <TextInput
                       style={tw.style('w-11/12 rounded-lg sm:text-sm bg-zinc-200 border-gray-300 pl-3')}
                       placeholder="Password"
                       placeholderTextColor="#000000"

@@ -193,61 +193,28 @@ const watchlist = (props) => {
     };
 
     useEffect(() => {
-        // AsyncStorage.setItem('UserId','');
-        //AsyncStorage.setItem('userLogin','');
-        //getBrandUserId();
-        //alert(props?.loginuserid)
         props.getAllproduct(1);
         props.getalleventlist(1);
         props.getwatchlistproduct(props?.loginuserid);
         props.getAllshop(props?.loginuserid, 1);
         props.Brandslist();
-        console.log('eventdataaaa', props?.getlistproduct)
-        console.log('itemmgetwatchlistproduct', props?.getwatchlistproduct)
-        console.log('getlistshopdataaaa', props?.getlistshop)
         if (Platform.OS === 'android') requestMultiplePermisisons();
     }, [])
 
 
-
-    // const showalldata = (index) => {
-
-    //     if (index == 0) {
-    //         alert('0')
-    //         props.getAllproduct(1);
-    //         props.getalleventlist(1);
-    //         props.getwatchlistproduct(props?.loginuserid);
-
-    //     } else if (index == 1) {
-    //         alert('1')
-    //         props.getalleventlist(1);
-    //     } else if (index == 2) {
-    //         alert('2')
-    //         props.getAllproduct(1);
-    //         console.log('newevent', props?.getlistproduct)
-    //     } else if (index == 3) {
-    //         alert('3')
-    //         props.getwatchlistproduct(props?.loginuserid);
-    //         console.log('props?.showwatchlistproduct', props?.showwatchlistproduct)
-    //     } else if (index == 4) {
-    //         alert('list')
-    //         props.getalleventlist(1);
-    //         console.log('props?.getalleventlist', props?.getalleventdata)
-    //     }
-    // };
     const [isPress, setIsPess] = React.useState(false);
     const [Data, setData] = React.useState(true);
-    const [livestream, setlivestream] = React.useState(true);
-    const [product, setproduct] = React.useState(true);
-    const [store, setstore] = React.useState(true);
-    const [shop, setshop] = React.useState(true);
+    const [livestream, setlivestream] = React.useState(false);
+    const [product, setproduct] = React.useState(false);
+    const [store, setstore] = React.useState(false);
+    const [shop, setshop] = React.useState(false);
 
     const showalldata = () => {
-        setlivestream(true);
-        setproduct(true);
+        setlivestream(false);
+        setproduct(false);
         setData(true);
-        setstore(true);
-        setshop(true);
+        setstore(false);
+        setshop(false);
         props.getAllproduct(1);
         props.getalleventlist(1);
         props.Brandslist();
@@ -595,34 +562,7 @@ const watchlist = (props) => {
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={styles.registrationRoot}>
-            <StatusBar backgroundColor={showclassName} barStyle="dark-content" translucent={true} />
-
-            <View style={{ flexDirection: 'row', backgroundColor: showclassName, alignItems: 'center', justifyContent: 'space-between', top: '3%', zIndex: 1001, position: 'absolute', width: '100%', padding: '3%' }}>
-                <View>
-                    {showclassName == '#FFFFFF00' ?
-                        <Image source={ImageIcons.logored_1} style={{ width: 70, height: 57 }} />
-                        :
-                        <Image source={ImageIcons.logored} style={{ width: 70, height: 57 }} />
-                    }
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginRight: 20 }}>
-                    {/*<TouchableOpacity onPress={() => props.navigation.navigate("Search")}>
-                                            <Image source={ImageIcons.white_search} style={{width:21,height:20}}/>
-                                        </TouchableOpacity>*/}
-
-                    <TouchableOpacity onPress={() => props.navigation.navigate("Notification")} style={{ marginHorizontal: '5%' }}>
-                        <Image source={ImageIcons.bell} style={{ width: 21, height: 21, }} />
-                    </TouchableOpacity>
-
-                    <TouchableOpacity onPress={() => { props.navigation.navigate('Cart') }}>
-                        <View style={{ flexDirection: 'row' }}>
-                            <Image source={ImageIcons.whitecart} style={{ width: 18, height: 20.6, }} />
-                            <Text style={styles.numtext}>0</Text>
-                        </View>
-                    </TouchableOpacity>
-                </View>
-            </View>
-
+            
             <ScrollView onScroll={({ nativeEvent }) => {
                 handleScroll(nativeEvent['contentOffset'].y);
             }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#FFFFFF' }} >
@@ -658,11 +598,11 @@ const watchlist = (props) => {
 
                         {Data ?
                             <TouchableOpacity onPress={() => showalldata()}>
-                                <Text style={tw.style('font-lg text-zinc-400')}>All</Text>
+                                <Text style={tw.style('font-lg text-red-700 px-2 border-b-2 border-zinc-600')}>All</Text>
                             </TouchableOpacity>
                             :
                             <TouchableOpacity onPress={() => showalldata()}>
-                                <Text style={tw.style('font-lg text-red-700 px-2 border-b-2 border-zinc-600')}>All</Text>
+                                <Text style={tw.style('font-lg text-zinc-400 px-2')}>All</Text>
                             </TouchableOpacity>
                         }
                         {livestream ?
@@ -671,7 +611,7 @@ const watchlist = (props) => {
                             </TouchableOpacity >
                             :
                             <TouchableOpacity onPress={() => Showlivestrem()}>
-                                <Text style={tw.style('font-lg text-zinc-400')}>Livestreams</Text>
+                                <Text style={tw.style('font-lg text-zinc-400 px-2')}>Livestreams</Text>
                             </TouchableOpacity >
                         }
                         {product ?
@@ -680,7 +620,7 @@ const watchlist = (props) => {
                             </TouchableOpacity >
                             :
                             <TouchableOpacity onPress={() => Showproduct()}>
-                                <Text style={tw.style('text-zinc-400 px-2 font-lg')}>Products</Text>
+                                <Text style={tw.style('text-zinc-400 px-2 font-lg ')}>Products</Text>
                             </TouchableOpacity >
                         }
                         {store ?

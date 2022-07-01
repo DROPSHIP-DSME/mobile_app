@@ -201,9 +201,7 @@ const shop = (props) => {
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={tw.style('flex-1 justify-center')}>
-            <StatusBar backgroundColor={showclassName} barStyle="dark-content" translucent={true} />
-
-            <Shopheader />
+            
 
             <ScrollView onScroll={({ nativeEvent }) => {
                 handleScroll(nativeEvent['contentOffset'].y);
@@ -224,7 +222,7 @@ const shop = (props) => {
                     />
                 </View>
 
-                <View style={tw.style('border-b mb-4 border-gray-300 mx-4')}></View>
+                <View style={tw.style('border-b mb-4 border-gray-300 mx-4')}> </View>
                 <View style={tw.style('flex flex-row mx-4 mt-4')}>
 
                     <Sortorder />
