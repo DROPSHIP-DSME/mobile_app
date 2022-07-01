@@ -1,7 +1,7 @@
 import React, { useRef, useState,useEffect } from 'react';
 import { Text, View,TouchableOpacity,FlatList,
     Image,TextInput, ImageBackground,
-     ScrollView, Alert,  
+     ScrollView, Alert,
       KeyboardAvoidingView,
       Platform,Keyboard} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
@@ -19,9 +19,11 @@ import Loader from '../../components/modals/Loader';
 import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import Footer3 from '../../screens/auth/Footer3';
-import AsyncStorage from '@react-native-community/async-storage'; 
+import AsyncStorage from '@react-native-community/async-storage';
 import Footer2 from '../../screens/auth/Footer2';
 import SellHeader from '../../screens/auth/Sellheader';
+import tw from 'twrnc';
+import Smallbutton from '../../components/dropshipbutton/Smallbutton';
 
 const SearchProduct = (props) => {
 
@@ -92,14 +94,14 @@ const SearchProduct = (props) => {
         const ratingCompleted = (ratingdata) => {
             console.log('rating',ratingdata)
                if(ratingdata!="" && ratingdata!=undefined){
-                //setstarCount(ratingdata)  
+                //setstarCount(ratingdata)
                }
-              
-        }  
+
+        }
 
        const containerStyle = {backgroundColor: 'white', padding: '7%',marginHorizontal:'5%',alignItems:'center'};
 
-    
+
     const handleRegistrationSubmit = () => {
         Keyboard.dismiss();
         if (First == "") {
@@ -120,15 +122,15 @@ const SearchProduct = (props) => {
         image2:ImageIcons.redcart,
         image3:ImageIcons.shareicon,
        },
-     
+
      ];
 
 
 const renderItem2 = ({ item ,index }) => {
-    
-  
+
+
    return(
-    
+
         <View style={styles.maincartviewproductonce}>
          <TouchableOpacity style={[styles.beautyproductView2345,{paddingBottom:'5%'}]} >
              <View>
@@ -137,8 +139,8 @@ const renderItem2 = ({ item ,index }) => {
              <Text style={[styles.bluetext,{marginVertical:5}]}>{item.brandName}</Text>
             </TouchableOpacity>
         </View>
-    
-   
+
+
   );
 }
 
@@ -154,49 +156,52 @@ const renderItem2 = ({ item ,index }) => {
 
              <View style={{marginHorizontal:'4%',paddingTop:'7%'}}>
                     <View style={{width:'95%',}}>
-                        
+
                         <TextInput
                             style={styles.searchmainViewour}
-                            onChangeText={onChangeFirst} 
+                            onChangeText={onChangeFirst}
                             value={First}
                             onSubmitEditing={() => handleRegistrationSubmit()}
                             placeholder="Search "
                             placeholderTextColor="#999999"
                         />
                         <TouchableOpacity onPress={() => handleRegistrationSubmit() } style={{position:'absolute',right:15,top:15.37,}}>
-                         <Image source={ImageIcons.searchIcon}  style={styles.searchimg} />
+                          <Image source={ImageIcons.searchIcon}  style={styles.searchimg} />
                         </TouchableOpacity>
                     </View>
                 <View>
 
-                
-                    <View style={styles.inorder113}>
-                        <TouchableOpacity onPress={() => props.navigation.navigate("Search")}>
-                            <View style={styles.livec25789}>
-                                <Text style={styles.livec13}>Events</Text>
-                            </View>
-                        </TouchableOpacity>
-                        
-                            <View style={styles.livec24one}>
-                                <Text style={styles.livec12}>Brands</Text>
-                            </View>
-                        
+
+                    <View style={tw.style('flex flex-row mt-8')}>
+
+                        <Smallbutton
+                          text="Events"
+                          onPress={() => props.navigation.navigate("Search")} />
+
+                          <View
+                            style={tw.style('ml-3 w-auto items-center px-3 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300')}
+                          >
+                           <TouchableOpacity>
+                              <Text style={tw.style('text-lg text-gray-700')}>Brands</Text>
+                            </TouchableOpacity>
+                          </View>
+
                      </View>
-                <View style={{marginTop:'7%'}}>
+                <View style={tw.style('mt-10')}>
                   <Text style={styles.salestextonce}>Suggested Products</Text>
-                 <View style={{marginBottom:5}}>
-                    <FlatList
-                        data={props?.Brandlistdata || []}
-                        renderItem={renderItem2}
-                        keyExtractor={item => item.id}
-                        showsHorizontalScrollIndicator={false}
-                        numColumns={2}
-                    />
-               </View>
+                   <View style={{marginBottom:5}}>
+                      <FlatList
+                          data={props?.Brandlistdata || []}
+                          renderItem={renderItem2}
+                          keyExtractor={item => item.id}
+                          showsHorizontalScrollIndicator={false}
+                          numColumns={2}
+                      />
+                    </View>
                </View>
 
                </View>
-           
+
             </View>
             </ScrollView>
             <Footer2 onSelelection="3" />

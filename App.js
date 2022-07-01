@@ -6,7 +6,9 @@ import axios from 'axios';
 import api from './src/common/Api';
 import SplashScreen from 'react-native-splash-screen';
 import tw from 'twrnc';
+import { typography } from './src/components/typography';
 
+typography()
 
 const App = () => {
 

@@ -30,6 +30,7 @@ const deviceWidth = Dimensions.get('window').width;
 import { UsersIcon } from "react-native-heroicons/solid";
 import { PlayIcon } from "react-native-heroicons/solid";
 import { SearchIcon } from "react-native-heroicons/solid";
+import Searchbox from '../../common/Searchbox';
 
 const watchlist = (props) => {
 
@@ -479,15 +480,9 @@ const data = [
                     />
                 </View>
 
-
-                <TouchableOpacity onPress={() => props.navigation.navigate("Search")}>
-                 <View style={tw.style('flex flex-row my-3 h-10 bg-zinc-200 mx-3 rounded-lg items-center')}>
-                     <View style={tw.style('mt-1 ml-4')}>
-                       <SearchIcon color="red" fill="#B80000" size={20} />
-                    </View>
-                     <Text style={tw.style('ml-2')}> Search for anything</Text>
-                 </View>
-               </TouchableOpacity>
+               <Searchbox
+                onPress={() => props.navigation.navigate("Search")}
+                text="Search for anything" />
 
                 <View>
                     <FlatList

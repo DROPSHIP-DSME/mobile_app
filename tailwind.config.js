@@ -1,6 +1,4 @@
 
-const defaultTheme = require('tailwind')
-
 module.exports = {
   content: [
     './src/screens/**/*.{js,ts,jsx,tsx}',
@@ -11,10 +9,9 @@ module.exports = {
   theme: {
     fontFamily: {
       'sans': [
-        'hintedavertastdregular',
-        ...defaultTheme.fontFamily.sans
+        'hintedavertastdregular hintedavertastdregular'
       ],
-      'serif': ['hintedavertastdbold', ...defaultTheme.fontFamily.serif]
+      'serif': ['hintedavertastdbold']
     },
     fontWeight: {
       'hairline': 100,
@@ -32,11 +29,10 @@ module.exports = {
       colors: {
       },
       fontFamily: {
-        'sans': [
-          'hintedavertastdregular',
+        'sans': [ 'hintedavertastdregular hintedavertastdbold',
         ],
         'serif': [
-          'hintedavertastdbold',
+          'hintedavertastdregular hintedavertastdbold',
         ],
       },
       backgroundColor: {
@@ -49,3 +45,5 @@ module.exports = {
   plugins: [],
 
 }
+
+module.exports = tw
