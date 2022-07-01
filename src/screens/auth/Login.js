@@ -187,7 +187,7 @@ const Login = (props) => {
             <View style={tw.style('items-center my-8')}>
               <Image source={item.title} style={{ width: 145, height: 117 }} />
             </View>
-            <View style={tw.style('items-center mt-36')}>
+            <View style={tw.style('items-center mt-54 mx-4')}>
               <Text style={tw.style('font-sans px-2 text-3xl text-white text-center')}>{item.text}</Text>
             </View>
           </View>
@@ -197,7 +197,7 @@ const Login = (props) => {
               <View style={tw.style('items-center')}>
                 <Image source={item.image} style={tw.style('h-80 w-72')} />
               </View>
-              <View style={tw.style('mt-10')}>
+              <View style={tw.style('mt-10 mx-4')}>
                 <Text style={tw.style('px-4 text-2xl text-black text-center')}>{item.text}</Text>
               </View>
             </View>
@@ -261,7 +261,7 @@ const Login = (props) => {
             <View style={tw.style('items-center')}>
               <Image source={ImageIcons.logoredagain} style={{ width: 145, height: 117 }} />
             </View>
-            <View style={tw.style('mt-6 items-center')}>
+            <View style={tw.style('mt-20 items-center mx-4')}>
               <Text style={tw.style('px-2 text-3xl font-bold text-white text-center')}>A live-commerce marketplace for fashion and home goods. </Text>
             </View>
             <View style={tw.style('items-center mt-6')}>
