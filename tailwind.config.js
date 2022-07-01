@@ -46,4 +46,4 @@ module.exports = {
 
 }
 
-module.exports = tws
+module.exports = tw
