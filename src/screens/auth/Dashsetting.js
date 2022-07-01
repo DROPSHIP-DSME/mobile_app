@@ -18,11 +18,14 @@ import HorizontalSlider from 'react-horizontal-slider';
 import Footer2 from '../../screens/auth/Footer2';
 import SellHeader from '../../screens/auth/Sellheader';
 
-import AsyncStorage from '@react-native-community/async-storage'; 
+import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import { Provider , Portal,} from 'react-native-paper';
-import Modal from 'react-native-modal'
+import Modal from 'react-native-modal';
+import tw from 'twrnc';
+import Editbutton from '../../components/pickers/Editbutton';
+import { ArrowRightIcon } from "react-native-heroicons/solid";
 
 
 import {
@@ -52,7 +55,7 @@ const deviceWidth = Dimensions.get('window').width;
     //Reference
     const userId = props?.route?.params?.userId;
     const brandId = props?.route?.params?.brandId;
-    
+
     useEffect(() => {
       props.getincomingtlist(props?.loginuserid);
       props.getselldeshboard(props?.loginuserid);
@@ -70,7 +73,7 @@ const deviceWidth = Dimensions.get('window').width;
 
     const handleScroll=(pageYOffset)=>{
         if (pageYOffset > 0) {
-            setshowclassName('#B80000');  
+            setshowclassName('#B80000');
         }else{
             setshowclassName('#B80000');
         }
@@ -82,9 +85,9 @@ const deviceWidth = Dimensions.get('window').width;
             await AsyncStorage.setItem('userLogin',"1");
         }
     }
-   
+
     // Local states
-    const [showclassName, setshowclassName] = useState("#B80000");    
+    const [showclassName, setshowclassName] = useState("#B80000");
 
     const deleetaccount = () => {
         return Alert.alert(
@@ -104,10 +107,10 @@ const deviceWidth = Dimensions.get('window').width;
               text: "No",
             },
           ]
-        );  
+        );
     }
-          
-  
+
+
 
     return (
          <View style={{flex:1}}>
@@ -116,83 +119,75 @@ const deviceWidth = Dimensions.get('window').width;
 
        <ScrollView onScroll={({nativeEvent}) => {
                 handleScroll(nativeEvent['contentOffset'].y);
-    }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} > 
-          
-               <View style={{flexDirection:'row',justifyContent:'space-between',marginHorizontal:'3%',marginVertical:'5%'}}>
-                 <Text style={{fontSize:26,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',}}>Settings</Text>
+    }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} >
+
+               <View style={tw.style('flex flex-row justify-between mx-4 my-10')}>
+                 <Text style={tw.style('text-3xl text-gray-700 font-bold tracking-wide')}>Settings</Text>
                </View>
 
-             
 
-              <View style={{width:deviceWidth/1.1,backgroundColor:'#ffffff',padding:'3%',alignSelf:'center',marginTop:'5%',borderRadius:15,}}>
+              <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 mb-10')}>
+                <View style={tw.style('px-2 py-8')}>
 
-                   <View style={{flexDirection:'row',justifyContent:'space-between',marginVertical:'3%'}}>
-                     <Text style={{fontSize:22,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',}}>Brand Profile</Text>
-                       
-                       
-                     <TouchableOpacity onPress={() => props.navigation.navigate("Dashbrand")}  style={{height:40,width:40,backgroundColor:'#e6e6e6',borderRadius:4,marginLeft:'4%',padding:8,}}>
-                      <Image source={ImageIcons.edittoday}  style={{height:12,width:12,marginTop:5,alignSelf:'center'}} />
+                    <View style={tw.style('flex flex-row justify-between px-4')}>
+                        <Text style={tw.style('text-2xl font-bold text-gray-700')}>Brand Profile</Text>
+                         <Editbutton />
+                    </View>
+
+                    <View style={tw.style('flex flex-row justify-between py-4 px-4')}>
+                        <Text style={tw.style('text-base font-medium text-gray-700')}>Brand Photo</Text>
+                         <Image source={ImageIcons.colortodayshoe} style={tw.style('h-10 w-10 rounded-full')}/>
+                    </View>
+                    <View style={tw.style('flex flex-row justify-between py-4 px-4 border-t-2 border-gray-200')}>
+                        <Text style={tw.style('text-base font-medium text-gray-700')}>Brand Name</Text>
+                        <Text style={tw.style('mt-1 text-base text-gray-700 text-right w-7/12')}>Sneaker Store</Text>
+                    </View>
+                    <View style={tw.style('flex flex-row justify-between py-4 px-4 border-t-2 border-gray-200')}>
+                        <Text style={tw.style('text-base font-medium text-gray-700')}>Category</Text>
+                        <Text style={tw.style('mt-1 text-base text-gray-700 text-right w-7/12')}>Shoes</Text>
+                    </View>
+                    <View style={tw.style('flex flex-row justify-between py-4 px-4 border-t-2 border-gray-200')}>
+                        <Text style={tw.style('text-base font-medium text-gray-700 basis-1/4')}>Description</Text>
+                        <Text style={tw.style('mt-1 text-base text-gray-700 text-right w-7/12')}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard .</Text>
+                    </View>
+                </View>
+              </View>
+
+
+              <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 mt-8 mb-10')}>
+                <View style={tw.style('px-2 py-8')}>
+
+                    <View style={tw.style('flex flex-row justify-between px-4')}>
+                        <Text style={tw.style('text-2xl font-bold text-gray-700')}>Account Settings</Text>
+                    </View>
+
+                    <TouchableOpacity  onPress={() => props.navigation.navigate("Dashimport")} style={tw.style('w-full')}>
+                        <View style={tw.style('flex flex-row justify-between py-4 px-4')}>
+                            <Text style={tw.style('text-base font-medium text-gray-700')}>Important Data</Text>
+                             <ArrowRightIcon color="red" fill="gray" size={24} />
+                        </View>
                     </TouchableOpacity>
-                    
-                   </View> 
 
-                
-                
-               <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:'4%'}}>
-                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#666666'}}>Brand Photo</Text>
-                   <Image source={ImageIcons.colortodayshoe} style={{width:33,height:34,}}/>
-               </View>
+                    <TouchableOpacity  onPress={() => props.navigation.navigate("Dashsupport")} style={tw.style('w-full')}>
+                        <View style={tw.style('flex flex-row justify-between py-4 px-4 border-t-2 border-gray-200')}>
+                            <Text style={tw.style('text-base font-medium text-gray-700')}>Customer Support</Text>
+                             <ArrowRightIcon color="red" fill="gray" size={24} />
+                        </View>
+                    </TouchableOpacity>
 
-                <View style={{borderBottomWidth:2,borderColor:'#e6e6e6',width:'100%',alignSelf:'center',marginVertical:'4%'}}></View>
-
-               <View style={{flexDirection:'row',justifyContent:'space-between',}}>
-                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#666666'}}>Brand Name</Text>
-                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',color:'#1a1a1a'}}>Sneakers Store</Text>
-               </View>
-
-               <View style={{borderBottomWidth:2,borderColor:'#e6e6e6',width:'100%',alignSelf:'center',marginVertical:'4%'}}></View>
-
-                <View style={{flexDirection:'row',justifyContent:'space-between',}}>
-                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#666666'}}>Category</Text>
-                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',color:'#1a1a1a'}}>Shoes</Text>
-               </View>
-
-               <View style={{borderBottomWidth:2,borderColor:'#e6e6e6',width:'100%',alignSelf:'center',marginVertical:'4%'}}></View>
-
-                <View style={{flexDirection:'row',justifyContent:'space-between',}}>
-                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#666666'}}>Description</Text>
-                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',color:'#1a1a1a',width:200}}>Lorem ipsum dolor sit today amet,consectetur adipiscing elit.Pulvinar dictum quisque id sit ut.</Text>
-               </View>
-                 
+                    <TouchableOpacity  onPress={() => deleetaccount() } style={tw.style('w-full')}>
+                        <View style={tw.style('flex flex-row justify-between py-4 px-4 border-t-2 border-gray-200')}>
+                            <Text style={tw.style('text-base font-medium text-gray-700')}>Delete Account</Text>
+                             <ArrowRightIcon color="red" fill="gray" size={24} />
+                        </View>
+                    </TouchableOpacity>
+                </View>
               </View>
-              <View style={{width:deviceWidth/1.1,backgroundColor:'#ffffff',padding:'3%',alignSelf:'center',marginTop:'12%',borderRadius:15,marginBottom:'25%'}}>
 
-                   <View style={{flexDirection:'row',justifyContent:'space-between',marginVertical:'3%'}}>
-                     <Text style={{fontSize:22,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',}}>Account Settings</Text>
-                   </View> 
-               <TouchableOpacity  onPress={() => props.navigation.navigate("Dashimport")} style={{flexDirection:'row',justifyContent:'space-between',marginTop:'4%'}}>
-                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#666666'}}>Import Data</Text>
-                   <Image source={ImageIcons.blackrighttoday} style={{width:11,height:11,marginTop:5}}/>
-               </TouchableOpacity>
 
-                <View style={{borderBottomWidth:2,borderColor:'#e6e6e6',width:'100%',alignSelf:'center',marginVertical:'4%'}}></View>
-
-               <TouchableOpacity  onPress={() => props.navigation.navigate("Dashsupport")} style={{flexDirection:'row',justifyContent:'space-between',}}>
-                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#666666'}}>Customer Support</Text>
-                  <Image source={ImageIcons.blackrighttoday} style={{width:11,height:11,marginTop:5}}/>
-               </TouchableOpacity>
-
-               <View style={{borderBottomWidth:2,borderColor:'#e6e6e6',width:'100%',alignSelf:'center',marginVertical:'4%'}}></View>
-               <TouchableOpacity  onPress={() => deleetaccount() } >
-                <View style={{flexDirection:'row',justifyContent:'space-between',marginBottom:'5%'}}>
-                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#666666'}}>Delete Account</Text>
-                 <Image source={ImageIcons.blackrighttoday} style={{width:11,height:11,marginTop:5}}/>
-               </View>
-               </TouchableOpacity>
-              </View>
                </ScrollView>
             <Footer2 />
-        </View>    
+        </View>
     )
 }
 
