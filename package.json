@@ -9,7 +9,7 @@
     "test": "jest",
     "lint": "eslint .",
     "postinstall": "rm -rf ./node_modules/react-native-linkedin/node_modules/react-native-webview",
-    "build:tailwind": "tailwind --input input.css --output tailwind.css --no-autoprefixer && tw.style-rn",
+    "build:tailwind": "tailwind --input input.css --output tailwind.css --no-autoprefixer && tailwind-rn",
     "dev:tailwind": "concurrently \"tailwind --input input.css --output tw.style.css --no-autoprefixer --watch\" \"tailwind-rn --watch\""
   },
   "dependencies": {
@@ -103,7 +103,7 @@
     "react-native-progress": "^5.0.0",
     "react-native-push-notification": "^7.3.1",
     "react-native-ratings": "^8.1.0",
-    "react-native-reanimated": "^1.13.2",
+    "react-native-reanimated": "^1.13.4",
     "react-native-responsive-screen": "^1.4.2",
     "react-native-safe-area-context": "^3.2.0",
     "react-native-screens": "^2.18.1",
@@ -144,7 +144,7 @@
     "metro-react-native-babel-preset": "^0.65.2",
     "postcss": "^8.4.14",
     "react-test-renderer": "17.0.1",
-     "tailwindcss": "^3.1.4"
+    "tailwindcss": "^3.1.4"
   },
   "jest": {
     "preset": "react-native"

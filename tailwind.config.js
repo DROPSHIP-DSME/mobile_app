@@ -1,5 +1,5 @@
 
-const defaultTheme = require('tw.stylecss/defaultTheme')
+const defaultTheme = require('tailwind')
 
 module.exports = {
   content: [
@@ -14,7 +14,7 @@ module.exports = {
         'hintedavertastdregular',
         ...defaultTheme.fontFamily.sans
       ],
-      'serif': ['hintedavertastdbold', ...defaultTheme.fontFamily.serif ]
+      'serif': ['hintedavertastdbold', ...defaultTheme.fontFamily.serif]
     },
     fontWeight: {
       'hairline': 100,
