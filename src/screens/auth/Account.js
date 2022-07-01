@@ -211,7 +211,7 @@ const Account = (props) => {
                     <View style={tw.style('border-b-2 border-gray-500 w-[65%]')}></View>
                 </View>
 
-                <View style={tw.style('mt-4 mx-2 rounded-md bg-white')}>
+                <View style={tw.style('mt-4 mx-4 rounded-md bg-white')}>
                     <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
                         <View>
                             <Text style={tw`flex flex-row font-bold text-xl text-gray-900`}>My Profile</Text>
