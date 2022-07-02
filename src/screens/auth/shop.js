@@ -145,41 +145,7 @@ const shop = (props) => {
         );
     }
 
-    //      const renderItem = ({ item ,index }) => {
-
-
-    //    return(
-
-    //     <View style={styles.maincartviewshop}>
-    //         <TouchableOpacity  onPress={() => {props.navigation.navigate("NameStore",{shopId:item._id, shopName:item.shopName}) }}>
-
-    //          <View style={styles.comingViewflatshop}>
-    //            <Image source={{uri: item.shopImage}} style={styles.storeimageflat} />
-    //            <View>
-    //                <View style={{flexDirection:'row',marginTop:'10%',width:160,justifyContent:'center'}}>
-    //                     <Text style={[styles.namestoretext,{ textAlign:'center', justifyContent:'center'}]} numberOfLines={1}>{item.shopName}</Text>
-    //                     <Image source={ImageIcons.brandicon} style={styles.bagimage} />
-    //                 </View>
-    //             <Text style={styles.storedropship}>{item.shopName}.dropship.com</Text>
-    //            </View>
-
-    //         </View>
-
-    //         </TouchableOpacity>
-
-    //     </View>
-
-    //   );
-    // }
-    //  <View style={{marginHorizontal:'3%', marginBottom:90}}>
-    //            <FlatList
-    //                 data={props?.getlistshop || []}
-    //                 renderItem={renderItem}
-    //                 keyExtractor={item => item.id}
-    //                 showsHorizontalScrollIndicator={false}
-    //                 numColumns={2}
-    //                 />
-    //         </View>
+   
 
     const data = [{ text: "ALL" }, { text: "CLOTHING & SHOES" }, { text: "FURNITURE" }, { text: "BEAUTY & HAIR" }, { text: "ELECTRONICS" }]
 
@@ -209,20 +175,8 @@ const shop = (props) => {
                 <View style={tw.style('mx-3 mt-9')}>
                     <Text style={tw.style('text-3xl text-gray-700 font-bold')}>Shop</Text>
                 </View>
-                {/*<View style={{ marginHorizontal: "3%" }}>
-                    <Text style={{ fontWeight: "bold", fontFamily: "hinted-AvertaStd-Regular", fontSize: 16, color: "#666666" }}>{props?.getlistshop?.length} products</Text>
-        </View>*/}
-                <View style={tw.style('w-full')}>
-                    <FlatList
-                        data={data}
-                        renderItem={renderItem1}
-                        keyExtractor={item => item.id}
-                        showsHorizontalScrollIndicator={false}
-                        horizontal={true}
-                    />
-                </View>
+               
 
-                <View style={tw.style('border-b mb-4 border-gray-300 mx-4')}> </View>
                 <View style={tw.style('flex flex-row mx-4 mt-4')}>
 
                     <Sortorder />

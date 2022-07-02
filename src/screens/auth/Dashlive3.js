@@ -139,9 +139,7 @@ const Dashlive3 = (props) => {
 
     return (
          <View style={{flex:1}}>
-         <StatusBar backgroundColor={'#B80000'} barStyle="dark-content" translucent={true} />
-          <SellHeader />
-
+         
        <ScrollView onScroll={({nativeEvent}) => {
                 handleScroll(nativeEvent['contentOffset'].y);
     }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#ffffff'}} > 

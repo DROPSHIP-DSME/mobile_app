@@ -205,8 +205,7 @@ const editprofile = (props) => {
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={tw.style('flex-1 justify-center')}>
-            <StatusBar backgroundColor={showclassName} barStyle="dark-content" translucent={true} />
-            <Shopheader />
+            
 
             <ScrollView onScroll={({ nativeEvent }) => {
                 handleScroll(nativeEvent['contentOffset'].y);

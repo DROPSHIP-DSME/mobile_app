@@ -149,7 +149,6 @@ const renderItem2 = ({ item ,index }) => {
          <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={styles.registrationRoot}>
-             <SellHeader />
             <ScrollView  keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#ffffff',marginBottom:66}} >
 
              <View style={{marginHorizontal:'4%',paddingTop:'7%'}}>

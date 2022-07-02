@@ -186,8 +186,7 @@ const Account = (props) => {
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={tw`flex-1 justify-center`}>
-            <StatusBar backgroundColor={showclassName} barStyle="dark-content" translucent={true} />
-            <Shopheader />
+            
 
             <ScrollView onScroll={({ nativeEvent }) => {
                 handleScroll(nativeEvent['contentOffset'].y);
@@ -216,7 +215,7 @@ const Account = (props) => {
                         <View>
                             <Text style={tw`flex flex-row font-bold text-xl text-gray-900`}>My Profile</Text>
                         </View>
-                        <TouchableOpacity onPress={() => props.navigation.navigate("emptyaccount")}>
+                        <TouchableOpacity onPress={() => props.navigation.navigate("editprofile")}>
                             <Image source={ImageIcons.edit} style={tw.style('w-9 h-9')} />
                         </TouchableOpacity>
                     </View>

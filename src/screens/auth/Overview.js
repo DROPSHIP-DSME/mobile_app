@@ -132,7 +132,7 @@ const renderItem2 = ({ item,index }) => {
                     <Text style={tw.style('text-4xl text-gray-800')}>$0.00 {props?.getlistselldeshboard?.income}</Text>
                   </View>
                   <View style={tw.style('flex-none')}>
-                    <Text style={tw.style('items-center text-base font-semibold text-green-600')}>+32%</Text>
+                    <Text >+32%</Text>
                   </View>
                 </View>
               </View>
@@ -152,7 +152,7 @@ const renderItem2 = ({ item,index }) => {
     const renderItem3 = ({ item,index }) => {
        return(
            <View>
-              <View style={tw.styles('flex flex-row justify-between bg-white')}>
+              <View style={tw.style('flex flex-row justify-between bg-white')}>
                    <Text style={[styles.seriestexttoday,{width:150}]}>{item?.orderNumber}</Text>
                    <Text style={styles.seriestexttoday}>{item?.loggedInUserId?.userName}</Text>
                    <Text style={styles.seriestexttoday}>{item?.loggedInUserId?.userName}</Text>
@@ -177,9 +177,8 @@ const renderItem2 = ({ item,index }) => {
 
 
     return (
-         <View style={{flex:1}}>
-         <StatusBar backgroundColor={'#B80000'} barStyle="dark-content" translucent={true} />
-          <SellHeader branddata={props.Brandlistdata} />
+     <View style={{flex:1}}>
+          
 
        <ScrollView onScroll={({nativeEvent}) => {
                 handleScroll(nativeEvent['contentOffset'].y);

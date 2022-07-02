@@ -134,8 +134,7 @@ const Dashorder = (props) => {
 
   return (
     <View style={tw.style('flex-1 bg-white')}>
-      <StatusBar backgroundColor={'#B80000'} barStyle="dark-content" translucent={true} />
-      <SellHeader branddata={props.Brandlistdata} />
+      
 
       <ScrollView onScroll={({ nativeEvent }) => {
         handleScroll(nativeEvent['contentOffset'].y);

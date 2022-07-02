@@ -185,7 +185,6 @@ return (
     <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.registrationRoot}>
-        <Shopheader />
         <View style={{flex:1,marginHorizontal:'3%',marginTop:'10%',paddingBottom:'25%',marginBottom:'25%'}}>
             <View >
                 <Text style={styles.popuptext}>Pop-up Events</Text>

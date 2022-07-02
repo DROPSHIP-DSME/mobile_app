@@ -41,7 +41,7 @@ const Sellheader = (props) => {
 
     // Local states
     const [wayToContact, setWayToContact] = useState("Phone");
-    const [showvisible, setshowvisible] = React.useState(false);
+    const [showvisible, setshowvisible] = React.useState(true);
     const [visible1, setVisible1] = React.useState(true);
     const [selectedValue, setSelectedValue] = useState("sh");
     const [showclassName, setshowclassName] = useState("#B80000");
@@ -77,41 +77,7 @@ const Sellheader = (props) => {
     return (
         <View>
         <View style={tw.style('items-center w-full p-4 z-50'),{backgroundColor:showclassName}}>
-            <View style={{flexDirection:'row',top:'5%',width:'100%',height:78}}>
-                        <View style={{width:'35%'}}>
-                            {showclassName=='#B80000' ?
-                                <Image source={ImageIcons.logored} style={{width:58,height:47}}/>
-                            :
-                                <Image source={ImageIcons.logored} style={{width:58,height:47}}/>
-                            }
-                        </View>
-                        <View style={{width:'65%',flexDirection:'row',justifyContent:'space-between',marginRight:15}}>
-                            <View style={[styles.pickerViewshorttoday,{width:'60%'}]}>
-                                <Picker
-                                    selectedValue={selectedValue}
-                                    style={{ height: 30, width: '100%',color:'#4d4d4d',}}
-                                    onValueChange={(itemValue, itemIndex) =>setSelectedValue(itemValue)}
-                                >
-                                   {branddata && branddata.map((item, index) => {
-
-                                      return (
-                                          <Picker.Item label={item.brandName} value={item.brandName} key={index} />
-                                      )
-                                  })}
-                                  </Picker>
-                                  <Text style={{color:'#ffffff',fontSize:14,marginLeft:-35,fontFamily:'hinted-AvertaStd-Semibold'}}>{selectedValue}.dropship.shopping</Text>
-                            </View>
-
-                        <TouchableOpacity onPress={() => navigation.navigate("Dashsetting")}>
-                            <View style={{marginHorizontal:'3%'}}>
-                                <Image source={ImageIcons.colortodayshoe} style={{width:50,height:50,marginTop:4}}/>
-                            </View>
-                        </TouchableOpacity>
-                            <TouchableOpacity onPress={()=>openpopup()}>
-                                <Image source={ImageIcons.menutoday} style={{width:18,height:20.6,marginTop:18}}/>
-                            </TouchableOpacity>
-                        </View>
-           </View>
+          
 
 
          { showvisible == true &&

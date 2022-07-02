@@ -141,8 +141,7 @@ const confirpayment = (props) => {
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={styles.registrationRoot}>
-        <StatusBar backgroundColor={showclassName} barStyle="dark-content" translucent={true} />
-             <Shopheader />
+        
              
             <ScrollView onScroll={({nativeEvent}) => {
                 handleScroll(nativeEvent['contentOffset'].y);

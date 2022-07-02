@@ -153,12 +153,11 @@ const deviceWidth = Dimensions.get('window').width;
       </View>
       );
     }
-
+ 
     return (
          <KeyboardAvoidingView  behavior={Platform.OS === "ios" ? "padding" : "height"}
          style={styles.registrationRoot}>
-         <StatusBar backgroundColor={'#B80000'} barStyle="dark-content" translucent={true} />
-            <Shopheader />
+         
 
        <ScrollView onScroll={({nativeEvent}) => {
                 handleScroll(nativeEvent['contentOffset'].y);

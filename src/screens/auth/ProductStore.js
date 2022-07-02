@@ -149,8 +149,7 @@ const ProductStore = (props) => {
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={styles.registrationRoot}>
-            <StatusBar backgroundColor={showclassName} barStyle="dark-content" translucent={true} />
-            <Shopheader />
+            
 
             <View style={{ flex: 1, paddingTop: '5%', backgroundColor: '#ffffff' }}>
                 <View style={{ flexDirection: 'row', marginTop: '2%' }}>

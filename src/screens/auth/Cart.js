@@ -127,8 +127,6 @@ const Cart = (props) => {
             behavior={Platform.OS === "ios" ? "padding" : "height"}
      style={styles.registrationRoot}> 
 
-    <StatusBar backgroundColor={'#b80000'} barStyle="dark-content" translucent={true} />
-       <Shopheader />
       <ScrollView style={{backgroundColor:'#ffffff'}}> 
         <View style={{paddingTop:0}}>
         <View style={styles.addstoreView} >

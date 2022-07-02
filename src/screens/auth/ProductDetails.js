@@ -110,7 +110,6 @@ const ProductDetails = (props) => {
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={styles.registrationRoot}>
-<SellHeader />
 
 
             

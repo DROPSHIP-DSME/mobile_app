@@ -33,10 +33,7 @@ const Newprofile = (props) => {
     
 
     return (
-        
-
     <View style={{flex:1,backgroundColor:'#ffffff'}}> 
-        <Shopheader />
         <View style={{marginLeft:'3%',marginTop:'10%',flexDirection:'row'}}>
                 <TouchableOpacity > 
                         <Image source={{uri: props?.getprofileuserlist?.profileImage}}  style={{height:100,width:100,borderRadius:70,borderWidth:1, borderColor:'#333333'}} />
