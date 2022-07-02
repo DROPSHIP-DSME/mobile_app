@@ -91,17 +91,14 @@ const Login = (props) => {
     },
 
   ];
-
+ 
 
   useEffect(() => {
     animateLogo();
   }, [fadeAnim, transformAnim])
 
   useEffect(() => {
-    // alert(props?.loginuserid)
-    if (props?.loginuserid == null || props?.loginuserid == undefined) {
-      props.logoutreducerfun(uuid());
-    }
+    getBrandUserId();
 
   }, [])
 
@@ -114,9 +111,15 @@ const Login = (props) => {
   })
 
   const getBrandUserId = async () => {
-    await AsyncStorage.setItem('UserId', '');
-    await AsyncStorage.setItem('userLogin', "");
-  }
+         var loginuserid = await AsyncStorage.getItem('UserId');
+        // alert(loginuserid)
+         if(loginuserid==null || loginuserid==undefined || loginuserid==""){
+                //props.logoutreducerfun(uuid()); 
+         }else {
+            props.logoutreducerfun(loginuserid); 
+            props.navigation.navigate('watchlist');
+         }
+    }
 
   // Animation
   const animateLogo = () => {
