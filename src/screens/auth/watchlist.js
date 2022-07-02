@@ -432,33 +432,7 @@ const data = [
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={styles.registrationRoot}>
-            <StatusBar backgroundColor={showclassName} barStyle="dark-content" translucent={true} />
-
-            <View style={{flexDirection:'row',backgroundColor:showclassName,alignItems:'center',justifyContent:'space-between',top:'3%',zIndex:1001,position:'absolute',width:'100%',padding:'3%'}}>
-                <View>
-                {showclassName=='#FFFFFF00' ?
-                    <Image source={ImageIcons.logored_1} style={{width:70,height:57}}/>
-                :
-                    <Image source={ImageIcons.logored} style={{width:70,height:57}}/>
-                }
-                </View>
-                <View style={{flexDirection:'row',justifyContent:'space-between',marginRight:20}}>
-                    {/*<TouchableOpacity onPress={() => props.navigation.navigate("Search")}>
-                                            <Image source={ImageIcons.white_search} style={{width:21,height:20}}/>
-                                        </TouchableOpacity>*/}
-
-                    <TouchableOpacity onPress={() => props.navigation.navigate("Notification")} style={{marginHorizontal:'5%'}}>
-                        <Image source={ImageIcons.bell} style={{width:21,height:21,}}/>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity onPress={() => { props.navigation.navigate('Cart') }}>
-                        <View style={{flexDirection:'row'}}>
-                            <Image source={ImageIcons.whitecart} style={{width:18,height:20.6,}}/>
-                            <Text style={styles.numtext}>0</Text>
-                        </View>
-                    </TouchableOpacity>
-                </View>
-            </View>
+           
 
             <ScrollView onScroll={({nativeEvent}) => {
                 handleScroll(nativeEvent['contentOffset'].y);

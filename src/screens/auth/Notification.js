@@ -90,8 +90,7 @@ const Notification = (props) => {
     return (
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
-            style={styles.registrationRoot}>
-             
+            style={styles.registrationRoot}>             
             <ScrollView onScroll={({nativeEvent}) => {
 
                 handleScroll(nativeEvent['contentOffset'].y);
