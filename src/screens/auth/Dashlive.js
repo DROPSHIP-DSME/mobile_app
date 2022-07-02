@@ -24,6 +24,9 @@ import { Rating, AirbnbRating } from 'react-native-ratings';
 import { Provider , Portal,} from 'react-native-paper';
 import Modal from 'react-native-modal'
 import tw from 'twrnc';
+import Medbutton from '../../components/dropshipbutton/Medbutton';
+import Smallbutton from '../../components/dropshipbutton/Smallbutton';
+import Largebutton from '../../components/dropshipbutton/Largebutton';
 
 
 import {
@@ -190,34 +193,35 @@ return (
                 handleScroll(nativeEvent['contentOffset'].y);
     }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#ffffff'}} >
 
-               <View style={{marginHorizontal:'3%',marginVertical:'5%'}}>
-               <TouchableOpacity onPress={() => props.navigation.navigate("Dashlive2")}>
-                 <Text style={{fontSize:22,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',}}>Go Live</Text>
-                 </TouchableOpacity>
+              <View style={tw.style('flex flex-row justify-between items-center mx-4 mt-8 mb-6')}>
+                 <TouchableOpacity onPress={() => props.navigation.navigate("Dashlive2")}>
+                   <Text style={tw.style('text-2xl text-gray-700 font-bold')}>Go Live</Text>
+                   </TouchableOpacity>
                </View>
 
              { showstream==true ?
 
-              <View style={{flexDirection:'row',marginHorizontal:'4%'}}>
-                <TouchableOpacity onPress={() =>  setshowstream(false)} style={{backgroundColor:'#E6E6E6',width:'40%',borderRadius:10,padding:10,}}>
-                      <Text style={styles.totalincometodayWIDRO17}>GO LIVE NOW</Text>
-                   </TouchableOpacity>
+              <View style={tw.style('flex flex-row mx-4')}>
+                   <Medbutton
+                   text="Go Live Now" />
 
-
-                <TouchableOpacity onPress={() => setshowstream(true)} style={{backgroundColor:'#B80000',width:'57%',borderRadius:10,padding:10,marginLeft:10}}>
-                      <Text style={styles.totalincometodayWIDRO16}>SCHEDULE LIVESTREAM</Text>
-                   </TouchableOpacity>
+                   <View style={tw.style('w-auto items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-gray-700 bg-gray-300 hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300')}>
+                      <TouchableOpacity onPress={() => setshowstream(true)}>
+                        <Text style={tw.style('text-lg text-gray-700')}>Schedule Livestream</Text>
+                      </TouchableOpacity>
+                   </View>
               </View>
           :
-           <View style={{flexDirection:'row',marginHorizontal:'4%'}}>
-                <TouchableOpacity onPress={() =>  setshowstream(false)} style={{backgroundColor:'#B80000',width:'40%',borderRadius:10,padding:10,}}>
-                      <Text style={styles.totalincometodayWIDRO16}>GO LIVE NOW</Text>
-                   </TouchableOpacity>
+            <View style={tw.style('flex flex-row mx-4')}>
+                  <View style={tw.style('mr-3 w-auto items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-gray-700 bg-gray-300 hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300')}>
+                    <TouchableOpacity onPress={() =>  setshowstream(false)}>
+                      <Text style={tw.style('text-lg text-gray-700')}>Go Live Now</Text>
+                    </TouchableOpacity>
+                  </View>
 
 
-                <TouchableOpacity onPress={() => setshowstream(true)} style={{backgroundColor:'#E6E6E6',width:'57%',borderRadius:10,padding:10,marginLeft:10}}>
-                      <Text style={styles.totalincometodayWIDRO17}>SCHEDULE LIVESTREAM</Text>
-                   </TouchableOpacity>
+                   <Medbutton
+                   text="Schedule Livestream" />
               </View>
 
       }
@@ -262,39 +266,36 @@ return (
                  </TouchableOpacity>
                </View>
 
-              <View style={{flexDirection:'row',marginHorizontal:'4%',marginTop:'4%'}}>
-               <TouchableOpacity onPress={() =>setDuration(1200)}>
+              <View style={tw.style('flex flex-row mx-4 my-5')}>
+               <TouchableOpacity onPress={() =>setDuration(1200)} style={tw.style('mr-2')}>
                 { Duration==1200 ?
-                <View  style={{backgroundColor:'#B80000',width:'100%',borderRadius:10,padding:10,borderWidth:1,borderColor:'#ff0000'}}>
-                      <Text style={styles.totalincometodayWIDRO16}>20 MIN</Text>
-                   </View>
+                  <Smallbutton
+                  text="20 Min" />
                    :
-                    <View  style={{backgroundColor:'#e6e6e6',width:'100%',borderRadius:10,padding:10,}}>
-                      <Text style={[styles.totalincometodayWIDRO16,{color:'#000000'}]}>20 MIN</Text>
+                    <View  style={tw.style('w-auto items-center px-3 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm  bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200')}>
+                      <Text style={tw.style('text-lg text-gray-700')}>20 MIN</Text>
                    </View>
                }
                 </TouchableOpacity>
 
-                 <TouchableOpacity onPress={() =>setDuration(1800)}>
+                 <TouchableOpacity onPress={() =>setDuration(1800)} style={tw.style('mx-2')}>
                 { Duration==1800 ?
-                <View style={{backgroundColor:'#b80000',width:'95%',borderRadius:10,padding:10,marginLeft:10,borderWidth:1,borderColor:'#ff0000'}}>
-                      <Text style={[styles.totalincometodayWIDRO17,{color:'#ffffff'}]}>30 MIN</Text>
-                   </View>
+                    <Smallbutton
+                    text="30 Min" />
                    :
-                    <View style={{backgroundColor:'#e6e6e6',width:'95%',borderRadius:10,padding:10,marginLeft:10}}>
-                      <Text style={styles.totalincometodayWIDRO17}>30 MIN</Text>
+                    <View  style={tw.style('w-auto items-center px-3 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm  bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200')}>
+                      <Text style={tw.style('text-lg text-gray-700')}>30 MIN</Text>
                    </View>
                }
                    </TouchableOpacity>
 
-                   <TouchableOpacity onPress={() =>setDuration(2700)}>
+                   <TouchableOpacity onPress={() =>setDuration(2700)} style={tw.style('mx-2')}>
                         { Duration==2700 ?
-                    <View style={{backgroundColor:'#b80000',width:'95%',borderRadius:10,padding:10,marginLeft:10,borderWidth:1,borderColor:'#ff0000'}}>
-                      <Text style={[styles.totalincometodayWIDRO17,{color:'#ffffff'}]}>45 MIN</Text>
-                   </View>
+                      <Smallbutton
+                      text="45 Min" />
                    :
-                    <View style={{backgroundColor:'#e6e6e6',width:'95%',borderRadius:10,padding:10,marginLeft:10}}>
-                      <Text style={styles.totalincometodayWIDRO17}>45 MIN</Text>
+                    <View  style={tw.style('w-auto items-center px-3 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm  bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200')}>
+                      <Text style={tw.style('text-lg text-gray-700')}>45 MIN</Text>
                    </View>
                }
                    </TouchableOpacity>
@@ -303,12 +304,14 @@ return (
 
 
 
-                 <View style={{marginTop:'8%',}}>
-                   <View style={{flexDirection:'row',justifyContent:'space-between',marginHorizontal:'4%',marginVertical:'2%'}}>
-                     <Text style={{fontSize:22,fontFamily:'hinted-AvertaStd-Semibold'}}>Products</Text>
-                      <TouchableOpacity onPress={() => props.navigation.navigate("SearchProduct")} style={{backgroundColor:'#B80000',width:'40%',borderRadius:20,padding:10,}}>
-                      <Text style={styles.totalincometodayWIDRO}>ADD PRODUCT</Text>
-                   </TouchableOpacity>
+                 <View style={tw.style('mt-1')}>
+                   <View style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
+                     <Text style={tw.style('text-2xl text-gray-700')}>Products</Text>
+                     <Medbutton
+                     text="Add Product"
+                     onPress={() => props.navigation.navigate("SearchProduct")}
+                     />
+
                     </View>
                     <View style={{marginLeft:'5%'}}>
                     <FlatList
@@ -322,19 +325,18 @@ return (
                </View>
 
 
-                 <View style={{marginHorizontal:'4%',marginVertical:'6%',}}>
-                  <Text style={{fontSize:22,fontFamily:'hinted-AvertaStd-Semibold',marginHorizontal:'3%'}}>Invite Audience</Text>
-                <TextInput
-                  style={styles.inputedittoday1234}
-                  placeholder=""
-                  placeholderTextColor="#4d4d4d"
-                  value={livedetailId}
-                  paddingLeft={15}
-                  width={330}
-                  multiline
-                  onChangeText={(text) => {}}
-                />
-                <View style={{position:'absolute',alignSelf:'flex-end',marginTop:'14%',right:'5%'}}>
+                <View style={tw.style('mt-10 mb-16 mx-4')}>
+                      <Text style={tw.style('text-xl')}>Invite Audience</Text>
+                      <TextInput
+                        style={tw.style('bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500')}
+                        placeholder=""
+                        placeholderTextColor="#4d4d4d"
+                        value={livedetailId}
+                        paddingLeft={15}
+                        multiline
+                        onChangeText={(text) => {}}
+                      />
+                      <View style={tw.style('absolute flex flex-end mt-6 right-5 top-5')}>
                         <TouchableOpacity onPress={() =>  openshare() } >
                             <Image source={ImageIcons.copytoday} style={{height:21,width:21}} />
                         </TouchableOpacity>
@@ -361,16 +363,22 @@ return (
                     }
 
                  { showstream==true ?
-                <TouchableOpacity  onPress={() => startlivebtn() }  style={{backgroundColor:'#b80000',width:320,borderRadius:30,padding:'5%',alignSelf:'center',marginTop:'4%',marginBottom:'25%'}}>
-                      <Text style={styles.totalincometodaycompaign}>SCHEDULE LIVESTREAM</Text>
-                   </TouchableOpacity>
-                :
-                 <TouchableOpacity  onPress={() => startlivebtn()} style={{backgroundColor:'#b80000',width:320,borderRadius:30,padding:'5%',alignSelf:'center',marginTop:'4%',marginBottom:'25%'}}>
-                      <Text style={styles.totalincometodaycompaign}>START LIVESTREAM</Text>
-                   </TouchableOpacity>
-                 }
+                        <View
+                          type="button"
+                          style={tw.style('inline-flex items-center mx-5 px-4 py-6 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500')}
+                        >
+                        <TouchableOpacity style={tw.style('w-10/11 items-center')}
+                            onPress={() => startlivebtn() }>
+                            <Text style={tw.style('text-lg text-white')}>Schedule Livestream</Text>
+                          </TouchableOpacity>
+                        </View>
+                  :
 
-
+                     <Largebutton
+                     text="Start Livesteam"
+                     onPress={() => startlivebtn()}
+                     />
+                   }
                 <View>
 
 

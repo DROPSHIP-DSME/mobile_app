@@ -93,7 +93,7 @@ const Golive = (props) => {
              <StatusBar backgroundColor={'#ffffff00'} barStyle="dark-content" translucent={true} />
         <View style={{backgroundColor:'#ffffff',flex:1}}>
 
-          <View style={{alignItems:'center',marginTop:'18%'}}>
+          <View style={tw.style('items-center my-16')}>
               <Image source={ImageIcons.logored_1} style={styles.setlogonewdatarow}  />
           </View>
           <View style={tw.style('items-center mt-12')}>

@@ -17,12 +17,14 @@ import Swipeout from 'react-native-swipeout';
 import HorizontalSlider from 'react-horizontal-slider';
 import Footer2 from '../../screens/auth/Footer2';
 import SellHeader from '../../screens/auth/Sellheader';
-
-import AsyncStorage from '@react-native-community/async-storage'; 
+import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import { Provider , Portal,} from 'react-native-paper';
-import Modal from 'react-native-modal'
+import Modal from 'react-native-modal';
+import tw from 'twrnc';
+import { CheckIcon } from "react-native-heroicons/solid";
+import Smallbutton from '../../components/dropshipbutton/Smallbutton';
 
 
 import {
@@ -52,7 +54,7 @@ const deviceWidth = Dimensions.get('window').width;
     //Reference
     const userId = props?.route?.params?.userId;
     const brandId = props?.route?.params?.brandId;
-    
+
     useEffect(() => {
       props.getincomingtlist(props?.loginuserid);
       props.getselldeshboard(props?.loginuserid);
@@ -70,7 +72,7 @@ const deviceWidth = Dimensions.get('window').width;
 
     const handleScroll=(pageYOffset)=>{
         if (pageYOffset > 0) {
-            setshowclassName('#B80000');  
+            setshowclassName('#B80000');
         }else{
             setshowclassName('#B80000');
         }
@@ -82,7 +84,7 @@ const deviceWidth = Dimensions.get('window').width;
             await AsyncStorage.setItem('userLogin',"1");
         }
     }
-   
+
     // Local states
     const [showclassName, setshowclassName] = useState("#B80000");
 
@@ -91,123 +93,128 @@ const deviceWidth = Dimensions.get('window').width;
         
        <ScrollView onScroll={({nativeEvent}) => {
                 handleScroll(nativeEvent['contentOffset'].y);
-    }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} > 
-          
-               <View style={{flexDirection:'row',justifyContent:'space-between',marginHorizontal:'3%',marginTop:'5%'}}>
-                 <Text style={{fontSize:26,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',}}>Subscriptions</Text>
+    }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} >
+
+               <View style={tw.style('flex flex-row justify-between mx-4 mt-10')}>
+                 <Text style={tw.style('text-2xl font-bold text-gray-700')}>Subscriptions</Text>
                </View>
 
-               <View style={{marginHorizontal:'4%',marginTop:'2%'}}>
-                 <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular'}}>Dropship gives you the option of increase the value of your livestreaming exprience through additional marketing features. Select the plan that best suits your goals.</Text>
+               <View style={tw.style('mx-4 mt-4')}>
+                 <Text style={tw.style('text-base my-2')}>Dropship gives you the option of increase the value of your livestreaming exprience through additional marketing features. Select the plan that best suits your goals.</Text>
                </View>
 
-              <View style={{width:deviceWidth/1.1,backgroundColor:'#ffffff',padding:'5%',alignSelf:'center',marginTop:'8%',borderRadius:15}}>
-                <Text style={{fontSize:20,fontFamily:'hinted-AvertaStd-Semibold',textAlign:'center',}}>Basic</Text>
-                <View style={{flexDirection:'row',alignSelf:'center'}}>
-                  <Text style={{fontSize:32,fontFamily:'hinted-AvertaStd-Bold',}}>$0</Text>
-                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',marginTop:'4%',color:'#666666'}}>/month</Text>
-                </View>
+               <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 my-6')}>
+                 <View style={tw.style('px-2 py-5')}>
+                    <Text style={tw.style('text-center text-xl font-bold mb-2')}>Basic</Text>
+                    <View style={tw.style('flex flex-row justify-center')}>
+                      <Text style={tw.style('text-4xl font-bold')}>$5</Text>
+                      <Text style={tw.style('text-xl text-gray-600 mt-2')}>/month</Text>
+                    </View>
+                    <View style={tw.style('items-center my-3 mb-6')}>
+                        <FlatList
+                          data={[
+                            {key: 'Livestream Duration - 10 mins'},
+                          ]}
+                          renderItem={({item}) =>
+                            <Text style={tw.style('text-base text-gray-700')}><CheckIcon color="green" fill="green" size={24} /> {item.key}</Text>
+                          }
+                        />
+                    </View>
 
-                <View style={{flexDirection:'row',alignSelf:'center',marginTop:'2%'}}>
-                   <Image source={ImageIcons.righttoday} style={{width:11,height:11,marginTop:6}}/>
-                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',marginLeft:6}}>Livestream Duration</Text>
-                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',}}>- 10mins</Text>
-                </View>
-                <View style={{flexDirection:'row',marginLeft:'18%',marginTop:'2%'}}>
-                   <Image source={ImageIcons.wrongtoday} style={{width:11,height:11,marginTop:6}}/>
-                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',marginLeft:6}}>No SMS</Text>
-                </View>
+                    <Smallbutton
+                    text="Select Plan"
+                    />
 
-                 <View style={{backgroundColor:'#B80000',width:140,borderRadius:25,padding:15,alignSelf:'center',marginTop:'6%'}}>
-                      <Text style={styles.totalincometodayPLAN}>SELECT PLAN</Text> 
-                   </View>
-              </View>
+                 </View>
+               </View>
 
 
-               <View style={{width:deviceWidth/1.1,backgroundColor:'#ffffff',padding:'5%',alignSelf:'center',marginTop:'8%',borderRadius:15}}>
-                <Text style={{fontSize:20,fontFamily:'hinted-AvertaStd-Semibold',textAlign:'center',}}>Standard</Text>
-                <View style={{flexDirection:'row',alignSelf:'center'}}>
-                  <Text style={{fontSize:32,fontFamily:'hinted-AvertaStd-Bold',}}>$0</Text>
-                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',marginTop:'4%',color:'#666666'}}>/month</Text>
-                </View>
+               <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 my-6')}>
+                 <View style={tw.style('px-2 py-5')}>
+                    <Text style={tw.style('text-center text-xl font-bold mb-2')}>Standard</Text>
+                    <View style={tw.style('flex flex-row justify-center')}>
+                      <Text style={tw.style('text-4xl font-bold')}>$10</Text>
+                      <Text style={tw.style('text-xl text-gray-600 mt-2')}>/month</Text>
+                    </View>
+                    <View style={tw.style('items-center my-3 mb-6')}>
+                        <FlatList
+                          data={[
+                            {key: 'Livestream Duration - 25 mins'},
+                          ]}
+                          renderItem={({item}) =>
+                            <Text style={tw.style('text-base text-gray-700')}><CheckIcon color="green" fill="green" size={24} /> {item.key}</Text>
+                          }
+                        />
+                    </View>
 
-                <View style={{flexDirection:'row',alignSelf:'center',marginTop:'2%'}}>
-                   <Image source={ImageIcons.righttoday} style={{width:11,height:11,marginTop:6}}/>
-                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',marginLeft:6}}>Livestream Duration</Text>
-                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',}}>- 25mins</Text>
-                </View>
-                <View style={{flexDirection:'row',marginLeft:'18%',marginTop:'2%'}}>
-                   <Image source={ImageIcons.wrongtoday} style={{width:11,height:11,marginTop:6}}/>
-                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',marginLeft:6}}>No SMS</Text>
-                </View>
+                    <Smallbutton
+                    text="Select Plan"
+                    />
 
-                 <View style={{backgroundColor:'#B80000',width:140,borderRadius:25,padding:15,alignSelf:'center',marginTop:'6%'}}>
-                      <Text style={styles.totalincometodayPLAN}>SELECT PLAN</Text> 
-                   </View>
-              </View>
-
-             
-  
-                <View style={{width:deviceWidth/1.1,backgroundColor:'#B80000',padding:'5%',alignSelf:'center',marginTop:'8%',borderRadius:15}}>
-                <Text style={{fontSize:20,fontFamily:'hinted-AvertaStd-Semibold',textAlign:'center',color:'#FFFFFF'}}>Pro</Text>
-                <View style={{flexDirection:'row',alignSelf:'center'}}>
-                  <Text style={{fontSize:32,fontFamily:'hinted-AvertaStd-Bold',color:'#FFFFFF'}}>$0</Text>
-                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',marginTop:'4%',color:'#ffffff'}}>/month</Text>
-                </View>
-
-                <View style={{flexDirection:'row',alignSelf:'center',marginTop:'2%'}}>
-                   <Image source={ImageIcons.whiterighttoday} style={{width:11,height:11,marginTop:6}}/>
-                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',marginLeft:6,color:'#FFFFFF'}}>Livestream Duration</Text>
-                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',color:'#FFFFFF'}}>- 25mins</Text>
-                </View>
-                <View style={{flexDirection:'row',marginLeft:'14%',marginTop:'2%'}}>
-                   <Image source={ImageIcons.whiterighttoday} style={{width:11,height:11,marginTop:6}}/>
-                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',marginLeft:6,color:'#FFFFFF'}}>0 SMS</Text>
-                </View>
-                 <View style={{flexDirection:'row',marginLeft:'14%',marginTop:'2%'}}>
-                   <Image source={ImageIcons.whiterighttoday} style={{width:11,height:11,marginTop:6}}/>
-                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',marginLeft:6,color:'#FFFFFF'}}>Product Photoshoot</Text>
-                </View>
-
-                 <TouchableOpacity onPress={() => props.navigation.navigate("Dashsubscribe2")}  style={{backgroundColor:'#4AFFBD',width:140,borderRadius:25,padding:15,alignSelf:'center',marginTop:'6%'}}>
-                      <Text style={styles.totalincometodayPLAN}>SELECT PLAN</Text> 
-                   </TouchableOpacity>
-              </View>
+                 </View>
+               </View>
 
 
 
-               <View style={{width:deviceWidth/1.1,backgroundColor:'#ffffff',padding:'5%',alignSelf:'center',marginTop:'8%',borderRadius:15,marginBottom:'25%'}}>
-                <Text style={{fontSize:20,fontFamily:'hinted-AvertaStd-Semibold',textAlign:'center',}}>Enterprise</Text>
-                <View style={{flexDirection:'row',alignSelf:'center'}}>
-                  <Text style={{fontSize:32,fontFamily:'hinted-AvertaStd-Bold',}}>$0</Text>
-                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',marginTop:'4%',color:'#666666'}}>/month</Text>
-                </View>
+               <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 my-6 border-4 border-red-700')}>
+                 <View style={tw.style('px-2 py-5')}>
+                    <Text style={tw.style('text-center text-xl font-bold mb-2')}>Pro</Text>
+                    <View style={tw.style('flex flex-row justify-center')}>
+                      <Text style={tw.style('text-4xl font-bold')}>$150</Text>
+                      <Text style={tw.style('text-xl text-gray-600 mt-2')}>/month</Text>
+                    </View>
+                    <View style={tw.style('items-center my-3 mb-6')}>
+                        <FlatList
+                          data={[
+                            {key: 'Livestream Duration - 25 mins'},
+                            {key: '250 sms'},
+                            {key: '2 Product Photoshoot'},
+                          ]}
+                          renderItem={({item}) =>
+                            <Text style={tw.style('text-base text-gray-700')}><CheckIcon color="green" fill="green" size={24} /> {item.key}</Text>
+                          }
+                        />
+                    </View>
 
-                <View style={{flexDirection:'row',alignSelf:'center',marginTop:'2%'}}>
-                   <Image source={ImageIcons.righttoday} style={{width:11,height:11,marginTop:6}}/>
-                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',marginLeft:6}}>Livestream Duration</Text>
-                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',}}>- 25mins</Text>
-                </View>
-                <View style={{flexDirection:'row',marginLeft:'14%',marginTop:'2%'}}>
-                   <Image source={ImageIcons.righttoday} style={{width:11,height:11,marginTop:6}}/>
-                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',marginLeft:6}}>0 SMS</Text>
-                </View>
-                 <View style={{flexDirection:'row',marginLeft:'14%',marginTop:'2%'}}>
-                   <Image source={ImageIcons.righttoday} style={{width:11,height:11,marginTop:6}}/>
-                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',marginLeft:6}}>Product Photoshoot and Short Videos</Text>
-                </View>
-                 <View style={{flexDirection:'row',marginLeft:'14%',marginTop:'2%'}}>
-                   <Image source={ImageIcons.righttoday} style={{width:11,height:11,marginTop:6}}/>
-                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',marginLeft:6}}>Manage Brand Livestreams</Text>
-                </View>
+                    <Smallbutton
+                    text="Select Plan"
+                    />
 
-                 <View style={{backgroundColor:'#B80000',width:'70%',borderRadius:25,padding:15,alignSelf:'center',marginTop:'6%'}}>
-                      <Text style={styles.totalincometodayPLAN}>CONTACT DROPSHIP</Text> 
-                   </View>
-              </View>
+                 </View>
+               </View>
+
+
+               <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 my-6')}>
+                 <View style={tw.style('px-2 py-5')}>
+                    <Text style={tw.style('text-center text-xl font-bold mb-2')}></Text>
+                    <View style={tw.style('flex flex-row justify-center')}>
+                      <Text style={tw.style('text-4xl font-bold')}>Enterprise</Text>
+                    </View>
+                    <View style={tw.style('items-center my-3 mb-6')}>
+                        <FlatList
+                          data={[
+                            {key: 'Livestream Duration - 25 mins'},
+                            {key: '250 sms'},
+                            {key: 'Product Photoshoot and Short Videos'},
+                            {key: 'Manage Brand Livestreams'},
+                          ]}
+                          renderItem={({item}) =>
+                            <Text style={tw.style('text-base text-gray-700')}><CheckIcon color="green" fill="green" size={24} /> {item.key}</Text>
+                          }
+                        />
+                    </View>
+
+                    <Smallbutton
+                    text="Contact Sales"
+                    />
+
+                 </View>
+               </View>
+
+
                </ScrollView>
-            <Footer2 /> 
-        </View>       
+            <Footer2 />
+        </View>
     )
 }
 export default Dashsubscribe

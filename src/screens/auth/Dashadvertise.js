@@ -18,11 +18,14 @@ import HorizontalSlider from 'react-horizontal-slider';
 import Footer2 from '../../screens/auth/Footer2';
 import SellHeader from '../../screens/auth/Sellheader';
 
-import AsyncStorage from '@react-native-community/async-storage'; 
+import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import { Provider , Portal,} from 'react-native-paper';
-import Modal from 'react-native-modal'
+import Modal from 'react-native-modal';
+import tw from 'twrnc'
+import Medbutton from '../../components/dropshipbutton/Medbutton';
+import Largebutton from '../../components/dropshipbutton/Largebutton';
 
 
 import {
@@ -56,9 +59,9 @@ const deviceWidth = Dimensions.get('window').width;
     const fullnameRef = useRef();
     const userId = props?.route?.params?.userId;
     const brandId = props?.route?.params?.brandId;
-    
-   
- 
+
+
+
     useEffect(() => {
       props.getincomingtlist(props?.loginuserid);
       props.getselldeshboard(props?.loginuserid);
@@ -76,10 +79,10 @@ const deviceWidth = Dimensions.get('window').width;
         getBrandUserId();
      })
 
-    
+
      const handleScroll=(pageYOffset)=>{
         if (pageYOffset > 0) {
-            setshowclassName('#B80000');  
+            setshowclassName('#B80000');
         }else{
             setshowclassName('#B80000');
         }
@@ -91,8 +94,8 @@ const deviceWidth = Dimensions.get('window').width;
             await AsyncStorage.setItem('userLogin',"1");
         }
     }
-   
-    
+
+
     // Local states
     const [subMsg, onChangeText1] = React.useState("");
     const [msg, onChangeText2] = React.useState("");
@@ -101,118 +104,176 @@ const deviceWidth = Dimensions.get('window').width;
     const [visible, setVisible] = React.useState(false);
     const [selectedValue, setSelectedValue] = useState("");
     const [showclassName, setshowclassName] = useState("#B80000");
-    
+
 
 
     return (
          <View style={{flex:1}}>
-        
+ 
 
        <ScrollView onScroll={({nativeEvent}) => {
                 handleScroll(nativeEvent['contentOffset'].y);
-    }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} > 
-          
-               <View style={{flexDirection:'row',justifyContent:'space-between',marginHorizontal:'3%',marginTop:'5%'}}>
-                 <Text style={{fontSize:26,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',}}>Advertisements</Text>
+    }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} >
+
+               <View style={tw.style('flex flex-row justify-between mx-4 mt-7')}>
+                  <Text style={tw.style('text-2xl font-bold text-gray-700')}>Advertisements</Text>
                </View>
 
-               <View style={{marginHorizontal:'4%',marginTop:'2%'}}>
-                 <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular'}}>Select the parameters you would like to use for this advertisement and the total will adjust.</Text>
+               <View style={tw.style('mx-4 mt-5')}>
+                 <Text style={tw.style('text-lg')}>Select the parameters you would like to use for this advertisement and the total will adjust.</Text>
                </View>
 
-              <View style={{width:deviceWidth/1.1,backgroundColor:'#ffffff',padding:'5%',alignSelf:'center',marginTop:'7%',borderRadius:15,}}>
-                <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular',color:'#666666'}}>Total Cost of Advertisement</Text>
-                
-               <Text style={{fontSize:32,fontFamily:'hinted-AvertaStd-Semibold',color:'#B80000',marginTop:'2%'}}>US $0</Text>
-                <View style={{backgroundColor:'#b80000',width:'80%',borderRadius:25,padding:8,marginTop:'6%'}}>
-                      <Text style={styles.totalincometodayPLAN}>PURCHASE ADVERTISEMENT</Text> 
-                   </View> 
-                 
+              <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 my-7')}>
+                <View style={tw.style('px-3 py-5')}>
+                    <Text style={tw.style('text-lg text-gray-700')}>Total Cost of Advertisement</Text>
+
+                    <Text style={tw.style('text-2xl font-bold text-gray-800 mb-4')}>US$35000</Text>
+                    <Medbutton
+                      text="Purchase Advertisment"
+                    />
+                </View>
               </View>
 
-                
-              <View style={styles.pickerViewshorttodayAdvertise}>
-              <Text style={{fontSize:12,fontFamily:'hinted-AvertaStd-Regular',color:'4d4d4d',marginLeft:'3%',marginTop:'2%'}}>Type of Advertisement</Text>
+              <View style={tw.style('sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5 mx-4')}>
+                <View style={tw.style('mt-1 sm:mt-0 sm:col-span-2 ')}>
+                  <View style={tw.style('my-3 max-w-fit block focus:ring-indigo-500 focus:border-indigo-500 w-full shadow-sm sm:max-w-xs sm:text-sm border-gray-300 bg-gray-200 rounded-md')}>
+                    <Text style={tw.style('mt-3 mx-2 mb-[-12] font-sm font-sm text-gray-700')}>
+                      Type of advertisment
+                    </Text>
                       <Picker
                         selectedValue={selectedValue}
-                        style={{ height: 20, width: 320,color:'#4d4d4d',}}
+                        style={tw.style('w-10/11 bg-gray-500')}
                         onValueChange={(itemValue, itemIndex) =>setSelectedValue(itemValue)}
                        >
                         <Picker.Item label="Banner" value="1" />
-                        <Picker.Item label="2" value="2" />
-                        <Picker.Item label="3" value="3" />
-                        <Picker.Item label="4" value="4" />
+                        <Picker.Item label="United States" value="2" />
+                        <Picker.Item label="Canada" value="3" />
+                        <Picker.Item label="Mexico" value="4" />
                         <Picker.Item label="5" value="5" />
                         <Picker.Item label="6" value="6" />
                         <Picker.Item label="7" value="7" />
                         <Picker.Item label="8" value="8" />
                         <Picker.Item label="9" value="9" />
                       </Picker>
-                </View>  
-
-                 <View style={styles.pickerViewshorttodayAdvertise}>
-              <Text style={{fontSize:12,fontFamily:'hinted-AvertaStd-Regular',color:'4d4d4d',marginLeft:'3%',marginTop:'2%'}}>Advertisement Location</Text>
-                      <Picker
-                        selectedValue={selectedValue}
-                        style={{ height: 20, width: 320,color:'#4d4d4d',}}
-                        onValueChange={(itemValue, itemIndex) =>setSelectedValue(itemValue)}
-                       >
-                        <Picker.Item label="Homepage" value="1" />
-                        <Picker.Item label="2" value="2" />
-                        <Picker.Item label="3" value="3" />
-                        <Picker.Item label="4" value="4" />
-                        <Picker.Item label="5" value="5" />
-                        <Picker.Item label="6" value="6" />
-                        <Picker.Item label="7" value="7" />
-                        <Picker.Item label="8" value="8" />
-                        <Picker.Item label="9" value="9" />
-                      </Picker>
-                </View>  
-
-                 <View style={styles.pickerViewshorttodayAdvertise}>
-              <Text style={{fontSize:12,fontFamily:'hinted-AvertaStd-Regular',color:'4d4d4d',marginLeft:'3%',marginTop:'2%'}}>What are you advertising?</Text>
-                      <Picker
-                        selectedValue={selectedValue}
-                        style={{ height: 20, width: 320,color:'#4d4d4d',}}
-                        onValueChange={(itemValue, itemIndex) =>setSelectedValue(itemValue)}
-                       >
-                        <Picker.Item label="The store" value="1" />
-                        <Picker.Item label="2" value="2" />
-                        <Picker.Item label="3" value="3" />
-                        <Picker.Item label="4" value="4" />
-                        <Picker.Item label="5" value="5" />
-                        <Picker.Item label="6" value="6" />
-                        <Picker.Item label="7" value="7" />
-                        <Picker.Item label="8" value="8" />
-                        <Picker.Item label="9" value="9" />
-                      </Picker>
-                </View> 
-               
-
-               <View style={{marginTop:'7%'}}>
-               <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Semibold',marginHorizontal:'5%'}}>Duration</Text>
-                <View style={styles.pickerViewshorttodayAdvertise123}>
-                <ProgressBarAndroid
-                  styleAttr="Horizontal"
-                  indeterminate={false}
-                  progress={0.3}
-                  padding={15}
-                  marginHorizontal={5}
-                  color='#b80000'
-                />
-                </View> 
+                    </View>
                 </View>
-              
+              </View>
 
-               <View style={{backgroundColor:'#4affbd',marginBottom:'25%',width:320,borderRadius:30,padding:'5%',alignSelf:'center',marginTop:'6%'}}>
-                      <Text style={styles.totalincometodaycompaign123}>PREVIEW ADVERTISEMENT</Text> 
+            <View style={tw.style('sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5 mx-4')}>
+              <View style={tw.style('mt-1 sm:mt-0 sm:col-span-2 ')}>
+                  <View style={tw.style('my-3 max-w-fit block focus:ring-indigo-500 focus:border-indigo-500 w-full shadow-sm sm:max-w-xs sm:text-sm border-gray-300 bg-gray-200 rounded-md')}>
+                    <Text style={tw.style('mt-3 mx-2 mb-[-12] font-sm font-sm text-gray-700')}>
+                      Country
+                    </Text>
+                        <Picker
+                          selectedValue={selectedValue}
+                          style={tw.style('w-10/11 bg-gray-500')}
+                          onValueChange={(itemValue, itemIndex) =>setSelectedValue(itemValue)}
+                         >
+                          <Picker.Item label="Select Country" value="1" />
+                          <Picker.Item label="United States" value="2" />
+                          <Picker.Item label="Canada" value="3" />
+                          <Picker.Item label="Mexico" value="4" />
+                          <Picker.Item label="5" value="5" />
+                          <Picker.Item label="6" value="6" />
+                          <Picker.Item label="7" value="7" />
+                          <Picker.Item label="8" value="8" />
+                          <Picker.Item label="9" value="9" />
+                        </Picker>
+                      </View>
+                  </View>
+                </View>
+
+
+              <View style={tw.style('sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5 mx-4')}>
+                <View style={tw.style('mt-1 sm:mt-0 sm:col-span-2 ')}>
+                    <View style={tw.style('my-3 max-w-fit block focus:ring-indigo-500 focus:border-indigo-500 w-full shadow-sm sm:max-w-xs sm:text-sm border-gray-300 bg-gray-200 rounded-md')}>
+                      <Text style={tw.style('mt-3 mx-2 mb-[-12] font-sm font-sm text-gray-700')}>
+                        Advertisment Location
+                      </Text>
+                        <Picker
+                          selectedValue={selectedValue}
+                          style={tw.style('w-10/11 bg-gray-500')}
+                          onValueChange={(itemValue, itemIndex) =>setSelectedValue(itemValue)}
+                         >
+                          <Picker.Item label="Homepage" value="1" />
+                          <Picker.Item label="United States" value="2" />
+                          <Picker.Item label="Canada" value="3" />
+                          <Picker.Item label="Mexico" value="4" />
+                          <Picker.Item label="5" value="5" />
+                          <Picker.Item label="6" value="6" />
+                          <Picker.Item label="7" value="7" />
+                          <Picker.Item label="8" value="8" />
+                          <Picker.Item label="9" value="9" />
+                        </Picker>
+                      </View>
+                  </View>
+                </View>
+
+                <View style={tw.style('sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5 mx-4')}>
+                  <View style={tw.style('mt-1 sm:mt-0 sm:col-span-2 ')}>
+                      <View style={tw.style('my-3 max-w-fit block focus:ring-indigo-500 focus:border-indigo-500 w-full shadow-sm sm:max-w-xs sm:text-sm border-gray-300 bg-gray-200 rounded-md')}>
+                        <Text style={tw.style('mt-3 mx-2 mb-[-12] font-sm font-sm text-gray-700')}>
+                          What are you advertising
+                        </Text>
+                        <Picker
+                          selectedValue={selectedValue}
+                          style={tw.style('w-10/11 bg-gray-500')}
+                          onValueChange={(itemValue, itemIndex) =>setSelectedValue(itemValue)}
+                         >
+                          <Picker.Item label="The store" value="1" />
+                          <Picker.Item label="United States" value="2" />
+                          <Picker.Item label="Canada" value="3" />
+                          <Picker.Item label="Mexico" value="4" />
+                          <Picker.Item label="5" value="5" />
+                          <Picker.Item label="6" value="6" />
+                          <Picker.Item label="7" value="7" />
+                          <Picker.Item label="8" value="8" />
+                          <Picker.Item label="9" value="9" />
+                        </Picker>
+                      </View>
+                  </View>
+                </View>
+
+
+               <View style={tw.style('mt-10 mx-4')}>
+                 <Text style={tw.style('text-lg text-gray-700')}> Budget $5 daily</Text>
+                  <View style={tw.style('bg-gray-200 w-fit px-3 rounded-md')}>
+                  <ProgressBarAndroid
+                    styleAttr="Horizontal"
+                    indeterminate={false}
+                    progress={0.3}
+                    padding={15}
+                    marginHorizontal={5}
+                    color='#b80000'
+                  />
+                  </View>
+                </View>
+
+                <View style={tw.style('mt-10 mx-4')}>
+                  <Text style={tw.style('text-lg text-gray-700')}>Duration 7 Days</Text>
+                   <View style={tw.style('bg-gray-200 w-fit px-3 rounded-md')}>
+                   <ProgressBarAndroid
+                     styleAttr="Horizontal"
+                     indeterminate={false}
+                     progress={0.6}
+                     padding={15}
+                     marginHorizontal={5}
+                     color='#b80000'
+                   />
                    </View>
-             
-  
+                 </View>
+
+                 <View style={tw.style('mt-15 mb-30')}>
+                    <Largebutton
+                    text="Preview Advertisment" />
+                </View>
                </ScrollView>
 
-            <Footer2 />
-             </View>        
+                 <Footer2 />
+
+          </View>
+
     )
 }
 

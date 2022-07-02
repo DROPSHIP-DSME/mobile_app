@@ -111,16 +111,18 @@ const shop = (props) => {
     ];
     const renderItem = ({ item, index }) => {
         return (
-            <View style={tw.style('flex flex-row mt-5 mx-4 rounded-md')}>
-                <TouchableOpacity onPress={() => { props.navigation.navigate("ProductStore", { productId: item._id, shopId: item._id, shopName: item.shopName }) }}>
-                    <View style={tw.style('p-0.5')}>
+            <View style={tw.style('flex flex-row')}>
+                <TouchableOpacity onPress={() => { props.navigation.navigate("ProductStore", { productId: item._id, shopId: item._id, shopName: item.shopName })}}
+                    style={tw.style('rounded-lg mt-5 mx-4')}
+                    >
+                    <View style={tw.style('p-0.5 rounded-md')}>
                         <Image source={{ uri: item.shopImage }} style={tw.style('h-14 rounded-lg'),{ height: 150, width: deviceWidth / 2.4}} onPress={() => { props.navigation.navigate("clothing") }} />
                     </View>
-                    <View style={tw.style('flex flex-row mt-2.5 justify-between')}>
+                    <View style={tw.style('flex flex-row mt-4 justify-between')}>
                         <View style={tw.style('pl-2')}>
-                            <Text style={tw.style('text-[#1A1A1A] text-xs font-normal')}>{item.shopName}</Text>
-                            <Text style={tw.style('text-[#1A1A1A] text-base font-bold')}>$0</Text>
-                            <View style={tw.style('flex flex-row mt-[5px]')}>
+                            <Text style={tw.style('text-gray-700 text-xs font-normal')}>{item.shopName}</Text>
+                            <Text style={tw.style('text-gray-700 text-lg font-bold')}>$0</Text>
+                            <View style={tw.style('flex flex-row mt-1 items-center')}>
                                 <Rating
                                     type='custom'
                                     imageSize={15}
@@ -132,12 +134,11 @@ const shop = (props) => {
                                     style={tw.style('ml-[2%]')}
                                 />
                                 <Text style={tw.style('text-sm mx-3 text-black font-normal')}>4.0</Text>
-
                             </View>
                         </View>
                         <View style={tw.style('mr-2')}>
                             <Image source={ImageIcons.Iconlock} style={tw.style('w-8 h-8')} />
-                            <Image source={ImageIcons.iconheart} style={tw.style('w-8 h-8 mt-2')} />
+                            <Image source={ImageIcons.iconheart} style={tw.style('w-8 h-8 mt-4')} />
                         </View>
                     </View>
                 </TouchableOpacity>
@@ -186,7 +187,7 @@ const shop = (props) => {
                      />
 
                 </View>
-                <View style={tw.style('mx-[3%] mb-[90px]')}>
+                <View style={tw.style('mx-2')}>
                     <FlatList
                         data={props?.getlistshop || []}
                         renderItem={renderItem}

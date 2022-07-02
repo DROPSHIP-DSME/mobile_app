@@ -138,10 +138,10 @@ const Dashorder = (props) => {
 
       <ScrollView onScroll={({ nativeEvent }) => {
         handleScroll(nativeEvent['contentOffset'].y);
-      }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#f2f2f2' }} >
+      }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={tw.style('bg-slate-2')} >
 
-        <View style={tw.style('mt-5 mb-5 mx-4')}>
-          <Text style={tw.style('text-2xl text-gray-800 font-bold')}>Orders ({props?.getinconeorderlist?.length})</Text>
+        <View style={tw.style('my-5 mx-4')}>
+          <Text style={tw.style('text-2xl text-gray-800 font-bold mb-5')}>Orders ({props?.getinconeorderlist?.length})</Text>
 
           <Sortorder />
 
