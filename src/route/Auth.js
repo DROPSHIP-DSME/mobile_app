@@ -992,7 +992,15 @@ const Auth = (props) => {
        <Stack.Screen
         name="Cart"
         component={Cart}
-        options={{ title: '', headerShown: false }}
+        options={({ navigation }) => ({
+                        headerShown: true,
+                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerTitle: "",
+                        headerTitleAlign: "center",
+                        headerTitleStyle: styles.titleheaderstyle,
+                        headerStyle: styles.headerbackgroundstyle,
+                    })}
       />
       
 
@@ -1860,15 +1868,15 @@ const LeftMenuItem = ({ navigation, isMenu }) => {
 const RightMenuItem = ({navigation}) => {
     return (
         <View style={styles.rightLabel}>
-           <TouchableOpacity onPress={() => props.navigation.navigate("Search")} style={{ marginHorizontal: '5%',marginRight:15 }}>
+           <TouchableOpacity onPress={() => navigation.navigate("Search")} style={{ marginHorizontal: '5%',marginRight:15 }}>
                 <Image source={ImageIcons.white_search} style={{width:21,height:20}}/>
             </TouchableOpacity>
 
-           <TouchableOpacity onPress={() => props.navigation.navigate("Notification")} style={{ marginHorizontal: '5%',marginRight:15 }}>
+           <TouchableOpacity onPress={() => navigation.navigate("Notification")} style={{ marginHorizontal: '5%',marginRight:15 }}>
               <Image source={ImageIcons.bell} style={{ width: 21, height: 21, }} />
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={() => { props.navigation.navigate('Cart') }}>
+          <TouchableOpacity onPress={() => { navigation.navigate('Cart') }}>
               <View style={{ flexDirection: 'row' }}>
                   <Image source={ImageIcons.whitecart} style={{ width: 18, height: 20.6,marginRight:2}} />
                   <Text style={styles.numtext1}>0</Text>

@@ -73,33 +73,21 @@ const upcoming = (props) => {
     const [tab1, settab1] = useState(true);
     const [tab2, settab2] = useState(false);
     const [tab3, settab3] = useState(false);
-
-    const [wayToContact, setWayToContact] = useState("Phone");
-    const [wayToContactList, setWayToContactList] = useState([
-        {
-            label: "Phone",
-            value: "Phone"
-        },
-        {
-            label: "Email",
-            value: "Email"
-        }
-    ]);
-    const joinbroadcast = (itemid, startnow, eventtime) => {
-
-        // if (startnow == true){
-        props.navigation.navigate("Blurbackground", { isback: false, channel: itemid, isbroadcaster: false });
-        //} else {
-        // alert('Event will start at '+ moment(eventtime).format('MMM DD, hh:mm A'))
-        //}
+    const [showlist, setshowlist] = useState(true);
+    
+    const joinbroadcast = (itemid) => {
+        props.getlivestreamrecap(itemid);
+        setshowlist(false)
     }
+
     const openpopup = () => {
         setVisible(true)
-
     }
+
     const closepopup = () => {
         setVisible(false)
     }
+
     const containerStyle = { backgroundColor: 'white', padding: '7%', marginHorizontal: '5%', alignItems: 'center' };
 
     // Vendor request submission
@@ -169,35 +157,10 @@ const upcoming = (props) => {
     const viewprofile = [
 
         {
-            text: "Beauty brands",
+            text: "Lavlesh",
             image: ImageIcons.profileimage,
 
-        },
-        {
-            text: "Beauty brands",
-            image: ImageIcons.profileimage,
-
-        },
-        {
-            text: "Beauty brands",
-            image: ImageIcons.profileimage,
-
-        },
-        {
-            text: "Beauty brands",
-            image: ImageIcons.profileimage,
-
-        },
-        {
-            text: "Beauty brands",
-            image: ImageIcons.profileimage,
-
-        },
-        {
-            text: "Beauty brands",
-            image: ImageIcons.profileimage,
-
-        },
+        }
 
     ];
     const renderItemview = ({ item, index }) => {
@@ -205,10 +168,41 @@ const upcoming = (props) => {
             <View style={tw.style('m-2')}>
                 <View style={tw.style('flex flex-row items-center my-1')}>
                     <Image source={item.image} style={tw.style('h-12 w-12')} />
-                    <Text style={tw.style('text-base text-gray-800 text-center mx-2')}>Andrea Miller</Text>
+                    <Text style={tw.style('text-base text-gray-800 text-center mx-2')}>Dropship User</Text>
                 </View>
             </View>
         );
+    }
+
+    const renderItem5 = ({ item ,index }) => {
+       return(
+        <View>
+        <TouchableOpacity onPress={() => joinbroadcast(item._id)}>        
+            <View style={{marginHorizontal:5,borderRadius:5}}>
+                    <Image source={{uri: item.products[0]?.productImage}} style={styles.imgbasket} />
+                    <Text style={styles.beautyproduct}></Text>
+                    <View style={{borderRadius:50,position:'absolute',top:10,left:10, backgroundColor:'#E22020'}}>
+                        <Text style={styles.shorttest1}>Live</Text>
+                    </View>
+                    <View style={styl.comingshort1}>
+                        <View style={{left:7,top:2}}>
+                            <Image source={ImageIcons.iconpath} style={{width:18,height:18}}/>
+                        </View>
+                        <Text style={styles.shorttest}>0K</Text>
+                    </View>
+            </View>
+            <View style={styl.rowdrop}>
+            <View>
+              <Image source={ImageIcons.profileimage} style={{width:35,height:35}}/>
+            </View>
+            <View style={{paddingTop:10,paddingLeft:10}}>
+            <Text style={styl.txt1}>{item.products[0]?.productName}</Text>
+            </View>
+            </View>
+            <Text style={styl.txt2}></Text>
+           </TouchableOpacity>
+        </View> 
+      );
     }
 
     const rendermessage = ({ item }) => {
@@ -227,7 +221,6 @@ const upcoming = (props) => {
             </View>
         );
     }
-
 
     const Data = ({ item }) => {
         console.log("itemdata------->", item)
@@ -265,9 +258,25 @@ const upcoming = (props) => {
             <View style={tw.style('mt-6 mx-3')}>
                 <Text style={tw.style('text-2xl text-gray-800 font-bold')}>Livestream Recap</Text>
             </View>
-
+            {showlist==true ?
+                <View style={{ marginTop: '7%', marginHorizontal: '3%', minHeight:'86%' }}>
+                   <View style={{marginTop:15}}>
+                    {props?.getalleventdata?.length>0 ?
+                    <FlatList
+                        data={props?.getalleventdata || []}
+                        renderItem={renderItem5}
+                        keyExtractor={item => item.id}
+                        showsHorizontalScrollIndicator={false}
+                        numColumns={2}
+                    />
+                    :
+                        <Text style={{ fontSize: 18, textAlign:'center', marginTop:150, color: '#1A1A1A', fontFamily: 'AvertaStd-Bold' }}>No Events Found</Text>
+                    }
+                    </View>
+                </View>
+            :
             <ScrollView keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={tw.style('bg-gray-100')} >
-
+                
                 <View style={tw.style('pt-2 mx-5')}>
                     <View style={tw.style('flex flex-row justify-between border-gray-800 border-b-2')}>
                         <TouchableOpacity onPress={() => { settab1(true); settab2(false); settab3(false); }} style={tw.style('m-3')} >
@@ -509,30 +518,14 @@ const upcoming = (props) => {
 
                         </View >
                     }
-
-
-
-
-
-
-
                 </View>
-                {openpopup &&
-                    <Provider>
-                        <Portal>
-                            <Modal visible={visible} onDismiss={closepopup} contentContainerStyle={containerStyle}>
-                                <Image source={ImageIcons.sucess} style={styles.sucessimage} />
-                                <Text style={styles.Modaltext}>Purchase successful</Text>
-                                <Text style={styles.modalsuceestext}>You have successfully the goods in your chart. We will update you as the goods gets dispatched</Text>
-                                <TouchableOpacity style={styles.modalbutton}
-                                    onPress={() => props.navigation.navigate("SearchProduct")}>
-                                    <Text style={styles.modaltouchablitytext} >Continue Shopping</Text></TouchableOpacity>
-                            </Modal>
-                        </Portal>
-                    </Provider>
-                }
+
+               
             </ScrollView>
-            <Footer3 onSelection="2" />
+        }
+        
+        <Footer3 onSelection="2" />
+
         </KeyboardAvoidingView>
     )
 }

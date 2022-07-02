@@ -112,9 +112,28 @@ const editaddress = (props) => {
     ];
 
     const setdeleteaddress = async (id) => {
-        props.deleteaddress(id);
-        setTimeout(function () { props.getuseraddress(props?.loginuserid); }, 100);
-    }
+        return Alert.alert(
+          "Are your sure?",
+          "Are you sure you want to remove this address?",
+          [
+            // The "Yes" button
+            {
+              text: "Yes",
+              onPress: () => {
+                    props.deleteaddress(id);
+                    setTimeout(function(){ props.getuseraddress(props?.loginuserid); },100); 
+              },
+            },
+            // The "No" button
+            // Does nothing but dismiss the dialog when tapped
+            {
+              text: "No",
+            },
+          ]
+        );
+
+          
+     }
 
     const renderItem6 = ({ item }) => {
         return (
@@ -139,29 +158,29 @@ const editaddress = (props) => {
         );
     }
 
-    const renderItem = ({ item }) => {
+    const renderItem = ({ item, index }) => {
+    return(
 
-
-        return (
-
-            <View style={{ marginHorizontal: "3%", backgroundColor: "#FFFFFF", marginTop: "4%", elevation: 1, borderRadius: 10, padding: 6 }}>
-                <View style={{ flexDirection: "row", justifyContent: "space-between", marginHorizontal: "3%", marginTop: "1%" }}>
-
-                    <Text style={{ fontSize: 18, fontFamily: "hinted-AvertaStd-Regular", color: "#1A1A1A", padding: "2%" }}>{item?.firstName} {"\n"}{item?.streetAdress}{"\n"}{item?.city},{item?.state},{item?.zipCode}{"\n"}{item?.country}</Text>
-                    <View style={{ flexDirection: 'row' }}>
-                        <TouchableOpacity onPress={() => props.navigation.navigate("editviewaddress")}>
-                            <Image source={ImageIcons.edit} style={{ width: 45, height: 40 }} />
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => setdeleteaddress(item._id)}>
-                            <Image source={ImageIcons.del} style={{ width: 45, height: 40, marginLeft: 8 }} />
-                        </TouchableOpacity>
-                    </View>
-
-                </View>
-            </View>
-
-        );
-    }
+    <View style={{marginHorizontal:"3%",backgroundColor:"#FFFFFF",marginTop:"4%",elevation:1,borderRadius:10,padding:6}}>
+              {index==0 &&
+               <View style={{backgroundColor:"#E6E6E6",width:deviceWidth/3,height:25,paddingTop:"1%",borderRadius:5}}><Text style={{textAlign:"center", color:"#2F80ED",fontSize:12,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular"}}>
+                 DEFAULT ADDRESS</Text></View>
+            }
+              <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%", marginTop:"1%"}}>
+              
+                 <Text style={{fontSize:18,fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A",padding:"2%"}}>{item?.firstName} {item?.lastName} {"\n"}{item?.streetAdress}, {item?.phoneNumber}{"\n"}{item?.city}{"\n"}{item?.zipCode}</Text>
+               <View style={{flexDirection:'row'}}>
+               
+              <TouchableOpacity   onPress={() =>setdeleteaddress(item._id)}>
+                 <Image source={ImageIcons.del} style={{width:45,height:40,marginLeft:8}}/>
+              </TouchableOpacity>
+              </View>
+              
+              </View>
+              </View>
+   
+  );
+ }
 
 
     return (
@@ -184,27 +203,7 @@ const editaddress = (props) => {
                     <Text style={{ fontSize: 26, fontFamily: "hinted-AvertaStd-Regular", fontWeight: "bold" }}>My Addresses</Text>
                 </View>
 
-                <View style={{ marginHorizontal: "3%", borderRadius: 10, elevation: 1, backgroundColor: "#ffffff", marginTop: "5%", padding: 4 }}>
-                    <View style={{ flexDirection: "row", justifyContent: "space-between", marginHorizontal: "2%", marginTop: "2%" }}>
-                        <View style={{ backgroundColor: "#E6E6E6", width: deviceWidth / 3, height: 25, paddingTop: "1%", borderRadius: 5 }}><Text style={{ textAlign: "center", color: "#2F80ED", fontSize: 12, fontWeight: "bold", fontFamily: "hinted-AvertaStd-Regular" }}>
-                            DEFAULT ADDRESS</Text></View>
-                        <View style={{ flexDirection: 'row' }}>
-                            <TouchableOpacity onPress={() => props.navigation.navigate("editviewaddress")}>
-                                <Image source={ImageIcons.edit} style={{ width: 45, height: 40 }} />
-                            </TouchableOpacity>
-                            <View>
-                                <Image source={ImageIcons.del} style={{ width: 45, height: 40, marginLeft: 8 }} />
-                            </View>
-                        </View>
-
-                    </View>
-                    <Text style={{ fontSize: 18, fontFamily: "hinted-AvertaStd-Regular", color: "#1A1A1A", padding: "2%" }}>Marry Davis {"\n"}2501 Stevens Ev{"\n"}Miniapolis MN,54404{"\n"}USA</Text>
-                </View>
-
-
-
-
-
+                
                 <View style={{ marginBottom: 30 }}>
                     <FlatList
                         data={props?.getuseraddresslist || []}
@@ -216,7 +215,7 @@ const editaddress = (props) => {
 
 
 
-                <TouchableOpacity style={{ width: deviceWidth / 1.1, backgroundColor: "#B80000", borderRadius: 30, marginTop: "12%", height: 63, marginLeft: "4%" }} >
+                <TouchableOpacity onPress={()=>props.navigation.navigate("editviewaddress")} style={{ width: deviceWidth / 1.1, backgroundColor: "#B80000", borderRadius: 30, marginTop: "12%", height: 63, marginLeft: "4%" }} >
                     <Text style={{ textAlign: 'center', color: "#FFFFFF", fontWeight: 'bold', fontSize: 18, top: 18 }}>ADD A NEW ADDRESS</Text>
                 </TouchableOpacity>
 
@@ -225,50 +224,7 @@ const editaddress = (props) => {
 
             </ScrollView>
 
-            <View style={{ position: 'absolute', zIndex: 2001, right: 20, bottom: 70 }}>
-                <TouchableOpacity onPress={() => sethelppopup(true)}>
-                    <Image source={ImageIcons.exporthelp} style={{ width: 50, height: 50 }} />
-                </TouchableOpacity>
-            </View>
-
-            {helppopup == true &&
-                <View style={{ flex: 1, backgroundColor: '#ffffff', margin: 20, paddingVertical: 10, borderRadius: 10, zIndex: 4001, position: 'absolute', bottom: '10%' }}>
-
-
-                    <View style={tw.style('flex flex-row mt-4 mb-3')}>
-
-                        <Text style={tw.style('text-xl font-bold text-[#282828] pl-3')}>Chat with customer support</Text>
-                        <TouchableOpacity style={{ position: 'absolute', right: 15, top: 5 }} onPress={() => sethelppopup(false)}>
-                            <Image source={ImageIcons.closepopup} style={tw.style('w-9 h-7')} />
-                        </TouchableOpacity>
-                    </View>
-                    <ScrollView keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#ffffff', height: 200 }} >
-                        <View style={{ marginVertical: '2%' }}>
-                            <FlatList
-                                data={props?.getchatsupportlist1 || []}
-                                renderItem={renderItem6}
-                                keyExtractor={item => item.id}
-                                showsHorizontalScrollIndicator={false}
-                                horizontal={false}
-                            />
-                        </View>
-                    </ScrollView>
-                    <View style={[tw.style('flex flex-row justify-between mx-4 my-4'), { marginBottom: 10, width: '100%' }]}>
-                        <View style={{ width: '90%' }}>
-                            <TextInput style={tw.style('bg-gray-200 rounded-md pl-3 text-xs tracking-[-0.125172px] w-[75%] text-[#878787] font-normal')}
-                                placeholder="Type here..."
-                                onChangeText={onChangeText1}
-                                value={text1}
-                                placeholderTextColor="#999999"
-                            />
-                        </View>
-                        <TouchableOpacity style={{ position: 'absolute', right: 55, top: 5 }} onPress={() => handleSendRequestSubmit()}>
-                            <Image source={ImageIcons.sendchat} style={tw.style('w-12 h-10')} />
-                        </TouchableOpacity>
-                    </View>
-                </View>
-            }
-
+            
 
             <Footer3 onSelection="5" />
 

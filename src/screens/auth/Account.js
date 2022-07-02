@@ -234,7 +234,7 @@ const Account = (props) => {
                             <Text style={tw`text-base font-normal text-gray-900`}>Last Name</Text>
                         </View>
                         <View>
-                            <Text style={tw`text-base font-bold text-gray-900`}>{props?.getprofileuserlist?.lastName}- - - - - - - - -</Text>
+                            <Text style={tw`text-base font-bold text-gray-900`}>{props?.getprofileuserlist?.lastName}</Text>
                         </View>
                     </View>
                     <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
@@ -278,6 +278,16 @@ const Account = (props) => {
                             </View>
                         }
                     </View>
+                    <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
+                        <View>
+                            <Text style={tw`text-base font-normal text-gray-900`}>Address line2</Text>
+                        </View>
+                        {(props?.getuseraddresslist && props?.getuseraddresslist?.length > 0) &&
+                            <View>
+                                <Text style={tw`text-base font-bold text-gray-900`}>{props?.getuseraddresslist[0]?.phoneNumber}</Text>
+                            </View>
+                        }
+                    </View>
                     <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
                     <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
                         <View>
@@ -292,25 +302,15 @@ const Account = (props) => {
                     <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
                     <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
                         <View>
-                            <Text style={tw.style('text-base font-normal text-gray-900')}>State</Text>
+                            <Text style={tw.style('text-base font-normal text-gray-900')}>Zipcode</Text>
                         </View>
                         {(props?.getuseraddresslist && props?.getuseraddresslist?.length > 0) &&
                             <View>
-                                <Text style={tw.style('text-base font-normal text-gray-900')}>{props?.getuseraddresslist[0]?.state}</Text>
+                                <Text style={tw.style('text-base font-normal text-gray-900')}>{props?.getuseraddresslist[0]?.zipCode}</Text>
                             </View>
                         }
                     </View>
-                    <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
-                    <View style={tw.style('flex flex-row justify-between mx-4 mt-4 mb-3')}>
-                        <View>
-                            <Text style={tw.style('text-base font-normal text-gray-900')}>Country</Text>
-                        </View>
-                        {(props?.getuseraddresslist && props?.getuseraddresslist?.length > 0) &&
-                            <View>
-                                <Text style={tw.style('text-base font-normal text-gray-900')}>{props?.getuseraddresslist[0]?.country}</Text>
-                            </View>
-                        }
-                    </View>
+                    
                 </View>
 
                 <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}>
@@ -318,9 +318,7 @@ const Account = (props) => {
                         <View>
                             <Text style={tw.style('text-xl font-bold text-gray-900')}>Payment Details</Text>
                         </View>
-                        <TouchableOpacity onPress={() => props.navigation.navigate("paymentedit")}>
-                            <Image source={ImageIcons.edit} style={tw.style('w-9 h-9')} />
-                        </TouchableOpacity>
+                        
                     </View>
 
                     <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
@@ -374,9 +372,7 @@ const Account = (props) => {
                         <View>
                             <Text style={tw.style('text-xl font-bold text-gray-900')}>Account Settings</Text>
                         </View>
-                        <View>
-                            <Image source={ImageIcons.edit} style={tw.style('w-9 h-9')} />
-                        </View>
+                        
                     </View>
 
                     <TouchableOpacity onPress={() => props.navigation.navigate("Dashsupportacc")} style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
