@@ -13,12 +13,14 @@ import DropdownField from '../../components/dropdown/DropDownMenu';
 import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import { useNavigation } from '@react-navigation/native';
+import tw from 'twrnc';
+import { ShoppingBagIcon } from "react-native-heroicons/solid";
 
 const deviceHeight = Dimensions.get('window').height;
 const deviceWidth = Dimensions.get('window').width;
 
 const Shopheader = (props) => {
- 
+
     const {
         values,
         errors,
@@ -66,9 +68,9 @@ const Shopheader = (props) => {
 
     return (
         <View style={{flexDirection:'row',backgroundColor:showclassName,alignItems:'center',justifyContent:'space-between',top:'5%',zIndex:1001,width:'100%',padding:'3%'}}>
-                
+
                 <View>
-                     <Image source={ImageIcons.logored} style={{width:70,height:57}}/>
+                     <Image source={ImageIcons.logored} style={tw.style("w-16 h-16 rounded-full")}/>
                 </View>
                 <View style={{flexDirection:'row',justifyContent:'space-between',paddingTop:20,marginRight:20}}>
                     <View>
@@ -83,7 +85,7 @@ const Shopheader = (props) => {
                     </View>
                     <TouchableOpacity onPress={() => { navigation.navigate('Cart') }}>
                         <View style={{flexDirection:'row'}}>
-                            <Image source={ImageIcons.whitecart} style={{width:18,height:20.6,}}/>
+                            <ShoppingBagIcon color="red" fill="gray " size={24} />
                             <Text style={styles.numtext}>0</Text>
                         </View>
                     </TouchableOpacity>
