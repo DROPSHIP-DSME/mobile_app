@@ -308,8 +308,6 @@ const NameStore = (props) => {
 
             </View>
       </View>*/}
-
-             
         </View>
         <View style={tw.style('flex flex-row')}>
           <TouchableOpacity onPress={() => { cartdataSubmit(props?.getlistproductdetails?.data?._id) }} style={{ justifyContent: 'center', width: deviceWidth / 2, backgroundColor: "#B80000", borderRadius: 30, marginTop: "3%", height: 50, marginHorizontal: "5%" }}>
