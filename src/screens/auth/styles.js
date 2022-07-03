@@ -588,7 +588,7 @@ maincarbrand:{
 },
 mainbrandsingl:{
   width:deviceWidth/1.1,backgroundColor:'#ffffff',
-  padding:'4%',marginTop:'8%',borderRadius:15,alignSelf:'center'
+  padding:'4%',marginTop:'1%',borderRadius:15,alignSelf:'center'
 },
 maincartviewshop:{
   flexDirection:'row',justifyContent:'space-between',marginTop:'5%',marginHorizontal:'2%',

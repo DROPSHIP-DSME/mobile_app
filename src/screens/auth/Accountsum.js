@@ -20,6 +20,7 @@ import AwesomeAlert from 'react-native-awesome-alerts';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import Shopheader from '../../screens/auth/Shopheader';
 import tw from 'twrnc';
+import { ArrowRightIcon } from "react-native-heroicons/solid";
 import Smallbutton from '../../components/dropshipbutton/Smallbutton';
 
 
@@ -105,42 +106,44 @@ const Accountsum = (props) => {
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={styles.registrationRoot}>
-          
-             
+
+
             <ScrollView onScroll={({nativeEvent}) => {
 
                 handleScroll(nativeEvent['contentOffset'].y);
             }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#E5E5E5' }} >
-                <View style={tw.style('mx-4 pt-3')}>
+
+                <View style={tw.style('mx-4 pt-3 mb-4')}>
                     <Text style={tw`text-4xl text-red-700 font-bold pt-3 mt-4`}>My Account</Text>
                 </View>
-                <View style={{ flexDirection: "row", justifyContent: "space-between", marginHorizontal: "3%", paddingTop: "5%" }}>
+                <View style={tw.style('flex flex-row justify-between mx-4 pt-5')}>
                     <TouchableOpacity onPress={() => props.navigation.navigate("Account")}>
-                        <Text style={{ fontSize: 16, fontWeight: "bold", fontFamily: "hinted-AvertaStd-Regular", color: "#999999" }}>Personal Details</Text>
+                        <Text style={tw`text-base font-bold text-gray-400`}>Personal Details</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity onPress={() => props.navigation.navigate("Accountstore")}>
-                        <Text style={{ fontSize: 16, fontWeight: "bold", fontFamily: "hinted-AvertaStd-Regular", color: "#999999" }}>My store</Text>
+                        <Text style={tw`text-base font-bold text-gray-400`}>My store</Text>
                     </TouchableOpacity>
-                    <Text style={{ fontSize: 16, fontWeight: "bold", fontFamily: "hinted-AvertaStd-Regular", color: "#1A1A1A" }}>Account Summary</Text>
+                    <Text style={tw`text-base font-bold text-gray-800`}>Account Summary</Text>
                 </View>
 
-                <View style={{ flexDirection: 'row', marginHorizontal: "3%", marginTop: "2%" }}>
-                    <View style={{ borderBottomWidth: 2, borderColor: "#999999", width: "60%" }}></View>
-                    <View style={{ borderBottomWidth: 2, borderColor: "#1A1A1A", width: "40%" }}></View>
+
+                <View style={tw.style('flex flex-row mx-4 my-2')}>
+                  <View style={tw.style('border-b-2 border-gray-500 w-[35%]')}></View>
+                  <View style={tw.style('border-b-2 border-gray-500 w-[65%]')}></View>
                 </View>
 
                 <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 mt-4')}>
-                    <View style={tw.style('py-8 px-3 mx-4')}>
-                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginVertical: '2%', }}>
+                    <View style={tw.style('py-8 px-3')}>
+                        <View style={tw.style('flex flex-row justify-between items-center mb-5')}>
                             <View>
                                 <Text style={styles.totalincometodaysale}>Order History</Text>
                             </View>
-                            <View style={tw.style('flex flex-row justify-between items-center')}>
-                                <Smallbutton text="SEE ALL" onPress={() => props.navigation.navigate("Accountorderhist")}></Smallbutton>
-                            </View>
+
+                            <Smallbutton text="See All" onPress={() => props.navigation.navigate("Accountorderhist")}></Smallbutton>
                         </View>
-                        <View style={styles.salesViewTODAY}>
+
+                        <View style={tw.style('flex flex-row justify-between mx-1 p-4 bg-gray-200 rounded-md')}>
                             <Text style={styles.seriestext}>Order Number</Text>
                             <Text style={styles.seriestext}>Ordered by</Text>
                             <Text style={styles.seriestext}>Email </Text>
@@ -157,42 +160,35 @@ const Accountsum = (props) => {
                     </View>
                 </View>
 
+                <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 my-5')}>
+                  <View style={tw.style('px-2 py-5')}>
 
-
-                <View style={{ marginTop: "3%", marginHorizontal: "3%", borderRadius: 10, backgroundColor: "#ffffff", marginBottom: '30%' }}>
-
-                    <View style={{ marginHorizontal: "3%", marginTop: "4%" }}>
-                        <View>
-                            <Text style={{ fontSize: 20, fontWeight: "bold", fontFamily: "hinted-AvertaStd-Regular", color: "#1A1A1A" }}>Saved Items</Text>
-                        </View>
+                    <View style={tw.style('flex flex-row justify-between mx-4 mt-1 mb-5x')}>
+                        <Text style={tw`flex flex-row font-bold text-xl text-gray-900`}>Saved Items</Text>
                     </View>
 
-                    <TouchableOpacity onPress={() => props.navigation.navigate("Accountfav1")} style={{ flexDirection: "row", justifyContent: "space-between", marginHorizontal: "3%", marginTop: "4%" }}>
+                    <TouchableOpacity onPress={() => props.navigation.navigate("Accountfav1")} style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
                         <View>
-                            <Text style={{ fontSize: 16, fontWeight: "normal", fontFamily: "hinted-AvertaStd-Regular", color: "#1A1A1A" }}>My Favourites</Text>
+                            <Text style={tw.style('text-base text-gray-800')}>My Favourites</Text>
                         </View>
-                        <View>
-                            <Image source={ImageIcons.rightpop} style={{ width: 8, height: 11, marginRight: 8 }} />
-                        </View>
+                        <ArrowRightIcon color="red" fill="gray" size={24} />
                     </TouchableOpacity>
-                    <View style={{ borderBottomWidth: 0.7, marginTop: "2%", marginHorizontal: "3%", borderColor: "#999999" }}></View>
-                    <TouchableOpacity onPress={() => props.navigation.navigate("Accountdata")} style={{ flexDirection: "row", justifyContent: "space-between", marginHorizontal: "3%", marginTop: "4%" }}>
+                    <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
+                    <TouchableOpacity onPress={() => props.navigation.navigate("Accountdata")} style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
                         <View>
-                            <Text style={{ fontSize: 16, fontWeight: "normal", fontFamily: "hinted-AvertaStd-Regular", color: "#1A1A1A" }}>Bookmarks</Text>
+                            <Text style={tw.style('text-base text-gray-800')}>Bookmarks</Text>
                         </View>
-                        <View>
-                            <Image source={ImageIcons.rightpop} style={{ width: 8, height: 11, marginRight: 8 }} />
-                        </View>
+                        <ArrowRightIcon color="red" fill="gray" size={24} />
                     </TouchableOpacity>
-                    <View style={{ borderBottomWidth: 0.7, marginTop: "2%", marginHorizontal: "3%", borderColor: "#999999" }}></View>
-                    <TouchableOpacity onPress={() => props.navigation.navigate("Accountfollow")} style={{ flexDirection: "row", justifyContent: "space-between", marginHorizontal: "3%", marginTop: "4%" }}>
+                    <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
+                    <TouchableOpacity onPress={() => props.navigation.navigate("Accountfollow")} style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
                         <View style={{ marginBottom: "3%" }}>
-                            <Text style={{ fontSize: 16, fontWeight: "normal", fontFamily: "hinted-AvertaStd-Regular", color: "#1A1A1A" }}>Following</Text>
+                            <Text style={tw.style('text-base text-gray-800')}>Following</Text>
                         </View>
-                        <View>
-                            <Image source={ImageIcons.rightpop} style={{ width: 8, height: 11, marginRight: 8 }} />
-                        </View>
+                          <ArrowRightIcon color="red" fill="gray" size={24} />
                     </TouchableOpacity>
+                    <View style={tw.style('border-b mx-4 border-gray-500')}></View>
+                  </View>
                 </View>
 
 

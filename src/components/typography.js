@@ -17,6 +17,6 @@ const styles = StyleSheet.create({
     fontFamily: 'hintedavertastdregular',
   },
   titleText: {
-    fontFamily: 'hintedavertastdbold'
+    fontFamily: 'hintedavertastdregular'
   }
 });

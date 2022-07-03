@@ -19,13 +19,13 @@ import Footer2 from '../../screens/auth/Footer2';
 import SellHeader from '../../screens/auth/Sellheader';
 import Shopheader from '../../screens/auth/Shopheader';
 import Footer3 from '../../screens/auth/Footer3';
-
 import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import { Provider, Portal, } from 'react-native-paper';
 import Modal from 'react-native-modal'
 import tw from 'twrnc';
+import { ArrowRightIcon } from "react-native-heroicons/solid";
 import Smallbutton from '../../components/dropshipbutton/Smallbutton';
 
 import {
@@ -158,7 +158,7 @@ const Accountstore = (props) => {
 
   return (
     <View style={{ flex: 1 }}>
-      
+
 
       <ScrollView onScroll={({ nativeEvent }) => {
         handleScroll(nativeEvent['contentOffset'].y);
@@ -166,19 +166,19 @@ const Accountstore = (props) => {
 
 
 
-        <View style={tw.style('mx-4 pt-3')}>
+        <View style={tw.style('mx-4 pt-3 mb-4')}>
           <Text style={tw`text-4xl text-red-700 font-bold pt-3 mt-4`}>My Account</Text>
         </View>
 
-        <View style={{ flexDirection: "row", justifyContent: "space-between", marginHorizontal: "3%", paddingTop: "5%" }}>
+        <View style={tw.style('flex flex-row justify-between mx-4 pt-5')}>
           <TouchableOpacity onPress={() => props.navigation.navigate("Account")}>
-            <Text style={{ fontSize: 16, fontWeight: "bold", fontFamily: "hinted-AvertaStd-Regular", color: "#999999" }}>Personal Details</Text>
+            <Text style={tw`text-base font-bold text-gray-400`}>Personal Details</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => props.navigation.navigate("Accountstore")}>
-            <Text style={{ fontSize: 16, fontWeight: "bold", fontFamily: "hinted-AvertaStd-Regular", color: "#1a1a1a" }}>My store</Text>
+            <Text style={tw`text-base font-bold text-gray-800`}>My store</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => props.navigation.navigate("Accountsum")}>
-            <Text style={{ fontSize: 16, fontWeight: "bold", fontFamily: "hinted-AvertaStd-Regular", color: "#999999" }}>Account Summary</Text>
+            <Text style={tw`text-base font-bold text-gray-400`}>Account Summary</Text>
           </TouchableOpacity>
         </View>
 
@@ -188,19 +188,35 @@ const Accountstore = (props) => {
           <View style={{ borderBottomWidth: 2, borderColor: "#999999", width: "40%" }}></View>
         </View>
 
-        <View style={{ alignItems: 'center', }}>
-          <FlatList
-            data={props?.Brandlistdata || []}
-            renderItem={renderItem1}
-            keyExtractor={item => item.id}
-            showsHorizontalScrollIndicator={false}
-            numColumns={2}
-          />
+
+
+        <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 mt-10')}>
+          <View style={tw.style('px-2 py-5')}>
+            <FlatList
+              data={props?.Brandlistdata || []}
+              renderItem={renderItem1}
+              keyExtractor={item => item.id}
+              showsHorizontalScrollIndicator={false}
+              numColumns={2}
+            />
+          </View>
         </View>
 
-        <View style={{ flexDirection: 'row', width: deviceWidth / 1.1, backgroundColor: '#ffffff', padding: '4%', marginHorizontal: '4%', marginVertical: '5%', borderRadius: 10, alignSelf: 'center', justifyContent: 'space-between' }}>
-          <Text style={{ fontSize: 20, fontFamily: 'hinted-AvertaStd-Semibold', marginLeft: 5, color: '#1a1a1a' }}>Seller’s Dashboard</Text>
-          <Image source={ImageIcons.rightpop} style={{ width: 10, height: 15, marginTop: 5 }} />
+        <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 mt-8 mb-20')}>
+          <View style={tw.style('px-2 py-1')}>
+            <View style={tw.style('flex flex-row rounded-md bg-white justify-between items-center')}>
+                <View style={tw.style('my-4 px-2')}>
+                    <TouchableOpacity>
+                        <Text style={tw.style('text-xl font-bold text-gray-900')}>
+                            Seller's Dashboard
+                        </Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={tw.style('mx-4 my-4')}>
+                    <ArrowRightIcon color="gray" fill="gray" size={24} />
+                </View>
+            </View>
+          </View>
         </View>
 
 

@@ -129,22 +129,23 @@ const renderItem2 = ({ item,index }) => {
                 <Text style={tw.style('font-bold text-lg text-gray-700 mt-2')}>Total Income</Text>
                 <View style={tw.style('flex-row h-14 mb-1')}>
                   <View style={tw.style('flex-1 w-2/3')}>
-                    <Text style={tw.style('text-4xl text-gray-800')}>$0.00 {props?.getlistselldeshboard?.income}</Text>
+                    <Text style={tw.style('text-4xl text-gray-800')}>${props?.getlistselldeshboard?.income}</Text>
                   </View>
                   <View style={tw.style('flex-none')}>
-                    <Text >+32%</Text>
+                    <Text style={tw.style('items-center text-lg font-semibold text-green-600')}>+32%</Text>
                   </View>
                 </View>
               </View>
                { props?.getlistselldeshboard?.income>0 &&
-                <Text style={tw.style('items-center text-base font-semibold text-green-600')}>+32%</Text>
+                <Text style={tw.style('items-center text-lg font-semibold text-green-600')}>+32%</Text>
                 }
           </View>
-
-          <Smallbutton
-            text="Withdraw"
-            onPress={() => props.navigation.navigate("Dashwith")}
-          />
+          <View style={tw.style('w-6/12')}>
+            <Smallbutton
+              text="Withdraw"
+              onPress={() => props.navigation.navigate("Dashwith")}
+            />
+          </View>
         </View>
     );
     }
@@ -178,7 +179,7 @@ const renderItem2 = ({ item,index }) => {
 
     return (
      <View style={{flex:1}}>
-          
+
 
        <ScrollView onScroll={({nativeEvent}) => {
                 handleScroll(nativeEvent['contentOffset'].y);

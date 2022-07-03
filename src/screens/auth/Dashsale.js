@@ -128,7 +128,7 @@ const Dashsale = (props) => {
 
   return (
     <View style={tw.style('flex flex-1')}>
-     
+
 
 
       <ScrollView onScroll={({ nativeEvent }) => {
@@ -147,7 +147,7 @@ const Dashsale = (props) => {
           <Timeframe />
 
           <Sortfilter
-            text="sortfilter"
+            text="Sortfilter"
           />
         </View>
 
@@ -181,14 +181,14 @@ const Dashsale = (props) => {
 
         <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 mt-8')}>
           <View style={tw.style('py-8 px-3')}>
-            <View style={tw.style('flex flex-row justify-between mb-4')}>
+            <View style={tw.style('flex flex-row justify-between mb-8')}>
               <Text style={tw.style('text-xl text-gray-700 mt-2')}>Top Selling Product</Text>
               <Last30days />
             </View>
             <View style={tw.style('flex flex-row justify-between mx-1 p-4 bg-gray-200 rounded-md')}>
-              <Text style={styles.seriestext}>S/N</Text>
-              <Text style={styles.seriestext}>Products</Text>
-              <Text style={styles.seriestext}>Units sold</Text>
+              <Text style={tw`text-base text-gray-800`}>S/N</Text>
+              <Text style={tw`text-base text-gray-800`}>Products</Text>
+              <Text style={tw`text-base text-gray-800`}>Units sold</Text>
             </View>
             <View style={tw.style('mt-10')}>
               <FlatList
@@ -204,14 +204,14 @@ const Dashsale = (props) => {
 
         <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 mt-8 mb-20')}>
           <View style={tw.style('py-8 px-3')}>
-            <View style={tw.style('flex flex-row justify-between mb-4')}>
+            <View style={tw.style('flex flex-row justify-between mb-8')}>
               <Text style={tw.style('text-xl text-gray-700 mt-2')}>Top Categories</Text>
               <Last30days />
             </View>
             <View style={tw.style('flex flex-row justify-between mx-1 p-4 bg-gray-200 rounded-md')}>
-              <Text style={styles.seriestext}>S/N</Text>
-              <Text style={styles.seriestext}>Country</Text>
-              <Text style={styles.seriestext}>Total Sales</Text>
+              <Text style={tw`text-base text-gray-800`}>S/N</Text>
+              <Text style={tw`text-base text-gray-800`}>Country</Text>
+              <Text style={tw`text-base text-gray-800`}>Total Sales</Text>
             </View>
             <View style={tw.style('mt-10')}>
               <FlatList

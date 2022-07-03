@@ -8,11 +8,11 @@ const Sortfilter = ({text}) => {
 
     <View style={tw.style('bg-zinc-200 rounded-md ml-4 py-2')}>
       <View style={tw.style('flex flex-row w-auto px-3')}>
-       <View style={tw.style('mt-2')}>
+       <View style={tw.style('mt-1')}>
           <AdjustmentsIcon color="black" fill="#000000" size={20} />
        </View>
         <TouchableOpacity>
-            <Text style={tw.style('text-base text-gray-600 pt-1 ml-1')}>{text}</Text>
+            <Text style={tw.style('text-base text-gray-600 ml-1')}>{text}</Text>
         </TouchableOpacity>
       </View>
     </View>

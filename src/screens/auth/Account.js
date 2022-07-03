@@ -20,6 +20,8 @@ import AwesomeAlert from 'react-native-awesome-alerts';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import Shopheader from '../../screens/auth/Shopheader';
 import tw from 'twrnc';
+import { ArrowRightIcon } from "react-native-heroicons/solid";
+import { LogoutIcon } from "react-native-heroicons/outline";
 import moment from 'moment';
 const Account = (props) => {
 
@@ -146,7 +148,7 @@ const Account = (props) => {
         );
     }
 
-    // //     const renderItem = ({ 
+    // //     const renderItem = ({
 
 
     //    return(
@@ -186,22 +188,22 @@ const Account = (props) => {
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={tw`flex-1 justify-center`}>
-            
+
 
             <ScrollView onScroll={({ nativeEvent }) => {
                 handleScroll(nativeEvent['contentOffset'].y);
             }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={tw.style('bg-gray-100')} >
-                <View style={tw.style('mx-4 pt-3')}>
+                <View style={tw.style('mx-4 pt-3 mb-4')}>
                     <Text style={tw`text-4xl text-red-700 font-bold pt-3 mt-4`}>My Account</Text>
                 </View>
                 <View style={tw.style('flex flex-row justify-between mx-4 pt-5')}>
                     <Text style={tw`text-base font-bold text-gray-900`}>Personal Details</Text>
 
                     <TouchableOpacity onPress={() => props.navigation.navigate("Accountstore")}>
-                        <Text style={tw`text-base font-bold text-gray-500`}>My store</Text>
+                        <Text style={tw`text-base font-bold text-gray-400`}>My store</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => props.navigation.navigate("Accountsum")}>
-                        <Text style={tw`text-base font-bold text-gray-500`}>Account Summary</Text>
+                        <Text style={tw`text-base font-bold text-gray-400`}>Account Summary</Text>
                     </TouchableOpacity>
                 </View>
 
@@ -210,8 +212,9 @@ const Account = (props) => {
                     <View style={tw.style('border-b-2 border-gray-500 w-[65%]')}></View>
                 </View>
 
-                <View style={tw.style('mt-4 mx-4 rounded-md bg-white')}>
-                    <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
+                <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 my-5')}>
+                  <View style={tw.style('px-2 py-5')}>
+                    <View style={tw.style('flex flex-row justify-between mx-4 mt-2')}>
                         <View>
                             <Text style={tw`flex flex-row font-bold text-xl text-gray-900`}>My Profile</Text>
                         </View>
@@ -255,167 +258,177 @@ const Account = (props) => {
                             <Text style={tw`text-base font-normal text-gray-900`}>{props?.getprofileuserlist?.phone}</Text>
                         </View>
                     </View>
+                  </View>
                 </View>
 
 
-                <View style={tw.style('mt-4 mx-4 rounded-md bg-white')}>
-                    <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
-                        <View>
-                            <Text style={tw`text-xl font-bold text-gray-900`}>My Address</Text>
-                        </View>
-                        <TouchableOpacity onPress={() => props.navigation.navigate("editaddress")}>
-                            <Image source={ImageIcons.edit} style={tw.style('w-9 h-9')} />
-                        </TouchableOpacity>
-                    </View>
+                <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 my-5')}>
+                  <View style={tw.style('px-2 py-5')}>
+                      <View style={tw.style('flex flex-row justify-between mx-4 mt-2')}>
+                          <View>
+                              <Text style={tw`text-xl font-bold text-gray-900`}>My Address</Text>
+                          </View>
+                          <TouchableOpacity onPress={() => props.navigation.navigate("editaddress")}>
+                              <Image source={ImageIcons.edit} style={tw.style('w-9 h-9')} />
+                          </TouchableOpacity>
+                      </View>
 
-                    <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
-                        <View>
-                            <Text style={tw`text-base font-normal text-gray-900`}>Address line1</Text>
-                        </View>
-                        {(props?.getuseraddresslist && props?.getuseraddresslist?.length > 0) &&
-                            <View>
-                                <Text style={tw`text-base font-bold text-gray-900`}>{props?.getuseraddresslist[0]?.streetAdress}</Text>
-                            </View>
-                        }
-                    </View>
-                    <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
-                        <View>
-                            <Text style={tw`text-base font-normal text-gray-900`}>Address line2</Text>
-                        </View>
-                        {(props?.getuseraddresslist && props?.getuseraddresslist?.length > 0) &&
-                            <View>
-                                <Text style={tw`text-base font-bold text-gray-900`}>{props?.getuseraddresslist[0]?.phoneNumber}</Text>
-                            </View>
-                        }
-                    </View>
-                    <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
-                    <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
-                        <View>
-                            <Text style={tw`text-base font-normal text-gray-900`}>City</Text>
-                        </View>
-                        {(props?.getuseraddresslist && props?.getuseraddresslist?.length > 0) &&
-                            <View>
-                                <Text style={tw`text-base font-bold text-gray-900`}>{props?.getuseraddresslist[0]?.city}</Text>
-                            </View>
-                        }
-                    </View>
-                    <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
-                    <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
-                        <View>
-                            <Text style={tw.style('text-base font-normal text-gray-900')}>Zipcode</Text>
-                        </View>
-                        {(props?.getuseraddresslist && props?.getuseraddresslist?.length > 0) &&
-                            <View>
-                                <Text style={tw.style('text-base font-normal text-gray-900')}>{props?.getuseraddresslist[0]?.zipCode}</Text>
-                            </View>
-                        }
-                    </View>
-                    
+                      <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
+                          <View>
+                              <Text style={tw`text-base font-normal text-gray-900`}>Address line1</Text>
+                          </View>
+                          {(props?.getuseraddresslist && props?.getuseraddresslist?.length > 0) &&
+                              <View>
+                                  <Text style={tw`text-base font-bold text-gray-900`}>{props?.getuseraddresslist[0]?.streetAdress}</Text>
+                              </View>
+                          }
+                      </View>
+                      <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
+                          <View>
+                              <Text style={tw`text-base font-normal text-gray-900`}>Address line2</Text>
+                          </View>
+                          {(props?.getuseraddresslist && props?.getuseraddresslist?.length > 0) &&
+                              <View>
+                                  <Text style={tw`text-base font-bold text-gray-900`}>{props?.getuseraddresslist[0]?.phoneNumber}</Text>
+                              </View>
+                          }
+                      </View>
+                      <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
+                      <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
+                          <View>
+                              <Text style={tw`text-base font-normal text-gray-900`}>City</Text>
+                          </View>
+                          {(props?.getuseraddresslist && props?.getuseraddresslist?.length > 0) &&
+                              <View>
+                                  <Text style={tw`text-base font-bold text-gray-900`}>{props?.getuseraddresslist[0]?.city}</Text>
+                              </View>
+                          }
+                      </View>
+                      <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
+                      <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
+                          <View>
+                              <Text style={tw.style('text-base font-normal text-gray-900')}>Zipcode</Text>
+                          </View>
+                          {(props?.getuseraddresslist && props?.getuseraddresslist?.length > 0) &&
+                              <View>
+                                  <Text style={tw.style('text-base font-normal text-gray-900')}>{props?.getuseraddresslist[0]?.zipCode}</Text>
+                              </View>
+                          }
+                      </View>
+                  </View>
                 </View>
 
-                <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}>
-                    <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
-                        <View>
-                            <Text style={tw.style('text-xl font-bold text-gray-900')}>Payment Details</Text>
-                        </View>
-                        
-                    </View>
+                <View style={tw.style('mx-4')}>
+                  <View style={tw.style('px-2 py-5')}>
+                      <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
+                          <View>
+                              <Text style={tw.style('text-xl font-bold text-gray-900')}>Payment Details</Text>
+                          </View>
 
-                    <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
-                        <View>
-                            <Text style={tw.style('text-base font-normal text-gray-900')}>Payment Type</Text>
-                        </View>
-                        {(props?.getusercardlist && props?.getusercardlist?.length > 0) &&
-                            <View>
-                                <Text style={tw.style('text-base font-normal text-gray-900')}>{props?.getusercardlist[0]?.cardtype}</Text>
-                            </View>
-                        }
-                    </View>
-                    <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
-                    <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
-                        <View>
-                            <Text style={tw.style('text-base font-normal text-gray-900')}>Cashholder Name</Text>
-                        </View>
-                        {(props?.getusercardlist && props?.getusercardlist?.length > 0) &&
-                            <View>
-                                <Text style={tw.style('text-base font-normal text-gray-900')}>{props?.getusercardlist[0]?.name}</Text>
-                            </View>
-                        }
-                    </View>
-                    <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
-                    <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
-                        <View>
-                            <Text style={tw.style('text-base font-normal text-gray-900')}>Card Number</Text>
-                        </View>
-                        {(props?.getusercardlist && props?.getusercardlist?.length > 0) &&
-                            <View>
-                                <Text style={tw.style('text-base font-normal text-gray-900')}>{props?.getusercardlist[0]?.cardNumber}</Text>
-                            </View>
-                        }
-                    </View>
-                    <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
-                    <View style={tw.style('flex flex-row justify-between mx-4 mt-4 mb-3')}>
-                        <View>
-                            <Text style={tw.style('text-base font-normal text-gray-900')}>Expiry Date</Text>
-                        </View>
-                        {(props?.getusercardlist && props?.getusercardlist?.length > 0) &&
-                            <View>
-                                <Text style={tw.style('text-base font-normal text-gray-900')}>{props?.getusercardlist[0]?.expiry}</Text>
-                            </View>
-                        }
-                    </View>
+                      </View>
+
+                      <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
+                          <View>
+                              <Text style={tw.style('text-base font-normal text-gray-900')}>Payment Type</Text>
+                          </View>
+                          {(props?.getusercardlist && props?.getusercardlist?.length > 0) &&
+                              <View>
+                                  <Text style={tw.style('text-base font-normal text-gray-900')}>{props?.getusercardlist[0]?.cardtype}</Text>
+                              </View>
+                          }
+                      </View>
+                      <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
+                      <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
+                          <View>
+                              <Text style={tw.style('text-base font-normal text-gray-900')}>Cashholder Name</Text>
+                          </View>
+                          {(props?.getusercardlist && props?.getusercardlist?.length > 0) &&
+                              <View>
+                                  <Text style={tw.style('text-base font-normal text-gray-900')}>{props?.getusercardlist[0]?.name}</Text>
+                              </View>
+                          }
+                      </View>
+                      <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
+                      <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
+                          <View>
+                              <Text style={tw.style('text-base font-normal text-gray-900')}>Card Number</Text>
+                          </View>
+                          {(props?.getusercardlist && props?.getusercardlist?.length > 0) &&
+                              <View>
+                                  <Text style={tw.style('text-base font-normal text-gray-900')}>{props?.getusercardlist[0]?.cardNumber}</Text>
+                              </View>
+                          }
+                      </View>
+                      <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
+                      <View style={tw.style('flex flex-row justify-between mx-4 mt-4 mb-3')}>
+                          <View>
+                              <Text style={tw.style('text-base font-normal text-gray-900')}>Expiry Date</Text>
+                          </View>
+                          {(props?.getusercardlist && props?.getusercardlist?.length > 0) &&
+                              <View>
+                                  <Text style={tw.style('text-base font-normal text-gray-900')}>{props?.getusercardlist[0]?.expiry}</Text>
+                              </View>
+                          }
+                      </View>
+                  </View>
                 </View>
 
 
-                <View style={tw.style('mt-4 mx-4 rounded-md bg-white')}>
-                    <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
-                        <View>
-                            <Text style={tw.style('text-xl font-bold text-gray-900')}>Account Settings</Text>
-                        </View>
-                        
-                    </View>
+                <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4')}>
+                  <View style={tw.style('px-2 py-5')}>
+                      <View style={tw.style('flex flex-row justify-between mx-4 mt-4 mb-5')}>
+                          <View>
+                              <Text style={tw.style('text-xl font-bold text-gray-900')}>Account Settings</Text>
+                          </View>
 
-                    <TouchableOpacity onPress={() => props.navigation.navigate("Dashsupportacc")} style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
-                        <View>
-                            <Text style={tw.style('text-base font-normal text-gray-900')}>Customer Support</Text>
-                        </View>
-                        <View>
-                            <Image source={ImageIcons.rightpop} style={tw.style('w-2.5 h-3.5')} />
-                        </View>
-                    </TouchableOpacity>
-                    <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
-                    <TouchableOpacity onPress={() => props.navigation.navigate("editpassword")} style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
-                        <View>
-                            <Text style={tw.style('text-base font-normal text-gray-900')}>Change Password</Text>
-                        </View>
-                        <View>
-                            <Image source={ImageIcons.rightpop} style={tw.style('w-2.5 h-3.5')} />
-                        </View>
-                    </TouchableOpacity>
-                    <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
-                    <TouchableOpacity onPress={() => props.navigation.navigate("deletaccount")} style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
-                        <View style={tw.style('mb-3')}>
-                            <Text style={tw.style('text-base font-normal text-gray-900')}>Delete Account</Text>
-                        </View>
-                        <View>
-                            <Image source={ImageIcons.rightpop} style={tw.style('w-2.5 h-3.5')} />
-                        </View>
-                    </TouchableOpacity>
+                      </View>
+
+                      <TouchableOpacity onPress={() => props.navigation.navigate("Dashsupportacc")} style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
+                          <View>
+                              <Text style={tw.style('text-base font-normal text-gray-900')}>Customer Support</Text>
+                          </View>
+                          <View>
+                              <ArrowRightIcon color="red" fill="gray" size={24} />
+                          </View>
+                      </TouchableOpacity>
+                      <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
+                      <TouchableOpacity onPress={() => props.navigation.navigate("editpassword")} style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
+                          <View>
+                              <Text style={tw.style('text-base font-normal text-gray-900')}>Change Password</Text>
+                          </View>
+                          <View>
+                              <ArrowRightIcon color="red" fill="gray" size={24} />
+                          </View>
+                      </TouchableOpacity>
+                      <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
+                      <TouchableOpacity onPress={() => props.navigation.navigate("deletaccount")} style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
+                          <View style={tw.style('mb-3')}>
+                              <Text style={tw.style('text-base font-normal text-gray-900')}>Delete Account</Text>
+                          </View>
+                          <View>
+                              <ArrowRightIcon color="red" fill="gray" size={24} />
+                          </View>
+                      </TouchableOpacity>
+                      <View style={tw.style('border-b mx-4 border-gray-500')}></View>
+                  </View>
                 </View>
 
-                <View style={tw.style('flex flex-row mb-20 rounded-md bg-white mx-4 mt-4')}>
-                    <View style={tw.style('mx-4 my-4')}>
-                        <Image source={ImageIcons.signout} style={{ width: 21, height: 21 }} />
-                    </View>
+                <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 mt-8 mb-20')}>
+                  <View style={tw.style('px-2 py-1')}>
+                    <View style={tw.style('flex flex-row rounded-md bg-white items-center')}>
+                        <View style={tw.style('mx-4 my-4')}>
+                            <LogoutIcon color="gray" fill="white" size={24} />
+                        </View>
 
-                    <View style={tw.style('my-4')}>
-                        <TouchableOpacity onPress={() => props.navigation.navigate("Golive")}>
-                            <Text style={tw.style('text-xl font-bold text-gray-900')}>
-                                Sign Out
-                            </Text>
-                        </TouchableOpacity>
+                        <View style={tw.style('my-4')}>
+                            <TouchableOpacity onPress={() => props.navigation.navigate("Golive")}>
+                                <Text style={tw.style('text-xl font-bold text-gray-900')}>
+                                    Sign Out
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
                     </View>
-
+                  </View>
                 </View>
 
 

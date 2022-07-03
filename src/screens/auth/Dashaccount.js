@@ -17,13 +17,15 @@ import Swipeout from 'react-native-swipeout';
 import HorizontalSlider from 'react-horizontal-slider';
 import Footer2 from '../../screens/auth/Footer2';
 import SellHeader from '../../screens/auth/Sellheader';
-
 import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import { Provider, Portal, } from 'react-native-paper';
-import Modal from 'react-native-modal'
-import tw from 'twrnc'
+import Modal from 'react-native-modal';
+import tw from 'twrnc';
+import Editbutton from '../../components/pickers/Editbutton';
+import Deletebutton from '../../components/pickers/Deletebutton';
+import Largebutton from '../../components/dropshipbutton/Largebutton';
 
 import {
   LineChart,
@@ -80,7 +82,7 @@ const Dashaccount = (props) => {
   const ratingCompleted = (ratingdata) => {
     console.log('rating', ratingdata)
     if (ratingdata != "" && ratingdata != undefined) {
-      //setstarCount(ratingdata)  
+      //setstarCount(ratingdata)
     }
 
   }
@@ -175,12 +177,12 @@ const Dashaccount = (props) => {
 
       <View>
 
-        <TouchableOpacity onPress={() => openpopup()} style={styles.seledataViewTODAYaccount}>
+        <TouchableOpacity onPress={() => openpopup()} style={tw`flex flex-row justify-between mt-3`}>
 
-          <Text style={styles.seriestexttoday}>{item.text}</Text>
+          <Text style={tw`text-base font-bold text-gray-700`}>{item.text}</Text>
 
-          <Text style={styles.seriestexttoday}>{item.text1}</Text>
-          <Text style={styles.seriestexttoday}>{item.text2}</Text>
+          <Text style={tw`text-base font-bold text-gray-700`}>{item.text1}</Text>
+          <Text style={tw`text-base font-bold text-gray-700`}>{item.text2}</Text>
         </TouchableOpacity>
 
       </View>
@@ -198,97 +200,95 @@ const Dashaccount = (props) => {
         handleScroll(nativeEvent['contentOffset'].y);
       }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#f2f2f2' }} >
 
-        <TouchableOpacity style={{ flexDirection: 'row', justifyContent: 'space-between', marginHorizontal: '4%', marginTop: '5%' }}>
-          <Text style={{ fontSize: 26, color: '#1a1a1a', fontFamily: 'hinted-AvertaStd-Semibold', }}>My Account</Text>
+        <TouchableOpacity style={tw`flex flex-row justify-between mx-4 mt-8`}>
+          <Text style={tw`text-3xl text-gray-700`}>My Account</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={{ flexDirection: 'row', justifyContent: 'space-between', marginHorizontal: '4%', marginTop: '5%' }}>
-          <Text style={{ fontSize: 22, color: '#1a1a1a', fontFamily: 'hinted-AvertaStd-Semibold', }}>Account Balance</Text>
+        <TouchableOpacity style={tw`flex flex-row justify-between mx-4 mt-8`}>
+          <Text style={tw`text-lg text-gray-600`}>Account Balance</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={{ marginHorizontal: '4%', marginTop: '2%' }}>
-          <Text style={{ fontSize: 18, fontFamily: 'hinted-AvertaStd-Regular', color: '#1a1a1a' }}>Monitor your current account balance.</Text>
+        <TouchableOpacity style={tw`mx-4 mt-1`}>
+          <Text style={tw`text-base text-gray-600`}>Monitor your current account balance.</Text>
         </TouchableOpacity>
 
         <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 mt-8 p-3')}>
           <Text style={tw.style('text-xl text-gray-500')}>Account Balance</Text>
 
-          <Text style={{ fontSize: 32, fontFamily: 'hinted-AvertaStd-Semibold', color: '#1a1a1a', marginTop: '2%' }}>US$0</Text>
-          <Smallbutton text="WITHDRAW MONEY" onPress={() => props.navigation.navigate("Dashwith")}></Smallbutton>
-
+          <Text style={tw`text-3xl font-bold text-gray-800 mt-3`}>US $0</Text>
+          <View style={tw`w-6/11 mt-5`}>
+            <Smallbutton text="Withdraw Money" onPress={() => props.navigation.navigate("Dashwith")}></Smallbutton>
+          </View>
         </View>
 
-        <TouchableOpacity onPress={() => props.navigation.navigate("Dashsetting")} style={{ flexDirection: 'row', justifyContent: 'space-between', marginHorizontal: '4%', marginTop: '5%' }}>
-          <Text style={{ fontSize: 22, color: '#1a1a1a', fontFamily: 'hinted-AvertaStd-Semibold', }}>Bank Balance</Text>
+        <TouchableOpacity onPress={() => props.navigation.navigate("Dashsetting")} style={tw`flex flex-row justify-between mx-4 mt-12`}>
+          <Text style={tw`text-2xl text-red-700`}>Bank Balance</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => props.navigation.navigate("Dashsupport")} style={{ marginHorizontal: '4%', marginTop: '2%' }}>
+        <TouchableOpacity onPress={() => props.navigation.navigate("Dashsupport")} style={tw`mt-2 mx-4`}>
           <Text style={{ fontSize: 18, fontFamily: 'hinted-AvertaStd-Regular', color: '#1a1a1a' }}>Edit your associated bank account for withdrawals.</Text>
         </TouchableOpacity>
 
 
-        <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 mt-8 p-3')}>
+        <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 mt-8 px-3 py-5')}>
 
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginVertical: '3%' }}>
-            <TouchableOpacity style={{ backgroundColor: '#d0e3fb', height: 35, borderRadius: 10, padding: 10, }}>
-              <Text style={styles.totalincometodayWIDRO1}>DEFAULT BANK ACCOUNT</Text>
-            </TouchableOpacity>
-            <View style={{ flexDirection: 'row' }}>
-              <TouchableOpacity style={{ height: 40, width: 40, backgroundColor: '#e6e6e6', borderRadius: 4, padding: 8 }}>
-                <Image source={ImageIcons.edittoday} style={{ height: 12, width: 12, marginTop: 5, alignSelf: 'center' }} />
-              </TouchableOpacity>
-              <View style={{ height: 40, width: 40, backgroundColor: '#e6e6e6', borderRadius: 4, marginLeft: '4%', padding: 8, }}>
-                <Image source={ImageIcons.deletetoday} style={{ height: 12, width: 12, marginTop: 5, alignSelf: 'center' }} />
+              <View style={tw`flex flex-row justify-between`}>
+                <TouchableOpacity style={tw`items-center px-2.5 py-3 border border-transparent rounded bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500`}>
+                  <Text style={tw`text-xs font-medium text-indigo-700`}>DEFAULT BANK ACCOUNT</Text>
+                </TouchableOpacity>
+                <View style={tw`flex flex-row`}>
+                  <Editbutton />
+                  <Deletebutton />
+                </View>
               </View>
-            </View>
-          </View>
 
-          <TouchableOpacity onPress={() => props.navigation.navigate("Dashlive")}>
-            <Text style={{ fontSize: 18, fontFamily: 'hinted-AvertaStd-Semibold', color: '#1a1a1a', marginTop: '3%' }}>Account Details</Text>
-          </TouchableOpacity>
+              <TouchableOpacity onPress={() => props.navigation.navigate("Dashlive")}>
+                <Text style={tw`text-lg text-gray-700 mt-6`}>Account Details</Text>
+              </TouchableOpacity>
 
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: '4%' }}>
-            <Text style={{ fontSize: 16, fontFamily: 'hinted-AvertaStd-Semibold', color: '#666666' }}>Account Holder</Text>
-            <Text style={{ fontSize: 16, fontFamily: 'hinted-AvertaStd-Semibold', color: '#1a1a1a' }}>Mary Davis</Text>
-          </View>
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: '4%' }}>
-            <Text style={{ fontSize: 16, fontFamily: 'hinted-AvertaStd-Regular', color: '#666666' }}>Bank Name</Text>
-            <Text style={{ fontSize: 16, fontFamily: 'hinted-AvertaStd-Semibold', color: '#1a1a1a' }}>CRDB Bank</Text>
-          </View>
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: '4%' }}>
-            <Text style={{ fontSize: 16, fontFamily: 'hinted-AvertaStd-Regular', color: '#666666' }}>Order Status</Text>
-            <View style={[styles.pickerViewshorttodayagainsmall, { padding: 4 }]}>
-              <Text style={{ fontSize: 12, color: '#E25424', fontFamily: 'hinted-AvertaStd-Regular', textAlign: 'center' }}>PENDING</Text>
-            </View>
-          </View>
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: '4%' }}>
-            <Text style={{ fontSize: 16, fontFamily: 'hinted-AvertaStd-Regular', color: '#666666' }}>Date</Text>
-            <Text style={{ fontSize: 16, fontFamily: 'hinted-AvertaStd-Semibold', color: '#1a1a1a' }}>13 - 05 - 2022</Text>
-          </View>
+              <View style={tw`flex flex-row justify-between mt-5`}>
+                <Text style={tw`text-base text-gray-600`}>Account Holder</Text>
+                <Text style={tw`text-base text-gray-600`}>Mary Davis</Text>
+              </View>
+              <View style={tw`flex flex-row justify-between mt-5`}>
+                <Text style={tw`text-base text-gray-600`}>Bank Name</Text>
+                <Text style={tw`text-base text-gray-600`}>CRDB Bank</Text>
+              </View>
+              <View style={tw`flex flex-row justify-between mt-5`}>
+                <Text style={tw`text-base text-gray-600`}>Order Status</Text>
+                <View style={tw`items-center px-2.5 py-1.5 border border-transparent rounded bg-red-100 hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500`}>
+                  <Text style={tw`text-xs font-medium text-red-700`}>PENDING</Text>
+                </View>
+              </View>
+              <View style={tw`flex flex-row justify-between mt-5`}>
+                <Text style={tw`text-base text-gray-600`}>Date</Text>
+                <Text style={tw`text-base text-gray-600`}>13 - 05 - 2022</Text>
+              </View>
 
         </View>
-
-
-        <View style={{ backgroundColor: '#b80000', width: 320, borderRadius: 30, padding: '5%', alignSelf: 'center', marginTop: '8%' }}>
-          <Text style={styles.totalincometodaycompaign}>ADD AN ACCOUNT</Text>
+        <View style={tw`my-15`}>
+          <Largebutton
+          text="Add an Account" />
         </View>
 
-
-        <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 mt-8 p-3 mb-8')}>
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginVertical: '2%', }}>
+        <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 mt-8 p-3 mb-20')}>
+          <View style={tw.style('flex flex-row justify-between mb-8')}>
             <TouchableOpacity onPress={() => props.navigation.navigate("Dashreturn")} >
-              <Text style={styles.totalincometodaysale}>Withdrawals</Text>
+              <Text style={tw.style('text-xl text-gray-700 mt-2')}>Withdrawals</Text>
             </TouchableOpacity>
-            <View style={tw.style('flex flex-row justify-between items-center')}>
-              <Smallbutton text="SEE ALL" onPress={() => props.navigation.navigate("Dashaccountlist")}></Smallbutton>
-            </View>
+
+            <Smallbutton
+            text="See All"
+            onPress={() => props.navigation.navigate("Dashaccountlist")} />
+
           </View>
-          <View style={styles.salesViewTODAY}>
-            <Text style={styles.seriestext}>Date</Text>
-            <Text style={styles.seriestext}>Account</Text>
-            <Text style={styles.seriestext}>Amount </Text>
+
+          <View style={tw.style('flex flex-row justify-between mx-1 p-4 bg-gray-200 rounded-md')}>
+            <Text style={tw`text-base text-gray-800`}>Date</Text>
+            <Text style={tw`text-base text-gray-800`}>Account</Text>
+            <Text style={tw`text-base text-gray-800`}>Amount </Text>
           </View>
-          <View style={{ marginLeft: -10 }}>
+          <View style={tw.style("my-2 mx-3 mr-2")}>
             <FlatList
               data={DATA3}
               renderItem={renderItem3}
@@ -390,6 +390,3 @@ const Dashaccount = (props) => {
 
 
 export default Dashaccount
-
-
-
