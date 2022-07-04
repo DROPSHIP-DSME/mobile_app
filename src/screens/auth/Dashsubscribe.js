@@ -92,7 +92,7 @@ const deviceWidth = Dimensions.get('window').width;
          <View style={{flex:1}}>
         
         <View style={{padding:20,backgroundColor:'#B80000', height:'92%'}}>
-       <Image source={ImageIcons.workinprogress} style={{width:'100%', height:350}} />
+       <Image source={ImageIcons.workinprogress} style={{width:'100%', height:250}} />
        </View>
  
        <ScrollView onScroll={({nativeEvent}) => {
