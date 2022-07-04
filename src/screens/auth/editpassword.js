@@ -20,6 +20,7 @@ import AwesomeAlert from 'react-native-awesome-alerts';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import { RadioButton, Provider, Modal, Portal, Button, } from 'react-native-paper';
 import tw from 'twrnc';
+import Largebutton from '../../components/dropshipbutton/Largebutton';
 
 const editpassword = (props) => {
 
@@ -167,7 +168,7 @@ const editpassword = (props) => {
         );
     }
 
-    // //     const renderItem = ({ 
+    // //     const renderItem = ({
 
 
     //    return(
@@ -235,14 +236,8 @@ const editpassword = (props) => {
                 handleScroll(nativeEvent['contentOffset'].y);
             }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#ffffff' }} >
 
-                <View style={{ flexDirection: "row", marginHorizontal: "3%", marginVertical: "6%" }}>
-                    <Text style={{ fontSize: 15, fontWeight: "bold", fontFamily: "hinted-AvertaStd-Regular", color: "#999999" }}>PERSONAL DETAILS /</Text>
-                    <Text style={{ fontSize: 15, fontWeight: "bold", fontFamily: "hinted-AvertaStd-Regular", color: "#1A1A1A" }}>CHANGE PASSWORD</Text>
-
-                </View>
-
-                <View style={{ marginHorizontal: "3%" }}>
-                    <Text style={{ fontSize: 26, fontFamily: "hinted-AvertaStd-Regular", fontWeight: "bold" }}>Change Password</Text>
+                <View style={tw`mx-5 my-10`}>
+                    <Text style={tw`text-2xl font-bold text-gray-800`}>Change Password</Text>
                 </View>
 
                 <View style={[tw.style('border-gray-200 rounded-md bg-gray-200 h-14 self-center mt-4 mx-2'), { width: deviceWidth / 1.1 }]}>
@@ -279,9 +274,11 @@ const editpassword = (props) => {
 
 
 
-                <TouchableOpacity onPress={() => { openpopup(), handleRegistrationSubmit() }} style={{ width: deviceWidth / 1.1, backgroundColor: "#B80000", borderRadius: 30, marginTop: "5%", height: 63, marginLeft: "4%", marginBottom: "50%" }} >
-                    <Text style={{ textAlign: 'center', color: "#FFFFFF", fontWeight: 'bold', fontSize: 18, top: 18 }}>SAVE CHANGES</Text>
-                </TouchableOpacity>
+                <View style={tw`mt-10`}>
+                <Largebutton
+                text="Save Changes"
+                onPress={() => { openpopup(), handleRegistrationSubmit() }} />
+                </View>
 
                 {openpopup &&
                     <Provider>

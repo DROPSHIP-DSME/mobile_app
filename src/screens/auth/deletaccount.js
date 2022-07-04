@@ -21,6 +21,7 @@ import { Rating, AirbnbRating } from 'react-native-ratings';
 import Shopheader from '../../screens/auth/Shopheader';
 import { RadioButton, Provider, Modal, Portal, Button, } from 'react-native-paper';
 import tw from 'twrnc';
+import Medbutton from '../../components/dropshipbutton/Medbutton';
 
 const deletaccount = (props) => {
 
@@ -106,7 +107,7 @@ const deletaccount = (props) => {
 
   const setdeleteaddress = async (id) => {
     props.deleteaddress(id);
-    //setTimeout(function(){ props.getuseraddress(props?.loginuserid); },100);   
+    //setTimeout(function(){ props.getuseraddress(props?.loginuserid); },100);
   }
 
   const containerStyle = { backgroundColor: 'white', padding: 15, marginHorizontal: '5%', borderRadius: 10 };
@@ -150,7 +151,7 @@ const deletaccount = (props) => {
     );
   }
 
-  // //     const renderItem = ({ 
+  // //     const renderItem = ({
 
 
   //    return(
@@ -190,92 +191,90 @@ const deletaccount = (props) => {
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={tw.style('flex-1 justify-center')}>
-     
+
 
       <ScrollView onScroll={({ nativeEvent }) => {
         handleScroll(nativeEvent['contentOffset'].y);
       }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#ffffff' }} >
 
-        <View style={{ flexDirection: "row", marginHorizontal: "3%", marginVertical: "6%" }}>
-          <Text style={{ fontSize: 15, fontWeight: "bold", fontFamily: "hinted-AvertaStd-Regular", color: "#999999" }}>PERSONAL DETAILS /</Text>
-          <Text style={{ fontSize: 15, fontWeight: "bold", fontFamily: "hinted-AvertaStd-Regular", color: "#1A1A1A" }}>DELETE ACCOUNT</Text>
-
+        <View style={tw`mt-20 mb-5 mx-4`}>
+          <Text style={tw`text-3xl font-bold text-gray-800`}>Delete Account</Text>
         </View>
 
-        <View style={{ marginHorizontal: "3%" }}>
-          <Text style={{ fontSize: 26, fontFamily: "hinted-AvertaStd-Regular", fontWeight: "bold" }}>Delete Account</Text>
+        <View style={tw`mx-4 my-5`}>
+          <Text style={tw`text-xl font-bold text-gray-800`}>Reasons for Deleting </Text>
         </View>
 
-        <View style={{ marginHorizontal: "3%", marginTop: "4%" }}>
-          <Text style={{ fontSize: 20, fontFamily: "hinted-AvertaStd-Semibold", }}>Reasons for Deleting </Text>
-        </View>
-
-        <View style={{ marginHorizontal: "3%", marginTop: "4%" }}>
-          <Text style={{ fontSize: 18, fontFamily: "hinted-AvertaStd-Regular", }}>We’re sorry to see you go.
+        <View style={tw`mx-4`}>
+          <Text style={tw`text-base text-gray-800 mb-8`}>We’re sorry to see you go.
             Please let us know the
             specific reason you’re choosing to terminate your account.</Text>
         </View>
 
-        <View style={{ marginTop: "6%" }}>
-          <View style={{ flexDirection: "row", elevation: 1, marginHorizontal: "4%", backgroundColor: "#FAFAFA" }}>
+        <View style={tw`mx-4`}>
+          <View style={tw`flex flex-row bg-gray-100 items-center my-3 px-2 py-3`}>
             <RadioButton
               value="first"
               status={checked === 'first' ? 'checked' : 'unchecked'}
               onPress={() => setChecked('first')}
             />
 
-            <Text style={{ paddingTop: "2%", fontSize: 18, fontFamily: "hinted-AvertaStd-Semibold", color: "#B80000", lineHeight: 23, paddingHorizontal: "2%" }}>I’m no longer interested in the {"\n"}selling/shopping online.</Text>
+            <Text style={tw`text-base text-red-700 ml-2`}>I’m no longer interested in the {"\n"}selling/shopping online.</Text>
           </View>
 
-          <View style={{ flexDirection: "row", marginTop: "4%", flexDirection: "row", elevation: 1, marginHorizontal: "4%", backgroundColor: "#FAFAFA" }}>
+          <View style={tw`flex flex-row bg-gray-100 items-center my-3 px-2 py-3`}>
             <RadioButton
               value="second"
               status={checked === 'second' ? 'checked' : 'unchecked'}
               onPress={() => setChecked('second')}
             />
-            <Text style={{ paddingTop: "2%", fontSize: 18, fontFamily: "hinted-AvertaStd-Semibold", color: "#808080", lineHeight: 23, paddingHorizontal: "2%" }}>I already have another platform.</Text>
+            <Text style={tw`text-base text-gray-600 ml-2`}>I already have another platform.</Text>
           </View>
 
-          <View style={{ flexDirection: "row", marginTop: "4%", flexDirection: "row", elevation: 1, marginHorizontal: "4%", backgroundColor: "#FAFAFA" }}>
+          <View style={tw`flex flex-row bg-gray-100 items-center my-3 px-2 py-3`}>
             <RadioButton
               value="third"
               status={checked === 'third' ? 'checked' : 'unchecked'}
               onPress={() => setChecked('third')}
             />
-            <Text style={{ paddingTop: "2%", fontSize: 18, fontFamily: "hinted-AvertaStd-Semibold", color: "#808080", lineHeight: 23, paddingHorizontal: "2%" }}>I don’t have a specific reason.</Text>
+            <Text style={tw`text-base text-gray-600 ml-2`}>I don’t have a specific reason.</Text>
           </View>
 
         </View>
 
-        <View style={[tw.style('border-gray-200 rounded-md bg-gray-200 h-14 self-center mt-4 mx-2'), { width: deviceWidth / 1.1 }]}>
-          <TextInput
-            placeholder="Add more details about your reason (optional)"
-            placeholderTextColor="#1a1a1a"
-            paddingLeft={15}
-          />
+        <View style={tw.style('mx-4')}>
+          <View style={tw.style('border-gray-100 rounded-md bg-gray-200 h-40 self-center mt-4 w-12/12')}>
+            <TextInput
+              placeholder="Add more details about your reason (optional)"
+              placeholderTextColor="#1a1a1a"
+              paddingLeft={15}
+            />
+          </View>
         </View>
 
-        <View style={{ marginHorizontal: "3%", marginTop: "4%" }}>
-          <Text style={{ fontSize: 18, fontFamily: "hinted-AvertaStd-Regular", color: "#1A1A1A" }}>Deleting your account will remove all of your
+        <View style={tw`mx-4 my-5`}>
+          <Text style={tw`text-lg text-gray-600 ml-2`}>Deleting your account will remove all of your
             information from our database. This cannot be undone. </Text>
         </View>
 
-        <View style={{ marginHorizontal: "3%", marginTop: "6%" }}>
+        <View style={tw`mx-5 mt-10`}>
           <Text style={{ fontSize: 14, fontFamily: "hinted-AvertaStd-Regular", color: "#1A1A1A" }}>To confirm this, type ‘DELETE’ below.</Text>
         </View>
 
-        <View style={[tw.style('border-gray-200 rounded-md bg-gray-200 h-14'), { marginTop: '2%', width: deviceWidth / 1.1, width: 260, backgroundColor: "#e6e6e6", marginHorizontal: "3%", borderRadius: 10 }]}>
-          <TextInput
-
-            placeholderTextColor="#1a1a1a"
-            paddingLeft={15}
-          />
+        <View style={tw.style('mx-4')}>
+          <View style={tw.style('border-gray-200 rounded-md bg-gray-200 h-14  w-72 mt-3')}>
+            <TextInput
+              placeholderTextColor="#1a1a1a"
+              paddingLeft={15}
+            />
+          </View>
         </View>
 
-
-        <TouchableOpacity onPress={() => setdeleteaddress(item._id)} style={{ width: deviceWidth / 2.1, padding: 12, backgroundColor: "#B80000", borderRadius: 30, marginTop: "5%", height: 43, marginLeft: "4%", marginBottom: "50%" }} >
-          <Text style={{ textAlign: 'center', color: "#FFFFFF", fontWeight: 'bold', fontSize: 14, }}>DELETE ACCOUNT</Text>
-        </TouchableOpacity>
+        <View style={tw`mx-4 w-72 mt-5 mb-20`}>
+        <Medbutton
+        text="DELETE ACCOUNT"
+        onPress = {() => setdeleteaddress(item._id)} />
+        </View>
 
         {openpopup &&
           <Provider>
