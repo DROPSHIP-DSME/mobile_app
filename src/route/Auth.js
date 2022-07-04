@@ -355,7 +355,7 @@ const Auth = (props) => {
         component={editpassword}
         options={({ navigation }) => ({
                         headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
+                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
                         headerRight: () => <RightMenuItem navigation={navigation}  />,
                         headerTitle: "",
                         headerTitleAlign: "center",
@@ -425,7 +425,7 @@ const Auth = (props) => {
         component={editaddress}
         options={({ navigation }) => ({
                         headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
+                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
                         headerRight: () => <RightMenuItem navigation={navigation}  />,
                         headerTitle: "",
                         headerTitleAlign: "center",
@@ -620,7 +620,7 @@ const Auth = (props) => {
         component={editprofile}
         options={({ navigation }) => ({
                         headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
+                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
                         headerRight: () => <RightMenuItem navigation={navigation}  />,
                         headerTitle: "",
                         headerTitleAlign: "center",
@@ -648,7 +648,7 @@ const Auth = (props) => {
         component={editviewaddress}
          options={({ navigation }) => ({
                         headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
+                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
                         headerRight: () => <RightMenuItem navigation={navigation}  />,
                         headerTitle: "",
                         headerTitleAlign: "center",
@@ -1230,7 +1230,15 @@ const Auth = (props) => {
        <Stack.Screen
         name="Accountbrand"
         component={Accountbrand}
-        options={{ title: '', headerShown: false }}
+         options={({ navigation }) => ({
+                        headerShown: true,
+                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerTitle: "",
+                        headerTitleAlign: "center",
+                        headerTitleStyle: styles.titleheaderstyle,
+                        headerStyle: styles.headerbackgroundstyle,
+                    })}
       />
        <Stack.Screen
         name="Accountpublish"
@@ -1266,7 +1274,15 @@ const Auth = (props) => {
        <Stack.Screen
         name="Accountbrandlist"
         component={Accountbrandlist}
-        options={{ title: '', headerShown: false }}
+        options={({ navigation }) => ({
+                        headerShown: true,
+                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerTitle: "",
+                        headerTitleAlign: "center",
+                        headerTitleStyle: styles.titleheaderstyle,
+                        headerStyle: styles.headerbackgroundstyle,
+                    })}
       />
        <Stack.Screen
         name="Accountdata"
@@ -1447,7 +1463,7 @@ const Auth = (props) => {
         component={Dashsupportacc}
         options={({ navigation }) => ({
                         headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
+                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
                         headerRight: () => <RightMenuItemsell navigation={navigation}  />,
                         headerTitle: "",
                         headerTitleAlign: "center",
@@ -1789,14 +1805,13 @@ const Auth = (props) => {
         component={changepassword}
         options={({ navigation }) => ({
                         headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Create New Password",
+                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
+                        headerRight: () => <RightMenuItemsell navigation={navigation}  />,
+                        headerTitle: "",
                         headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor: '#FFE7E7', elevation: 0, shadowOpacity: 0 },
+                        headerTitleStyle: styles.titleheaderstyle,
+                        headerStyle: styles.headerbackgroundstyle,
                     })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
       />
          
       <Stack.Screen 
@@ -1848,7 +1863,7 @@ const Auth = (props) => {
 
 const LeftMenuItem = ({ navigation, isMenu }) => {
     return (
-       <View style={styles.leftLabel}>
+       <View style={isMenu ? styles.leftLabel: styles.leftLabelfalse}>
            <TouchableOpacity onPress={() => {
                 if (isMenu) {
                     navigation?.goBack()
@@ -1856,8 +1871,12 @@ const LeftMenuItem = ({ navigation, isMenu }) => {
                     navigation?.goBack();
                 }
             }}
-            style={{ marginLeft: '5%',marginRight:15 }}>
-                <Image source={isMenu ? ImageIcons.logored : ImageIcons.backlefticon} style={{width:65,height:53}}/>
+            style={{ paddingLeft: '5%',marginRight:15 }}>
+               {isMenu ?
+                <Image source={ImageIcons.logored} style={{width:65,height:53}}/>
+               :
+                <Image source={ImageIcons.backlefticon} style={{width:45,height:45, tintColor:'#FFFFFF'}}/>
+              }
             </TouchableOpacity>
         </View>
     )
@@ -1930,6 +1949,15 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         flexDirection:'row',
         marginTop:-40
+    },
+    leftLabelfalse:{
+      height: wp('6%'),
+        width: wp('25%'),
+        paddingHorizontal: 8,
+        marginRight: 20,
+        justifyContent: 'center',
+        flexDirection:'row',
+        marginTop:-20
     },
     rightLabel: {
         height: wp('6%'),

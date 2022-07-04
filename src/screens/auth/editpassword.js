@@ -208,29 +208,7 @@ const editpassword = (props) => {
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={tw.style('flex-1 justify-center')}>
-            <StatusBar backgroundColor={showclassName} barStyle="dark-content" translucent={true} />
-            <View style={{ flexDirection: 'row', backgroundColor: showclassName, alignItems: 'center', justifyContent: 'space-between', top: '3%', zIndex: 1001, width: '100%', padding: '3%' }}>
-
-                <View>
-                    {showclassName == '#B80000' ?
-                        <Image source={ImageIcons.logored_1} style={{ width: 70, height: 57 }} />
-                        :
-                        <Image source={ImageIcons.logored} style={{ width: 70, height: 57 }} />
-                    }
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginRight: 20 }}>
-                    <View >
-                        <Image source={ImageIcons.white_search} style={{ width: 21, height: 20 }} />
-                    </View>
-                    <View style={{ marginHorizontal: '5%' }}>
-                        <Image source={ImageIcons.bell} style={{ width: 21, height: 21, }} />
-                    </View>
-                    <View style={{ flexDirection: 'row' }}>
-                        <Image source={ImageIcons.whitecart} style={{ width: 18, height: 20.6, }} />
-                        <Text style={tw.style('text-xl font-bold ml-[5px] text-white text-center')}>0</Text>
-                    </View>
-                </View>
-            </View>
+            
 
             <ScrollView onScroll={({ nativeEvent }) => {
                 handleScroll(nativeEvent['contentOffset'].y);

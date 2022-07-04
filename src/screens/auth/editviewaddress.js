@@ -32,7 +32,7 @@ const editviewaddress = (props) => {
 
    
     useEffect(() => {
-       props.getAllshop(1);
+        props.getAllshop(1);
     }, [])
     useFocusEffect(() => {
          //props.getAllshop(1);

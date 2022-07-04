@@ -1,5 +1,5 @@
 import React, { useEffect,useRef, useState } from 'react';
-import { Text, View,Image,TextInput, ImageBackground,FlatList,Picker,StatusBar,Dimensions,ScrollView, Alert, TouchableOpacity,  KeyboardAvoidingView, Platform,Keyboard,ProgressBarAndroid} from 'react-native';
+import { Text, View,Image,TextInput, ImageBackground,FlatList,Picker,StatusBar,Dimensions,ScrollView, Alert, TouchableOpacity,  KeyboardAvoidingView, Platform,Keyboard,ProgressBarAndroid, Linking} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
@@ -25,7 +25,7 @@ import { Provider , Portal,} from 'react-native-paper';
 import Modal from 'react-native-modal'
 import Shopheader from '../../screens/auth/Shopheader';
 import moment from 'moment';
-
+ 
 import {
   LineChart,
   BarChart,
@@ -111,6 +111,34 @@ const deviceWidth = Dimensions.get('window').width;
         props.support(request, props.navigation, "vendor");
     }
 
+    const linkedin=()=>{
+        Linking.openURL('https://www.linkedin.com/company/dropship-shop/?viewAsMember=true')
+    }
+
+    const instragram=()=>{
+        Linking.openURL('https://www.instagram.com/dropship_la/')
+    }
+
+    const twitter=()=>{
+        Linking.openURL('https://twitter.com/Dropship_app')
+    }
+
+    const facebook=()=>{
+        Linking.openURL('https://www.facebook.com/dropship')
+    }
+
+    const phonenumber=(phoneNumber)=>{
+        Linking.openURL(`tel:${phoneNumber}`)
+    }
+    
+    const sendemail=(email)=>{
+        Linking.openURL(`mailto:${email}`)
+    }
+
+    const google=()=>{
+        Linking.openURL('https://www.google.com/')
+    }
+
 
     const containerStyle = {backgroundColor: 'red', padding: '7%',marginHorizontal:'5%',alignItems:'center',};
 
@@ -160,38 +188,51 @@ const deviceWidth = Dimensions.get('window').width;
               <View style={{width:deviceWidth/1.1,backgroundColor:'#ffffff',padding:'4%',alignSelf:'center',marginTop:'5%',borderRadius:15,marginBottom:"5%"}}>
 
 
-               <View style={{flexDirection:'row',marginTop:'4%'}}>
-               <Image source={ImageIcons.calltoday} style={{width:21,height:21,}}/>
-                  <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular',color:'#1a1a1a',alignSelf:'center',marginLeft:'3%'}}>+1-555-555-5555</Text>
-               </View>
+                <TouchableOpacity onPress={() => { phonenumber('+15854690695') }}>
+                   <View style={{flexDirection:'row',marginTop:'4%'}}>
+                        <Image source={ImageIcons.calltoday} style={{width:21,height:21,}}/>
+                      <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular',color:'#1a1a1a',alignSelf:'center',marginLeft:'3%'}}>+1-585-469-0695</Text>
+                   </View>
+                </TouchableOpacity>
 
-
-               <View style={{flexDirection:'row',marginTop:'4%'}}>
-               <Image source={ImageIcons.smstoday} style={{width:21,height:21,}}/>
-                  <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular',color:'#1a1a1a',alignSelf:'center',marginLeft:'3%'}}>info@dropship.com</Text>
-               </View>
+                <TouchableOpacity onPress={() => { sendemail('info@dropship.shopping') }}>
+                   <View style={{flexDirection:'row',marginTop:'4%'}}>
+                        <Image source={ImageIcons.smstoday} style={{width:21,height:21,}}/>
+                        <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular',color:'#1a1a1a',alignSelf:'center',marginLeft:'3%'}}>info@dropship.shopping</Text>
+                   </View>
+                </TouchableOpacity>
 
                <View style={{borderBottomWidth:2,borderColor:'#e6e6e6',width:'100%',alignSelf:'center',marginVertical:'4%'}}></View>
 
                 <View>
                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',color:'#000000'}}>Or you can reach out to us via social media</Text>
                </View>
-
+ 
               <View style={{flexDirection:'row',justifyContent:'space-between',marginVertical:'5%'}}>
                 <View style={{height:45,width:45,borderRadius:25,backgroundColor:'#ffffff',elevation:4,padding:'4%'}}>
-                   <Image source={ImageIcons.facebook} style={{width:21,height:21,alignSelf:'center',}}/>
+                    <TouchableOpacity onPress={() => { facebook() }}>
+                        <Image source={ImageIcons.facebook} style={{width:10,height:18,alignSelf:'center'}}/>
+                    </TouchableOpacity>
+                </View>
+                <View style={{height:45,width:45,borderRadius:25,backgroundColor:'#ffffff',elevation:4,padding:'4%'}}>
+                    <TouchableOpacity onPress={() => { google() }}>
+                        <Image source={ImageIcons.google} style={{width:21,height:21,alignSelf:'center'}}/>
+                    </TouchableOpacity>
+                </View>
+                <View style={{height:45,width:45,borderRadius:25,backgroundColor:'#ffffff',elevation:4,padding:'4%'}}>
+                    <TouchableOpacity onPress={() => { instragram() }}>
+                        <Image source={ImageIcons.message} style={{width:21,height:21,alignSelf:'center'}}/>
+                    </TouchableOpacity>
                 </View>
                  <View style={{height:45,width:45,borderRadius:25,backgroundColor:'#ffffff',elevation:4,padding:'4%'}}>
-                   <Image source={ImageIcons.google} style={{width:21,height:21,alignSelf:'center',}}/>
+                   <TouchableOpacity onPress={() => { twitter() }}>
+                        <Image source={ImageIcons.twitter} style={{width:21,height:21,alignSelf:'center',}}/>
+                   </TouchableOpacity>
                 </View>
                  <View style={{height:45,width:45,borderRadius:25,backgroundColor:'#ffffff',elevation:4,padding:'4%'}}>
-                   <Image source={ImageIcons.message} style={{width:21,height:21,alignSelf:'center',}}/>
-                </View>
-                 <View style={{height:45,width:45,borderRadius:25,backgroundColor:'#ffffff',elevation:4,padding:'4%'}}>
-                   <Image source={ImageIcons.twitter} style={{width:21,height:21,alignSelf:'center',}}/>
-                </View>
-                 <View style={{height:45,width:45,borderRadius:25,backgroundColor:'#ffffff',elevation:4,padding:'4%'}}>
-                   <Image source={ImageIcons.linkin} style={{width:21,height:21,alignSelf:'center',}}/>
+                    <TouchableOpacity onPress={() => { linkedin() }}>
+                        <Image source={ImageIcons.linkin} style={{width:21,height:21,alignSelf:'center'}}/>
+                    </TouchableOpacity>
                 </View>
               </View>
 
