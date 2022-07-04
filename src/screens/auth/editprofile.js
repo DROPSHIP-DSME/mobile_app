@@ -20,6 +20,7 @@ import AwesomeAlert from 'react-native-awesome-alerts';
 import Shopheader from '../../screens/auth/Shopheader';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import tw from 'twrnc';
+import Largebutton from '../../components/dropshipbutton/Largebutton';
 
 
 const editprofile = (props) => {
@@ -35,8 +36,8 @@ const editprofile = (props) => {
 
     useEffect(() => {
         //props.editUser();
-        props.getprofileuser(props?.loginuserid); 
-    }, []) 
+        props.getprofileuser(props?.loginuserid);
+    }, [])
 
     useFocusEffect(() => {
         //props.getAllshop(1);
@@ -86,8 +87,8 @@ const editprofile = (props) => {
             }
             console.log("request-->>",request)
            props.newprofile(request, props.navigation, "vendor",0);
-           setTimeout(function(){ 
-                props.getprofileuser(props?.loginuserid); 
+           setTimeout(function(){
+                props.getprofileuser(props?.loginuserid);
                 props.navigation.navigate("Account")
             },1000);
         }
@@ -160,7 +161,7 @@ const editprofile = (props) => {
         );
     }
 
-    // //     const renderItem = ({ 
+    // //     const renderItem = ({
 
 
     //    return(
@@ -200,24 +201,18 @@ const editprofile = (props) => {
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={tw.style('flex-1 justify-center')}>
-            
+
 
             <ScrollView onScroll={({ nativeEvent }) => {
                 handleScroll(nativeEvent['contentOffset'].y);
             }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#ffffff' }} >
 
-                <View style={{ flexDirection: "row", marginHorizontal: "3%", marginVertical: "6%" }}>
-                    <Text style={{ fontSize: 15, fontWeight: "bold", fontFamily: "hinted-AvertaStd-Regular", color: "#999999" }}>PERSONAL DETAILS /</Text>
-                    <Text style={{ fontSize: 15, fontWeight: "bold", fontFamily: "hinted-AvertaStd-Regular", color: "#1A1A1A" }}> EDIT PROFILE</Text>
-
-                </View>
-
                 <View style={{ marginHorizontal: "3%" }}>
-                    <Text style={{ fontSize: 26, fontFamily: "hinted-AvertaStd-Regular", fontWeight: "bold" }}>Edit Profile</Text>
+                    <Text style={tw.style('text-2xl font-bold my-8 mx-2')}>Edit Profile</Text>
                 </View>
 
                 <View style={[tw.style('border-gray-200 rounded-md bg-gray-200 h-14 self-center mt-4 mx-2'), { width: deviceWidth / 1.1 }]}>
-                    <TextInput 
+                    <TextInput
                          placeholder="First Name"
                          placeholderTextColor="#1a1a1a"
                          onChangeText={(name) =>onChangeName(name)}
@@ -229,7 +224,7 @@ const editprofile = (props) => {
                 </View>
 
                 <View style={[tw.style('border-gray-200 rounded-md bg-gray-200 h-14 self-center mt-4 mx-2'), { width: deviceWidth / 1.1 }]}>
-                    <TextInput 
+                    <TextInput
                  placeholder="Last Name"
                  placeholderTextColor="#1a1a1a"
                  onChangeText={(lastname) =>onChangelastname(lastname)}
@@ -239,7 +234,7 @@ const editprofile = (props) => {
                  />
                 </View>
                 <View style={[tw.style('border-gray-200 rounded-md bg-gray-200 h-14 self-center mt-4 mx-2'), { width: deviceWidth / 1.1 }]}>
-                    <TextInput 
+                    <TextInput
                  placeholder="Email Address"
                  placeholderTextColor="#1a1a1a"
                  onChangeText={(Email) =>onChangeEmail(Email)}
@@ -249,8 +244,8 @@ const editprofile = (props) => {
                  />
                 </View>
 
-                <View style={{ flexDirection: 'row', marginHorizontal: '4%', justifyContent: 'space-between', marginTop: '7%' }}>
-                    <View style={{ height: 55, width: 120, backgroundColor: '#e6e6e6', borderRadius: 10, }}>
+                <View style={tw.style('flex flex-row mx-5 justify-between mt-4')}>
+                    <View style={tw.style('h-14 w-3/11 mr-3 bg-gray-200 rounded-md')}>
                         <Picker
                         selectedValue={selectedValue}
                         style={{ height: 55, width: 120,color:'#4d4d4d',}}
@@ -261,8 +256,8 @@ const editprofile = (props) => {
                         <Picker.Item label="+91" value="91" />
                     </Picker>
                     </View>
-                    <View style={{ borderColor: '#e6e6e6', borderRadius: 10, width: 198, backgroundColor: '#e6e6e6', height: 55, alignSelf: 'center', }}>
-                        <TextInput 
+                    <View style={tw.style('h-14 w-7/11 bg-gray-200 rounded-md')}>
+                        <TextInput
                          placeholder="Phone Number"
                          placeholderTextColor="#1a1a1a"
                          onChangeText={(number) =>onChangeNumber(number)}
@@ -272,11 +267,11 @@ const editprofile = (props) => {
                          />
                     </View>
                 </View>
-
-                <TouchableOpacity onPress={()=>{ handleSendRequestSubmit()}}  style={{ width: deviceWidth / 1.1, backgroundColor: "#B80000", borderRadius: 30, marginTop: "3%", height: 63, marginLeft: "4%" }} >
-                    <Text style={{ textAlign: 'center', color: "#FFFFFF", fontWeight: 'bold', fontSize: 18, top: 18 }}>SAVE CHANGES</Text>
-                </TouchableOpacity>
-
+                <View style={tw`my-10`}>
+                  <Largebutton
+                  text='Save Changes'
+                  onPress={()=>{ handleSendRequestSubmit()}} />
+                </View>
 
 
 

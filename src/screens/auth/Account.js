@@ -400,7 +400,7 @@ const Account = (props) => {
                               <ArrowRightIcon color="red" fill="gray" size={24} />
                           </View>
                       </TouchableOpacity>
-                      <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
+                      <View style={tw.style('border-b mt-2 mb-1 mx-4 border-gray-500')}></View>
                       <TouchableOpacity onPress={() => props.navigation.navigate("deletaccount")} style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
                           <View style={tw.style('mb-3')}>
                               <Text style={tw.style('text-base font-normal text-gray-900')}>Delete Account</Text>

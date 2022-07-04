@@ -20,6 +20,7 @@ import AwesomeAlert from 'react-native-awesome-alerts';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import Shopheader from '../../screens/auth/Shopheader';
 import tw from 'twrnc';
+import Largebutton from '../../components/dropshipbutton/Largebutton';
 
 const editaddress = (props) => {
 
@@ -121,7 +122,7 @@ const editaddress = (props) => {
               text: "Yes",
               onPress: () => {
                     props.deleteaddress(id);
-                    setTimeout(function(){ props.getuseraddress(props?.loginuserid); },100); 
+                    setTimeout(function(){ props.getuseraddress(props?.loginuserid); },100);
               },
             },
             // The "No" button
@@ -132,7 +133,7 @@ const editaddress = (props) => {
           ]
         );
 
-          
+
      }
 
     const renderItem6 = ({ item }) => {
@@ -167,18 +168,18 @@ const editaddress = (props) => {
                  DEFAULT ADDRESS</Text></View>
             }
               <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%", marginTop:"1%"}}>
-              
+
                  <Text style={{fontSize:18,fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A",padding:"2%"}}>{item?.firstName} {item?.lastName} {"\n"}{item?.streetAdress}, {item?.phoneNumber}{"\n"}{item?.city}{"\n"}{item?.zipCode}</Text>
                <View style={{flexDirection:'row'}}>
-               
+
               <TouchableOpacity   onPress={() =>setdeleteaddress(item._id)}>
                  <Image source={ImageIcons.del} style={{width:45,height:40,marginLeft:8}}/>
               </TouchableOpacity>
               </View>
-              
+
               </View>
               </View>
-   
+
   );
  }
 
@@ -187,23 +188,18 @@ const editaddress = (props) => {
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={tw.style('flex-1 justify-center')}>
-            
+
 
             <ScrollView onScroll={({ nativeEvent }) => {
                 handleScroll(nativeEvent['contentOffset'].y);
             }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#E5E5E5' }} >
 
-                <View style={{ flexDirection: "row", marginHorizontal: "3%", marginVertical: "6%" }}>
-                    <Text style={{ fontSize: 15, fontWeight: "bold", fontFamily: "hinted-AvertaStd-Regular", color: "#999999" }}>PERSONAL DETAILS /</Text>
-                    <Text style={{ fontSize: 15, fontWeight: "bold", fontFamily: "hinted-AvertaStd-Regular", color: "#1A1A1A" }}>ADDRESSES</Text>
 
+                <View style={tw`my-10 mx-4`}>
+                    <Text style={tw`text-2xl font-bold text-gray-800`}>My Addresses</Text>
                 </View>
 
-                <View style={{ marginHorizontal: "3%" }}>
-                    <Text style={{ fontSize: 26, fontFamily: "hinted-AvertaStd-Regular", fontWeight: "bold" }}>My Addresses</Text>
-                </View>
 
-                
                 <View style={{ marginBottom: 30 }}>
                     <FlatList
                         data={props?.getuseraddresslist || []}
@@ -213,18 +209,16 @@ const editaddress = (props) => {
                     />
                 </View>
 
-
-
-                <TouchableOpacity onPress={()=>props.navigation.navigate("editviewaddress")} style={{ width: deviceWidth / 1.1, backgroundColor: "#B80000", borderRadius: 30, marginTop: "12%", height: 63, marginLeft: "4%" }} >
-                    <Text style={{ textAlign: 'center', color: "#FFFFFF", fontWeight: 'bold', fontSize: 18, top: 18 }}>ADD A NEW ADDRESS</Text>
-                </TouchableOpacity>
-
-
+                <View style={tw`my-10`}>
+                  <Largebutton
+                    text="Add New Address"
+                    onpress={()=>props.navigation.navigate("editviewaddress")} />
+                </View>
 
 
             </ScrollView>
 
-            
+
 
             <Footer3 onSelection="5" />
 
