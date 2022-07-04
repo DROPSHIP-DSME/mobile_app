@@ -120,13 +120,10 @@ const deviceWidth = Dimensions.get('window').width;
 
             <TouchableOpacity  onPress={() => props.navigation.navigate("Dashreturn")} style={styles.seledataViewTODAYchat}>
                      <View style={{flexDirection:'row'}}>
-                       <Image source={item.image} style={{width:18,height:18,}}/>
-                       <Text style={[styles.seriestexttoday,{marginLeft:3}]}>{item.text}</Text>
+                      <Text style={[styles.seriestexttoday,{marginLeft:3}]}>{item.text1}</Text>
                      </View>  
-                       <Text style={styles.seriestexttoday}>{item.text1}</Text>
-                       <View style={[styles.pickerViewshorttodayagain,{padding:4}]}>
-                         <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular'}}>{item.text2}</Text> 
-                        </View>
+                       <Text style={styles.seriestexttoday}>{item.text}</Text>
+                      
             </TouchableOpacity>
 
             
@@ -189,8 +186,7 @@ const deviceWidth = Dimensions.get('window').width;
                     <View style={{backgroundColor:'#ffffff',padding:'4%',width:'92%',borderRadius:15,marginHorizontal:'3%',marginVertical:'6%',marginBottom:'25%'}}>
                         <View style={styles.salesViewTODAY}>
                            <Text style={styles.seriestext}>Order Number</Text>
-                           <Text style={styles.seriestext}>Ordered By</Text>
-                           <Text style={styles.seriestext}>Status </Text>
+                           <Text style={styles.seriestext}>Message</Text>
                         </View>
                         <View style={{marginLeft:-10}}>
                             <FlatList

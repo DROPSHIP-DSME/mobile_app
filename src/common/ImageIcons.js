@@ -342,9 +342,12 @@ const sliderimage2=require(`${assetsRootPath}sliderimage2.png`);
 const uparrow=require(`${assetsRootPath}uparrow.png`);
 const messagebox=require(`${assetsRootPath}messagebox.png`);
 
+const workinprogress=require(`${assetsRootPath}workinprogress.png`);
+
 const ImageIcons = {
   righticon,
   messagebox,
+  workinprogress,
   uparrow,
   sliderimage1,
   sliderimage2,

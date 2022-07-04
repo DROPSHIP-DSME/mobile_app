@@ -129,7 +129,9 @@ const Dashsale = (props) => {
   return (
     <View style={tw.style('flex flex-1')}>
 
-
+  <View style={{padding:20,backgroundColor:'#B80000', height:'92%'}}>
+       <Image source={ImageIcons.workinprogress} style={{width:'100%', height:350}} />
+       </View>
 
       <ScrollView onScroll={({ nativeEvent }) => {
         handleScroll(nativeEvent['contentOffset'].y);
