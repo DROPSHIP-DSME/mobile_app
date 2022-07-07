@@ -19,6 +19,7 @@ import Shopheader from '../../screens/auth/Shopheader';
 import styl from './styledrop';
 import Moment from 'moment';
 import tw from 'twrnc';
+import Largebutton from '../../components/dropshipbutton/Largebutton';
 
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
@@ -59,7 +60,7 @@ const upcoming = (props) => {
     }, [])
 
     //Reference
-  
+
     const emailRef = useRef();
     const phoneRef = useRef();
     const bisinessnameRef = useRef();
@@ -74,7 +75,7 @@ const upcoming = (props) => {
     const [tab2, settab2] = useState(false);
     const [tab3, settab3] = useState(false);
     const [showlist, setshowlist] = useState(true);
-    
+
     const joinbroadcast = (itemid) => {
         props.getlivestreamrecap(itemid);
         setshowlist(false)
@@ -177,7 +178,7 @@ const upcoming = (props) => {
     const renderItem5 = ({ item ,index }) => {
        return(
         <View>
-        <TouchableOpacity onPress={() => joinbroadcast(item._id)}>        
+        <TouchableOpacity onPress={() => joinbroadcast(item._id)}>
             <View style={{marginHorizontal:5,borderRadius:5}}>
                     <Image source={{uri: item.products[0]?.productImage}} style={styles.imgbasket} />
                     <Text style={styles.beautyproduct}></Text>
@@ -201,7 +202,7 @@ const upcoming = (props) => {
             </View>
             <Text style={styl.txt2}></Text>
            </TouchableOpacity>
-        </View> 
+        </View>
       );
     }
 
@@ -276,7 +277,7 @@ const upcoming = (props) => {
                 </View>
             :
             <ScrollView keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={tw.style('bg-gray-100')} >
-                
+
                 <View style={tw.style('pt-2 mx-5')}>
                     <View style={tw.style('flex flex-row justify-between border-gray-800 border-b-2')}>
                         <TouchableOpacity onPress={() => { settab1(true); settab2(false); settab3(false); }} style={tw.style('m-3')} >
@@ -346,22 +347,22 @@ const upcoming = (props) => {
                                 {/*<---------Summary------------>*/}
 
                                 <View style={tw.style('p-3 my-8')}>
-                                    <Text style={tw.style('text-2xl text-gray-700 ')}>Summary</Text>
+                                    <Text style={tw.style('text-2xl font-bold text-gray-700 ')}>Summary</Text>
                                     <View style={tw.style('flex flex-row justify-between my-3')}>
                                         <View>
-                                            <Text style={tw.style('text-xl text-gray-800')}>{props?.livestreamrecaplist?.getchannelAudiance?.audianceCount}</Text>
+                                            <Text style={tw.style('text-2xl font-bold text-gray-800')}>{props?.livestreamrecaplist?.getchannelAudiance?.audianceCount}</Text>
                                             <Text style={tw.style('text-base text-gray-800')}>Viewers</Text>
                                         </View>
                                         <View>
-                                            <Text style={tw.style('text-xl text-gray-800')}>0</Text>
+                                            <Text style={tw.style('text-2xl font-bold text-gray-800')}>0</Text>
                                             <Text style={tw.style('text-base text-gray-800')}>Saves</Text>
                                         </View>
                                         <View>
-                                            <Text style={tw.style('text-xl text-gray-800')}>0</Text>
+                                            <Text style={tw.style('text-2xl font-bold text-gray-800')}>0</Text>
                                             <Text style={tw.style('text-base text-gray-800')}>Likes</Text>
                                         </View>
                                         <View>
-                                            <Text style={tw.style('text-xl text-gray-800')}>{props?.livestreamrecaplist?.geteventcomment?.length}</Text>
+                                            <Text style={tw.style('text-2xl font-bold text-gray-800')}>{props?.livestreamrecaplist?.geteventcomment?.length}</Text>
                                             <Text style={tw.style('text-base text-gray-800')}>Messages</Text>
                                         </View>
                                     </View>
@@ -423,7 +424,7 @@ const upcoming = (props) => {
                                                 <View style={tw.style('bg-gray-200 py-2 px-4 rounded-lg')}>
                                                     <Text style={tw.style('text-base text-gray-700')}>Viewers</Text>
                                                 </View>
-                                                <View style={tw.style('bg-red-800 py-2 px-4 rounded-lg ml-3')}>
+                                                <View style={tw.style('bg-red-700 py-2 px-4 rounded-lg ml-3')}>
                                                     <Text style={tw.style('text-base text-white')}>Likes</Text>
                                                 </View>
                                                 <View style={tw.style('bg-gray-200 py-2 px-4 rounded-lg ml-3')}>
@@ -491,14 +492,16 @@ const upcoming = (props) => {
                                             numColumns={2}
                                         />
                                     </View>
-
                                 </View>
 
-                                <TouchableOpacity style={{ backgroundColor: '#B80000', marginStart: 20, marginEnd: 20, marginTop: 45, borderRadius: 50, marginBottom: 137 }} >
-                                    <Text style={{ color: 'white', fontSize: 18, fontWeight: 'bold', textAlign: 'center', marginTop: 20, marginBottom: 20 }} >Delete Stream</Text>
-                                </TouchableOpacity>
-
                             </View>
+
+                            <View style={tw`my-10`}>
+                              <Largebutton
+                              text="Delete stream"
+                              />
+                            </View>
+
                         </ScrollView>
                     }
 
@@ -520,10 +523,10 @@ const upcoming = (props) => {
                     }
                 </View>
 
-               
+
             </ScrollView>
         }
-        
+
         <Footer3 onSelection="2" />
 
         </KeyboardAvoidingView>

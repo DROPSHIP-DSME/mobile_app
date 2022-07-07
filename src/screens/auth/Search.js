@@ -1,7 +1,7 @@
 import React, { useRef, useState,useEffect } from 'react';
 import { Text, View,TouchableOpacity,FlatList,
     Image,TextInput, ImageBackground,
-     ScrollView, Alert,StatusBar,  
+     ScrollView, Alert,StatusBar,
       KeyboardAvoidingView,Dimensions,
       Platform,Keyboard} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
@@ -20,15 +20,18 @@ import Loader from '../../components/modals/Loader';
 import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import Footer3 from '../../screens/auth/Footer3';
-import AsyncStorage from '@react-native-community/async-storage'; 
+import AsyncStorage from '@react-native-community/async-storage';
 import moment from 'moment';
 import Shopheader from '../../screens/auth/Shopheader';
+import tw from 'twrnc';
+import { SearchIcon } from "react-native-heroicons/solid";
+
 const deviceHeight = Dimensions.get('window').height;
 const deviceWidth = Dimensions.get('window').width;
 const Search = (props) => {
 
     const {
-        navigation, 
+        navigation,
         values,
         errors,
         handleChange,
@@ -38,12 +41,12 @@ const Search = (props) => {
      useEffect(() => {
         //alert('d')
         console.log(props?.searchlistdata,'dataaa')
-        props.getsearchlist(props?.loginuserid); 
+        props.getsearchlist(props?.loginuserid);
         props.getalleventlist1(1);
     }, [])
 
     const getBrandUserId = async () => {
-        
+
         onfilterData(props?.getalleventdata);
     }
 
@@ -77,7 +80,7 @@ const Search = (props) => {
     const [filterData,onfilterData]= React.useState([]);
     const [wayToContact, setWayToContact] = useState("Phone");
 
-    
+
     const [showclassName, setshowclassName] = useState("#B80000");
 
     const [wayToContactList, setWayToContactList] = useState([
@@ -101,21 +104,21 @@ const Search = (props) => {
         const ratingCompleted = (ratingdata) => {
             console.log('rating',ratingdata)
                if(ratingdata!="" && ratingdata!=undefined){
-                //setstarCount(ratingdata)  
+                //setstarCount(ratingdata)
                }
-              
-        }  
+
+        }
 
         const handleScroll=(pageYOffset)=>{
         if (pageYOffset > 0) {
-            setshowclassName('#B80000');  
+            setshowclassName('#B80000');
         }else{
             setshowclassName('#B80000');
         }
-    } 
+    }
 
        const containerStyle = {backgroundColor: 'white', padding: '7%',marginHorizontal:'5%',alignItems:'center'};
-      const joinbroadcast = (itemid,startnow,eventtime)=>{
+       const joinbroadcast = (itemid,startnow,eventtime)=>{
             if (startnow == true){
                 let request1 = {
                     "channelName":itemid,
@@ -132,11 +135,11 @@ const Search = (props) => {
                 alert('Event will start at '+ moment(eventtime).format('MMM DD, hh:mm A'))
             }
       }
-    
+
     const handleRegistrationSubmit = () => {
         Keyboard.dismiss();
         props.searchitems(First,props?.loginuserid);
-        props.getsearchlist(props?.loginuserid); 
+        props.getsearchlist(props?.loginuserid);
     }
 
     const DATA = [
@@ -175,7 +178,7 @@ const renderItem = ({ item ,index }) => {
         </View>
         </View>
         <Text style={[styl.txt2,{paddingLeft:45}]}>{item.productDescription}</Text>
-    </View> 
+    </View>
   );
 }
 
@@ -187,11 +190,11 @@ const renderItem1 = ({ item ,index }) => {
         <View style={styles.livec24}>
             <Text style={styles.livec12}>{item.keyword}</Text>
         </View>
-        </TouchableOpacity>        
-    </View> 
+        </TouchableOpacity>
+    </View>
     </View>
   );
-} 
+}
 const renderItem2 = ({ item ,index }) => {
    return(
     <View>
@@ -200,26 +203,26 @@ const renderItem2 = ({ item ,index }) => {
         <View style={styles.livec24}>
             <Text style={styles.livec12}>{item.text}</Text>
         </View>
-        </TouchableOpacity>        
-    </View> 
+        </TouchableOpacity>
+    </View>
     </View>
   );
-} 
- 
+}
+
 
     return (
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={styles.registrationRoot}>
             <StatusBar backgroundColor={'#ffffff00'} barStyle="dark-content" translucent={true} />
-            
+
             <ScrollView onScroll={({nativeEvent}) => {
                 handleScroll(nativeEvent['contentOffset'].y);}} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#FFFFFF',height:400}} >
 
-            <View style={{marginHorizontal:'3%',paddingTop:'5%'}}>
-             
-                <TouchableOpacity style={{marginTop:'5%'}} onPress={()=> handleRegistrationSubmit()}>
-                    <TextInput style={{height:50,width:deviceWidth/1.1,color:'#333333',backgroundColor:'#E6E6E6',borderRadius:10,alignSelf:'center'}}
+            <View style={tw`mx-4 pt-5`}>
+
+                <TouchableOpacity style={tw`h-14 mt-10 bg-gray-200 pl-3 pt-1 rounded-md`} onPress={()=> handleRegistrationSubmit()}>
+                    <TextInput style={tw.style('text-gray-600 items-center'),{width:deviceWidth/1.1}}
                       placeholder="Search for anything"
                       placeholderTextColor="#848484"
                       paddingLeft={35}
@@ -227,16 +230,16 @@ const renderItem2 = ({ item ,index }) => {
                       onChangeText={(text) => {setFirst(text);}}
                       onSubmitEditing={() => handleRegistrationSubmit()}
                     />
-                    <View style={{position:'absolute',top:18,marginLeft:'4%'}}>
-                        <Image source={ImageIcons.redsearchtoday}  style={{height:14,width:14,}} />
+                    <View style={tw`absolute mx-4 top-4`}>
+                        <SearchIcon color="red" fill="#b80000" size={24} />
                     </View>
                 </TouchableOpacity>
                 {/*<TouchableOpacity style={{width:120, backgroundColor:"#B80000",marginHorizontal:'2%',borderRadius:30 }} onPress={() => { checklogin() }}>
-                        <Text style={{textAlign:'center' ,color:"#FFFFFF",fontWeight:'bold',fontSize:14,top:12}}>Search</Text> 
+                        <Text style={{textAlign:'center' ,color:"#FFFFFF",fontWeight:'bold',fontSize:14,top:12}}>Search</Text>
                     </TouchableOpacity>
-                */} 
-            <View>   
-                <Text style={styles.srchistry}>Search History</Text>  
+                */}
+            <View>
+                <Text style={tw`flex flex-row mx-2 font-bold text-2xl mt-8 mb-3 text-gray-700`}>Search History</Text>
                 <View>
                    <FlatList
                     data={props?.searchlistdata || []}
@@ -247,8 +250,8 @@ const renderItem2 = ({ item ,index }) => {
                    />
                 </View>
             </View>
-            {/* <View>   
-                <Text style={styles.srchistry}>Recommendations</Text>  
+            <View>
+                <Text style={tw`flex flex-row mx-2 font-bold text-2xl mt-8 mb-3 text-gray-700`}>Recommendations</Text>
                 <View>
                    <FlatList
                     data={DATA}
@@ -258,10 +261,10 @@ const renderItem2 = ({ item ,index }) => {
                     numColumns={4}
                    />
                 </View>
-            </View>*/ }
+            </View>
             <View>
-                <Text style={styles.srchistry}>Discover</Text>
-                <View style={{marginBottom:"20%"}}>
+                <Text style={tw`flex flex-row mx-2 font-bold text-2xl my-8 text-gray-700`}>Discover</Text>
+                <View style={tw`mt-15`}>
                     <FlatList
                         data={props?.searchlistitmes || []}
                         renderItem={renderItem}

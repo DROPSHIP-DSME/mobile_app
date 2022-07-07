@@ -91,7 +91,7 @@ const Login = (props) => {
     },
 
   ];
- 
+
 
   useEffect(() => {
     animateLogo();
@@ -114,9 +114,9 @@ const Login = (props) => {
          var loginuserid = await AsyncStorage.getItem('UserId');
         // alert(loginuserid)
          if(loginuserid==null || loginuserid==undefined || loginuserid==""){
-                //props.logoutreducerfun(uuid()); 
+                //props.logoutreducerfun(uuid());
          }else {
-            props.logoutreducerfun(loginuserid); 
+            props.logoutreducerfun(loginuserid);
             props.navigation.navigate('watchlist');
          }
     }
@@ -190,8 +190,8 @@ const Login = (props) => {
             <View style={tw.style('items-center my-8')}>
               <Image source={item.title} style={{ width: 145, height: 117 }} />
             </View>
-            <View style={tw.style('items-center mt-54 mx-4')}>
-              <Text style={tw.style('font-sans px-2 text-3xl text-white text-center')}>{item.text}</Text>
+            <View style={tw.style('items-center mt-54 mx-5')}>
+              <Text style={tw.style('font-sans font-bold px-2 text-4xl text-white text-center')}>{item.text}</Text>
             </View>
           </View>
           :
@@ -289,7 +289,7 @@ const Login = (props) => {
 
       <View style={{ position: 'absolute', zIndex: 3001, bottom: 70, justifyContent: 'center', alignItems: 'center', width: '100%' }}>
         <Medbutton
-          text="Login"
+          text="Skip"
           onPress={() => navigation.navigate("Golive")} />
       </View>
 

@@ -6,13 +6,11 @@ import { TrashIcon } from "react-native-heroicons/solid";
 const Deletebutton = () => {
   return (
 
-    <View style={tw.style('bg-zinc-200 rounded-md p-1 ml-3')}>
+    <View style={tw.style('bg-zinc-200 rounded-md p-1 ml-2')}>
         <TouchableOpacity onPress={() => openpopup()}>
-          <View style={tw.style('flex flex-row w-auto h-6 px-3')}>
-            <View style={tw.style('my-2')}>
+            <View style={tw.style('my-2 w-11 items-center')}>
               <TrashIcon color="black" fill="#000000" size={20} />
             </View>
-          </View>
         </TouchableOpacity>
     </View>
 

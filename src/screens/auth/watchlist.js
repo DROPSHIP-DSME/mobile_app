@@ -186,7 +186,7 @@ const watchlist = (props) => {
         props.getAllshop(props?.loginuserid, 1);
         props.Brandslist();
         showalldata();
-        
+
         if (Platform.OS === 'android') requestMultiplePermisisons();
     }, [])
 
@@ -543,7 +543,7 @@ const watchlist = (props) => {
                             <View style={tw.style('inline-flex justify-items-center ml-1 mt-2 px-1 pt-1 {text-color:#B80000}}')}>
                                 <Text style={tw.style('text-lg text-red-700 mx-2 border-b-2 border-zinc-600')}>All</Text>
                             </View>
-                        : 
+                        :
                             <View style={tw.style('inline-flex justify-items-center ml-1 mt-2 px-1 pt-1 {text-color:#E6E6E6}}')}>
                                  <Text style={tw.style('text-zinc-400 mx-2 text-lg')}>All</Text>
                             </View>
@@ -555,7 +555,7 @@ const watchlist = (props) => {
                             <View style={tw.style('inline-flex justify-items-center ml-1 mt-2 px-1 pt-1 {text-color:#B80000}}')}>
                                 <Text style={tw.style('text-lg text-red-700 mx-2 border-b-2 border-zinc-600')}>Livestreams</Text>
                             </View>
-                        : 
+                        :
                             <View style={tw.style('inline-flex justify-items-center ml-1 mt-2 px-1 pt-1 {text-color:#E6E6E6}}')}>
                                  <Text style={tw.style('text-zinc-400 mx-2 text-lg')}>Livestreams</Text>
                             </View>
@@ -567,7 +567,7 @@ const watchlist = (props) => {
                             <View style={tw.style('inline-flex justify-items-center ml-1 mt-2 px-1 pt-1 {text-color:#B80000}}')}>
                                 <Text style={tw.style('text-lg text-red-700 mx-2 border-b-2 border-zinc-600')}>Products</Text>
                             </View>
-                        : 
+                        :
                             <View style={tw.style('inline-flex justify-items-center ml-1 mt-2 px-1 pt-1 {text-color:#E6E6E6}}')}>
                                  <Text style={tw.style('text-zinc-400 mx-2 text-lg')}>Products</Text>
                             </View>
@@ -579,7 +579,7 @@ const watchlist = (props) => {
                             <View style={tw.style('inline-flex justify-items-center ml-1 mt-2 px-1 pt-1 {text-color:#B80000}}')}>
                                 <Text style={tw.style('text-lg text-red-700 mx-2 border-b-2 border-zinc-600')}>Stores</Text>
                             </View>
-                        : 
+                        :
                             <View style={tw.style('inline-flex justify-items-center ml-1 mt-2 px-1 pt-1 {text-color:#E6E6E6}}')}>
                                  <Text style={tw.style('text-zinc-400 mx-2 text-lg')}>Stores</Text>
                             </View>
@@ -591,14 +591,14 @@ const watchlist = (props) => {
                             <View style={tw.style('inline-flex justify-items-center ml-1 mt-2 px-1 pt-1 {text-color:#B80000}}')}>
                                 <Text style={tw.style('text-lg text-red-700 mx-2 border-b-2 border-zinc-600')}>Shops</Text>
                             </View>
-                        : 
+                        :
                             <View style={tw.style('inline-flex justify-items-center ml-1 mt-2 px-1 pt-1 {text-color:#E6E6E6}}')}>
                                  <Text style={tw.style('text-zinc-400 mx-2 text-lg')}>Shops</Text>
                             </View>
                         }
                         </TouchableOpacity>
-                        
-                        
+
+
                     </View>
         );
     }
@@ -645,7 +645,7 @@ const watchlist = (props) => {
             style={styles.registrationRoot}>
             <StatusBar backgroundColor={showclassName} barStyle="dark-content" translucent={true} />
 
-            
+
 
             <ScrollView onScroll={({ nativeEvent }) => {
                 handleScroll(nativeEvent['contentOffset'].y);
@@ -669,8 +669,8 @@ const watchlist = (props) => {
 
 
                     <Searchbox
-                onPress={() => props.navigation.navigate("Search")}
-                text="Search for anything" />
+                      onPress={() => props.navigation.navigate("Search")}
+                      text="Search for anything" />
                     <View>
                          <FlatList
                             data={SHOWDATSA}
@@ -678,7 +678,7 @@ const watchlist = (props) => {
                             keyExtractor={item => item.id}
                             showsHorizontalScrollIndicator={false}
                             horizontal={true}
-                        /> 
+                        />
                     </View>
 
                     {(livestream==true || Data==true) &&
