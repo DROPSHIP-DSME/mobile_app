@@ -43,13 +43,13 @@ const styles = StyleSheet.create({
     height:16
  },
  textBold: {
-   fontFamily: 'hintedavertaStdbold'
+   fontFamily: 'hintedavertastdbold'
  },
  stringerror:{
     color:'#cc0000',marginHorizontal:'5%',marginVertical:'1%'
  },
  txtsyz:{
-  fontFamily:'hinted-AvertaStd-Bold'
+  fontFamily:'hintedavertastdbold'
 },
  fllowview:{
   marginTop:"3%", backgroundColor:"#B80000",height:25,width:74,paddingHorizontal:'2%',borderRadius:20
@@ -1393,7 +1393,7 @@ tops2:{fontSize:16,marginLeft:'20%',fontWeight:'600',fontFamily:'hinted-AvertaSt
 
     },
     totalincometodaylive:{
-    fontFamily: 'hinted-AvertaStd-Bold',
+    fontFamily: 'hintedavertastdbold',
     fontStyle: 'normal',
     fontWeight: '600',
     fontSize: 20,
@@ -1403,7 +1403,7 @@ tops2:{fontSize:16,marginLeft:'20%',fontWeight:'600',fontFamily:'hinted-AvertaSt
     marginVertical:'3%'
     },
     totalincometodaysale:{
-    fontFamily: 'hinted-AvertaStd-Bold',
+    fontFamily: 'hintedavertastdbold',
     fontStyle: 'normal',
     fontWeight: '600',
     fontSize: 20,
@@ -1412,7 +1412,7 @@ tops2:{fontSize:16,marginLeft:'20%',fontWeight:'600',fontFamily:'hinted-AvertaSt
     //marginVertical:'3%'
     },
     totalincometodayWIDRO:{
-    fontFamily:'hinted-AvertaStd-Bold',
+    fontFamily:'hintedavertastdbold',
     fontStyle:'normal',
     fontWeight:'600',
     fontSize: 12,
@@ -1423,7 +1423,7 @@ tops2:{fontSize:16,marginLeft:'20%',fontWeight:'600',fontFamily:'hinted-AvertaSt
    // marginRight:8
     },
      totalincometodayWIDROprocess:{
-    fontFamily:'hinted-AvertaStd-Bold',
+    fontFamily:'hintedavertastdbold',
     fontStyle:'normal',
     fontWeight:'600',
     fontSize: 12,
@@ -1698,12 +1698,12 @@ tops2:{fontSize:16,marginLeft:'20%',fontWeight:'600',fontFamily:'hinted-AvertaSt
     },
     pickerViewshorttodaymodal: {
         //marginHorizontal:'4%',
-        borderColor:'#e6e6e6', borderRadius:5,width:200,backgroundColor:'#e6e6e6',height:60,alignSelf:'center'
+        borderColor:'#e6e6e6', borderRadius:5,width:200,backgroundColor:'#ffffff',height:60,alignSelf:'center'
 
     },
      pickerViewshorttodaymodallist: {
         //marginHorizontal:'4%',
-        borderColor:'#e6e6e6', borderRadius:10,width:130,backgroundColor:'#e6e6e6',height:40,marginHorizontal:'10%'
+        borderColor:'#e6e6e6', borderRadius:10,width:130,backgroundColor:'#ffffff',height:40,marginHorizontal:'10%'
 
     },
     pickerView: {

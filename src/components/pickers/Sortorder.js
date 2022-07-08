@@ -15,7 +15,6 @@ const Sortorder = ({text}) => {
             style={tw.style('w-full h-8', {color:'black'})}
             onValueChange={(itemValue, itemIndex) =>setSelectedValue(itemValue)}
         >
-
         <Picker.Item label="Sort" value="1" />
         <Picker.Item label="success" value="2" />
         <Picker.Item label="Pending" value="3" />

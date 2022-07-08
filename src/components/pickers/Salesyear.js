@@ -1,35 +1,74 @@
 import React, { useState } from 'react';
-import {Text, View, Picker } from 'react-native';
+import {Text, View, StyleSheet, Platform, Stylesheet, ImageBackground, } from 'react-native';
+import RNPickerSelect from 'react-native-picker-select';
+import { Picker } from '@react-native-picker/picker';
+import styles from './styles';
+import { ChevronDownIcon } from "react-native-heroicons/solid";
 import tw from 'twrnc';
 
 const Salesyear = ({text}) => {
 
-  const [showvisible, setshowvisible] = React.useState(false);
-  const [visible1, setVisible1] = React.useState(true);
-  const [selectedValue, setSelectedValue] = useState("");
-
   return (
-    <View style={tw.style('mt-2 rounded-md w-40 bg-zinc-200 px-1 text-justify')}>
-        <Picker
-            selectedValue={selectedValue}
-            style={tw.style('w-full h-8', {color:'black'})}
-            onValueChange={(itemValue, itemIndex) =>setSelectedValue(itemValue)}
-        >
+    <View>
+      <View style={tw.style('flex flex-row mt-2 rounded-md w-40 bg-zinc-200 px-1 text-justify items-center jsutiy-between')}>
+        <RNPickerSelect
+            style={tw.style('w-full h-4',
+              {...customPickerStyles, color:'black',  backgroundColor: 'red',
+                placeholder: {
+                  color: 'black',
+                  fontSize: 12,
+                  fontWeight: 'bold',
+                },
+              },
+            )}
+            onValueChange={(value) => console.log(value)}
+            useNativeAndroidPickerStyle={false}
+            Icon={() => {
+              return <ChevronDownIcon color="red" fill="red" size={24} style={tw`absolute top-3 right-1`}/>;
+            }}
 
-        <Picker.Item label="2021" value="1" />
-        <Picker.Item label="2" value="2" />
-        <Picker.Item label="3" value="3" />
-        <Picker.Item label="4" value="4" />
-        <Picker.Item label="5" value="5" />
-        <Picker.Item label="6" value="6" />
-        <Picker.Item label="7" value="7" />
-        <Picker.Item label="8" value="8" />
-        <Picker.Item label="9" value="9" />
-      </Picker>
+              items={[
+                  {label: "Choose", value: null },
+                  { label: '2021', value: '1' },
+                  { label: '2022', value: '2' },
+                  { label: '2023', value: '3' },
+              ]}
+
+        />
+
+      </View>
     </View>
 
   );
-
 }
+
+
+const customPickerStyles = StyleSheet.create({
+  inputIOS: {
+    fontSize: 22,
+    paddingHorizontal: 12,
+    borderRadius: 8,
+    color: '#000',
+    paddingRight: 30, // to ensure the text is never behind the icon
+  },
+  inputAndroid: {
+    fontSize: 14,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    borderRadius: 8,
+    color: '#000',
+    paddingRight: 45, // to ensure the text is never behind the icon
+  },
+  container: {
+    backgroundColor:'rgba(255, 255, 255, 1.0)',
+  },
+  inputAndroidContainer: {
+    alignItems: 'center',
+    color: 'black',
+    justifyContent: 'space-between',
+  }
+
+});
+
 
 export default Salesyear

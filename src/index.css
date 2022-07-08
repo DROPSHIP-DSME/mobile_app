@@ -1,21 +1,20 @@
-
-a@tw.style base;
-@tw.style components;
-@tw.style utilities;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   html {
-    font-family: hinted-AvertaStd-Regular, hinted-AvertaStd-Bold;
+    font-family: hintedavertatdregular, hintedavertastdbold;
   },
   @font-face {
-     font-family: 'hinted-AvertaStd-Regular';
-     src: url('./res/assets/fonts/AvertaStd/hinted-AvertaStd-Regular.ttf') format('truetype'),
+     font-family: 'hintedavertatdregular';
+     src: url('./res/assets/fonts/AvertaStd/hintedavertatdregular.ttf') format('truetype');
      font-weight: normal;
      font-style: normal;
   },
   @font-face {
-     font-family: 'hinted-AvertaStd-Bold';
-     src: url('./res/assets/fonts/AvertaStd/hinted-AvertaStd-Bold.ttf') format('truetype'),
+     font-family: 'hintedavertastdbold';
+     src: url('./res/assets/fonts/AvertaStd/hintedavertastdbold.ttf') format('truetype');
      font-weight: bold;
      font-style: normal;
   }
