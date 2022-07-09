@@ -21,6 +21,7 @@ import { Rating, AirbnbRating } from 'react-native-ratings';
 import Shopheader from '../../screens/auth/Shopheader';
 import tw from 'twrnc';
 import { ArrowRightIcon } from "react-native-heroicons/solid";
+import Editbutton from '../../components/pickers/Editbutton';
 import { LogoutIcon } from "react-native-heroicons/outline";
 import moment from 'moment';
 const Account = (props) => {
@@ -214,13 +215,12 @@ const Account = (props) => {
 
                 <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 my-5')}>
                   <View style={tw.style('px-2 py-5')}>
-                    <View style={tw.style('flex flex-row justify-between mx-4 mt-2')}>
+                    <View style={tw.style('flex flex-row justify-between mx-4 items-center')}>
                         <View>
                             <Text style={tw`flex flex-row font-bold text-xl text-gray-900`}>My Profile</Text>
                         </View>
-                        <TouchableOpacity onPress={() => props.navigation.navigate("editprofile")}>
-                            <Image source={ImageIcons.edit} style={tw.style('w-9 h-9')} />
-                        </TouchableOpacity>
+                        <Editbutton
+                          onPress={() => props.navigation.navigate("editprofile")} />
                     </View>
 
                     <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
@@ -268,9 +268,8 @@ const Account = (props) => {
                           <View>
                               <Text style={tw`text-xl font-bold text-gray-900`}>My Address</Text>
                           </View>
-                          <TouchableOpacity onPress={() => props.navigation.navigate("editaddress")}>
-                              <Image source={ImageIcons.edit} style={tw.style('w-9 h-9')} />
-                          </TouchableOpacity>
+                          <Editbutton
+                            onPress={() => props.navigation.navigate("editaddress")} />
                       </View>
 
                       <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>

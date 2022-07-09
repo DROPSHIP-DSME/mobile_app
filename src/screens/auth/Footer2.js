@@ -36,7 +36,7 @@ const Footer2 = (props) => {
 
     // Local states
     return (
-       <View style={tw.style('max-w-fit mx-auto bg-white flex h-14 py-2 mx-1')}>
+       <View style={tw.style('max-w-fit mx-auto bg-white flex h-15 py-2 mx-1')}>
             <View style={tw.style('flex-row justify-between')}>
                 <TouchableOpacity onPress={() => navigation.navigate("watchlist")} >
                     {onSelelection==1 ?

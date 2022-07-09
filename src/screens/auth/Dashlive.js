@@ -1,5 +1,5 @@
 import React, { useEffect,useRef, useState } from 'react';
-import { Text, View,Image,TextInput, ImageBackground,FlatList,Picker,StatusBar,Dimensions,ScrollView, Alert, TouchableOpacity,  KeyboardAvoidingView, Platform,Keyboard} from 'react-native';
+import { Text, View,Image,TextInput, Button, ImageBackground,FlatList,Picker,StatusBar,Dimensions,ScrollView, Alert, TouchableOpacity,  KeyboardAvoidingView, Platform,Keyboard} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
@@ -27,6 +27,8 @@ import tw from 'twrnc';
 import Medbutton from '../../components/dropshipbutton/Medbutton';
 import Smallbutton from '../../components/dropshipbutton/Smallbutton';
 import Largebutton from '../../components/dropshipbutton/Largebutton';
+import Sortorder from '../../components/pickers/Sortorder';
+import Deletebutton from '../../components/pickers/Deletebutton';
 
 
 import {
@@ -163,9 +165,9 @@ const Dashlive = (props) => {
               <Image source={{uri:item.productImage}} style={{height:159,width:159}} />
            </View>
            <View style={{marginTop:5,}}>
-            <Text style={{fontSize:14,width:'80%',marginLeft:'5%'}}>{item.productName}</Text>
-            <View style={{height:14,width:14,backgroundColor:'#e6e6e6',borderRadius:3,alignSelf:'flex-end',marginRight:'9%',marginTop:-10,}}></View>
-            <Text style={{fontSize:16,width:'80%',fontFamily:'hinted-AvertaStd-Bold',marginLeft:'5%'}}>{item.productPrice}</Text>
+            <Text style={tw`text-base w-9/11 ml-4`}>{item.productName}</Text>
+            <View style={tw`h-4 w-4 bg-gray-600 rounded-md mr-8 mt-[-2]`}></View>
+            <Text style={tw`text-base w-9/11 ml-10`}>{item.productPrice}</Text>
              <View>
                 <Rating
                 type='custom'
@@ -177,8 +179,8 @@ const Dashlive = (props) => {
                 />
              </View>
              <TouchableOpacity onPress={() => props.navigation.navigate("Dashsubscribe2")} style={{backgroundColor:'#ffe6ff',width:90,borderRadius:5,padding:6,marginHorizontal:'4%',marginBottom:'12%'}}>
-                      <Text style={{fontSize:12,color:'#E25424',fontFamily:'hinted-AvertaStd-Semibold',textAlign:'center'}}>NEW STOCK</Text>
-                   </TouchableOpacity>
+                <Text style={{fontSize:12,color:'#E25424',fontFamily:'hinted-AvertaStd-Semibold',textAlign:'center'}}>NEW STOCK</Text>
+             </TouchableOpacity>
           </View>
         </View>
   );
@@ -187,7 +189,7 @@ const Dashlive = (props) => {
 
 return (
          <View style={{flex:1}}>
-         
+
 
        <ScrollView onScroll={({nativeEvent}) => {
                 handleScroll(nativeEvent['contentOffset'].y);
@@ -201,37 +203,49 @@ return (
 
              { showstream==true ?
 
-              <View style={tw.style('flex flex-row mx-4')}>
-                   <Medbutton
-                   text="Go Live Now" />
-
-                   <View style={tw.style('w-auto items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-gray-700 bg-gray-300 hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300')}>
+                <View style={tw`flex flex-row relative mx-4 shadow-sm`}>
+                    <View
+                      type="button"
+                      style={tw`-ml-px w-2/4 relative inline-flex items-center px-4 py-4 rounded-r-md border border-red-300 bg-red-700 hover:bg-red-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500`}
+                    >
+                      <Text style={tw`text-base font-medium text-white`}>Go Live Now</Text>
+                    </View>
+                    <View
+                      type="button"
+                      style={tw`w-2/4 relative inline-flex items-center px-4 py-4 rounded-l-md border border-gray-200 bg-gray-200 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500`}
+                    >
                       <TouchableOpacity onPress={() => setshowstream(true)}>
-                        <Text style={tw.style('text-lg text-gray-700')}>Schedule Livestream</Text>
+                        <Text style={tw`text-base font-medium text-gray-700`}>Schedule Livestream</Text>
                       </TouchableOpacity>
-                   </View>
-              </View>
+                    </View>
+                  </View>
           :
-            <View style={tw.style('flex flex-row mx-4')}>
-                  <View style={tw.style('mr-3 w-auto items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-gray-700 bg-gray-300 hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300')}>
+
+              <View style={tw`flex flex-row relative mx-4 shadow-sm`}>
+                  <View
+                    type="button"
+                    style={tw`w-2/4 relative inline-flex items-center px-4 py-4 rounded-l-md border border-gray-200 bg-gray-200 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500`}
+                  >
                     <TouchableOpacity onPress={() =>  setshowstream(false)}>
-                      <Text style={tw.style('text-lg text-gray-700')}>Go Live Now</Text>
+                      <Text style={tw`text-base font-medium text-gray-700`}>Go Live Now</Text>
                     </TouchableOpacity>
                   </View>
-
-
-                   <Medbutton
-                   text="Schedule Livestream" />
-              </View>
+                  <View
+                    type="button"
+                    style={tw`-ml-px w-2/4 relative inline-flex items-center px-4 py-4 rounded-r-md border border-red-300 bg-red-700 hover:bg-red-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500`}
+                  >
+                    <Text style={tw`text-base font-medium text-white`}>Schedule Livestream</Text>
+                  </View>
+                </View>
 
       }
              { showstream==true &&
                 <View>
-              <View style={{marginHorizontal:'3%',marginTop:'5%'}}>
-               <TouchableOpacity onPress={() => props.navigation.navigate("Dashsubscribe")}>
-                 <Text style={{fontSize:22,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',}}>Date & Time</Text>
-                 </TouchableOpacity>
-               </View>
+              <View style={tw`mx-4 mt-5`}>
+                <TouchableOpacity onPress={() => props.navigation.navigate("Dashsubscribe")}>
+                 <Text style={tw`text-base text-gray-600`}>Date & Time</Text>
+                </TouchableOpacity>
+              </View>
 
 
                 <View style={{backgroundColor:'#e6e6e6',width:200,borderRadius:10,padding:10,marginHorizontal:'4%',marginTop:'2%',flexDirection:'row',justifyContent:'space-between'}}>
@@ -260,6 +274,17 @@ return (
 
               }
 
+              <View style={tw.style('mt-8 mb-5 mx-4')}>
+                      <TextInput
+                        style={tw.style('h-18 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500')}
+                        placeholder="Stream Title"
+                        placeholderTextColor="#4d4d4d"
+                        paddingLeft={15}
+                        multiline
+                        onChangeText={(text) => {}}
+                      />
+              </View>
+
                <View style={{marginHorizontal:'3%',marginTop:'7%'}}>
                <TouchableOpacity>
                  <Text style={{fontSize:22,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',}}>Stream Time</Text>
@@ -272,8 +297,8 @@ return (
                   <Smallbutton
                   text="20 Min" />
                    :
-                    <View  style={tw.style('w-auto items-center px-3 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm  bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200')}>
-                      <Text style={tw.style('text-lg text-gray-700')}>20 MIN</Text>
+                    <View  style={tw.style('w-auto items-center px-3 py-2 border border-transparent rounded-md shadow-sm  bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200')}>
+                      <Text style={tw.style('text-sm text-gray-700')}>20 MIN</Text>
                    </View>
                }
                 </TouchableOpacity>
@@ -283,8 +308,8 @@ return (
                     <Smallbutton
                     text="30 Min" />
                    :
-                    <View  style={tw.style('w-auto items-center px-3 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm  bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200')}>
-                      <Text style={tw.style('text-lg text-gray-700')}>30 MIN</Text>
+                    <View  style={tw.style('w-auto items-center px-3 py-2 border border-transparent rounded-md shadow-sm  bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200')}>
+                      <Text style={tw.style('text-sm text-gray-700')}>30 MIN</Text>
                    </View>
                }
                    </TouchableOpacity>
@@ -294,8 +319,8 @@ return (
                       <Smallbutton
                       text="45 Min" />
                    :
-                    <View  style={tw.style('w-auto items-center px-3 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm  bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200')}>
-                      <Text style={tw.style('text-lg text-gray-700')}>45 MIN</Text>
+                    <View  style={tw.style('w-auto items-center px-3 py-2 border border-transparent rounded-md shadow-sm  bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200')}>
+                      <Text style={tw.style('text-sm text-gray-700')}>45 MIN</Text>
                    </View>
                }
                    </TouchableOpacity>
@@ -323,12 +348,18 @@ return (
                         />
                     </View>
                </View>
+               <View style={tw.style('flex flex-row mx-4 mt-2 mb-5 items-center')}>
+                  <Sortorder />
+                  <View style={tw.style('ml-3')}>
+                    <Deletebutton />
+                  </View>
+               </View>
 
 
                 <View style={tw.style('mt-10 mb-16 mx-4')}>
                       <Text style={tw.style('text-xl')}>Invite Audience</Text>
                       <TextInput
-                        style={tw.style('bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500')}
+                        style={tw.style('h-18 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500')}
                         placeholder=""
                         placeholderTextColor="#4d4d4d"
                         value={livedetailId}
@@ -336,7 +367,7 @@ return (
                         multiline
                         onChangeText={(text) => {}}
                       />
-                      <View style={tw.style('absolute flex flex-end mt-6 right-5 top-5')}>
+                      <View style={tw.style('absolute flex flex-end mt-6 right-5 top-8')}>
                         <TouchableOpacity onPress={() =>  openshare() } >
                             <Image source={ImageIcons.copytoday} style={{height:21,width:21}} />
                         </TouchableOpacity>
@@ -367,17 +398,27 @@ return (
                           type="button"
                           style={tw.style('inline-flex items-center mx-5 px-4 py-6 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500')}
                         >
-                        <TouchableOpacity style={tw.style('w-10/11 items-center')}
+                         <TouchableOpacity style={tw.style('w-10/11 items-center')}
                             onPress={() => startlivebtn() }>
                             <Text style={tw.style('text-lg text-white')}>Schedule Livestream</Text>
                           </TouchableOpacity>
                         </View>
                   :
+                    <View>
+                       <Largebutton
+                       text="Start Livesteam"
+                       onPress={() => startlivebtn()}
+                       />
 
-                     <Largebutton
-                     text="Start Livesteam"
-                     onPress={() => startlivebtn()}
-                     />
+                       <View
+                        type="button"
+                         style={tw.style('my-5 inline-flex items-center mx-5 px-4 py-6 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-gray-800 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500')}
+                       >
+                        <TouchableOpacity style={tw.style('w-10/11 items-center')}>
+                           <Text style={tw.style('text-lg text-white')}>Test Livestream</Text>
+                         </TouchableOpacity>
+                       </View>
+                    </View>
                    }
                 <View>
 

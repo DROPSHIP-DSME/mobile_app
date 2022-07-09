@@ -120,18 +120,18 @@ const renderItem2 = ({ item,index }) => {
 
        <View style={tw.style('max-w-7xl bg-white overflow-hidden rounded-lg p-4 m-4')}>
          <View style={tw.style('flex items-center flex-row justify-between')}>
-             <Text style={tw.style('mt-1')}>
-                <DatabaseIcon color="red" fill="#B80000" size={24} />
+             <Text style={tw.style('mt-1 mb-5')}>
+                <DatabaseIcon color="red" fill="#B80000" size={32} />
              </Text>
              <Sortorder options={options} />
           </View>
 
           <View style={tw.style('flex justify-between')}>
               <View>
-                <Text style={tw.style('font-bold text-lg text-gray-700 mt-2')}>Total Income</Text>
+                <Text style={tw.style('font-bold text-lg text-gray-700 mt-2')}>Sales Earnings</Text>
                 <View style={tw.style('flex-row h-14 mb-1')}>
                   <View style={tw.style('flex-1 w-2/3')}>
-                    <Text style={tw.style('text-4xl text-gray-800')}>${props?.getlistselldeshboard?.income}</Text>
+                    <Text style={tw.style('text-4xl font-bold text-gray-800')}>${props?.getlistselldeshboard?.income}</Text>
                   </View>
                   <View style={tw.style('flex-none')}>
                     <Text style={tw.style('items-center text-lg font-semibold text-green-600')}>+32%</Text>
@@ -142,12 +142,7 @@ const renderItem2 = ({ item,index }) => {
                 <Text style={tw.style('items-center text-lg font-semibold text-green-600')}>+32%</Text>
                 }
           </View>
-          <View style={tw.style('w-6/12')}>
-            <Smallbutton
-              text="Withdraw"
-              onPress={() => props.navigation.navigate("Dashwith")}
-            />
-          </View>
+
         </View>
     );
     }
@@ -155,10 +150,18 @@ const renderItem2 = ({ item,index }) => {
     const renderItem3 = ({ item,index }) => {
        return(
            <View>
-              <View style={tw.style('flex flex-row justify-between bg-white')}>
-                   <Text style={[styles.seriestexttoday,{width:150}]}>{item?.orderNumber}</Text>
-                   <Text style={styles.seriestexttoday}>{item?.loggedInUserId?.userName}</Text>
-                   <Text style={styles.seriestexttoday}>{item?.loggedInUserId?.userName}</Text>
+              <View style={tw.style('flex flex-row justify-between')}>
+                   <Text style={tw`text-base font-bold text-gray-800`}>{item?.loggedInUserId?.userName}</Text>
+                   <View> style={tw`inline-flex items-center px-2.5 py-0.5 rounded-md`}>
+                    <Text style={tw`text-xs font-medium bg-blue-100 text-blue-800`}>Processing</Text>
+                   </View>>
+               </View>
+               <View style={tw`flex flex-row`}>
+                   <Text style={tw`text-base text-gray-700`}>{item?.loggedInUserId?.userName}</Text>
+               </View>
+               <View style={tw`flex flex-row`}>
+                   <Text style={tw`text-base text-gray-700 mr-2`}>Order number:</Text>
+                   <Text style={tw`text-base text-blue-700`}>{item?.orderNumber}</Text>
                </View>
             </View>
         );
@@ -166,15 +169,18 @@ const renderItem2 = ({ item,index }) => {
 
      const renderItem4 = ({ item,index }) => {
        return(
-           <View>
-              <View style={styles.seledataViewTODAYsecndrender}>
-                  <View style={{flexDirection:'row'}}>
+
+              <View>
+                  <View style={tw`flex flex-row mb-3`}>
                      <Image source={item.image} style={{width:24,height:24,}}/>
-                     <Text style={[styles.seriestexttoday,{alignSelf:'center',marginLeft:1}]}>{item.text}</Text>
+                     <Text style={tw`text-base font-bold text-gray-700 ml-2`}>{item.text}</Text>
                   </View>
-                     <Text style={styles.seriestexttoday}>{item.text1}</Text>
+                  <View style={tw`flex flex-row justify-between mb-3`}>
+                     <Text style={tw`text-base font-bold text-blue-700`}>Orders: {item.text1}</Text>
+                     <Text style={tw`text-base font-bold text-green-700`}>Revenue: ${item.text1}</Text>
+                  </View>
               </View>
-            </View>
+
         );
       }
 
@@ -197,69 +203,6 @@ const renderItem2 = ({ item,index }) => {
                     showsHorizontalScrollIndicator={false}
                     horizontal={false}
                     />
-                </View>
-
-                <View style={tw.style('max-w-7xl bg-white overflow-hidden rounded-lg p-4 m-4')}>
-                   <View style={tw.style('flex items-center flex-row justify-between mb-3')}>
-                       <View>
-                         <Text style={tw.style('font-bold text-xl text-gray-700 pl-2')}>Sales Statistics</Text>
-                       </View>
-                      <Sortorder options={options} />
-                  </View>
-
-                  <BarChart
-                      data={data}
-                      width={Dimensions.get("window").width - 10}
-                      height={220}
-                      yAxisLabel="$"
-                      chartConfig={{
-                        backgroundColor: "#12cc89",
-                        backgroundGradientFrom: "#ffffff",
-                        backgroundGradientTo: "#ffffff",
-                        decimalPlaces: 1, // optional, defaults to 2dp
-                        color: (opacity = 1) => `rgba(18, 201, 9, ${opacity})`,
-                        labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-
-                      }}
-                      style={tw.style('-ml-3'),{
-                        //marginVertical: 4,
-                        //marginHorizontal:'1%'
-                      }}
-                      propsForDots={{
-                          r: "6",
-                          strokeWidth: "1",
-                          stroke: "#ffa726"
-                        }}
-                      propsForVerticalLabels={{
-                        marginTop: 4,
-                      }}
-                      verticalLabelRotation={0}
-                      />
-                  </View>
-
-                <View style={tw.style('max-w-7xl bg-white overflow-hidden rounded-lg p-4 m-4')}>
-                    <View>
-                      <Text style={tw.style('text-xl text-center font-bold text-gray-700')}>Livestream Viewers</Text>
-                      </View>
-                      <View style={tw.style('items-center mr-8')}>
-                      <ProgressChart
-                        data={data1}
-                        width={deviceWidth/1.20}
-                        height={220}
-                        strokeWidth={16}
-                        radius={32}
-                         chartConfig={{
-                          backgroundColor: "#e26a00",
-                          backgroundGradientFrom: "#ffffff",
-                          backgroundGradientTo: "#ffffff",
-                          decimalPlaces: 1, // optional, defaults to 2dp
-                          color: (opacity = 1) => `rgba(0, 153, 0, ${opacity})`,
-                          labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-
-                        }}
-                        hideLegend={false}
-                        />
-                    </View>
                 </View>
 
                 <View style={tw.style('max-w-7xl bg-white overflow-hidden rounded-lg p-4 m-4')}>
@@ -294,6 +237,69 @@ const renderItem2 = ({ item,index }) => {
                       horizontal={false}
                       />
                   </View>
+                </View>
+
+                <View style={tw.style('max-w-7xl bg-white overflow-hidden rounded-lg p-4 m-4')}>
+                   <View style={tw.style('flex items-center flex-row justify-between mb-3')}>
+                       <View>
+                         <Text style={tw.style('font-bold text-xl text-gray-700 pl-2')}>Sales Statistics</Text>
+                       </View>
+                      <Sortorder options={options} />
+                  </View>
+
+                  <BarChart
+                      data={data}
+                      width={Dimensions.get("window").width - 65}
+                      height={220}
+                      yAxisLabel="$"
+                      chartConfig={{
+                        backgroundColor: "#12cc89",
+                        backgroundGradientFrom: "#ffffff",
+                        backgroundGradientTo: "#ffffff",
+                        decimalPlaces: 1, // optional, defaults to 2dp
+                        color: (opacity = 1) => `rgba(18, 201, 9, ${opacity})`,
+                        labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+
+                      }}
+                      style={tw.style('mr-2'),{
+                        //marginVertical: 4,
+                        //marginHorizontal:'1%'
+                      }}
+                      propsForDots={{
+                          r: "2",
+                          strokeWidth: "1",
+                          stroke: "#ffa726"
+                        }}
+                      propsForVerticalLabels={{
+                        marginTop: 4,
+                      }}
+                      verticalLabelRotation={0}
+                      />
+                  </View>
+
+                <View style={tw.style('max-w-7xl bg-white overflow-hidden rounded-lg p-4 m-4')}>
+                    <View>
+                      <Text style={tw.style('text-xl text-center font-bold text-gray-700')}>Livestream Viewers</Text>
+                      </View>
+                      <View style={tw.style('items-center mr-8')}>
+                      <ProgressChart
+                        data={data1}
+                        width={deviceWidth/1.20}
+                        height={220}
+                        strokeWidth={16}
+                        radius={32}
+                         chartConfig={{
+                          backgroundColor: "#e26a00",
+                          backgroundGradientFrom: "#ffffff",
+                          backgroundGradientTo: "#ffffff",
+                          decimalPlaces: 1, // optional, defaults to 2dp
+                          color: (opacity = 1) => `rgba(0, 153, 0, ${opacity})`,
+                          labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+
+                        }}
+                        hideLegend={false}
+                        />
+                    </View>
                 </View>
 
                  <View style={tw.style('max-w-7xl bg-white overflow-hidden rounded-lg p-4 m-4')}>
