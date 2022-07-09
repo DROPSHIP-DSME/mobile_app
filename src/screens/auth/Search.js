@@ -77,19 +77,9 @@ const Search = (props) => {
     const [filterData,onfilterData]= React.useState([]);
     const [wayToContact, setWayToContact] = useState("Phone");
 
-    
-    const [showclassName, setshowclassName] = useState("#B80000");
+     const [enablesearch, setenablesearch] = useState(false);
 
-    const [wayToContactList, setWayToContactList] = useState([
-        {
-            label: "Phone",
-            value: "Phone"
-        },
-        {
-            label: "Email",
-            value: "Email"
-        }
-    ]);
+   
     const openpopup = () => {
         setVisible(true)
 
@@ -135,8 +125,11 @@ const Search = (props) => {
     
     const handleRegistrationSubmit = () => {
         Keyboard.dismiss();
-        props.searchitems(First,props?.loginuserid);
-        props.getsearchlist(props?.loginuserid); 
+        if(First!=""){
+            props.searchitems(First,props?.loginuserid);
+            props.getsearchlist(props?.loginuserid); 
+            setenablesearch(true);
+        }
     }
 
     const DATA = [
@@ -260,8 +253,9 @@ const renderItem2 = ({ item ,index }) => {
                 </View>
             </View>*/ }
             <View>
-                <Text style={styles.srchistry}>Discover</Text>
+                
                 <View style={{marginBottom:"20%"}}>
+                   {props?.searchlistitmes?.length>0 ?
                     <FlatList
                         data={props?.searchlistitmes || []}
                         renderItem={renderItem}
@@ -269,6 +263,25 @@ const renderItem2 = ({ item ,index }) => {
                         showsHorizontalScrollIndicator={false}
                         horizontal={true}
                     />
+                    :
+                    <View>
+                     {enablesearch==true &&
+                        <View style={{ marginTop:50}}>
+                            <Text style={{textAlign:'center' ,color:"#333333",fontWeight:'bold',fontSize:14}}>There are currently no result for that query</Text>
+                            <Text style={{textAlign:'center' ,color:"#333333",fontWeight:'bold',fontSize:14}}>Here are some popular suggesstions</Text>
+                            <View style={{ marginTop:20}}>
+                               <FlatList
+                                data={DATA}
+                                renderItem={renderItem2}
+                                keyExtractor={item => item.id}
+                                showsHorizontalScrollIndicator={false}
+                                numColumns={4}
+                               />
+                            </View>
+                        </View>
+                    }
+                    </View>
+                }
                 </View>
             </View>
             </View>

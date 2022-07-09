@@ -25,9 +25,9 @@ import Modal from 'react-native-modal'
 import tw from 'twrnc';
 import Sortfilter from '../../components/pickers/Sortfilter';
 import Timeframe from '../../components/pickers/Timeframe';
-import Last30days from '../../components/pickers/Last30days';
+import Sortorder from '../../components/pickers/Sortorder';
 import Smallbutton from '../../components/dropshipbutton/Smallbutton';
-
+ const options = ['1', '2', '3', '4','5','6','7','8','9']
 
 import {
   LineChart,
@@ -146,7 +146,7 @@ const Dashsale = (props) => {
         </View>
 
         <View style={tw.style('flex flex-row mx-4')}>
-          <Timeframe />
+          <Sortorder options={options} />
 
           <Sortfilter
             text="Sortfilter"
@@ -185,7 +185,7 @@ const Dashsale = (props) => {
           <View style={tw.style('py-8 px-3')}>
             <View style={tw.style('flex flex-row justify-between mb-8')}>
               <Text style={tw.style('text-xl text-gray-700 mt-2')}>Top Selling Product</Text>
-              <Last30days />
+              <Sortorder options={options} />
             </View>
             <View style={tw.style('flex flex-row justify-between mx-1 p-4 bg-gray-200 rounded-md')}>
               <Text style={tw`text-base text-gray-800`}>S/N</Text>
@@ -208,7 +208,7 @@ const Dashsale = (props) => {
           <View style={tw.style('py-8 px-3')}>
             <View style={tw.style('flex flex-row justify-between mb-8')}>
               <Text style={tw.style('text-xl text-gray-700 mt-2')}>Top Categories</Text>
-              <Last30days />
+              <Sortorder options={options} />
             </View>
             <View style={tw.style('flex flex-row justify-between mx-1 p-4 bg-gray-200 rounded-md')}>
               <Text style={tw`text-base text-gray-800`}>S/N</Text>

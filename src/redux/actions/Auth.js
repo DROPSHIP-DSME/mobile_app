@@ -1029,6 +1029,29 @@ export const getlivestreamrecap = (channelId) => {
    }
 };
 
+export const deletelivestreamrecap = (channelId) => {
+//alert(channelId)
+  let request = {
+    "channelId": channelId
+   }
+   return async (dispatch, getState) => {
+       let isInternetConnected = await getState().auth?.isInternetConnected;
+       if (isInternetConnected) {
+           try {
+               let response = await Utilise.apiCalling('POST', `${Api.getdeletelivestreamrecap}`,  request);
+               if (response?.status) {
+                   Alert.alert("DROPSHIP", 'livestream deleted successfully')
+                   //dispatch({ type: LIVESTREAM_RECAP, payload: response.data });
+               }
+           } catch (error) {
+              // dispatch({ type: LIVESTREAM_RECAP, payload: [] });
+              // Alert.alert("DROPSHIP", String(error?.message))
+           }
+       };
+   }
+};
+
+
 //getalleventlist1
 export const getalleventlist1 = (userId) => {
       let request = {

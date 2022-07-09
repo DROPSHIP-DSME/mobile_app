@@ -687,6 +687,7 @@ const Blurbackground = (props) => {
     };
 
     const Comments = (index, item) => {
+        //console.log('sdsdsisfsfsdfsdftem',item);
         return (
             <View style={{ marginTop: 10 }}>
                 <Text>
@@ -694,7 +695,7 @@ const Blurbackground = (props) => {
                         color: Colors.white,
                         fontSize: 14,
                          textTransform: 'lowercase'
-                    }}>@name:</Text>
+                    }}>@{item?.user?.userName}:</Text>
                     <Text style={{ color: Colors.white, }}>
                         {' '}
                         {item.message}
@@ -919,9 +920,11 @@ const Blurbackground = (props) => {
 
     const doComment = () => {
         
+        if(comment!="" && comment!=undefined){
                let request ={
                   "liveevent":channel,
                   "message":comment,
+                  "user":props?.loginuserid
                 }
                 props.postcomment(request, props.navigation, "vendor");
                 setTimeout(function(){ props.getLivecommentCustomer(channel);},1000);
@@ -942,7 +945,7 @@ const Blurbackground = (props) => {
             } catch (error) {
                 //console.log("error is for send message => ", error)
             }
-         
+        }
     }
 
 
@@ -1117,7 +1120,7 @@ const Blurbackground = (props) => {
                                 <FlatList
                                 data={props?.livecommentlist}
                                 keyExtractor={(item, index) => item.id + index + ""}
-                                style={{ maxHeight: 150,bottom:-60, left:15 }}
+                                style={{ maxHeight: 150,left:15 }}
                                 renderItem={({ index, item }) => Comments(index, item)}
                             />
                         }
@@ -1164,18 +1167,27 @@ const Blurbackground = (props) => {
                                 />
                             </TouchableOpacity>
                             
-                            <TouchableOpacity style={{left:0,right:18,paddingHorizontal:10,paddingVertical:10,}}>
+                           {/* <TouchableOpacity style={{left:0,right:18,paddingHorizontal:10,paddingVertical:10,}}>
                                 <Image
                                     source={ImageIcons.call}
                                     style={{ width: 21, height: 21 }}
                                 />
+                            </TouchableOpacity> */}
+                        { isbroadcaster == false ?
+                            <TouchableOpacity onPress={() =>props.navigation.navigate("Cart")} style={{marginLeft:10,backgroundColor:'#EB2F2F',paddingHorizontal:10,paddingVertical:10,borderRadius:5}}>
+                                <Image
+                                    source={ImageIcons.callbag}
+                                    style={{ width: 12, height: 14}}
+                                />
                             </TouchableOpacity>
+                        :
                             <TouchableOpacity style={{marginLeft:10,backgroundColor:'#EB2F2F',paddingHorizontal:10,paddingVertical:10,borderRadius:5}}>
                                 <Image
                                     source={ImageIcons.callbag}
                                     style={{ width: 12, height: 14}}
                                 />
                             </TouchableOpacity>
+                        }
                     </View>
                     
                 </View>

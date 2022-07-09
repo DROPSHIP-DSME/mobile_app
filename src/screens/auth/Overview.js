@@ -19,7 +19,7 @@ import HorizontalSlider from 'react-horizontal-slider';
 import SellHeader from '../../screens/auth/Sellheader';
 import tw from 'twrnc';
 import Smallbutton from '../../components/dropshipbutton/Smallbutton';
-import Last30days from '../../components/pickers/Last30days';
+import Sortorder from '../../components/pickers/Sortorder';
 import Salesyear from '../../components/pickers/Salesyear';
 import Footer2 from '../../screens/auth/Footer2';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -32,6 +32,8 @@ import {
   ContributionGraph,
   StackedBarChart
 } from "react-native-chart-kit";
+
+ const options = ['1', '2', '3', '4','5','6','7','8','9']
 
 
 const Overview = (props) => {
@@ -121,7 +123,7 @@ const renderItem2 = ({ item,index }) => {
              <Text style={tw.style('mt-1')}>
                 <DatabaseIcon color="red" fill="#B80000" size={24} />
              </Text>
-             <Last30days />
+             <Sortorder options={options} />
           </View>
 
           <View style={tw.style('flex justify-between')}>
@@ -202,7 +204,7 @@ const renderItem2 = ({ item,index }) => {
                        <View>
                          <Text style={tw.style('font-bold text-xl text-gray-700 pl-2')}>Sales Statistics</Text>
                        </View>
-                       <Salesyear />
+                      <Sortorder options={options} />
                   </View>
 
                   <BarChart

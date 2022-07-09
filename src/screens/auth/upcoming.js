@@ -21,6 +21,7 @@ import Moment from 'moment';
 import tw from 'twrnc';
 
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import AwesomeAlert from 'react-native-awesome-alerts';
 
 import { TabBar, TabBarIndicator } from 'react-native-tab-view';
 //import { NavigationContainer } from '@react-navigation/native';
@@ -74,11 +75,29 @@ const upcoming = (props) => {
     const [tab2, settab2] = useState(false);
     const [tab3, settab3] = useState(false);
     const [showlist, setshowlist] = useState(true);
+
+    const [showalertmsg, setshowalertmsg] = useState('');
+    const [showotherAlert, setshowotherAlert] = useState(false);
+
+    const [EventId, setEventId] = useState('');
     
     const joinbroadcast = (itemid) => {
+        setEventId(itemid);
         props.getlivestreamrecap(itemid);
         setshowlist(false)
     }
+
+    const deletebroadcast = () => {
+        //props.getlivestreamrecap(EventId);
+        setshowotherAlert(true);
+        setshowalertmsg('Are you sure, you want to delete this Event?')
+    }
+
+    const deleteeventbroadcast = () => {
+         props.deletelivestreamrecap(EventId);
+         props.navigation.navigate('upcoming');
+    }
+
 
     const openpopup = () => {
         setVisible(true)
@@ -206,12 +225,12 @@ const upcoming = (props) => {
     }
 
     const rendermessage = ({ item }) => {
-        console.log("message------->", item)
+        console.log("messagedsdsd------->", item)
         return (
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 25 }} >
-                <Image source={ImageIcons.profile} style={{ height: 36, width: 36, borderRadius: 20 }} />
+                
                 <View style={{ marginLeft: 5, width: 270 }}>
-                    <Text style={{ color: '#666666', fontSize: 14, }} >{item.user}username</Text>
+                    <Text style={{ color: '#666666', fontSize: 14, }} >{item?.user?.userName}</Text>
                     <Text style={{ color: '#000000', fontSize: 12, marginTop: 5 }} >{item.message}</Text>
                     <Text style={{ color: '#666666', fontSize: 12, marginTop: 5 }} >{Moment(item.createdAt).format("HH:mm A")}</Text>
                 </View>
@@ -256,10 +275,10 @@ const upcoming = (props) => {
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={styles.registrationRoot}>
             <View style={tw.style('mt-6 mx-3')}>
-                <Text style={tw.style('text-2xl text-gray-800 font-bold')}>Livestream Recap</Text>
+                <Text style={tw.style('text-2xl text-gray-800 font-bold')}>Livestreams</Text>
             </View>
             {showlist==true ?
-                <View style={{ marginTop: '7%', marginHorizontal: '3%', minHeight:'86%' }}>
+                <View style={{ marginTop: '7%', marginHorizontal: '3%', flex:1 }}>
                    <View style={{marginTop:15}}>
                     {props?.getalleventdata?.length>0 ?
                     <FlatList
@@ -480,7 +499,7 @@ const upcoming = (props) => {
                                     </View>
                                 </View>
 
-                                <View style={{ marginHorizontal: '2%' }}>
+                               {/* <View style={{ marginHorizontal: '2%' }}>
                                     <Text style={{ fontSize: 22, color: '#1A1A1A', fontWeight: '400' }}>Viewers</Text>
                                     <View>
                                         <FlatList
@@ -492,9 +511,9 @@ const upcoming = (props) => {
                                         />
                                     </View>
 
-                                </View>
+                                </View> */ }
 
-                                <TouchableOpacity style={{ backgroundColor: '#B80000', marginStart: 20, marginEnd: 20, marginTop: 45, borderRadius: 50, marginBottom: 137 }} >
+                                <TouchableOpacity onPress={() => deletebroadcast()} style={{ backgroundColor: '#B80000', marginStart: 20, marginEnd: 20, marginTop: 45, borderRadius: 50, marginBottom: 137 }} >
                                     <Text style={{ color: 'white', fontSize: 18, fontWeight: 'bold', textAlign: 'center', marginTop: 20, marginBottom: 20 }} >Delete Stream</Text>
                                 </TouchableOpacity>
 
@@ -524,6 +543,27 @@ const upcoming = (props) => {
             </ScrollView>
         }
         
+        <AwesomeAlert
+                show={showotherAlert}
+                showProgress={false}
+                title="DROPSHIP"
+                message={showalertmsg}
+                closeOnTouchOutside={true}
+                closeOnHardwareBackPress={false}
+                showCancelButton={true}
+                showConfirmButton={true}
+                cancelText="Close"
+                confirmText="Delete"
+                confirmButtonColor="#B80000"
+                onCancelPressed={() => {
+                    setshowotherAlert(false)
+                }}
+                onConfirmPressed={() => {
+                    deleteeventbroadcast();
+                    setshowotherAlert(false);
+                }}
+            />
+
         <Footer3 onSelection="2" />
 
         </KeyboardAvoidingView>

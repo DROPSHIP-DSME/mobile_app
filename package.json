@@ -64,6 +64,7 @@
     "react-native-contacts": "^7.0.2",
     "react-native-countdown-component": "^2.7.1",
     "react-native-crypto-js": "^1.0.0",
+    "react-native-custom-picker": "^0.4.0",
     "react-native-customisable-alert": "^0.1.20",
     "react-native-dashed-border": "^2.1.1",
     "react-native-dashed-line": "^1.1.0",

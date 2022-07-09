@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { upcoming } from '../../screens/auth';
-import { getalleventlist,getincomingtlist,getlivestreamrecap } from '../../redux/actions/Auth'
+import { getalleventlist,getincomingtlist,getlivestreamrecap,deletelivestreamrecap } from '../../redux/actions/Auth'
 
 
 const mapStateToProps = (state) => ({
@@ -17,6 +17,7 @@ const mapDispatchToProps = {
     getalleventlist,
     getincomingtlist,
     getlivestreamrecap,
+    deletelivestreamrecap
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(upcoming);

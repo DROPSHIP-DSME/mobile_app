@@ -785,31 +785,29 @@ const Auth = (props) => {
       <Stack.Screen
         name="Search"
         component={Search}
-        options={({ navigation }) => ({
-                        headerShown: false,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Search",
+         options={({ navigation }) => ({
+                        headerShown: true,
+                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerTitle: "",
                         headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor:'#FFE7E7', elevation: 0, shadowOpacity: 0 },
+                        headerTitleStyle: styles.titleheaderstyle,
+                        headerStyle: styles.headerbackgroundstyle,
                     })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
       />
      
        <Stack.Screen
         name="Notification"
         component={Notification}
-        options={({ navigation }) => ({
-                        headerShown: false,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Notification",
+         options={({ navigation }) => ({
+                        headerShown: true,
+                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerTitle: "",
                         headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor:'#FFE7E7', elevation: 0, shadowOpacity: 0 },
+                        headerTitleStyle: styles.titleheaderstyle,
+                        headerStyle: styles.headerbackgroundstyle,
                     })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
       />
 
       <Stack.Screen

@@ -93,6 +93,8 @@ const Dashorder = (props) => {
   const [selectedValue, setSelectedValue] = useState("");
   const [showclassName, setshowclassName] = useState("#B80000");
 
+  const options = ['Success', 'Pending', 'Processing', 'Canceled','Delivered']
+
   const openpopup = () => {
     setVisible(true)
 
@@ -131,7 +133,7 @@ const Dashorder = (props) => {
   }
 
 
-
+  
   return (
     <View style={tw.style('flex-1 bg-white')}>
       
@@ -143,7 +145,7 @@ const Dashorder = (props) => {
         <View style={tw.style('my-5 mx-4')}>
           <Text style={tw.style('text-2xl text-gray-800 font-bold mb-5')}>Orders ({props?.getinconeorderlist?.length})</Text>
 
-          <Sortorder />
+          <Sortorder options={options} />
 
           <View style={tw.style('bg-zinc-100 mt-6 p-3 ')} >
             <FlatList

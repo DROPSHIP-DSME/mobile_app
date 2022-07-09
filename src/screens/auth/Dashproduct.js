@@ -47,7 +47,7 @@ const Dashproduct = (props) => {
      const deviceHeight = Dimensions.get('window').height;
 const deviceWidth = Dimensions.get('window').width;
 
-
+const options = ['Success', 'Pending', 'Processing', 'Canceled','Delivered']
     const {
         navigation,
         values,
@@ -212,7 +212,7 @@ const deviceWidth = Dimensions.get('window').width;
                </View>
 
               <View style={tw.style('flex flex-row mx-4')}>
-                <Sortorder />
+                <Sortorder  options={options}  />
 
                 <Sortfilter
                   text="Filter"

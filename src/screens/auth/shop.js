@@ -83,7 +83,7 @@ const shop = (props) => {
         }
 
     }
-
+    const options = ['Success', 'Pending', 'Processing', 'Canceled','Delivered']
     const checklogin = async () => {
         if (props?.loginuserstatus == "1") {
             props.navigation.navigate("AddStore")
@@ -180,7 +180,7 @@ const shop = (props) => {
 
                 <View style={tw.style('flex flex-row mx-4 mt-4')}>
 
-                    <Sortorder />
+                    <Sortorder  options={options}  />
 
                     <Sortfilter
                       text="Filter"
