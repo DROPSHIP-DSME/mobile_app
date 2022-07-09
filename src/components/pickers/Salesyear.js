@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {Text, View, StyleSheet, Platform, Stylesheet, ImageBackground, } from 'react-native';
-import RNPickerSelect from 'react-native-picker-select';
 import { Picker } from '@react-native-picker/picker';
 import styles from './styles';
 import { ChevronDownIcon } from "react-native-heroicons/solid";
@@ -11,31 +10,7 @@ const Salesyear = ({text}) => {
   return (
     <View>
       <View style={tw.style('flex flex-row mt-2 rounded-md w-40 bg-zinc-200 px-1 text-justify items-center jsutiy-between')}>
-        <RNPickerSelect
-            style={tw.style('w-full h-4',
-              {...customPickerStyles, color:'black',  backgroundColor: 'red',
-                placeholder: {
-                  color: 'black',
-                  fontSize: 12,
-                  fontWeight: 'bold',
-                },
-              },
-            )}
-            onValueChange={(value) => console.log(value)}
-            useNativeAndroidPickerStyle={false}
-            Icon={() => {
-              return <ChevronDownIcon color="red" fill="red" size={24} style={tw`absolute top-3 right-1`}/>;
-            }}
-
-              items={[
-                  {label: "Choose", value: null },
-                  { label: '2021', value: '1' },
-                  { label: '2022', value: '2' },
-                  { label: '2023', value: '3' },
-              ]}
-
-        />
-
+        
       </View>
     </View>
 
