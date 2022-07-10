@@ -19,8 +19,9 @@ import Shopheader from '../../screens/auth/Shopheader';
 import styl from './styledrop';
 import Moment from 'moment';
 import tw from 'twrnc';
+import { UsersIcon } from "react-native-heroicons/solid";
+import { ChatAlt2Icon } from "react-native-heroicons/solid";
 import Largebutton from '../../components/dropshipbutton/Largebutton';
-
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import AwesomeAlert from 'react-native-awesome-alerts';
 
@@ -196,47 +197,50 @@ const upcoming = (props) => {
 
     const renderItem5 = ({ item ,index }) => {
        return(
-        <View>
-        <TouchableOpacity onPress={() => joinbroadcast(item._id)}>
-            <View style={{marginHorizontal:5,borderRadius:5}}>
-                    <Image source={{uri: item.products[0]?.productImage}} style={styles.imgbasket} />
-                    <Text style={styles.beautyproduct}></Text>
-                    <View style={{borderRadius:50,position:'absolute',top:10,left:10, backgroundColor:'#E22020'}}>
-                        <Text style={styles.shorttest1}>Live</Text>
-                    </View>
-                    <View style={styl.comingshort1}>
-                        <View style={{left:7,top:2}}>
-                            <Image source={ImageIcons.iconpath} style={{width:18,height:18}}/>
-                        </View>
-                        <Text style={styles.shorttest}>0K</Text>
-                    </View>
-            </View>
-            <View style={styl.rowdrop}>
-            <View>
-              <Image source={ImageIcons.profileimage} style={{width:35,height:35}}/>
-            </View>
-            <View style={{paddingTop:10,paddingLeft:10}}>
-            <Text style={styl.txt1}>{item.products[0]?.productName}</Text>
-            </View>
-            </View>
-            <Text style={styl.txt2}></Text>
-           </TouchableOpacity>
-        </View>
+          <View style={tw.style('ml-2 mr-2 mt-3')}>
+              <TouchableOpacity onPress={() => joinbroadcast(item._id)}>
+                  <View>
+                      <Image source={{ uri: item.products[0]?.productImage }} style={tw.style('w-40 h-56 rounded-md')} />
+                      <Text style={tw`text-sm text-white absolute bottom-4 left-3 leading-4`}></Text>
+
+                      <View style={tw.style('flex flex-row bg-red-700 w-16 h-6 rounded-lg px-1 absolute top-4 left-2')}>
+                          <Text style={tw.style('px-3 text-sm text-white text-center')}>Live</Text>
+                      </View>
+                      <View style={tw.style('flex flex-row bg-green-200 w-16 h-6 rounded-lg px-2 items-center absolute top-4 left-[55%]')}>
+                          <View style={tw.style('pt-[2%]')}>
+                              <UsersIcon color="red" fill="#000000" size={14} />
+                          </View>
+                          <Text style={tw.style('text-xs text-gray-800 pl-1')}>0</Text>
+                      </View>
+                  </View>
+
+                  <View style={tw.style('flex flex-row mt-2')}>
+                      <View>
+                          <Image source={ImageIcons.profileimage} style={tw.style('h-6 w-6 rounded-full')} />
+                      </View>
+                      <View style={tw.style('pl-2 pt-1')}>
+                          <Text style={tw.style('text-gray-500 text-xs')}>{item.products[0]?.productName}</Text>
+                      </View>
+                  </View>
+              </TouchableOpacity>
+          </View>
       );
     }
 
     const rendermessage = ({ item }) => {
         console.log("messagedsdsd------->", item)
         return (
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 25 }} >
-                
-                <View style={{ marginLeft: 5, width: 270 }}>
-                    <Text style={{ color: '#666666', fontSize: 14, }} >{item?.user?.userName}</Text>
-                    <Text style={{ color: '#000000', fontSize: 12, marginTop: 5 }} >{item.message}</Text>
-                    <Text style={{ color: '#666666', fontSize: 12, marginTop: 5 }} >{Moment(item.createdAt).format("HH:mm A")}</Text>
+            <View style={tw`flex flex-row justify-between mt-3 items-center`} >
+
+                <View style={tw`ml-1`}>
+                    <Text style={tw`text-lg text-gray-700 font-bold`} >{item?.user?.userName}</Text>
+                    <View style={tw`flex-row items-center`}>
+                      <Text style={tw`text-base text-gray-600`} >{item.message}</Text>
+                      <Text style={tw`text-sm text-blue-500 ml-4`} >{Moment(item.createdAt).format("HH:mm A")}</Text>
+                    </View>
                 </View>
                 <View>
-                    <Image source={ImageIcons.messagebox} style={{ height: 30, width: 34, }} />
+                    <ChatAlt2Icon color="red" fill="#000000" size={28} />
                 </View>
             </View>
         );
@@ -275,12 +279,12 @@ const upcoming = (props) => {
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={styles.registrationRoot}>
-            <View style={tw.style('mt-6 mx-3')}>
+            <View style={tw.style('mt-6 mx-4')}>
                 <Text style={tw.style('text-2xl text-gray-800 font-bold')}>Livestreams</Text>
             </View>
             {showlist==true ?
-                <View style={{ marginTop: '7%', marginHorizontal: '3%', flex:1 }}>
-                   <View style={{marginTop:15}}>
+                <View style={tw`flex flex-1 mx-4`}>
+                   <View style={tw`mt-4`}>
                     {props?.getalleventdata?.length>0 ?
                     <FlatList
                         data={props?.getalleventdata || []}
@@ -290,7 +294,7 @@ const upcoming = (props) => {
                         numColumns={2}
                     />
                     :
-                        <Text style={{ fontSize: 18, textAlign:'center', marginTop:150, color: '#1A1A1A', fontFamily: 'AvertaStd-Bold' }}>No Events Found</Text>
+                        <Text style={tw`text-center text-xl mt-65 text-gray-700`}>No Events Found</Text>
                     }
                     </View>
                 </View>
@@ -478,7 +482,7 @@ const upcoming = (props) => {
                                         borderRadius: 16, marginHorizontal: '4%', alignSelf: 'center', elevation: 3
                                     }}>
                                         <View>
-                                            <Text style={styles.totalincometodaylive}>Livestream Viewers</Text>
+                                            <Text style={tw`text-2xl font-bold text-center text-gray-700 mt-4`}>Livestream Viewers</Text>
                                         </View>
                                         <ProgressChart
                                             data={data1}
@@ -513,10 +517,6 @@ const upcoming = (props) => {
                                     </View>
 
                                 </View> */ }
-
-                                <TouchableOpacity onPress={() => deletebroadcast()} style={{ backgroundColor: '#B80000', marginStart: 20, marginEnd: 20, marginTop: 45, borderRadius: 50, marginBottom: 137 }} >
-                                    <Text style={{ color: 'white', fontSize: 18, fontWeight: 'bold', textAlign: 'center', marginTop: 20, marginBottom: 20 }} >Delete Stream</Text>
-                                </TouchableOpacity>
                                 </View>
 
 
@@ -550,7 +550,7 @@ const upcoming = (props) => {
 
             </ScrollView>
         }
-        
+
         <AwesomeAlert
                 show={showotherAlert}
                 showProgress={false}

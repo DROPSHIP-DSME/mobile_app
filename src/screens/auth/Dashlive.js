@@ -391,7 +391,7 @@ return (
                           </TouchableOpacity>
                         </View>
                   :
-                    <View>
+                    <View style={tw`mx-3`}>
                        <Largebutton
                        text="Start Livesteam"
                        onPress={() => startlivebtn()}
@@ -399,7 +399,7 @@ return (
 
                        <View
                         type="button"
-                         style={tw.style('my-5 inline-flex items-center mx-5 px-4 py-6 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-gray-800 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500')}
+                         style={tw.style('my-5 inline-flex items-center px-4 py-6 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-gray-800 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500')}
                        >
                         <TouchableOpacity style={tw.style('w-10/11 items-center')}>
                            <Text style={tw.style('text-lg text-white')}>Test Livestream</Text>
