@@ -28,7 +28,8 @@ import RnIncrementDecrementBtn from
   'react-native-increment-decrement-button';
 import Shopheader from '../../screens/auth/Shopheader';
 import tw from 'twrnc';
-
+import Sortorder from '../../components/pickers/Sortorder';
+const options = ['USA', 'India', 'Ghana', 'Canada']
 
 const Bagprocess = (props) => {
 
@@ -50,7 +51,7 @@ const Bagprocess = (props) => {
   const shopName = props?.route?.params?.shopName;
   // Local states
   const [checked, setChecked] = React.useState('first');
-  const [selectedValue, setSelectedValue] = useState("java");
+  const [selectedValue, setSelectedValue] = useState("USA");
   const [visible, setVisible] = React.useState(false);
   const [starCount, setstarCount] = useState(3);
   const [visiblebag, setVisiblebag] = React.useState(false);
@@ -58,6 +59,7 @@ const Bagprocess = (props) => {
 
   const [showclassName, setshowclassName] = useState("#B80000");
   const [text1, onChangeText1] = React.useState("");
+  
 
   useEffect(() => {
     props.shopproduct(shopId);
@@ -127,14 +129,8 @@ const Bagprocess = (props) => {
                   <Text style={{ fontSize: 18, fontStyle: 'normal', marginVertical: '4%', fontFamily: 'hinted-AvertaStd-Bold', color: '#1A1A1A' }}>Style</Text>
                 </View>
                 <View style={tw.style('bg-[#E6E6E6] rounded-[10px]')}>
-                  <Picker
-                    selectedValue={selectedValue}
-                    style={{ height: 36, width: 86 }}
-                    onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-                  >
-                    <Picker.Item label="S/0" value="Sort" />
-                    <Picker.Item label="JavaScript" value="js" />
-                  </Picker>
+                  <Sortorder options={options} />
+
                 </View>
               </View>
 
@@ -196,14 +192,8 @@ const Bagprocess = (props) => {
                   <Text style={{ fontSize: 18, fontStyle: 'normal', marginVertical: '4%', fontFamily: 'hinted-AvertaStd-Bold', color: '#1A1A1A' }}>Style</Text>
                 </View>
                 <View style={tw.style('bg-[#E6E6E6] rounded-[10px]')}>
-                  <Picker
-                    selectedValue={selectedValue}
-                    style={{ height: 36, width: 86 }}
-                    onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-                  >
-                    <Picker.Item label="S/0" value="Sort" />
-                    <Picker.Item label="JavaScript" value="js" />
-                  </Picker>
+                  <Sortorder options={options} />
+
                 </View>
               </View>
 

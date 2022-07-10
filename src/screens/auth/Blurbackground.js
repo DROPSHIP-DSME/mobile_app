@@ -21,7 +21,10 @@ import { CreditCardInput } from 'react-native-payment-card';
 import ModalSelector from 'react-native-modal-selector';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import SwitchToggle from "react-native-switch-toggle";
-
+import Sortorder from '../../components/pickers/Sortorder';
+const options = ['1', '2', '3', '4','5','6','7','8','9']
+const options1 = ['English', 'French', 'Spanish', 'Hindi','African','chinese','Japanese','Italian']
+const options2 = ['Black', 'White', 'Red', 'Pink','Yellow','Green','Other']
 // const {RtcTokenBuilder, RtmTokenBuilder, RtcRole, RtmRole} = require('agora-access-token')
 
 // const currentTimestamp = Math.floor(Date.now() / 1000)
@@ -82,7 +85,7 @@ const Blurbackground = (props) => {
     const [Address2, onChangeAddress2] = React.useState("");
     const [State, onChangeState] = React.useState("");
     const [Zip, onChangeZip] = React.useState("");
-    const [product, onChangeproduct] = React.useState("");
+    const [product, onChangeproduct] = React.useState("English");
     const [City, onChangeCity] = React.useState("");
     const [Country, onChangeCountry] = React.useState("");
     const [showproduct, setshowproduct] = React.useState("");
@@ -825,39 +828,15 @@ const Blurbackground = (props) => {
                     <View>
                         <Text style={{fontWeight:'600',fontSize:16,fontFamily:'hinted-AvertaStd-Semibold'}}>Size</Text>
                         <View style={newstyles.pickerViewshort}>
-                            <Picker
-                                style={{ height: 30, width: 110,color:'#000000',}}
-                                onValueChange={(itemValue, itemIndex) =>setSelectedValue(itemValue)}
-                               >
-                                <Picker.Item label="1" value="1" />
-                                <Picker.Item label="2" value="2" />
-                                <Picker.Item label="3" value="3" />
-                                <Picker.Item label="4" value="4" />
-                                <Picker.Item label="5" value="5" />
-                                <Picker.Item label="6" value="6" />
-                                <Picker.Item label="7" value="7" />
-                                <Picker.Item label="8" value="8" />
-                                <Picker.Item label="9" value="9" />
-                              </Picker>
+                            <Sortorder options={options} />
+
                         </View>
                     </View>
 
                     <View>
                         <Text style={{fontWeight:'600',fontSize:16,fontFamily:'hinted-AvertaStd-Semibold'}}>Color</Text>
                         <View style={newstyles.pickerViewshort}>
-                           <Picker
-                                style={{ height: 30, width: 110,color:'#000000',}}
-                                onValueChange={(itemValue, itemIndex) =>setSelectedValue(itemValue)}
-                               >
-                                <Picker.Item label="Color" value="Black" />
-                                <Picker.Item label="Black" value="Black" />
-                                <Picker.Item label="White" value="White" />
-                                <Picker.Item label="Red" value="Red" />
-                                <Picker.Item label="Pink" value="Pink" />
-                                <Picker.Item label="Yellow" value="Yellow" />
-                                <Picker.Item label="Green" value="Green" />
-                                <Picker.Item label="Other" value="Other" /> 
-                              </Picker>
+                            <Sortorder options={options2} />
                         </View>
                     </View>
 
@@ -1506,19 +1485,7 @@ const Blurbackground = (props) => {
                     <View>
                         <Text style={{fontFamily:'hinted-AvertaStd-Bold',fontSize:15,fontWeight:'bold', color:'#000000',}}>Language</Text>
                         <View style={{backgroundColor:'#F3F3F3',marginTop:5,borderRadius:10,alignSelf:'center',padding:'1%',paddingHorizontal:'3%'}}>
-                            <Picker
-                                style={{ height: 30, width: 130,color:'#000000',}}
-                                onValueChange={(itemValue, itemIndex) =>onChangeproduct(itemValue)}
-                               >
-                                <Picker.Item label="English" value="English" />
-                                <Picker.Item label="French" value="French" />
-                                <Picker.Item label="Spanish" value="Spanish" />
-                                <Picker.Item label="Hindi" value="Hindi" />
-                                <Picker.Item label="African" value="African" />
-                                <Picker.Item label="chinese" value="chinese" />
-                                <Picker.Item label="Japanese" value="Japanese" />
-                                <Picker.Item label="Italian" value="Italian" />
-                              </Picker>
+                            <Sortorder options={options1} />
                         </View>
 
                         <Text style={{fontFamily:'hinted-AvertaStd-Bold',fontSize:15,marginTop:10,marginBottom:5,fontWeight:'bold', color:'#000000',}}>Call requests</Text>

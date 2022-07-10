@@ -26,6 +26,8 @@ import 'react-native-get-random-values';
 import { v4 as uuid } from "uuid";
 import Footer2 from '../../screens/auth/Footer2';
 import SellHeader from '../../screens/auth/Sellheader';
+import Sortorder from '../../components/pickers/Sortorder';
+const options = ['Sneakers', 'Fashion', 'Furniture', 'Cloths','Beauty & Hair','Electronics','Cosmetics','Other']
 
 import { useValidation } from 'react-native-form-validator';
 
@@ -67,7 +69,7 @@ const AddProduct = (props) => {
     const [City, onChangeCity] = React.useState("");
     const [Country, onChangeCountry] = React.useState("");
     const [isLogin, setisLogin] = useState("");
-    const [selectedValue, setSelectedValue] = useState("");
+    const [selectedValue, setSelectedValue] = useState("61b2e25addb2bd19c2b9532a");
     const [UserID, setUserID] = useState("");
     
     const { validate, isFieldInError, getErrorsInField, getErrorMessages } =
@@ -291,14 +293,8 @@ const AddProduct = (props) => {
                     </View>
                 </View>
                 <View style={[styles.pickerView,{marginTop:5,}]}>
-                    <Picker
-                    selectedValue={selectedValue}
-                    style={{  width: '90%',marginTop:0, }}
-                    onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-                    >
-                    <Picker.Item label={categoryName} value={categoryId} key={1} />
+                    <Sortorder options={options} />
 
-                    </Picker>
                 </View>
 
                 <View style={{alignItems:'center',marginVertical:'8%'}}>

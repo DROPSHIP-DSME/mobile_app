@@ -18,6 +18,9 @@ import ImagePicker from 'react-native-image-crop-picker';
 import { launchImageLibrary } from 'react-native-image-picker';
 import Footer3 from '../../screens/auth/Footer3';
 
+import Sortorder from '../../components/pickers/Sortorder';
+const options = ['Sneakers', 'Fashion', 'Furniture', 'Cloths','Beauty & Hair','Electronics','Cosmetics','Other']
+
 const CreateStore = (props) => {
 
     const {
@@ -54,7 +57,7 @@ const CreateStore = (props) => {
 
     const [Paypal, onChangePaypal] = React.useState("Paypal");
     const [Debit, onChangeDebit] = React.useState("Debit Card");
-    const [selectedValue, setSelectedValue] = useState("");
+    const [selectedValue, setSelectedValue] = useState("61b2e25addb2bd19c2b9532a");
 
     const [wayToContact, setWayToContact] = useState("Phone");
     const [wayToContactList, setWayToContactList] = useState([
@@ -223,22 +226,7 @@ const renderItem6 = ({ item }) => {
                  </View>
                  
                   <View style={styles.pickerViewshorttodaybrandtodayy}>
-             
-                      <Picker
-                        selectedValue={selectedValue}
-                        style={{ height: 50, width: 320,color:'#848484',}}
-                        onValueChange={(itemValue, itemIndex) =>setSelectedValue(itemValue)}
-                       >
-                        <Picker.Item label="Choose a Category" value="1" />
-                        <Picker.Item label="Sneakers" value="61b2e25addb2bd19c2b9532a" />
-                        <Picker.Item label="Fashion" value="61b2e4bfddb2bd19c2b9532f" />
-                        <Picker.Item label="Furniture" value="61b2e63bddb2bd19c2b95335" />
-                        <Picker.Item label="Cloths" value="61b2e882ddb2bd19c2b9533c" />
-                        <Picker.Item label="Beauty & Hair" value="61b2eb67ddb2bd19c2b95346" />
-                        <Picker.Item label="Electronics" value="61b2ec5addb2bd19c2b9534b" />
-                        <Picker.Item label="Cosmetics" value="61b651846a4c8e2f3dacf60a" />
-                        <Picker.Item label="Other" value="61b4aa1539889b2e9971b521" />
-                      </Picker>
+                        <Sortorder options={options} />
                 </View> 
 
                  <TouchableOpacity  onPress={() => handleSendRequestSubmit()}  style={{backgroundColor:'#b80000',width:320,borderRadius:30,padding:'5%',alignSelf:'center',marginTop:'8%',marginBottom:'35%'}}>

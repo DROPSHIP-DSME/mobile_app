@@ -20,6 +20,8 @@ import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import Footer3 from '../../screens/auth/Footer3';
 import Shopheader from '../../screens/auth/Shopheader';
+import Sortorder from '../../components/pickers/Sortorder';
+const options = ['USA', 'India', 'Ghana', 'Canada']
 
 import AsyncStorage from '@react-native-community/async-storage'; 
 import moment from 'moment';
@@ -54,7 +56,7 @@ const Popevent = (props) => {
     // Local states
      const [checked, setChecked] = React.useState('first');
 
-    const [selectedValue, setSelectedValue] = useState("java");
+    const [selectedValue, setSelectedValue] = useState("USA");
     const [Lastname, onChangeLastname] = React.useState("Last name");
     const [Email, onChangeEmail] = React.useState("Email address");
     const [PhoneNumber, onChangePhoneNumber] = React.useState("Phone number");
@@ -191,14 +193,7 @@ return (
             </View>
             <View style={styles.popdirection}>
                 <View style={styles.poppiker}>
-                     <Picker
-                        selectedValue={selectedValue}
-                        style={{ height: 50, width: 140 }}
-                        onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-                      >
-                        <Picker.Item label="Sort" value="Sort" />
-                        <Picker.Item label="JavaScript" value="js" />
-                      </Picker>
+                     <Sortorder options={options} />
                 </View>
                  
                 <TouchableOpacity style={[styles.poppiker3,{flexDirection:'row'}]} onPress={() => openpopup()}>

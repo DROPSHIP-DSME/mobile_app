@@ -24,7 +24,6 @@ import { Provider, Portal, } from 'react-native-paper';
 import Modal from 'react-native-modal'
 import tw from 'twrnc';
 import Sortfilter from '../../components/pickers/Sortfilter';
-import Timeframe from '../../components/pickers/Timeframe';
 import Sortorder from '../../components/pickers/Sortorder';
 import Smallbutton from '../../components/dropshipbutton/Smallbutton';
  const options = ['1', '2', '3', '4','5','6','7','8','9']

@@ -24,7 +24,8 @@ import { Provider , Portal,} from 'react-native-paper';
 import Modal from 'react-native-modal'
 import SellHeader from '../../screens/auth/Sellheader';
 import tw from 'twrnc';
-
+import Sortorder from '../../components/pickers/Sortorder';
+const options = ['1', '2', '3', '4','5','6','7','8','9']
 
 import {
   LineChart,
@@ -90,7 +91,7 @@ const deviceWidth = Dimensions.get('window').width;
     // Local states
     const [subMsg, onChangeText1] = React.useState("");
     const [visible, setVisible] = React.useState(false);
-    const [selectedValue, setSelectedValue] = useState("");
+    const [selectedValue, setSelectedValue] = useState("1");
     const [showclassName, setshowclassName] = useState("#B80000");
     
    const openpopup = () => {
@@ -126,40 +127,14 @@ const deviceWidth = Dimensions.get('window').width;
 
               <View style={tw.style('mt-3 mx-6 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg h-16 w-auto')}>
               <Text style={tw.style('text-sm text-gray-600 mt-2 ml-2')}>Choose a Bank Account</Text>
-                      <Picker
-                        selectedValue={selectedValue}
-                        style={tw.style('pb-5 h-2 w-80 text-gray-800')}
-                        onValueChange={(itemValue, itemIndex) =>setSelectedValue(itemValue)}
-                       >
-                        <Picker.Item label="CRDB Bank Limited (8391)" value="1" />
-                        <Picker.Item label="2" value="2" />
-                        <Picker.Item label="3" value="3" />
-                        <Picker.Item label="4" value="4" />
-                        <Picker.Item label="5" value="5" />
-                        <Picker.Item label="6" value="6" />
-                        <Picker.Item label="7" value="7" />
-                        <Picker.Item label="8" value="8" />
-                        <Picker.Item label="9" value="9" />
-                      </Picker>
+                      <Sortorder options={options} />
+
                 </View>
 
                 <View style={tw.style('mt-5 mx-6 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg h-16 w-auto')}>
                   <Text style={tw.style('text-sm text-gray-600 mt-2 ml-2')}>Amount to Withdraw</Text>
-                      <Picker
-                        selectedValue={selectedValue}
-                        style={tw.style('pb-5 h-2 w-80 text-gray-800')}
-                        onValueChange={(itemValue, itemIndex) =>setSelectedValue(itemValue)}
-                       >
-                        <Picker.Item label="1,000.00" value="1" />
-                        <Picker.Item label="2" value="2" />
-                        <Picker.Item label="3" value="3" />
-                        <Picker.Item label="4" value="4" />
-                        <Picker.Item label="5" value="5" />
-                        <Picker.Item label="6" value="6" />
-                        <Picker.Item label="7" value="7" />
-                        <Picker.Item label="8" value="8" />
-                        <Picker.Item label="9" value="9" />
-                      </Picker>
+                      <Sortorder options={options} />
+
                 </View>
 
                  <View style={tw.style('mt-5 mx-6 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg h-16 w-auto')}>

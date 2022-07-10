@@ -21,6 +21,8 @@ import { v4 as uuid } from "uuid";
 import Footer3 from '../../screens/auth/Footer3';
 import { useValidation } from 'react-native-form-validator';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import Sortorder from '../../components/pickers/Sortorder';
+ const options = ['USA', 'India', 'Ghana', 'Canada']
 
 
 const shippinginfo = (props) => {
@@ -59,7 +61,7 @@ const shippinginfo = (props) => {
     const [product, onChangeproduct] = React.useState("");
     const [City, onChangeCity] = React.useState("");
     const [Country, onChangeCountry] = React.useState("");
-    const [selectedValue, setSelectedValue] = useState("");
+    const [selectedValue, setSelectedValue] = useState("USA");
     const [wayToContact, setWayToContact] = useState("Phone");
     const [wayToContactList, setWayToContactList] = useState([
         {
@@ -171,16 +173,7 @@ return (
                             <Text style={styles.labeltext}>Country</Text>
                         </View>
                         <View style={{width:'70%',backgroundColor:'#FFF7F7',marginBottom:'2%',borderRadius:5, height:45}}>
-                            <Picker
-                                selectedValue={selectedValue}
-                                style={styles.inputshipping}
-                                onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-                                >
-                            <Picker.Item label={'USA'} value={'USA'} key={1} />
-                            <Picker.Item label={'Ghana'} value={'Ghana'} key={1} />
-                            <Picker.Item label={'India'} value={'India'} key={1} />
-
-                            </Picker>
+                            <Sortorder options={options} />
                         </View>
                     </View>
                     <View style={[styles.maincartviewfooter,{marginTop:-5}]}>

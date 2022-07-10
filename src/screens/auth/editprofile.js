@@ -21,6 +21,8 @@ import Shopheader from '../../screens/auth/Shopheader';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import tw from 'twrnc';
 import Largebutton from '../../components/dropshipbutton/Largebutton';
+import Sortorder from '../../components/pickers/Sortorder';
+const options = ['USA', 'India', 'Ghana', 'Canada']
 
 
 const editprofile = (props) => {
@@ -60,7 +62,7 @@ const editprofile = (props) => {
     const [name, onChangeName] = React.useState(props?.getprofileuserlist?.userName);
     const [text1, onChangeText1] = React.useState("");
     const [helppopup, sethelppopup] = React.useState(false);
-    const [selectedValue, setSelectedValue] = useState("java");
+    const [selectedValue, setSelectedValue] = useState("USA");
     const [showAlert, setshowAlert] = React.useState(false);
 
 
@@ -246,15 +248,8 @@ const editprofile = (props) => {
 
                 <View style={tw.style('flex flex-row mx-5 justify-between mt-4')}>
                     <View style={tw.style('h-14 w-3/11 mr-3 bg-gray-200 rounded-md')}>
-                        <Picker
-                        selectedValue={selectedValue}
-                        style={{ height: 55, width: 120,color:'#4d4d4d',}}
-                        onValueChange={(itemValue, itemIndex) =>setSelectedValue(itemValue)}
-                       >
-                        <Picker.Item label="+1" value="1" />
-                        <Picker.Item label="+233" value="233" />
-                        <Picker.Item label="+91" value="91" />
-                    </Picker>
+                        <Sortorder options={options} />
+
                     </View>
                     <View style={tw.style('h-14 w-7/11 bg-gray-200 rounded-md')}>
                         <TextInput

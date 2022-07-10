@@ -20,6 +20,8 @@ import AwesomeAlert from 'react-native-awesome-alerts';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import Shopheader from '../../screens/auth/Shopheader';
 import Moment from 'moment';
+import Sortorder from '../../components/pickers/Sortorder';
+const options = ['1', '2', '3', '4','5','6','7','8','9']
 
 const Accountorderhist = (props) => {
 
@@ -55,7 +57,7 @@ const Accountorderhist = (props) => {
     const [text1, onChangeText1] = React.useState("");
     const [helppopup, sethelppopup] = React.useState(false);
     const [starCount, setstarCount] = useState(5);
-    const [selectedValue, setSelectedValue] = useState("java");
+    const [selectedValue, setSelectedValue] = useState("1");
     const [wayToContact, setWayToContact] = useState("Phone");
     const [showAlert, setshowAlert] = React.useState(false);
     
@@ -201,21 +203,8 @@ const Accountorderhist = (props) => {
 
                 {/* <View style={{ flexDirection: 'row', marginHorizontal: '4%', marginTop: '5%' }}>
                     <View style={styles.pickerViewshorttodayagain}>
-                        <Picker
-                            selectedValue={selectedValue}
-                            style={{ height: 30, width: 120, color: '#4d4d4d', }}
-                            onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-                        >
-                            <Picker.Item label="Sort" value="1" />
-                            <Picker.Item label="2" value="2" />
-                            <Picker.Item label="3" value="3" />
-                            <Picker.Item label="4" value="4" />
-                            <Picker.Item label="5" value="5" />
-                            <Picker.Item label="6" value="6" />
-                            <Picker.Item label="7" value="7" />
-                            <Picker.Item label="8" value="8" />
-                            <Picker.Item label="9" value="9" />
-                        </Picker>
+                        <Sortorder options={options} />
+
                     </View>
                     <View style={[styles.pickerViewshorttodayagain, { marginLeft: '8%', flexDirection: 'row', justifyContent: 'space-around', padding: 4 }]}>
                         <Image source={ImageIcons.filtertoday} style={{ height: 11, width: 11, marginTop: 5 }} />

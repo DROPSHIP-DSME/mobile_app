@@ -12,6 +12,8 @@ import { phoneRegExp } from '../../services/helper';
 import DropdownField from '../../components/dropdown/DropDownMenu';
 import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
+import Sortorder from '../../components/pickers/Sortorder';
+const options = ['USA', 'India', 'Ghana', 'Canada']
 
 const Productcountry = (props) => {
 
@@ -107,16 +109,12 @@ const deviceWidth = Dimensions.get('window').width;
 
             <View style={{flexDirection:'row'}}>
             <View style={{marginLeft:'2%',marginRight:'4%',marginTop:15,borderWidth:1,borderRadius:5,borderColor:'#A3A3A3',}}>
-            <Picker   style={{ height:deviceHeight/17, width:deviceWidth/2.2 }} >
-            <Picker.Item label="South America" value="school" />
-            <Picker.Item label=" America" value="js" />
-            </Picker>
+            <Sortorder options={options} />
+
             </View>
             <View style={{marginTop:15,borderWidth:1,borderRadius:5,borderColor:'#A3A3A3'}}>
-            <Picker   style={{ height:deviceHeight/17, width:deviceWidth/2.2 }} >
-            <Picker.Item label="Brazil" value="school" />
-            <Picker.Item label="India" value="js" />
-            </Picker>
+            <Sortorder options={options} />
+
             </View>
             </View>
         <ScrollView  keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#FFE7E7'}} >

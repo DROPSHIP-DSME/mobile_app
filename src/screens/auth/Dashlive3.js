@@ -23,7 +23,8 @@ import { useFocusEffect } from '@react-navigation/native';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import { Provider , Portal,} from 'react-native-paper';
 import Modal from 'react-native-modal'
-
+import Sortorder from '../../components/pickers/Sortorder';
+const options = ['1', '2', '3', '4','5','6','7','8','9']
 
 import {
   LineChart,
@@ -86,7 +87,7 @@ const Dashlive3 = (props) => {
     // Local states
     const [isModalVisible, setModalVisible] = useState(false);
     const [visible, setVisible] = React.useState(false);
-    const [selectedValue, setSelectedValue] = useState("");
+    const [selectedValue, setSelectedValue] = useState("1");
     const [showclassName, setshowclassName] = useState("#B80000");
     
     const openpopup = () => {
@@ -155,21 +156,8 @@ const Dashlive3 = (props) => {
 
               <View style={{flexDirection:'row',marginHorizontal:'4%'}}>
                <View style={styles.pickerViewshorttodayagain}>
-                      <Picker
-                        selectedValue={selectedValue}
-                        style={{ height: 30, width: 125,color:'#4d4d4d',}}
-                        onValueChange={(itemValue, itemIndex) =>setSelectedValue(itemValue)}
-                       >
-                        <Picker.Item label="Sort" value="1" />
-                        <Picker.Item label="2" value="2" />
-                        <Picker.Item label="3" value="3" />
-                        <Picker.Item label="4" value="4" />
-                        <Picker.Item label="5" value="5" />
-                        <Picker.Item label="6" value="6" />
-                        <Picker.Item label="7" value="7" />
-                        <Picker.Item label="8" value="8" />
-                        <Picker.Item label="9" value="9" />
-                      </Picker>
+                      <Sortorder options={options} />
+
                 </View>
                 <View style={[styles.pickerViewshorttodayagain,{marginLeft:'6%',flexDirection:'row',justifyContent:'space-around',padding:4}]}>
                    <Image source={ImageIcons.filtertoday}  style={{height:11,width:11,marginTop:5}} />

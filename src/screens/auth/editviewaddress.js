@@ -19,6 +19,8 @@ import { useFocusEffect } from '@react-navigation/native';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import Shopheader from '../../screens/auth/Shopheader';
+import Sortorder from '../../components/pickers/Sortorder';
+const options = ['USA', 'India', 'Ghana', 'Canada']
 
 const editviewaddress = (props) => {
 
@@ -55,7 +57,7 @@ const editviewaddress = (props) => {
     const [address1, setaddress1] = useState("");
     const [address2, setaddress2] = useState("");
     const [city, setcity] = useState("");
-    const [country, setcountry] = useState("");
+    const [country, setcountry] = useState("USA");
     const [zipcode, setzipcode] = useState("");
     
     const [showclassName, setshowclassName] = useState("#B80000");
@@ -202,17 +204,8 @@ const editviewaddress = (props) => {
 
                 <View style={{marginHorizontal:'4%',marginTop:'7%'}}>
                  <View style={{height:55,width:deviceWidth/1.1,backgroundColor:'#e6e6e6',borderRadius:10,}}>
-                      <Picker
-                        selectedValue={selectedValue}
-                        style={{ height: 55,marginHorizontal:10, width: '96%',color:'#4d4d4d',marginTop:0}}
-                        onValueChange={(itemValue, itemIndex) =>setcountry(itemValue)}
-                       >
-                        <Picker.Item label="USA" value="+1" />
-                        <Picker.Item label="INDIA" value="+91" />
-                        <Picker.Item label="Ghana" value="+233" />
-                        <Picker.Item label="Kanya" value="+270" />
-                        <Picker.Item label="Canada" value="+1" />
-                      </Picker>
+                      <Sortorder options={options} />
+
                 </View>
                 
                 </View>

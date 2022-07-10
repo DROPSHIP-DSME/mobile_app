@@ -152,9 +152,9 @@ const renderItem2 = ({ item,index }) => {
            <View>
               <View style={tw.style('flex flex-row justify-between')}>
                    <Text style={tw`text-base font-bold text-gray-800`}>{item?.loggedInUserId?.userName}</Text>
-                   <View> style={tw`inline-flex items-center px-2.5 py-0.5 rounded-md`}>
+                   <View style={tw`inline-flex items-center px-2.5 py-0.5 rounded-md`}>
                     <Text style={tw`text-xs font-medium bg-blue-100 text-blue-800`}>Processing</Text>
-                   </View>>
+                   </View>
                </View>
                <View style={tw`flex flex-row`}>
                    <Text style={tw`text-base text-gray-700`}>{item?.loggedInUserId?.userName}</Text>
