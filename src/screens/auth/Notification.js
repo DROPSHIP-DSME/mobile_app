@@ -108,7 +108,7 @@ const Notification = (props) => {
         time: '2h',
 
       },
-      // More people...
+      // More people......
     ]
 
     const renderItem = ({ item, index }) => {
