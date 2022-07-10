@@ -18,6 +18,8 @@ import 'react-native-get-random-values';
 import { v4 as uuid } from "uuid";
 import BraintreeDropIn from 'react-native-braintree-dropin-ui';
 import Footer3 from '../../screens/auth/Footer3';
+import Sortorder from '../../components/pickers/Sortorder';
+ const options = ['USA', 'India', 'Ghana', 'Canada']
 
 
 const StoreOwner = (props) => {
@@ -52,7 +54,7 @@ const StoreOwner = (props) => {
     const [Zip, onChangeZip] = React.useState("");
     const [City, onChangeCity] = React.useState("");
     const [Country, onChangeCountry] = React.useState("");
-    const [selectedValue, setSelectedValue] = useState("");
+    const [selectedValue, setSelectedValue] = useState("USA");
 
     const [visible, setVisible] = React.useState(false);
     const [isSelected, setSelection] = useState(false);
@@ -227,18 +229,7 @@ const StoreOwner = (props) => {
                         />
                     </View>
                      <View style={styles.pickerView}>
-                    <Picker
-                    selectedValue={selectedValue}
-                    style={{ height: 50, width: '90%', borderWidth:1, borderColor:'#333333' }}
-                    onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-                    >
-                    <Picker.Item label="Select Country" value="" />
-                    {props.countrylistdata && props.countrylistdata?.map((item, index) => {
-                        return (
-                         <Picker.Item label={item.name} value={item.name} key={index} />
-                        )
-                    })}
-                    </Picker>
+                    <Sortorder options={options} />
                 </View>
                      <View>
 

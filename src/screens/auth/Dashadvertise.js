@@ -26,6 +26,8 @@ import Modal from 'react-native-modal';
 import tw from 'twrnc'
 import Medbutton from '../../components/dropshipbutton/Medbutton';
 import Largebutton from '../../components/dropshipbutton/Largebutton';
+import Sortorder from '../../components/pickers/Sortorder';
+const options = ['USA', 'India', 'Ghana', 'Canada']
 
 
 import {
@@ -102,7 +104,7 @@ const deviceWidth = Dimensions.get('window').width;
     const [isModalVisible, setModalVisible] = useState(false);
     const [isSelected, setSelection] = useState(false);
     const [visible, setVisible] = React.useState(false);
-    const [selectedValue, setSelectedValue] = useState("");
+    const [selectedValue, setSelectedValue] = useState("USA");
     const [showclassName, setshowclassName] = useState("#B80000");
 
 
@@ -141,21 +143,8 @@ const deviceWidth = Dimensions.get('window').width;
                     <Text style={tw.style('mt-3 mx-2 mb-[-12] font-sm font-sm text-gray-700')}>
                       Type of advertisment
                     </Text>
-                      <Picker
-                        selectedValue={selectedValue}
-                        style={tw.style('w-10/11 bg-gray-500')}
-                        onValueChange={(itemValue, itemIndex) =>setSelectedValue(itemValue)}
-                       >
-                        <Picker.Item label="Banner" value="1" />
-                        <Picker.Item label="United States" value="2" />
-                        <Picker.Item label="Canada" value="3" />
-                        <Picker.Item label="Mexico" value="4" />
-                        <Picker.Item label="5" value="5" />
-                        <Picker.Item label="6" value="6" />
-                        <Picker.Item label="7" value="7" />
-                        <Picker.Item label="8" value="8" />
-                        <Picker.Item label="9" value="9" />
-                      </Picker>
+                      <Sortorder options={options} />
+
                     </View>
                 </View>
               </View>
@@ -166,21 +155,8 @@ const deviceWidth = Dimensions.get('window').width;
                     <Text style={tw.style('mt-3 mx-2 mb-[-12] font-sm font-sm text-gray-700')}>
                       Country
                     </Text>
-                        <Picker
-                          selectedValue={selectedValue}
-                          style={tw.style('w-10/11 bg-gray-500')}
-                          onValueChange={(itemValue, itemIndex) =>setSelectedValue(itemValue)}
-                         >
-                          <Picker.Item label="Select Country" value="1" />
-                          <Picker.Item label="United States" value="2" />
-                          <Picker.Item label="Canada" value="3" />
-                          <Picker.Item label="Mexico" value="4" />
-                          <Picker.Item label="5" value="5" />
-                          <Picker.Item label="6" value="6" />
-                          <Picker.Item label="7" value="7" />
-                          <Picker.Item label="8" value="8" />
-                          <Picker.Item label="9" value="9" />
-                        </Picker>
+                        <Sortorder options={options} />
+
                       </View>
                   </View>
                 </View>
@@ -192,21 +168,8 @@ const deviceWidth = Dimensions.get('window').width;
                       <Text style={tw.style('mt-3 mx-2 mb-[-12] font-sm font-sm text-gray-700')}>
                         Advertisment Location
                       </Text>
-                        <Picker
-                          selectedValue={selectedValue}
-                          style={tw.style('w-10/11 bg-gray-500')}
-                          onValueChange={(itemValue, itemIndex) =>setSelectedValue(itemValue)}
-                         >
-                          <Picker.Item label="Homepage" value="1" />
-                          <Picker.Item label="United States" value="2" />
-                          <Picker.Item label="Canada" value="3" />
-                          <Picker.Item label="Mexico" value="4" />
-                          <Picker.Item label="5" value="5" />
-                          <Picker.Item label="6" value="6" />
-                          <Picker.Item label="7" value="7" />
-                          <Picker.Item label="8" value="8" />
-                          <Picker.Item label="9" value="9" />
-                        </Picker>
+                        <Sortorder options={options} />
+
                       </View>
                   </View>
                 </View>
@@ -217,21 +180,8 @@ const deviceWidth = Dimensions.get('window').width;
                         <Text style={tw.style('mt-3 mx-2 mb-[-12] font-sm font-sm text-gray-700')}>
                           What are you advertising
                         </Text>
-                        <Picker
-                          selectedValue={selectedValue}
-                          style={tw.style('w-10/11 bg-gray-500')}
-                          onValueChange={(itemValue, itemIndex) =>setSelectedValue(itemValue)}
-                         >
-                          <Picker.Item label="The store" value="1" />
-                          <Picker.Item label="United States" value="2" />
-                          <Picker.Item label="Canada" value="3" />
-                          <Picker.Item label="Mexico" value="4" />
-                          <Picker.Item label="5" value="5" />
-                          <Picker.Item label="6" value="6" />
-                          <Picker.Item label="7" value="7" />
-                          <Picker.Item label="8" value="8" />
-                          <Picker.Item label="9" value="9" />
-                        </Picker>
+                        <Sortorder options={options} />
+
                       </View>
                   </View>
                 </View>

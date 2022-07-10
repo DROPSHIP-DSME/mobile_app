@@ -23,7 +23,8 @@ import { useFocusEffect } from '@react-navigation/native';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import { Provider , Portal,} from 'react-native-paper';
 import Modal from 'react-native-modal'
-
+import Sortorder from '../../components/pickers/Sortorder';
+const options = ['Prcoessing', 'Shipped', 'Delivered', 'Cancelled']
 
 import {
   LineChart,
@@ -90,7 +91,7 @@ const deviceWidth = Dimensions.get('window').width;
 
     // Local states
     const [visible, setVisible] = React.useState(false);
-    const [selectedValue, setSelectedValue] = useState("");
+    const [selectedValue, setSelectedValue] = useState("Delivered");
     const [showclassName, setshowclassName] = useState("#B80000");
     
    useEffect(() => {
@@ -147,18 +148,8 @@ const deviceWidth = Dimensions.get('window').width;
 
              
                <View style={[styles.pickerViewshorttodayagainpending,{marginHorizontal:'5%',marginTop:'2%'}]}>
-                      <Picker
-                        selectedValue={selectedValue}
-                        style={{ height: 33, width: 140,color:'#E25424',}}
-                    onValueChange={(itemValue, itemIndex) => updateorderStatus(itemValue)}
-                       >
-                    <Picker.Item label="Update order status" value="" />
-                    <Picker.Item label="Prcoessing" value="Prcoessing" />
-                    <Picker.Item label="Shipped" value="Shipped" />
-                    <Picker.Item label="Delivered" value="Delivered" />
-                    <Picker.Item label="Cancelled" value="Cancelled" />
-                        
-                      </Picker>
+                     <Sortorder options={options} />
+
                 </View>
 
               

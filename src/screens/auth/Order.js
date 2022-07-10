@@ -21,6 +21,8 @@ import Loader from '../../components/modals/Loader';
 import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper';
 import moment from 'moment';
 import Footer2 from '../../screens/auth/Footer2';
+import Sortorder from '../../components/pickers/Sortorder';
+const options = ['Prcoessing', 'Shipped', 'Delivered', 'Cancelled']
 
 const Order = (props) => {
 
@@ -42,7 +44,7 @@ const Order = (props) => {
 
     // Local states
      const [checked, setChecked] = React.useState('first');
-     const [selectedValue, setSelectedValue] = useState();
+     const [selectedValue, setSelectedValue] = useState('Delivered');
 
     const orderNumber = props?.route?.params?.orderNumber;
     const [First, onChangeFirst] = React.useState("First name");
@@ -106,17 +108,7 @@ const renderItem = ({ item,index }) => {
              <View style={{marginHorizontal:'2%',marginTop:'4%'}}>
              <Text style={styles.updateordertext}>Order status: {props?.getorderlist?.data?.orderStatus}</Text> 
                 <View style={styles.orderpickerView}>
-                    <Picker
-                    selectedValue={selectedValue}
-                    style={{ height: 48, width: '95%',color:'#828282',fontSize:12 }}
-                    onValueChange={(itemValue, itemIndex) => updateorderStatus(itemValue)}
-                    >
-                    <Picker.Item label="Update order status" value="" />
-                    <Picker.Item label="Prcoessing" value="Prcoessing" />
-                    <Picker.Item label="Shipped" value="Shipped" /> 
-                    <Picker.Item label="Delivered" value="Delivered" />
-                    <Picker.Item label="Cancelled" value="Cancelled" />
-                    </Picker>
+                    <Sortorder options={options} />
                 </View>
 
                 <View style={{marginTop:'6%',}}>

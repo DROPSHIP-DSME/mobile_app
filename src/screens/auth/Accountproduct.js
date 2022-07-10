@@ -21,6 +21,11 @@ const Reactdim = require('react-native');
 import { useValidation } from 'react-native-form-validator';
 import * as Progress from 'react-native-progress';
 import CheckBox from '@react-native-community/checkbox';
+import Sortorder from '../../components/pickers/Sortorder';
+const options = ['Sneakers', 'Fashion', 'Furniture', 'Cloths','Beauty & Hair','Electronics','Cosmetics','Other']
+const options1 = ['Sneakers']
+const options2 = ['New Stock', 'Good', 'Excellent']
+
 import tw from 'twrnc';
 import Largebutton from '../../components/dropshipbutton/Largebutton';
 
@@ -68,9 +73,9 @@ const Accountproduct = (props) => {
     const [Inventory, onChangeInventory] = React.useState("");
     const [Price, onChangePrice] = React.useState("");
     const [counter, setcounter] = useState(0);
-    const [selectedValue, setSelectedValue] = useState("");
-    const [selectedValue1, setSelectedValue1] = useState("");
-    const [selectedValue2, setSelectedValue2] = useState("");
+    const [selectedValue, setSelectedValue] = useState("61b2e25addb2bd19c2b9532a");
+    const [selectedValue1, setSelectedValue1] = useState("6295110f3defd98ec12b7f80");
+    const [selectedValue2, setSelectedValue2] = useState("New Stock");
     const [Productoption, onChangeProductoption] = React.useState("");
     const [ProductSize, onChangeProductSize] = React.useState("");
     const [ProductColor, onChangeProductColor] = React.useState("");
@@ -339,51 +344,22 @@ const renderItem6 = ({ item }) => {
                  </View>
 
                 <View style={styles.pickerViewshorttodaybrandtodayy1}>
-                      <Picker
-                        selectedValue={selectedValue}
-                        style={tw`h-10 w-96 bg-zinc-200`}
-                        onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-                       >
-                        <Picker.Item label="Choose a Category" value="1" />
-                        <Picker.Item label="Sneakers" value="61b2e25addb2bd19c2b9532a" />
-                        <Picker.Item label="Fashion" value="61b2e4bfddb2bd19c2b9532f" />
-                        <Picker.Item label="Furniture" value="61b2e63bddb2bd19c2b95335" />
-                        <Picker.Item label="Cloths" value="61b2e882ddb2bd19c2b9533c" />
-                        <Picker.Item label="Beauty & Hair" value="61b2eb67ddb2bd19c2b95346" />
-                        <Picker.Item label="Electronics" value="61b2ec5addb2bd19c2b9534b" />
-                        <Picker.Item label="Cosmetics" value="61b651846a4c8e2f3dacf60a" />
-                        <Picker.Item label="Other" value="61b4aa1539889b2e9971b521" />
-                      </Picker>
-                </View>
+                        <Sortorder options={options} />
+
+                      
+                </View> 
 
                 <View style={styles.pickerViewshorttodaybrandtodayy1}>
+                        <Sortorder options={options1} />
 
-                      <Picker
-                        selectedValue={selectedValue1}
-                        style={tw`h-10 w-96 bg-zinc-200`}
-                        onValueChange={(itemValue, itemIndex) => setSelectedValue1(itemValue)}
-                       >
-                        <Picker.Item label="Choose a Brand" value="1" />
-
-                      </Picker>
-                </View>
+                      
+                </View> 
 
 
                 <View style={styles.pickerViewshorttodaybrandtodayy1}>
+                    <Sortorder options={options2} />
+                </View> 
 
-                      <Picker
-                        selectedValue={selectedValue2}
-                        style={tw`h-10 w-96 bg-zinc-200`}
-                        onValueChange={(itemValue, itemIndex) => setSelectedValue2(itemValue)}
-                       >
-                        <Picker.Item label="Product Conditions" value="1" />
-                        <Picker.Item label="New Stock" value="New Stock" />
-                        <Picker.Item label="Good" value="Good" />
-                        <Picker.Item label="Excellent" value="Excellent" />
-
-
-                      </Picker>
-                </View>
 
                 <Text style={{ color: 'black', fontSize: 22, marginTop: 40, marginStart: 20, fontWeight: 'bold' }} >Product Specifics (Optional)</Text>
 

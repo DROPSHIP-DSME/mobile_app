@@ -28,6 +28,8 @@ import RnIncrementDecrementBtn from
   'react-native-increment-decrement-button';
 import Shopheader from '../../screens/auth/Shopheader';
 import { useTailwind } from 'tailwind-rn';
+ const options = ['1', '2', '3', '4','5','6','7','8','9']
+import Sortorder from '../../components/pickers/Sortorder';
 
 
 const Shipprocess = (props) => {
@@ -50,7 +52,7 @@ const Shipprocess = (props) => {
   const shopName = props?.route?.params?.shopName;
   // Local states
   const [checked, setChecked] = React.useState('first');
-  const [selectedValue, setSelectedValue] = useState("java");
+  const [selectedValue, setSelectedValue] = useState("1");
   const [visible, setVisible] = React.useState(false);
   const [starCount, setstarCount] = useState(3);
   const [visiblebag, setVisiblebag] = React.useState(false);
@@ -204,21 +206,7 @@ const Shipprocess = (props) => {
 
         <View style={{ flexDirection: 'row', marginHorizontal: '4%', justifyContent: 'space-between', marginTop: '7%' }}>
           <View style={{ height: 55, width: 120, backgroundColor: '#e6e6e6', borderRadius: 10, }}>
-            <Picker
-              selectedValue={selectedValue}
-              style={{ height: 55, width: 120, color: '#4d4d4d', }}
-              onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-            >
-              <Picker.Item label="+1" value="1" />
-              <Picker.Item label="2" value="2" />
-              <Picker.Item label="3" value="3" />
-              <Picker.Item label="4" value="4" />
-              <Picker.Item label="5" value="5" />
-              <Picker.Item label="6" value="6" />
-              <Picker.Item label="7" value="7" />
-              <Picker.Item label="8" value="8" />
-              <Picker.Item label="9" value="9" />
-            </Picker>
+            <Sortorder options={options} />
           </View>
           <View style={{ borderColor: '#e6e6e6', borderRadius: 10, width: 198, backgroundColor: '#e6e6e6', height: 55, alignSelf: 'center', }}>
             <TextInput

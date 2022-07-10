@@ -22,7 +22,12 @@ import moment from 'moment';
 import SimplePicker from 'react-native-simple-picker';
 import Share from 'react-native-share';
 import Clipboard from '@react-native-community/clipboard';
-
+import Sortorder from '../../components/pickers/Sortorder';
+const options = ['00:00 AM', '12:30 AM', '1:00 AM', '1:30 AM','2:00 AM','2:30 AM','3:00 AM','3:30 AM','4:00 AM',
+'4:30 AM','5:00 AM','5:30 AM','6:00 AM','6:30 AM','7:00 AM','7:30 AM','8:00 AM','8:30 AM','9:00 AM','9:30 AM',
+'10:00 AM','10:30 AM','11:00 AM','11:30 AM','12:00 PM','12:30 PM','1:00 PM','1:30 PM','2:00 PM','2:30 PM',
+'3:00 PM','3:30 PM','4:00 PM','4:30 PM','5:00 PM','5:30 PM','6:00 PM','6:30 PM','7:00 PM','7:30 PM','8:00 PM',
+'8:30 PM','9:00 PM','9:30 PM','10:00 PM','10:30 PM','11:00 PM','11:30 PM']
 
 const schedule = (props) => {
 
@@ -408,61 +413,8 @@ const renderItem2 =({ item }) =>{
                      </View>
                     <View style={{ marginBottom:10,paddingLeft:10, marginTop:10,flexDirection:'row', justifyContent:'space-between', width:'100%', borderWidth:1,borderRadius:5, borderColor:'#ABABAB'}}>
 
-                        <Picker
-                            selectedValue={hours}
-                            style={{ paddingLeft:10, width: '90%', borderColor:'#f9f9f9',borderWidth:1,fontSize:10,fontFamily:'hinted-AvertaStd-Regular' }}
-                            onValueChange={(itemValue, itemIndex) => setHours(itemValue)}
-                            >
-                            <Picker.Item label={'00:00 AM'} value={'00:00 AM'} key={1} />
-                            <Picker.Item label={'12:30 AM'} value={'12:30 AM'} key={2} />
-                            <Picker.Item label={'1:00 AM'} value={'1:00 AM'} key={3} />
-                            <Picker.Item label={'1:30 AM'} value={'1:30 AM'} key={4} />
-                            <Picker.Item label={'2:00 AM'} value={'2:00 AM'} key={5} />
-                            <Picker.Item label={'2:30 AM'} value={'2:30 AM'} key={6} />
-                            <Picker.Item label={'3:00 AM'} value={'3:00 AM'} key={7} />
-                            <Picker.Item label={'3:30 AM'} value={'3:30 AM'} key={8} />
-                            <Picker.Item label={'4:00 AM'} value={'4:00 AM'} key={9} />
-                            <Picker.Item label={'4:30 AM'} value={'4:30 AM'} key={10} />
-                            <Picker.Item label={'5:00 AM'} value={'5:00 AM'} key={11} />
-                            <Picker.Item label={'5:30 AM'} value={'5:30 AM'} key={12} />
-                            <Picker.Item label={'6:00 AM'} value={'6:00 AM'} key={13} />
-                            <Picker.Item label={'6:30 AM'} value={'6:30 AM'} key={14} />
-                            <Picker.Item label={'7:00 AM'} value={'7:00 AM'} key={15} />
-                            <Picker.Item label={'7:30 AM'} value={'7:30 AM'} key={16} />
-                            <Picker.Item label={'8:00 AM'} value={'8:00 AM'} key={17} />
-                            <Picker.Item label={'8:30 AM'} value={'8:30 AM'} key={18} />
-                            <Picker.Item label={'9:00 AM'} value={'9:00 AM'} key={19} />
-                            <Picker.Item label={'9:30 AM'} value={'9:30 AM'} key={20} />
-                            <Picker.Item label={'10:00 AM'} value={'10:00 AM'} key={21} />
-                            <Picker.Item label={'10:30 AM'} value={'10:30 AM'} key={22} />
-                            <Picker.Item label={'11:00 AM'} value={'11:00 AM'} key={23} />
-                            <Picker.Item label={'11:30 AM'} value={'11:30 AM'} key={24} />
-                            <Picker.Item label={'12:00 PM'} value={'12:00 PM'} key={25} />
-                            <Picker.Item label={'12:30 PM'} value={'12:30 PM'} key={26} />
-                            <Picker.Item label={'1:00 PM'} value={'1:00 PM'} key={27} />
-                            <Picker.Item label={'1:30 PM'} value={'1:30 PM'} key={28} />
-                            <Picker.Item label={'2:00 PM'} value={'2:00 PM'} key={29} />
-                            <Picker.Item label={'2:30 PM'} value={'2:30 PM'} key={30} />
-                            <Picker.Item label={'3:00 PM'} value={'3:00 PM'} key={31} />
-                            <Picker.Item label={'3:30 PM'} value={'3:30 PM'} key={32} />
-                            <Picker.Item label={'4:00 PM'} value={'4:00 PM'} key={33} />
-                            <Picker.Item label={'4:30 PM'} value={'4:30 PM'} key={34} />
-                            <Picker.Item label={'5:00 PM'} value={'5:00 PM'} key={35} />
-                            <Picker.Item label={'5:30 PM'} value={'5:30 PM'} key={36} />
-                            <Picker.Item label={'6:00 PM'} value={'6:00 PM'} key={37} />
-                            <Picker.Item label={'6:30 PM'} value={'6:30 PM'} key={38} />
-                            <Picker.Item label={'7:00 PM'} value={'7:00 PM'} key={39} />
-                            <Picker.Item label={'7:30 PM'} value={'7:30 PM'} key={40} />
-                            <Picker.Item label={'8:00 PM'} value={'8:00 PM'} key={41} />
-                            <Picker.Item label={'8:30 PM'} value={'8:30 PM'} key={42} />
-                            <Picker.Item label={'9:00 PM'} value={'9:00 PM'} key={43} />
-                            <Picker.Item label={'9:30 PM'} value={'9:30 PM'} key={44} />
-                            <Picker.Item label={'10:00 PM'} value={'10:00 PM'} key={45} />
-                            <Picker.Item label={'10:30 PM'} value={'10:30 PM'} key={46} />
-                            <Picker.Item label={'11:00 PM'} value={'11:00 PM'} key={47} />
-                            <Picker.Item label={'11:30 PM'} value={'11:30 PM'} key={48} />
+                        <Sortorder options={options} />
 
-                        </Picker>
                     </View>
                     <View style={{marginHorizontal:'1%',marginVertical:'2%'}}>
                         <Text style={styles.selectlinketext}>Select stream time</Text>

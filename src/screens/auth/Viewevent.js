@@ -21,6 +21,8 @@ import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import Footer3 from '../../screens/auth/Footer3';
 import Shopheader from '../../screens/auth/Shopheader';
+import Sortorder from '../../components/pickers/Sortorder';
+ const options = ['JavaScript'];
 
 import AsyncStorage from '@react-native-community/async-storage'; 
 import moment from 'moment';
@@ -56,7 +58,7 @@ const Viewevent = (props) => {
 
     // Local states
      const [checked, setChecked] = React.useState('first');
-    const [selectedValue, setSelectedValue] = useState("java");
+    const [selectedValue, setSelectedValue] = useState("js");
     const [First, onChangeFirst] = React.useState("");
     const [Lastname, onChangeLastname] = React.useState("Last name");
     const [Email, onChangeEmail] = React.useState("Email address");
@@ -296,14 +298,7 @@ const renderItem1 = ({ item ,index }) => {
             </View>
 
             <View style={[styles.poppiker,{width:200,marginTop:"6%"}]}>
-                     <Picker
-                        selectedValue={selectedValue}
-                        style={{ height: 50, width: 170 }}
-                        onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-                      >
-                        <Picker.Item label="Select a brand" value="Sort" />
-                        <Picker.Item label="JavaScript" value="js" />
-                      </Picker>
+                     <Sortorder options={options} />
             </View>
             <View style={[styles.devider1, { marginTop: '3%'}]}>
                 <View style={styles.devider2} />
@@ -316,14 +311,7 @@ const renderItem1 = ({ item ,index }) => {
                     <Text style={styles.filterpop}>Sneakerz</Text>
              </TouchableOpacity>
              <View style={[styles.poppiker,{width:195,marginLeft:"2%"}]}>
-                     <Picker
-                        selectedValue={selectedValue}
-                        style={{ height: 50, width: 160 }}
-                        onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-                      >
-                        <Picker.Item label="Category" value="Sort" />
-                        <Picker.Item label="JavaScript" value="js" />
-                      </Picker>
+                    <Sortorder options={options} />
             </View>
             </View>
             
