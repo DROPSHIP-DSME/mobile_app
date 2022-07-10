@@ -18,13 +18,16 @@ import HorizontalSlider from 'react-horizontal-slider';
 import Footer2 from '../../screens/auth/Footer2';
 import SellHeader from '../../screens/auth/Sellheader';
 
-import AsyncStorage from '@react-native-community/async-storage'; 
+import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import { Provider , Portal,} from 'react-native-paper';
-import Modal from 'react-native-modal'
 import Sortorder from '../../components/pickers/Sortorder';
 const options = ['1', '2', '3', '4','5','6','7','8','9']
+
+import Modal from 'react-native-modal';
+import tw from 'twrnc';
+
 
 import {
   LineChart,
@@ -53,9 +56,9 @@ const deviceWidth = Dimensions.get('window').width;
     //Reference
     const userId = props?.route?.params?.userId;
     const brandId = props?.route?.params?.brandId;
-    
-    
- 
+
+
+
     useEffect(() => {
       props.getincomingtlist(props?.loginuserid);
       props.getselldeshboard(props?.loginuserid);
@@ -73,11 +76,11 @@ const deviceWidth = Dimensions.get('window').width;
         getBrandUserId();
      })
 
-    
+
 
      const handleScroll=(pageYOffset)=>{
         if (pageYOffset > 0) {
-            setshowclassName('#B80000');  
+            setshowclassName('#B80000');
         }else{
             setshowclassName('#B80000');
         }
@@ -89,13 +92,13 @@ const deviceWidth = Dimensions.get('window').width;
             await AsyncStorage.setItem('userLogin',"1");
         }
     }
-   
+
     // Local states
     const [isModalVisible, setModalVisible] = useState(false);
     const [visible, setVisible] = React.useState(false);
     const [selectedValue, setSelectedValue] = useState("1");
     const [showclassName, setshowclassName] = useState("#B80000");
-    
+
 
     const openpopup = () => {
         setVisible(true)
@@ -105,7 +108,7 @@ const deviceWidth = Dimensions.get('window').width;
          setVisible(false)
     }
 
-    
+
     const DATA3 = [
        {
          image:ImageIcons.girlcent,
@@ -122,26 +125,26 @@ const deviceWidth = Dimensions.get('window').width;
             <TouchableOpacity  onPress={() => props.navigation.navigate("Dashreturn")} style={styles.seledataViewTODAYchat}>
                      <View style={{flexDirection:'row'}}>
                       <Text style={[styles.seriestexttoday,{marginLeft:3}]}>{item.text1}</Text>
-                     </View>  
+                     </View>
                        <Text style={styles.seriestexttoday}>{item.text}</Text>
-                      
+
             </TouchableOpacity>
 
-            
+
             </View>
         );
     }
 
-    
+
 
     return (
          <View style={{flex:1}}>
-        
+
 
        <ScrollView onScroll={({nativeEvent}) => {
                 handleScroll(nativeEvent['contentOffset'].y);
-    }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} > 
-          
+    }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} >
+
                <View style={{flexDirection:'row',justifyContent:'space-between',marginHorizontal:'3%',marginVertical:'5%'}}>
                  <Text style={{fontSize:26,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',}}>Chats (0)</Text>
                </View>
@@ -153,14 +156,14 @@ const deviceWidth = Dimensions.get('window').width;
                 </View>
                 <View style={[styles.pickerViewshorttodayagain,{marginLeft:'8%',flexDirection:'row',justifyContent:'space-around',padding:4}]}>
                    <Image source={ImageIcons.filtertoday}  style={{height:11,width:11,marginTop:5}} />
-                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',textAlign:'center'}}>FILTERS</Text> 
+                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',textAlign:'center'}}>FILTERS</Text>
                 </View>
               </View>
 
                     <View style={{marginHorizontal:'4%',marginVertical:'4%',flexDirection:'row'}}>
                        <View style={[styles.pickerViewshorttodayagain,{flexDirection:'row',justifyContent:'space-around',padding:4}]}>
                           <View style={{height:14,width:14,backgroundColor:'#ffffff',borderRadius:3,marginTop:3}}></View>
-                           <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',textAlign:'center',}}>Select All</Text> 
+                           <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',textAlign:'center',}}>Select All</Text>
                         </View>
                         <TouchableOpacity onPress={() => openpopup() } style={{height:30,width:30,backgroundColor:'#e6e6e6',borderRadius:4,marginLeft:'5%',padding:4}}>
                           <Image source={ImageIcons.edittoday}  style={{height:11,width:11,marginTop:5,alignSelf:'center'}} />
@@ -168,9 +171,9 @@ const deviceWidth = Dimensions.get('window').width;
                         <View style={{height:30,width:30,backgroundColor:'#e6e6e6',borderRadius:4,marginLeft:'5%',padding:4}}>
                           <Image source={ImageIcons.deletetoday}  style={{height:11,width:11,marginTop:5,alignSelf:'center'}} />
                         </View>
-                      </View> 
+                      </View>
 
-              
+
                     <View style={{backgroundColor:'#ffffff',padding:'4%',width:'92%',borderRadius:15,marginHorizontal:'3%',marginVertical:'6%',marginBottom:'25%'}}>
                         <View style={styles.salesViewTODAY}>
                            <Text style={styles.seriestext}>Order Number</Text>
@@ -185,7 +188,7 @@ const deviceWidth = Dimensions.get('window').width;
                             horizontal={false}
                             />
                         </View>
-                    </View>   
+                    </View>
                </ScrollView>
             <Footer2 />
         </View>

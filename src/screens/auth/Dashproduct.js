@@ -18,6 +18,7 @@ import HorizontalSlider from 'react-horizontal-slider';
 import Footer2 from '../../screens/auth/Footer2';
 import tw from 'twrnc';
 import Smallbutton from '../../components/dropshipbutton/Smallbutton';
+import Largebutton from '../../components/dropshipbutton/Largebutton';
 import Sortorder from '../../components/pickers/Sortorder';
 import Sortfilter from '../../components/pickers/Sortfilter';
 import Selectall from '../../components/pickers/Selectall';
@@ -133,13 +134,14 @@ const options = ['Success', 'Pending', 'Processing', 'Canceled','Delivered']
  const renderItem2 = ({ item ,index }) => {
      return(
         <View>
-           <TouchableOpacity onPress={() => props.navigation.navigate("ProductDetails",{productId:item._id, })} style={{padding:2,}}>
-              <Image source={{uri:item.productImage}} style={{height:159,width:159}} />
+           <TouchableOpacity onPress={() => props.navigation.navigate("ProductDetails",{productId:item._id, })} style={tw`p-2`}>
+              <Image source={{uri:item.productImage}} style={tw`w-40 h-40`} />
            </TouchableOpacity>
-           <View style={{marginTop:5,}}>
-            <Text style={{fontSize:14,width:'80%',marginLeft:'5%'}}>{item.productName}</Text>
-            <View style={{height:14,width:14,backgroundColor:'#e6e6e6',borderRadius:3,alignSelf:'flex-end',marginRight:'9%',marginTop:-10,}}></View>
-            <Text style={{fontSize:16,width:'80%',fontFamily:'hinted-AvertaStd-Bold',marginLeft:'5%'}}>${item.productPrice}</Text>
+
+           <View style={tw`mt-2`}>
+            <Text style={tw`text-sm w-10/12 ml-3`}>{item.productName}</Text>
+            <View style={tw`flex justify-items-end w-4 h-4 bg-gray-600 rounded-md mr-4 -mt-3`}></View>
+            <Text style={tw`text-base w-10/12 ml-5`}>${item.productPrice}</Text>
              <View>
                 <Rating
                 type='custom'
@@ -150,7 +152,7 @@ const options = ['Success', 'Pending', 'Processing', 'Canceled','Delivered']
                 style={{ paddingVertical: 5,width:100,marginLeft:5}}
                 />
              </View>
-             <Text style={{fontSize:14,width:'80%',marginLeft:'5%',fontFamily:'hinted-AvertaStd-Regular',color:'#4d4d4d',marginBottom:'20%'}}>{item.text2}</Text>
+             <Text style={tw`text-sm w-10/12 ml-3 text-blue-300 mb-5`}>{item.text2}</Text>
           </View>
         </View>
   );
@@ -159,10 +161,10 @@ const options = ['Success', 'Pending', 'Processing', 'Canceled','Delivered']
     const renderItem3 = ({ item,index }) => {
    return(
            <View>
-            <View style={styles.seledataViewTODAY}>
-                       <Text style={styles.seriestexttoday}>{item.text}</Text>
-                       <Text style={styles.seriestexttoday}>{item.text1}</Text>
-                       <Text style={styles.seriestexttoday}>{item.text2}</Text>
+            <View style={tw`flex flex-row justify-between bg-white w-full p-4 mt-4`}>
+                       <Text style={tw`text-sm leading-3 text-gray-700`}>{item.text}</Text>
+                       <Text style={tw`text-sm leading-3 text-gray-700`}>{item.text1}</Text>
+                       <Text style={tw`text-sm leading-3 text-gray-700`}>{item.text2}</Text>
                    </View>
             </View>
     );
@@ -171,12 +173,12 @@ const options = ['Success', 'Pending', 'Processing', 'Canceled','Delivered']
      const renderItem4 = ({ item,index }) => {
    return(
            <View>
-            <View style={styles.seledataViewTODAYsecndrender}>
+            <View style={tw`flex flex-row justify-between bg-white w-full p-4 mt-4`}>
                     <View style={{flexDirection:'row'}}>
                       <Image source={item.image} style={{width:24,height:24,}}/>
-                       <Text style={[styles.seriestexttoday,{alignSelf:'center',marginLeft:1}]}>{item.text}</Text>
+                       <Text style={[tw`text-sm leading-3 text-gray-700`,{alignSelf:'center',marginLeft:1}]}>{item.text}</Text>
                     </View>
-                       <Text style={styles.seriestexttoday}>{item.text1}</Text>
+                       <Text style={tw`text-sm leading-3 text-gray-700`}>{item.text1}</Text>
                    </View>
             </View>
     );
@@ -185,7 +187,7 @@ const options = ['Success', 'Pending', 'Processing', 'Canceled','Delivered']
 
     return (
          <View style={{flex:1}}>
-        
+
 
        <ScrollView onScroll={({nativeEvent}) => {
                 handleScroll(nativeEvent['contentOffset'].y);
@@ -228,7 +230,7 @@ const options = ['Success', 'Pending', 'Processing', 'Canceled','Delivered']
                   <Editbutton />
 
                   <Deletebutton />
-                  
+
               </View>
 
 

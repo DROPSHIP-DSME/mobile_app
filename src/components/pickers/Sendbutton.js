@@ -1,16 +1,16 @@
 import React from 'react';
 import { TouchableOpacity, Text, View, Image } from 'react-native';
 import tw from 'twrnc';
-import { PencilIcon } from "react-native-heroicons/solid";
+import { PaperAirplaneIcon } from "react-native-heroicons/solid";
 
-const Editbutton = ({onPress}) => {
+const Sendbutton = ({onPress}) => {
   return (
 
-    <View style={tw.style('bg-zinc-200 rounded-md p-1 ml-3')}>
+    <View style={tw.style('bg-red-700 rounded-md p-1 ml-3')}>
         <TouchableOpacity onPress={onPress}>
-          <View style={tw.style('flex flex-row w-auto h-auto px-1')}>
+          <View style={tw.style('flex flex-row w-auto px-1')}>
             <View style={tw.style('my-1')}>
-              <PencilIcon color="black" fill="#000000" size={20} />
+              <PaperAirplaneIcon color="White" fill="#fff" size={28} />
             </View>
           </View>
         </TouchableOpacity>
@@ -19,4 +19,4 @@ const Editbutton = ({onPress}) => {
   );
 }
 
-export default Editbutton
+export default Sendbutton

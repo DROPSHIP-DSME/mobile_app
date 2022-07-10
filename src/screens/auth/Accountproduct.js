@@ -26,6 +26,9 @@ const options = ['Sneakers', 'Fashion', 'Furniture', 'Cloths','Beauty & Hair','E
 const options1 = ['Sneakers']
 const options2 = ['New Stock', 'Good', 'Excellent']
 
+import tw from 'twrnc';
+import Largebutton from '../../components/dropshipbutton/Largebutton';
+
 
 const Accountproduct = (props) => {
     const {
@@ -136,17 +139,17 @@ const Accountproduct = (props) => {
         Keyboard.dismiss();
         if (billImgPath == "") {
             Alert.alert('Image is required')
-        
+
         }  else if (Store == "") {
             Alert.alert('shop name is required')
-        
+
         }else if (Themecolor == "") {
             Alert.alert('Theme color is required')
-        
+
         } else {
 
            // props.navigation.navigate("AddStore")
-            
+
             const formData = new FormData();
             formData.append("shopName", Store);
             formData.append("shopTheme", Themecolor);
@@ -185,7 +188,7 @@ const Accountproduct = (props) => {
                 if(counter==3){ setBillImgPath4(file); }
                 if(counter==4){ setBillImgPath5(file); }
                 setcounter(counter+1);
-                
+
                 const formData1 = new FormData();
                 formData1.append("productAllImage", file);
                 formData1.append("uploadId", uploadId);
@@ -248,95 +251,94 @@ const renderItem6 = ({ item }) => {
 
     return (
        <KeyboardAvoidingView style={{flex:1,backgroundColor:'#F2F2F2'}}>
-           
+
              <StatusBar backgroundColor={"#FFFFFF00"} barStyle="dark-content" translucent={true} />
 
-             <View style={{marginHorizontal:'4%',marginTop:'4%',flex:1}}>
-             <View style={{ flexDirection: 'row', marginStart: 20 }} >
-                    
+             <View style={tw`flex flex-1 mx-4 mt-10`}>
+                <View style={{ flexDirection: 'row', marginStart: 20 }} >
                     <Text style={{ fontSize: 15, fontWeight: '400', color: '#F2F2F2', marginStart: 10.25, marginTop: 27 }} >  BACK TO STORES</Text>
                 </View>
              <ScrollView  keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} >
-                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 27, marginStart: 68, marginEnd: 48 }}>
-                    <Progress.Bar progress={1.5} width={150} style={{ position: 'absolute', top: 12, }} color='#B80000' height={1} />
+                 <View style={tw`flex flex-row justify-between mt-4 mb-10`}>
+                    <Progress.Bar progress={1.5} width={150} style={tw`absolute top-6`} color='#B80000' height={1} />
                     <TouchableOpacity>
-                        <Text style={{ borderRadius: 100, backgroundColor: '#B80000', color: 'white', width: 27, fontSize: 12, textAlign: 'center', paddingTop: 7, paddingBottom: 5 }} >1</Text>
+                        <Text style={tw`rounded-full bg-red-700 text-white w-7 text-sm items-center pt-3 pb-3`} >1</Text>
                     </TouchableOpacity>
-                    <Progress.Bar progress={1} width={150} style={{ position: 'absolute', top: 12, right: 1 }} color='grey' height={1} />
+                    <Progress.Bar progress={1} width={150} style={tw`absolute top-6 right-1`} color='grey' height={1} />
                     <TouchableOpacity>
-                        <Text style={{ borderRadius: 100, backgroundColor: '#B80000', color: 'white', width: 27, fontSize: 12, textAlign: 'center', paddingTop: 7, paddingBottom: 5 }} >2</Text>
+                        <Text style={tw`rounded-full bg-red-700 text-white w-7 text-sm text-center pt-3 pb-3`} >2</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity>
-                        <Text style={{ borderRadius: 100, backgroundColor: '#999999', color: 'white', width: 27, fontSize: 12, textAlign: 'center', paddingTop: 7, paddingBottom: 5 }} >3</Text>
+                        <Text style={tw`rounded-full bg-gray-900 text-white w-7 text-sm text-center pt-3 pb-3`} >3</Text>
                     </TouchableOpacity>
                 </View>
 
-                  <View style={styles.brandimagetextviewMY}>
-                 
-                  <View style={{flexDirection:'row',justifyContent:'space-between',marginHorizontal:'4%',marginVertical:'5%'}}>
-                 <Text style={{fontSize:26,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Bold',}}>Add a Product</Text>
+                  <View style={tw`items-center mt-5`}>
+
+                  <View style={tw`flex flex-row justify-between mx-4 mt-5`}>
+                 <Text style={tw`text-large text-gray-700`}>Add a Product</Text>
                </View>
 
-                <Text style={styles.storecamtexttodayy}>To add goods to your store for distribution, you need to create a brand first. Add details about your brand. </Text>
+                <Text style={tw`text-base text-gray-700 text-center mx-1`}>To add goods to your store for distribution, you need to create a brand first. Add details about your brand. </Text>
                  </View>
 
-            <View style={{flexDirection:'row',justifyContent:'space-between',marginHorizontal:'1%',marginTop:'5%'}}>  
-                <TouchableOpacity onPress={()=>selectPhoto1()} style={{height:160,width:deviceWidth/2.2,backgroundColor:'#848484',borderRadius:20,alignSelf:'flex-start'}}>
-                <View style={{marginTop:'30%',}}>
-                 <Image source={ImageIcons.whitevideo} style={{width:24,height:24,alignSelf:'center',}}/>
-                   <Text style={{textAlign:'center',width:130,marginLeft:'10%',color:'#ffffff'}}>Add a image or video of your product</Text>
+            <View style={tw`flex flex-row justify-between mx-2 mt-5`}>
+                <TouchableOpacity onPress={()=>selectPhoto1()} style={tw.style('flex h-14 bg-gray-600 border-3 flex-initial', {width:deviceWidth/2.2})}>
+                <View style={tw`mt-8`}>
+                 <Image source={ImageIcons.whitevideo} style={tw`w-7 h-7 items-center`}/>
+                   <Text style={tw`text-center w-32 ml-5 text-gray-200`}>Add a image or video of your product</Text>
                    </View>
                 </TouchableOpacity>
-               
-                 <View style={{}}> 
-                   <Text style={{color:'#1a1a1a',fontSize:14,fontFamily:'hinted-AvertaStd-Semibold'}}>Add more images</Text>
-                  <View style={{flexDirection:'row',marginTop:'2%'}}> 
-                   <View style={{height:65,width:65,borderRadius:10,padding:22}}>
+
+                 <View style={{}}>
+                   <Text style={tw`text-gray-600 text-base`}>Add more images</Text>
+                  <View style={tw`flex flex-row mt-3`}>
+                   <View style={tw`h-16 w-16 border-3 p-5`}>
                        { billImgPath1 !== "" &&
-                      <Image source={{ uri: billImgPath1.uri }} style={{width:65,height:65,alignSelf:'center'}}/>
+                      <Image source={{ uri: billImgPath1.uri }} style={tw`w-16 h-16 items-center`}/>
                   }
                      </View>
-                   <View style={{height:65,width:65,borderRadius:10,padding:22,marginLeft:'5%'}}>
+                   <View style={tw`h16 w-16 border-3 p-5 ml-5`}>
                     { billImgPath2 !== "" &&
-                      <Image  source={{ uri: billImgPath2.uri }} style={{width:65,height:65,alignSelf:'center'}}/>
+                      <Image  source={{ uri: billImgPath2.uri }} style={tw`w-16 h-16 items-center`}/>
                   }
-                     </View>   
+                     </View>
                    </View>
-                   <View style={{height:65,width:65,borderRadius:10,padding:22,marginTop:'4%'}}>
+                   <View style={tw`h16 w-16 border-3 p-5 ml-5`}>
                     { billImgPath3 !== "" &&
-                      <Image  source={{ uri: billImgPath3.uri }} style={{width:65,height:65,alignSelf:'center'}}/>
+                      <Image  source={{ uri: billImgPath3.uri }} style={tw`w-16 h-16 items-center`}/>
                   }
                      </View>
 
                   </View>
                    {isFieldInError('billImgPath') &&
-                    <Text style={styles.stringerror}>must be required field</Text>
+                    <Text style={tw`text-base text-gray-900 my-1 mx-4`}>must be required field</Text>
                 }
               </View>
 
-                 <View style={{marginTop:'6%'}}>
-                 
+                 <View style={tw`mt-8`}>
+
                      <View>
-                     <TextInput 
-                      placeholder='Name of Product' 
+                     <TextInput
+                      placeholder='Name of Product'
                       value={Name}
                       onChangeText={onChangeName}
                       onSubmitEditing={() => handleSendRequestSubmit1()}
-                      placeholderTextColor='#4D4D4D' 
-                      style={{ backgroundColor: '#E6E6E6',color:'#333333', paddingTop: 18, paddingBottom: 18, paddingStart: 15, marginTop: 15, marginStart: 20, marginEnd: 20, borderRadius: 12 }} />
-                        
+                      placeholderTextColor='#4D4D4D'
+                      style={tw`my-3 h-12 bg-zinc-200 mx-3 text-gray-500 pt-5 px-4 mt-5 mx-3 rounded-md items-center`} />
+
                          {isFieldInError('Name') &&
-                        <Text style={styles.stringerror}>must be required field</Text>
+                        <Text style={tw`text-base text-gray-900 my-1 mx-4`}>must be required field</Text>
                     }
                     </View>
 
-                    <TextInput 
+                    <TextInput
                     onChangeText={onChangeProduct}
                     value={Product}
                     onSubmitEditing={() => handleSendRequestSubmit()}
-                    placeholder='Provide more details about your product (500 characters max)' placeholderTextColor='#4D4D4D' 
-                    style={{ backgroundColor: '#E6E6E6',color:'#333333', paddingTop: 18, paddingStart: 15, marginTop: 20, marginStart: 20, marginEnd: 20, borderRadius: 12, fontSize: 16, paddingBottom: 92, paddingEnd: 15, paddingEnd: 15 }} />
+                    placeholder='Provide more details about your product (500 characters max)' placeholderTextColor='#4D4D4D'
+                    style={tw`my-3 h-12 bg-zinc-200 mx-3 text-gray-500 pt-5 pb-12 px-4 mt-5 mx-3 rounded-md items-center`} />
 
 
                  </View>
@@ -358,6 +360,7 @@ const renderItem6 = ({ item }) => {
                     <Sortorder options={options2} />
                 </View> 
 
+
                 <Text style={{ color: 'black', fontSize: 22, marginTop: 40, marginStart: 20, fontWeight: 'bold' }} >Product Specifics (Optional)</Text>
 
 
@@ -372,7 +375,7 @@ const renderItem6 = ({ item }) => {
                     <Text style={{ fontSize: 14, color: '#1A1A1A', marginTop: 10, }} >This product has options, like size or color</Text>
                 </View>
 
-               
+
                 <Text style={{ color: 'black', fontSize: 16, marginTop: 16, marginStart: 20, fontWeight: 'bold' }} >Option Name</Text>
 
 
@@ -390,18 +393,18 @@ const renderItem6 = ({ item }) => {
                             <Text style={{ fontSize: 12 }} >Price</Text>
                             <Text style={{ fontSize: 14, color: 'black', fontWeight: '400', marginTop: 3 }} >US$</Text>
                         </View>
-                        <TextInput 
-                      placeholder='0.00' 
+                        <TextInput
+                      placeholder='0.00'
                       value={Price}
                       onChangeText={onChangePrice}
                       keyboardType={'numeric'}
                       onSubmitEditing={() => handleSendRequestSubmit1()}
-                      placeholderTextColor='#4D4D4D' 
+                      placeholderTextColor='#4D4D4D'
                       style={{ backgroundColor: '#E6E6E6',color:'#333333', paddingTop: 13, paddingBottom: 18, paddingStart: 15, marginTop: 15, marginStart: 20, marginEnd: 20, borderRadius: 12 }} />
 
-                       
 
-                        
+
+
                     </View>
 
                     <View style={{ flexDirection: 'row', backgroundColor: '#E6E6E6', paddingStart: 15, paddingTop: 9, width: 147, borderRadius: 12 }} >
@@ -410,19 +413,19 @@ const renderItem6 = ({ item }) => {
                                 Discount
                             </Text>
                             <View style={{ flexDirection: 'row', paddingBottom: 12, marginTop: 3 }} >
-                                <TextInput 
-                      placeholder='0.00' 
+                                <TextInput
+                      placeholder='0.00'
                       value={SelectedDiscount}
                       onChangeText={setSelectedDiscount}
                       keyboardType={'numeric'}
                       onSubmitEditing={() => handleSendRequestSubmit1()}
-                      placeholderTextColor='#4D4D4D' 
+                      placeholderTextColor='#4D4D4D'
                       style={{ backgroundColor: '#E6E6E6',color:'#333333', paddingTop: 1, paddingBottom: 1, paddingStart: 1, marginTop: 1, marginStart: 1, marginEnd: 1, borderRadius: 12 }} />
 
-                       
+
                                 <Text style={{ marginStart: 10, color: 'black', fontSize: 16 }} >%</Text></View>
                         </View>
-                       
+
                     </View>
                 </View>
 
@@ -471,7 +474,7 @@ const renderItem6 = ({ item }) => {
 
 
                 <View style={{ flexDirection: 'row', backgroundColor: 'white', marginTop: 15, paddingTop: 20, paddingBottom: 20, marginStart: 20, marginEnd: 20, paddingEnd: 31.97 }} >
-                   
+
                     <View style={{ flexDirection: 'column', marginStart: 16 }} >
                         <Text style={{ color: '#B80000', fontSize: 16, fontWeight: 'bold' }} >Dropship Shipping</Text>
 
@@ -484,7 +487,7 @@ const renderItem6 = ({ item }) => {
 
 
                 <View style={{ flexDirection: 'row', backgroundColor: 'white', marginTop: 15, paddingTop: 20, paddingBottom: 20, marginStart: 20, marginEnd: 20, paddingEnd: 71.97 }} >
-                    
+
                     <View style={{ flexDirection: 'column', marginStart: 16 }} >
                         <Text style={{ color: '#808080', fontSize: 16, fontWeight: 'bold' }} >Ship on your own</Text>
 
@@ -506,7 +509,7 @@ const renderItem6 = ({ item }) => {
 
 
 
-                
+
 
 <View style={{position:'absolute',opacity:0,alignSelf:'flex-end',marginTop:'12%',right:'2%'}}>
                         <TouchableOpacity>
@@ -514,8 +517,8 @@ const renderItem6 = ({ item }) => {
                         </TouchableOpacity>
                     </View>
 
-                
-                  
+
+
                </ScrollView>
 
                 <View style={{ position:'absolute',opacity:0,zIndex:2001,right:20,bottom:70}}>
@@ -526,10 +529,10 @@ const renderItem6 = ({ item }) => {
 
                { helppopup ==true &&
         <View style={{flex:1,backgroundColor:'#ffffff',margin:20,paddingVertical:10,borderRadius:10,zIndex:4001, position:'absolute',bottom:'10%'}}>
-            
-           
+
+
               <View style={styles.chatViewrose}>
-                    
+
                 <Text style={styles.Benrosetext}>Chat with customer support</Text>
                 <TouchableOpacity style={{position:'absolute',right:15,top:5}} onPress={() => sethelppopup(false)}>
                     <Image source={ImageIcons.closepopup}  style={styles.sendmsg2} />
@@ -560,12 +563,12 @@ const renderItem6 = ({ item }) => {
                 </TouchableOpacity>
             </View>
         </View>
-        }      
+        }
 
         </View>
-        
+
         <Footer2 onSelelection="4"  />
-                   
+
         </KeyboardAvoidingView>
     )
 }

@@ -25,6 +25,9 @@ import { useFocusEffect } from '@react-navigation/native';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import { Provider, Portal, } from 'react-native-paper';
 import Modal from 'react-native-modal'
+import tw from 'twrnc';
+import Sortfilter from '../../components/pickers/Sortfilter';
+import Supportchat from '../../components/Supportchat';
 import Sortorder from '../../components/pickers/Sortorder';
  const options = ['1', '2', '3', '4','5','6','7','8','9']
 
@@ -98,18 +101,16 @@ const Accountfav1 = (props) => {
     const DATA2 = [];
 
 
-
-
     const renderItem2 = ({ item, index }) => {
         return (
             <View>
-                <View style={{ padding: 2, marginHorizontal: 7 }}>
-                    <Image source={item.image} style={{ height: 162, width: deviceWidth / 2.5, borderRadius: 10 }} />
+                <View style={tw`p-2 mx-4`}>
+                    <Image source={item.image} style={tw.style('h-10 rounded-md', {width: deviceWidth / 2.5})} />
                 </View>
-                <View style={{ marginTop: 5, flexDirection: 'row', marginHorizontal: 3 }}>
+                <View style={tw`my-4 flex flex-row mx-3`}>
                     <View>
-                        <Text style={{ fontSize: 14, width: '80%', marginLeft: '5%' }}>{item.text}</Text>
-                        <Text style={{ fontSize: 16, width: '80%', fontFamily: 'hinted-AvertaStd-Bold', marginLeft: '5%' }}>{item.text1}</Text>
+                        <Text style={tw`text-base w-9/11 ml-3`}>{item.text}</Text>
+                        <Text style={tw`text-lg w-9/11 ml-3`}>{item.text1}</Text>
                         <View style={{ marginBottom: '12%' }}>
                             <Rating
                                 type='custom'
@@ -117,17 +118,17 @@ const Accountfav1 = (props) => {
                                 ratingCount={5}
                                 ratingColor='#EB5757'
                                 tintColor='#FFE7E7'
-                                style={{ paddingVertical: 5, width: 100, }}
+                                style={tw`py-3 w-full`}
                             />
                         </View>
 
                     </View>
-                    <View style={{ marginLeft: 4 }}>
-                        <View style={{ padding: 2, marginHorizontal: 7 }}>
-                            <Image source={ImageIcons.outlock} style={{ height: 30, width: 30 }} />
+                    <View style={tw`ml-3`}>
+                        <View style={tw`p-2 mx-3`}>
+                            <Image source={ImageIcons.outlock} style={tw`ml-3 h-8 w-8`} />
                         </View>
-                        <View style={{ padding: 2, marginHorizontal: 7 }}>
-                            <Image source={ImageIcons.outheart} style={{ height: 30, width: 30 }} />
+                        <View style={tw`p-2 mx-2`}>
+                            <Image source={ImageIcons.outheart} style={tw`ml-3 h-8 w-8`} />
                         </View>
                     </View>
                 </View>
@@ -135,31 +136,6 @@ const Accountfav1 = (props) => {
         );
     }
 
-
-
-
-    const renderItem6 = ({ item }) => {
-        return (
-            <View>
-                {item.userId.userName == 'Admin' ?
-                    <View>
-                        <View style={styles.chatrightView}>
-                            <Text style={styles.hellotext}>{item.message}</Text>
-                        </View>
-                        <Text style={styles.chattingtime}>{moment(item.msgDate).format('hh:mm A')}</Text>
-                    </View>
-                    :
-                    <View>
-                        <View style={styles.chatlongView}>
-                            <Text style={styles.chattingtext}>{item.message}</Text>
-                        </View>
-                        <Text style={styles.chattingtime2}>{moment(item.msgDate).format('hh:mm A')}</Text>
-                    </View>
-
-                }
-            </View>
-        );
-    }
 
 
     return (
@@ -169,26 +145,22 @@ const Accountfav1 = (props) => {
             <ScrollView onScroll={({ nativeEvent }) => {
                 handleScroll(nativeEvent['contentOffset'].y);
             }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#f2f2f2' }} >
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginHorizontal: '3%', marginVertical: '5%' }}>
-                    <Text style={{ fontSize: 26, color: '#1a1a1a', fontFamily: 'hinted-AvertaStd-Semibold', }}>My Favorites</Text>
+                <View style={tw`flex flex-row justify-between mx-4 mt-20 mb-5`}>
+                    <Text style={tw.style('text-3xl font-bold text-gray-700', {fontFamily: 'hintedavertastdsemibold', })}>My Favorites</Text>
                 </View>
 
-                <View style={{ flexDirection: 'row', marginHorizontal: '4%' }}>
-                    <View style={styles.pickerViewshorttodayagainorder}>
-                        <Sortorder options={options} />
-                    </View>
-                    <TouchableOpacity onPress={() => props.navigation.navigate("Accountfav")} style={[styles.pickerViewshorttodayagainorder, { marginLeft: '8%', flexDirection: 'row', justifyContent: 'space-around', padding: 4 }]}>
-                        <Image source={ImageIcons.whitefiltertoday} style={{ height: 11, width: 11, marginTop: 5 }} />
-                        <Text style={{ fontSize: 16, fontFamily: 'hinted-AvertaStd-Regular', textAlign: 'center', color: '#ffffff' }}>FILTERS</Text>
-                    </TouchableOpacity>
+                <View style={tw`flex flex-row mx-4`}>
+                    <Sortorder options={options}/>
+
+                    <Sortfilter text="Filter" onPress={() => props.navigation.navigate("Accountfav")} />
                 </View>
 
 
 
 
-                <View style={{ marginTop: '8%', }}>
+                <View style={tw`mt-10`}>
 
-                    <View style={{ marginLeft: '5%' }}>
+                    <View style={tw`mx-3`}>
                         <FlatList
                             data={DATA2}
                             renderItem={renderItem2}
@@ -210,41 +182,7 @@ const Accountfav1 = (props) => {
             </View>
 
             {helppopup == true &&
-                <View style={{ flex: 1, backgroundColor: '#ffffff', margin: 20, paddingVertical: 10, borderRadius: 10, zIndex: 4001, position: 'absolute', bottom: '10%' }}>
-
-
-                    <View style={styles.chatViewrose}>
-
-                        <Text style={styles.Benrosetext}>Chat with customer support</Text>
-                        <TouchableOpacity style={{ position: 'absolute', right: 15, top: 5 }} onPress={() => sethelppopup(false)}>
-                            <Image source={ImageIcons.closepopup} style={styles.sendmsg2} />
-                        </TouchableOpacity>
-                    </View>
-                    <ScrollView keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#ffffff', height: 200 }} >
-                        <View style={{ marginVertical: '2%' }}>
-                            <FlatList
-                                data={props?.getchatsupportlist1 || []}
-                                renderItem={renderItem6}
-                                keyExtractor={item => item.id}
-                                showsHorizontalScrollIndicator={false}
-                                horizontal={false}
-                            />
-                        </View>
-                    </ScrollView>
-                    <View style={[styles.accountmainview, { marginBottom: 10, width: '100%' }]}>
-                        <View style={{ width: '90%' }}>
-                            <TextInput style={styles.chatinput}
-                                placeholder="Type here..."
-                                onChangeText={onChangeText3}
-                                value={text1}
-                                placeholderTextColor="#999999"
-                            />
-                        </View>
-                        <TouchableOpacity style={{ position: 'absolute', right: 55, top: 5 }} onPress={() => handleSendRequestSubmit()}>
-                            <Image source={ImageIcons.sendchat} style={styles.sendmsg1} />
-                        </TouchableOpacity>
-                    </View>
-                </View>
+              <Supportchat />
             }
 
             <Footer3 onSelection="5" />

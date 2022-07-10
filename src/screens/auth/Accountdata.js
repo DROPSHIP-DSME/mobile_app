@@ -25,6 +25,11 @@ import { useFocusEffect } from '@react-navigation/native';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import { Provider, Portal, } from 'react-native-paper';
 import Modal from 'react-native-modal'
+import tw from 'twrnc';
+import Sortfilter from '../../components/pickers/Sortfilter';
+import { UsersIcon } from "react-native-heroicons/solid";
+import { PlayIcon } from "react-native-heroicons/solid";
+import { HeartIcon } from "react-native-heroicons/solid";
 import Sortorder from '../../components/pickers/Sortorder';
  const options = ['1', '2', '3', '4','5','6','7','8','9']
 
@@ -86,7 +91,7 @@ const Accountdata = (props) => {
             await AsyncStorage.setItem('userLogin', "1");
         }
     }
-    
+
     // Local states
     const [text1, onChangeText3] = React.useState("");
     const [helppopup, sethelppopup] = React.useState(false);
@@ -98,28 +103,33 @@ const Accountdata = (props) => {
     const renderItem2 = ({ item, index }) => {
         return (
             <View>
-                <View style={{ padding: 6, }}>
-                    <Image source={item.image} style={{ height: 210, width: deviceWidth / 2.4, borderRadius: 15 }} />
-                </View>
-                <View style={{ borderRadius: 5, position: 'absolute', top: 15, left: 15, backgroundColor: '#E22020' }}>
-                    <Text style={styles.shorttest1}>Live</Text>
-                </View>
-                <View style={{ borderRadius: 5, position: 'absolute', top: 15, alignSelf: 'flex-end', right: 15, backgroundColor: '#AFFFE2', flexDirection: 'row', paddingHorizontal: 4, paddingVertical: 1 }}>
-                    <View style={{}}>
-                        <Image source={ImageIcons.iconpath} style={{ width: 11, height: 11, top: 5, left: 5 }} />
+
+                <View>
+                    <Image source={{ uri: item.products[0]?.productImage }} style={tw.style('w-40 h-56 rounded-md')} />
+                    <Text style={tw`text-sm text-white absolute bottom-4 left-3 leading-4`}></Text>
+
+                    <View style={tw.style('flex flex-row bg-red-700 w-16 h-6 rounded-lg px-1 absolute top-4 left-2')}>
+                        <Text style={tw.style('px-3 text-sm text-white text-center')}>Live</Text>
                     </View>
-                    <Text style={styles.shorttest}>0K</Text>
-                </View>
-                <View style={{ borderRadius: 5, position: 'absolute', bottom: 70, right: 15, backgroundColor: '#ffffff', padding: 8 }}>
-                    <Image source={ImageIcons.redsave} style={{ width: 10, height: 15, }} />
+                    <View style={tw.style('flex flex-row bg-green-200 w-16 h-6 rounded-lg px-2 items-center absolute top-4 left-[55%]')}>
+                        <View style={tw.style('pt-[2%]')}>
+                            <UsersIcon color="red" fill="#000000" size={14} />
+                        </View>
+                        <Text style={tw.style('text-xs text-gray-800 pl-1')}>0</Text>
+                    </View>
                 </View>
 
-                <View style={{ marginHorizontal: 6 }}>
-                    <View style={{ flexDirection: 'row' }}>
-                        <Image source={item.image1} style={{ height: 20, width: 20, borderRadius: 15 }} />
-                        <Text style={{ fontSize: 12, color: '#666666', marginLeft: 6, alignSelf: 'center' }}>{item.text}</Text>
+                <View style={tw`rounded-md absolute bottom-16 right-4 bg-white p-2`}>
+                    <HeartIcon color="red" fill="#B80000" size={28} />
+                </View>
+
+                <View style={tw.style('flex flex-row mt-2')}>
+                    <View>
+                        <Image source={ImageIcons.profileimage} style={tw.style('h-6 w-6 rounded-full')} />
                     </View>
-                    <Text style={{ fontSize: 14, fontFamily: 'hinted-AvertaStd-Regular', marginVertical: '2%', marginBottom: 15 }}>{item.text1}</Text>
+                    <View style={tw.style('pl-2 pt-1')}>
+                        <Text style={tw.style('text-gray-500 text-xs')}>{item.products[0]?.productName}</Text>
+                    </View>
                 </View>
 
 
@@ -131,13 +141,13 @@ const Accountdata = (props) => {
         return (
             <View>
 
-                <View style={styles.seledataViewTODAY}>
-                    <View style={{ flexDirection: 'row' }}>
-                        <Image source={item.image} style={{ width: 18, height: 18, }} />
-                        <Text style={styles.seriestexttoday}>{item.text}</Text>
+                <View style={tw`flex flex-row`}>
+                    <View style={tw`flex-row justify-between mt-3 bg-white p-2`}>
+                        <Image source={item.image} style={tw`w-5 h-5`} />
+                        <Text style={tw`text-sm text-gray-600 leading-4`}>{item.text}</Text>
                     </View>
-                    <Text style={styles.seriestexttoday}>{item.text1}</Text>
-                    <Text style={styles.seriestexttoday}>{item.text2}</Text>
+                    <Text style={tw`text-sm text-gray-600 leading-4`}>{item.text1}</Text>
+                    <Text style={tw`text-sm text-gray-600 leading-4`}>{item.text2}</Text>
                 </View>
 
             </View>
@@ -148,12 +158,12 @@ const Accountdata = (props) => {
         return (
             <View>
 
-                <View style={styles.seledataViewTODAYsecndrender}>
-                    <View style={{ flexDirection: 'row' }}>
+                <View style={tw`flex flex-row justify-between mt-5 bg-white w-full p-2`}>
+                    <View style={tw`flex-row`}>
                         <Image source={item.image} style={{ width: 24, height: 24, }} />
-                        <Text style={[styles.seriestexttoday, { alignSelf: 'center', marginLeft: 1 }]}>{item.text}</Text>
+                        <Text style={[tw`text-sm text-gray-600 leading-4`, { alignSelf: 'center', marginLeft: 1 }]}>{item.text}</Text>
                     </View>
-                    <Text style={styles.seriestexttoday}>{item.text1}</Text>
+                    <Text style={tw`text-sm text-gray-600 leading-4`}>{item.text1}</Text>
                 </View>
 
             </View>
@@ -165,17 +175,17 @@ const Accountdata = (props) => {
             <View>
                 {item.userId.userName == 'Admin' ?
                     <View>
-                        <View style={styles.chatrightView}>
-                            <Text style={styles.hellotext}>{item.message}</Text>
+                        <View style={tw`flex flex-row p-2 rodunded-lg mt-4 items-center mb-3 justify-self-end bg-red-700 mx-3`}>
+                            <Text style={tw`text-base text-white leading-4 tracking-wide items-center mx-3`}>{item.message}</Text>
                         </View>
-                        <Text style={styles.chattingtime}>{moment(item.msgDate).format('hh:mm A')}</Text>
+                        <Text style={tw`text-sm text-gray-400 leading-3 tracking-wide text-right mx-4`}>{moment(item.msgDate).format('hh:mm A')}</Text>
                     </View>
                     :
                     <View>
-                        <View style={styles.chatlongView}>
-                            <Text style={styles.chattingtext}>{item.message}</Text>
+                        <View style={tw`rounded-lg bg-blue-200 pl-4 w-6/11 mx-2 my-1 p-4`}>
+                            <Text style={tw`text-sm text-gray-400 leading-3 tracking-wide text-right mx-4`}>{item.message}</Text>
                         </View>
-                        <Text style={styles.chattingtime2}>{moment(item.msgDate).format('hh:mm A')}</Text>
+                        <Text style={tw`text-sm text-gray-400 leading-3 tracking-wide mx-4`}>{moment(item.msgDate).format('hh:mm A')}</Text>
                     </View>
 
                 }
@@ -191,25 +201,21 @@ const Accountdata = (props) => {
                 handleScroll(nativeEvent['contentOffset'].y);
             }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#f2f2f2' }} >
 
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginHorizontal: '3%', marginVertical: '5%' }}>
-                    <Text style={{ fontSize: 26, color: '#1a1a1a', fontFamily: 'hinted-AvertaStd-Semibold', }}>Bookmarks</Text>
+                <View style={tw`flex flex-row justify-between mx-4 mt-20 mb-5`}>
+                    <Text style={tw.style('text-3xl font-bold text-gray-700', {fontFamily: 'hintedavertastdsemibold', })}>Bookmarks</Text>
                 </View>
 
-                <View style={{ flexDirection: 'row', marginHorizontal: '4%' }}>
-                    <View style={styles.pickerViewshorttodayagainorder}>
-                         <Sortorder options={options} />
-                    </View>
-                    <TouchableOpacity style={[styles.pickerViewshorttodayagainorder, { marginLeft: '8%', flexDirection: 'row', justifyContent: 'space-around', padding: 4 }]}>
-                        <Image source={ImageIcons.whitefiltertoday} style={{ height: 11, width: 11, marginTop: 5 }} />
-                        <Text style={{ fontSize: 16, fontFamily: 'hinted-AvertaStd-Regular', textAlign: 'center', color: '#ffffff' }}>FILTERS</Text>
-                    </TouchableOpacity>
+                <View style={tw`flex flex-row mx-4`}>
+                    <Sortorder options={options} />
+
+                    <Sortfilter text="Filter" onPress={() => props.navigation.navigate("Accountfav")} />
                 </View>
 
 
 
 
-                <View style={{ marginTop: '8%', marginBottom: '20%' }}>
-                    <View style={{ marginLeft: '5%' }}>
+                <View style={tw`mt-10 mb-15`}>
+                    <View style={tw`mx-3`}>
                         <FlatList
                             data={DATA2}
                             renderItem={renderItem2}

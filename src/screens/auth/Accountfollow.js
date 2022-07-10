@@ -24,7 +24,10 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import { Provider, Portal, } from 'react-native-paper';
-import Modal from 'react-native-modal'
+import Modal from 'react-native-modal';
+import tw from 'twrnc';
+import { ShoppingBagIcon } from "react-native-heroicons/solid";
+import Smallbutton from '../../components/dropshipbutton/Smallbutton';
 
 
 import {
@@ -117,36 +120,54 @@ const Accountfollow = (props) => {
 
 
     return (
-         <View style={{flex:1}}>
+         <View style={tw`flex flex-1 mx-4`}>
 
             <ScrollView onScroll={({ nativeEvent }) => {
                 handleScroll(nativeEvent['contentOffset'].y);
             }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#f2f2f2' }} >
 
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginHorizontal: '3%', marginVertical: '5%' }}>
-                    <Text style={{ fontSize: 26, color: '#1a1a1a', fontFamily: 'hinted-AvertaStd-Semibold', }}>Following</Text>
+                <View style={tw`flex flex-row justify-between mt-20 mb-5`}>
+                    <Text style={tw.style('text-3xl font-bold text-gray-700', {fontFamily: 'hintedavertastdsemibold', })}>Following</Text>
                 </View>
 
-                <View style={{ width: deviceWidth / 1.9, backgroundColor: '#ffffff', padding: '5%', marginTop: '2%', borderRadius: 15, marginHorizontal: '4%' }}>
-                    <Image source={ImageIcons.colortodayshoe} style={{ width: 70, height: 70, borderRadius: 30, alignSelf: 'center' }} />
+                <View style={tw.style('flex flex-row',{ width: deviceWidth / 1.1})}>
+                  <View style={tw`bg-white rounded-lg py-3 my-3 mx-1 w-1/2 items-center`}>
+                    <Image source={ImageIcons.colortodayshoe} style={tw`w-14 h-14 rounded-full`} />
 
-                    <Text style={{ fontSize: 20, fontFamily: 'hinted-AvertaStd-Semibold', textAlign: 'center' }}>Sneakers Store</Text>
+                    <Text style={tw`text-lg text-gray-700`}>Sneakers Store</Text>
 
-                    <Text style={{ fontSize: 16, fontFamily: 'hinted-AvertaStd-Semibold', textAlign: 'center', color: '#2F80ED', marginVertical: 5 }}>store.dropship.com</Text>
+                    <Text style={tw`text-base text-blue-600`}>store.dropship.com</Text>
 
 
-                    <View style={{ flexDirection: 'row', marginTop: '2%', alignSelf: 'center' }}>
-                        <Image source={ImageIcons.redcolorbag} style={{ width: 15, height: 15, marginTop: 2 }} />
-                        <Text style={{ fontSize: 16, fontFamily: 'hinted-AvertaStd-Regular', marginLeft: 5 }}>0 products</Text>
+                    <View style={tw`flex-row my-2 items-center`}>
+                        <ShoppingBagIcon color="red" fill="#b80000" size={24} />
+                        <Text style={tw`text-base ml-2`}>0 products</Text>
                     </View>
 
-                    <View style={{ backgroundColor: '#4AFFBD', width: 100, borderRadius: 25, padding: 8, alignSelf: 'center', marginVertical: '8%' }}>
-                        <Text style={[styles.totalincometodayPLAN, { color: '#1a1a1a' }]}>UNFOLLOW</Text>
+                    <View style={tw`my-4`}>
+                        <Smallbutton text="Unfollow" />
                     </View>
+                  </View>
+
+                  <View style={tw`bg-white rounded-lg py-3 my-3 mx-1 w-1/2 items-center`}>
+                    <Image source={ImageIcons.colortodayshoe} style={tw`w-14 h-14 rounded-full`} />
+
+                    <Text style={tw`text-lg text-gray-700`}>Sneakers Store</Text>
+
+                    <Text style={tw`text-base text-blue-600`}>store.dropship.com</Text>
+
+
+                    <View style={tw`flex-row my-2 items-center`}>
+                        <ShoppingBagIcon color="red" fill="#b80000" size={24} />
+                        <Text style={tw`text-base ml-2`}>0 products</Text>
+                    </View>
+
+                    <View style={tw`my-4`}>
+                        <Smallbutton text="Unfollow" />
+                    </View>
+                  </View>
+
                 </View>
-
-
-
 
 
             </ScrollView>

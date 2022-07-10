@@ -178,7 +178,7 @@ const editaddress = (props) => {
               </View>
 
               </View>
-              </View>
+          </View>
 
   );
  }

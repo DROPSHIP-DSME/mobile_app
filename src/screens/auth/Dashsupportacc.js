@@ -25,7 +25,12 @@ import { Provider , Portal,} from 'react-native-paper';
 import Modal from 'react-native-modal'
 import Shopheader from '../../screens/auth/Shopheader';
 import moment from 'moment';
- 
+import tw from 'twrnc';
+import { PhoneIcon } from "react-native-heroicons/solid";
+import { MailIcon } from "react-native-heroicons/solid";
+import Sendbutton from '../../components/pickers/Sendbutton';
+import Closebutton from '../../components/pickers/Closebutton';
+
 import {
   LineChart,
   BarChart,
@@ -130,7 +135,7 @@ const deviceWidth = Dimensions.get('window').width;
     const phonenumber=(phoneNumber)=>{
         Linking.openURL(`tel:${phoneNumber}`)
     }
-    
+
     const sendemail=(email)=>{
         Linking.openURL(`mailto:${email}`)
     }
@@ -175,112 +180,86 @@ const deviceWidth = Dimensions.get('window').width;
     }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} >
 
 
-               <View style={{flexDirection:'row',justifyContent:'space-between',marginHorizontal:'4%',marginTop:'8%'}}>
-               <Text style={{fontSize:22,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',}}>CUSTOMER SUPPORT</Text>
-               </View>
-
-               <View style={{marginHorizontal:'4%',marginTop:'2%'}}>
-                 <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',color:'#1a1a1a'}}>You can reach out to us via the following channels.</Text>
-               </View>
-
-
-
-              <View style={{width:deviceWidth/1.1,backgroundColor:'#ffffff',padding:'4%',alignSelf:'center',marginTop:'5%',borderRadius:15,marginBottom:"5%"}}>
-
-
-                <TouchableOpacity onPress={() => { phonenumber('+15854690695') }}>
-                   <View style={{flexDirection:'row',marginTop:'4%'}}>
-                        <Image source={ImageIcons.calltoday} style={{width:21,height:21,}}/>
-                      <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular',color:'#1a1a1a',alignSelf:'center',marginLeft:'3%'}}>+1-585-469-0695</Text>
-                   </View>
-                </TouchableOpacity>
-
-                <TouchableOpacity onPress={() => { sendemail('info@dropship.shopping') }}>
-                   <View style={{flexDirection:'row',marginTop:'4%'}}>
-                        <Image source={ImageIcons.smstoday} style={{width:21,height:21,}}/>
-                        <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular',color:'#1a1a1a',alignSelf:'center',marginLeft:'3%'}}>info@dropship.shopping</Text>
-                   </View>
-                </TouchableOpacity>
-
-               <View style={{borderBottomWidth:2,borderColor:'#e6e6e6',width:'100%',alignSelf:'center',marginVertical:'4%'}}></View>
-
-                <View>
-                  <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',color:'#000000'}}>Or you can reach out to us via social media</Text>
-               </View>
- 
-              <View style={{flexDirection:'row',justifyContent:'space-between',marginVertical:'5%'}}>
-                <View style={{height:45,width:45,borderRadius:25,backgroundColor:'#ffffff',elevation:4,padding:'4%'}}>
-                    <TouchableOpacity onPress={() => { facebook() }}>
-                        <Image source={ImageIcons.facebook} style={{width:10,height:18,alignSelf:'center'}}/>
-                    </TouchableOpacity>
-                </View>
-                <View style={{height:45,width:45,borderRadius:25,backgroundColor:'#ffffff',elevation:4,padding:'4%'}}>
-                    <TouchableOpacity onPress={() => { google() }}>
-                        <Image source={ImageIcons.google} style={{width:21,height:21,alignSelf:'center'}}/>
-                    </TouchableOpacity>
-                </View>
-                <View style={{height:45,width:45,borderRadius:25,backgroundColor:'#ffffff',elevation:4,padding:'4%'}}>
-                    <TouchableOpacity onPress={() => { instragram() }}>
-                        <Image source={ImageIcons.message} style={{width:21,height:21,alignSelf:'center'}}/>
-                    </TouchableOpacity>
-                </View>
-                 <View style={{height:45,width:45,borderRadius:25,backgroundColor:'#ffffff',elevation:4,padding:'4%'}}>
-                   <TouchableOpacity onPress={() => { twitter() }}>
-                        <Image source={ImageIcons.twitter} style={{width:21,height:21,alignSelf:'center',}}/>
-                   </TouchableOpacity>
-                </View>
-                 <View style={{height:45,width:45,borderRadius:25,backgroundColor:'#ffffff',elevation:4,padding:'4%'}}>
-                    <TouchableOpacity onPress={() => { linkedin() }}>
-                        <Image source={ImageIcons.linkin} style={{width:21,height:21,alignSelf:'center'}}/>
-                    </TouchableOpacity>
-                </View>
+              <View style={tw.style('flex flex-row justify-between mx-4 mt-10')}>
+                <Text style={tw.style('text-3xl text-gray-700 font-bold tracking-wide')}>Customer Support</Text>
               </View>
 
-              </View>
-
-
-
-
-
-
-        <View style={{ width:deviceWidth/1.1,marginTop:"20%",margin:20, backgroundColor:'#ffffff',paddingVertical:10,borderRadius:10,bottom:'10%'}}>
-
-
-              <View style={styles.chatViewrose}>
-
-                <Text style={styles.Benrosetext}>Chat with customer support</Text>
-                <TouchableOpacity style={{position:'absolute',right:15,top:5}} onPress={() => sethelppopup(false)}>
-                    <Image source={ImageIcons.closepopup}  style={styles.sendmsg2} />
-                </TouchableOpacity>
-            </View>
-            <ScrollView  style={{backgroundColor:'#ffffff', height:200,flex:1}} >
-            <View style={{marginVertical:'2%'}}>
-                <FlatList
-                    data={props?.getchatsupportlist1 || []}
-                    renderItem={renderItem6}
-                    keyExtractor={item => item.id}
-                    showsHorizontalScrollIndicator={false}
-                    horizontal={false}
-                />
+             <View style={tw.style('mx-4 my-4')}>
+               <Text style={tw.style('text-base text-gray-700')}>You can reach out to us via the following channels.</Text>
              </View>
-           </ScrollView>
-            <View style={[styles.accountmainview,{marginBottom:10, width:'100%'}]}>
-            <View style={{width:'90%'}}>
-                <TextInput  style={styles.chatinput}
-                placeholder="Type here..."
-                onChangeText={onChangeText3}
-                value={text3}
-                placeholderTextColor="#999999"
-                />
-            </View>
-            <TouchableOpacity style={{position:'absolute',right:55,top:5}} onPress={() => handleSendRequestSubmit()}>
-                    <Image source={ImageIcons.sendchat}  style={styles.sendmsg1} />
-                </TouchableOpacity>
-            </View>
-        </View>
+
+
+                    <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 my-12')}>
+                      <View style={tw.style('px-2 py-5')}>
+                          <View style={tw.style('flex flex-row px-4 items-center')}>
+                              <PhoneIcon color="red" fill="#b80000" size={24} />
+                              <Text style={tw.style('text-xl text-gray-700 ml-3')}>+1-555-555-5555</Text>
+                          </View>
+                          <View style={tw.style('flex flex-row px-4 mt-4 items-center')}>
+                              <MailIcon color="red" fill="#b80000" size={24} />
+                              <Text style={tw.style('text-xl text-gray-700 ml-3')}>info@dropship.com</Text>
+                          </View>
+                          <View style={tw.style('flex items-center my-6')}>
+                            <View style={tw.style('w-full border-t border-gray-300')}></View>
+                          </View>
+
+                          <View style={tw.style('px-4')}>
+                              <Text style={tw.style('text-base text-gray-700 ml-3')}>Or you can reach out to us via social media</Text>
+                          </View>
+
+                          <View style={tw.style('flex flex-row mx-4')}>
+                            <View style={tw.style('h-12 w-12 bg-white shadow-sm p-3 items-center rounded-full mr-4')}>
+                               <Image source={ImageIcons.facebook} style={tw.style('w-4 h-6')}/>
+                            </View>
+
+                            <View style={tw.style('h-12 w-12 bg-white shadow-sm p-3 items-center rounded-full mr-4')}>
+                               <Image source={ImageIcons.message} style={tw.style('w-6 h-6')}/>
+                            </View>
+
+                            <View style={tw.style('h-12 w-12 bg-white shadow-sm p-3 items-center rounded-full mr-4')}>
+                               <Image source={ImageIcons.twitter} style={tw.style('w-6 h-6')}/>
+                            </View>
+
+                            <View style={tw.style('h-12 w-12 bg-white shadow-sm p-3 items-center rounded-full mr-4')}>
+                               <Image source={ImageIcons.linkin} style={tw.style('w-6 h-6')}/>
+                            </View>
+                          </View>
+                      </View>
+                    </View>
 
 
 
+
+              <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4')}>
+                <View style={tw.style('px-2 py-5')}>
+                      <View style={tw`flex flex-row justify-between items-center mx-4`}>
+                        <Text style={tw`text-gray-700 text-lg`}>Chat with customer support</Text>
+                        <Closebutton onPress={() => sethelppopup(false)} />
+                    </View>
+                    <ScrollView  style={{backgroundColor:'#ffffff', height:200,flex:1}} >
+                    <View style={{marginVertical:'2%'}}>
+                        <FlatList
+                            data={props?.getchatsupportlist1 || []}
+                            renderItem={renderItem6}
+                            keyExtractor={item => item.id}
+                            showsHorizontalScrollIndicator={false}
+                            horizontal={false}
+                        />
+                     </View>
+                   </ScrollView>
+                    <View style={tw`flex flex-row items-center justify-between my-2 mx-3`}>
+                      <View style={tw`w-86`}>
+                          <TextInput  style={tw`h-12 bg-zinc-200 rounded-lg p-3`}
+                          placeholder="Type here..."
+                          onChangeText={onChangeText3}
+                          value={text3}
+                          placeholderTextColor="#999999"
+                          />
+                      </View>
+                        <Sendbutton onPress={() => handleSendRequestSubmit()} />
+                    </View>
+                </View>
+              </View>
 
 
 
