@@ -123,7 +123,6 @@ const renderItem2 = ({ item,index }) => {
              <Text style={tw.style('mt-1 mb-5')}>
                 <DatabaseIcon color="red" fill="#B80000" size={32} />
              </Text>
-             <Sortorder options={options} />
           </View>
 
           <View style={tw.style('flex justify-between')}>
