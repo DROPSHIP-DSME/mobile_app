@@ -167,22 +167,22 @@ const Accountsum = (props) => {
                         <Text style={tw`flex flex-row font-bold text-xl text-gray-900`}>Saved Items</Text>
                     </View>
 
-                    <TouchableOpacity onPress={() => props.navigation.navigate("Accountfav1")} style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
-                        <View>
+                    <TouchableOpacity onPress={() => props.navigation.navigate("Accountfav1")} style={tw.style('flex flex-row justify-between mx-4 items-center')}>
+                        <View style={tw`my-3`}>
                             <Text style={tw.style('text-base text-gray-800')}>My Favourites</Text>
                         </View>
                         <ArrowRightIcon color="red" fill="gray" size={24} />
                     </TouchableOpacity>
-                    <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
-                    <TouchableOpacity onPress={() => props.navigation.navigate("Accountdata")} style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
-                        <View>
+                    <View style={tw.style('border-b mx-4 border-gray-500')}></View>
+                    <TouchableOpacity onPress={() => props.navigation.navigate("Accountdata")} style={tw.style('flex flex-row justify-between mx-4 items-center')}>
+                        <View style={tw`my-4`}>
                             <Text style={tw.style('text-base text-gray-800')}>Bookmarks</Text>
                         </View>
                         <ArrowRightIcon color="red" fill="gray" size={24} />
                     </TouchableOpacity>
-                    <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
-                    <TouchableOpacity onPress={() => props.navigation.navigate("Accountfollow")} style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
-                        <View style={{ marginBottom: "3%" }}>
+                    <View style={tw.style('border-b mx-4 border-gray-500')}></View>
+                    <TouchableOpacity onPress={() => props.navigation.navigate("Accountfollow")} style={tw.style('flex flex-row justify-between mx-4 items-center')}>
+                        <View style={tw`my-4`}>
                             <Text style={tw.style('text-base text-gray-800')}>Following</Text>
                         </View>
                           <ArrowRightIcon color="red" fill="gray" size={24} />

@@ -14,11 +14,13 @@ import DropdownField from '../../components/dropdown/DropDownMenu';
 import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import Footer3 from '../../screens/auth/Footer3';
-import AsyncStorage from '@react-native-community/async-storage'; 
+import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import Shopheader from '../../screens/auth/Shopheader';
+import tw from 'twrnc';
+import Largebutton from '../../components/dropshipbutton/Largebutton';
 
 const editviewaddress = (props) => {
 
@@ -30,20 +32,20 @@ const editviewaddress = (props) => {
         handleSubmit,
     } = props;
 
-   
+
     useEffect(() => {
         props.getAllshop(1);
     }, [])
     useFocusEffect(() => {
          //props.getAllshop(1);
      })
-    
-    
-     const deviceWidth = Dimensions.get('window').width; 
-    const deviceHeight = Dimensions.get('window').height; 
+
+
+     const deviceWidth = Dimensions.get('window').width;
+    const deviceHeight = Dimensions.get('window').height;
 
     //Reference
-    
+
     const [text1, onChangeText1] = React.useState("");
     const [helppopup, sethelppopup] = React.useState(false);
     const [starCount, setstarCount] = useState(5);
@@ -57,16 +59,16 @@ const editviewaddress = (props) => {
     const [city, setcity] = useState("");
     const [country, setcountry] = useState("");
     const [zipcode, setzipcode] = useState("");
-    
+
     const [showclassName, setshowclassName] = useState("#B80000");
      const handleScroll=(pageYOffset)=>{
         if (pageYOffset > 0) {
-            setshowclassName('#B80000');  
+            setshowclassName('#B80000');
         }else{
             setshowclassName('#B80000');
         }
-    } 
-   
+    }
+
    const handleSendRequestSubmit = async () => {
         Keyboard.dismiss();
         if (firstname == "") {
@@ -91,14 +93,14 @@ const editviewaddress = (props) => {
                 "zipCode":zipcode,
             }
            props.saveaddress(request, props.navigation, "vendor",0);
-           setTimeout(function(){ 
-                props.getuseraddress(props?.loginuserid); 
+           setTimeout(function(){
+                props.getuseraddress(props?.loginuserid);
                 props.navigation.navigate("editaddress")
             },1000);
         }
     }
 
-    
+
    const renderItem6 = ({ item }) => {
             return(
                 <View>
@@ -128,23 +130,17 @@ const editviewaddress = (props) => {
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={styles.registrationRoot}>
-             
+
             <ScrollView onScroll={({nativeEvent}) => {
                 handleScroll(nativeEvent['contentOffset'].y);
              }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#FFFFFF'}} >
-             
-              <View style={{flexDirection:"row",marginHorizontal:"3%",marginVertical:"6%"}}>
-              <Text style={{fontSize:14,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}>PERSONAL DETAILS /</Text>
-              <Text style={{fontSize:14,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}> ADDRESSES /</Text>
-              <Text style={{fontSize:14,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}> Add ADDRESS</Text>
-              </View>
-               
-               <View style={{marginHorizontal:"3%"}}>
-               <Text style={{fontSize:26,fontFamily:"hinted-AvertaStd-Regular",fontWeight:"bold"}}>Add Address</Text>
+
+               <View style={tw`mt-10 mx-3`}>
+                <Text style={tw`text-gray-700 font-bold text-3xl`}>Add Address</Text>
                </View>
-               
+
                 <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
-                    <TextInput 
+                    <TextInput
                          placeholder="First Name"
                          placeholderTextColor="#1a1a1a"
                          onChangeText={(firstname) =>setfirstname(firstname)}
@@ -155,7 +151,7 @@ const editviewaddress = (props) => {
                 </View>
 
                 <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
-                    <TextInput 
+                    <TextInput
                          placeholder="Last Name"
                          placeholderTextColor="#1a1a1a"
                          onChangeText={(lastname) =>setlastname(lastname)}
@@ -166,7 +162,7 @@ const editviewaddress = (props) => {
                 </View>
 
                 <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
-                    <TextInput 
+                    <TextInput
                          placeholder="Address Line 1"
                          placeholderTextColor="#1a1a1a"
                          onChangeText={(address1) =>setaddress1(address1)}
@@ -178,7 +174,7 @@ const editviewaddress = (props) => {
 
 
                 <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
-                    <TextInput 
+                    <TextInput
                          placeholder="Address Line 2"
                          placeholderTextColor="#1a1a1a"
                          onChangeText={(address2) =>setaddress2(address2)}
@@ -190,7 +186,7 @@ const editviewaddress = (props) => {
 
 
                 <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
-                    <TextInput 
+                    <TextInput
                          placeholder="City"
                          placeholderTextColor="#1a1a1a"
                          onChangeText={(city) =>setcity(city)}
@@ -214,12 +210,12 @@ const editviewaddress = (props) => {
                         <Picker.Item label="Canada" value="+1" />
                       </Picker>
                 </View>
-                
+
                 </View>
 
-                
+
                 <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
-                    <TextInput 
+                    <TextInput
                          placeholder="Zipcode"
                          placeholderTextColor="#1a1a1a"
                          onChangeText={(zipcode) =>setzipcode(zipcode)}
@@ -235,15 +231,16 @@ const editviewaddress = (props) => {
                     <View style={{height:15,width:15,backgroundColor:'#848484',borderRadius:3,}}></View>
                     <Text style={{fontSize:16,marginTop:-5,marginBottom:15,fontFamily:'hinted-AvertaStd-Regular',color:'#1a1a1a',marginLeft:5}}>Make default shipping method</Text>
                 </View>
-              
-                <TouchableOpacity onPress={()=>{ handleSendRequestSubmit()}} style={{width:deviceWidth/1.1, backgroundColor:"#B80000",borderRadius:30,marginTop:"3%",height:63,marginLeft:"4%",marginBottom:"25%" }} >
-                    <Text style={{textAlign:'center',color:"#FFFFFF",fontWeight:'bold',fontSize:18,top:18}}>SAVE CHANGES</Text> 
-                </TouchableOpacity>
-            
+
+
+                <View style={tw`my-8`}>
+                  <Largebutton text="Save Changes" onPress={()=>{ handleSendRequestSubmit()}} />
+                </View>
+
         </ScrollView>
-        
+
     <Footer3 onSelection="5"/>
-       
+
     <AwesomeAlert
           show={showAlert}
           showProgress={false}
@@ -265,7 +262,7 @@ const editviewaddress = (props) => {
           }}
         />
     </KeyboardAvoidingView>
-        
+
     )
 }
 

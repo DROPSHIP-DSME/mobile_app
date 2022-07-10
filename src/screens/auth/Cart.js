@@ -13,15 +13,16 @@ import DropdownField from '../../components/dropdown/DropDownMenu';
 import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import { Rating ,AirbnbRating} from 'react-native-ratings';
-import RnIncrementDecrementBtn  from 
+import RnIncrementDecrementBtn  from
 'react-native-increment-decrement-button';
 import DashedLine from 'react-native-dashed-line';
 import Footer3 from '../../screens/auth/Footer3';
 import Shopheader from '../../screens/auth/Shopheader';
 
 import CheckBox from '@react-native-community/checkbox';
-import AsyncStorage from '@react-native-community/async-storage'; 
+import AsyncStorage from '@react-native-community/async-storage';
 import AwesomeAlert from 'react-native-awesome-alerts';
+import tw from 'twrnc';
 
 
 const Cart = (props) => {
@@ -35,7 +36,7 @@ const Cart = (props) => {
     } = props;
 
     useEffect(() => {
-        
+
     }, [])
 
     useEffect(() => {
@@ -57,23 +58,23 @@ const Cart = (props) => {
 
 
     const setIncrement = async (Incval,cartId) => {
-           props.increcartlist(cartId, Incval);  
+           props.increcartlist(cartId, Incval);
      };
 
     const setdeletedata = async (cartId) => {
         props.deletedata(cartId,props.navigation);
-         props.cartdata(props?.loginuserid); 
+         props.cartdata(props?.loginuserid);
      }
 
-   
+
     const checklogin =  async () => {
         if(props?.loginuserstatus=="1"){
            props.navigation.navigate("StoreOwner")
          }else {
             setshowAlert(true)
-        }  
+        }
     }
-    
+
 
     const renderItem = ({ item, index }) => {
         return (
@@ -87,7 +88,7 @@ const Cart = (props) => {
                 />
             <View>
                 <Text style={styles.clothingbrandtext}>{item.productId?.productName}</Text>
-             
+
                 <View style={{flexDirection: 'row',}}>
                     <Text style={styles.beautytext}>${item.productId?.productPrice}</Text>
                     <Text style={styles.beautycarttext}>In stock</Text>
@@ -95,8 +96,8 @@ const Cart = (props) => {
                 <View  style={{flexDirection: 'row',marginVertical:'4%',}} >
                     <View>
                         <RnIncrementDecrementBtn
-                        minVal={1} 
-                        minreq={1} 
+                        minVal={1}
+                        minreq={1}
                         max={99}
                         val={parseInt(item.productQuantity)}
                         styleBtn={{width:30.6,height:26,backgroundColor:'#F3F3F3'}}
@@ -116,51 +117,49 @@ const Cart = (props) => {
                 </View>
         </View>
 
-        
+
     </View>
         )
     }
 
     return (
-    
+
      <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
-     style={styles.registrationRoot}> 
+     style={styles.registrationRoot}>
 
-      <ScrollView style={{backgroundColor:'#ffffff'}}> 
-        <View style={{paddingTop:0}}>
-        <View style={styles.addstoreView} >
-        <View style={{alignSelf:'center'}}>
-              <Text style={{padding:10,fontSize:35,color:"#B80000",fontFamily:'hinted-AvertaStd-Bold',fontWeight:"bold"}}>Cart</Text>
+      <ScrollView style={{backgroundColor:'#ffffff'}}>
+        <View style={tw`pt-1`}>
+          <View style={tw`flex flex-row justify-between mt-10 mx-4`} >
+            <View style={tw`self-center`}>
+                <Text style={tw`text-3xl text-red-700 font-bold`}>Cart</Text>
+            </View>
+        </View>
+          <View style={tw`mx-4 my-2`}>
+            <Text style={tw`text-sm text-gray-500`}>Aded items</Text>
+          </View>
+
+          <View>
+              <FlatList
+                  data={props?.cartlistdata1 || []}
+                  renderItem={renderItem}
+                  keyExtractor={(item, index) => index.toString()}
+              />
 
           </View>
-           
-        </View>
-        <View style={{marginHorizontal:'3%',marginVertical:'2%'}}>
-        <Text style={styles.cartclothtext}>Aded items</Text>
-        </View>
-
-        <View>
-            <FlatList
-                data={props?.cartlistdata1 || []}
-                renderItem={renderItem}
-                keyExtractor={(item, index) => index.toString()}
-            />
-
-        </View>
         { props?.cartlistdata1?.length>0 ?
             <TouchableOpacity style={{ backgroundColor:"#E22020",marginHorizontal:'6%',borderRadius:30,marginBottom:'18%',marginTop:'10%' }} onPress={() => { checklogin() }}>
-                <Text style={styles.crt21}>Check Out</Text> 
+                <Text style={styles.crt21}>Check Out</Text>
             </TouchableOpacity>
         :
-          <Text style={{ textAlign:'center',paddingTop:30,fontFamily:'hinted-AvertaStd-Semibold',fontStyle:'normal'}}>No Items added in cart yet</Text>
-        } 
+          <Text style={tw`text-lg pt-20 text-center`}>No Items added in cart yet</Text>
+        }
       </View>
      </ScrollView>
 
-     
-        <Footer3  />          
- 
+
+        <Footer3  />
+
     <AwesomeAlert
           show={showAlert}
           showProgress={false}
@@ -185,8 +184,8 @@ const Cart = (props) => {
 </KeyboardAvoidingView>
 
 
-                
-        
+
+
     )
 }
 

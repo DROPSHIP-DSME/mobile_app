@@ -3,7 +3,7 @@ import { TouchableOpacity, Text, View, Image } from 'react-native';
 import tw from 'twrnc';
 import { AdjustmentsIcon } from "react-native-heroicons/solid";
 
-const Sortfilter = ({text}) => {
+const Sortfilter = ({text, onPress}) => {
   return (
 
     <View style={tw.style('bg-zinc-200 rounded-md ml-4 py-2')}>
@@ -11,7 +11,7 @@ const Sortfilter = ({text}) => {
        <View style={tw.style('mt-1')}>
           <AdjustmentsIcon color="black" fill="#000000" size={20} />
        </View>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={onPress}>
             <Text style={tw.style('text-base text-gray-600 ml-1')}>{text}</Text>
         </TouchableOpacity>
       </View>

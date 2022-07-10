@@ -24,6 +24,8 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import { Provider, Portal, } from 'react-native-paper';
+import tw from 'twrnc';
+import Sortfilter from '../../components/pickers/Sortfilter';
 import Modal from 'react-native-modal'
  const options = ['1', '2', '3', '4','5','6','7','8','9']
 import Sortorder from '../../components/pickers/Sortorder';
@@ -126,23 +128,15 @@ const Accountfav = (props) => {
                 handleScroll(nativeEvent['contentOffset'].y);
             }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#f2f2f2' }} >
 
-                <View style={{ flexDirection: "row", marginHorizontal: "4%", marginTop: "9%" }}>
-                    <Text style={{ fontSize: 15, fontFamily: "hinted-AvertaStd-Regular", color: "#999999" }}>ACCOUNT SUMMARY /</Text>
-                    <Text style={{ fontSize: 15, fontFamily: "hinted-AvertaStd-Regular", color: "#1A1A1A" }}> MY FAVORITES</Text>
+
+                <View style={tw`flex flex-row justify-between mx-4 mt-20 mb-5`}>
+                    <Text style={tw.style('text-3xl font-bold text-gray-700', {fontFamily: 'hintedavertastdsemibold', })}>My Favorites</Text>
                 </View>
 
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginHorizontal: '3%', marginVertical: '5%' }}>
-                    <Text style={{ fontSize: 26, color: '#1a1a1a', fontFamily: 'hinted-AvertaStd-Semibold', }}>My Favorites</Text>
-                </View>
+                <View style={tw`flex flex-row mx-4`}>
+                    <Sortorder options={options}/>
 
-                <View style={{ flexDirection: 'row', marginHorizontal: '4%' }}>
-                    <View style={styles.pickerViewshorttodayagainorder}>
-                         <Sortorder options={options} />
-                    </View>
-                    <View style={[styles.pickerViewshorttodayagainorder, { marginLeft: '8%', flexDirection: 'row', justifyContent: 'space-around', padding: 4 }]}>
-                        <Image source={ImageIcons.whitefiltertoday} style={{ height: 11, width: 11, marginTop: 5 }} />
-                        <Text style={{ fontSize: 16, fontFamily: 'hinted-AvertaStd-Regular', textAlign: 'center', color: '#ffffff' }}>FILTERS</Text>
-                    </View>
+                    <Sortfilter text="Filter" onPress={() => props.navigation.navigate("Accountfav")} />
                 </View>
 
 

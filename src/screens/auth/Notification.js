@@ -22,9 +22,9 @@ import { RadioButton, Provider, Modal, Portal, Button, } from 'react-native-pape
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import Footer3 from '../../screens/auth/Footer3';
 import Shopheader from '../../screens/auth/Shopheader';
-
 import AsyncStorage from '@react-native-community/async-storage';
 import moment from 'moment';
+import tw from 'twrnc';
 
 const Notification = (props) => {
 
@@ -86,50 +86,77 @@ const Notification = (props) => {
         }
     }
 
+    //Temporary data format for notifiction
+    const DATA = [
+      {
+        id: 0,
+        name: 'Lindsay Walton',
+        imageUrl: "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80",
+        project: 'Workcation',
+        commit: '2d89f0c8',
+        environment: 'production',
+        time: '1h',
+
+      },
+      {
+        id: 1,
+        name: 'Nihal Walton',
+        imageUrl: "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80",
+        project: 'Dropship',
+        commit: '4d89f0c4',
+        environment: 'production',
+        time: '2h',
+
+      },
+      // More people...
+    ]
+
+    const renderItem = ({ item, index }) => {
+      return (
+            <View style={tw`divide-y divide-gray-300 border-b-2 border-gray-200 py-3`}>
+              <View key={item.id} style={tw`py-2`}>
+                <View style={tw`flex flex-row space-x-3`}>
+                  <Image style={tw`h-16 w-16 rounded-full`} source={{uri: item.imageUrl}} alt="" />
+                  <View style={tw`flex-1 space-y-1 ml-4`}>
+                    <View style={tw`flex-row items-center justify-between`}>
+                      <Text style={tw`text-sm font-medium text-gray-700`}>{item.name}</Text>
+                      <Text style={tw`text-sm text-gray-500`}>{item.time}</Text>
+                    </View>
+                    <Text style={tw`text-sm text-gray-500`}>
+                      Deployed {item.project} ({item.commit} in master) to {item.environment}
+                    </Text>
+                  </View>
+                </View>
+              </View>
+            </View>
+      );
+    }
+
 
     return (
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
-            style={styles.registrationRoot}>             
+            style={styles.registrationRoot}>
             <ScrollView onScroll={({nativeEvent}) => {
 
                 handleScroll(nativeEvent['contentOffset'].y);
             }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#FFFFFF' }} >
+            <View style={tw`mx-4 mt-15 mb-10`}>
+                  <Text style={tw`my-6 text-3xl text-gray-700`}>Notifications</Text>
+                  <View style={tw`bg-gray-200 p-2 w-45 rounded-md mb-3`}>
+                    <Text style={tw`text-sm text-center text-gray-700`}>Mark All As Read</Text>
+                  </View>
 
-                <View style={{ marginHorizontal: '3%', paddingTop: '10%' }}>
-                    <Text style={{ padding: 10, fontSize: 40, color: "#B80000", fontFamily: 'hinted-AvertaStd-Bold', fontWeight: "bold" }}>Notification</Text>
-                    <View style={{ backgroundColor: "#E6E6E6", padding: 6, width: 180, borderRadius: 5, marginLeft: "3%" }}>
-                        <Text style={{ fontSize: 13, textAlign: 'center', fontFamily: "hinted-AvertaStd-Bold", fontWeight: "bold", color: "#4D4D4D" }}>MARK ALL AS READ</Text>
-                    </View>
-                    <View style={{ flexDirection: "row", marginTop: "15%" }}>
-                        <View style={{ marginLeft: "1%" }}>
-                            <Image source={ImageIcons.Elli} style={{ width: 36, height: 36 }} />
-                        </View>
-                        <View style={{ flexDirection: "row" }}>
-                            <View><Text style={{ color: "#000000", fontFamily: "hinted-AvertaStd-Bold", fontWeight: "bold", padding: 5, fontSize: 16 }}>  Andera Miller</Text></View>
-                            <View><Text style={{ color: "#000000", fontFamily: "hinted-AvertaStd-Bold", padding: 5, fontSize: 16 }}>just started streaming </Text></View>
-                        </View>
-                    </View>
-                    <View style={{ flexDirection: "row" }}>
-                        <View style={{ marginLeft: "1%" }}>
-                            <Image source={ImageIcons.shoes} style={{ width: 36, height: 36, borderRadius: 30 }} />
-                        </View>
-                        <View style={{ marginHorizontal: '4%' }}>
-                            <Text style={{ color: "#000000", fontFamily: "hinted-AvertaStd-Bold", fontWeight: "bold", paddingTop: 5, fontSize: 16 }}>Sneaker D1405
-                                <Text style={{ color: "#000000", paddingTop: 5, fontSize: 16, fontFamily: "hinted-AvertaStd-Regular", }}>,a product you saved to your favourites,is on sale</Text></Text>
-                        </View>
-                    </View>
-                    <View style={{ flexDirection: "row" }}>
-                        <View style={{ marginLeft: "1%" }}>
-                            <Image source={ImageIcons.winterimage} style={{ width: 36, height: 36, borderRadius: 20 }} />
-                        </View>
-                        <View style={{ marginHorizontal: '4%' }}>
-                            <Text style={{ color: "#000000", fontFamily: "hinted-AvertaStd-Bold", fontWeight: "bold", paddingTop: 5, fontSize: 16 }}>Clothing bazzar -24Hrs Sale {" "}
-                                <Text style={{ color: "#000000", paddingTop: 5, fontSize: 16, fontFamily: "hinted-AvertaStd-Regular", }}>just started airing now</Text></Text>
-                        </View>
-                    </View>
-
-                </View>
+                  <View style={tw`mt-2`}>
+                      <FlatList
+                        data={DATA}
+                        renderItem={renderItem}
+                        showsHorizontalScrollIndicator={false}
+                        keyExtractor={item => item.id}
+                        horizontal={false}
+                      />
+                  </View>
+            </View>
 
             </ScrollView>
 

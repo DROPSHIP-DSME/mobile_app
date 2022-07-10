@@ -17,6 +17,10 @@ import { RNCamera } from 'react-native-camera';
 import ImagePicker from 'react-native-image-crop-picker';
 import { launchImageLibrary } from 'react-native-image-picker';
 import Footer3 from '../../screens/auth/Footer3';
+import tw from 'twrnc';
+import Largebutton from '../../components/dropshipbutton/Largebutton';
+import { CameraIcon } from "react-native-heroicons/solid";
+
 
 const CreateStore = (props) => {
 
@@ -29,7 +33,7 @@ const CreateStore = (props) => {
     } = props;
 
     //Reference
-   
+
     const [billImgPath, setBillImgPath] = useState("");
     const [retakeFlag, setRetakeFlag] = useState(false);
     const [fromGallery, setFromGallery] = useState(false);
@@ -118,7 +122,7 @@ const CreateStore = (props) => {
     // Vendor request submission
     const handleSendRequestSubmit = async () => {
         Keyboard.dismiss();
-        
+
         if  (Brand !== ""&& AboutBrand !== "" && billImgPath !== "" ) {
             const formData = new FormData();
             formData.append("brandName", Brand);
@@ -130,7 +134,7 @@ const CreateStore = (props) => {
         }
     }
 
-    
+
     const renderItem = ({ item }) => {
   return(
     <TouchableOpacity onPress={() => selectcolor(item.color)}>
@@ -166,67 +170,64 @@ const renderItem6 = ({ item }) => {
 
     return (
        <KeyboardAvoidingView style={{flex:1,backgroundColor:'#F2F2F2'}}>
-           
+
              <StatusBar backgroundColor={"#FFFFFF00"} barStyle="dark-content" translucent={true} />
 
              <View style={{marginHorizontal:'4%',marginTop:'4%',flex:1}}>
              <ScrollView  keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} >
-             <View style={{flexDirection:"row",marginHorizontal:"3%",marginTop:"10%"}}>
-              <Text style={{fontSize:15,fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}>MY STORES /</Text>
-              <Text style={{fontSize:15,fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}>MANAGE BRANDS /</Text>
-              <Text style={{fontSize:15,fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}> CREATE A BRAND</Text>
-              </View>
-                  <View style={styles.brandimagetextviewMY}>
-                 
-                  <View style={{flexDirection:'row',justifyContent:'space-between',marginHorizontal:'4%',marginVertical:'5%'}}>
-                 <Text style={{fontSize:26,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Bold',}}>Create Your Brand</Text>
-               </View>
 
-                <Text style={styles.storecamtexttodayy}>To add goods to your store for distribution, you need to create a brand first. Add details about your brand. </Text>
-                
+              <View style={styles.brandimagetextviewMY}>
+
+                <View style={tw`flex flex-row justify-between mx-3 mb-10 mt-15`}>
+                  <Text style={tw`text-3xl text-gray-700`}>Create Your Brand</Text>
+                </View>
+
+                <Text style={tw`text-lg text-gray-700 text-center mx-4`}>To add goods to your store for distribution, you need to create a brand first. Add details about your brand. </Text>
+
                 <View>
-                { billImgPath !== "" ? 
-                <Image source={{ uri: billImgPath.uri }} style={styles.camimage} />
+                { billImgPath !== "" ?
+
+                  <CameraIcon color="red" fill="White" size={70} />
+
                 :
-                <TouchableOpacity style={{marginTop:'3%'}} onPress={() => selectPhoto()}>
-                <Image source={ImageIcons.cam} style={styles.camimage} />
+                <TouchableOpacity style={tw`mt-8 w-28 h-28 rounded-full  items-center justify-center bg-gray-700`} onPress={() => selectPhoto()}>
+
+                  <CameraIcon color="white" fill="white" size={70} />
 
                 </TouchableOpacity>
                 }
-                
+
                 </View>
 
                 </View>
-                 <View style={{marginTop:'6%'}}>
-                 
-                     <View>
+
+                     <View style={tw`flex flex-row pl-3 h-16 bg-zinc-200 rounded-lg mx-4 rounded-md mt-8 mb-2`}>
                         <TextInput
-                        style={styles.inputcategorytodayy}
-                        onChangeText={onChangeBrand}
-                        value={Brand}
-                         placeholder="Brand name"
-                         placeholderTextColor="#848484"
+                          style={tw`text-gray-700`}
+                          onChangeText={onChangeBrand}
+                          value={Brand}
+                          placeholder="Brand name"
+                          placeholderTextColor="#848484"
                         />
                     </View>
-                 </View>
-                 <View style={{marginVertical:'4%'}}>
-                 
-                     <View>
+
+                     <View style={tw`pl-3 h-32 bg-zinc-200 rounded-lg mx-4 my-3`}>
                         <TextInput
-                        style={styles.inputcategorytodayy123}
-                        onChangeText={(text) =>onChangeAboutBrand(text)}
-                        value={AboutBrand}
-                         placeholder="Tell us about your brand in fewer then 150 characters"
-                         placeholderTextColor="#848484"
+                          style={tw`text-gray-700 text-start`}
+                          onChangeText={(text) =>onChangeAboutBrand(text)}
+                          value={AboutBrand}
+                          placeholder="Tell us about your brand in fewer then 150 characters"
+                          placeholderTextColor="#848484"
+                          numberOfLines={10}
+                          multiline={true}
                         />
                     </View>
-                 </View>
-                 
-                  <View style={styles.pickerViewshorttodaybrandtodayy}>
-             
+
+
+                  <View style={tw`flex flex-row pl-3 h-16 bg-zinc-200 rounded-lg mx-4 rounded-md my-3 items-center`}>
                       <Picker
                         selectedValue={selectedValue}
-                        style={{ height: 50, width: 320,color:'#848484',}}
+                        style={tw`justify-between text-gray-700 w-full`}
                         onValueChange={(itemValue, itemIndex) =>setSelectedValue(itemValue)}
                        >
                         <Picker.Item label="Choose a Category" value="1" />
@@ -239,14 +240,14 @@ const renderItem6 = ({ item }) => {
                         <Picker.Item label="Cosmetics" value="61b651846a4c8e2f3dacf60a" />
                         <Picker.Item label="Other" value="61b4aa1539889b2e9971b521" />
                       </Picker>
-                </View> 
+                </View>
 
-                 <TouchableOpacity  onPress={() => handleSendRequestSubmit()}  style={{backgroundColor:'#b80000',width:320,borderRadius:30,padding:'5%',alignSelf:'center',marginTop:'8%',marginBottom:'35%'}}>
-                      <Text style={styles.totalincometodaycompaign}>SAVE YOUR BRAND</Text> 
-                   </TouchableOpacity>
-                 
 
-                  
+                  <View style={tw`my-10`}>
+                   <Largebutton text="Save Your Brand" onPress={() => handleSendRequestSubmit()} />
+                  </View>
+
+
                </ScrollView>
 
                 <View style={{ position:'absolute',opacity:0,zIndex:2001,right:20,bottom:70}}>
@@ -257,10 +258,10 @@ const renderItem6 = ({ item }) => {
 
                { helppopup ==true &&
         <View style={{flex:1,backgroundColor:'#ffffff',margin:20,paddingVertical:10,borderRadius:10,zIndex:4001, position:'absolute',bottom:'10%'}}>
-            
-           
+
+
               <View style={styles.chatViewrose}>
-                    
+
                 <Text style={styles.Benrosetext}>Chat with customer support</Text>
                 <TouchableOpacity style={{position:'absolute',right:15,top:5}} onPress={() => sethelppopup(false)}>
                     <Image source={ImageIcons.closepopup}  style={styles.sendmsg2} />
@@ -292,11 +293,11 @@ const renderItem6 = ({ item }) => {
             </View>
         </View>
         }
-                
-                     
+
+
                 </View>
                    <Footer3 onSelection="4"/>
-                   
+
         </KeyboardAvoidingView>
     )
 }

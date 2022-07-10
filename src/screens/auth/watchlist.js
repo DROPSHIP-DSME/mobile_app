@@ -362,12 +362,12 @@ const watchlist = (props) => {
                 <TouchableOpacity onPress={() => joinbroadcast(item._id, item.startNow, item.eventdate)}>
                     <View>
                         <Image source={{ uri: item.products[0]?.productImage }} style={tw.style('w-40 h-56 rounded-md')} />
-                        <Text style={styles.beautyproduct}></Text>
+                        <Text style={tw`text-sm text-white absolute bottom-4 left-3 leading-4`}></Text>
 
                         <View style={tw.style('flex flex-row bg-red-700 w-16 h-6 rounded-lg px-1 absolute top-4 left-2')}>
                             <Text style={tw.style('px-3 text-sm text-white text-center')}>Live</Text>
                         </View>
-                        <View style={tw.style('flex flex-row bg-green-200 w-16 h-6 rounded-lg px-2 pt-1 absolute top-4 left-[55%]')}>
+                        <View style={tw.style('flex flex-row bg-green-200 w-16 h-6 rounded-lg px-2 items-center absolute top-4 left-[55%]')}>
                             <View style={tw.style('pt-[2%]')}>
                                 <UsersIcon color="red" fill="#000000" size={14} />
                             </View>
