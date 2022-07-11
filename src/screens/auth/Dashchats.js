@@ -17,12 +17,16 @@ import Swipeout from 'react-native-swipeout';
 import HorizontalSlider from 'react-horizontal-slider';
 import Footer2 from '../../screens/auth/Footer2';
 import SellHeader from '../../screens/auth/Sellheader';
-
 import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import { Provider , Portal,} from 'react-native-paper';
 import Sortorder from '../../components/pickers/Sortorder';
+import Sortfilter from '../../components/pickers/Sortfilter';
+import Selectall from '../../components/pickers/Selectall';
+import Editbutton from '../../components/pickers/Editbutton';
+import Deletebutton from '../../components/pickers/Deletebutton';
+
 const options = ['1', '2', '3', '4','5','6','7','8','9']
 
 import Modal from 'react-native-modal';
@@ -122,11 +126,11 @@ const deviceWidth = Dimensions.get('window').width;
         return(
            <View>
 
-            <TouchableOpacity  onPress={() => props.navigation.navigate("Dashreturn")} style={styles.seledataViewTODAYchat}>
-                     <View style={{flexDirection:'row'}}>
-                      <Text style={[styles.seriestexttoday,{marginLeft:3}]}>{item.text1}</Text>
+            <TouchableOpacity  onPress={() => props.navigation.navigate("Dashreturn")} style={tw`flex flex-row justify-between mt-10 bg-whate p-1`}>
+                     <View style={tw`flex flex-row`}>
+                      <Text style={tw`ml-2 text-base text-gray-700 leading-4`}>{item.text1}</Text>
                      </View>
-                       <Text style={styles.seriestexttoday}>{item.text}</Text>
+                       <Text style={tw`text-base text-gray-600 leading-4`}>{item.text}</Text>
 
             </TouchableOpacity>
 
@@ -138,57 +142,56 @@ const deviceWidth = Dimensions.get('window').width;
 
 
     return (
-         <View style={{flex:1}}>
+         <View style={tw`flex flex-1`}>
 
 
        <ScrollView onScroll={({nativeEvent}) => {
                 handleScroll(nativeEvent['contentOffset'].y);
     }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} >
 
-               <View style={{flexDirection:'row',justifyContent:'space-between',marginHorizontal:'3%',marginVertical:'5%'}}>
-                 <Text style={{fontSize:26,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',}}>Chats (0)</Text>
+               <View style={tw`flex-row justify-between mx-4 mt-10 mb-6`}>
+                 <Text style={tw`text-3xl text-gray-700`}>Chats (0)</Text>
                </View>
 
-              <View style={{flexDirection:'row',marginHorizontal:'4%'}}>
-               <View style={styles.pickerViewshorttodayagain}>
-                      <Sortorder options={options} />
 
-                </View>
-                <View style={[styles.pickerViewshorttodayagain,{marginLeft:'8%',flexDirection:'row',justifyContent:'space-around',padding:4}]}>
-                   <Image source={ImageIcons.filtertoday}  style={{height:11,width:11,marginTop:5}} />
-                   <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',textAlign:'center'}}>FILTERS</Text>
-                </View>
-              </View>
+                  <View style={tw.style('flex flex-row mx-4')}>
+                    <Sortorder  options={options}  />
 
-                    <View style={{marginHorizontal:'4%',marginVertical:'4%',flexDirection:'row'}}>
-                       <View style={[styles.pickerViewshorttodayagain,{flexDirection:'row',justifyContent:'space-around',padding:4}]}>
-                          <View style={{height:14,width:14,backgroundColor:'#ffffff',borderRadius:3,marginTop:3}}></View>
-                           <Text style={{fontSize:16,fontFamily:'hinted-AvertaStd-Regular',textAlign:'center',}}>Select All</Text>
-                        </View>
-                        <TouchableOpacity onPress={() => openpopup() } style={{height:30,width:30,backgroundColor:'#e6e6e6',borderRadius:4,marginLeft:'5%',padding:4}}>
-                          <Image source={ImageIcons.edittoday}  style={{height:11,width:11,marginTop:5,alignSelf:'center'}} />
-                        </TouchableOpacity>
-                        <View style={{height:30,width:30,backgroundColor:'#e6e6e6',borderRadius:4,marginLeft:'5%',padding:4}}>
-                          <Image source={ImageIcons.deletetoday}  style={{height:11,width:11,marginTop:5,alignSelf:'center'}} />
-                        </View>
+                    <Sortfilter
+                      text="Filter"
+                    />
+
+                  </View>
+
+                  <View style={tw.style('flex flex-row m-4 ')}>
+                      <Selectall
+                        text="Select All"
+                      />
+
+                      <Editbutton />
+
+                      <Deletebutton />
+
+                  </View>
+
+                    <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 py-3 my-10')}>
+                      <View style={tw.style('px-2 py-5')}>
+                          <View style={tw`flex flex-row justify-between bg-gray-200 mx-2 px-3 rounded-md items-center h-15`}>
+                             <Text style={tw`text-base leading-3 text-gray-600`}>Order Number</Text>
+                             <Text style={tw`text-base leading-3 text-gray-600`}>Message</Text>
+                          </View>
+                          <View style={tw`mx-2`}>
+                              <FlatList
+                              data={DATA3}
+                              renderItem={renderItem3}
+                              keyExtractor={item => item.id}
+                              showsHorizontalScrollIndicator={false}
+                              horizontal={false}
+                              />
+                          </View>
                       </View>
-
-
-                    <View style={{backgroundColor:'#ffffff',padding:'4%',width:'92%',borderRadius:15,marginHorizontal:'3%',marginVertical:'6%',marginBottom:'25%'}}>
-                        <View style={styles.salesViewTODAY}>
-                           <Text style={styles.seriestext}>Order Number</Text>
-                           <Text style={styles.seriestext}>Message</Text>
-                        </View>
-                        <View style={{marginLeft:-10}}>
-                            <FlatList
-                            data={DATA3}
-                            renderItem={renderItem3}
-                            keyExtractor={item => item.id}
-                            showsHorizontalScrollIndicator={false}
-                            horizontal={false}
-                            />
-                        </View>
                     </View>
+
                </ScrollView>
             <Footer2 />
         </View>

@@ -76,8 +76,8 @@ const Sellheader = (props) => {
 
     return (
         <View>
-        <View style={tw.style('items-center w-full p-4 z-50'),{backgroundColor:showclassName}}>
-          
+        <View style={tw.style('w-full p-4 z-50'),{backgroundColor:showclassName}}>
+
 
 
          { showvisible == true &&
