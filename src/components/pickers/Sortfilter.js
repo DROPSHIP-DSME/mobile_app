@@ -6,7 +6,7 @@ import { AdjustmentsIcon } from "react-native-heroicons/solid";
 const Sortfilter = ({text, onPress}) => {
   return (
 
-    <View style={tw.style('bg-zinc-200 rounded-md ml-4 py-2')}>
+    <View style={tw.style('bg-zinc-200 rounded-md ml-4 py-2 h-auto justify-center')}>
       <View style={tw.style('flex flex-row w-auto px-3')}>
        <View style={tw.style('mt-1')}>
           <AdjustmentsIcon color="black" fill="#000000" size={20} />
