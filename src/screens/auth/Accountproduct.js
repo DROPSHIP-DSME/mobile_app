@@ -87,6 +87,7 @@ const Accountproduct = (props) => {
     const [toggleCheckBox, setToggleCheckBox] = useState(false)
 
     const [check, setCheck] = useState(false)
+    const [checked, setChecked] = React.useState('first');
 
     const { validate, isFieldInError, getErrorsInField, getErrorMessages } =
     useValidation({
@@ -264,18 +265,24 @@ const renderItem6 = ({ item }) => {
                     </View>
                 </View>
              <ScrollView  keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} >
-                 <View style={tw`flex flex-row justify-between mt-4 mb-5 mx-3`}>
+                 <View style={tw`flex flex-row justify-between mt-4 mb-5 mx-3 items-center`}>
                     <Progress.Bar progress={1.5} width={150} style={tw`absolute top-6`} color='#B80000' height={1} />
                     <TouchableOpacity>
-                        <Text style={tw`rounded-full bg-red-700 text-white w-14 h-14 text-sm text-center pt-3 pb-3`} >1</Text>
+                        <View style={tw`items-center justify-center h-14 w-14 rounded-full bg-red-700`}>
+                          <Text style={tw`text-white text-sm text-center`} >1</Text>
+                        </View>
                     </TouchableOpacity>
                     <Progress.Bar progress={1} width={150} style={tw`absolute top-6 right-1`} color='grey' height={1} />
                     <TouchableOpacity>
-                        <Text style={tw`rounded-full bg-gray-700 text-white w-14 h-14 text-sm text-center pt-3 pb-3`} >2</Text>
+                        <View style={tw`items-center justify-center h-14 w-14 rounded-full bg-gray-500`}>
+                          <Text style={tw`text-white text-sm text-center`} >2</Text>
+                        </View>
                     </TouchableOpacity>
 
                     <TouchableOpacity>
-                        <Text style={tw`rounded-full bg-gray-700 text-white w-14 h-14 text-sm text-center pt-3 pb-3`} >3</Text>
+                        <View style={tw`items-center justify-center h-14 w-14 rounded-full bg-gray-500`}>
+                          <Text style={tw`text-white text-sm text-center`} >3</Text>
+                        </View>
                     </TouchableOpacity>
                 </View>
 
@@ -378,7 +385,7 @@ const renderItem6 = ({ item }) => {
                     <Text style={tw`text-base text-gray-700 mx-3 mt-2`} >+ Add another option</Text>
                 </TouchableOpacity>
 
-                <Text style={tw`text-gray-700 text-2xl mt-5 font-bold mx-3`} >Pricing</Text>
+                <Text style={tw`text-gray-700 text-2xl mt-5 font-bold mx-3 mt-10`} >Pricing</Text>
 
                 <View style={tw`flex flex-row mx-3 mt-5 justify-between`}>
                   <View style={tw`w-6/12 mr-1`}>
@@ -407,88 +414,94 @@ const renderItem6 = ({ item }) => {
                 </View>
 
 
-                <View style={tw`flex-row mx-3 mt-8`} >
-                    <Text style={{ fontSize: 14, color: 'black' }} >You earn</Text>
-                    <Text style={{ fontSize: 14, color: 'black', fontWeight: 'bold' }} > $0</Text>
+                <View style={tw`flex-row mx-3 mt-2`} >
+                    <Text style={tw`text-base text-gray-700`} >You earn</Text>
+                    <Text style={tw`text-base text-gray-700 font-bold`} > $0</Text>
                 </View>
 
-                <View style={{ flexDirection: 'row', marginStart: 20 }}>
-                    <CheckBox
-                        disabled={false}
-                        value={check}
-                        onValueChange={(newValue) => setCheck(newValue)}
-
-                        style={{ marginTop: 8,color:'#000000' }}
-                    />
-
-                    <Text style={{ fontSize: 14, color: 'black', marginTop: 12 }} >This product has options, like size or color</Text>
+                <View style={tw`mt-10 mb-5`}>
+                  <Text style={tw`text-gray-700 text-2xl mt-5 font-bold mx-3 mt-2`} >Product Tags</Text>
+                  <Text style={tw`text-gray-700 text-small mx-3`} >Automatic Labels</Text>
                 </View>
 
-                <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 22, marginTop: 18, marginStart: 20 }} >Product Tags</Text>
+                <View style={tw`flex-row mx-3`}>
+                  <Text style={tw`items-center px-3 py-1 rounded-md text-sm font-medium bg-blue-700 text-white`} >New Stock</Text>
+                </View>
 
-                <Text style={{ color: 'black', fontSize: 16, marginTop: 15, marginStart: 20, fontWeight: '600' }} >Automatic Labels</Text>
+                <Text style={tw`text-lg mt-15 mx-3 text-gray-600`} >Optional Labels</Text>
 
-                <Text style={{ color: 'white', backgroundColor: '#2F80ED', width: 90, paddingTop: 5, paddingBottom: 5, textAlign: 'center', borderRadius: 6, marginTop: 10, marginStart: 20 }} >New Stock</Text>
-
-                <Text style={{ color: 'black', fontSize: 16, marginTop: 20, marginStart: 20, fontWeight: '600' }} >Optional Labels</Text>
-
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10, marginStart: 20, marginEnd: 89 }}>
-                    <TouchableOpacity style={{ backgroundColor: 'lightpink', width: 75, borderRadius: 6 }} >
-                        <Text style={{ fontSize: 12, color: '#E25424', textAlign: 'center', marginTop: 5, marginBottom: 5 }} >On Sale</Text>
+                <View style={tw`flex-row mt-5 mx-3`}>
+                    <TouchableOpacity>
+                        <Text style={tw`mr-3 items-center px-3 py-1 rounded-md text-sm font-medium bg-yellow-100 text-yellow-800`}>One Sale</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={{ backgroundColor: 'lightyellow', width: 75, borderRadius: 6 }} >
-                        <Text style={{ fontSize: 12, color: '#E3AE0E', textAlign: 'center', marginTop: 5, marginBottom: 5 }} >Low Supply</Text>
+                    <TouchableOpacity>
+                        <Text style={tw`mr-3 items-center px-3 py-1 rounded-md text-sm font-medium bg-red-100 text-red-800`}>Low Supply</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={{ backgroundColor: '#27AE60', width: 95, borderRadius: 6 }} >
-                        <Text style={{ fontSize: 12, color: '#1F8B4D', textAlign: 'center', marginTop: 5, marginBottom: 5 }} >Highly Rated</Text>
+                    <TouchableOpacity>
+                        <Text style={tw`mr-3 items-center px-3 py-1 rounded-md text-sm font-medium bg-green-100 text-green-800`}>Highly Rated</Text>
                     </TouchableOpacity>
                 </View>
 
                 <Text style={{ color: 'black', fontSize: 22, fontWeight: 'bold', marginTop: 40, marginStart: 20 }} >Shipping</Text>
 
 
-
-                <View style={{ flexDirection: 'row', backgroundColor: 'white', marginTop: 15, paddingTop: 20, paddingBottom: 20, marginStart: 20, marginEnd: 20, paddingEnd: 31.97 }} >
-
-                    <View style={{ flexDirection: 'column', marginStart: 16 }} >
-                        <Text style={{ color: '#B80000', fontSize: 16, fontWeight: 'bold' }} >Dropship Shipping</Text>
-
-                        <Text style={{ color: 'black', fontSize: 12, fontWeight: 'bold', marginTop: 5 }} >US$7.00 - US$8.00</Text>
-
-                        <Text style={{ color: 'black', fontSize: 12, fontWeight: '400', marginTop: 5 }} >Shipping cost is caluclated automatically based on the buyer’s location and the package weight and dimensions.</Text>
+              <View style={tw`mx-4`}>
+                <View style={tw.style('bg-white overflow-hidden shadow rounded-md my-6')}>
+                  <View style={tw`px-2 py-5`}>
+                    <View style={tw`flex flex-row items-center`}>
+                      <RadioButton
+                        value="second"
+                        status={checked === 'first' ? 'checked' : 'unchecked'}
+                        onPress={() => setChecked('second')}
+                      />
+                      <View style={tw`ml-2`}>
+                        <Text style={tw`text-lg font-bold text-red-700 ml-2`}>Dropship Shipping</Text>
+                        <Text style={tw`text-base font-bold text-gray-500 ml-2`} >US$7.00 - US$8.00</Text>
+                        <Text style={tw`text-sm text-gray-600 ml-2 pr-10`}>Shipping cost is caluclated automatically based on the buyer’s location and the package weight and dimensions.</Text>
+                      </View>
                     </View>
-
+                  </View>
                 </View>
 
 
-                <View style={{ flexDirection: 'row', backgroundColor: 'white', marginTop: 15, paddingTop: 20, paddingBottom: 20, marginStart: 20, marginEnd: 20, paddingEnd: 71.97 }} >
-
-                    <View style={{ flexDirection: 'column', marginStart: 16 }} >
-                        <Text style={{ color: '#808080', fontSize: 16, fontWeight: 'bold' }} >Ship on your own</Text>
-
-
-
-                        <Text style={{ color: 'black', fontSize: 12, fontWeight: '400', marginTop: 5 }} >You provide the label and pay to ship the item on your own. It is not covered by shipping protection.</Text>
+                <View style={tw` bg-white overflow-hidden shadow rounded-md`}>
+                  <View style={tw.style('px-2 py-5')}>
+                    <View style={tw`flex flex-row items-center`}>
+                      <RadioButton
+                        value="second"
+                        status={checked === 'second' ? 'checked' : 'unchecked'}
+                        onPress={() => setChecked('second')}
+                      />
+                      <View style={tw`ml-2 w-full pr-10`}>
+                        <Text style={tw`text-lg font-bold text-gray-600 ml-2`}>Ship on your own</Text>
+                        <Text style={tw`text-sm text-gray-600 ml-2 pr-10`}>You provide the label and pay to ship the item on your own. It is not covered by shipping protection.</Text>
+                      </View>
                     </View>
+                  </View>
+                </View>
+              </View>
 
+                <View style={tw`mx-4 mr-4 my-5 mt-8`}>
+                  <Largebutton text="Continue" onPress={() => handleSendRequestSubmit1()} />
                 </View>
 
-                <TouchableOpacity onPress={() => handleSendRequestSubmit1()}  style={{ backgroundColor: '#B80000', marginStart: 20, marginEnd: 20, marginTop: 40, borderRadius: 50 }} >
-                    <Text style={{ color: 'white', fontSize: 18, fontWeight: 'bold', textAlign: 'center', marginTop: 20, marginBottom: 20 }} >Continue</Text>
-                </TouchableOpacity>
+                <View
+                  type="button"
+                  style={tw.style('mb-20 mx-4 items-center px-4 py-6 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-black hover:bg-black focus:outline-none focus:ring-2')}
+                >
+                <TouchableOpacity style={tw.style('w-10/11 items-center')}
+                    onPress={() => props.navigation.navigate("Dashproduct")}>
+                    <Text style={tw.style('text-lg text-white')}>Back</Text>
+                  </TouchableOpacity>
+                </View>
 
 
-                <TouchableOpacity onPress={() => props.navigation.navigate("Dashproduct") }  style={{ backgroundColor: '#1A1A1A', marginStart: 20, marginEnd: 20, marginTop: 20, borderRadius: 50, marginBottom: 77 }} >
-                    <Text style={{ color: 'white', fontSize: 18, fontWeight: 'bold', textAlign: 'center', marginTop: 20, marginBottom: 20 }} >Back</Text>
-                </TouchableOpacity>
 
 
 
-
-
-<View style={{position:'absolute',opacity:0,alignSelf:'flex-end',marginTop:'12%',right:'2%'}}>
+            <View style={{position:'absolute',opacity:0,alignSelf:'flex-end',marginTop:'12%',right:'2%'}}>
                         <TouchableOpacity>
                             <Image source={ImageIcons.plusicon} style={{height:41,width:41}} />
                         </TouchableOpacity>
