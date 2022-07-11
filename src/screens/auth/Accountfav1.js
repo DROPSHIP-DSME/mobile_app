@@ -75,6 +75,10 @@ const Accountfav1 = (props) => {
         getBrandUserId();
     })
 
+    const updateorderStatus = (itemValue) => {
+        setSelectedValue(itemValue)
+    }
+
     const handleScroll = (pageYOffset) => {
         if (pageYOffset > 0) {
             setshowclassName('#B80000');
@@ -150,7 +154,7 @@ const Accountfav1 = (props) => {
                 </View>
 
                 <View style={tw`flex flex-row mx-4`}>
-                    <Sortorder options={options}/>
+                    <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                     <Sortfilter text="Filter" onPress={() => props.navigation.navigate("Accountfav")} />
                 </View>

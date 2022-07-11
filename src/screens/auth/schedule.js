@@ -105,7 +105,9 @@ const schedule = (props) => {
         }
     ]);
 
-
+    const updateorderStatus = (itemValue) => {
+        setHours(itemValue)
+    }
 
     const setdeletedata = async (eventId,product_id) => {
      Alert.alert(
@@ -413,7 +415,7 @@ const renderItem2 =({ item }) =>{
                      </View>
                     <View style={{ marginBottom:10,paddingLeft:10, marginTop:10,flexDirection:'row', justifyContent:'space-between', width:'100%', borderWidth:1,borderRadius:5, borderColor:'#ABABAB'}}>
 
-                        <Sortorder options={options} />
+                        <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                     </View>
                     <View style={{marginHorizontal:'1%',marginVertical:'2%'}}>

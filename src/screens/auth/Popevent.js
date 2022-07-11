@@ -85,6 +85,11 @@ const Popevent = (props) => {
             value: "Email"
         }
     ]);
+
+    const updateorderStatus = (itemValue) => {
+        setSelectedValue(itemValue)
+    }
+    
     const openpopup = () => {
         setVisible(true)
 
@@ -193,7 +198,7 @@ return (
             </View>
             <View style={styles.popdirection}>
                 <View style={styles.poppiker}>
-                     <Sortorder options={options} />
+                     <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
                 </View>
                  
                 <TouchableOpacity style={[styles.poppiker3,{flexDirection:'row'}]} onPress={() => openpopup()}>

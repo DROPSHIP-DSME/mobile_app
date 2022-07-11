@@ -97,6 +97,10 @@ const deviceWidth = Dimensions.get('window').width;
         setVisible(false)
     }
 
+    const updateorderStatus = (itemValue) => {
+    setSelectedValue(itemValue)
+}
+
     const containerStyle = {backgroundColor: 'red', padding: '7%',marginHorizontal:'5%',alignItems:'center',};
 
     return (
@@ -113,7 +117,7 @@ const deviceWidth = Dimensions.get('window').width;
 
               <View style={{flexDirection:'row',marginHorizontal:'4%'}}>
                <View style={styles.pickerViewshorttodayagainorder}>
-                      <Sortorder options={options} />
+                      <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
                 </View>
                 <View style={[styles.pickerViewshorttodayagainorder,{marginLeft:'8%',flexDirection:'row',justifyContent:'space-around',padding:4}]}>
                    <Image source={ImageIcons.whitefiltertoday}  style={{height:11,width:11,marginTop:5}} />

@@ -94,6 +94,15 @@ const Accountproduct = (props) => {
         onThemecolor(color);
      }
 
+     const updateorderStatus = (itemValue) => {
+            //setSelectedValue(itemValue)
+            setSelectedValue('61b2e25addb2bd19c2b9532a')
+        }
+
+    const updateorderStatus1 = (itemValue) => {
+
+    }
+
      useEffect(() => {
          getBrandUserId();
          getLoginUserId();
@@ -218,6 +227,7 @@ const Accountproduct = (props) => {
             formData.append("productInventory", SelectedQuantity);
             formData.append("productCode", ProductCode);
             formData.append("productCaption", Productoption);
+            console.log('formDataconsole',formData);
             //formData.append("uploadId", uploadId);
             props.createproduct(formData, props.navigation, "vendor",true);
             //setTimeout(function(){ props.getAllproduct(props?.loginuserid);},100);
@@ -336,28 +346,29 @@ const renderItem6 = ({ item }) => {
                     <TextInput
                     onChangeText={onChangeProduct}
                     value={Product}
-                    onSubmitEditing={() => handleSendRequestSubmit()}
-                    placeholder='Provide more details about your product (500 characters max)' placeholderTextColor='#4D4D4D'
-                    style={tw`my-3 h-12 bg-zinc-200 mx-3 text-gray-500 pt-5 pb-12 px-4 mt-5 mx-3 rounded-md items-center`} />
+                    onSubmitEditing={() => handleSendRequestSubmit1()}
+                    placeholder='Provide more details about ' 
+                    placeholderTextColor='#4D4D4D'
+                    style={tw`my-3 h-12 bg-zinc-200 mx-3 text-gray-500 pt-5 px-4 mt-5 mx-3 rounded-md items-center`} />
 
 
                  </View>
 
                 <View style={styles.pickerViewshorttodaybrandtodayy1}>
-                        <Sortorder options={options} />
+                        <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                       
                 </View> 
 
                 <View style={styles.pickerViewshorttodaybrandtodayy1}>
-                        <Sortorder options={options1} />
+                        <Sortorder options={options1} onSelect={(checked) => updateorderStatus1(checked)}  />
 
                       
                 </View> 
 
 
                 <View style={styles.pickerViewshorttodaybrandtodayy1}>
-                    <Sortorder options={options2} />
+                    <Sortorder options={options2} onSelect={(checked) => updateorderStatus1(checked)}  />
                 </View> 
 
 

@@ -95,6 +95,9 @@ const Accountfav = (props) => {
     const [helppopup, sethelppopup] = React.useState(false);
     const [selectedValue, setSelectedValue] = useState("");
     const [showclassName, setshowclassName] = useState("#B80000");
+    const updateorderStatus = (itemValue) => {
+        setSelectedValue(itemValue)
+    }
 
     const renderItem6 = ({ item }) => {
         return (
@@ -134,7 +137,7 @@ const Accountfav = (props) => {
                 </View>
 
                 <View style={tw`flex flex-row mx-4`}>
-                    <Sortorder options={options}/>
+                    <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                     <Sortfilter text="Filter" onPress={() => props.navigation.navigate("Accountfav")} />
                 </View>

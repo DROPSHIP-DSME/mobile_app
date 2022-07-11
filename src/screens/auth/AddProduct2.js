@@ -86,6 +86,10 @@ const AddProduct2 = (props) => {
          props.getAllcategory(getUserId);
     }
 
+    const updateorderStatus = (itemValue) => {
+        setSelectedValue(itemValue)
+    }
+    
     const selectPhoto = async () => {
         if(counter<5){
         ImagePicker.openPicker({
@@ -222,7 +226,7 @@ const AddProduct2 = (props) => {
                 </View>
                 <View>
                     <TextInput
-                    style={styles.inputproduct}
+                    style={styles.inputcategory}
                     onChangeText={onChangeProduct}
                     value={Product}
                      placeholder="Product description"
@@ -286,7 +290,7 @@ const AddProduct2 = (props) => {
                     </View>
                 </View>
                 <View style={[styles.pickerView,{height:45,border:0}]}>
-                    <Sortorder options={options} />
+                    <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                 </View>
 

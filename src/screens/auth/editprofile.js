@@ -97,6 +97,9 @@ const editprofile = (props) => {
     }
 
 
+    const updateorderStatus = (itemValue) => {
+        setSelectedValue(itemValue)
+    }
 
     const [showclassName, setshowclassName] = useState("#B80000");
     const handleScroll = (pageYOffset) => {
@@ -248,7 +251,7 @@ const editprofile = (props) => {
 
                 <View style={tw.style('flex flex-row mx-5 justify-between mt-4')}>
                     <View style={tw.style('h-14 w-3/11 mr-3 bg-gray-200 rounded-md')}>
-                        <Sortorder options={options} />
+                        <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                     </View>
                     <View style={tw.style('h-14 w-7/11 bg-gray-200 rounded-md')}>

@@ -39,7 +39,7 @@ const deviceWidth = Dimensions.get('window').width;
     const phoneRef = useRef();
     const bisinessnameRef = useRef();
     const fullnameRef = useRef();
-
+     const [selectedValue, setSelectedValue] = useState("USA");
     // Local states
     const [wayToContact, setWayToContact] = useState("Phone");
     const [wayToContactList, setWayToContactList] = useState([
@@ -53,7 +53,9 @@ const deviceWidth = Dimensions.get('window').width;
         }
     ]);
 
-    
+    const updateorderStatus = (itemValue) => {
+        setSelectedValue(itemValue)
+    }
 
     const DATA = [
        {
@@ -109,11 +111,11 @@ const deviceWidth = Dimensions.get('window').width;
 
             <View style={{flexDirection:'row'}}>
             <View style={{marginLeft:'2%',marginRight:'4%',marginTop:15,borderWidth:1,borderRadius:5,borderColor:'#A3A3A3',}}>
-            <Sortorder options={options} />
+            <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
             </View>
             <View style={{marginTop:15,borderWidth:1,borderRadius:5,borderColor:'#A3A3A3'}}>
-            <Sortorder options={options} />
+            <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
             </View>
             </View>

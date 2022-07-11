@@ -217,7 +217,7 @@ const renderItem2 = ({ item ,index }) => {
 
             <View style={tw`mx-4 pt-5`}>
 
-                <TouchableOpacity style={tw`h-14 mt-10 bg-gray-200 pl-3 pt-1 rounded-md`} onPress={()=> handleRegistrationSubmit()}>
+                <TouchableOpacity style={tw`h-14 mt-4 bg-gray-200 pl-3 pt-1 rounded-md`} onPress={()=> handleRegistrationSubmit()}>
                     <TextInput style={tw.style('text-gray-600 items-center'),{width:deviceWidth/1.1}}
                       placeholder="Search for anything"
                       placeholderTextColor="#848484"

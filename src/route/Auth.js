@@ -992,7 +992,7 @@ const Auth = (props) => {
         component={Cart}
         options={({ navigation }) => ({
                         headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
+                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
                         headerRight: () => <RightMenuItem navigation={navigation}  />,
                         headerTitle: "",
                         headerTitleAlign: "center",
@@ -1305,7 +1305,7 @@ const Auth = (props) => {
         component={Dashreturn}
         options={({ navigation }) => ({
                         headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
+                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
                         headerRight: () => <RightMenuItemsell navigation={navigation}  />,
                         headerTitle: "",
                         headerTitleAlign: "center",
@@ -1513,7 +1513,7 @@ const Auth = (props) => {
         component={Dashdetail}
         options={({ navigation }) => ({
                         headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
+                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
                         headerRight: () => <RightMenuItemsell navigation={navigation}  />,
                         headerTitle: "",
                         headerTitleAlign: "center",

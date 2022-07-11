@@ -141,9 +141,9 @@ const Notification = (props) => {
 
                 handleScroll(nativeEvent['contentOffset'].y);
             }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#FFFFFF' }} >
-            <View style={tw`mx-4 mt-15 mb-10`}>
-                  <Text style={tw`my-6 text-3xl text-gray-700`}>Notifications</Text>
-                  <View style={tw`bg-gray-200 p-2 w-45 rounded-md mb-3`}>
+            <View style={tw`mx-4 mt-6 mb-10`}>
+                  <Text style={tw`text-3xl text-red-700 font-bold`}>Notifications</Text>
+                  <View style={tw`bg-gray-200 p-2 w-45 mt-4 rounded-md mb-3`}>
                     <Text style={tw`text-sm text-center text-gray-700`}>Mark All As Read</Text>
                   </View>
 

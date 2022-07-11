@@ -88,6 +88,10 @@ const CreateStore = (props) => {
          setUserID(getUserId);
     }
 
+    const updateorderStatus = (itemValue) => {
+    setSelectedValue(itemValue)
+  }
+  
      const selectPhoto = async () => {
          ImagePicker.openPicker({
             width: 400,
@@ -228,7 +232,7 @@ const renderItem6 = ({ item }) => {
 
                  
                   <View style={styles.pickerViewshorttodaybrandtodayy}>
-                        <Sortorder options={options} />
+                        <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
                 </View> 
 
 

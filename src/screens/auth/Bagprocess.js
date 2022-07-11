@@ -73,7 +73,9 @@ const Bagprocess = (props) => {
     setVisible(false)
   }
 
-
+  const updateorderStatus = (itemValue) => {
+    setSelectedValue(itemValue)
+  }
   const closebagpopup = () => {
     setVisiblebag(false)
   }
@@ -129,7 +131,7 @@ const Bagprocess = (props) => {
                   <Text style={{ fontSize: 18, fontStyle: 'normal', marginVertical: '4%', fontFamily: 'hinted-AvertaStd-Bold', color: '#1A1A1A' }}>Style</Text>
                 </View>
                 <View style={tw.style('bg-[#E6E6E6] rounded-[10px]')}>
-                  <Sortorder options={options} />
+                  <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                 </View>
               </View>
@@ -192,7 +194,7 @@ const Bagprocess = (props) => {
                   <Text style={{ fontSize: 18, fontStyle: 'normal', marginVertical: '4%', fontFamily: 'hinted-AvertaStd-Bold', color: '#1A1A1A' }}>Style</Text>
                 </View>
                 <View style={tw.style('bg-[#E6E6E6] rounded-[10px]')}>
-                  <Sortorder options={options} />
+                  <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                 </View>
               </View>

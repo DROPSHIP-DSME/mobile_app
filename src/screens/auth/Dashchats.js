@@ -112,7 +112,10 @@ const deviceWidth = Dimensions.get('window').width;
          setVisible(false)
     }
 
-
+    const updateorderStatus = (itemValue) => {
+        setSelectedValue(itemValue)
+    }
+    
     const DATA3 = [
        {
          image:ImageIcons.girlcent,
@@ -155,7 +158,7 @@ const deviceWidth = Dimensions.get('window').width;
 
 
                   <View style={tw.style('flex flex-row mx-4')}>
-                    <Sortorder  options={options}  />
+                    <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                     <Sortfilter
                       text="Filter"

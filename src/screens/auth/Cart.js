@@ -1,5 +1,5 @@
 import React, { useRef, useState,useEffect } from 'react';
-import { Text, View,Image,TextInput, ImageBackground, ScrollView,FlatList, Alert, TouchableOpacity,  KeyboardAvoidingView, Platform,Keyboard,StatusBar} from 'react-native';
+import { Text, View,Image,TextInput, ActivityIndicator, ImageBackground, ScrollView,FlatList, Alert, TouchableOpacity,  KeyboardAvoidingView, Platform,Keyboard,StatusBar} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
@@ -18,6 +18,7 @@ import RnIncrementDecrementBtn  from
 import DashedLine from 'react-native-dashed-line';
 import Footer3 from '../../screens/auth/Footer3';
 import Shopheader from '../../screens/auth/Shopheader';
+import Modal from 'react-native-modal';
 
 import CheckBox from '@react-native-community/checkbox';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -41,7 +42,6 @@ const Cart = (props) => {
 
     useEffect(() => {
        getBrandUserId();
-       console.log(props?.cartlistdata1,'poonam')
     }, [])
 
     const getBrandUserId = async () => {
@@ -54,6 +54,7 @@ const Cart = (props) => {
     const [IsLogin, setIsLogin] = useState("");
     // Local states
     const [showAlert, setshowAlert] = React.useState(false);
+    const [isVisible, setisVisible] = React.useState(false);
     const [Incval, setIncval] = useState(1);
 
 
@@ -62,8 +63,10 @@ const Cart = (props) => {
      };
 
     const setdeletedata = async (cartId) => {
-        props.deletedata(cartId,props.navigation);
-         props.cartdata(props?.loginuserid);
+        setisVisible(true);
+        props.deletedata(cartId,props.navigation); 
+        props.cartdata(props?.loginuserid);
+        setTimeout(function(){ setisVisible(false); },3000);
      }
 
 
@@ -100,13 +103,13 @@ const Cart = (props) => {
                         minreq={1}
                         max={99}
                         val={parseInt(item.productQuantity)}
-                        styleBtn={{width:30.6,height:26,backgroundColor:'#F3F3F3'}}
-                        styleTextInput={{width:38.25,height:26,backgroundColor:'#F3F3F3'}}
+                        styleBtn={{width:30.6,height:28,backgroundColor:'#F3F3F3'}}
+                        styleTextInput={{width:38.25,height:28,backgroundColor:'#F3F3F3'}}
                         labelStyle={{fontSize:15,marginTop:'1%',color:'#223263',fontFamily:'hinted-AvertaStd-Regular'}}
                         handleClick={(val)=> setIncrement(val,item._id)}
                         />
                     </View>
-                    <TouchableOpacity   onPress={() =>setdeletedata(item._id)}>
+                    <TouchableOpacity onPress={() =>setdeletedata(item._id)}>
                         <Image source={ImageIcons.deleticon}  style={styles.crt10} />
                     </TouchableOpacity>
                 </View>
@@ -129,8 +132,9 @@ const Cart = (props) => {
      style={styles.registrationRoot}>
 
       <ScrollView style={{backgroundColor:'#ffffff'}}>
+
         <View style={tw`pt-1`}>
-          <View style={tw`flex flex-row justify-between mt-10 mx-4`} >
+          <View style={tw`flex flex-row justify-between mt-4 mx-4`} >
             <View style={tw`self-center`}>
                 <Text style={tw`text-3xl text-red-700 font-bold`}>Cart</Text>
             </View>
@@ -139,6 +143,15 @@ const Cart = (props) => {
             <Text style={tw`text-sm text-gray-500`}>Aded items</Text>
           </View>
 
+           
+           <Modal
+            isVisible={isVisible}
+            animationIn='fadeIn'
+            animationOut='fadeOut'
+            style={{ justifyContent: 'center', alignItems: 'center',padding:0,margin:0 }}
+        >
+            <ActivityIndicator size="large" color={Colors.WHITE} />
+            </Modal>
           <View>
               <FlatList
                   data={props?.cartlistdata1 || []}
@@ -156,6 +169,7 @@ const Cart = (props) => {
         }
       </View>
      </ScrollView>
+
 
 
         <Footer3  />

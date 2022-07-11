@@ -73,6 +73,10 @@ const deviceWidth = Dimensions.get('window').width;
         getBrandUserId();
      })
 
+    const updateorderStatus = (itemValue) => {
+    setSelectedValue(itemValue)
+}
+
     const handleScroll=(pageYOffset)=>{
         if (pageYOffset > 0) {
             setshowclassName('#B80000');
@@ -127,13 +131,13 @@ const deviceWidth = Dimensions.get('window').width;
 
               <View style={tw.style('mt-3 mx-6 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg h-16 w-auto')}>
               <Text style={tw.style('text-sm text-gray-600 mt-2 ml-2')}>Choose a Bank Account</Text>
-                      <Sortorder options={options} />
+                      <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                 </View>
 
                 <View style={tw.style('mt-5 mx-6 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg h-16 w-auto')}>
                   <Text style={tw.style('text-sm text-gray-600 mt-2 ml-2')}>Amount to Withdraw</Text>
-                      <Sortorder options={options} />
+                      <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                 </View>
 

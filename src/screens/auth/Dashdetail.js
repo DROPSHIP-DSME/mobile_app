@@ -95,7 +95,6 @@ const deviceWidth = Dimensions.get('window').width;
     const [showclassName, setshowclassName] = useState("#B80000");
     
    useEffect(() => {
-        
         props.getorderdetail(orderNumber);
         console.log('getorderlist',props.getorderdetail);
     }, [])
@@ -112,13 +111,10 @@ const deviceWidth = Dimensions.get('window').width;
                 <View style={{marginHorizontal:10,padding:5,alignItems:'center'}}>
                     <Image source={{uri: item?.productId?.productImage}} style={{width:80,height:80,marginVertical:5,borderRadius:5,alignSelf:'center'}}/>
                     <Text style={styles.pdnme}>{item?.productId?.productName}</Text>
-                    <Text style={styles.prctxt}>${item.productPrice}</Text>
                     <View style={styles.heartratingView}>
-                      <Text style={styles.pdclr}>Color:{item.productColor}</Text>
-                       <View style={{height:15,width:15,borderRadius:10,backgroundColor:'#5999F1',marginLeft:2,alignSelf:'center'}}></View>
-                      <Text style={styles.pdclr}>  Size:</Text>
-                      <Text style={styles.pdnme}> {item.productSize}</Text>
-                    </View>
+                       <Text style={styles.pdclr}>Price: </Text>
+                       <Text style={styles.pdnme}>${item.productPrice}</Text>
+                    </View> 
                     <View style={styles.heartratingView}>
                        <Text style={styles.pdclr}>Quantity:</Text>
                        <Text style={styles.pdnme}> {item.productQuantity}</Text>
@@ -137,10 +133,7 @@ const deviceWidth = Dimensions.get('window').width;
                 handleScroll(nativeEvent['contentOffset'].y);
     }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} > 
           
-               
-                <View style={styles.stsview}>
-                <Image source={ImageIcons.returnordtoday} style={{width:160,height:18,marginTop:7}}/>
-               </View>
+                
 
                <View style={styles.stsview}>
                  <Text style={styles.odrstxt}>ORDER STATUS</Text>
@@ -148,14 +141,13 @@ const deviceWidth = Dimensions.get('window').width;
 
              
                <View style={[styles.pickerViewshorttodayagainpending,{marginHorizontal:'5%',marginTop:'2%'}]}>
-                     <Sortorder options={options} />
-
+                     <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
                 </View>
 
               
                
-              <View style={styles.odrmainview}>
-                <Text style={styles.dtlodrtxt}>Order Details</Text>
+              <View style={[styles.odrmainview,{marginTop:30}]}>
+                <Text style={styles.dtlodrtxt}>Order Details: {props?.getorderlist?.data?.orderStatus}</Text>
                 <FlatList
                   data={props?.getorderlist?.ItemList || []}
                   renderItem={renderItem}
@@ -168,9 +160,9 @@ const deviceWidth = Dimensions.get('window').width;
                 
                 <View style={styles.dirspcView}>
                 <Text style={styles.dtlodrtxt}>Buyer Details</Text>
-                 <TouchableOpacity onPress={() => props.navigation.navigate("Dashreturn")} style={{backgroundColor:'#B80000',width:110,borderRadius:20,padding:8,}}>
+                {/* <TouchableOpacity onPress={() => props.navigation.navigate("Dashreturn")} style={{backgroundColor:'#B80000',width:130,borderRadius:20,padding:8,}}>
                       <Text style={styles.totalincometodayWIDRO}>SEND MESSAGE</Text> 
-                   </TouchableOpacity>
+                   </TouchableOpacity>*/}
                 </View>
 
                <View style={styles.textviewpop1}>
@@ -181,10 +173,10 @@ const deviceWidth = Dimensions.get('window').width;
                   <Text style={styles.proregultxt}>phoneNumber</Text>
                    <Text style={styles.ustxt}>{props?.getorderlist?.data?.phoneNumber}</Text>
                </View>
-               <View style={styles.textviewpop1}>
+                <View style={styles.textviewpop1}>
                   <Text style={styles.proregultxt}>Address</Text>
-                   <Text style={styles.ustxtwdth}>{props?.getorderlist?.data?.zipCode}, {props?.getorderlist?.data?.city} {props?.getorderlist?.data?.country}, {props?.getorderlist?.data?.streetAdress}</Text>
-               </View>
+                  <Text style={{color:'#333333'}}>{props?.getorderlist?.data?.zipCode}, {props?.getorderlist?.data?.city} {props?.getorderlist?.data?.country}, {props?.getorderlist?.data?.streetAdress}</Text>
+                </View>
                
               </View>
               
@@ -200,7 +192,7 @@ const deviceWidth = Dimensions.get('window').width;
                </View>
                <View style={styles.textviewpop1}>
                   <Text style={styles.proregultxt}>Address</Text>
-                   <Text style={styles.ustxtwdth}>{props?.getorderlist?.data?.zipCode}, {props?.getorderlist?.data?.city} {props?.getorderlist?.data?.country}, {props?.getorderlist?.data?.streetAdress}</Text>
+                   <Text style={{color:'#333333'}}>{props?.getorderlist?.data?.zipCode}, {props?.getorderlist?.data?.city} {props?.getorderlist?.data?.country}, {props?.getorderlist?.data?.streetAdress}</Text>
                </View>
                
               </View>
@@ -216,11 +208,11 @@ const deviceWidth = Dimensions.get('window').width;
                </View>
                <View style={styles.textviewpop1}>
                   <Text style={styles.proregultxt}>Taxes</Text>
-                   <Text style={styles.shptxt}>US$0</Text>
+                   <Text style={styles.shptxt}>$0</Text>
                </View>
                 <View style={styles.textviewpop1}>
                   <Text style={styles.proregultxt}>Shipping</Text>
-                   <Text style={styles.shptxt}>US$0</Text>
+                   <Text style={styles.shptxt}>$0</Text>
                </View>
 
                <View style={styles.grndline}></View>
@@ -236,6 +228,4 @@ const deviceWidth = Dimensions.get('window').width;
         </View>
     )
 }
-
-
 export default Dashdetail

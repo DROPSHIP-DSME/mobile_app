@@ -93,6 +93,11 @@ const Viewevent = (props) => {
             value: "Email"
         }
     ]);
+
+    const updateorderStatus = (itemValue) => {
+        setSelectedValue(itemValue)
+    }
+
     const openpopup = () => {
         setVisible(true)
 
@@ -298,7 +303,7 @@ const renderItem1 = ({ item ,index }) => {
             </View>
 
             <View style={[styles.poppiker,{width:200,marginTop:"6%"}]}>
-                     <Sortorder options={options} />
+                     <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
             </View>
             <View style={[styles.devider1, { marginTop: '3%'}]}>
                 <View style={styles.devider2} />
@@ -311,7 +316,7 @@ const renderItem1 = ({ item ,index }) => {
                     <Text style={styles.filterpop}>Sneakerz</Text>
              </TouchableOpacity>
              <View style={[styles.poppiker,{width:195,marginLeft:"2%"}]}>
-                    <Sortorder options={options} />
+                    <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
             </View>
             </View>
             

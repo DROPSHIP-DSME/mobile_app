@@ -55,7 +55,7 @@ const Dashorder = (props) => {
   const brandId = props?.route?.params?.brandId;
 
   useEffect(() => {
-    props.getincomingtlist();
+    props.getincomingtlist(props?.loginuserid);
     props.getselldeshboard(props?.loginuserid);
     props.gettopsell(props?.loginuserid, 3);
     props.liveeventdetail(props?.loginuserid);
@@ -100,6 +100,10 @@ const Dashorder = (props) => {
 
   }
 
+  const updateorderStatus = (itemValue) => {
+        setSelectedValue(itemValue)
+    }
+    
   const closepopup = () => {
     setVisible(false)
   }
@@ -145,7 +149,7 @@ const Dashorder = (props) => {
         <View style={tw.style('my-5 mx-4')}>
           <Text style={tw.style('text-2xl text-gray-800 font-bold mb-5')}>Orders ({props?.getinconeorderlist?.length})</Text>
 
-          <Sortorder options={options} />
+          <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
           <View style={tw.style('bg-zinc-100 mt-6 p-3 ')} >
             <FlatList

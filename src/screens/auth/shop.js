@@ -67,6 +67,10 @@ const shop = (props) => {
             value: "Email"
         }
     ]);
+    const updateorderStatus = (itemValue) => {
+        setSelectedValue(itemValue)
+    }
+
     const [showclassName, setshowclassName] = useState("#B80000");
     const handleScroll = (pageYOffset) => {
         if (pageYOffset > 0) {
@@ -180,7 +184,7 @@ const shop = (props) => {
 
                 <View style={tw.style('flex flex-row mx-4 mt-4')}>
 
-                    <Sortorder  options={options}  />
+                    <Sortorder  options={options}  onSelect={(checked) => updateorderStatus(checked)}  />
 
                     <Sortfilter
                       text="Filter"

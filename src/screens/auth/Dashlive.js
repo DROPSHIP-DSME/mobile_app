@@ -123,6 +123,9 @@ const Dashlive = (props) => {
         setVisible(false);
     }
 
+    const updateorderStatus = (itemValue) => {
+    setSelectedValue(itemValue)
+  }
 
     const containerStyle = {backgroundColor: 'red', padding: '7%',marginHorizontal:'5%',alignItems:'center',};
 
@@ -254,7 +257,7 @@ return (
                    </View>
 
                  <View style={styles.pickerViewshorttodayagainlive2}>
-                      <Sortorder options={options} />
+                      <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                 </View>
                 </View>
@@ -336,7 +339,7 @@ return (
                     </View>
                </View>
                <View style={tw.style('flex flex-row mx-4 mt-2 mb-5 items-center')}>
-                  <Sortorder options={options}  />
+                  <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
                   <View style={tw.style('ml-3')}>
                     <Deletebutton />
                   </View>
@@ -420,7 +423,7 @@ return (
 
               <Text style={{marginVertical:'4%',marginHorizontal:'11%',fontSize:14,fontFamily:'hinted-AvertaStd-Semibold'}}>Adjust Price</Text>
               <View style={styles.pickerViewshorttodaymodal}>
-                      <Sortorder options={options} />
+                      <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                 </View>
 
@@ -428,7 +431,7 @@ return (
 
                 <Text style={{marginVertical:'3%',marginHorizontal:'11%',fontSize:14,fontFamily:'hinted-AvertaStd-Semibold'}}>Adjust Quantity</Text>
               <View style={styles.pickerViewshorttodaymodal}>
-                      <Sortorder options={options} />
+                      <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                 </View>
 
@@ -436,7 +439,7 @@ return (
 
                 <Text style={{marginVertical:'3%',marginHorizontal:'11%',fontSize:14,fontFamily:'hinted-AvertaStd-Semibold'}}>Apply Discount</Text>
               <View style={styles.pickerViewshorttodaymodal}>
-                      <Sortorder options={options} />
+                      <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                 </View>
                   <TouchableOpacity onPress={() => closepopup()} style={{backgroundColor:'#B80000',width:200,borderRadius:25,padding:15,alignSelf:'center',marginVertical:'8%'}}>

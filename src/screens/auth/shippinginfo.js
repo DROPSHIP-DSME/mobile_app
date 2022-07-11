@@ -86,6 +86,10 @@ const manageretakeFlag = () => {
     }
 }
 
+    const updateorderStatus = (itemValue) => {
+    setSelectedValue(itemValue)
+}
+
     const saveAddshipping = () =>{
         Keyboard.dismiss();
 
@@ -173,7 +177,7 @@ return (
                             <Text style={styles.labeltext}>Country</Text>
                         </View>
                         <View style={{width:'70%',backgroundColor:'#FFF7F7',marginBottom:'2%',borderRadius:5, height:45}}>
-                            <Sortorder options={options} />
+                            <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
                         </View>
                     </View>
                     <View style={[styles.maincartviewfooter,{marginTop:-5}]}>

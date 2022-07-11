@@ -107,7 +107,9 @@ const deviceWidth = Dimensions.get('window').width;
     const [selectedValue, setSelectedValue] = useState("USA");
     const [showclassName, setshowclassName] = useState("#B80000");
 
-
+    const updateorderStatus = (itemValue) => {
+    setSelectedValue(itemValue)
+  }
 
     return (
          <View style={{flex:1}}>
@@ -143,7 +145,7 @@ const deviceWidth = Dimensions.get('window').width;
                     <Text style={tw.style('mt-3 mx-2 mb-[-12] font-sm font-sm text-gray-700')}>
                       Type of advertisment
                     </Text>
-                      <Sortorder options={options} />
+                      <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                     </View>
                 </View>
@@ -155,7 +157,7 @@ const deviceWidth = Dimensions.get('window').width;
                     <Text style={tw.style('mt-3 mx-2 mb-[-12] font-sm font-sm text-gray-700')}>
                       Country
                     </Text>
-                        <Sortorder options={options} />
+                        <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                       </View>
                   </View>
@@ -168,7 +170,7 @@ const deviceWidth = Dimensions.get('window').width;
                       <Text style={tw.style('mt-3 mx-2 mb-[-12] font-sm font-sm text-gray-700')}>
                         Advertisment Location
                       </Text>
-                        <Sortorder options={options} />
+                        <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                       </View>
                   </View>
@@ -180,7 +182,7 @@ const deviceWidth = Dimensions.get('window').width;
                         <Text style={tw.style('mt-3 mx-2 mb-[-12] font-sm font-sm text-gray-700')}>
                           What are you advertising
                         </Text>
-                        <Sortorder options={options} />
+                        <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                       </View>
                   </View>

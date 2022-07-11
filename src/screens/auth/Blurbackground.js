@@ -528,6 +528,18 @@ const Blurbackground = (props) => {
         }
     }
 
+    const updateorderStatus = (itemValue) => {
+        setSelectedValue(itemValue)
+    }
+
+    const updateorderStatus1 = (itemValue) => {
+        setSelectedValue1(itemValue)
+    }
+
+    const updateorderStatus2 = (itemValue) => {
+        setSelectedValue2(itemValue)
+    }
+
      const data = [
             { key: 1, label: '1' },
             { key: 2, label: '2' },
@@ -828,7 +840,7 @@ const Blurbackground = (props) => {
                     <View>
                         <Text style={{fontWeight:'600',fontSize:16,fontFamily:'hinted-AvertaStd-Semibold'}}>Size</Text>
                         <View style={newstyles.pickerViewshort}>
-                            <Sortorder options={options} />
+                            <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                         </View>
                     </View>
@@ -836,7 +848,7 @@ const Blurbackground = (props) => {
                     <View>
                         <Text style={{fontWeight:'600',fontSize:16,fontFamily:'hinted-AvertaStd-Semibold'}}>Color</Text>
                         <View style={newstyles.pickerViewshort}>
-                            <Sortorder options={options2} />
+                            <Sortorder options={options2} onSelect={(checked) => updateorderStatus2(checked)} />
                         </View>
                     </View>
 
@@ -1485,7 +1497,7 @@ const Blurbackground = (props) => {
                     <View>
                         <Text style={{fontFamily:'hinted-AvertaStd-Bold',fontSize:15,fontWeight:'bold', color:'#000000',}}>Language</Text>
                         <View style={{backgroundColor:'#F3F3F3',marginTop:5,borderRadius:10,alignSelf:'center',padding:'1%',paddingHorizontal:'3%'}}>
-                            <Sortorder options={options1} />
+                            <Sortorder options={options1} onSelect={(checked) => updateorderStatus1(checked)} />
                         </View>
 
                         <Text style={{fontFamily:'hinted-AvertaStd-Bold',fontSize:15,marginTop:10,marginBottom:5,fontWeight:'bold', color:'#000000',}}>Call requests</Text>

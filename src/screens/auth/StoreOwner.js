@@ -72,6 +72,10 @@ const StoreOwner = (props) => {
           setVisible(false)
     }
 
+    const updateorderStatus = (itemValue) => {
+        setSelectedValue(itemValue)
+    }
+    
     const openpayment = () => {
         setChecked('first');
         BraintreeDropIn.show({
@@ -229,7 +233,7 @@ const StoreOwner = (props) => {
                         />
                     </View>
                      <View style={styles.pickerView}>
-                    <Sortorder options={options} />
+                    <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)}  />
                 </View>
                      <View>
 

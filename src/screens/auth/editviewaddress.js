@@ -103,6 +103,10 @@ const editviewaddress = (props) => {
         }
     }
 
+    const updateorderStatus = (itemValue) => {
+        setSelectedValue(itemValue)
+    }
+
 
    const renderItem6 = ({ item }) => {
             return(
@@ -201,7 +205,7 @@ const editviewaddress = (props) => {
 
                 <View style={{marginHorizontal:'4%',marginTop:'7%'}}>
                  <View style={{height:55,width:deviceWidth/1.1,backgroundColor:'#e6e6e6',borderRadius:10,}}>
-                      <Sortorder options={options} />
+                      <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                 </View>
 

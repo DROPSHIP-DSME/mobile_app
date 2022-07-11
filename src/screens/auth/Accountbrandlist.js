@@ -112,6 +112,10 @@ const Accountbrandlist = (props) => {
         setVisible(false)
     }
 
+    const updateorderStatus = (itemValue) => {
+        setSelectedValue(itemValue)
+    }
+
     const containerStyle = {backgroundColor: 'red', padding: '7%',marginHorizontal:'5%',alignItems:'center',};
 
     const renderItem = ({ item ,index }) => {
@@ -235,7 +239,7 @@ const Accountbrandlist = (props) => {
 
               <View style={styles.picview}>
                <View style={styles.pickerViewshorttodayagainorderstore}>
-                      <Sortorder options={options} />
+                      <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
                 </View>
                 <TouchableOpacity style={[styles.pickerViewshorttodayagainorderstore,{marginLeft:'8%',flexDirection:'row',justifyContent:'space-around',padding:4}]}>
                    <Image source={ImageIcons.filtertoday}  style={{height:11,width:11,marginTop:5}} />
@@ -274,7 +278,7 @@ const Accountbrandlist = (props) => {
              
               <Text style={{marginVertical:'4%',marginHorizontal:'11%',fontSize:16,fontFamily:'hinted-AvertaStd-Semibold'}}>Language</Text>
               <View style={styles.pickerViewshorttodaymodallist}>
-                       <Sortorder options={options} />
+                       <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
                 </View>
 
                 <View style={{borderBottomWidth:2,borderColor:'#e6e6e6',width:'90%',marginVertical:'6%',alignSelf:'center'}}></View>

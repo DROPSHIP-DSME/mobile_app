@@ -82,6 +82,10 @@ const AddProduct = (props) => {
           getLoginUserId();
     }, [])
 
+    const updateorderStatus = (itemValue) => {
+        setSelectedValue(itemValue)
+    }
+
     const getBrandUserId = async () => {
          var getUserId = await AsyncStorage.getItem('UserId');
          setUserID(getUserId);
@@ -293,7 +297,7 @@ const AddProduct = (props) => {
                     </View>
                 </View>
                 <View style={[styles.pickerView,{marginTop:5,}]}>
-                    <Sortorder options={options} />
+                    <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                 </View>
 

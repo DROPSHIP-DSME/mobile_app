@@ -87,6 +87,9 @@ const Shipaddress = (props) => {
     setVisible(false)
   }
 
+  const updateorderStatus = (itemValue) => {
+    setSelectedValue(itemValue)
+}
 
   const closebagpopup = () => {
     setVisiblebag(false)
@@ -240,7 +243,7 @@ const Shipaddress = (props) => {
 
             <View style={{ flexDirection: 'row', marginHorizontal: '4%', justifyContent: 'space-between', marginTop: '7%' }}>
               <View style={{ height: 55, width: 120, backgroundColor: '#e6e6e6', borderRadius: 10, }}>
-                <Sortorder options={options} />
+                <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
               </View>
               <View style={{ borderColor: '#e6e6e6', borderRadius: 10, width: 198, backgroundColor: '#e6e6e6', height: 55, alignSelf: 'center', }}>
                 <TextInput

@@ -498,6 +498,7 @@ export const createproduct = (signupRequest, navigation, role,islogin) => {
     if (isInternetConnected) {
       try {
         let response = await Utilise.apiCalling('POST', Api.createproduct, signupRequest);
+        console.log('responsecreateproduct',response)
         //Alert.alert("DROPSHIP", "Product added successfully")
         if (response?.status) {
           if (navigation) {
@@ -1324,38 +1325,27 @@ export const deleteaddress = (id,navigation) => {
 
 //deletedata
   
-  export const deletedata = (cartId,navigation) => {
- 
-  let request = {
-    cartId:cartId,
-    
+export const deletedata = (cartId,navigation) => {
+    let request = {
+      cartId:cartId,
     }
-
     return async (dispatch, getState) => {
         let isInternetConnected = await getState().auth?.isInternetConnected;
         if (isInternetConnected) {
             try {
-             // alert(JSON.stringify(request));
-
                 let response = await Utilise.apiCalling('POST', `${Api.deletedata}`,  request);
-                
-                // alert(JSON.stringify(response));
-                
                 if (response?.status) {
-                
                  // navigation.navigate("Cart");
-                   dispatch({ type: CART_LIST_DATA1, payload: [] });
+                   //dispatch({ type: CART_LIST_DATA1, payload: [] });
                    // dispatch({ type: DELETE_CART_LIST, payload: response.data });
-                } else {
-                  
                 }
             } catch (error) {
                 dispatch({ type: DELETE_CART_LIST, payload: [] });
-               
             }
         };
     }
 };
+
 //removecategory  
 
  export const removecategory = (categoryId,navigation) => {

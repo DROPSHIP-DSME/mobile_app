@@ -95,7 +95,10 @@ const deviceWidth = Dimensions.get('window').width;
     const [selectedValue, setSelectedValue] = useState("1");
     const [showclassName, setshowclassName] = useState("#B80000");
 
-
+    const updateorderStatus = (itemValue) => {
+    setSelectedValue(itemValue)
+  }
+  
     const openpopup = () => {
         setVisible(true)
 
@@ -154,7 +157,7 @@ const deviceWidth = Dimensions.get('window').width;
 
               <View style={styles.pickerViewshorttodaybrand}>
               <Text style={{fontSize:12,fontFamily:'hinted-AvertaStd-Regular',color:'4d4d4d',marginLeft:'3%',marginTop:'2%'}}>Category</Text>
-                      <Sortorder options={options} />
+                      <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                 </View>   
 

@@ -108,7 +108,7 @@ const renderItem = ({ item,index }) => {
              <View style={{marginHorizontal:'2%',marginTop:'4%'}}>
              <Text style={styles.updateordertext}>Order status: {props?.getorderlist?.data?.orderStatus}</Text> 
                 <View style={styles.orderpickerView}>
-                    <Sortorder options={options} />
+                    <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
                 </View>
 
                 <View style={{marginTop:'6%',}}>

@@ -99,9 +99,7 @@ const deviceWidth = Dimensions.get('window').width;
           
             
                <View style={{flexDirection:'row',justifyContent:'space-between',marginHorizontal:'3%',marginVertical:'7%'}}>
-                <TouchableOpacity onPress={() => props.navigation.navigate("Dashchats")} >
-                    <Image source={ImageIcons.returntoday} style={{width:160,height:18,marginTop:7}}/>
-                </TouchableOpacity>
+                
                 <TouchableOpacity onPress={() => props.navigation.navigate("Dashorder")} >
                      <View style={{backgroundColor:'#B80000',width:130,borderRadius:20,padding:10,}}>
                           <Text style={styles.totalincometodayWIDRO}>VIEW ORDER</Text> 

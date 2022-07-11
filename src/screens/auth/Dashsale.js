@@ -86,6 +86,9 @@ const Dashsale = (props) => {
     }
   }
 
+  const updateorderStatus = (itemValue) => {
+    setSelectedValue(itemValue)
+}
   // Local states
   const [isSelected, setSelection] = useState(false);
   const [selectedValue, setSelectedValue] = useState("");
@@ -145,7 +148,7 @@ const Dashsale = (props) => {
         </View>
 
         <View style={tw.style('flex flex-row mx-4')}>
-          <Sortorder options={options} />
+          <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
           <Sortfilter
             text="Sortfilter"
@@ -184,7 +187,7 @@ const Dashsale = (props) => {
           <View style={tw.style('py-8 px-3')}>
             <View style={tw.style('flex flex-row justify-between mb-8')}>
               <Text style={tw.style('text-xl text-gray-700 mt-2')}>Top Selling Product</Text>
-              <Sortorder options={options} />
+              <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
             </View>
             <View style={tw.style('flex flex-row justify-between mx-1 p-4 bg-gray-200 rounded-md')}>
               <Text style={tw`text-base text-gray-800`}>S/N</Text>
@@ -207,7 +210,7 @@ const Dashsale = (props) => {
           <View style={tw.style('py-8 px-3')}>
             <View style={tw.style('flex flex-row justify-between mb-8')}>
               <Text style={tw.style('text-xl text-gray-700 mt-2')}>Top Categories</Text>
-              <Sortorder options={options} />
+              <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
             </View>
             <View style={tw.style('flex flex-row justify-between mx-1 p-4 bg-gray-200 rounded-md')}>
               <Text style={tw`text-base text-gray-800`}>S/N</Text>

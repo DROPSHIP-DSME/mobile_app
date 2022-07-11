@@ -94,6 +94,10 @@ const Dashlive3 = (props) => {
         setVisible(true)
     }
 
+    const updateorderStatus = (itemValue) => {
+        setSelectedValue(itemValue)
+    }
+    
     const closepopup = () => {
         setVisible(false)
     }
@@ -156,7 +160,7 @@ const Dashlive3 = (props) => {
 
               <View style={{flexDirection:'row',marginHorizontal:'4%'}}>
                <View style={styles.pickerViewshorttodayagain}>
-                      <Sortorder options={options} />
+                      <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                 </View>
                 <View style={[styles.pickerViewshorttodayagain,{marginLeft:'6%',flexDirection:'row',justifyContent:'space-around',padding:4}]}>

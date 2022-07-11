@@ -6,7 +6,7 @@ import { ChevronDownIcon } from "react-native-heroicons/solid";
 
 
 
-const Sortorder = ({text, options}) => {
+const Sortorder = ({text, options, onSelect}) => {
 
   const [showvisible, setshowvisible] = React.useState(false);
   const [visible1, setVisible1] = React.useState(true);
@@ -18,7 +18,7 @@ const Sortorder = ({text, options}) => {
             placeholder={'Sort'}
             options={options}
             onValueChange={value => {
-              setSelectedValue(value)
+              onSelect(value)
             }}
             style={tw.style('w-full')}
             fieldTemplateProps={{

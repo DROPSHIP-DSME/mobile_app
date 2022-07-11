@@ -61,6 +61,10 @@ const Accountorderhist = (props) => {
     const [wayToContact, setWayToContact] = useState("Phone");
     const [showAlert, setshowAlert] = React.useState(false);
     
+    const updateorderStatus = (itemValue) => {
+        setSelectedValue(itemValue)
+    }
+
     const [showclassName, setshowclassName] = useState("#B80000");
     const handleScroll = (pageYOffset) => {
         if (pageYOffset > 0) {
@@ -203,7 +207,7 @@ const Accountorderhist = (props) => {
 
                 {/* <View style={{ flexDirection: 'row', marginHorizontal: '4%', marginTop: '5%' }}>
                     <View style={styles.pickerViewshorttodayagain}>
-                        <Sortorder options={options} />
+                        <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                     </View>
                     <View style={[styles.pickerViewshorttodayagain, { marginLeft: '8%', flexDirection: 'row', justifyContent: 'space-around', padding: 4 }]}>

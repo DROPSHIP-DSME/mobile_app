@@ -140,6 +140,10 @@ const deviceWidth = Dimensions.get('window').width;
 
      ];
      
+     const updateorderStatus = (itemValue) => {
+    setSelectedValue(itemValue)
+  }
+  
     const renderItem3 = ({ item,index }) => {
         return(
            <View>
@@ -171,7 +175,7 @@ const deviceWidth = Dimensions.get('window').width;
             
               <View style={{flexDirection:'row',marginHorizontal:'4%'}}>
                 <View style={styles.pickerViewshorttodayagainsale}>
-                      <Sortorder options={options} />
+                      <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                 </View>
                 <View style={[styles.pickerViewshorttodayagain,{marginLeft:'8%',flexDirection:'row',justifyContent:'space-around',padding:4}]}>

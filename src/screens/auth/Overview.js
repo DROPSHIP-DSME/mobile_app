@@ -113,6 +113,10 @@ const deviceWidth = Dimensions.get('window').width;
         datasets: [{ data: [20, 45, 28, 80, 99, 73] }]
     };
 
+    const updateorderStatus = (itemValue) => {
+        setSelectedValue(itemValue)
+    }
+    
     const DATA = [{ image:ImageIcons.redincome }];
 
 const renderItem2 = ({ item,index }) => {
@@ -243,7 +247,7 @@ const renderItem2 = ({ item,index }) => {
                        <View>
                          <Text style={tw.style('font-bold text-xl text-gray-700 pl-2')}>Sales Statistics</Text>
                        </View>
-                      <Sortorder options={options} />
+                      <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
                   </View>
 
                   <BarChart

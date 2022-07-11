@@ -95,6 +95,10 @@ const deviceWidth = Dimensions.get('window').width;
         setVisible(true)
     }
 
+    const updateorderStatus = (itemValue) => {
+        setSelectedValue(itemValue)
+    }
+    
     const closepopup = () => {
         setVisible(false)
     }
@@ -177,7 +181,7 @@ const deviceWidth = Dimensions.get('window').width;
                    </View>
 
                  <View style={styles.pickerViewshorttodayagainlive2}>
-                      <Sortorder options={options} />
+                      <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                 </View>
 
@@ -269,7 +273,7 @@ const deviceWidth = Dimensions.get('window').width;
 
               <Text style={{marginVertical:'4%',marginHorizontal:'11%',fontSize:14,fontFamily:'hinted-AvertaStd-Semibold'}}>Adjust Price</Text>
               <View style={styles.pickerViewshorttodaymodal}>
-                      <Sortorder options={options} />
+                      <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                 </View>
 
@@ -277,7 +281,7 @@ const deviceWidth = Dimensions.get('window').width;
 
                 <Text style={{marginVertical:'3%',marginHorizontal:'11%',fontSize:14,fontFamily:'hinted-AvertaStd-Semibold'}}>Adjust Quantity</Text>
               <View style={styles.pickerViewshorttodaymodal}>
-                      <Sortorder options={options} />
+                      <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                 </View>
 
@@ -285,7 +289,7 @@ const deviceWidth = Dimensions.get('window').width;
 
                 <Text style={{marginVertical:'3%',marginHorizontal:'11%',fontSize:14,fontFamily:'hinted-AvertaStd-Semibold'}}>Apply Discount</Text>
               <View style={styles.pickerViewshorttodaymodal}>
-                      <Sortorder options={options} />
+                      <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                 </View>
 

@@ -114,6 +114,10 @@ const options = ['Success', 'Pending', 'Processing', 'Canceled','Delivered']
     const [selectedValue, setSelectedValue] = useState("1");
     const [showclassName, setshowclassName] = useState("#B80000");
 
+    const updateorderStatus = (itemValue) => {
+        setSelectedValue(itemValue)
+    }
+
     const openpopup = () => {
         setVisible(true)
     }
@@ -140,8 +144,8 @@ const options = ['Success', 'Pending', 'Processing', 'Canceled','Delivered']
 
            <View style={tw`mt-2`}>
             <Text style={tw`text-sm w-10/12 ml-3`}>{item.productName}</Text>
-            <View style={tw`flex justify-items-end w-4 h-4 bg-gray-600 rounded-md mr-4 -mt-3`}></View>
-            <Text style={tw`text-base w-10/12 ml-5`}>${item.productPrice}</Text>
+            
+            <Text style={tw`text-base w-10/12 ml-3`}>${item.productPrice}</Text>
              <View>
                 <Rating
                 type='custom'
@@ -214,7 +218,8 @@ const options = ['Success', 'Pending', 'Processing', 'Canceled','Delivered']
                </View>
 
               <View style={tw.style('flex flex-row mx-4')}>
-                <Sortorder  options={options}  />
+                <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
+
 
                 <Sortfilter
                   text="Filter"
@@ -222,31 +227,28 @@ const options = ['Success', 'Pending', 'Processing', 'Canceled','Delivered']
 
               </View>
 
-              <View style={tw.style('flex flex-row m-4 ')}>
-                  <Selectall
-                    text="Select All"
-                  />
-
-                  <Editbutton />
-
-                  <Deletebutton />
-
-              </View>
+                {/*
+                    <View style={tw.style('flex flex-row m-4 ')}>
+                        <Selectall text="Select All" />
+                        <Editbutton />
+                        <Deletebutton />
+                    </View> 
+                */}
 
 
-                 <View style={tw.style('m-4 mb-2')}>
+                <View style={tw.style('m-4 mb-2')}>
                     {props?.getlistproduct?.length>0 ?
-                    <FlatList
-                        data={props?.getlistproduct || []}
-                        renderItem={renderItem2}
-                        key={item => item.id}
-                        showsHorizontalScrollIndicator={false}
-                        numColumns={2}
+                        <FlatList
+                            data={props?.getlistproduct || []}
+                            renderItem={renderItem2}
+                            key={item => item.id}
+                            showsHorizontalScrollIndicator={false}
+                            numColumns={2}
                         />
                     :
-                     <View style={tw.style('justify-center my-8')}>
-                        <Text style={tw.style('text-base font-bold text-center')}>No Product added yet</Text>
-                     </View>
+                        <View style={tw.style('justify-center my-8')}>
+                            <Text style={tw.style('text-base font-bold text-center')}>No Product added yet</Text>
+                        </View>
                     }
                </View>
 
@@ -264,7 +266,7 @@ const options = ['Success', 'Pending', 'Processing', 'Canceled','Delivered']
 
               <Text style={{marginVertical:'4%',marginHorizontal:'11%',fontSize:14,fontFamily:'hinted-AvertaStd-Semibold'}}>Adjust Price</Text>
               <View style={styles.pickerViewshorttodaymodal}>
-                      <Sortorder options={options} />
+                      <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                 </View>
 
@@ -272,7 +274,7 @@ const options = ['Success', 'Pending', 'Processing', 'Canceled','Delivered']
 
                 <Text style={{marginVertical:'3%',marginHorizontal:'11%',fontSize:14,fontFamily:'hinted-AvertaStd-Semibold'}}>Adjust Quantity</Text>
               <View style={styles.pickerViewshorttodaymodal}>
-                      <Sortorder options={options} />
+                      <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                 </View>
 
@@ -280,7 +282,7 @@ const options = ['Success', 'Pending', 'Processing', 'Canceled','Delivered']
 
                 <Text style={{marginVertical:'3%',marginHorizontal:'11%',fontSize:14,fontFamily:'hinted-AvertaStd-Semibold'}}>Apply Discount</Text>
               <View style={styles.pickerViewshorttodaymodal}>
-                      <Sortorder options={options} />
+                      <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                 </View>
 
