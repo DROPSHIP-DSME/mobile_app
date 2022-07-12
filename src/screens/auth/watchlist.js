@@ -25,7 +25,6 @@ import moment from 'moment';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import Productstream from '../../components/product/Productstream';
 import tw from 'twrnc';
-import { useTailwind } from 'tailwind-rn';
 const deviceHeight = Dimensions.get('window').height;
 const deviceWidth = Dimensions.get('window').width;
 import { UsersIcon } from "react-native-heroicons/solid";
@@ -49,7 +48,6 @@ const watchlist = (props) => {
     const phoneRef = useRef();
     const bisinessnameRef = useRef();
     const fullnameRef = useRef();
-    const tailwind = useTailwind();
 
     // Local states
     const [checked, setChecked] = React.useState('first');
@@ -453,14 +451,14 @@ const watchlist = (props) => {
         return (
             <View style={tw.style('ml-2 mr-2')}>
                 <TouchableOpacity onPress={() => { props.navigation.navigate("ProductStore", { productId: item._id, shopId: item._id, shopName: item.shopName }) }}>
-                    <View style={tailwind('p-0.5')}>
+                    <View style={tw.style('p-0.5')}>
                         <Image source={{ uri: item.shopImage }} style={tw.style('w-40 h-56 rounded-md')} onPress={() => { props.navigation.navigate("clothing") }} />
                     </View>
-                    <View style={tailwind('flex flex-row mt-2.5 justify-between')}>
-                        <View style={tailwind('pl-2')}>
-                            <Text style={tailwind('text-[#1A1A1A] text-xs font-normal')}>{item.shopName}</Text>
-                            <Text style={tailwind('text-[#1A1A1A] text-base font-bold')}>$0</Text>
-                            <View style={tailwind('flex flex-row mt-[5px]')}>
+                    <View style={tw.style('flex flex-row mt-2.5 justify-between')}>
+                        <View style={tw.style('pl-2')}>
+                            <Text style={tw.style('text-[#1A1A1A] text-xs font-normal')}>{item.shopName}</Text>
+                            <Text style={tw.style('text-[#1A1A1A] text-base font-bold')}>$0</Text>
+                            <View style={tw.style('flex flex-row mt-[5px]')}>
                                 <Rating
                                     type='custom'
                                     imageSize={15}
@@ -469,15 +467,15 @@ const watchlist = (props) => {
                                     //tintColor='#FFE7E7'
                                     value={starCount}
                                     onFinishRating={(start) => ratingCompleted(start)}
-                                    style={tailwind('ml-[2%]')}
+                                    style={tw.style('ml-[2%]')}
                                 />
-                                <Text style={tailwind('text-sm mx-[2%] text-black font-normal')}>4.0</Text>
+                                <Text style={tw.style('text-sm mx-[2%] text-black font-normal')}>4.0</Text>
 
                             </View>
                         </View>
-                        <View style={tailwind('mr-2')}>
-                            <Image source={ImageIcons.Iconlock} style={tailwind('w-[30px] h-[30px]')} />
-                            <Image source={ImageIcons.iconheart} style={tailwind('w-[30px] h-[30px] mt-[5px]')} />
+                        <View style={tw.style('mr-2')}>
+                            <Image source={ImageIcons.Iconlock} style={tw.style('w-[30px] h-[30px]')} />
+                            <Image source={ImageIcons.iconheart} style={tw.style('w-[30px] h-[30px] mt-[5px]')} />
                         </View>
                     </View>
                 </TouchableOpacity>

@@ -6,14 +6,14 @@ import { ChevronDownIcon } from "react-native-heroicons/solid";
 
 
 
-const Sortorder = ({text, options, onSelect}) => {
+const Largesortorder = ({text, options, onSelect}) => {
 
   const [showvisible, setshowvisible] = React.useState(false);
   const [visible1, setVisible1] = React.useState(true);
   const [selectedValue, setSelectedValue] = useState("");
 
     return (
-      <View style={tw.style('flex flex-row justify-between items-center bg-gray-200 rounded-md max-w-[45%]')}>
+      <View style={tw.style('flex flex-row justify-between items-center bg-gray-200 rounded-md')}>
           <CustomPicker
             placeholder={text}
             options={options}
@@ -50,4 +50,4 @@ const Sortorder = ({text, options, onSelect}) => {
 }
 
 
-export default Sortorder
+export default Largesortorder

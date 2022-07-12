@@ -103,7 +103,7 @@ const Dashorder = (props) => {
   const updateorderStatus = (itemValue) => {
         setSelectedValue(itemValue)
     }
-    
+
   const closepopup = () => {
     setVisible(false)
   }
@@ -137,10 +137,10 @@ const Dashorder = (props) => {
   }
 
 
-  
+
   return (
     <View style={tw.style('flex-1 bg-white')}>
-      
+
 
       <ScrollView onScroll={({ nativeEvent }) => {
         handleScroll(nativeEvent['contentOffset'].y);
@@ -149,7 +149,7 @@ const Dashorder = (props) => {
         <View style={tw.style('my-5 mx-4')}>
           <Text style={tw.style('text-2xl text-gray-800 font-bold mb-5')}>Orders ({props?.getinconeorderlist?.length})</Text>
 
-          <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
+          <Sortorder text="Sort Order" options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
           <View style={tw.style('bg-zinc-100 mt-6 p-3 ')} >
             <FlatList

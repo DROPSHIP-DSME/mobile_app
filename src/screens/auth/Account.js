@@ -223,7 +223,7 @@ const Account = (props) => {
                           onPress={() => props.navigation.navigate("editprofile")} />
                     </View>
 
-                    <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
+                    <View style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
                         <View>
                             <Text style={tw`text-base font-normal text-gray-900`}>First Name</Text>
                         </View>
@@ -232,7 +232,7 @@ const Account = (props) => {
                         </View>
                     </View>
                     <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
-                    <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
+                    <View style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
                         <View>
                             <Text style={tw`text-base font-normal text-gray-900`}>Last Name</Text>
                         </View>
@@ -241,7 +241,7 @@ const Account = (props) => {
                         </View>
                     </View>
                     <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
-                    <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
+                    <View style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
                         <View>
                             <Text style={tw`text-base font-normal text-gray-900`}>Email</Text>
                         </View>
@@ -250,7 +250,7 @@ const Account = (props) => {
                         </View>
                     </View>
                     <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
-                    <View style={tw.style('flex flex-row justify-between mx-4 mt-4 mb-3')}>
+                    <View style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
                         <View>
                             <Text style={tw`text-base font-normal text-gray-900`}>Number</Text>
                         </View>
@@ -383,25 +383,25 @@ const Account = (props) => {
                       </View>
 
                       <TouchableOpacity onPress={() => props.navigation.navigate("Dashsupportacc")} style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
-                          <View>
+                          <View style={tw.style('my-1')}>
                               <Text style={tw.style('text-base font-normal text-gray-900')}>Customer Support</Text>
                           </View>
                           <View>
                               <ArrowRightIcon color="red" fill="gray" size={24} />
                           </View>
                       </TouchableOpacity>
-                      <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
+                      <View style={tw.style('border-b mt-1 mx-4 border-gray-500')}></View>
                       <TouchableOpacity onPress={() => props.navigation.navigate("editpassword")} style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
-                          <View>
+                          <View style={tw.style('my-1')}>
                               <Text style={tw.style('text-base font-normal text-gray-900')}>Change Password</Text>
                           </View>
                           <View>
                               <ArrowRightIcon color="red" fill="gray" size={24} />
                           </View>
                       </TouchableOpacity>
-                      <View style={tw.style('border-b mt-2 mb-1 mx-4 border-gray-500')}></View>
+                      <View style={tw.style('border-b mt-1 mx-4 border-gray-500')}></View>
                       <TouchableOpacity onPress={() => props.navigation.navigate("deletaccount")} style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
-                          <View style={tw.style('mb-3')}>
+                          <View style={tw.style('my-1')}>
                               <Text style={tw.style('text-base font-normal text-gray-900')}>Delete Account</Text>
                           </View>
                           <View>

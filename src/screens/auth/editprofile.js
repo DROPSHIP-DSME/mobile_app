@@ -212,8 +212,8 @@ const editprofile = (props) => {
                 handleScroll(nativeEvent['contentOffset'].y);
             }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#ffffff' }} >
 
-                <View style={{ marginHorizontal: "3%" }}>
-                    <Text style={tw.style('text-2xl font-bold my-8 mx-2')}>Edit Profile</Text>
+                <View style={tw`mx-3`}>
+                    <Text style={tw.style('text-2xl font-bold mt-8 mb-6 mx-2')}>Edit Profile</Text>
                 </View>
 
                 <View style={[tw.style('border-gray-200 rounded-md bg-gray-200 h-14 self-center mt-4 mx-2'), { width: deviceWidth / 1.1 }]}>
@@ -249,12 +249,11 @@ const editprofile = (props) => {
                  />
                 </View>
 
-                <View style={tw.style('flex flex-row mx-5 justify-between mt-4')}>
-                    <View style={tw.style('h-14 w-3/11 mr-3 bg-gray-200 rounded-md')}>
-                        <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
+                <View style={tw.style('flex flex-row mx-4 justify-between mt-4')}>
 
-                    </View>
-                    <View style={tw.style('h-14 w-7/11 bg-gray-200 rounded-md')}>
+                    <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
+
+                    <View style={tw.style('h-14 ml-2 w-[45%] bg-gray-200 rounded-md')}>
                         <TextInput
                          placeholder="Phone Number"
                          placeholderTextColor="#1a1a1a"

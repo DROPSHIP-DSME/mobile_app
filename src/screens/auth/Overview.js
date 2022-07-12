@@ -122,7 +122,7 @@ const deviceWidth = Dimensions.get('window').width;
 const renderItem2 = ({ item,index }) => {
    return(
 
-       <View style={tw.style('max-w-7xl bg-white overflow-hidden rounded-lg p-4 m-4')}>
+       <View style={tw.style('max-w-7xl bg-white overflow-hidden rounded-lg p-3 md:p-4 m-4')}>
          <View style={tw.style('flex items-center flex-row justify-between')}>
              <Text style={tw.style('mt-1 mb-5')}>
                 <DatabaseIcon color="red" fill="#B80000" size={32} />
@@ -131,7 +131,7 @@ const renderItem2 = ({ item,index }) => {
 
           <View style={tw.style('flex justify-between')}>
               <View>
-                <Text style={tw.style('font-bold text-lg text-gray-700 mt-2')}>Sales Earnings</Text>
+                <Text style={tw.style('font-bold text-lg text-gray-700 mt-1 md:mt-2 mb-1')}>Sales Earnings</Text>
                 <View style={tw.style('flex-row h-14 mb-1')}>
                   <View style={tw.style('flex-1 w-2/3')}>
                     <Text style={tw.style('text-4xl font-bold text-gray-800')}>${props?.getlistselldeshboard?.income}</Text>
@@ -247,9 +247,9 @@ const renderItem2 = ({ item,index }) => {
                        <View>
                          <Text style={tw.style('font-bold text-xl text-gray-700 pl-2')}>Sales Statistics</Text>
                        </View>
-                       <View style={tw`w-40`}>
-                        <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
-                      </View>
+
+                        <Sortorder text="Sort" options={options} onSelect={(checked) => updateorderStatus(checked)} />
+                
                   </View>
 
                   <BarChart
