@@ -23,8 +23,43 @@ import { CameraIcon } from "react-native-heroicons/solid";
 
 
 import Sortorder from '../../components/pickers/Sortorder';
-const options = ['Sneakers', 'Fashion', 'Furniture', 'Cloths','Beauty & Hair','Electronics','Cosmetics','Other']
+const options = [
+      {
+        label: 'Sneakers',
+        value: '61b2e25addb2bd19c2b9532a'
+      },
+      {
+        label: 'Fashion',
+        value: '61b2e4bfddb2bd19c2b9532f'
+      },
+      {
+        label: 'Furniture',
+        value: '61b2e63bddb2bd19c2b95335'
+      },
+      {
+        label: 'Cloths',
+        value: '61b2e882ddb2bd19c2b9533c'
+      },
+      {
+        label: 'Beauty & Hair',
+        value: '61b2eb67ddb2bd19c2b95346'
+      },
+      {
+        label: 'Electronics',
+        value: '61b2ec5addb2bd19c2b9534b'
+      },
+      {
+        label: 'Cosmetics',
+        value: '61b651846a4c8e2f3dacf60a'
+      },
+      {
+        label: 'Other',
+        value: '61b4aa1539889b2e9971b521'
+      }
+    ]
 
+
+    
 const CreateStore = (props) => {
 
     const {
@@ -193,7 +228,6 @@ const renderItem6 = ({ item }) => {
 
                 <View>
                 { billImgPath !== "" ?
-
                     <Image source={{ uri: billImgPath.uri }} style={tw`h-28 w-28 rounded-full mt-10 mb-3`} />
 
                 :

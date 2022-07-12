@@ -112,7 +112,6 @@ const Login = (props) => {
 
   const getBrandUserId = async () => {
          var loginuserid = await AsyncStorage.getItem('UserId');
-        // alert(loginuserid)
          if(loginuserid==null || loginuserid==undefined || loginuserid==""){
                 //props.logoutreducerfun(uuid());
          }else {

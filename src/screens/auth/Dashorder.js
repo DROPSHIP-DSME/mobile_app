@@ -93,8 +93,24 @@ const Dashorder = (props) => {
   const [selectedValue, setSelectedValue] = useState("");
   const [showclassName, setshowclassName] = useState("#B80000");
 
-  const options = ['Success', 'Pending', 'Processing', 'Canceled','Delivered']
-
+const options = [
+      {
+        label: 'Prcoessing',
+        value: 'Prcoessing'
+      },
+      {
+        label: 'Shipped',
+        value: 'Shipped'
+      },
+      {
+        label: 'Delivered',
+        value: 'Delivered'
+      },
+      {
+        label: 'Cancelled',
+        value: 'Cancelled'
+      }
+    ]
   const openpopup = () => {
     setVisible(true)
 

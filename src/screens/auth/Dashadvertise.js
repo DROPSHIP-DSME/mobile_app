@@ -27,8 +27,24 @@ import tw from 'twrnc'
 import Medbutton from '../../components/dropshipbutton/Medbutton';
 import Largebutton from '../../components/dropshipbutton/Largebutton';
 import Sortorder from '../../components/pickers/Sortorder';
-const options = ['USA', 'India', 'Ghana', 'Canada']
-
+const options = [
+      {
+        label: 'USA',
+        value: 'USA'
+      },
+      {
+        label: 'India',
+        value: 'India'
+      },
+      {
+        label: 'Ghana',
+        value: 'Ghana'
+      },
+      {
+        label: 'Canada',
+        value: 'Canada'
+      }
+    ]
 
 import {
   LineChart,

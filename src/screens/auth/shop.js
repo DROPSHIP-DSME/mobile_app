@@ -87,7 +87,25 @@ const shop = (props) => {
         }
 
     }
-    const options = ['Success', 'Pending', 'Processing', 'Canceled','Delivered']
+    const options = [
+      {
+        label: 'Prcoessing',
+        value: 'Prcoessing'
+      },
+      {
+        label: 'Shipped',
+        value: 'Shipped'
+      },
+      {
+        label: 'Delivered',
+        value: 'Delivered'
+      },
+      {
+        label: 'Cancelled',
+        value: 'Cancelled'
+      }
+    ]
+
     const checklogin = async () => {
         if (props?.loginuserstatus == "1") {
             props.navigation.navigate("AddStore")

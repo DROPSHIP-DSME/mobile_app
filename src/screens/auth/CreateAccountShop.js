@@ -116,7 +116,10 @@ const CreateAccountShop = (props) => {
         <View style={{flex:1,backgroundColor:'#ffffff'}}>
 
             <View style={styles.leftlogView}>
+                <TouchableOpacity onPress={() => props.navigation.navigate("Golive")}>
+                       
                 <Image source={ImageIcons.left} style={styles.droparrow}  />
+                </TouchableOpacity>
             </View>
             <View style={tw.style('items-center mt-5')}>
                 <Image source={ImageIcons.logored_1} style={styles.setlogonewdatarow}  />
@@ -190,7 +193,7 @@ const CreateAccountShop = (props) => {
                     <Text style={tw.style('text-base text-gray-700 tracking-wide')}>Already have an account yet?</Text>
 
                     <TouchableOpacity style={tw.style('w-auto')} onPress={() => props.navigation.navigate("RegistrationShop")}>
-                        <Text style={tw.style('text-base text-red-800 items-center tracking-wide')}> Sign up here.</Text>
+                        <Text style={tw.style('text-base text-red-800 items-center tracking-wide')}> Sign in here.</Text>
                     </TouchableOpacity>
                 </View>
             </View>
