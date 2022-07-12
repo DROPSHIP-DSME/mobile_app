@@ -209,7 +209,7 @@ const editaddress = (props) => {
                     />
                 </View>
 
-                <View style={tw`my-8`}>
+                <View style={tw`my-8 mx-4`}>
                   <Largebutton
                     text="Add New Address"
                     onPress={() => props.navigation.navigate("editviewaddress")} />

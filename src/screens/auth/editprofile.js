@@ -265,7 +265,7 @@ const editprofile = (props) => {
                          />
                     </View>
                 </View>
-                <View style={tw`my-10`}>
+                <View style={tw`my-10 mx-4`}>
                   <Largebutton
                   text='Save Changes'
                   onPress={()=>{ handleSendRequestSubmit()}} />

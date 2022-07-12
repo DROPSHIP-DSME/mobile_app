@@ -208,13 +208,13 @@ const editpassword = (props) => {
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={tw.style('flex-1 justify-center')}>
-            
+
 
             <ScrollView onScroll={({ nativeEvent }) => {
                 handleScroll(nativeEvent['contentOffset'].y);
             }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#ffffff' }} >
 
-                <View style={tw`mx-5 my-10`}>
+                <View style={tw`mx-4 my-10`}>
                     <Text style={tw`text-2xl font-bold text-gray-800`}>Change Password</Text>
                 </View>
 
@@ -252,7 +252,7 @@ const editpassword = (props) => {
 
 
 
-                <View style={tw`mt-10`}>
+                <View style={tw`mt-10 mx-4`}>
                 <Largebutton
                 text="Save Changes"
                 onPress={() => { openpopup(), handleRegistrationSubmit() }} />
