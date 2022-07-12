@@ -24,8 +24,24 @@ import { Rating, AirbnbRating } from 'react-native-ratings';
 import { Provider , Portal,} from 'react-native-paper';
 import Modal from 'react-native-modal'
 import Sortorder from '../../components/pickers/Sortorder';
-const options = ['Prcoessing', 'Shipped', 'Delivered', 'Cancelled']
-
+const options = [
+      {
+        label: 'Prcoessing',
+        value: 'Prcoessing'
+      },
+      {
+        label: 'Shipped',
+        value: 'Shipped'
+      },
+      {
+        label: 'Delivered',
+        value: 'Delivered'
+      },
+      {
+        label: 'Cancelled',
+        value: 'Cancelled'
+      }
+    ]
 import {
   LineChart,
   BarChart,

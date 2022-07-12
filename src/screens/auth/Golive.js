@@ -53,7 +53,7 @@ const Golive = (props) => {
 
     useEffect(() => {
         props.countrylist();
-         //AsyncStorage.setItem('UserId',uuid());
+         AsyncStorage.setItem('UserId','');
          //AsyncStorage.setItem('userLogin',"0");
          //GoogleSignin.configure();
          GoogleSignin.configure({
@@ -94,7 +94,9 @@ const Golive = (props) => {
         <View style={{backgroundColor:'#ffffff',flex:1}}>
 
           <View style={tw.style('items-center my-16')}>
-              <Image source={ImageIcons.logored_1} style={styles.setlogonewdatarow}  />
+                <TouchableOpacity onPress={() => props.navigation.navigate("CreateAccountShop")}>
+                    <Image source={ImageIcons.logored_1} style={styles.setlogonewdatarow}  />
+                </TouchableOpacity>
           </View>
           <View style={tw.style('items-center mt-12')}>
               <TouchableOpacity

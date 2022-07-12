@@ -22,8 +22,24 @@ import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper
 import moment from 'moment';
 import Footer2 from '../../screens/auth/Footer2';
 import Sortorder from '../../components/pickers/Sortorder';
-const options = ['Prcoessing', 'Shipped', 'Delivered', 'Cancelled']
-
+const options = [
+      {
+        label: 'Prcoessing',
+        value: 'Prcoessing'
+      },
+      {
+        label: 'Shipped',
+        value: 'Shipped'
+      },
+      {
+        label: 'Delivered',
+        value: 'Delivered'
+      },
+      {
+        label: 'Cancelled',
+        value: 'Cancelled'
+      }
+    ]
 const Order = (props) => {
 
     const {

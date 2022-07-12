@@ -142,7 +142,7 @@ const Cart = (props) => {
             </View>
         </View>
           <View style={tw`mx-4 my-2`}>
-            <Text style={tw`text-sm text-gray-500`}>Aded items</Text>
+            <Text style={tw`text-sm text-gray-500`}>Added Items</Text>
           </View>
 
 

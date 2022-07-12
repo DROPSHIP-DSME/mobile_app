@@ -22,9 +22,6 @@ import { useValidation } from 'react-native-form-validator';
 import * as Progress from 'react-native-progress';
 import CheckBox from '@react-native-community/checkbox';
 import Sortorder from '../../components/pickers/Sortorder';
-//const options = ['Sneakers', 'Fashion', 'Furniture', 'Cloths','Beauty & Hair','Electronics','Cosmetics','Other']
-const options1 = ['Sneakers']
-const options2 = ['New Stock', 'Good', 'Excellent']
 import { CameraIcon } from "react-native-heroicons/solid";
 
 import tw from 'twrnc';
@@ -34,35 +31,57 @@ import { ArrowLeftIcon } from "react-native-heroicons/solid";
 const options = [
       {
         label: 'Sneakers',
-        value: 1
+        value: '61b2e25addb2bd19c2b9532a'
       },
       {
         label: 'Fashion',
-        value: 2
+        value: '61b2e4bfddb2bd19c2b9532f'
       },
       {
         label: 'Furniture',
-        value: 3
+        value: '61b2e63bddb2bd19c2b95335'
       },
       {
         label: 'Cloths',
-        value: 4
+        value: '61b2e882ddb2bd19c2b9533c'
       },
       {
         label: 'Beauty & Hair',
-        value: 5
+        value: '61b2eb67ddb2bd19c2b95346'
       },
       {
         label: 'Electronics',
-        value: 6
+        value: '61b2ec5addb2bd19c2b9534b'
       },
       {
         label: 'Cosmetics',
-        value: 7
+        value: '61b651846a4c8e2f3dacf60a'
       },
       {
         label: 'Other',
-        value: 8
+        value: '61b4aa1539889b2e9971b521'
+      }
+    ]
+
+    const options1 = [
+      {
+        label: 'Sneakers',
+        value: '6295110f3defd98ec12b7f80'
+      }
+    ]
+
+    const options2 = [
+      {
+        label: 'New Stock',
+        value: 'New Stock'
+      },
+      {
+        label: 'Good',
+        value: 'Good'
+      },
+      {
+        label: 'Excellent',
+        value: 'Excellent'
       }
     ]
 
@@ -136,11 +155,11 @@ const Accountproduct = (props) => {
     }
 
     const updateorderStatus1 = (itemValue) => {
-        //setSelectedValue(itemValue)
+        setSelectedValue1(itemValue)
     }
 
     const updateorderStatus2 = (itemValue) => {
-        //setSelectedValue(itemValue)
+        setSelectedValue2(itemValue)
     }
 
      useEffect(() => {

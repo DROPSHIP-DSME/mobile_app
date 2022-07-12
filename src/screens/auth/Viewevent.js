@@ -22,8 +22,24 @@ import { Rating, AirbnbRating } from 'react-native-ratings';
 import Footer3 from '../../screens/auth/Footer3';
 import Shopheader from '../../screens/auth/Shopheader';
 import Sortorder from '../../components/pickers/Sortorder';
- const options = ['JavaScript'];
-
+const options = [
+      {
+        label: 'USA',
+        value: 'USA'
+      },
+      {
+        label: 'India',
+        value: 'India'
+      },
+      {
+        label: 'Ghana',
+        value: 'Ghana'
+      },
+      {
+        label: 'Canada',
+        value: 'Canada'
+      }
+    ]
 import AsyncStorage from '@react-native-community/async-storage'; 
 import moment from 'moment';
 import RnIncrementDecrementBtn  from 

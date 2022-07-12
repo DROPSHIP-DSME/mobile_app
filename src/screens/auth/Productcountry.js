@@ -13,8 +13,24 @@ import DropdownField from '../../components/dropdown/DropDownMenu';
 import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import Sortorder from '../../components/pickers/Sortorder';
-const options = ['USA', 'India', 'Ghana', 'Canada']
-
+const options = [
+      {
+        label: 'USA',
+        value: 'USA'
+      },
+      {
+        label: 'India',
+        value: 'India'
+      },
+      {
+        label: 'Ghana',
+        value: 'Ghana'
+      },
+      {
+        label: 'Canada',
+        value: 'Canada'
+      }
+    ]
 const Productcountry = (props) => {
 
      const deviceHeight = Dimensions.get('window').height;
