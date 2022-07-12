@@ -91,7 +91,7 @@ const CreateStore = (props) => {
     const updateorderStatus = (itemValue) => {
     setSelectedValue(itemValue)
   }
-  
+
      const selectPhoto = async () => {
          ImagePicker.openPicker({
             width: 400,
@@ -193,15 +193,12 @@ const renderItem6 = ({ item }) => {
 
                 <View>
                 { billImgPath !== "" ?
-
-                     <Image source={{ uri: billImgPath.uri }} style={tw`w-16 h-16 mt-8 items-center`}/>
+                    <Image source={{ uri: billImgPath.uri }} style={tw`h-28 w-28 rounded-full mt-10 mb-3`} />
 
                 :
-                <TouchableOpacity style={tw`mt-8 w-28 h-28 rounded-full  items-center justify-center bg-gray-700`} onPress={() => selectPhoto()}>
-
-                  <CameraIcon color="white" fill="white" size={70} />
-
-                </TouchableOpacity>
+                  <TouchableOpacity style={tw`mt-8 w-28 h-28 rounded-full items-center justify-center bg-gray-700`} onPress={() => selectPhoto()}>
+                     <CameraIcon color="white" fill="white" size={70} />
+                  </TouchableOpacity>
                 }
 
                 </View>
@@ -230,15 +227,15 @@ const renderItem6 = ({ item }) => {
                         />
                     </View>
 
-                 
-                  <View style={styles.pickerViewshorttodaybrandtodayy}>
+
+                  <View style={tw`my-2 mx-4`}>
                         <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
-                </View> 
+                  </View>
 
 
 
-                  <View style={tw`my-10`}>
-                   <Largebutton text="Save Your Brand" onPress={() => handleSendRequestSubmit()} />
+                  <View style={tw`my-10 mx-3`}>
+                   <Largebutton text="Save Your Brand" onPress={() => handleSendRequestSubmit()}/>
                   </View>
 
 

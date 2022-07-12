@@ -125,7 +125,7 @@ const Golive = (props) => {
             <View style={styles.devider2} />
         </View>
 
-            <View style={tw`mx-4`}>
+            <View style={tw`mx-5`}>
             <Largebutton
               text="Sign in with Email"
               onPress={() => props.navigation.navigate("RegistrationShop")}

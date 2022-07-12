@@ -13,20 +13,20 @@ const Sortorder = ({text, options, onSelect}) => {
   const [selectedValue, setSelectedValue] = useState("");
 
     return (
-      <View style={tw.style('flex flex-row w-40 justify-between items-center bg-gray-200 rounded-md')}>
+      <View style={tw.style('flex flex-row justify-between items-center bg-gray-200 rounded-md')}>
           <CustomPicker
-            placeholder={'Sort'}
+            placeholder={text}
             options={options}
             onValueChange={value => {
               onSelect(value)
             }}
-            style={tw.style('w-full')}
+            style={{width: '200%'}}
             fieldTemplateProps={{
               containerStyle: {
-                height: 26,
+                height: 40,
                 padding: 2,
                 borderBottomWidth: 0,
-                width: 95
+                width: 300
               },
             }}
             optionTemplateProps={{
@@ -37,11 +37,11 @@ const Sortorder = ({text, options, onSelect}) => {
                 marginLeft: 15
               },
               textStyle: {
-                color: 'black'
+                color: 'black',
               }
             }}
           />
-          <View style={tw.style('mr-3')}>
+          <View style={tw.style('absolute top-5 right-4 justify-center')}>
             <ChevronDownIcon color="black" fill="#000000" size={20} />
           </View>
       </View>

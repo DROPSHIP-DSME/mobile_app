@@ -144,7 +144,7 @@ const options = ['Success', 'Pending', 'Processing', 'Canceled','Delivered']
 
            <View style={tw`mt-2`}>
             <Text style={tw`text-sm w-10/12 ml-3`}>{item.productName}</Text>
-            
+
             <Text style={tw`text-base w-10/12 ml-3`}>${item.productPrice}</Text>
              <View>
                 <Rating
@@ -218,11 +218,12 @@ const options = ['Success', 'Pending', 'Processing', 'Canceled','Delivered']
                </View>
 
               <View style={tw.style('flex flex-row mx-4')}>
-                <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
+              <View style={tw`w-65`}>
+                <Sortorder text="Sort Order" options={options} onSelect={(checked) => updateorderStatus(checked)} />
+              </View>
 
 
-                <Sortfilter
-                  text="Filter"
+                <Sortfilter text="Filter"
                 />
 
               </View>
@@ -232,7 +233,7 @@ const options = ['Success', 'Pending', 'Processing', 'Canceled','Delivered']
                         <Selectall text="Select All" />
                         <Editbutton />
                         <Deletebutton />
-                    </View> 
+                    </View>
                 */}
 
 

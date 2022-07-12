@@ -199,11 +199,9 @@ const RegistrationShop = (props) => {
 
 
           </View>
-
-          <Largebutton
-            text="Login"
-            onPress={() => handleRegistrationSubmit()}
-          />
+          <View style={tw`mx-5`}>
+            <Largebutton text="Login" onPress={() => handleRegistrationSubmit()} />
+          </View>
 
           <Loader isVisible={props?.loginLoader} />
 

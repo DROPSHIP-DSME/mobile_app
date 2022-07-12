@@ -29,6 +29,7 @@ import Smallbutton from '../../components/dropshipbutton/Smallbutton';
 import Largebutton from '../../components/dropshipbutton/Largebutton';
 import Sortorder from '../../components/pickers/Sortorder';
 import Deletebutton from '../../components/pickers/Deletebutton';
+import { DocumentDuplicateIcon } from "react-native-heroicons/solid";
 const options = ['1', '2', '3', '4','5','6','7','8','9']
 
 import {
@@ -284,8 +285,7 @@ return (
               <View style={tw.style('flex flex-row mx-4 my-5')}>
                <TouchableOpacity onPress={() =>setDuration(1200)} style={tw.style('mr-2')}>
                 { Duration==1200 ?
-                  <Smallbutton
-                  text="20 Min" />
+                  <Smallbutton text="20 Min" />
                    :
                     <View  style={tw.style('w-auto items-center px-3 py-2 border border-transparent rounded-md shadow-sm  bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200')}>
                       <Text style={tw.style('text-sm text-gray-700')}>20 MIN</Text>
@@ -295,8 +295,7 @@ return (
 
                  <TouchableOpacity onPress={() =>setDuration(1800)} style={tw.style('mx-2')}>
                 { Duration==1800 ?
-                    <Smallbutton
-                    text="30 Min" />
+                    <Smallbutton text="30 Min" />
                    :
                     <View  style={tw.style('w-auto items-center px-3 py-2 border border-transparent rounded-md shadow-sm  bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200')}>
                       <Text style={tw.style('text-sm text-gray-700')}>30 MIN</Text>
@@ -306,8 +305,7 @@ return (
 
                    <TouchableOpacity onPress={() =>setDuration(2700)} style={tw.style('mx-2')}>
                         { Duration==2700 ?
-                      <Smallbutton
-                      text="45 Min" />
+                      <Smallbutton text="45 Min" />
                    :
                     <View  style={tw.style('w-auto items-center px-3 py-2 border border-transparent rounded-md shadow-sm  bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200')}>
                       <Text style={tw.style('text-sm text-gray-700')}>45 MIN</Text>
@@ -320,23 +318,23 @@ return (
 
 
                  <View style={tw.style('mt-1')}>
-                   <View style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
-                     <Text style={tw.style('text-2xl text-gray-700')}>Products</Text>
-                     <Medbutton
-                     text="Add Product"
-                     onPress={() => props.navigation.navigate("SearchProduct")}
-                     />
+                    <View style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
+                       <Text style={tw.style('text-2xl text-gray-700')}>Products</Text>
+                       <Medbutton
+                       text="Add Product"
+                       onPress={() => props.navigation.navigate("SearchProduct")}
+                       />
 
                     </View>
                     <View style={{marginLeft:'5%'}}>
-                    <FlatList
-                        data={props?.getlistproduct || []}
-                        renderItem={renderItem2}
-                        key={item => item.id}
-                        showsHorizontalScrollIndicator={false}
-                        numColumns={2}
-                        />
-                    </View>
+                      <FlatList
+                          data={props?.getlistproduct || []}
+                          renderItem={renderItem2}
+                          key={item => item.id}
+                          showsHorizontalScrollIndicator={false}
+                          numColumns={2}
+                          />
+                      </View>
                </View>
                <View style={tw.style('flex flex-row mx-4 mt-2 mb-5 items-center')}>
                   <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
@@ -349,7 +347,7 @@ return (
                 <View style={tw.style('mt-10 mb-16 mx-4')}>
                       <Text style={tw.style('text-xl')}>Invite Audience</Text>
                       <TextInput
-                        style={tw.style('h-18 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500')}
+                        style={tw.style('h-18 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white')}
                         placeholder=""
                         placeholderTextColor="#4d4d4d"
                         value={livedetailId}
@@ -359,7 +357,7 @@ return (
                       />
                       <View style={tw.style('absolute flex flex-end mt-6 right-5 top-8')}>
                         <TouchableOpacity onPress={() =>  openshare() } >
-                            <Image source={ImageIcons.copytoday} style={{height:21,width:21}} />
+                            <DocumentDuplicateIcon color="red" fill="gray" size={24} />
                         </TouchableOpacity>
                     </View>
               </View>
@@ -394,7 +392,7 @@ return (
                           </TouchableOpacity>
                         </View>
                   :
-                    <View style={tw`mx-3`}>
+                    <View style={tw`mx-4`}>
                        <Largebutton
                        text="Start Livesteam"
                        onPress={() => startlivebtn()}
