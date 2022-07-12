@@ -19,6 +19,7 @@ import PasswordInputText from '../../components/react-native-hide-show-password-
 import tw from 'twrnc';
 import Largebutton from '../../components/dropshipbutton/Largebutton';
 
+
 const CreateAccountShop = (props) => {
 
     const {
@@ -147,9 +148,9 @@ const CreateAccountShop = (props) => {
                     />
                 </View>
 
-                <View style={tw.style('mt-4')}>
+                <View style={tw.style('mx-5 mt-4 border-gray-300 bg-gray-200 rounded-lg')}>
                     <PasswordInputText
-                      style={tw.style('mx-5 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg')}
+                      style={tw.style('pl-3 sm:text-sm')}
                       placeholderTextColor="#000000"
                       onChangeText={onChangeText2}
                       value={password}
@@ -157,7 +158,6 @@ const CreateAccountShop = (props) => {
                       secureTextEntry={true}
                       onSubmitEditing={() => handleRegistrationSubmit()}
                     />
-
                 </View>
 
                 <View style={tw.style('mt-4')}>

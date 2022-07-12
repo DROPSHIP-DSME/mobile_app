@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { View, StyleSheet,TextInput } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
+import { EyeIcon } from "react-native-heroicons/solid";
 import { BeakerIcon } from '@heroicons/react/solid'
 import PropTypes from "prop-types";
 import { TextField } from "react-native-material-textfield";
+import tw from 'twrnc';
 
 const PasswordInputText = ({
   iconSize,
@@ -34,15 +36,12 @@ const PasswordInputText = ({
         secureTextEntry={isPassword}
         style={{color:'#4D4D4D'}}
       />
-      <Icon
-        style={styles.icon}
-        name={eyeIcon}
-        // size={iconSize}
-        color={iconColor}
-        onPress={changePwdType}
-      />
+      <View style={tw`absolute top-3 right-3`}>
+        <EyeIcon color="red" fill="black" size={24} />
+      </View>
 
     </View>
+
   );
 };
 
