@@ -237,7 +237,7 @@ const Dashaccount = (props) => {
                   <Text style={tw`text-xs font-medium text-indigo-700`}>DEFAULT BANK ACCOUNT</Text>
                 </TouchableOpacity>
                 <View style={tw`flex flex-row`}>
-                  <Editbutton />
+                  <Editbutton navigation={props.navigation} page='Dashaccount' />
                   <Deletebutton />
                 </View>
               </View>

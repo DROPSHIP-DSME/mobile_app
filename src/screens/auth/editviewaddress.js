@@ -20,8 +20,24 @@ import AwesomeAlert from 'react-native-awesome-alerts';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import Shopheader from '../../screens/auth/Shopheader';
 import Sortorder from '../../components/pickers/Sortorder';
-const options = ['USA', 'India', 'Ghana', 'Canada']
-
+const options = [
+      {
+        label: 'USA',
+        value: 'USA'
+      },
+      {
+        label: 'India',
+        value: 'India'
+      },
+      {
+        label: 'Ghana',
+        value: 'Ghana'
+      },
+      {
+        label: 'Canada',
+        value: 'Canada'
+      }
+    ]
 import tw from 'twrnc';
 import Largebutton from '../../components/dropshipbutton/Largebutton';
 

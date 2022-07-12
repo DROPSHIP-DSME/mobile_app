@@ -22,15 +22,68 @@ import { useValidation } from 'react-native-form-validator';
 import * as Progress from 'react-native-progress';
 import CheckBox from '@react-native-community/checkbox';
 import Sortorder from '../../components/pickers/Sortorder';
-const options = ['Sneakers', 'Fashion', 'Furniture', 'Cloths','Beauty & Hair','Electronics','Cosmetics','Other']
-const options1 = ['Sneakers']
-const options2 = ['New Stock', 'Good', 'Excellent']
+import { CameraIcon } from "react-native-heroicons/solid";
 
 import tw from 'twrnc';
 import Largebutton from '../../components/dropshipbutton/Largebutton';
 import { ArrowLeftIcon } from "react-native-heroicons/solid";
-import { CameraIcon } from "react-native-heroicons/solid";
 
+const options = [
+      {
+        label: 'Sneakers',
+        value: '61b2e25addb2bd19c2b9532a'
+      },
+      {
+        label: 'Fashion',
+        value: '61b2e4bfddb2bd19c2b9532f'
+      },
+      {
+        label: 'Furniture',
+        value: '61b2e63bddb2bd19c2b95335'
+      },
+      {
+        label: 'Cloths',
+        value: '61b2e882ddb2bd19c2b9533c'
+      },
+      {
+        label: 'Beauty & Hair',
+        value: '61b2eb67ddb2bd19c2b95346'
+      },
+      {
+        label: 'Electronics',
+        value: '61b2ec5addb2bd19c2b9534b'
+      },
+      {
+        label: 'Cosmetics',
+        value: '61b651846a4c8e2f3dacf60a'
+      },
+      {
+        label: 'Other',
+        value: '61b4aa1539889b2e9971b521'
+      }
+    ]
+
+    const options1 = [
+      {
+        label: 'Sneakers',
+        value: '6295110f3defd98ec12b7f80'
+      }
+    ]
+
+    const options2 = [
+      {
+        label: 'New Stock',
+        value: 'New Stock'
+      },
+      {
+        label: 'Good',
+        value: 'Good'
+      },
+      {
+        label: 'Excellent',
+        value: 'Excellent'
+      }
+    ]
 
 const Accountproduct = (props) => {
     const {
@@ -96,6 +149,18 @@ const Accountproduct = (props) => {
      const selectcolor = async (color) => {
         onThemecolor(color);
      }
+
+    const updateorderStatus = (itemValue) => {
+        setSelectedValue(itemValue)
+    }
+
+    const updateorderStatus1 = (itemValue) => {
+        setSelectedValue1(itemValue)
+    }
+
+    const updateorderStatus2 = (itemValue) => {
+        setSelectedValue2(itemValue)
+    }
 
      useEffect(() => {
          getBrandUserId();
@@ -268,6 +333,7 @@ const renderItem6 = ({ item }) => {
                  <View style={tw`flex flex-row justify-between mt-4 mb-5 mx-3 items-center`}>
                     <Progress.Bar progress={1.5} width={150} style={tw`absolute top-6`} color='#B80000' height={1} />
                     <TouchableOpacity>
+
                         <View style={tw`items-center justify-center h-14 w-14 rounded-full bg-red-700`}>
                           <Text style={tw`text-white text-sm text-center`} >1</Text>
                         </View>
@@ -295,6 +361,7 @@ const renderItem6 = ({ item }) => {
                 <Text style={tw`text-base text-gray-700 text-center mx-3`}>To add goods to your store for distribution, you need to create a brand first. Add details about your brand. </Text>
                  </View>
 
+
             <View style={tw`flex flex-row mx-2 mt-15`}>
                 <TouchableOpacity onPress={()=>selectPhoto1()} style={tw.style('h-36 bg-gray-600 border-3 rounded-lg justify-center', {width:deviceWidth/2.2})}>
                   <View style={tw`items-center`}>
@@ -307,20 +374,20 @@ const renderItem6 = ({ item }) => {
 
                  <View style={tw`ml-5 w-auto`}>
                   <View style={tw`flex flex-row`}>
-                   <View style={tw`h-16 w-16 border-3 bg-gray-700 rounded-lg p-5 items-center`}>
+                   <View style={tw`h-16 w-16 border-3 bg-gray-700 rounded-lg items-center`}>
                     { billImgPath1 !== "" &&
-                         <CameraIcon color="white" fill="white" size={28} />
+                         <Image source={{ uri: billImgPath1.uri }} style={{height:64, width:64,borderRadius:5}} />
                     }
                     </View>
-                    <View style={tw`h-16 w-16 border-3 bg-gray-700 rounded-lg p-5 ml-3`}>
+                    <View style={tw`h-16 w-16 border-3 bg-gray-700 rounded-lg ml-3`}>
                       { billImgPath2 !== "" &&
-                        <CameraIcon color="white" fill="white" size={28} />
+                        <Image source={{ uri: billImgPath2.uri }} style={{height:64, width:64,borderRadius:5}} />
                     }
                     </View>
                   </View>
-                    <View style={tw`h-16 w-16 border-3 bg-gray-700 rounded-lg p-5 mt-3`}>
+                    <View style={tw`h-16 w-16 border-3 bg-gray-700 rounded-lg mt-3`}>
                       { billImgPath3 !== "" &&
-                        <CameraIcon color="white" fill="white" size={28} />
+                       <Image source={{ uri: billImgPath3.uri }} style={{height:64, width:64,borderRadius:5}} />
                     }
                     </View>
 
@@ -355,15 +422,15 @@ const renderItem6 = ({ item }) => {
                  </View>
 
                  <View style={tw`mx-3 mt-5`}>
-                      <Sortorder text="Choose a Category" options={options} />
+                      <Sortorder text="Choose a Category" options={options} onSelect={(checked) => updateorderStatus(checked)}  />
                  </View>
 
                  <View style={tw`mx-3 mt-5`}>
-                        <Sortorder text="Brand" options={options1} />
+                        <Sortorder text="Brand" options={options1}  onSelect={(checked) => updateorderStatus1(checked)} />
                  </View>
 
                  <View style={tw`mx-3 mt-5`}>
-                    <Sortorder text="Product Condition" options={options2} />
+                    <Sortorder text="Product Condition" options={options2} onSelect={(checked) => updateorderStatus2(checked)} />
                 </View>
 
 

@@ -31,7 +31,7 @@ import { useFocusEffect } from '@react-navigation/native';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import { Provider , Portal,} from 'react-native-paper';
 import Modal from 'react-native-modal'
-const options = ['1', '2', '3', '4','5','6','7','8','9']
+const options = [ { label: '1', value: '1' }, { label: '2', value: '2' }, { label: '3', value: '3' }, { label: '4', value: '4' },{ label: '5', value: '5' },{ label: '6', value: '6' },{ label: '7', value: '7' },{ label: '8', value: '8' },{ label: '9', value: '9' } ]
 
 import {
   LineChart,
@@ -48,7 +48,25 @@ const Dashproduct = (props) => {
      const deviceHeight = Dimensions.get('window').height;
 const deviceWidth = Dimensions.get('window').width;
 
-const options = ['Success', 'Pending', 'Processing', 'Canceled','Delivered']
+const options1 = [
+      {
+        label: 'Prcoessing',
+        value: 'Prcoessing'
+      },
+      {
+        label: 'Shipped',
+        value: 'Shipped'
+      },
+      {
+        label: 'Delivered',
+        value: 'Delivered'
+      },
+      {
+        label: 'Cancelled',
+        value: 'Cancelled'
+      }
+    ]
+
     const {
         navigation,
         values,
@@ -230,7 +248,7 @@ const options = ['Success', 'Pending', 'Processing', 'Canceled','Delivered']
                 {/*
                     <View style={tw.style('flex flex-row m-4 ')}>
                         <Selectall text="Select All" />
-                        <Editbutton />
+                        <Editbutton navigation={props.navigation} page='Dashproduct' />
                         <Deletebutton />
                     </View>
                 */}

@@ -219,8 +219,7 @@ const Account = (props) => {
                         <View>
                             <Text style={tw`flex flex-row font-bold text-xl text-gray-900`}>My Profile</Text>
                         </View>
-                        <Editbutton
-                          onPress={() => props.navigation.navigate("editprofile")} />
+                            <Editbutton navigation={props.navigation} page='editprofile'  />
                     </View>
 
                     <View style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
@@ -268,8 +267,7 @@ const Account = (props) => {
                           <View>
                               <Text style={tw`text-xl font-bold text-gray-900`}>My Address</Text>
                           </View>
-                          <Editbutton
-                            onPress={() => props.navigation.navigate("editaddress")} />
+                          <Editbutton navigation={props.navigation} page='editaddress' />
                       </View>
 
                       <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>

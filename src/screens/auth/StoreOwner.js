@@ -19,8 +19,24 @@ import { v4 as uuid } from "uuid";
 import BraintreeDropIn from 'react-native-braintree-dropin-ui';
 import Footer3 from '../../screens/auth/Footer3';
 import Sortorder from '../../components/pickers/Sortorder';
- const options = ['USA', 'India', 'Ghana', 'Canada']
-
+const options = [
+      {
+        label: 'USA',
+        value: 'USA'
+      },
+      {
+        label: 'India',
+        value: 'India'
+      },
+      {
+        label: 'Ghana',
+        value: 'Ghana'
+      },
+      {
+        label: 'Canada',
+        value: 'Canada'
+      }
+    ]
 
 const StoreOwner = (props) => {
 

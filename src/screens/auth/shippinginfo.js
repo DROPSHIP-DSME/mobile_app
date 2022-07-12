@@ -22,8 +22,24 @@ import Footer3 from '../../screens/auth/Footer3';
 import { useValidation } from 'react-native-form-validator';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Sortorder from '../../components/pickers/Sortorder';
- const options = ['USA', 'India', 'Ghana', 'Canada']
-
+const options = [
+      {
+        label: 'USA',
+        value: 'USA'
+      },
+      {
+        label: 'India',
+        value: 'India'
+      },
+      {
+        label: 'Ghana',
+        value: 'Ghana'
+      },
+      {
+        label: 'Canada',
+        value: 'Canada'
+      }
+    ]
 
 const shippinginfo = (props) => {
 

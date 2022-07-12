@@ -128,7 +128,7 @@ const deviceWidth = Dimensions.get('window').width;
 
                     <View style={tw.style('flex flex-row justify-between px-4')}>
                         <Text style={tw.style('text-2xl font-bold text-gray-700')}>Brand Profile</Text>
-                         <Editbutton />
+                         <Editbutton navigation={props.navigation} page='Dashsetting' />
                     </View>
 
                     <View style={tw.style('flex flex-row justify-between py-4 px-4')}>

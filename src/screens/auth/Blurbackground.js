@@ -22,9 +22,25 @@ import ModalSelector from 'react-native-modal-selector';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import SwitchToggle from "react-native-switch-toggle";
 import Sortorder from '../../components/pickers/Sortorder';
-const options = ['1', '2', '3', '4','5','6','7','8','9']
-const options1 = ['English', 'French', 'Spanish', 'Hindi','African','chinese','Japanese','Italian']
-const options2 = ['Black', 'White', 'Red', 'Pink','Yellow','Green','Other']
+const options = [ { label: '1', value: '1' }, { label: '2', value: '2' }, { label: '3', value: '3' }, { label: '4', value: '4' },{ label: '5', value: '5' },{ label: '6', value: '6' },{ label: '7', value: '7' },{ label: '8', value: '8' },{ label: '9', value: '9' } ]
+const options1 = [
+      {label: 'English', value: 'English' },
+      { label: 'French',value: 'French' },
+      { label: 'Spanish',value: 'Spanish'},
+      { label: 'Italian', value: 'Italian' },
+      { label: 'African', value: 'African' },
+      { label: 'chinese', value: 'chinese' },
+      { label: 'Japanese', value: 'Japanese' }
+    ]
+const options2 = [
+      {label: 'Black', value: 'Black' },
+      { label: 'White',value: 'White' },
+      { label: 'Red',value: 'Red'},
+      { label: 'Pink', value: 'Pink' },
+      { label: 'Yellow', value: 'Yellow' },
+      { label: 'Green', value: 'Green' },
+      { label: 'Other', value: 'Other' }
+    ]
 // const {RtcTokenBuilder, RtmTokenBuilder, RtcRole, RtmRole} = require('agora-access-token')
 
 // const currentTimestamp = Math.floor(Date.now() / 1000)
