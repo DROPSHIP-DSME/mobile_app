@@ -24,6 +24,7 @@ import { GoogleSignin } from '@react-native-google-signin/google-signin';
 //import { LoginManager } from "react-native-fbsdk-next";
 import tw from 'twrnc';
 import Largebutton from '../../components/dropshipbutton/Largebutton';
+import { EyeIcon } from "react-native-heroicons/solid";
 
 
 const RegistrationShop = (props) => {
@@ -175,9 +176,9 @@ const RegistrationShop = (props) => {
                   }
               </View>
 
-              <View style={tw.style('mx-1 mt-3 mb-1 flex rounded-md items-center')} >
+              <View style={tw.style('mx-1 mt-3 mb-1 flex rounded-md items-center rounded-lg')} >
                   <TextInput
-                      style={tw.style('w-11/12 rounded-lg sm:text-sm bg-zinc-200 text-gray- 700 border-gray-300 pl-3')}
+                      style={tw.style('w-11/12 sm:text-sm bg-zinc-200 text-gray- 700 border-gray-300 pl-3')}
                       placeholder="Password"
                       placeholderTextColor="#000000"
                       onChangeText={onChangeText2}
@@ -185,6 +186,9 @@ const RegistrationShop = (props) => {
                       secureTextEntry={true}
                       onSubmitEditing={() => handleRegistrationSubmit()}
                   />
+                  <View style={tw`absolute top-3 right-8`}>
+                    <EyeIcon color="red" fill="black" size={24} />
+                  </View>
                   {isFieldInError('password') &&
                       <Text style={tw.style('text-red-700 mx-8 my-2')}>must be required field</Text>
                   }
@@ -192,7 +196,7 @@ const RegistrationShop = (props) => {
               <View style={tw.style('mt-2 flex flex-row ml-3 mb-4')}>
                   <CheckBox
                       onCheckColor='#b80000'
-                      value={false}
+                      value={true}
                   />
                   <Text style={tw.style('mt-1 text-base')}>Remember me</Text>
               </View>
