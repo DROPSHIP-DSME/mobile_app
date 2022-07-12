@@ -194,7 +194,7 @@ const renderItem6 = ({ item }) => {
                 <View>
                 { billImgPath !== "" ?
 
-                  <CameraIcon color="red" fill="White" size={70} />
+                     <Image source={{ uri: billImgPath.uri }} style={tw`w-16 h-16 mt-8 items-center`}/>
 
                 :
                 <TouchableOpacity style={tw`mt-8 w-28 h-28 rounded-full  items-center justify-center bg-gray-700`} onPress={() => selectPhoto()}>

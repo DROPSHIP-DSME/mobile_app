@@ -25,6 +25,7 @@ import Sortorder from '../../components/pickers/Sortorder';
 const options = ['Sneakers', 'Fashion', 'Furniture', 'Cloths','Beauty & Hair','Electronics','Cosmetics','Other']
 const options1 = ['Sneakers']
 const options2 = ['New Stock', 'Good', 'Excellent']
+import { CameraIcon } from "react-native-heroicons/solid";
 
 import tw from 'twrnc';
 import Largebutton from '../../components/dropshipbutton/Largebutton';
@@ -272,15 +273,15 @@ const renderItem6 = ({ item }) => {
                  <View style={tw`flex flex-row justify-between mt-4 mb-10`}>
                     <Progress.Bar progress={1.5} width={150} style={tw`absolute top-6`} color='#B80000' height={1} />
                     <TouchableOpacity>
-                        <Text style={tw`rounded-full bg-red-700 text-white w-7 text-sm items-center pt-3 pb-3`} >1</Text>
+                        <Text style={tw`rounded-full bg-red-700 text-white w-10 text-sm text-center pt-3 pb-3`} >1</Text>
                     </TouchableOpacity>
                     <Progress.Bar progress={1} width={150} style={tw`absolute top-6 right-1`} color='grey' height={1} />
                     <TouchableOpacity>
-                        <Text style={tw`rounded-full bg-red-700 text-white w-7 text-sm text-center pt-3 pb-3`} >2</Text>
+                        <Text style={tw`rounded-full bg-red-700 text-white w-10 text-sm text-center pt-3 pb-3`} >2</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity>
-                        <Text style={tw`rounded-full bg-gray-900 text-white w-7 text-sm text-center pt-3 pb-3`} >3</Text>
+                        <Text style={tw`rounded-full bg-gray-900 text-white w-10 text-sm text-center pt-3 pb-3`} >3</Text>
                     </TouchableOpacity>
                 </View>
 
@@ -294,12 +295,13 @@ const renderItem6 = ({ item }) => {
                  </View>
 
             <View style={tw`flex flex-row justify-between mx-2 mt-5`}>
-                <TouchableOpacity onPress={()=>selectPhoto1()} style={tw.style('flex h-14 bg-gray-600 border-3 flex-initial', {width:deviceWidth/2.2})}>
-                <View style={tw`mt-8`}>
-                 <Image source={ImageIcons.whitevideo} style={tw`w-7 h-7 items-center`}/>
-                   <Text style={tw`text-center w-32 ml-5 text-gray-200`}>Add a image or video of your product</Text>
-                   </View>
+                <TouchableOpacity style={tw`mt-8 w-28 h-28 rounded-full  items-center justify-center bg-gray-700`} onPress={() => selectPhoto1()}>
+
+                  <CameraIcon color="white" fill="white" size={70} />
+
                 </TouchableOpacity>
+
+                
 
                  <View style={{}}>
                    <Text style={tw`text-gray-600 text-base`}>Add more images</Text>
