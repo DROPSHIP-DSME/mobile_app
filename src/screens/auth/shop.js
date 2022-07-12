@@ -150,7 +150,7 @@ const shop = (props) => {
         );
     }
 
-   
+
 
     const data = [{ text: "ALL" }, { text: "CLOTHING & SHOES" }, { text: "FURNITURE" }, { text: "BEAUTY & HAIR" }, { text: "ELECTRONICS" }]
 
@@ -172,7 +172,7 @@ const shop = (props) => {
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={tw.style('flex-1 justify-center')}>
-            
+
 
             <ScrollView onScroll={({ nativeEvent }) => {
                 handleScroll(nativeEvent['contentOffset'].y);
@@ -180,11 +180,11 @@ const shop = (props) => {
                 <View style={tw.style('mx-3 mt-9')}>
                     <Text style={tw.style('text-3xl text-gray-700 font-bold')}>Shop</Text>
                 </View>
-               
+
 
                 <View style={tw.style('flex flex-row mx-4 mt-4')}>
 
-                    <Sortorder  options={options}  onSelect={(checked) => updateorderStatus(checked)}  />
+                    <Sortorder text="Sort Order" options={options}  onSelect={(checked) => updateorderStatus(checked)}  />
 
                     <Sortfilter
                       text="Filter"

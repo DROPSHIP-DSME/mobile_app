@@ -261,7 +261,7 @@ const Login = (props) => {
               resizeMode={"cover"}
               style={styles.backgroundVideo}
             />
-            <View style={tw.style('items-center')}>
+            <View style={tw.style('items-center mt-10')}>
               <Image source={ImageIcons.logoredagain} style={{ width: 145, height: 117 }} />
             </View>
             <View style={tw.style('mt-20 items-center mx-4')}>

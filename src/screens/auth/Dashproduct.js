@@ -219,12 +219,11 @@ const options = ['Success', 'Pending', 'Processing', 'Canceled','Delivered']
 
               <View style={tw.style('flex flex-row mx-4')}>
               <View style={tw`w-65`}>
-                <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
+                <Sortorder text="Sort Order" options={options} onSelect={(checked) => updateorderStatus(checked)} />
               </View>
 
 
-                <Sortfilter
-                  text="Filter"
+                <Sortfilter text="Filter"
                 />
 
               </View>

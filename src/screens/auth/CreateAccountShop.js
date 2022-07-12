@@ -179,11 +179,12 @@ const CreateAccountShop = (props) => {
                  />
                     <Text style={tw.style('text-sm text-gray-700 mt-2 w-10/11')}>I agree to the <Text style={tw.style('text-sm text-red-700 mt-2')}>Terms & Conditions</Text> and have read the <Text style={tw.style('text-sm text-red-700 mt-2')}>Privacy Policy</Text></Text>
                 </View>
-
+                <View style={tw`mx-5`}>
                 <Largebutton
                   text="Create an account"
                   onPress={() => handleRegistrationSubmit()}
                 />
+                </View>
 
                 <View style={tw.style('flex flex-row justify-center mt-3')}>
                     <Text style={tw.style('text-base text-gray-700 tracking-wide')}>Already have an account yet?</Text>

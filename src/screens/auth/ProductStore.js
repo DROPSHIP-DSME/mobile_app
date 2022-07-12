@@ -23,6 +23,7 @@ import { RadioButton, Provider, Modal, Portal, Button, } from 'react-native-pape
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import Footer3 from '../../screens/auth/Footer3';
 import Shopheader from '../../screens/auth/Shopheader';
+import tw from 'twrnc';
 
 const ProductStore = (props) => {
 
@@ -149,7 +150,7 @@ const ProductStore = (props) => {
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={styles.registrationRoot}>
-            
+
 
             <View style={{ flex: 1, paddingTop: '5%', backgroundColor: '#ffffff' }}>
                 <View style={{ flexDirection: 'row', marginTop: '2%' }}>

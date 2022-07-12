@@ -24,6 +24,9 @@ import CheckBox from '@react-native-community/checkbox';
 import AsyncStorage from '@react-native-community/async-storage';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import tw from 'twrnc';
+import Largebutton from '../../components/dropshipbutton/Largebutton';
+import Deletebutton from '../../components/pickers/Deletebutton';
+import Heartbutton from '../../components/pickers/Heartbutton';
 
 
 const Cart = (props) => {
@@ -64,7 +67,7 @@ const Cart = (props) => {
 
     const setdeletedata = async (cartId) => {
         setisVisible(true);
-        props.deletedata(cartId,props.navigation); 
+        props.deletedata(cartId,props.navigation);
         props.cartdata(props?.loginuserid);
         setTimeout(function(){ setisVisible(false); },3000);
      }
@@ -81,22 +84,20 @@ const Cart = (props) => {
 
     const renderItem = ({ item, index }) => {
         return (
-    <View>
-       <View style={styles.Viewcart} >
-            <View style={{flexDirection: 'row',justifyContent:'space-between'}}>
-                <CheckBox
-                checkedColor='red'
-                value={true}
-                disabled={false}
-                />
-            <View>
-                <Text style={styles.clothingbrandtext}>{item.productId?.productName}</Text>
 
-                <View style={{flexDirection: 'row',}}>
-                    <Text style={styles.beautytext}>${item.productId?.productPrice}</Text>
-                    <Text style={styles.beautycarttext}>In stock</Text>
+       <View style={tw`flex flex-row my-3 mx-5 pt-3 pb-5 border-b-2 border-gray-200`} >
+            <View style={tw`bg-gray-200 mr-4`}>
+                <Image source={{uri:item.productId?.productImage}}  style={tw`w-30 h-45 rounded-lg`} />
+            </View>
+            <View>
+                <Text style={tw`text-base text-gray-700`}>{item.productId?.productName}</Text>
+
+                <View style={tw`flex-row`}>
+
                 </View>
-                <View  style={{flexDirection: 'row',marginVertical:'4%',}} >
+
+                <Text style={tw`text-base font-bold mt-3`}>Quantity</Text>
+                <View  style={tw`flex-row`} >
                     <View>
                         <RnIncrementDecrementBtn
                         minVal={1}
@@ -109,19 +110,20 @@ const Cart = (props) => {
                         handleClick={(val)=> setIncrement(val,item._id)}
                         />
                     </View>
-                    <TouchableOpacity onPress={() =>setdeletedata(item._id)}>
-                        <Image source={ImageIcons.deleticon}  style={styles.crt10} />
-                    </TouchableOpacity>
+                </View>
+                <View style={tw`flex-row mt-4 -ml-2 mr-8 items-center`}>
+                    <View style={tw`w-8/12 flex-row`}>
+                      <Deletebutton onPress={() =>setdeletedata(item._id)} />
+                      <Heartbutton onPress={() =>setdeletedata(item._id)} />
+                    </View>
+                    <View style={tw`flex-row`}>
+                      <Text style={tw`text-sm`}>Total </Text>
+                      <Text style={tw`text-sm font-bold`}>${item.productId?.productPrice}</Text>
+                    </View>
                 </View>
             </View>
-            </View>
-                <View>
-                    <Image source={{uri:item.productId?.productImage}}  style={styles.sucessimage} />
-                </View>
-        </View>
+      </View>
 
-
-    </View>
         )
     }
 
@@ -136,20 +138,20 @@ const Cart = (props) => {
         <View style={tw`pt-1`}>
           <View style={tw`flex flex-row justify-between mt-4 mx-4`} >
             <View style={tw`self-center`}>
-                <Text style={tw`text-3xl text-red-700 font-bold`}>Cart</Text>
+                <Text style={tw`text-3xl text-gray-700 font-bold`}>Shopping Bag</Text>
             </View>
         </View>
           <View style={tw`mx-4 my-2`}>
             <Text style={tw`text-sm text-gray-500`}>Aded items</Text>
           </View>
 
-           
+
            <Modal
-            isVisible={isVisible}
-            animationIn='fadeIn'
-            animationOut='fadeOut'
-            style={{ justifyContent: 'center', alignItems: 'center',padding:0,margin:0 }}
-        >
+              isVisible={isVisible}
+              animationIn='fadeIn'
+              animationOut='fadeOut'
+              style={{ justifyContent: 'center', alignItems: 'center',padding:0,margin:0 }}
+            >
             <ActivityIndicator size="large" color={Colors.WHITE} />
             </Modal>
           <View>
@@ -161,9 +163,10 @@ const Cart = (props) => {
 
           </View>
         { props?.cartlistdata1?.length>0 ?
-            <TouchableOpacity style={{ backgroundColor:"#E22020",marginHorizontal:'6%',borderRadius:30,marginBottom:'18%',marginTop:'10%' }} onPress={() => { checklogin() }}>
-                <Text style={styles.crt21}>Check Out</Text>
-            </TouchableOpacity>
+            <View style={tw`my-5 mx-4`}>
+              <Largebutton text="Check out" onPress={() => { checklogin() }} />
+            </View>
+
         :
           <Text style={tw`text-lg pt-20 text-center`}>No Items added in cart yet</Text>
         }

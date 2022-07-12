@@ -23,6 +23,10 @@ import Share from 'react-native-share';
 import * as Progress from 'react-native-progress';
 import RnIncrementDecrementBtn from
   'react-native-increment-decrement-button';
+import { PlayIcon } from "react-native-heroicons/solid";
+import { ShareIcon } from "react-native-heroicons/solid";
+import { CameraIcon } from "react-native-heroicons/solid";
+import Medbutton from '../../components/dropshipbutton/Medbutton';
 
 
 const NameStore = (props) => {
@@ -57,7 +61,7 @@ const NameStore = (props) => {
   const [reportpopup, setreportpopup] = React.useState(false);
   const [fav, setfav] = React.useState(false);
   const [incCount, setincCount] = useState(1);
-  
+
 
   useEffect(() => {
     props.getAllproductdetails(productId);
@@ -214,36 +218,54 @@ const NameStore = (props) => {
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={tw.style('flex-1 justify-center')}>
-      
+
 
       <ScrollView onScroll={({ nativeEvent }) => {
         handleScroll(nativeEvent['contentOffset'].y);
       }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={tw.style('bg-white')} >
 
-        <View style={tw.style('mx-[3%]')}>
+        <View style={tw.style('mx-5 mb-10')}>
           <TouchableOpacity onPress={() => props.navigation.navigate("shop")}>
-            <View style={tw.style('flex flex-row mt-[10%]')}>
+            <View style={tw.style('flex flex-row mt-5 items-center')}>
               <Image source={ImageIcons.backpopup} style={tw.style('w-2.5 h-[17px]')} />
-              <View style={tw.style('border-b-[3px] w-10 ml-[-2%] mb-[3%]')}></View>
-              <Text style={tw.style('text-sm font-bold pl-[5px]')}>GO BACK</Text>
+              <Text style={tw.style('text-sm font-bold ml-3')}>GO2 BACK</Text>
             </View>
           </TouchableOpacity>
         </View>
         <View>
 
+        <View style={tw`mx-4 mt-3 bg-gray-200 h-70 rounded-lg justify-center items-center`}>
+          <Image source={{ uri: props?.getlistproductdetails?.data?.productImage }} style={tw.style('w-full', { width: deviceWidth / 1.1 })} />
+          <View style={tw.style('absolute')}>
+            <PlayIcon color="red" fill="gray" size={96} />
+          </View>
+        </View>
+
           {props?.getlistproductdetails?.ProductImages?.length > 0 ?
-            <View style={tw.style('mx-[4%] mt-[5%]')}>
-              <Image source={{ uri: props?.getlistproductdetails?.data?.productImage }} style={{ width: deviceWidth / 1.1, height: 365, borderRadius: 10 }} />
+            <View style={tw`mx-4 mt-10 justify-center items-center`}>
+              <Image source={{ uri: props?.getlistproductdetails?.data?.productImage }} style={tw.style('w-full bg-gray-200 h-64 rounded-lb', { width: deviceWidth / 1.1 })} />
               <View style={tw.style('absolute m-[40%]')}>
                 <Image source={ImageIcons.playicon} style={tw.style('absolute m-[40%]')} />
               </View>
             </View>
             :
-            <View style={tw.style('flex flex-row mx-[4%] mt-[5%]')}>
-              <View style={tw.style('mx-[2%]')}>
+            <View style={tw.style('flex flex-row mx-4 mt-2')}>
+              <View style={tw.style('mr-1 justify-center items-center')}>
                 <Image source={{ uri: props?.getlistproductdetails?.data?.productImage }} style={tw.style('w-[70px] h-[70px] rounded-[10px]')} />
-                <View style={tw.style('absolute m-[40%]')}>
-                  <Image source={ImageIcons.camera} style={tw.style('w-[15px] h-2.5')} />
+                <View style={tw.style('absolute')}>
+                  <CameraIcon color="red" fill="black" size={28} />
+                </View>
+              </View>
+              <View style={tw.style('mr-1 justify-center items-center')}>
+                <Image source={{ uri: props?.getlistproductdetails?.data?.productImage }} style={tw.style('w-[70px] h-[70px] rounded-[10px]')} />
+                <View style={tw.style('absolute')}>
+                  <CameraIcon color="red" fill="black" size={28} />
+                </View>
+              </View>
+              <View style={tw.style('mr-1 justify-center items-center')}>
+                <Image source={{ uri: props?.getlistproductdetails?.data?.productImage }} style={tw.style('w-[70px] h-[70px] rounded-[10px]')} />
+                <View style={tw.style('absolute')}>
+                  <CameraIcon color="red" fill="black" size={28} />
                 </View>
               </View>
 
@@ -251,37 +273,41 @@ const NameStore = (props) => {
           }
         </View>
 
-        <View style={tw.style('flex flex-row mx-[3%] justify-between mt-[1%]')}>
-          <Text style={tw.style('text-lg font-bold text-[#1A1A1A] py-[1%]')}>{props?.getlistproductdetails?.data?.productName}</Text>
-          <TouchableOpacity style={tw.style('mr-[3px]')} onPress={() =>  openshare() }>
-            <Image source={ImageIcons.shareshop} style={tw.style('w-[45px] h-[40px]')} />
+        <View style={tw.style('flex flex-row mx-5 justify-between mt-2 items-center')}>
+          <View>
+            <Text style={tw.style('text-lg text-gray-600')}>{props?.getlistproductdetails?.data?.productName}</Text>
+            <Text style={tw.style('text-2xl font-bold text-gray-600')}>${props?.getlistproductdetails?.data?.productPrice}</Text>
+          </View>
+          <TouchableOpacity style={tw.style('h-10 w-10 justify-center bg-gray-200 rounded-lg')} onPress={() =>  openshare() }>
+           <View style={tw`items-center`}>
+            <ShareIcon color="red" fill="gray" size={24} />
+           </View>
           </TouchableOpacity>
         </View>
-        <View style={tw.style('flex flex-row justify-between mt-[3%] mr-[20%] mt-[1%] mx-[3%]')}>
-          <Text style={tw.style('text-2xl text-[#1A1A1A] font-bold')}>${props?.getlistproductdetails?.data?.productPrice}</Text>
-        </View>
 
-        <View style={tw.style('border-b mt-[4%] mx-[3%] border-[#B6B6B6]')}></View>
-        <View style={tw.style('flex flex-row mt-[4%] mx-[3%]')}>
-          <View style={tw.style('mt-[3%]')}>
-            <Image source={{ uri: props?.getlistproductdetails?.getbrands?.brandImage }} style={tw.style('w-[50px] h-[50px] rounded-[40px]')} />
+
+
+        <View style={tw.style('flex flex-row mt-3 mx-3')}>
+          <View style={tw.style('mt-3')}>
+            <Image source={{ uri: props?.getlistproductdetails?.getbrands?.brandImage }} style={tw.style('w-14 h-14 rounded-full bg-gray-500')} />
           </View>
 
           <View style={tw.style('pt-2.5 pl-2.5')}>
             <Text style={tw.style('text-[#1A1A1A] text-sm font-bold')}>{props?.getlistproductdetails?.getbrands?.brandName}</Text>
             <View style={tw.style('flex flex-row')}>
-              <TouchableOpacity style={tw.style('mt-[3%] bg-[#B80000] h-[25px] w-[74px] px-[2%] rounded-[20px]')}>
-                <Text style={tw.style('text-center pt-[3%] text-white text-xs font-bold')}>FOLLOW</Text>
+              <TouchableOpacity style={tw.style('mt-1 mr-2 py-1.5 px-3.3 bg-[#B80000] rounded-full')}>
+                <Text style={tw.style('text-center text-white text-xs font-bold')}>FOLLOW</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={tw.style('mx-[3%] mt-[3%} bg-[#4AFFBD] h-[25px] w-[90px] rounded-[20px]')}>
-                <Text style={tw.style('text-center pt-[3%] text-white text-xs font-bold')}>OPEN STORE</Text>
+              <TouchableOpacity style={tw.style('mt-1 mr-2 py-1.5 px-3.3 bg-[#4AFFBD] rounded-full')}>
+                <Text style={tw.style('text-center text-gray-700 text-xs font-bold')}>OPEN STORE</Text>
               </TouchableOpacity>
             </View>
           </View>
 
         </View>
-
-        <View style={tw.style('mx-[3%] mt-[3%}')}>
+        <View style={tw.style('border-b my-8 mx-4 border-[#B6B6B6]')}></View>
+        <View style={tw.style('mx-4')}>
+          <Text style={tw.style('text-gray-700 text-2xl font-bold')}>Product Detailes</Text>
           <Text style={tw.style('text-[#1A1A1A] text-lg font-normal')}>{props?.getlistproductdetails?.data?.productDescription}</Text>
         </View>
 
@@ -309,23 +335,23 @@ const NameStore = (props) => {
             </View>
       </View>*/}
         </View>
-        <View style={tw.style('flex flex-row')}>
-          <TouchableOpacity onPress={() => { cartdataSubmit(props?.getlistproductdetails?.data?._id) }} style={{ justifyContent: 'center', width: deviceWidth / 2, backgroundColor: "#B80000", borderRadius: 30, marginTop: "3%", height: 50, marginHorizontal: "5%" }}>
-            <Text style={tw.style('text-center text-[#FFFFFF] text-base font-bold')}>ADD TO BAG</Text>
-          </TouchableOpacity>
-          
-          
-          <View style={tw.style('ml-[2%] mt-[6%]')}>
-          <TouchableOpacity onPress={() => { setfav(s => !s) }} >
-             {fav==true ?
-                <Image source={ImageIcons.calllike} style={[tw.style('w-[35px] h-[30px]'),{tintColor:'#b80000'}]} />
-                :
-                <Image source={ImageIcons.calllike} style={[tw.style('w-[35px] h-[30px]'),{tintColor:'#b3b3b3'}]} />
-              }
-            
-         
-          </TouchableOpacity>
- </View>
+
+        <View style={tw.style('flex flex-row mx-4 mt-10 justify-between')}>
+          <View style={tw`w-80`}>
+            <Medbutton text="Add to Bag" onPress={() => { cartdataSubmit(props?.getlistproductdetails?.data?._id) }}/>
+          </View>
+
+          <View style={tw.style('ml-3 w-20 h-auto bg-gray-100 justify-center items-center reounded-lg')}>
+            <TouchableOpacity onPress={() => { setfav(s => !s) }} >
+               {fav==true ?
+                  <Image source={ImageIcons.calllike} style={[tw.style('w-[35px] h-[30px]'),{tintColor:'#b80000'}]} />
+                  :
+                  <Image source={ImageIcons.calllike} style={[tw.style('w-[35px] h-[30px]'),{tintColor:'#b3b3b3'}]} />
+                }
+
+            </TouchableOpacity>
+          </View>
+
         </View>
 
         <View style={{marginTop:"4%",marginHorizontal:"4%"}}>
@@ -414,7 +440,7 @@ const NameStore = (props) => {
   <Text style={[styles.TEXT,{fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",fontSize:18}]}>1%</Text>
   </View>
   <View style={{flexDirection:'row',marginTop:"5%"}}>
-  
+
   <Rating
       type='custom'
       imageSize={18}
@@ -460,7 +486,7 @@ const NameStore = (props) => {
                       <View style={tw.style('w-[60%]')}>
                         <Text style={tw.style('text-base font-normal my-[4%] text-[#1A1A1A]')}>{props?.getlistproductdetails?.data?.productName}</Text>
                       </View>
-                      
+
                     </View>
 
                     <View>
@@ -533,9 +559,9 @@ const NameStore = (props) => {
 
         </View>
       }
-      
 
-      
+
+
 
       <Footer3 onSelection="4" />
 

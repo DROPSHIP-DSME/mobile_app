@@ -128,11 +128,12 @@ const ForgetPassword = (props) => {
           }
         </View>
       </View>
-
+      <View style={tw`mx-5`}>
         <Largebutton
           text="Confirm Email"
           onPress={() => handleRegistrationSubmit()}
         />
+      </View>
        <Loader isVisible={props?.loginLoader} />
     </View>
    )

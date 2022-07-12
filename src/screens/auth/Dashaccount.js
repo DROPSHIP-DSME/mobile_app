@@ -266,7 +266,7 @@ const Dashaccount = (props) => {
               </View>
 
         </View>
-        <View style={tw`my-15`}>
+        <View style={tw`my-15 mx-4`}>
           <Largebutton
           text="Add an Account" />
         </View>

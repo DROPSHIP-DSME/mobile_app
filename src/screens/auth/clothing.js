@@ -13,6 +13,7 @@ import DropdownField from '../../components/dropdown/DropDownMenu';
 import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper';
+import tw from 'twrnc';
 
 const clothing = (props) => {
 
@@ -36,7 +37,7 @@ const clothing = (props) => {
     const closepopup = () => {
           setVisible(false)
     }
-     
+
     const DATA = [
        {
         text:'@Full name',
@@ -91,26 +92,26 @@ const clothing = (props) => {
         text2:'$90',
         image:ImageIcons.blurcoat,
        },
-       
+
 
      ];
       const renderItem = ({ item }) => {
    return(
-    <View style={{marginHorizontal:4,marginVertical:8}}>
-           <Text style={styles.upfulltext}>{item.text}</Text>
-           <Text style={styles.buyblurtext}>{item.text2}</Text>
+    <View style={tw`mx-4 my-2`}>
+           <Text style={tw`text-base text-gray-200`}>{item.text}</Text>
+           <Text style={tw`text-base text-gray-200`}>{item.text2}</Text>
     </View>
     );
     }
 
      const renderItem2 = ({ item }) => {
    return(
-    <View style={{marginVertical:7,justifyContent:'space-between',}}>
-    <TouchableOpacity style={{marginVertical:10,marginHorizontal:3}} >
-      <Image source={item.image} style={styles.blurimg} />
-      </TouchableOpacity>
-      <Text style={styles.upfclothtext}>{item.text}</Text>
-      <Text style={styles.uppricetext}>{item.text2}</Text>
+    <View style={tw`my-3 justify-between`}>
+      <TouchableOpacity style={{marginVertical:10,marginHorizontal:3}} >
+          <Image source={item.image} style={styles.blurimg} />
+        </TouchableOpacity>
+        <Text style={tw`text-base text-gray-200`}>{item.text}</Text>
+        <Text style={tw`text-base text-gray-200`}>{item.text2}</Text>
     </View>
     );
     }
@@ -121,15 +122,15 @@ const clothing = (props) => {
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={styles.registrationRoot}>
-            
+
              <ImageBackground
                 style={{ flex: 1,}}
                 source={ImageIcons.boybackground}
                 imageStyle={{ resizeMode: 'cover' }}
             >
-            
+
             <TouchableOpacity onPress={() => {props.navigation.navigate("upcoming") }}>
-            <Image source={ImageIcons.arrow} style={styles.leftIconwhite}  />
+              <Image source={ImageIcons.arrow} style={styles.leftIconwhite}  />
             </TouchableOpacity>
 
             <View style={{marginHorizontal:'6%',flexDirection:'row',justifyContent:'space-between',}}>
@@ -168,7 +169,7 @@ const clothing = (props) => {
             <Image source={ImageIcons.client} style={styles.audioimg} />
             <Text style={styles.audiencetext}>0 audience</Text>
             </View>
-            
+
             <ScrollView  keyboardShouldPersistTaps="handled" persistentScrollbar={true} >
             <View style={{flexDirection:'row',justifyContent:'space-between',marginHorizontal:'5%'}}>
                 <View >
@@ -205,12 +206,12 @@ const clothing = (props) => {
             onChangeText={onChangeFirst}
             value={First}
             placeholder="Send a message"
-            placeholderTextColor="#999999" 
+            placeholderTextColor="#999999"
             />
 
             </View>
             </ImageBackground>
-                    
+
         </KeyboardAvoidingView>
     )
 }

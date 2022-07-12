@@ -118,7 +118,7 @@ const ResetPassword = (props) => {
          <View style={tw.style('justify-center items-center mb-8 mt-4')}>
              <Text style={tw.style('text-center text-base text-gray-600 w-10/12')}>An email has been sent with instructions on how to reset your password.</Text>
          </View>
-         <View style={tw.style('mt-30')}>
+         <View style={tw.style('mt-30 mx-5')}>
            <Largebutton
              text="Return to Login"
              onPress={() => props.navigation.navigate("Registration")}
