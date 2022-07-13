@@ -1,5 +1,5 @@
  import { connect } from 'react-redux';
-import { Overview } from '../../screens/auth';
+import { Overview } from '../../screens/seller/dashboard';
 import { getselldeshboard,gettopsell,getincomingtlist,liveeventdetail,Brandslist } from '../../redux/actions/Auth'
 
 
@@ -25,4 +25,3 @@ const mapDispatchToProps = {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Overview);
-

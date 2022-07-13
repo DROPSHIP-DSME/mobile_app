@@ -3,26 +3,26 @@ import { Text, View,TouchableOpacity,FlatList,Image,TextInput,Picker,StatusBar, 
 import LinearGradient from 'react-native-linear-gradient';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
-import styles from './styles';
-import { Colors, CommonStrings } from '../../common'
-import ImageIcons from '../../common/ImageIcons'
-import InputField from '../../components/forms/inputField';
-import { RoundedButton } from '../../components/forms/button';
-import { phoneRegExp } from '../../services/helper';
-import DropdownField from '../../components/dropdown/DropDownMenu';
-import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
-import Loader from '../../components/modals/Loader';
+import styles from '../../../screens/auth/styles';
+import { Colors, CommonStrings } from '../../../common'
+import ImageIcons from '../../../common/ImageIcons'
+import InputField from '../../../components/forms/inputField';
+import { RoundedButton } from '../../../components/forms/button';
+import { phoneRegExp } from '../../../services/helper';
+import DropdownField from '../../../components/dropdown/DropDownMenu';
+import PhoneMaskInput from '../../../components/forms/inputField/PhoneMaskInput';
+import Loader from '../../../components/modals/Loader';
 import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper';
 import { RNCamera } from 'react-native-camera';
 import ImagePicker from 'react-native-image-crop-picker';
 import { launchImageLibrary } from 'react-native-image-picker';
-import Footer3 from '../../screens/auth/Footer3';
+import Footer3 from '../../../screens/auth/Footer3';
 import tw from 'twrnc';
-import Largebutton from '../../components/dropshipbutton/Largebutton';
+import Largebutton from '../../../components/dropshipbutton/Largebutton';
 import { CameraIcon } from "react-native-heroicons/solid";
 
 
-import Sortorder from '../../components/pickers/Sortorder';
+import Sortorder from '../../../components/pickers/Sortorder';
 const options = [
       {
         label: 'Sneakers',

@@ -3,29 +3,29 @@ import { Text, View, Image, TextInput, ImageBackground, FlatList, Picker, Status
 import LinearGradient from 'react-native-linear-gradient';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
-import styles from './styles';
-import newstyles from './styles';
-import { Colors, CommonStrings } from '../../common'
-import ImageIcons from '../../common/ImageIcons'
-import InputField from '../../components/forms/inputField';
-import { RoundedButton } from '../../components/forms/button';
-import { phoneRegExp } from '../../services/helper';
-import DropdownField from '../../components/dropdown/DropDownMenu';
-import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
-import Loader from '../../components/modals/Loader';
+import styles from '../../../screens/auth/styles';
+import newstyles from '../../../screens/auth/styles';
+import { Colors, CommonStrings } from '../../../common'
+import ImageIcons from '../../../common/ImageIcons'
+import InputField from '../../../components/forms/inputField';
+import { RoundedButton } from '../../../components/forms/button';
+import { phoneRegExp } from '../../../services/helper';
+import DropdownField from '../../../components/dropdown/DropDownMenu';
+import PhoneMaskInput from '../../../components/forms/inputField/PhoneMaskInput';
+import Loader from '../../../components/modals/Loader';
 import Swipeout from 'react-native-swipeout';
 import HorizontalSlider from 'react-horizontal-slider';
-import Footer2 from '../../screens/auth/Footer2';
-import SellHeader from '../../screens/auth/Sellheader';
+import Footer2 from '../../../screens/auth/Footer2';
+import SellHeader from '../../../screens/auth/Sellheader';
 import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import { Provider, Portal, } from 'react-native-paper';
 import Modal from 'react-native-modal';
 import tw from 'twrnc';
-import Editbutton from '../../components/pickers/Editbutton';
-import Deletebutton from '../../components/pickers/Deletebutton';
-import Largebutton from '../../components/dropshipbutton/Largebutton';
+import Editbutton from '../../../components/pickers/Editbutton';
+import Deletebutton from '../../../components/pickers/Deletebutton';
+import Largebutton from '../../../components/dropshipbutton/Largebutton';
 
 import {
   LineChart,
@@ -35,7 +35,7 @@ import {
   ContributionGraph,
   StackedBarChart
 } from "react-native-chart-kit";
-import Smallbutton from '../../components/dropshipbutton/Smallbutton';
+import Smallbutton from '../../../components/dropshipbutton/Smallbutton';
 
 
 const Dashaccount = (props) => {
@@ -221,11 +221,11 @@ const Dashaccount = (props) => {
           </View>
         </View>
 
-        <TouchableOpacity onPress={() => props.navigation.navigate("Dashsetting")} style={tw`flex flex-row justify-between mx-4 mt-12`}>
+        <TouchableOpacity style={tw`flex flex-row justify-between mx-4 mt-12`}>
           <Text style={tw`text-2xl text-red-700`}>Bank Balance</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => props.navigation.navigate("Dashsupport")} style={tw`mt-2 mx-4`}>
+        <TouchableOpacity style={tw`mt-2 mx-4`}>
           <Text style={{ fontSize: 18, fontFamily: 'hinted-AvertaStd-Regular', color: '#1a1a1a' }}>Edit your associated bank account for withdrawals.</Text>
         </TouchableOpacity>
 

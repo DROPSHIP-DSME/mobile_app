@@ -3,28 +3,28 @@ import { Text, View,Image,TextInput, ImageBackground,FlatList,Picker,StatusBar,D
 import LinearGradient from 'react-native-linear-gradient';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
-import styles from './styles';
-import newstyles from './styles';
-import { Colors, CommonStrings } from '../../common';
-import ImageIcons from '../../common/ImageIcons';
+import styles from '../../../screens/auth/styles';
+import newstyles from '../../../screens/auth/styles';
+import { Colors, CommonStrings } from '../../../common';
+import ImageIcons from '../../../common/ImageIcons';
 import { ArrowNarrowLeftIcon } from "react-native-heroicons/solid";
-import InputField from '../../components/forms/inputField';
-import { RoundedButton } from '../../components/forms/button';
-import { phoneRegExp } from '../../services/helper';
-import DropdownField from '../../components/dropdown/DropDownMenu';
-import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
-import Loader from '../../components/modals/Loader';
+import InputField from '../../../components/forms/inputField';
+import { RoundedButton } from '../../../components/forms/button';
+import { phoneRegExp } from '../../../services/helper';
+import DropdownField from '../../../components/dropdown/DropDownMenu';
+import PhoneMaskInput from '../../../components/forms/inputField/PhoneMaskInput';
+import Loader from '../../../components/modals/Loader';
 import Swipeout from 'react-native-swipeout';
 import HorizontalSlider from 'react-horizontal-slider';
-import Footer2 from '../../screens/auth/Footer2';
+import Footer2 from '../../../screens/auth/Footer2';
 import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import { Provider , Portal,} from 'react-native-paper';
 import Modal from 'react-native-modal'
-import SellHeader from '../../screens/auth/Sellheader';
+import SellHeader from '../../../screens/auth/Sellheader';
 import tw from 'twrnc';
-import Sortorder from '../../components/pickers/Sortorder';
+import Sortorder from '../../../components/pickers/Sortorder';
 const options = [ { label: '1', value: '1' }, { label: '2', value: '2' }, { label: '3', value: '3' }, { label: '4', value: '4' },{ label: '5', value: '5' },{ label: '6', value: '6' },{ label: '7', value: '7' },{ label: '8', value: '8' },{ label: '9', value: '9' } ]
 
 import {
@@ -117,6 +117,7 @@ const deviceWidth = Dimensions.get('window').width;
                 handleScroll(nativeEvent['contentOffset'].y);
     }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} >
 
+              <TouchableOpacity onPress={() => props.navigation.navigate("Dashaccount")}>
                <View style={tw.style('flex flex-row m-5 ml-3')}>
                     <ArrowNarrowLeftIcon style={tw.style('basis-7 mr-3')} color="red" fill="black" size={24} />
                     <Text style={tw.style('basis-auto text-base mt-1')}>
@@ -124,8 +125,9 @@ const deviceWidth = Dimensions.get('window').width;
                     </Text>
 
                </View>
+               </TouchableOpacity>
 
-               <TouchableOpacity onPress={() => props.navigation.navigate("Dashwith")} style={tw.style('ml-5 mt-4')}>
+               <TouchableOpacity  style={tw.style('ml-5 mt-4')}>
                  <Text style={tw.style('text-3xl mt-5 text-gray-800 font-bold font-sans')}>Withdrawals</Text>
                </TouchableOpacity>
 

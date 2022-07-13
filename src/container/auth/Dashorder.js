@@ -1,5 +1,5 @@
  import { connect } from 'react-redux';
-import { Dashorder } from '../../screens/auth';
+import { Dashorder } from '../../screens/seller/order';
 import { getselldeshboard,gettopsell,getincomingtlist,liveeventdetail,Brandslist } from '../../redux/actions/Auth'
 
 

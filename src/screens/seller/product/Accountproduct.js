@@ -3,29 +3,29 @@ import { Text, View,TouchableOpacity,FlatList,Image,TextInput,Picker,StatusBar, 
 import LinearGradient from 'react-native-linear-gradient';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
-import styles from './styles';
-import { Colors, CommonStrings } from '../../common'
-import ImageIcons from '../../common/ImageIcons'
-import InputField from '../../components/forms/inputField';
-import { RoundedButton } from '../../components/forms/button';
-import { phoneRegExp } from '../../services/helper';
-import DropdownField from '../../components/dropdown/DropDownMenu';
-import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
-import Loader from '../../components/modals/Loader';
+import styles from '../../../screens/auth/styles';
+import { Colors, CommonStrings } from '../../../common'
+import ImageIcons from '../../../common/ImageIcons'
+import InputField from '../../../components/forms/inputField';
+import { RoundedButton } from '../../../components/forms/button';
+import { phoneRegExp } from '../../../services/helper';
+import DropdownField from '../../../components/dropdown/DropDownMenu';
+import PhoneMaskInput from '../../../components/forms/inputField/PhoneMaskInput';
+import Loader from '../../../components/modals/Loader';
 import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper';
 import { RNCamera } from 'react-native-camera';
 import ImagePicker from 'react-native-image-crop-picker';
 import { launchImageLibrary } from 'react-native-image-picker';
-import Footer2 from '../../screens/auth/Footer2';
+import Footer2 from '../../../screens/auth/Footer2';
 const Reactdim = require('react-native');
 import { useValidation } from 'react-native-form-validator';
 import * as Progress from 'react-native-progress';
 import CheckBox from '@react-native-community/checkbox';
-import Sortorder from '../../components/pickers/Sortorder';
+import Sortorder from '../../../components/pickers/Sortorder';
 import { CameraIcon } from "react-native-heroicons/solid";
 
 import tw from 'twrnc';
-import Largebutton from '../../components/dropshipbutton/Largebutton';
+import Largebutton from '../../../components/dropshipbutton/Largebutton';
 import { ArrowLeftIcon } from "react-native-heroicons/solid";
 
 const options = [
@@ -323,12 +323,14 @@ const renderItem6 = ({ item }) => {
              <StatusBar backgroundColor={"#FFFFFF00"} barStyle="dark-content" translucent={true} />
 
              <View style={tw`flex flex-1 mx-2`}>
+               <TouchableOpacity onPress={() => props.navigation.navigate("Dashproduct")}>
                 <View style={tw`flex-row mx-3 mt-15 mb-5 items-center`} >
                     <ArrowLeftIcon color="red" fill="gray" size={14} />
                     <View style={tw`ml-1`}>
                     <Text style={tw`text-xs text-gray-500 `}>BACK TO STORES</Text>
                     </View>
                 </View>
+            </TouchableOpacity>
              <ScrollView  keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} >
                  <View style={tw`flex flex-row justify-between mt-4 mb-5 mx-3 items-center`}>
                     <Progress.Bar progress={1.5} width={150} style={tw`absolute top-6`} color='#B80000' height={1} />

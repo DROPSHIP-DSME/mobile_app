@@ -1,5 +1,5 @@
  import { connect } from 'react-redux';
-import { Dashaccount } from '../../screens/auth';
+import { Dashaccount } from '../../screens/seller/account';
 import { getselldeshboard,gettopsell,getincomingtlist,liveeventdetail } from '../../redux/actions/Auth'
 
 

@@ -3,29 +3,29 @@ import { Text, View,Image,TextInput, ImageBackground,FlatList,Picker,StatusBar,D
 import LinearGradient from 'react-native-linear-gradient';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
-import styles from './styles';
-import newstyles from './styles';
-import { Colors, CommonStrings } from '../../common'
-import ImageIcons from '../../common/ImageIcons'
-import InputField from '../../components/forms/inputField';
-import { RoundedButton } from '../../components/forms/button';
-import { phoneRegExp } from '../../services/helper';
-import DropdownField from '../../components/dropdown/DropDownMenu';
-import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
-import Loader from '../../components/modals/Loader';
+import styles from '../../../screens/auth/styles';
+import newstyles from '../../../screens/auth/styles';
+import { Colors, CommonStrings } from '../../../common'
+import ImageIcons from '../../../common/ImageIcons'
+import InputField from '../../../components/forms/inputField';
+import { RoundedButton } from '../../../components/forms/button';
+import { phoneRegExp } from '../../../services/helper';
+import DropdownField from '../../../components/dropdown/DropDownMenu';
+import PhoneMaskInput from '../../../components/forms/inputField/PhoneMaskInput';
+import Loader from '../../../components/modals/Loader';
 import Swipeout from 'react-native-swipeout';
 import HorizontalSlider from 'react-horizontal-slider';
-import Footer2 from '../../screens/auth/Footer2';
+import Footer2 from '../../../screens/auth/Footer2';
 import tw from 'twrnc';
-import Smallbutton from '../../components/dropshipbutton/Smallbutton';
-import Largebutton from '../../components/dropshipbutton/Largebutton';
-import Sortorder from '../../components/pickers/Sortorder';
-import Sortfilter from '../../components/pickers/Sortfilter';
-import Selectall from '../../components/pickers/Selectall';
-import Editbutton from '../../components/pickers/Editbutton';
-import Deletebutton from '../../components/pickers/Deletebutton';
+import Smallbutton from '../../../components/dropshipbutton/Smallbutton';
+import Largebutton from '../../../components/dropshipbutton/Largebutton';
+import Sortorder from '../../../components/pickers/Sortorder';
+import Sortfilter from '../../../components/pickers/Sortfilter';
+import Selectall from '../../../components/pickers/Selectall';
+import Editbutton from '../../../components/pickers/Editbutton';
+import Deletebutton from '../../../components/pickers/Deletebutton';
 import { AdjustmentsIcon } from "react-native-heroicons/solid";
-import SellHeader from '../../screens/auth/Sellheader';
+import SellHeader from '../../../screens/auth/Sellheader';
 import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import { Rating, AirbnbRating } from 'react-native-ratings';

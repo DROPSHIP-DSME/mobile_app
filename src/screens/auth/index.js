@@ -48,9 +48,6 @@ import More from './More';
 import Inorder from './Inorder';
 import Cart from './Cart';
 import Processorder from './Processorder';
-import Overview from './Overview';
-import Dashproduct from './Dashproduct';
-import Dashorder from './Dashorder';
 import Dashsuccess from './Dashsuccess';
 import Accountfav from './Accountfav';
 import Accountdata from './Accountdata';
@@ -66,9 +63,7 @@ import Dashsale from './Dashsale';
 import Dashsubscribe from './Dashsubscribe';
 import Dashsubscribe2 from './Dashsubscribe2';
 import Dashadvertise from './Dashadvertise';
-import Dashaccount from './Dashaccount';
-import Dashaccountlist from './Dashaccountlist';
-import Dashwith from './Dashwith';
+
 import Dashbrand from './Dashbrand';
 import Dashimport from './Dashimport';
 import Dashsetting from './Dashsetting';
@@ -77,7 +72,6 @@ import Dashsupportacc from './Dashsupportacc';
 import Dashlive from './Dashlive';
 import Dashlive2 from './Dashlive2';
 import Dashlive3 from './Dashlive3';
-import Dashdetail from './Dashdetail';
 
 import Topselling from './Topselling';
 import Livechannel from './Livechannel';
@@ -91,8 +85,6 @@ import AddProduct from './AddProduct';
 import AddProduct2 from './AddProduct2';
 import Addbrand from './Addbrand';
 
-import CreateStore from './CreateStore';
-import Accountproduct from './Accountproduct';
 import Order from './Order';
 import Notification from './Notification';
 import ForgetPassword from './ForgetPassword';
@@ -176,28 +168,22 @@ export {
     Dashbrand,
     Cart,
     StartRecording,
-    Dashaccountlist,
     Dashlive3,
     Dashsupport,
     Dashsupportacc,
     Dashsetting,
-    Dashwith,
-    Dashdetail,
     Inorder,
-    Dashproduct,
     Dashsubscribe,
     Dashimport,
-    Dashaccount,
+    
     Dashsubscribe2,
     Dashadvertise,
     Dashsale,
     Dashreturn,
     Dashsuccess,
     Dashchats,
-    Dashorder,
     Topselling,
     Neworder,
-    Overview,
     More,
     Goback,
     Productcountry,
@@ -220,7 +206,6 @@ export {
     AddProduct,
     AddProduct2,
     AddStore,
-    CreateStore,
     Order,
     Selectproduct,
     Category,
@@ -256,7 +241,6 @@ export {
     videocall,
     RegistrationShop,
     CreateAccountShop,
-    Accountproduct,
     Viewbrand,
     Addbrand2,
     Search,
