@@ -8,7 +8,6 @@ import {
     TextInput,
 } from 'react-native';
 import styles from './styles';
-import { searchCategory } from '../../../redux/actions/Vendor'
 import { connect } from 'react-redux';
 import { Colors } from '../../../common'
 

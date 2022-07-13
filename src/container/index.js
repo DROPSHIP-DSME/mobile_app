@@ -104,24 +104,7 @@ import Dashdetail from './auth/Dashdetail';
 import Topselling from './auth/Topselling';
 import ResetPassword from './auth/ResetPassword';
 import ForgetPassword from './auth/ForgetPassword';
-import Vendor from './vender';
-import AddNewVendor from './vender/AddNewVendor';
-import AcceptedVendor from './vender/AcceptedVendor';
-import SearchLocation from './vender/SearchLocation';
-import VendorDetails from './vender/VendorDetails';
-import Earning from './earning';
-import CashOut from './earning/CashOut';
-import ManageBank from './earning/ManageBank';
-import SubmitCashout from './earning/SubmitCashout';
-import SelectBank from './earning/SelectBank';
-import AddBankAccount from './earning/AddBankAccount';
-import Coupons from './coupon';
-import AddCoupon from './coupon/AddCoupon';
 
-
-import footer from './coupon/footer';
-
-import Createaccount from './coupon/Createaccount';
 import Codeconfirm from './auth/Codeconfirm';
 import CreateAccountShop from './auth/CreateAccountShop';
 import Vedioscreen from './auth/Vedioscreen';
@@ -151,26 +134,13 @@ import confirpayment from './auth/confirpayment';
 import Accountorderview from './auth/Accountorderview';
 import changepayment from './auth/changepayment';
 import deletaccount from './auth/deletaccount';
-import Insights from './insights';
-import SingleCouponInsight from './insights/SingleCouponInsight';
-import VerificationForm from './verification/VerificationForm';
-import VerificationForm2 from './verification/VerificationForm2';
-import VerificationForm3 from './verification/VerificationForm3';
-import VerificationForm4 from './verification/VerificationForm4';
-import ChooseSubscription from './subscription/ChooseSubscription';
-import SubscriptionDetail from './subscription/SubscriptionDetail';
-import Profile from './profile';
-import Editprofile from './profile/Editprofile';
+
 import Accountview2 from './auth/Accountview2';
 import Accountdata from './auth/Accountdata';
 import ProductStore from './auth/ProductStore';
 
 
 export {
-    //EmmaRose,
-    //DeGaulle,
-    
-    //BenRose
     ProductStore,
     deletaccount,
     Accountdata,
@@ -245,33 +215,8 @@ export {
     Login,
     ResetPassword,
     ForgetPassword,
-    Vendor,
-    Earning,
     StoreOwner,
-    AddNewVendor,
-    AcceptedVendor,
-    SearchLocation,
-    VendorDetails,
-    CashOut,
-    ManageBank,
-    SubmitCashout,
-    SelectBank,
-    AddBankAccount,
-    Coupons,
-    Insights,
-    SingleCouponInsight,
-    AddCoupon,
-    VerificationForm,
-    VerificationForm2,
-    VerificationForm3,
-    VerificationForm4,
-    ChooseSubscription,
-    SubscriptionDetail,
-    Editprofile,
     Accountorderhist,
-    Profile,
-    footer,
-    Createaccount,
     Selectproduct,
     Golive,
     Addcategory,

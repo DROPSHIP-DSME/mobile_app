@@ -11,7 +11,6 @@ import Auth from '../route/Auth';
 import RNBootSplash from "react-native-bootsplash";
 import CustomDrawer from './CustomDrawer';
 import { login, changeLoginCredentials, setNetworkConnection, logout } from '../redux/actions/Auth'
-import { setVendorInfo, setVendorIdResetPassword } from '../redux/actions/Vendor'
 import NetInfo from "@react-native-community/netinfo";
 import messaging from '@react-native-firebase/messaging';
 import dynamicLinks from '@react-native-firebase/dynamic-links';
@@ -40,13 +39,13 @@ const RootNavigation = (props) => {
         const unsubscribeFCMbackground = messaging().onNotificationOpenedApp(async remoteMessage => {
             if (remoteMessage?.data?.vendor) {
                 let vendorBody = JSON.parse(remoteMessage?.data?.vendor);
-                props.setVendorInfo(vendorBody)
+                //props.setVendorInfo(vendorBody)
             }
         });
         const unsubscribeFCM = messaging().onMessage(async remoteMessage => {
             if (remoteMessage?.data?.vendor) {
                 let vendorBody = JSON.parse(remoteMessage?.data?.vendor);
-                props.setVendorInfo(vendorBody)
+                //props.setVendorInfo(vendorBody)
             }
         });
         setVendorNotification();
@@ -64,7 +63,7 @@ const RootNavigation = (props) => {
                         NetInfo.fetch().then(state => {
                             props.setNetworkConnection(state.isConnected);
                         });
-                        props.setVendorIdResetPassword(link?.url)
+                       // props.setVendorIdResetPassword(link?.url)
                     }, 500);
                     setIsResetLink(true)
                 }
@@ -109,7 +108,7 @@ const RootNavigation = (props) => {
                 NetInfo.fetch().then(state => {
                     props.setNetworkConnection(state.isConnected);
                 });
-                props.setVendorIdResetPassword(link?.url)
+               // props.setVendorIdResetPassword(link?.url)
             }, 500);
             setIsResetLink(true)
         }
@@ -181,8 +180,7 @@ const mapDispatchToProps = {
     login,
     changeLoginCredentials,
     setNetworkConnection,
-    setVendorInfo,
-    setVendorIdResetPassword,
+    
     logout
 };
 export default connect(mapStateToProps, mapDispatchToProps)(RootNavigation);

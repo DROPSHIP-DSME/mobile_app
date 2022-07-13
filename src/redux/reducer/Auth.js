@@ -581,7 +581,6 @@ const Auth = (state = initialState, action) => {
         getliveeventlist: action.payload,
       };
     case LIVESTREAM_RECAP:
-      console.log("liveatreamcap=------->",action.payload)
       return {
         ...state,
         livestreamrecaplist: action.payload,
