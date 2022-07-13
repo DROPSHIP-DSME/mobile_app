@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { clothdetails } from '../../screens/auth';
+import { clothdetails } from '../../screens/customer/dashboard';
 import { cartadd } from '../../redux/actions/Auth'
 
 const mapStateToProps = (state) => ({

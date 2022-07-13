@@ -635,7 +635,7 @@ const Auth = (props) => {
         component={Accountorderhist}
         options={({ navigation }) => ({
                         headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
+                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
                         headerRight: () => <RightMenuItem navigation={navigation}  />,
                         headerTitle: "",
                         headerTitleAlign: "center",
@@ -733,7 +733,7 @@ const Auth = (props) => {
         component={Accountorderview}
         options={({ navigation }) => ({
                         headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
+                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
                         headerRight: () => <RightMenuItem navigation={navigation}  />,
                         headerTitle: "",
                         headerTitleAlign: "center",
@@ -1219,17 +1219,33 @@ const Auth = (props) => {
        <Stack.Screen
         name="Accountfav"
         component={Accountfav}
-        options={{ title: '', headerShown: false }}
+        options={({ navigation }) => ({
+                        headerShown: true,
+                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerTitle: "",
+                        headerTitleAlign: "center",
+                        headerTitleStyle: styles.titleheaderstyle,
+                        headerStyle: styles.headerbackgroundstyle,
+                    })}
       />
        <Stack.Screen
         name="Accountfollow"
         component={Accountfollow}
-        options={{ title: '', headerShown: false }}
+        options={({ navigation }) => ({
+                        headerShown: true,
+                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerTitle: "",
+                        headerTitleAlign: "center",
+                        headerTitleStyle: styles.titleheaderstyle,
+                        headerStyle: styles.headerbackgroundstyle,
+                    })}
       />
        <Stack.Screen
         name="Accountbrand"
         component={Accountbrand}
-         options={({ navigation }) => ({
+        options={({ navigation }) => ({
                         headerShown: true,
                         headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
                         headerRight: () => <RightMenuItem navigation={navigation}  />,
@@ -1268,7 +1284,15 @@ const Auth = (props) => {
       <Stack.Screen
         name="Accountfav1"
         component={Accountfav1}
-        options={{ title: '', headerShown: false }}
+        options={({ navigation }) => ({
+                        headerShown: true,
+                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerTitle: "",
+                        headerTitleAlign: "center",
+                        headerTitleStyle: styles.titleheaderstyle,
+                        headerStyle: styles.headerbackgroundstyle,
+                    })}
       />
        <Stack.Screen
         name="Accountbrandlist"
@@ -1286,7 +1310,15 @@ const Auth = (props) => {
        <Stack.Screen
         name="Accountdata"
         component={Accountdata}
-        options={{ title: '', headerShown: false }}
+         options={({ navigation }) => ({
+                        headerShown: true,
+                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
+                        headerRight: () => <RightMenuItemsell navigation={navigation}  />,
+                        headerTitle: "",
+                        headerTitleAlign: "center",
+                        headerTitleStyle: styles.titleheaderstyle,
+                        headerStyle: styles.headerbackgroundstyle,
+                    })}
       />
        <Stack.Screen
         name="Dashchats"

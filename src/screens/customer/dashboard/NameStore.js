@@ -10,14 +10,14 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
-import styles from './styles';
-import styl from './styledrop';
-import { Colors, CommonStrings } from '../../common'
-import ImageIcons from '../../common/ImageIcons'
+import styles from '../../../screens/auth/styles';
+import styl from '../../../screens/auth/styledrop';
+import { Colors, CommonStrings } from '../../../common'
+import ImageIcons from '../../../common/ImageIcons'
 import { RadioButton, Provider, Modal, Portal, Button, } from 'react-native-paper';
 import { Rating, AirbnbRating } from 'react-native-ratings';
-import Footer3 from '../../screens/auth/Footer3';
-import Shopheader from '../../screens/auth/Shopheader';
+import Footer3 from '../../../screens/auth/Footer3';
+import Shopheader from '../../../screens/auth/Shopheader';
 import tw from 'twrnc';
 import Share from 'react-native-share';
 import * as Progress from 'react-native-progress';
@@ -26,7 +26,7 @@ import RnIncrementDecrementBtn from
 import { PlayIcon } from "react-native-heroicons/solid";
 import { ShareIcon } from "react-native-heroicons/solid";
 import { CameraIcon } from "react-native-heroicons/solid";
-import Medbutton from '../../components/dropshipbutton/Medbutton';
+import Medbutton from '../../../components/dropshipbutton/Medbutton';
 
 
 const NameStore = (props) => {

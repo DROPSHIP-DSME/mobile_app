@@ -1,4 +1,11 @@
 import watchlist from './watchlist';
+import NameStore from './NameStore';
+import clothing from './clothing';
+import clothdetails from './clothdetails';
+
 export {
-    watchlist
+    watchlist,
+    NameStore,
+    clothing,
+    clothdetails
 }

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { clothing } from '../../screens/auth';
+import { clothing } from '../../screens/customer/dashboard';
 import { signup } from '../../redux/actions/Auth'
 
 

@@ -4,8 +4,7 @@ import OTPVerification from './OTPVerification';
 import StoreOwner from './StoreOwner';
 import SearchProduct2 from './SearchProduct2';
 import Footer3 from './Footer3';
-import clothing from './clothing';
-import clothdetails from './clothdetails';
+
 import coming from './coming';
 import Popevent from './Popevent';
 import changepassword from './changepassword';
@@ -65,7 +64,6 @@ import Codeconfirm from './Codeconfirm';
 import CreateAccountShop from './CreateAccountShop';
 import Category from './Category';
 import Product from './Product';
-import NameStore from './NameStore';
 import ProductDetails from './ProductDetails';
 import ProductDetails2 from './ProductDetails2';
 import ProductDetails3 from './ProductDetails3';
@@ -147,7 +145,7 @@ export {
     Selectproduct,
     Category,
     Product,
-    NameStore,
+    
     ProductDetails,
     ProductDetails2,
     ProductDetails3,
@@ -165,8 +163,6 @@ export {
     EmmaRose,
     SearchProduct2,
     Park,
-    clothing,
-    clothdetails,
     coming,
     schedule,
     videocall,

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { NameStore } from '../../screens/auth';
+import { NameStore } from '../../screens/customer/dashboard';
 import { shopproduct,shopsellcount,getAllproduct,getAllproductdetails,getAllshop,cartadd } from '../../redux/actions/Auth'
 
 
