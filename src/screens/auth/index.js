@@ -10,7 +10,6 @@ import coming from './coming';
 import Popevent from './Popevent';
 import changepassword from './changepassword';
 import schedule from './schedule';
-import shop from './shop';
 import videocall from './videocall';
 import RegistrationShop from './RegistrationShop';
 import Viewbrand from './Viewbrand';
@@ -26,10 +25,7 @@ import Onboard from './Onboard';
 import SaleOnboard from './SaleOnboard';
 import ShoesOnboard from './ShoesOnboard';
 import myaccount from './myaccount';
-import editprofile from './editprofile';
 import Accountorderhist from './Accountorderhist';
-import editaddress from './editaddress';
-import editviewaddress from './editviewaddress';
 import editpassword from './editpassword';
 
 
@@ -107,22 +103,17 @@ import noaddress from './noaddress';
 import paymentedit from './paymentedit';
 import changepayment from './changepayment';
 import deletaccount from './deletaccount';
-import Account from './Account';
 import Accountsum from './Accountsum';
 import Accountview2 from './Accountview2';
-import ProductStore from './ProductStore';
 import Sellheader from './Sellheader';
 
 export {
-    ProductStore,
     deletaccount,
     editpassword,
     Accountdata,
     changepayment,
     paymentedit,
     noaddress,
-    editviewaddress,
-    editaddress,
     Accountfav,
     Accountfollow,
     Accountbrand,
@@ -131,7 +122,6 @@ export {
     Accountbrandlist,
     Accountpublish,
     Accountorderhist,
-    editprofile,
     emptyaccount,
     myaccount,
     confirpayment,
@@ -196,8 +186,6 @@ export {
     clothdetails,
     coming,
     schedule,
-    shop,
-    
     videocall,
     RegistrationShop,
     CreateAccountShop,
@@ -215,7 +203,6 @@ export {
     ShoesOnboard,
     Popevent,
     Viewevent,
-    Account,
     Accountsum,
     Sellheader
 }

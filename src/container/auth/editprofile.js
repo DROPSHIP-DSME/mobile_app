@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { editprofile } from '../../screens/auth';
+import { editprofile } from '../../screens//customer/account';
 import { getAllshop,editUser,newprofile,getprofileuser } from '../../redux/actions/Auth'
 
 

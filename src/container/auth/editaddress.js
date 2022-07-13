@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { editaddress } from '../../screens/auth';
+import { editaddress } from '../../screens//customer/account';
 import { getAllshop,getuseraddress,deleteaddress } from '../../redux/actions/Auth'
 
 

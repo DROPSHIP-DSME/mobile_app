@@ -3,23 +3,22 @@ import { Text, View,Image,FlatList,Dimensions,StatusBar,Picker,TextInput, ImageB
 import LinearGradient from 'react-native-linear-gradient';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
-import styles from './styles';
-import styl from './styledrop';
-import { Colors, CommonStrings } from '../../common'
-import ImageIcons from '../../common/ImageIcons'
-import InputField from '../../components/forms/inputField';
-import { RoundedButton } from '../../components/forms/button';
-import { phoneRegExp } from '../../services/helper';
-import DropdownField from '../../components/dropdown/DropDownMenu';
-import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
-import Loader from '../../components/modals/Loader';
-import Footer3 from '../../screens/auth/Footer3';
+import styles from '../../../screens/auth/styles';
+import styl from '../../../screens/auth/styledrop';
+import { Colors, CommonStrings } from '../../../common'
+import ImageIcons from '../../../common/ImageIcons'
+import InputField from '../../../components/forms/inputField';
+import { RoundedButton } from '../../../components/forms/button';
+import { phoneRegExp } from '../../../services/helper';
+import DropdownField from '../../../components/dropdown/DropDownMenu';
+import PhoneMaskInput from '../../../components/forms/inputField/PhoneMaskInput';
+import Loader from '../../../components/modals/Loader';
+import Footer3 from '../../../screens/auth/Footer3';
 import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import { Rating, AirbnbRating } from 'react-native-ratings';
-import Shopheader from '../../screens/auth/Shopheader';
-import Sortorder from '../../components/pickers/Sortorder';
+import Sortorder from '../../../components/pickers/Sortorder';
 const options = [
       {
         label: 'USA',
@@ -39,7 +38,7 @@ const options = [
       }
     ]
 import tw from 'twrnc';
-import Largebutton from '../../components/dropshipbutton/Largebutton';
+import Largebutton from '../../../components/dropshipbutton/Largebutton';
 
 const editviewaddress = (props) => {
 

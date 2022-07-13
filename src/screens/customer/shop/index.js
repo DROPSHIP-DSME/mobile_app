@@ -1,4 +1,7 @@
-import Overview from './Overview';
+import shop from './shop';
+import ProductStore from './ProductStore';
+
 export {
-    Overview
+     shop,
+     ProductStore
 }
