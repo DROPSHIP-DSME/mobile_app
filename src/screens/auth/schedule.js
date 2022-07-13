@@ -680,7 +680,7 @@ const renderItem2 =({ item }) =>{
                     </View>
                     <View style={styles.directionView}>
                         <Text style={styles.linketext}>Products to sell</Text>
-                            <TouchableOpacity  onPress={() => { props.navigation.navigate("Selectproduct",{ eventId:props?.livedetail[0]._id,pageName:'schedule' }) }}>
+                            <TouchableOpacity>
                                 <View style={styles.productcircletext}>
                                     <Image source={ImageIcons.circle} />
                                     <Text  style={styles.addredtext}>Add Product</Text>

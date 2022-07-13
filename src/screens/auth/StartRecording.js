@@ -374,7 +374,7 @@ const renderItem3 =({ item }) =>{
                     <Text style={styles.linketext}>Products to sell</Text>
 
                      { (props?.livedetail?.length>0 && props?.livedetail[0]?.products?.length>0) ?
-                        <TouchableOpacity  onPress={() => { props.navigation.navigate("Selectproduct",{ eventId:props?.livedetail[0]._id,pageName:'StartRecording' }) }}>
+                        <TouchableOpacity>
                             <View style={styles.productcircletext}>
                                 <Image source={ImageIcons.circle} />
                                 <Text  style={styles.addredtext}>Add Product</Text>

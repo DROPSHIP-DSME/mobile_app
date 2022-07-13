@@ -102,13 +102,9 @@ import {
   changepassword,
   Viewbrand,
   Search,
-  Selectproduct,
   Newprofile,
   Editprofiledetail,
   shippinginfo,
-  shippinglist,
-  addPayment,
-  PaymentList,
   Popevent,
   Notification,
   Viewevent,
@@ -797,21 +793,6 @@ const Auth = (props) => {
       />
       
       <Stack.Screen
-        name="Selectproduct"
-        component={Selectproduct}
-        options={({ navigation }) => ({
-                        headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Choose Product",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor:'#FFE7E7', elevation: 0, shadowOpacity: 0 },
-                    })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
-      />
-
-      <Stack.Screen
         name="Product"
         component={Product}
         options={({ navigation }) => ({
@@ -842,68 +823,7 @@ const Auth = (props) => {
                     })}
       />
 
-      <Stack.Screen
-        name="PaymentList"
-        component={PaymentList}
-        options={({ navigation }) => ({
-                        headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        headerTitle: "",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor:'#FFE7E7', shadowColor: '#000000',  shadowOffset: {width: 4, height: 4},
-                        shadowOpacity: 0.5,
-                        elevation: 10, },
-                    })}
-      />
-
-      <Stack.Screen
-        name="addPayment"
-        component={addPayment}
-        options={({ navigation }) => ({
-                        headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Payment info",
-                        headerTitleAlign: "left",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor:'#FFE7E7', shadowColor: '#000000',  shadowOffset: {width: 4, height: 4},
-                        shadowOpacity: 0.5,
-                        elevation: 10, },
-                    })}
-      />
-
-      <Stack.Screen
-        name="shippinglist"
-        component={shippinglist}
-        options={({ navigation }) => ({
-                        headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor:'#FFE7E7', shadowColor: '#000000',  shadowOffset: {width: 4, height: 4},
-                        shadowOpacity: 0.5,
-                        elevation: 10, },
-                    })}
-      />
-
-      <Stack.Screen
-        name="shippinginfo"
-        component={shippinginfo}
-        options={({ navigation }) => ({
-                        headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Shipping info",
-                        headerTitleAlign: "left",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor:'#FFE7E7', shadowColor: '#000000',  shadowOffset: {width: 4, height: 4},
-                        shadowOpacity: 0.5,
-                        elevation: 10, },
-                    })}
-      />
+      
       <Stack.Screen
         name="Editprofiledetail"
         component={Editprofiledetail}

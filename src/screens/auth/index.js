@@ -15,14 +15,9 @@ import Addbrand2 from './Addbrand2';
 import Goliveshop from './Goliveshop';
 import Newprofile from './Newprofile';
 import Editprofiledetail from './Editprofiledetail';
-import shippinginfo from './shippinginfo';
-import shippinglist from './shippinglist';
-import addPayment from './addPayment';
-import PaymentList from './PaymentList';
 import myaccount from './myaccount';
 
 
-import Selectproduct from './Selectproduct';
 import Addcategory from './Addcategory';
 import Golive from './Golive';
 import Goback from './Goback';
@@ -109,7 +104,6 @@ export {
     AddProduct2,
     AddStore,
     Order,
-    Selectproduct,
     Category,
     Product,
     ProductDetails,
@@ -132,10 +126,6 @@ export {
     Goliveshop,
     Newprofile,
     Editprofiledetail,
-    shippinginfo,
-    shippinglist,
-    addPayment,
-    PaymentList,
     Popevent,
     Viewevent,
     Sellheader

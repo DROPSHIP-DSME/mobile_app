@@ -20,10 +20,6 @@ import Search from './auth/Search';
 import Goliveshop from './auth/Goliveshop';
 import Newprofile from './auth/Newprofile';
 import Editprofiledetail from './auth/Editprofiledetail';
-import shippinginfo from './auth/shippinginfo';
-import shippinglist from './auth/shippinglist';
-import addPayment from './auth/addPayment';
-import PaymentList from './auth/PaymentList';
 import Popevent from './auth/Popevent';
 import Notification from './auth/Notification';
 import myaccount from './auth/myaccount';
@@ -36,7 +32,6 @@ import editpassword from './auth/editpassword';
 
 import Order from './auth/Order';
 import Category from './auth/Category';
-import Selectproduct from './auth/Selectproduct';
 import Product from './auth/Product';
 import SearchProduct from './auth/SearchProduct';
 import NameStore from './auth/NameStore';
@@ -194,7 +189,6 @@ export {
     ForgetPassword,
     StoreOwner,
     Accountorderhist,
-    Selectproduct,
     Golive,
     Addcategory,
     Codeconfirm,
@@ -232,10 +226,6 @@ export {
     Search,
     Newprofile,
     Editprofiledetail,
-    shippinginfo,
-    shippinglist,
-    addPayment,
-    PaymentList,
     Popevent,
     Notification,
     Account,

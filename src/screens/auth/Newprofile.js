@@ -62,7 +62,7 @@ const Newprofile = (props) => {
             <View style={{justifyContent:'center'}}>
                 <Text style={styles.paymenttext}>Shipping Address</Text>
             </View>
-            <TouchableOpacity onPress={() => props.navigation.navigate("shippinglist")}>
+            <TouchableOpacity>
                 <View style={styles.proplusview}>
                     <Text style={styles.plusstext}>+</Text>
                 </View>
