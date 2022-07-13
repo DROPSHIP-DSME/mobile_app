@@ -62,19 +62,19 @@ const Footer3 = (props) => {
 
     return (
 
-        <View style={tw.style('max-w-fit mx-auto bg-white flex h-14 py-1 mx-1')}>
-          <View style={tw.style('flex-row justify-between')}>
+        <View style={tw.style('max-w-fit  bg-white flex h-15 px-1 py-2 md:py-1 sm:mx-0 md:mx-1')}>
+          <View style={tw.style('flex-row justify-around')}>
 
           <TouchableOpacity onPress={() => { navigation.navigate('watchlist'); }}>
             {onSelection==1 ?
-              <View style={tw.style('inline-block items-center px-2 mx-2')}>
+              <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
                   <Text>
                      <HomeIcon color="red" fill="#b80000" size={24} />
                   </Text>
                    <Text style={tw.style('text-sm text-right font-normal text-red-700')}>Home</Text>
               </View>
           :
-              <View style={tw.style('inline-block items-center px-2 mx-2')}>
+              <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
                   <Text>
                      <HomeIcon color="red" fill="gray" size={24} />
                   </Text>
@@ -85,14 +85,14 @@ const Footer3 = (props) => {
 
         <TouchableOpacity onPress={() => { navigation.navigate('upcoming'); }}>
             {onSelection==2 ?
-              <View style={tw.style('inline-block items-center px-2 mx-2')}>
+              <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
                   <Text>
                      <VideoCameraIcon color="red" fill="#b80000" size={24} />
                   </Text>
                    <Text style={tw.style('text-sm text-right font-normal text-red-700')}>Livestreams</Text>
               </View>
           :
-              <View style={tw.style('inline-block items-center px-2 mx-2')}>
+              <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
                   <Text>
                      <VideoCameraIcon color="red" fill="gray" size={24} />
                   </Text>
@@ -103,14 +103,14 @@ const Footer3 = (props) => {
 
         <TouchableOpacity onPress={() => navigation.navigate("Overview")} >
             {onSelection==3 ?
-              <View style={tw.style('inline-block items-center px-2 mx-2')}>
+              <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
                   <Text>
                      <CashIcon color="red" fill="#b80000" size={24} />
                   </Text>
                    <Text style={tw.style('text-sm text-right font-normal text-red-700')}>Sell</Text>
               </View>
           :
-              <View style={tw.style('inline-block items-center px-2 mx-2')}>
+              <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
                   <Text>
                      <CashIcon color="red" fill="gray" size={24} />
                   </Text>
@@ -122,14 +122,14 @@ const Footer3 = (props) => {
 
         <TouchableOpacity onPress={() => { navigation.navigate('shop'); }}>
          {onSelection==4 ?
-           <View style={tw.style('inline-blockitems-center px-2 mx-2')}>
+           <View style={tw.style('inline-blockitems-center px-2 mx-1 md:px-2 md:mx-2')}>
                <Text>
                   <SpeakerphoneIcon color="red" fill="#b80000" size={24} />
                </Text>
                 <Text style={tw.style('text-sm text-right font-normal text-red-700')}>Seller</Text>
            </View>
        :
-           <View style={tw.style('inline-block items-center px-2 mx-2')}>
+           <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
                <Text>
                   <SpeakerphoneIcon color="red" fill="gray" size={24} />
                </Text>
@@ -140,14 +140,14 @@ const Footer3 = (props) => {
 
         <TouchableOpacity onPress={() => { navigation.navigate('Account');  }}>
          {onSelection==5 ?
-           <View style={tw.style('inline-block items-center px-2 mx-2')}>
+           <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
                <Text>
                   <UserIcon color="red" fill="#b80000" size={24} />
                </Text>
                 <Text style={tw.style('text-sm text-right font-normal text-red-700')}>Account</Text>
            </View>
        :
-           <View style={tw.style('inline-block items-center px-2 mx-2')}>
+           <View style={tw.style('inline-block items-center px-2 mx-1 md:px-2 md:mx-2')}>
                <Text>
                   <UserIcon color="red" fill="gray" size={24} />
                </Text>

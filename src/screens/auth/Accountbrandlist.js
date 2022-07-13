@@ -18,14 +18,19 @@ import HorizontalSlider from 'react-horizontal-slider';
 import Footer2 from '../../screens/auth/Footer2';
 import SellHeader from '../../screens/auth/Sellheader';
 import Shopheader from '../../screens/auth/Shopheader';
-import Footer3 from '../../screens/auth/Footer3'; 
+import Footer3 from '../../screens/auth/Footer3';
 
-import AsyncStorage from '@react-native-community/async-storage'; 
+import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import { Provider , Portal,} from 'react-native-paper';
 import Modal from 'react-native-modal'
 import Sortorder from '../../components/pickers/Sortorder';
+import tw from 'twrnc';
+import { DotsVerticalIcon } from "react-native-heroicons/solid";
+import { ShareIcon } from "react-native-heroicons/solid";
+import Medbutton from '../../components/dropshipbutton/Medbutton';
+import Sortfilter from '../../components/pickers/Sortfilter';
 
 import {
   LineChart,
@@ -52,7 +57,7 @@ const Accountbrandlist = (props) => {
     //Reference
     const userId = props?.route?.params?.userId;
     const brandId = props?.route?.params?.brandId;
-    
+
     useEffect(() => {
       props.getincomingtlist(props?.loginuserid);
       props.getselldeshboard(props?.loginuserid);
@@ -76,14 +81,14 @@ const Accountbrandlist = (props) => {
      const ratingCompleted = (ratingdata) => {
             console.log('rating',ratingdata)
                if(ratingdata!="" && ratingdata!=undefined){
-                //setstarCount(ratingdata)  
+                //setstarCount(ratingdata)
                }
-              
-        }  
+
+        }
 
      const handleScroll=(pageYOffset)=>{
         if (pageYOffset > 0) {
-            setshowclassName('#B80000');  
+            setshowclassName('#B80000');
         }else{
             setshowclassName('#B80000');
         }
@@ -91,7 +96,7 @@ const Accountbrandlist = (props) => {
 
     const getBrandUserId = async () => {
         if(userId!="" && userId!=undefined){
-            await AsyncStorage.setItem('UserId',userId); 
+            await AsyncStorage.setItem('UserId',userId);
             await AsyncStorage.setItem('userLogin',"1");
         }
     }
@@ -138,7 +143,7 @@ const Accountbrandlist = (props) => {
                 style={{ paddingVertical: 5,width:100,}}
                 />
              </View>
-             
+
              </View>
               <View style={{marginLeft:4}}>
                  <View style={{padding:2,marginHorizontal:7}}>
@@ -149,7 +154,7 @@ const Accountbrandlist = (props) => {
                </View>
               </View>
           </View>
-        </View>  
+        </View>
   );
 }
 
@@ -177,81 +182,94 @@ const Accountbrandlist = (props) => {
                 </View>
             );
     }
-    
+
 
     return (
          <View style={{flex:1}}>
-         
+
 
        <ScrollView onScroll={({nativeEvent}) => {
                 handleScroll(nativeEvent['contentOffset'].y);
     }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} >
 
-                
-               <View style={styles.brndhedr}>
-                <TouchableOpacity onPress={()=>props.navigation.navigate("Accountbrandlist")}>
-                <Image source={{uri:props?.getBranddetails?.brandImage}} style={styles.snekimg}/>
-                </TouchableOpacity>
 
-                 <View style={{alignSelf:'flex-end',position:'absolute'}}>
-                      <TouchableOpacity onPress={() => openpopup() } style={styles.threebtn}>
-                      <Image source={ImageIcons.threemore}  style={styles.imgthree} />
-                    </TouchableOpacity>
-                    <View style={styles.shareview}>
-                      <Image source={ImageIcons.shareicon}  style={styles.sharimg} />
+               <View style={tw`mt-7 rounded-lg mx-3`}>
+                  <TouchableOpacity onPress={()=>props.navigation.navigate("Accountbrandlist")}>
+                   <View style={tw`bg-gray-400 items-center`}>
+                      <Image source={{uri:props?.getBranddetails?.brandImage}} style={tw`h-52 w-full rounded-lg `}/>
                     </View>
-                   </View> 
+                  </TouchableOpacity>
 
-                  <Text style={styles.nametxt}>{props?.getBranddetails?.brandName}</Text>
+                 <View style={tw`flex-end absolute right-2 top-2`}>
+                    <View style={tw.style('bg-zinc-200 rounded-md p-1 w-11 h-auto')}>
+                        <TouchableOpacity onPress={() => openpopup() }>
+                            <View style={tw.style('my-2 items-center h-auto')}>
+                              <DotsVerticalIcon color="black" fill="#000000" size={20} />
+                            </View>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={tw.style('bg-zinc-200 rounded-md p-1 mt-2 w-11 h-auto')}>
+                        <TouchableOpacity onPress={() => openpopup() }>
+                            <View style={tw.style('my-2 items-center h-auto')}>
+                              <ShareIcon color="black" fill="#000000" size={20} />
+                            </View>
+                        </TouchableOpacity>
+                    </View>
+                  </View>
 
-                  <Text style={styles.abouttxt}>{props?.getlistbranddetails?.aboutBrand}</Text>
-                 
-                 <View style={styles.arroundview}>
-                   <Text style={styles.zerotxt}>0</Text>
-                    <Text style={styles.zerotxt}>0</Text>
-                     <Text style={styles.zerotxt}>0</Text>
+                  <Text style={tw`text-3xl text-center text-red-700 font-bold mt-3`}>{props?.getBranddetails?.brandName}-text</Text>
+
+                  <Text style={tw`text-lg text-center text-gray-600 mt-1`}>{props?.getlistbranddetails?.aboutBrand}-text</Text>
+
+                 <View style={tw`flex flex-row justify-around mt-3`}>
+                    <View>
+                      <Text style={tw`text-2xl font-bold text-center text-gray-700`}>0</Text>
+                      <Text style={tw`text-base text-center text-gray-500`}>Livestreams</Text>
+                    </View>
+                    <View>
+                      <Text style={tw`text-2xl font-bold text-center text-gray-700`}>0</Text>
+                      <Text style={tw`text-base text-center text-gray-500`}>Products</Text>
+                    </View>
+                    <View>
+                      <Text style={tw`text-2xl font-bold text-center text-gray-700`}>0</Text>
+                      <Text style={tw`text-base text-center text-gray-500`}>Followers</Text>
+                    </View>
+
                  </View>
 
-                  <View style={styles.spacearround}>
-                   <Text style={styles.stremtxt}>Livestreams</Text>
-                    <Text style={styles.stremtxt}>Products</Text>
-                     <Text style={styles.stremtxt}>Followers</Text>
-                 </View>
-              
-                  <View style={styles.btnfllow}>
-                      <Text style={styles.totalincometodaycompaign}>FOLLOW</Text> 
+                  <View style={tw`mt-6 mb-10 mx-2`}>
+                      <Medbutton text="Follow" />
                    </View>
-              </View>  
-          
-              
-                <View style={styles.stview}>
-              <Text style={styles.stlinetxt}>Store</Text>
-              
-              <TouchableOpacity style={{marginLeft:'10%'}}>
-              <Text style={styles.nolvtxt}>Livestreams</Text>
-              </TouchableOpacity>
-              </View>
-              
-              <View style={styles.rowline}>
-              <View style={styles.linecolor}></View>
-              <View style={styles.line999clr}></View>
               </View>
 
-              <View style={styles.picview}>
-               <View style={styles.pickerViewshorttodayagainorderstore}>
-                      <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
-                </View>
-                <TouchableOpacity style={[styles.pickerViewshorttodayagainorderstore,{marginLeft:'8%',flexDirection:'row',justifyContent:'space-around',padding:4}]}>
-                   <Image source={ImageIcons.filtertoday}  style={{height:11,width:11,marginTop:5}} />
-                   <Text style={styles.fitrtxt}>FILTERS</Text> 
-                </TouchableOpacity>
+
+
+
+              <View style={tw.style('flex flex-row justify-around mx-4 pt-5')}>
+                  <Text style={tw`text-base font-bold text-gray-900`}>Store</Text>
+
+                  <TouchableOpacity onPress={() => props.navigation.navigate("Accountstore")}>
+                      <Text style={tw`text-base font-bold text-gray-400`}>Livestreams</Text>
+                  </TouchableOpacity>
               </View>
 
-             
+              <View style={tw.style('flex flex-row mx-4 my-2')}>
+                  <View style={tw.style('border-b-2 border-gray-500 w-[35%]')}></View>
+                  <View style={tw.style('border-b-2 border-gray-500 w-[65%]')}></View>
+              </View>
 
-              
+              <View style={tw`flex flex-row mx-3`}>
+
+                   <Sortorder text="Sort Order" options={options} onSelect={(checked) => updateorderStatus(checked)} />
+
+                  <Sortfilter text="filter"/>
+              </View>
+
+
+
+
                  <View style={{marginTop:'8%',}}>
-                  
+
                     <View style={{marginLeft:'5%',marginBottom:'15%'}}>
                     <FlatList
                         data={props?.getlistbranddetails || []}
@@ -261,11 +279,11 @@ const Accountbrandlist = (props) => {
                         numColumns={2}
                         />
                     </View>
-               </View>  
+               </View>
 
 
 
-                <View>   
+                <View>
 
 
         { openpopup  &&
@@ -274,8 +292,8 @@ const Accountbrandlist = (props) => {
                     <Modal visible={visible} style={{backgroundColor:'rgba(0, 0, 0, 0.8)',marginHorizontal:-20,marginVertical:-5}} onDismiss={closepopup} contentContainerStyle={containerStyle}>
           <View style={{ marginTop:150,position: 'absolute', textAlign: 'center',justifyContent: 'center',alignItems: 'center',top: 10,left: 0,right: 0 }}>
             <View style={{ width: 250, borderRadius: 10, backgroundColor:'#fff', borderColor:'#999', borderWidth:2 }}>
-              
-             
+
+
               <Text style={{marginVertical:'4%',marginHorizontal:'11%',fontSize:16,fontFamily:'hinted-AvertaStd-Semibold'}}>Language</Text>
               <View style={styles.pickerViewshorttodaymodallist}>
                        <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
@@ -285,10 +303,10 @@ const Accountbrandlist = (props) => {
                 <TouchableOpacity onPress={()=>closepopup()}>
                 <Text style={{marginHorizontal:'11%',fontSize:16,fontFamily:'hinted-AvertaStd-Semibold',marginBottom:'5%'}}>Report store</Text>
                 </TouchableOpacity>
-             
 
-              
-              
+
+
+
 
             </View>
           </View>
@@ -310,10 +328,10 @@ const Accountbrandlist = (props) => {
 
                { helppopup ==true &&
         <View style={{flex:1,backgroundColor:'#ffffff',margin:20,paddingVertical:10,borderRadius:10,zIndex:4001, position:'absolute',bottom:'10%'}}>
-            
-           
+
+
               <View style={styles.chatViewrose}>
-                    
+
                 <Text style={styles.Benrosetext}>Chat with customer support</Text>
                 <TouchableOpacity style={{position:'absolute',right:15,top:5}} onPress={() => sethelppopup(false)}>
                     <Image source={ImageIcons.closepopup}  style={styles.sendmsg2} />

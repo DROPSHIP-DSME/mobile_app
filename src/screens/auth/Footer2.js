@@ -36,18 +36,18 @@ const Footer2 = (props) => {
 
     // Local states
     return (
-       <View style={tw.style('max-w-fit mx-auto bg-white flex h-15 py-2 mx-1')}>
-            <View style={tw.style('flex-row justify-between')}>
+       <View style={tw.style('max-w-fit bg-white flex h-15 pt-1 md:py-1 sm:mx-0 md:mx-1')}>
+            <View style={tw.style('flex-row justify-around')}>
                 <TouchableOpacity onPress={() => navigation.navigate("watchlist")} >
                     {onSelelection==1 ?
-                        <View style={tw.style('inline-block items-center px-1 mx-2')}>
+                        <View style={tw.style('inline-block items-center px-1 mx-1 md:px-1 md:mx-1')}>
                             <Text>
                                <HomeIcon color="red" fill="#B80000" size={24} />
                             </Text>
                              <Text style={tw.style('text-sm text-right font-normal text-red-700')}>Dashboard</Text>
                         </View>
                     :
-                        <View style={tw.style('inline-block items-center px-1 mx-2')}>
+                        <View style={tw.style('inline-block items-center px-1 mx-1 md:px-2 md:mx-2')}>
                             <Text>
                                <HomeIcon color="red" fill="gray" size={24} />
                             </Text>
@@ -58,14 +58,14 @@ const Footer2 = (props) => {
 
                 <TouchableOpacity onPress={() => navigation.navigate("Dashorder")} >
                     {onSelelection==2 ?
-                      <View style={tw.style('inline-block items-center px-1 mx-2')}>
+                      <View style={tw.style('inline-block items-center px-1 mx-1 md:px-2 md:mx-2')}>
                           <Text>
                              <TagIcon color="red" fill="#B80000" size={24} />
                           </Text>
                            <Text style={tw.style('text-sm text-right font-normal text-red-700')}>Orders</Text>
                       </View>
                   :
-                      <View style={tw.style('inline-block items-center px-1 mx-2')}>
+                      <View style={tw.style('inline-block items-center px-1 mx-1 d:px-2 md:mx-2')}>
                           <Text>
                              <TagIcon color="red" fill="gray" size={24} />
                           </Text>
@@ -76,14 +76,14 @@ const Footer2 = (props) => {
 
                 <TouchableOpacity onPress={() => navigation.navigate("Dashlive") } >
                     {onSelelection==3 ?
-                      <View style={tw.style('inline-block items-center px-1 mx-2')}>
+                      <View style={tw.style('inline-block items-center px-1 mx-1 md:px-2 md:mx-2')}>
                           <Text>
                              <VideoCameraIcon color="red" fill="#b80000" size={24} />
                           </Text>
                            <Text style={tw.style('text-sm text-right font-normal text-red-700')}>Go Live</Text>
                       </View>
                   :
-                      <View style={tw.style('inline-block items-center px-1 mx-2')}>
+                      <View style={tw.style('inline-block items-center px-1 mx-1 md:px-2 md:mx-2')}>
                           <Text>
                              <VideoCameraIcon color="red" fill="gray" size={24} />
                           </Text>
@@ -94,14 +94,14 @@ const Footer2 = (props) => {
 
                 <TouchableOpacity onPress={() => navigation.navigate("Dashproduct")} >
                     {onSelelection==4 ?
-                      <View style={tw.style('inline-block items-center px-1 mx-2')}>
+                      <View style={tw.style('inline-block items-center px-1 mx-1 md:px-2 md:mx-2')}>
                           <Text>
                              <ShoppingBagIcon color="red" fill="#b80000" size={24} />
                           </Text>
                            <Text style={tw.style('text-sm text-right font-normal text-red-700')}>Products</Text>
                       </View>
                   :
-                      <View style={tw.style('inline-block items-center px-1 mx-2')}>
+                      <View style={tw.style('inline-block items-center px-1 mx-1 md:px-2 md:mx-2')}>
                           <Text>
                              <ShoppingBagIcon color="red" fill="gray" size={24} />
                           </Text>
@@ -112,14 +112,14 @@ const Footer2 = (props) => {
 
                 <TouchableOpacity onPress={() => navigation.navigate("Dashsale")} >
                     {onSelelection==5 ?
-                      <View style={tw.style('inline-block items-center px-1 mx-2')}>
+                      <View style={tw.style('inline-block items-center px-1 mx-1 md:px-2 md:mx-2')}>
                           <Text>
                              <PresentationChartLineIcon color="red" fill="#b80000" size={24} />
                           </Text>
                            <Text style={tw.style('text-sm text-right font-normal text-red-700')}>Account</Text>
                       </View>
                   :
-                      <View style={tw.style('inline-block items-center px-1 mx-2')}>
+                      <View style={tw.style('inline-block items-center px-1 mx-1 md:px-2 md:mx-2')}>
                           <Text>
                              <PresentationChartLineIcon color="red" fill="gray" size={24} />
                           </Text>

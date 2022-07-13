@@ -186,10 +186,10 @@ const Login = (props) => {
               resizeMode={"cover"}
               style={styles.backgroundVideo}
             />
-            <View style={tw.style('items-center my-8')}>
+            <View style={tw.style('items-center my-11')}>
               <Image source={item.title} style={{ width: 145, height: 117 }} />
             </View>
-            <View style={tw.style('items-center mt-54 mx-5')}>
+            <View style={tw.style('items-center mt-[30%] mx-5')}>
               <Text style={tw.style('font-sans font-bold px-2 text-4xl text-white text-center')}>{item.text}</Text>
             </View>
           </View>
@@ -260,10 +260,10 @@ const Login = (props) => {
               resizeMode={"cover"}
               style={styles.backgroundVideo}
             />
-            <View style={tw.style('items-center mt-10')}>
+            <View style={tw.style('items-center mt-15')}>
               <Image source={ImageIcons.logoredagain} style={{ width: 145, height: 117 }} />
             </View>
-            <View style={tw.style('mt-20 items-center mx-4')}>
+            <View style={tw.style('mt-[15%] items-center mx-4')}>
               <Text style={tw.style('px-2 text-3xl font-bold text-white text-center')}>A live-commerce marketplace for fashion and home goods. </Text>
             </View>
             <View style={tw.style('items-center mt-6')}>
