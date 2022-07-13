@@ -31,15 +31,8 @@ import More from './More';
 import Inorder from './Inorder';
 import Processorder from './Processorder';
 import Dashsuccess from './Dashsuccess';
-import Accountfav from './Accountfav';
 import Accountpublish from './Accountpublish';
-
-
 import Dashbrand from './Dashbrand';
-
-
-
-import Topselling from './Topselling';
 import Livechannel from './Livechannel';
 import ProfileDetail from './ProfileDetail';
 
@@ -83,7 +76,6 @@ export {
     changepayment,
     paymentedit,
     noaddress,
-    Accountfav,
     Accountpublish,
     emptyaccount,
     myaccount,
@@ -97,7 +89,6 @@ export {
     StartRecording,
     Inorder,
     Dashsuccess,
-    Topselling,
     Neworder,
     More,
     Goback,

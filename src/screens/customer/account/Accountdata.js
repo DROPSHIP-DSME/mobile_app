@@ -210,7 +210,7 @@ const Accountdata = (props) => {
                 <View style={tw`flex flex-row mx-4`}>
                     <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
-                    <Sortfilter text="Filter" onPress={() => props.navigation.navigate("Accountfav")} />
+                    <Sortfilter text="Filter" onPress={() => props.navigation.navigate("Accountfav1")} />
                 </View>
 
 

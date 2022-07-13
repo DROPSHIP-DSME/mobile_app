@@ -12,7 +12,6 @@ import {
   Accountsum,
   StoreOwner,
   Dashbrand,
-  Accountfav,
   Accountfollow,
   Accountproduct,
   Accountbrandlist,
@@ -85,7 +84,6 @@ import {
   Cart,
   Overview,
   Inorder,
-  Topselling,
   Verification,
   Livechannel,
   Goback,
@@ -957,21 +955,6 @@ const Auth = (props) => {
         //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
       />
 
-        <Stack.Screen
-        name="Topselling"
-        component={Topselling}
-        options={({ navigation }) => ({
-                        headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Top Selling Product",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor:'#FFE7E7', elevation: 0, shadowOpacity: 0 },
-                    })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
-      />
-
 
        <Stack.Screen
         name="ChatSupport"
@@ -1100,19 +1083,7 @@ const Auth = (props) => {
                         headerStyle: styles.headerbackgroundstyle,
                     })}
       />
-       <Stack.Screen
-        name="Accountfav"
-        component={Accountfav}
-        options={({ navigation }) => ({
-                        headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
-                        headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: styles.titleheaderstyle,
-                        headerStyle: styles.headerbackgroundstyle,
-                    })}
-      />
+      
        <Stack.Screen
         name="Accountfollow"
         component={Accountfollow}

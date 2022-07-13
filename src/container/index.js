@@ -82,7 +82,6 @@ import Dashproduct from './auth/Dashproduct';
 import Dashreturn from './auth/Dashreturn';
 import Dashchats from './auth/Dashchats';
 import Dashsuccess from './auth/Dashsuccess';
-import Accountfav from './auth/Accountfav';
 import Accountfollow from './auth/Accountfollow';
 import Accountbrand from './auth/Accountbrand';
 import Accountstore from './auth/Accountstore';
@@ -92,7 +91,6 @@ import Accountbrandlist from './auth/Accountbrandlist';
 import Dashsale from './auth/Dashsale';
 import Dashorder from './auth/Dashorder';
 import Dashdetail from './auth/Dashdetail';
-import Topselling from './auth/Topselling';
 import ResetPassword from './auth/ResetPassword';
 import ForgetPassword from './auth/ForgetPassword';
 
@@ -131,7 +129,6 @@ export {
     deletaccount,
     Accountdata,
     changepayment,
-    Accountfav,
     Accountfollow,
     Accountfav1,
     Accountsum,
@@ -181,7 +178,6 @@ export {
      Neworder,
      Accountbrandlist,
      upcoming,
-    Topselling,
    StartRecording,
     Overview,
     More,
