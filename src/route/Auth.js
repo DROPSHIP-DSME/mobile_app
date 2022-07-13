@@ -1871,7 +1871,7 @@ const LeftMenuItem = ({ navigation, isMenu }) => {
             }}
             style={{ paddingLeft: '5%',marginRight:15 }}>
                {isMenu ?
-                <Image source={ImageIcons.logored} style={{width:65,height:53}}/>
+                <Image source={ImageIcons.logored} style={{width:65,height:53,marginTop:4}}/>
                :
                 <Image source={ImageIcons.backlefticon} style={{width:45,height:45, tintColor:'#FFFFFF'}}/>
               }
