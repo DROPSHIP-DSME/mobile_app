@@ -381,7 +381,7 @@ const renderItem3 =({ item }) =>{
                             </View>
                         </TouchableOpacity>
                      :
-                        <TouchableOpacity onPress={() => props.navigation.navigate("Category",{todopage:'SearchProduct2'} )}>
+                        <TouchableOpacity>
                             <View style={styles.productcircletext}>
                                 <Image source={ImageIcons.circle} />
                                 <Text  style={styles.addredtext}>Add Product</Text>

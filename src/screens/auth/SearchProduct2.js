@@ -192,7 +192,7 @@ const SearchProduct2 = (props) => {
                      <Text style={styles.addViewtext}>Add product</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={styles.addView2} onPress={() => props.navigation.navigate("Category",{todopage:'SearchProduct2'} )}>
+                    <TouchableOpacity style={styles.addView2} >
                      <Text style={styles.addViewtext2}>Category</Text>
                     </TouchableOpacity>
                  </View>

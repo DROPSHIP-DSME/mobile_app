@@ -5,7 +5,6 @@ import StoreOwner from './StoreOwner';
 import SearchProduct2 from './SearchProduct2';
 import Footer3 from './Footer3';
 
-import coming from './coming';
 import Popevent from './Popevent';
 import changepassword from './changepassword';
 import schedule from './schedule';
@@ -18,7 +17,6 @@ import Editprofiledetail from './Editprofiledetail';
 import myaccount from './myaccount';
 
 
-import Addcategory from './Addcategory';
 import Golive from './Golive';
 import Goback from './Goback';
 import Neworder from './Neworder';
@@ -41,7 +39,6 @@ import ForgetPassword from './ForgetPassword';
 import ResetPassword from './ResetPassword';
 import Codeconfirm from './Codeconfirm';
 import CreateAccountShop from './CreateAccountShop';
-import Category from './Category';
 import Product from './Product';
 import ProductDetails from './ProductDetails';
 import ProductDetails2 from './ProductDetails2';
@@ -97,14 +94,12 @@ export {
     changepassword,
     Store,
     Verification,
-    Addcategory,
     Codeconfirm,
     Addbrand,
     AddProduct,
     AddProduct2,
     AddStore,
     Order,
-    Category,
     Product,
     ProductDetails,
     ProductDetails2,
@@ -117,7 +112,6 @@ export {
     Support,
     ChatSupport,
     SearchProduct2,
-    coming,
     schedule,
     RegistrationShop,
     CreateAccountShop,

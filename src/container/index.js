@@ -4,12 +4,10 @@ import OTPVerification from './auth/OTPVerification';
 import StoreOwner from './auth/StoreOwner';
 import watchlist from './auth/watchlist';
 import Golive from './auth/Golive';
-import Addcategory from './auth/Addcategory';
 import clothing from './auth/clothing';
 import clothdetails from './auth/clothdetails';
 import StartRecording from './auth/StartRecording';
 import schedule from './auth/schedule';
-import coming from './auth/coming';
 import upcoming from './auth/upcoming';
 import shop from './auth/shop';
 import Blurbackground from './auth/Blurbackground';
@@ -31,7 +29,6 @@ import editviewaddress from './auth/editviewaddress';
 import editpassword from './auth/editpassword';
 
 import Order from './auth/Order';
-import Category from './auth/Category';
 import Product from './auth/Product';
 import SearchProduct from './auth/SearchProduct';
 import NameStore from './auth/NameStore';
@@ -190,7 +187,6 @@ export {
     StoreOwner,
     Accountorderhist,
     Golive,
-    Addcategory,
     Codeconfirm,
     CreateAccountShop,
     Addbrand,
@@ -199,7 +195,6 @@ export {
     AddStore,
     CreateStore,
     Order,
-    Category,
     Product,
     SearchProduct,
     NameStore,
@@ -218,7 +213,7 @@ export {
     watchlist,
     clothing,
     clothdetails,
-    coming,shop,
+    shop,
     schedule,
     Blurbackground,
     changepassword,

@@ -44,7 +44,6 @@ import {
   Dashorder,
   Dashreturn,
   Goliveshop,
-  Addcategory,
   Footer2,
   Footer3,
   Support,
@@ -69,7 +68,6 @@ import {
   AddStore,
   CreateStore,
   Order,
-  Category,
   Product,
   SearchProduct,
   SearchProduct2,
@@ -94,7 +92,6 @@ import {
   clothing,
   clothdetails,
   StartRecording,
-  coming,
   upcoming,
   schedule,
   shop,
@@ -354,22 +351,7 @@ const Auth = (props) => {
                     })}
         //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
       />
-      <Stack.Screen
-        name="coming"
-        component={coming}
-        options={({ navigation }) => ({
-                        headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
-                        headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: styles.titleheaderstyle,
-                        headerStyle: styles.headerbackgroundstyle,
-                    })}
-      />
-
       
-     
      <Stack.Screen
         name="editaddress"
         component={editaddress}
@@ -443,21 +425,6 @@ const Auth = (props) => {
       <Stack.Screen
         name="StartRecording"
         component={StartRecording}
-        options={({ navigation }) => ({
-                         headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
-                        headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: styles.titleheaderstyle,
-                        headerStyle: styles.headerbackgroundstyle,
-                    })}
-      />
-
-
-      <Stack.Screen
-        name="Category"
-        component={Category}
         options={({ navigation }) => ({
                          headerShown: true,
                         headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
@@ -1473,20 +1440,7 @@ const Auth = (props) => {
         //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
       />
 
-      <Stack.Screen
-        name="Addcategory"
-        component={Addcategory}
-        options={({ navigation }) => ({
-                        headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Add a Category",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor: '#FFE7E7', elevation: 0, shadowOpacity: 0 },
-                    })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
-      />
+      
 
       <Stack.Screen
         name="AddProduct"
