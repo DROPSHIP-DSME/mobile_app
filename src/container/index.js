@@ -59,8 +59,6 @@ import Goback from './auth/Goback';
 import More from './auth/More';
 import Neworder from './auth/Neworder';
 import Livechannel from './auth/Livechannel';
-import Productculture from './auth/Productculture';
-import Productcountry from './auth/Productcountry';
 import ProfileDetail from './auth/ProfileDetail';
 import Sellheader from './auth/Sellheader';
 
@@ -100,7 +98,6 @@ import ForgetPassword from './auth/ForgetPassword';
 
 import Codeconfirm from './auth/Codeconfirm';
 import CreateAccountShop from './auth/CreateAccountShop';
-import Vedioscreen from './auth/Vedioscreen';
 
 import Store from './auth/Store';
 import Verification from './auth/Verification';
@@ -111,7 +108,6 @@ import Footer3 from './auth/Footer3';
 
 import Support from './auth/Support';
 import SalesAnalytic from './auth/SalesAnalytic';
-import BenRose from './auth/BenRose';
 import ChatSupport from './auth/ChatSupport';
 import Shipprocess from './auth/Shipprocess';
 import Shipaddress from './auth/Shipaddress';
@@ -191,8 +187,6 @@ export {
     More,
     Goback,
     Goliveshop,
-    Productcountry,
-    Productculture,
     Livechannel,
     Viewbrand,
     ProfileDetail,
@@ -229,10 +223,8 @@ export {
     Footer3,
     Support,
     SalesAnalytic,
-    BenRose,
     ChatSupport,
     SearchProduct2,
-    Vedioscreen,
     watchlist,
     clothing,
     clothdetails,

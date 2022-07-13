@@ -5,7 +5,6 @@ import {
   Registration,
   RegistrationShop,
   Login,
-  Vedioscreen,
   OTPVerification,
   Dashwith,
   Dashaccount,
@@ -51,7 +50,6 @@ import {
   Footer3,
   Support,
   SalesAnalytic,
-  BenRose,
   ChatSupport,
   Addbrand2,
   emptyaccount,
@@ -90,8 +88,6 @@ import {
   Topselling,
   Verification,
   Livechannel,
-  Productculture,
-  Productcountry,
   Goback,
   Log,
   ProfileDetail,
@@ -176,12 +172,6 @@ const Auth = (props) => {
       }
       
 
-
-<Stack.Screen
-          name="Vedioscreen"
-          component={Vedioscreen}
-          options={{ title: '', headerShown: false }}
-        />
         <Stack.Screen
         name="Sellheader"
         component={Sellheader}
@@ -1042,11 +1032,7 @@ const Auth = (props) => {
                     })}
         //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
       />
-      <Stack.Screen
-        name="BenRose"
-        component={BenRose}
-        options={{ title: '', headerShown: false }}
-      />
+      
         <Stack.Screen
         name="Processorder"
         component={Processorder}
@@ -1469,36 +1455,7 @@ const Auth = (props) => {
         //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
       />
 
-      <Stack.Screen
-        name="Productculture"
-        component={Productculture}
-        options={({ navigation }) => ({
-                        headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Product Culture",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor: '#FFE7E7', elevation: 0, shadowOpacity: 0 },
-                    })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
-      />
-
-      <Stack.Screen
-        name="Productcountry"
-        component={Productcountry}
-        options={({ navigation }) => ({
-                        headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Product Country",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor: '#FFE7E7', elevation: 0, shadowOpacity: 0 },
-                    })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
-      />
-
+      
       <Stack.Screen
         name="Livechannel"
         component={Livechannel}

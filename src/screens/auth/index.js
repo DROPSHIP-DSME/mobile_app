@@ -41,8 +41,6 @@ import Dashbrand from './Dashbrand';
 
 import Topselling from './Topselling';
 import Livechannel from './Livechannel';
-import Productculture from './Productculture';
-import Productcountry from './Productcountry';
 import ProfileDetail from './ProfileDetail';
 
 import AddStore from './AddStore';
@@ -68,9 +66,7 @@ import StartRecording from './StartRecording';
 
 import Footer2 from './Footer2';
 import Support from './Support';
-import BenRose from './BenRose';
 import ChatSupport from './ChatSupport';
-import Vedioscreen from './Vedioscreen';
 import Viewevent from './Viewevent';
 import Shipprocess from './Shipprocess';
 import Shipaddress from './Shipaddress';
@@ -96,7 +92,6 @@ export {
     Accountview2,
     Shipaddress,
     Shipprocess,
-    Vedioscreen,
     Processorder,
     Dashbrand,
     StartRecording,
@@ -106,7 +101,6 @@ export {
     Neworder,
     More,
     Goback,
-    Productcountry,
     Login,
     Registration,
     OTPVerification,
@@ -115,7 +109,6 @@ export {
     ResetPassword,
     Golive,
     changepassword,
-    Productculture,
     Store,
     Verification,
     Addcategory,
@@ -137,7 +130,6 @@ export {
     Footer2,
     Footer3,
     Support,
-    BenRose,
     ChatSupport,
     SearchProduct2,
     coming,
