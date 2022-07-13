@@ -121,24 +121,22 @@ const Accountstore = (props) => {
     return (
       <View>
         {index == 0 &&
-          <View style={styles.mainbrandsingl}>
-            <View style={styles.dirspcView}>
-              <Text style={styles.mybrdtxt}>My Brands</Text>
-              <View style={tw.style('flex flex-row justify-between items-center')}>
-                <Smallbutton text="SEE ALL" style={styles.allsebtn} onPress={() => props.navigation.navigate("Accountbrand")}></Smallbutton>
-              </View>
+          <View style={tw`pb-3 px-2`}>
+            <View style={tw`flex flex-row justify-between items-center mb-2`}>
+                <Text style={tw`text-2xl text-gray-700`}>My Brands</Text>
+                <Smallbutton text="SEE ALL"  onPress={() => props.navigation.navigate("Accountbrand")}></Smallbutton>
             </View>
-            <View style={styles.dirspcView}>
-              <TouchableOpacity style={styles.heartratingView} onPress={() => props.navigation.navigate("Accountbrandlist")}>
+            <View style={tw`flex flex-row justify-between`}>
+              <TouchableOpacity style={tw`flex-row items-center`} onPress={() => props.navigation.navigate("Accountbrandlist")}>
                 <View>
                   <Image source={{ uri: item.brandImage }} style={styles.produtbrandimage2} />
                 </View>
-                <View style={{ alignSelf: 'center' }}>
+                <View style={tw`ml-3`}>
                   <Text style={styles.droptxttt}>{item.brandName}</Text>
                   <Text style={styles.dropcom}>store.dropship.com</Text>
                 </View>
               </TouchableOpacity>
-              <View style={{ alignSelf: 'center' }}>
+              <View style={tw`mt-1`}>
                 <View style={{ flexDirection: 'row', marginTop: '2%', }}>
                   <Image source={ImageIcons.redcolorbag} style={styles.bgsaimg} />
                   <Text style={styles.optext}>0 products</Text>
@@ -182,7 +180,7 @@ const Accountstore = (props) => {
           </TouchableOpacity>
         </View>
 
-        <View style={{ flexDirection: 'row', marginHorizontal: "3%", marginTop: "2%" }}>
+        <View style={tw`flex flex-row mx-3 mt-3`}>
           <View style={{ borderBottomWidth: 2, borderColor: "#999999", width: "35%" }}></View>
           <View style={{ borderBottomWidth: 2, borderColor: "#1A1A1A", width: "25%" }}></View>
           <View style={{ borderBottomWidth: 2, borderColor: "#999999", width: "40%" }}></View>
@@ -197,7 +195,7 @@ const Accountstore = (props) => {
               renderItem={renderItem1}
               keyExtractor={item => item.id}
               showsHorizontalScrollIndicator={false}
-              numColumns={2}
+              numColumns={1}
             />
           </View>
         </View>

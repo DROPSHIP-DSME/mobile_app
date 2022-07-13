@@ -124,14 +124,14 @@ const deviceWidth = Dimensions.get('window').width;
     const renderItem1 =({item,index}) =>{
 
       return(
-        <View style={styles.maincarbrand}>
+        <View style={tw`mt-9 mx-2 bg-gray-100 p-2 rounded-lg`}>
 
             <TouchableOpacity style={tw.style('h-14 p-5 border-5 items-center',{width:deviceWidth/2.4})} onPress={() => props.navigation.navigate("Accountbrandlist",{brandId:item._id})}>
-              <View>
+              <View style={tw`bg-gray-200`}>
                 <Image source={{uri: item.brandImage}} style={tw`w-20 h-20 border-7 items-center`} />
               </View>
                 <Text style={tw`text-base text-gray-700 my-1 w-9/11 leading-2 text-center`}>{item.brandName}</Text>
-                <Text style={styles.dropcom}>store.dropship.com</Text>
+                <Text style={tw`text-sm text-blue-700 my-1 w-9/11 leading-2 text-center`}>store.dropship.com</Text>
 
             </TouchableOpacity>
             <View style={tw`items-center`}>
@@ -144,8 +144,8 @@ const deviceWidth = Dimensions.get('window').width;
                  <Text style={tw`text-base text-gray-700 ml-3`}>0 sales</Text>
               </View>
             </View>
-            <View style={{flexDirection:'row',justifyContent:'space-between',marginHorizontal:'4%',marginVertical:'5%'}}>
-              <Text style={{fontSize:26,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',}}>My Brands</Text>
+            <View style={tw`flex-row justify-between mx-3 my-2`}>
+              <Text style={tw`text-2xl text-gray-700 font-smibold`}>My Brands</Text>
             </View>
         </View>
       );
@@ -159,13 +159,8 @@ const deviceWidth = Dimensions.get('window').width;
                 handleScroll(nativeEvent['contentOffset'].y);
     }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} >
 
-     <View style={{flexDirection:"row",marginHorizontal:"4%",marginTop:"9%"}}>
-              <Text style={{fontSize:15,fontFamily:"hinted-AvertaStd-Regular",color:"#999999"}}>MY STORES /</Text>
-              <Text style={{fontSize:15,fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}> MANAGE BRANDS</Text>
-              </View>
-
-               <View style={{flexDirection:'row',justifyContent:'space-between',marginHorizontal:'4%',marginVertical:'5%'}}>
-                 <Text style={{fontSize:26,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',}}>My Brands</Text>
+               <View style={tw`flex flex-row justify-betwwen mx-4 my-6`}>
+                 <Text style={tw`text-3xl text-gray-700`}>My Brands</Text>
                </View>
 
 

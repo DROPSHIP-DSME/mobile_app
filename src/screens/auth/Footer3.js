@@ -62,8 +62,8 @@ const Footer3 = (props) => {
 
     return (
 
-        <View style={tw.style('max-w-fit mx-auto bg-white flex h-15 px-1 py-2 md:py-1 sm:mx-0 md:mx-1')}>
-          <View style={tw.style('flex-row justify-between')}>
+        <View style={tw.style('max-w-fit  bg-white flex h-15 px-1 py-2 md:py-1 sm:mx-0 md:mx-1')}>
+          <View style={tw.style('flex-row justify-around')}>
 
           <TouchableOpacity onPress={() => { navigation.navigate('watchlist'); }}>
             {onSelection==1 ?
