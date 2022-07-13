@@ -127,7 +127,6 @@ import {
   Popevent,
   Notification,
   Viewevent,
-  Bagprocess,
   Shipprocess,
   Shipaddress,
   Shippayment,
@@ -602,19 +601,7 @@ const Auth = (props) => {
                         headerStyle: styles.headerbackgroundstyle,
                     })}
       />
-      <Stack.Screen
-        name="Bagprocess"
-        component={Bagprocess}
-        options={({ navigation }) => ({
-                        headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
-                        headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: styles.titleheaderstyle,
-                        headerStyle: styles.headerbackgroundstyle,
-                    })}
-      />
+     
       
       <Stack.Screen
         name="editprofile"

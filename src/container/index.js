@@ -122,7 +122,6 @@ import BenRose from './auth/BenRose';
 import ChatSupport from './auth/ChatSupport';
 import DeGaulle from './auth/DeGaulle';
 import EmmaRose from './auth/EmmaRose';
-import Bagprocess from './auth/Bagprocess';
 import Shipprocess from './auth/Shipprocess';
 import Shipaddress from './auth/Shipaddress';
 import Shippayment from './auth/Shippayment';
@@ -166,7 +165,6 @@ export {
     Accountpublish,
     Accountproduct,
     Shipprocess,
-    Bagprocess,
     Viewevent,
     Cart,
     Dashproduct,

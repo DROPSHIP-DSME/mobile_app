@@ -81,7 +81,6 @@ import BenRose from './BenRose';
 import ChatSupport from './ChatSupport';
 import Vedioscreen from './Vedioscreen';
 import Viewevent from './Viewevent';
-import Bagprocess from './Bagprocess';
 import Shipprocess from './Shipprocess';
 import Shipaddress from './Shipaddress';
 import Shippayment from './Shippayment';
@@ -94,25 +93,18 @@ import Accountview2 from './Accountview2';
 import Sellheader from './Sellheader';
 
 export {
-    
-   
     changepayment,
     paymentedit,
     noaddress,
     Accountfav,
-    
-    
     Accountpublish,
-    
     emptyaccount,
     myaccount,
     confirpayment,
-    
     Shippayment,
     Accountview2,
     Shipaddress,
     Shipprocess,
-    Bagprocess,
     Vedioscreen,
     Processorder,
     Dashbrand,
@@ -145,7 +137,6 @@ export {
     Selectproduct,
     Category,
     Product,
-    
     ProductDetails,
     ProductDetails2,
     ProductDetails3,

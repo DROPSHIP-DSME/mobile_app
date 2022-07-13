@@ -19,7 +19,6 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import Footer3 from '../../screens/auth/Footer3';
 
 const  Editprofiledetail = (props) => {
- edit
     const {
         navigation,
         values,
