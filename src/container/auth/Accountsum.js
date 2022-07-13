@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { Accountsum } from '../../screens/auth';
+import { Accountsum } from '../../screens/customer/account';
 import { getAllshop,getselldeshboard,getincomingtlist } from '../../redux/actions/Auth'
 
 

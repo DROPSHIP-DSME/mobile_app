@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { editpassword } from '../../screens/auth';
+import { editpassword } from '../../screens/customer/setting';
 import { getAllshop,updatepassword } from '../../redux/actions/Auth'
 
 

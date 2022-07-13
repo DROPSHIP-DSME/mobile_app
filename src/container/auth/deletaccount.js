@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { deletaccount } from '../../screens/auth';
+import { deletaccount } from '../../screens/customer/setting';
 import { getAllshop,deleteUseraccount } from '../../redux/actions/Auth'
 
 

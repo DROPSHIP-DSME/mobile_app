@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { Accountorderhist } from '../../screens/auth';
+import { Accountorderhist } from '../../screens/customer/account';
 import { getAllshop,getincomingtlist } from '../../redux/actions/Auth'
 
 

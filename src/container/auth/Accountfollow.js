@@ -1,5 +1,5 @@
  import { connect } from 'react-redux';
-import { Accountfollow } from '../../screens/auth';
+import { Accountfollow } from '../../screens/customer/account';
 import { getselldeshboard,gettopsell,getincomingtlist,liveeventdetail } from '../../redux/actions/Auth'
 
 

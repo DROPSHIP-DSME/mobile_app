@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { Accountorderview } from '../../screens/auth';
+import { Accountorderview } from '../../screens/customer/account';
 import {
     shopproduct, 
     shopsellcount,

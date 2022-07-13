@@ -378,7 +378,7 @@ const Account = (props) => {
                           </View>
 
                       </View>
-
+ 
                       <TouchableOpacity onPress={() => props.navigation.navigate("Dashsupportacc")} style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
                           <View style={tw.style('my-1')}>
                               <Text style={tw.style('text-base font-normal text-gray-900')}>Customer Support</Text>

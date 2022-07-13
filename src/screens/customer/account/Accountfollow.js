@@ -3,22 +3,20 @@ import { Text, View, Image, TextInput, ImageBackground, FlatList, Picker, Status
 import LinearGradient from 'react-native-linear-gradient';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
-import styles from './styles';
-import newstyles from './styles';
-import { Colors, CommonStrings } from '../../common'
-import ImageIcons from '../../common/ImageIcons'
-import InputField from '../../components/forms/inputField';
-import { RoundedButton } from '../../components/forms/button';
-import { phoneRegExp } from '../../services/helper';
-import DropdownField from '../../components/dropdown/DropDownMenu';
-import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
-import Loader from '../../components/modals/Loader';
+import styles from '../../../screens/auth/styles';
+import newstyles from '../../../screens/auth/styles';
+import { Colors, CommonStrings } from '../../../common'
+import ImageIcons from '../../../common/ImageIcons'
+import InputField from '../../../components/forms/inputField';
+import { RoundedButton } from '../../../components/forms/button';
+import { phoneRegExp } from '../../../services/helper';
+import DropdownField from '../../../components/dropdown/DropDownMenu';
+import PhoneMaskInput from '../../../components/forms/inputField/PhoneMaskInput';
+import Loader from '../../../components/modals/Loader';
 import Swipeout from 'react-native-swipeout';
 import HorizontalSlider from 'react-horizontal-slider';
-import Footer2 from '../../screens/auth/Footer2';
-import SellHeader from '../../screens/auth/Sellheader';
-import Shopheader from '../../screens/auth/Shopheader';
-import Footer3 from '../../screens/auth/Footer3';
+import Footer2 from '../../../screens/auth/Footer2';
+import Footer3 from '../../../screens/auth/Footer3';
 
 import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
@@ -27,7 +25,7 @@ import { Provider, Portal, } from 'react-native-paper';
 import Modal from 'react-native-modal';
 import tw from 'twrnc';
 import { ShoppingBagIcon } from "react-native-heroicons/solid";
-import Smallbutton from '../../components/dropshipbutton/Smallbutton';
+import Smallbutton from '../../../components/dropshipbutton/Smallbutton';
 
 
 import {

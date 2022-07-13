@@ -25,8 +25,6 @@ import Onboard from './Onboard';
 import SaleOnboard from './SaleOnboard';
 import ShoesOnboard from './ShoesOnboard';
 import myaccount from './myaccount';
-import Accountorderhist from './Accountorderhist';
-import editpassword from './editpassword';
 
 
 import Selectproduct from './Selectproduct';
@@ -41,18 +39,11 @@ import Inorder from './Inorder';
 import Processorder from './Processorder';
 import Dashsuccess from './Dashsuccess';
 import Accountfav from './Accountfav';
-import Accountdata from './Accountdata';
-import Accountfav1 from './Accountfav1';
-import Accountbrandlist from './Accountbrandlist';
-import Accountfollow from './Accountfollow';
-import Accountbrand from './Accountbrand';
 import Accountpublish from './Accountpublish';
-import Accountstore from './Accountstore';
 
 
 import Dashbrand from './Dashbrand';
 
-import Dashsupportacc from './Dashsupportacc';
 
 
 import Topselling from './Topselling';
@@ -97,35 +88,28 @@ import Shipprocess from './Shipprocess';
 import Shipaddress from './Shipaddress';
 import Shippayment from './Shippayment';
 import confirpayment from './confirpayment';
-import Accountorderview from './Accountorderview';
 import emptyaccount from './emptyaccount';
 import noaddress from './noaddress';
 import paymentedit from './paymentedit';
 import changepayment from './changepayment';
-import deletaccount from './deletaccount';
-import Accountsum from './Accountsum';
 import Accountview2 from './Accountview2';
 import Sellheader from './Sellheader';
 
 export {
-    deletaccount,
-    editpassword,
-    Accountdata,
+    
+   
     changepayment,
     paymentedit,
     noaddress,
     Accountfav,
-    Accountfollow,
-    Accountbrand,
-    Accountstore,
-    Accountfav1,
-    Accountbrandlist,
+    
+    
     Accountpublish,
-    Accountorderhist,
+    
     emptyaccount,
     myaccount,
     confirpayment,
-    Accountorderview,
+    
     Shippayment,
     Accountview2,
     Shipaddress,
@@ -135,7 +119,6 @@ export {
     Processorder,
     Dashbrand,
     StartRecording,
-    Dashsupportacc,
     Inorder,
     Dashsuccess,
     Topselling,
@@ -203,6 +186,5 @@ export {
     ShoesOnboard,
     Popevent,
     Viewevent,
-    Accountsum,
     Sellheader
 }
