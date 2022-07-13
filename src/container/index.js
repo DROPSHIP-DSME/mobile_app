@@ -13,7 +13,6 @@ import shop from './auth/shop';
 import Blurbackground from './auth/Blurbackground';
 import changepassword from './auth/changepassword';
 import Viewbrand from './auth/Viewbrand';
-import Addbrand2 from './auth/Addbrand2';
 import Search from './auth/Search';
 import Goliveshop from './auth/Goliveshop';
 import Newprofile from './auth/Newprofile';
@@ -36,9 +35,7 @@ import ProductDetails from './auth/ProductDetails';
 import ProductDetails2 from './auth/ProductDetails2';
 import ProductDetails3 from './auth/ProductDetails3';
 import AddStore2 from './auth/AddStore2';
-import Addbrand from './auth/Addbrand';
 import AddProduct from './auth/AddProduct';
-import AddProduct2 from './auth/AddProduct2';
 import AddStore from './auth/AddStore';
 import CreateStore from './auth/CreateStore';
 import Accountproduct from './auth/Accountproduct';
@@ -97,7 +94,6 @@ import Footer3 from './auth/Footer3';
 
 import Support from './auth/Support';
 import SalesAnalytic from './auth/SalesAnalytic';
-import ChatSupport from './auth/ChatSupport';
 import Shipprocess from './auth/Shipprocess';
 import Shipaddress from './auth/Shipaddress';
 import Shippayment from './auth/Shippayment';
@@ -185,9 +181,7 @@ export {
     Golive,
     Codeconfirm,
     CreateAccountShop,
-    Addbrand,
     AddProduct,
-    AddProduct2,
     AddStore,
     CreateStore,
     Order,
@@ -204,7 +198,6 @@ export {
     Footer3,
     Support,
     SalesAnalytic,
-    ChatSupport,
     SearchProduct2,
     watchlist,
     clothing,
@@ -213,7 +206,6 @@ export {
     schedule,
     Blurbackground,
     changepassword,
-    Addbrand2,
     Search,
     Newprofile,
     Editprofiledetail,

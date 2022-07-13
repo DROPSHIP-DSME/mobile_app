@@ -10,7 +10,6 @@ import changepassword from './changepassword';
 import schedule from './schedule';
 import RegistrationShop from './RegistrationShop';
 import Viewbrand from './Viewbrand';
-import Addbrand2 from './Addbrand2';
 import Goliveshop from './Goliveshop';
 import Newprofile from './Newprofile';
 import Editprofiledetail from './Editprofiledetail';
@@ -31,8 +30,6 @@ import ProfileDetail from './ProfileDetail';
 
 import AddStore from './AddStore';
 import AddProduct from './AddProduct';
-import AddProduct2 from './AddProduct2';
-import Addbrand from './Addbrand';
 
 import Order from './Order';
 import ForgetPassword from './ForgetPassword';
@@ -51,7 +48,6 @@ import StartRecording from './StartRecording';
 
 import Footer2 from './Footer2';
 import Support from './Support';
-import ChatSupport from './ChatSupport';
 import Viewevent from './Viewevent';
 import Shipprocess from './Shipprocess';
 import Shipaddress from './Shipaddress';
@@ -91,9 +87,7 @@ export {
     Store,
     Verification,
     Codeconfirm,
-    Addbrand,
     AddProduct,
-    AddProduct2,
     AddStore,
     Order,
     Product,
@@ -106,13 +100,11 @@ export {
     Footer2,
     Footer3,
     Support,
-    ChatSupport,
     SearchProduct2,
     schedule,
     RegistrationShop,
     CreateAccountShop,
     Viewbrand,
-    Addbrand2,
     Goliveshop,
     Newprofile,
     Editprofiledetail,

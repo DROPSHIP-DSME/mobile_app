@@ -47,8 +47,6 @@ import {
   Footer3,
   Support,
   SalesAnalytic,
-  ChatSupport,
-  Addbrand2,
   emptyaccount,
   editprofile,
   editaddress,
@@ -60,9 +58,7 @@ import {
   //CreateAccount,
   Codeconfirm,
   CreateAccountShop,
-  Addbrand,
   AddProduct,
-  AddProduct2,
   AddStore,
   CreateStore,
   Order,
@@ -814,22 +810,6 @@ const Auth = (props) => {
         //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
       />
 
-
-       <Stack.Screen
-        name="ChatSupport"
-        component={ChatSupport}
-        options={({ navigation }) => ({
-                        headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Chat with Support",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor:'#FFE7E7', elevation: 0, shadowOpacity: 0 },
-                    })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
-      />
-
       <Stack.Screen
         name="Support"
         component={Support}
@@ -1428,23 +1408,6 @@ const Auth = (props) => {
                     })}
       />
 
-
-
-      <Stack.Screen
-        name="AddProduct2"
-        component={AddProduct2}
-        options={({ navigation }) => ({
-                        headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Add Product",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor: '#FFE7E7', elevation: 0, shadowOpacity: 0 },
-                    })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
-      />
-
       <Stack.Screen 
         name="Store"
         component={Store}
@@ -1460,36 +1423,7 @@ const Auth = (props) => {
         //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
       />
 
-      <Stack.Screen 
-        name="Addbrand2"
-        component={Addbrand2}
-        options={({ navigation }) => ({
-                        headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Create your Brand",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor: '#FFE7E7', elevation: 0, shadowOpacity: 0 },
-                    })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
-      />
-
-      <Stack.Screen 
-        name="Addbrand"
-        component={Addbrand}
-        options={({ navigation }) => ({
-                        headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Create your Brand",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor: '#FFE7E7', elevation: 0, shadowOpacity: 0 },
-                    })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
-      />
-
+     
       <Stack.Screen 
         name="changepassword"
         component={changepassword}
