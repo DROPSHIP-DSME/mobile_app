@@ -174,7 +174,7 @@ const emptyaccount = (props) => {
               <View>
               <Text style={{fontSize:20,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A"}}>Payment Details</Text>
               </View>
-              <TouchableOpacity onPress={()=>props.navigation.navigate("paymentedit")}>
+              <TouchableOpacity >
               <Image source={ImageIcons.edit} style={{width:35,height:35}}/> 
               </TouchableOpacity>
               </View>

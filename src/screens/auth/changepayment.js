@@ -290,7 +290,7 @@ const changepayment = (props) => {
 
 
 
-                <TouchableOpacity onPress={() => props.navigation.navigate("paymentedit")} style={{ width: deviceWidth / 1.1, backgroundColor: "#B80000", borderRadius: 30, marginTop: "12%", height: 63, marginLeft: "4%", marginBottom: "30%" }} >
+                <TouchableOpacity style={{ width: deviceWidth / 1.1, backgroundColor: "#B80000", borderRadius: 30, marginTop: "12%", height: 63, marginLeft: "4%", marginBottom: "30%" }} >
                     <Text style={{ textAlign: 'center', color: "#FFFFFF", fontWeight: 'bold', fontSize: 18, top: 18 }}>SAVE CHANGES</Text>
                 </TouchableOpacity>
 

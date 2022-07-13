@@ -59,21 +59,17 @@ import Shippayment from './Shippayment';
 import confirpayment from './confirpayment';
 import emptyaccount from './emptyaccount';
 import noaddress from './noaddress';
-import paymentedit from './paymentedit';
 import changepayment from './changepayment';
-import Accountview2 from './Accountview2';
 import Sellheader from './Sellheader';
 
 export {
     changepayment,
-    paymentedit,
     noaddress,
     Accountpublish,
     emptyaccount,
     myaccount,
     confirpayment,
     Shippayment,
-    Accountview2,
     Shipaddress,
     Shipprocess,
     Processorder,

@@ -22,7 +22,6 @@ import {
   Accountdata,
   Dashdetail,
   Accountorderview,
-  Accountview2,
   Dashlive3,
   Dashlive,
   Dashlive2,
@@ -55,7 +54,6 @@ import {
   editaddress,
   editviewaddress,
   noaddress,
-  paymentedit,
   changepayment,
   editpassword,
   deletaccount,
@@ -337,20 +335,7 @@ const Auth = (props) => {
                         headerStyle: styles.headerbackgroundstyle,
                     })}
       />
-<Stack.Screen
-        name="paymentedit"
-        component={paymentedit}
-        options={({ navigation }) => ({
-                        headerShown: false,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: " ",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor:'#fce8e8', elevation: 0, shadowOpacity: 0 },
-                    })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
-      />
+
       
      <Stack.Screen
         name="editaddress"
@@ -645,20 +630,7 @@ const Auth = (props) => {
                         headerStyle: styles.headerbackgroundstyle,
                     })}
       />
-      <Stack.Screen
-        name="Accountview2"
-        component={Accountview2}
-        options={({ navigation }) => ({
-                        headerShown: false,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Name of Shop",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor:'#FFE7E7', elevation: 0, shadowOpacity: 0 },
-                    })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
-      />
+      
        <Stack.Screen
         name="emptyaccount"
         component={emptyaccount}

@@ -45,7 +45,6 @@ import Accountproduct from './auth/Accountproduct';
 import SearchProduct2 from './auth/SearchProduct2';
 import Viewevent from './auth/Viewevent';
 import noaddress from './auth/noaddress';
-import paymentedit from './auth/paymentedit';
 
 import Goback from './auth/Goback';
 import More from './auth/More';
@@ -111,7 +110,6 @@ import Accountorderview from './auth/Accountorderview';
 import changepayment from './auth/changepayment';
 import deletaccount from './auth/deletaccount';
 
-import Accountview2 from './auth/Accountview2';
 import Accountdata from './auth/Accountdata';
 import ProductStore from './auth/ProductStore';
 
@@ -125,8 +123,6 @@ export {
     Accountfav1,
     Accountsum,
     editpassword,
-    paymentedit,
-    Accountview2,
     noaddress,
     editviewaddress,
     Accountstore,
