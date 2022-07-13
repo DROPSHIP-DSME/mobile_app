@@ -53,9 +53,7 @@ import {
   SalesAnalytic,
   BenRose,
   ChatSupport,
-  DeGaulle,
   Addbrand2,
-  EmmaRose,
   emptyaccount,
   editprofile,
   editaddress,
@@ -96,11 +94,8 @@ import {
   Productcountry,
   Goback,
   Log,
-  Profilee,
   ProfileDetail,
-  Savedgoods,
   Neworder,
-  Park,
   watchlist,
   clothing,
   clothdetails,
@@ -110,7 +105,6 @@ import {
   schedule,
   shop,
   Blurbackground,
-  videocall,
   changepassword,
   Viewbrand,
   Search,
@@ -121,9 +115,6 @@ import {
   shippinglist,
   addPayment,
   PaymentList,
-  Onboard,
-  SaleOnboard,
-  ShoesOnboard,
   Popevent,
   Notification,
   Viewevent,
@@ -204,21 +195,9 @@ const Auth = (props) => {
                         headerStyle: styles.headerbackgroundstyle,
                     })}
       />
-      <Stack.Screen
-        name="SaleOnboard"
-        component={SaleOnboard}
-        options={{ title: '', headerShown: false, headerTransparent: true,headerTintColor:Colors.WHITE }}
-      />
-        <Stack.Screen
-        name="ShoesOnboard"
-        component={ShoesOnboard}
-        options={{ title: '', headerShown: false, headerTransparent: true,headerTintColor:Colors.WHITE }}
-      />
-      <Stack.Screen
-        name="Onboard"
-        component={Onboard}
-        options={{ title: '', headerShown: false, headerTransparent: true,headerTintColor:Colors.WHITE }}
-      />
+      
+       
+      
       <Stack.Screen
         name="Registration"
         component={Registration}
@@ -405,20 +384,7 @@ const Auth = (props) => {
                     })}
       />
 
-      <Stack.Screen
-        name="videocall"
-        component={videocall}
-        options={({ navigation }) => ({
-                        headerShown: false,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: " ",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor:'#fce8e8', elevation: 0, shadowOpacity: 0 },
-                    })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
-      />
+      
      
      <Stack.Screen
         name="editaddress"
@@ -965,11 +931,7 @@ const Auth = (props) => {
         //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
       />
 
-       <Stack.Screen
-        name="Profilee"
-        component={Profilee}
-        options={{ title: '', headerShown: false }}
-      />
+       
        <Stack.Screen
         name="Inorder"
         component={Inorder}
@@ -989,57 +951,6 @@ const Auth = (props) => {
                     })}
       />
       
-
-      <Stack.Screen
-        name="EmmaRose"
-        component={EmmaRose}
-        options={({ navigation }) => ({
-                        headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle:(<>
-                <Image source={ImageIcons.man}   />
-                <Text>Emma Rose</Text>
-              </>),       
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold,flexDirection:'row', },
-                        headerStyle: { backgroundColor:'#FFE7E7', elevation: 0, shadowOpacity: 0, },
-                    })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
-      />
-
-      <Stack.Screen
-        name="Park"
-        component={Park}
-        options={({ navigation }) => ({
-                        headerShown: false,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "DeGaulle & Park",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor:'#FFE7E7', elevation: 0, shadowOpacity: 0 },
-                    })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
-      />
-
-       
-
-      <Stack.Screen
-        name="DeGaulle"
-        component={DeGaulle}
-        options={({ navigation }) => ({
-                        headerShown: false,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "DeGaulle & Park",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor:'#FFE7E7', elevation: 0, shadowOpacity: 0 },
-                    })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
-      />
-
 
        <Stack.Screen
         name="Neworder"
@@ -1618,20 +1529,7 @@ const Auth = (props) => {
         //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
       />
 
-      <Stack.Screen
-        name="Savedgoods"
-        component={Savedgoods}
-        options={({ navigation }) => ({
-                        headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Saved Goods",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor: '#FFE7E7', elevation: 0, shadowOpacity: 0 },
-                    })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
-      />
+     
        
       
       

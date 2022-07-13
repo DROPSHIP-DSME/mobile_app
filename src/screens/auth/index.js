@@ -9,7 +9,6 @@ import coming from './coming';
 import Popevent from './Popevent';
 import changepassword from './changepassword';
 import schedule from './schedule';
-import videocall from './videocall';
 import RegistrationShop from './RegistrationShop';
 import Viewbrand from './Viewbrand';
 import Addbrand2 from './Addbrand2';
@@ -20,18 +19,13 @@ import shippinginfo from './shippinginfo';
 import shippinglist from './shippinglist';
 import addPayment from './addPayment';
 import PaymentList from './PaymentList';
-import Onboard from './Onboard';
-import SaleOnboard from './SaleOnboard';
-import ShoesOnboard from './ShoesOnboard';
 import myaccount from './myaccount';
 
 
 import Selectproduct from './Selectproduct';
 import Addcategory from './Addcategory';
 import Golive from './Golive';
-import Savedgoods from './Savedgoods';
 import Goback from './Goback';
-import Profilee from './Profilee';
 import Neworder from './Neworder';
 import More from './More';
 import Inorder from './Inorder';
@@ -50,7 +44,6 @@ import Livechannel from './Livechannel';
 import Productculture from './Productculture';
 import Productcountry from './Productcountry';
 import ProfileDetail from './ProfileDetail';
-import Park from './Park';
 
 import AddStore from './AddStore';
 import AddProduct from './AddProduct';
@@ -70,8 +63,6 @@ import ProductDetails3 from './ProductDetails3';
 import AddStore2 from './AddStore2';
 
 import Store from './Store';
-import EmmaRose from './EmmaRose';
-import DeGaulle from './DeGaulle';
 import Verification from './Verification';
 import StartRecording from './StartRecording';
 
@@ -141,8 +132,6 @@ export {
     ProductDetails2,
     ProductDetails3,
     AddStore2,
-    Savedgoods,
-    Profilee,
     Livechannel,
     ProfileDetail,
     Footer2,
@@ -150,13 +139,9 @@ export {
     Support,
     BenRose,
     ChatSupport,
-    DeGaulle,
-    EmmaRose,
     SearchProduct2,
-    Park,
     coming,
     schedule,
-    videocall,
     RegistrationShop,
     CreateAccountShop,
     Viewbrand,
@@ -168,9 +153,6 @@ export {
     shippinglist,
     addPayment,
     PaymentList,
-    Onboard,
-    SaleOnboard,
-    ShoesOnboard,
     Popevent,
     Viewevent,
     Sellheader

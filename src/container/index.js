@@ -13,7 +13,6 @@ import coming from './auth/coming';
 import upcoming from './auth/upcoming';
 import shop from './auth/shop';
 import Blurbackground from './auth/Blurbackground';
-import videocall from './auth/videocall';
 import changepassword from './auth/changepassword';
 import Viewbrand from './auth/Viewbrand';
 import Addbrand2 from './auth/Addbrand2';
@@ -25,9 +24,6 @@ import shippinginfo from './auth/shippinginfo';
 import shippinglist from './auth/shippinglist';
 import addPayment from './auth/addPayment';
 import PaymentList from './auth/PaymentList';
-import Onboard from './auth/Onboard';
-import SaleOnboard from './auth/SaleOnboard';
-import ShoesOnboard from './auth/ShoesOnboard';
 import Popevent from './auth/Popevent';
 import Notification from './auth/Notification';
 import myaccount from './auth/myaccount';
@@ -55,14 +51,11 @@ import AddStore from './auth/AddStore';
 import CreateStore from './auth/CreateStore';
 import Accountproduct from './auth/Accountproduct';
 import SearchProduct2 from './auth/SearchProduct2';
-import Park from './auth/Park';
 import Viewevent from './auth/Viewevent';
 import noaddress from './auth/noaddress';
 import paymentedit from './auth/paymentedit';
 
-import Savedgoods from './auth/Savedgoods';
 import Goback from './auth/Goback';
-import Profilee from './auth/Profilee';
 import More from './auth/More';
 import Neworder from './auth/Neworder';
 import Livechannel from './auth/Livechannel';
@@ -120,8 +113,6 @@ import Support from './auth/Support';
 import SalesAnalytic from './auth/SalesAnalytic';
 import BenRose from './auth/BenRose';
 import ChatSupport from './auth/ChatSupport';
-import DeGaulle from './auth/DeGaulle';
-import EmmaRose from './auth/EmmaRose';
 import Shipprocess from './auth/Shipprocess';
 import Shipaddress from './auth/Shipaddress';
 import Shippayment from './auth/Shippayment';
@@ -204,9 +195,7 @@ export {
     Productculture,
     Livechannel,
     Viewbrand,
-    Savedgoods,
     ProfileDetail,
-    Profilee,
     Registration,
     RegistrationShop,
     OTPVerification,
@@ -242,17 +231,14 @@ export {
     SalesAnalytic,
     BenRose,
     ChatSupport,
-    DeGaulle,
-    EmmaRose,
     SearchProduct2,
-    Park,Vedioscreen,
+    Vedioscreen,
     watchlist,
     clothing,
     clothdetails,
     coming,shop,
     schedule,
     Blurbackground,
-    videocall,
     changepassword,
     Addbrand2,
     Search,
@@ -262,9 +248,6 @@ export {
     shippinglist,
     addPayment,
     PaymentList,
-    Onboard,
-    SaleOnboard,
-    ShoesOnboard,
     Popevent,
     Notification,
     Account,
