@@ -25,7 +25,6 @@ import Selectall from '../../../components/pickers/Selectall';
 import Editbutton from '../../../components/pickers/Editbutton';
 import Deletebutton from '../../../components/pickers/Deletebutton';
 import { AdjustmentsIcon } from "react-native-heroicons/solid";
-import SellHeader from '../../../screens/auth/Sellheader';
 import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import { Rating, AirbnbRating } from 'react-native-ratings';

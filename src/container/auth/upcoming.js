@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { upcoming } from '../../screens/auth';
+import { upcoming } from '../../screens/customer/livestream';
 import { getalleventlist,getincomingtlist,getlivestreamrecap,deletelivestreamrecap } from '../../redux/actions/Auth'
 
 

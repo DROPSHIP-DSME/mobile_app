@@ -3,27 +3,27 @@ import { Text, View, Dimensions, TouchableOpacity, Image, TextInput, FlatList, I
 import LinearGradient from 'react-native-linear-gradient';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
-import styles from './styles';
-import styl from './styledrop';
-import { Colors, CommonStrings } from '../../common'
-import ImageIcons from '../../common/ImageIcons'
-import InputField from '../../components/forms/inputField';
-import { RoundedButton } from '../../components/forms/button';
-import { phoneRegExp } from '../../services/helper';
-import DropdownField from '../../components/dropdown/DropDownMenu';
-import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
-import Loader from '../../components/modals/Loader';
+import styles from '../../../screens/auth/styles';
+import styl from '../../../screens/auth/styledrop';
+import { Colors, CommonStrings } from '../../../common'
+import ImageIcons from '../../../common/ImageIcons'
+import InputField from '../../../components/forms/inputField';
+import { RoundedButton } from '../../../components/forms/button';
+import { phoneRegExp } from '../../../services/helper';
+import DropdownField from '../../../components/dropdown/DropDownMenu';
+import PhoneMaskInput from '../../../components/forms/inputField/PhoneMaskInput';
+import Loader from '../../../components/modals/Loader';
 import { RadioButton, Provider, Modal, Portal, Button, } from 'react-native-paper';
-import Footer3 from '../../screens/auth/Footer3';
-import { FlatListSlider } from '../../components/react-native-flatlist-slider';
+import Footer3 from '../../../screens/auth/Footer3';
+import { FlatListSlider } from '../../../components/react-native-flatlist-slider';
 import { SliderBox } from "react-native-image-slider-box";
 import { v4 as uuid } from "uuid";
 import AsyncStorage from '@react-native-community/async-storage';
 import Video from 'react-native-video';
-import { requestMultiplePermisisons } from '../../services/Permissions'
+import { requestMultiplePermisisons } from '../../../services/Permissions'
 import moment from 'moment';
 import AwesomeAlert from 'react-native-awesome-alerts';
-import Productstream from '../../components/product/Productstream';
+import Productstream from '../../../components/product/Productstream';
 import tw from 'twrnc';
 const deviceHeight = Dimensions.get('window').height;
 const deviceWidth = Dimensions.get('window').width;
@@ -31,7 +31,7 @@ import { UsersIcon } from "react-native-heroicons/solid";
 import { PlayIcon } from "react-native-heroicons/solid";
 import { SearchIcon } from "react-native-heroicons/solid";
 import { Rating, AirbnbRating } from 'react-native-ratings';
-import Searchbox from '../../common/Searchbox';
+import Searchbox from '../../../common/Searchbox';
 
 const watchlist = (props) => {
 

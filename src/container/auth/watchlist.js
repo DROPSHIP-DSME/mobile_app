@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { watchlist } from '../../screens/auth';
+import { watchlist } from '../../screens/customer/dashboard';
 import { support,Brandslist,getAllproduct,getAllshop,getsupportlist,getalleventlist,getwatchlistproduct,getchanneltoken,getAllcategory } from '../../redux/actions/Auth'
 
 

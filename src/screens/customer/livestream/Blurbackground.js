@@ -3,15 +3,15 @@ import { Text, View, Image, TouchableOpacity,Picker, Keyboard,TextInput, Dimensi
 import RtcEngine, { ChannelProfile, ClientRole, RtcLocalView, RtcRemoteView, VideoRemoteState } from "react-native-agora";
 import io from "socket.io-client";
 import { useSelector, useDispatch } from 'react-redux'
-import styles from './style'
-import newstyles from './styles';
-import { Colors, fonts, Images } from '../../common';
-import Loader from '../../components/modals/Loader'; 
-import { requestMultiplePermisisons } from '../../services/Permissions'
-import { socketUri } from '../../common/Api'
+import styles from '../../../screens/auth/style'
+import newstyles from '../../../screens/auth/styles';
+import { Colors, fonts, Images } from '../../../common';
+import Loader from '../../../components/modals/Loader'; 
+import { requestMultiplePermisisons } from '../../../services/Permissions'
+import { socketUri } from '../../../common/Api'
 import Orientation from 'react-native-orientation-locker';
 import AsyncStorage from '@react-native-community/async-storage';
-import ImageIcons from '../../common/ImageIcons'
+import ImageIcons from '../../../common/ImageIcons'
 const SCREEN_HEIGHT = Dimensions.get('screen').height;
 import CountDown from 'react-native-countdown-component';
 import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper';
@@ -21,7 +21,7 @@ import { CreditCardInput } from 'react-native-payment-card';
 import ModalSelector from 'react-native-modal-selector';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import SwitchToggle from "react-native-switch-toggle";
-import Sortorder from '../../components/pickers/Sortorder';
+import Sortorder from '../../../components/pickers/Sortorder';
 const options = [ { label: '1', value: '1' }, { label: '2', value: '2' }, { label: '3', value: '3' }, { label: '4', value: '4' },{ label: '5', value: '5' },{ label: '6', value: '6' },{ label: '7', value: '7' },{ label: '8', value: '8' },{ label: '9', value: '9' } ]
 const options1 = [
       {label: 'English', value: 'English' },

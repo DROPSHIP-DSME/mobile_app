@@ -1,4 +1,4 @@
-import Overview from './Overview';
+import Cart from './Cart';
 export {
-    Overview
+    Cart
 }

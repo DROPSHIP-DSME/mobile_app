@@ -21,7 +21,6 @@ import { Rating, AirbnbRating } from 'react-native-ratings';
 import Footer3 from '../../../screens/auth/Footer3';
 import AsyncStorage from '@react-native-community/async-storage';
 import Footer2 from '../../../screens/auth/Footer2';
-import SellHeader from '../../../screens/auth/Sellheader';
 import tw from 'twrnc';
 import Smallbutton from '../../../components/dropshipbutton/Smallbutton';
 

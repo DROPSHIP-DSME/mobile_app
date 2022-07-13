@@ -16,7 +16,6 @@ import Loader from '../../../components/modals/Loader';
 import Swipeout from 'react-native-swipeout';
 import HorizontalSlider from 'react-horizontal-slider';
 import Footer2 from '../../../screens/auth/Footer2';
-import SellHeader from '../../../screens/auth/Sellheader';
 
 import AsyncStorage from '@react-native-community/async-storage'; 
 import { useFocusEffect } from '@react-navigation/native';

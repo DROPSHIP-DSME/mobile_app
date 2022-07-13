@@ -1,4 +1,4 @@
-import Overview from './Overview';
+import Search from './Search';
 export {
-    Overview
+    Search
 }

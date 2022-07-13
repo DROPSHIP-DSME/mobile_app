@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { Cart } from '../../screens/auth';
+import { Cart } from '../../screens/customer/cart';
 import { cartlist,cartdata,increcartlist,deletedata } from '../../redux/actions/Auth'
 
 

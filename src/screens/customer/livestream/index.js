@@ -1,4 +1,7 @@
-import Overview from './Overview';
+import Blurbackground from './Blurbackground';
+import upcoming from './upcoming';
+
 export {
-    Overview
+    Blurbackground,
+    upcoming,
 }

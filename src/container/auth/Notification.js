@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { Notification } from '../../screens/auth';
+import { Notification } from '../../screens/customer/notification';
 import { getAllproduct,searchproduct,Brandslist,getalleventlist1,getchanneltoken } from '../../redux/actions/Auth'
 
 

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { Blurbackground } from '../../screens/auth';
+import { Blurbackground } from '../../screens/customer/livestream';
 import { schuleEventstart,
     updateleftcount,
     updatediscount,

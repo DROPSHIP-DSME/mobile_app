@@ -1,4 +1,4 @@
-import Overview from './Overview';
+import watchlist from './watchlist';
 export {
-    Overview
+    watchlist
 }

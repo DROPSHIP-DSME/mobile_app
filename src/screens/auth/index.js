@@ -3,22 +3,18 @@ import Registration from './Registration';
 import OTPVerification from './OTPVerification';
 import StoreOwner from './StoreOwner';
 import SearchProduct2 from './SearchProduct2';
-import watchlist from './watchlist';
 import Footer3 from './Footer3';
 import clothing from './clothing';
 import clothdetails from './clothdetails';
 import coming from './coming';
 import Popevent from './Popevent';
-import upcoming from './upcoming';
 import changepassword from './changepassword';
 import schedule from './schedule';
 import shop from './shop';
-import Blurbackground from './Blurbackground';
 import videocall from './videocall';
 import RegistrationShop from './RegistrationShop';
 import Viewbrand from './Viewbrand';
 import Addbrand2 from './Addbrand2';
-import Search from './Search';
 import Goliveshop from './Goliveshop';
 import Newprofile from './Newprofile';
 import Editprofiledetail from './Editprofiledetail';
@@ -46,7 +42,6 @@ import Profilee from './Profilee';
 import Neworder from './Neworder';
 import More from './More';
 import Inorder from './Inorder';
-import Cart from './Cart';
 import Processorder from './Processorder';
 import Dashsuccess from './Dashsuccess';
 import Accountfav from './Accountfav';
@@ -77,7 +72,6 @@ import AddProduct2 from './AddProduct2';
 import Addbrand from './Addbrand';
 
 import Order from './Order';
-import Notification from './Notification';
 import ForgetPassword from './ForgetPassword';
 import ResetPassword from './ResetPassword';
 import Codeconfirm from './Codeconfirm';
@@ -120,9 +114,6 @@ import ProductStore from './ProductStore';
 import Sellheader from './Sellheader';
 
 export {
-    //EmmaRose,
-    //DeGaulle,
-    //BenRose,
     ProductStore,
     deletaccount,
     editpassword,
@@ -153,11 +144,9 @@ export {
     Vedioscreen,
     Processorder,
     Dashbrand,
-    Cart,
     StartRecording,
     Dashsupportacc,
     Inorder,
-    
     Dashsuccess,
     Topselling,
     Neworder,
@@ -173,10 +162,8 @@ export {
     Golive,
     changepassword,
     Productculture,
-   // CreateAccount,
     Store,
     Verification,
-   // CreateAccount,
     Addcategory,
     Codeconfirm,
     Addbrand,
@@ -205,20 +192,17 @@ export {
     EmmaRose,
     SearchProduct2,
     Park,
-    watchlist,
     clothing,
     clothdetails,
     coming,
-    upcoming,
     schedule,
     shop,
-    Blurbackground,
+    
     videocall,
     RegistrationShop,
     CreateAccountShop,
     Viewbrand,
     Addbrand2,
-    Search,
     Goliveshop,
     Newprofile,
     Editprofiledetail,
@@ -230,10 +214,8 @@ export {
     SaleOnboard,
     ShoesOnboard,
     Popevent,
-    Notification,
     Viewevent,
     Account,
     Accountsum,
     Sellheader
-
 }

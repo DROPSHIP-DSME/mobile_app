@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { Search } from '../../screens/auth';
+import { Search } from '../../screens/customer/search';
 import { getAllproduct,searchproduct,Brandslist,getalleventlist1,getchanneltoken,getsearchlist,searchitems } from '../../redux/actions/Auth'
 
 

@@ -1,4 +1,4 @@
-import Overview from './Overview';
+import Notification from './Notification';
 export {
-    Overview
+    Notification
 }

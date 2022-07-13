@@ -16,7 +16,6 @@ import PhoneMaskInput from '../../../components/forms/inputField/PhoneMaskInput'
 import Loader from '../../../components/modals/Loader';
 import Swipeout from 'react-native-swipeout';
 import HorizontalSlider from 'react-horizontal-slider';
-import SellHeader from '../../../screens/auth/Sellheader';
 import tw from 'twrnc';
 import Smallbutton from '../../../components/dropshipbutton/Smallbutton';
 import Sortorder from '../../../components/pickers/Sortorder';
