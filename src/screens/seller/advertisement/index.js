@@ -1,4 +1,4 @@
-import Overview from './Overview';
+import Dashadvertise from './Dashadvertise';
 export {
-    Overview
+    Dashadvertise
 }

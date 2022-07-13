@@ -1,4 +1,8 @@
-import Overview from './Overview';
+import Dashchats from './Dashchats';
+import Dashreturn from './Dashreturn';
+
 export {
-    Overview
+    Dashchats,
+    Dashreturn,
+
 }

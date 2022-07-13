@@ -3,20 +3,20 @@ import { Text, View,Image,TextInput, Button, ImageBackground,FlatList,Picker,Sta
 import LinearGradient from 'react-native-linear-gradient';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
-import styles from './styles';
-import newstyles from './styles';
-import { Colors, CommonStrings } from '../../common'
-import ImageIcons from '../../common/ImageIcons'
-import InputField from '../../components/forms/inputField';
-import { RoundedButton } from '../../components/forms/button';
-import { phoneRegExp } from '../../services/helper';
-import DropdownField from '../../components/dropdown/DropDownMenu';
-import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
-import Loader from '../../components/modals/Loader';
+import styles from '../../../screens/auth/styles';
+import newstyles from '../../../screens/auth/styles';
+import { Colors, CommonStrings } from '../../../common'
+import ImageIcons from '../../../common/ImageIcons'
+import InputField from '../../../components/forms/inputField';
+import { RoundedButton } from '../../../components/forms/button';
+import { phoneRegExp } from '../../../services/helper';
+import DropdownField from '../../../components/dropdown/DropDownMenu';
+import PhoneMaskInput from '../../../components/forms/inputField/PhoneMaskInput';
+import Loader from '../../../components/modals/Loader';
 import Swipeout from 'react-native-swipeout';
 import HorizontalSlider from 'react-horizontal-slider';
-import Footer2 from '../../screens/auth/Footer2';
-import SellHeader from '../../screens/auth/Sellheader';
+import Footer2 from '../../../screens/auth/Footer2';
+import SellHeader from '../../../screens/auth/Sellheader';
 import CountDown from 'react-native-countdown-component';
 import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
@@ -24,11 +24,11 @@ import { Rating, AirbnbRating } from 'react-native-ratings';
 import { Provider , Portal,} from 'react-native-paper';
 import Modal from 'react-native-modal'
 import tw from 'twrnc';
-import Medbutton from '../../components/dropshipbutton/Medbutton';
-import Smallbutton from '../../components/dropshipbutton/Smallbutton';
-import Largebutton from '../../components/dropshipbutton/Largebutton';
-import Sortorder from '../../components/pickers/Sortorder';
-import Deletebutton from '../../components/pickers/Deletebutton';
+import Medbutton from '../../../components/dropshipbutton/Medbutton';
+import Smallbutton from '../../../components/dropshipbutton/Smallbutton';
+import Largebutton from '../../../components/dropshipbutton/Largebutton';
+import Sortorder from '../../../components/pickers/Sortorder';
+import Deletebutton from '../../../components/pickers/Deletebutton';
 import { DocumentDuplicateIcon } from "react-native-heroicons/solid";
 const options = [ { label: '1', value: '1' }, { label: '2', value: '2' }, { label: '3', value: '3' }, { label: '4', value: '4' },{ label: '5', value: '5' },{ label: '6', value: '6' },{ label: '7', value: '7' },{ label: '8', value: '8' },{ label: '9', value: '9' } ]
 
@@ -200,49 +200,31 @@ return (
     }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#ffffff'}} >
 
               <View style={tw.style('flex flex-row justify-between items-center mx-4 mt-8 mb-6')}>
-                 <TouchableOpacity onPress={() => props.navigation.navigate("Dashlive2")}>
-                   <Text style={tw.style('text-2xl text-gray-700 font-bold')}>Go Live</Text>
-                   </TouchableOpacity>
+                <Text style={tw.style('text-2xl text-gray-700 font-bold')}>Go Live</Text>
                </View>
 
-             { showstream==true ?
-
-                <View style={tw`flex flex-row relative mx-4 shadow-sm`}>
-                    <View
-                      type="button"
-                      style={tw`-ml-px w-2/4 relative inline-flex items-center px-4 py-4 rounded-r-md border border-red-300 bg-red-700 hover:bg-red-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500`}
-                    >
-                      <Text style={tw`text-base font-medium text-white`}>Go Live Now</Text>
-                    </View>
-                    <View
-                      type="button"
-                      style={tw`w-2/4 relative inline-flex items-center px-4 py-4 rounded-l-md border border-gray-200 bg-gray-200 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500`}
-                    >
-                      <TouchableOpacity onPress={() => setshowstream(true)}>
-                        <Text style={tw`text-base font-medium text-gray-700`}>Schedule Livestream</Text>
-                      </TouchableOpacity>
-                    </View>
-                  </View>
-          :
+            
 
               <View style={tw`flex flex-row relative mx-4 shadow-sm`}>
                   <View
                     type="button"
-                    style={tw`w-2/4 relative inline-flex items-center px-4 py-4 rounded-l-md border border-gray-200 bg-gray-200 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500`}
+                    style={tw`w-1.5/4 relative inline-flex items-center px-4 py-4 rounded-l-md border border-red-300 bg-red-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500`}
                   >
                     <TouchableOpacity onPress={() =>  setshowstream(false)}>
-                      <Text style={tw`text-base font-medium text-gray-700`}>Go Live Now</Text>
+                      <Text style={tw`text-base font-medium text-white`}>Go Live Now</Text>
                     </TouchableOpacity>
                   </View>
                   <View
                     type="button"
-                    style={tw`-ml-px w-2/4 relative inline-flex items-center px-4 py-4 rounded-r-md border border-red-300 bg-red-700 hover:bg-red-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500`}
+                    style={tw`-ml-px w-2.5/4 relative inline-flex items-center px-4 py-4 rounded-r-md border border-gray-200 bg-gray-200 hover:bg-red-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500`}
                   >
-                    <Text style={tw`text-base font-medium text-white`}>Schedule Livestream</Text>
+                   <TouchableOpacity onPress={() => props.navigation.navigate("Dashlive2") }>
+                    <Text style={tw`text-base font-medium text-gray-700`}>Schedule Livestream</Text>
+                    </TouchableOpacity>
                   </View>
                 </View>
 
-      }
+      
              { showstream==true &&
                 <View>
               <View style={tw`mx-4 mt-5`}>

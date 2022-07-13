@@ -1,4 +1,10 @@
-import Overview from './Overview';
+import Dashsetting from './Dashsetting';
+import Dashimport from './Dashimport';
+import Dashsupport from './Dashsupport';
+
 export {
-    Overview
+    Dashsetting,
+    Dashimport,
+    Dashsupport
+
 }

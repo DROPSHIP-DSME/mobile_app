@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { SearchProduct } from '../../screens/auth';
+import { SearchProduct } from '../../screens/seller/golive';
 import { Brandslist,searchbrand } from '../../redux/actions/Auth'
 
 

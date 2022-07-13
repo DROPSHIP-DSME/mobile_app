@@ -57,21 +57,12 @@ import Accountfollow from './Accountfollow';
 import Accountbrand from './Accountbrand';
 import Accountpublish from './Accountpublish';
 import Accountstore from './Accountstore';
-import Dashchats from './Dashchats';
-import Dashreturn from './Dashreturn';
-import Dashsale from './Dashsale';
-import Dashsubscribe from './Dashsubscribe';
-import Dashsubscribe2 from './Dashsubscribe2';
-import Dashadvertise from './Dashadvertise';
+
 
 import Dashbrand from './Dashbrand';
-import Dashimport from './Dashimport';
-import Dashsetting from './Dashsetting';
-import Dashsupport from './Dashsupport';
+
 import Dashsupportacc from './Dashsupportacc';
-import Dashlive from './Dashlive';
-import Dashlive2 from './Dashlive2';
-import Dashlive3 from './Dashlive3';
+
 
 import Topselling from './Topselling';
 import Livechannel from './Livechannel';
@@ -93,7 +84,6 @@ import Codeconfirm from './Codeconfirm';
 import CreateAccountShop from './CreateAccountShop';
 import Category from './Category';
 import Product from './Product';
-import SearchProduct from './SearchProduct';
 import NameStore from './NameStore';
 import ProductDetails from './ProductDetails';
 import ProductDetails2 from './ProductDetails2';
@@ -108,7 +98,6 @@ import StartRecording from './StartRecording';
 
 import Footer2 from './Footer2';
 import Support from './Support';
-import SalesAnalytic from './SalesAnalytic';
 import BenRose from './BenRose';
 import ChatSupport from './ChatSupport';
 import Vedioscreen from './Vedioscreen';
@@ -163,25 +152,13 @@ export {
     Bagprocess,
     Vedioscreen,
     Processorder,
-    Dashlive,
-    Dashlive2,
     Dashbrand,
     Cart,
     StartRecording,
-    Dashlive3,
-    Dashsupport,
     Dashsupportacc,
-    Dashsetting,
     Inorder,
-    Dashsubscribe,
-    Dashimport,
     
-    Dashsubscribe2,
-    Dashadvertise,
-    Dashsale,
-    Dashreturn,
     Dashsuccess,
-    Dashchats,
     Topselling,
     Neworder,
     More,
@@ -210,7 +187,6 @@ export {
     Selectproduct,
     Category,
     Product,
-    SearchProduct,
     NameStore,
     ProductDetails,
     ProductDetails2,
@@ -223,7 +199,6 @@ export {
     Footer2,
     Footer3,
     Support,
-    SalesAnalytic,
     BenRose,
     ChatSupport,
     DeGaulle,

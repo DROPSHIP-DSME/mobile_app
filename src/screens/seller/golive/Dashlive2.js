@@ -3,28 +3,29 @@ import { Text, View,Image,TextInput, ImageBackground,FlatList,Picker,StatusBar,D
 import LinearGradient from 'react-native-linear-gradient';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
-import styles from './styles';
-import newstyles from './styles';
-import { Colors, CommonStrings } from '../../common'
-import ImageIcons from '../../common/ImageIcons'
-import InputField from '../../components/forms/inputField';
-import { RoundedButton } from '../../components/forms/button';
-import { phoneRegExp } from '../../services/helper';
-import DropdownField from '../../components/dropdown/DropDownMenu';
-import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
-import Loader from '../../components/modals/Loader';
+import styles from '../../../screens/auth/styles';
+import newstyles from '../../../screens/auth/styles';
+import { Colors, CommonStrings } from '../../../common'
+import ImageIcons from '../../../common/ImageIcons'
+import InputField from '../../../components/forms/inputField';
+import { RoundedButton } from '../../../components/forms/button';
+import { phoneRegExp } from '../../../services/helper';
+import DropdownField from '../../../components/dropdown/DropDownMenu';
+import PhoneMaskInput from '../../../components/forms/inputField/PhoneMaskInput';
+import Loader from '../../../components/modals/Loader';
 import Swipeout from 'react-native-swipeout';
 import HorizontalSlider from 'react-horizontal-slider';
-import Footer2 from '../../screens/auth/Footer2';
-import SellHeader from '../../screens/auth/Sellheader';
+import Footer2 from '../../../screens/auth/Footer2';
+import SellHeader from '../../../screens/auth/Sellheader';
 
 import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import { Provider , Portal,} from 'react-native-paper';
 import Modal from 'react-native-modal'
-import Sortorder from '../../components/pickers/Sortorder';
+import Sortorder from '../../../components/pickers/Sortorder';
 const options = [ { label: '1', value: '1' }, { label: '2', value: '2' }, { label: '3', value: '3' }, { label: '4', value: '4' },{ label: '5', value: '5' },{ label: '6', value: '6' },{ label: '7', value: '7' },{ label: '8', value: '8' },{ label: '9', value: '9' } ]
+import tw from 'twrnc';
 
 import {
   LineChart,
@@ -157,15 +158,26 @@ const deviceWidth = Dimensions.get('window').width;
                  </View>
                </View>
 
-              <View style={{flexDirection:'row',marginHorizontal:'4%'}}>
-                <TouchableOpacity onPress={() => props.navigation.navigate("Dashlive")} style={{backgroundColor:'#e6e6e6',width:'40%',borderRadius:10,padding:10,}}>
-                      <Text style={styles.totalincometodayWIDRO17}>GO LIVE NOW</Text> 
-                   </TouchableOpacity>
+              
+              <View style={tw`flex flex-row relative mx-4 shadow-sm`}>
+                  <View
+                    type="button"
+                    style={tw`w-1.5/4 relative inline-flex items-center px-4 py-4 rounded-l-md border border-gray-200 bg-gray-200 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500`}
+                  >
+                    <TouchableOpacity onPress={() => props.navigation.navigate("Dashlive") }>
+                      <Text style={tw`text-base font-medium text-gray-700`}>Go Live Now</Text>
+                    </TouchableOpacity>
+                  </View>
+                  <View
+                    type="button"
+                    style={tw`-ml-px w-2.5/4 relative inline-flex items-center px-4 py-4 rounded-r-md border border-red-300 bg-red-700 hover:bg-red-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500`}
+                  >
+                   <TouchableOpacity onPress={() => props.navigation.navigate("Dashlive2") }>
+                    <Text style={tw`text-base font-medium text-white`}>Schedule Livestream</Text>
+                    </TouchableOpacity>
+                  </View>
+                </View>
 
-                <TouchableOpacity onPress={() => props.navigation.navigate("Dashsubscribe2")} style={{backgroundColor:'#b80000',width:'57%',borderRadius:10,padding:10,marginLeft:10}}>
-                      <Text style={styles.totalincometodayWIDRO16}>SCHEDULE LIVESTREAM</Text>
-                   </TouchableOpacity>
-              </View>
 
 
                <View style={{marginHorizontal:'3%',marginTop:'5%'}}>
