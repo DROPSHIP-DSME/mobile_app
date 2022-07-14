@@ -76,8 +76,10 @@ const CreateAccountShop = (props) => {
             Alert.alert('email is required')
         }else if(email == "email" ){
             Alert.alert('This email is Already used')
-        }else if (password == "" || password.length<8) {
+        }else if (password == "" ) {
             Alert.alert('password is required')
+        }else if (password.length<8) {
+            Alert.alert('password should be atleast 8 char')
         } else if (confirmPassword == "") {
             Alert.alert('confirmPassword is required')
         } else if (confirmPassword !== password) {
@@ -152,7 +154,7 @@ const CreateAccountShop = (props) => {
                 </View>
 
                 <View style={tw.style('mx-5 mt-4 border-gray-300 bg-gray-200 rounded-lg')}>
-                    <PasswordInputText
+                    <TextInput
                       style={tw.style('pl-3 sm:text-sm')}
                       placeholderTextColor="#000000"
                       onChangeText={onChangeText2}
@@ -164,7 +166,7 @@ const CreateAccountShop = (props) => {
                 </View>
 
                 <View style={tw.style('mt-4')}>
-                     <PasswordInputText
+                     <TextInput
                       style={tw.style('mx-5 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg')}
                       placeholderTextColor="#000000"
                       onChangeText={onChangeText3}
