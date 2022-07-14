@@ -11,7 +11,6 @@ import {
   Accountorderhist,
   Accountsum,
   StoreOwner,
-  Dashbrand,
   Accountfollow,
   Accountproduct,
   Accountbrandlist,
@@ -39,75 +38,41 @@ import {
   Dashsubscribe,
   Dashsubscribe2,
   Dashchats,
-  Dashsuccess,
   Dashorder,
   Dashreturn,
   Goliveshop,
   Footer2,
   Footer3,
-  Support,
   SalesAnalytic,
-  emptyaccount,
   editprofile,
   editaddress,
   editviewaddress,
-  noaddress,
-  changepayment,
   editpassword,
   deletaccount,
-  //CreateAccount,
   Codeconfirm,
   CreateAccountShop,
-  AddProduct,
-  AddStore,
   CreateStore,
-  Order,
-  Product,
   SearchProduct,
-  SearchProduct2,
   NameStore,
   ProductDetails,
-  ProductDetails3,
-  ProductDetails2,
-  AddStore2,
-  Store,
-  More,
-  Processorder,
   Cart,
   Overview,
-  Inorder,
   Verification,
-  Livechannel,
-  Goback,
   Log,
-  ProfileDetail,
-  Neworder,
   watchlist,
   clothing,
   clothdetails,
-  StartRecording,
   upcoming,
-  schedule,
   shop,
   Blurbackground,
-  changepassword,
-  Viewbrand,
   Search,
-  Newprofile,
-  Editprofiledetail,
   shippinginfo,
   Popevent,
   Notification,
   Viewevent,
-  Shipprocess,
-  Shipaddress,
-  Shippayment,
-  confirpayment,
-  myaccount,
   Account,
   ProductStore,
   Sellheader,
-
 } from '../container';
 
 import {
@@ -204,19 +169,7 @@ const Auth = (props) => {
       />
  
 
-      <Stack.Screen
-        name="schedule"
-        component={schedule}
-        options={({ navigation }) => ({
-                        headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Go Live",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor:'#fce8e8', elevation: 0, shadowOpacity: 0 },
-                    })}
-      />
+      
 
       <Stack.Screen
         name="Popevent"
@@ -317,20 +270,7 @@ const Auth = (props) => {
                         headerStyle: styles.headerbackgroundstyle,
                     })}
       />
-      
-      <Stack.Screen
-        name="changepayment"
-        component={changepayment}
-        options={({ navigation }) => ({
-                        headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
-                        headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: styles.titleheaderstyle,
-                        headerStyle: styles.headerbackgroundstyle,
-                    })}
-      />
+    
 
       
      <Stack.Screen
@@ -403,33 +343,7 @@ const Auth = (props) => {
                     })}
       />
 
-      <Stack.Screen
-        name="StartRecording"
-        component={StartRecording}
-        options={({ navigation }) => ({
-                         headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
-                        headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: styles.titleheaderstyle,
-                        headerStyle: styles.headerbackgroundstyle,
-                    })}
-      />
-
-      <Stack.Screen
-        name="AddStore2"
-        component={AddStore2}
-        options={({ navigation }) => ({
-                         headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
-                        headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: styles.titleheaderstyle,
-                        headerStyle: styles.headerbackgroundstyle,
-                    })}
-      />
+     
 
        <Stack.Screen
         name="ProductDetails"
@@ -445,33 +359,7 @@ const Auth = (props) => {
                     })}
       />
 
-      <Stack.Screen
-        name="ProductDetails2"
-        component={ProductDetails2}
-        options={({ navigation }) => ({
-                         headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
-                        headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: styles.titleheaderstyle,
-                        headerStyle: styles.headerbackgroundstyle,
-                    })}
-      />
-
-       <Stack.Screen
-        name="ProductDetails3"
-        component={ProductDetails3}
-        options={({ navigation }) => ({
-                        headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
-                        headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: styles.titleheaderstyle,
-                        headerStyle: styles.headerbackgroundstyle,
-                    })}
-      />
+     
 
       <Stack.Screen
         name="NameStore"
@@ -542,77 +430,10 @@ const Auth = (props) => {
                         headerStyle: styles.headerbackgroundstyle,
                     })}
       />
-      <Stack.Screen
-        name="noaddress"
-        component={noaddress}
-        options={({ navigation }) => ({
-                        headerShown: false,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Name of Shop",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor:'#FFE7E7', elevation: 0, shadowOpacity: 0 },
-                    })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
-      />
       
-      <Stack.Screen
-        name="Shipprocess"
-        component={Shipprocess}
-        options={({ navigation }) => ({
-                        headerShown: false,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Name of Shop",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor:'#FFE7E7', elevation: 0, shadowOpacity: 0 },
-                    })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
-      />
-      <Stack.Screen
-        name="Shipaddress"
-        component={Shipaddress}
-        options={({ navigation }) => ({
-                        headerShown: false,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Name of Shop",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor:'#FFE7E7', elevation: 0, shadowOpacity: 0 },
-                    })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
-      />
-      <Stack.Screen
-        name="Shippayment"
-        component={Shippayment}
-        options={({ navigation }) => ({
-                        headerShown: false,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Name of Shop",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor:'#FFE7E7', elevation: 0, shadowOpacity: 0 },
-                    })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
-      />
-       <Stack.Screen
-        name="confirpayment"
-        component={confirpayment}
-        options={({ navigation }) => ({
-                        headerShown: false,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Name of Shop",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor:'#FFE7E7', elevation: 0, shadowOpacity: 0 },
-                    })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
-      />
+      
+      
+       
        <Stack.Screen
         name="Accountorderview"
         component={Accountorderview}
@@ -627,34 +448,7 @@ const Auth = (props) => {
                     })}
       />
       
-       <Stack.Screen
-        name="emptyaccount"
-        component={emptyaccount}
-        options={({ navigation }) => ({
-                        headerShown: false,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Name of Shop",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor:'#FFE7E7', elevation: 0, shadowOpacity: 0 },
-                    })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
-      />
-       <Stack.Screen
-        name="myaccount"
-        component={myaccount}
-        options={({ navigation }) => ({
-                        headerShown: false,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Name of Shop",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor:'#FFE7E7', elevation: 0, shadowOpacity: 0 },
-                    })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
-      />
+     
       <Stack.Screen
         name="Search"
         component={Search}
@@ -683,20 +477,7 @@ const Auth = (props) => {
                     })}
       />
 
-      <Stack.Screen
-        name="SearchProduct2"
-        component={SearchProduct2}
-        options={({ navigation }) => ({
-                        headerShown: false,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Search Product",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor:'#FFE7E7', elevation: 0, shadowOpacity: 0 },
-                    })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
-      />
+      
 
       <Stack.Screen
         name="SearchProduct"
@@ -712,74 +493,7 @@ const Auth = (props) => {
                     })}
       />
 
-      <Stack.Screen
-        name="Viewbrand"
-        component={Viewbrand}
-        options={({ navigation }) => ({
-                        headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "View brand",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor:'#FFE7E7', elevation: 0, shadowOpacity: 0 },
-                    })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
-      />
       
-      <Stack.Screen
-        name="Product"
-        component={Product}
-        options={({ navigation }) => ({
-                        headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Add Product",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor:'#FFE7E7', elevation: 0, shadowOpacity: 0 },
-                    })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
-      />
-
-      <Stack.Screen
-        name="Newprofile"
-        component={Newprofile}
-        options={({ navigation }) => ({
-                        headerShown: false,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Profile",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor:'#FFE7E7', shadowColor: '#000000',  shadowOffset: {width: 4, height: 4},
-                        shadowOpacity: 0.5,
-                        elevation: 10, },
-                    })}
-      />
-
-      
-      <Stack.Screen
-        name="Editprofiledetail"
-        component={Editprofiledetail}
-        options={({ navigation }) => ({
-                        headerShown: false,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Profile",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor:'#FFE7E7', elevation: 0, shadowOpacity: 0 },
-                    })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
-      />
-
-       
-       <Stack.Screen
-        name="Inorder"
-        component={Inorder}
-        options={{ title: '', headerShown: false }}
-      />
        <Stack.Screen
         name="Cart"
         component={Cart}
@@ -795,35 +509,8 @@ const Auth = (props) => {
       />
       
 
-       <Stack.Screen
-        name="Neworder"
-        component={Neworder}
-        options={({ navigation }) => ({
-                        headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "New Order",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor:'#FFE7E7', elevation: 0, shadowOpacity: 0 },
-                    })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
-      />
-
-      <Stack.Screen
-        name="Support"
-        component={Support}
-        options={({ navigation }) => ({
-                        headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Support",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor:'#FFE7E7', elevation: 0, shadowOpacity: 0 },
-                    })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
-      />
+      
+     
 
       <Stack.Screen
         name="SalesAnalytic"
@@ -840,31 +527,7 @@ const Auth = (props) => {
         //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
       />
 
-       <Stack.Screen
-        name="Goback"
-        component={Goback}
-        options={({ navigation }) => ({
-                        headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Go Back",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor:'#FFE7E7', elevation: 0, shadowOpacity: 0 },
-                    })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
-      />
-      
-        <Stack.Screen
-        name="Processorder"
-        component={Processorder}
-        options={{ title: '', headerShown: false }}
-      />
-       <Stack.Screen
-        name="More"
-        component={More}
-        options={{ title: '', headerShown: false }}
-      />
+       
       
        
       
@@ -909,19 +572,7 @@ const Auth = (props) => {
                         headerStyle: styles.headerbackgroundstyle,
                     })}
       />
-       <Stack.Screen
-        name="Dashsuccess"
-        component={Dashsuccess}
-        options={({ navigation }) => ({
-                        headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
-                        headerRight: () => <RightMenuItemsell navigation={navigation}  />,
-                        headerTitle: "",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: styles.titleheaderstyle,
-                        headerStyle: styles.headerbackgroundstyle,
-                    })}
-      />
+       
       
        <Stack.Screen
         name="Accountfollow"
@@ -1131,19 +782,7 @@ const Auth = (props) => {
                         headerStyle: styles.headerbackgroundstyle,
                     })}
       />
-      <Stack.Screen
-        name="Dashbrand"
-        component={Dashbrand}
-        options={({ navigation }) => ({
-                        headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
-                        headerRight: () => <RightMenuItemsell navigation={navigation}  />,
-                        headerTitle: "",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: styles.titleheaderstyle,
-                        headerStyle: styles.headerbackgroundstyle,
-                    })}
-      />
+      
       <Stack.Screen
         name="Dashimport"
         component={Dashimport}
@@ -1250,36 +889,8 @@ const Auth = (props) => {
       />
       
       
-       <Stack.Screen
-        name="ProfileDetail"
-        component={ProfileDetail}
-        options={({ navigation }) => ({
-                        headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Profile",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor: '#FFE7E7', elevation: 0, shadowOpacity: 0 },
-                    })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
-      />
 
-      
-      <Stack.Screen
-        name="Livechannel"
-        component={Livechannel}
-        options={({ navigation }) => ({
-                        headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Product Category",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor: '#FFE7E7', elevation: 0, shadowOpacity: 0 },
-                    })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
-      />
+
     
       <Stack.Screen
         name="StoreOwner"
@@ -1332,35 +943,7 @@ const Auth = (props) => {
         //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
       />
 
-      <Stack.Screen
-        name="Order"
-        component={Order}
-        options={({ navigation }) => ({
-                        headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Order Details",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor: "#fce8e8", elevation: 0, shadowOpacity: 0 },
-                    })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
-      />
-
-       <Stack.Screen
-        name="AddStore"
-        component={AddStore}
-        options={({ navigation }) => ({
-                        headerShown: false,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Add more Store",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor: Colors.WHITE, elevation: 0, shadowOpacity: 0 },
-                    })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
-      />
+      
 
       <Stack.Screen
         name="Goliveshop"
@@ -1394,49 +977,8 @@ const Auth = (props) => {
 
       
 
-      <Stack.Screen
-        name="AddProduct"
-        component={AddProduct}
-        options={({ navigation }) => ({
-                        headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
-                        headerRight: () => <RightMenuItemsell navigation={navigation}  />,
-                        headerTitle: "",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: styles.titleheaderstyle,
-                        headerStyle: styles.headerbackgroundstyle,
-                    })}
-      />
-
-      <Stack.Screen 
-        name="Store"
-        component={Store}
-        options={({ navigation }) => ({
-                        headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Shop",
-                        headerTitleAlign: "left",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor: '#FFE7E7', elevation: 0, shadowOpacity: 0 },
-                    })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
-      />
-
+      
      
-      <Stack.Screen 
-        name="changepassword"
-        component={changepassword}
-        options={({ navigation }) => ({
-                        headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
-                        headerRight: () => <RightMenuItemsell navigation={navigation}  />,
-                        headerTitle: "",
-                        headerTitleAlign: "center",
-                        headerTitleStyle: styles.titleheaderstyle,
-                        headerStyle: styles.headerbackgroundstyle,
-                    })}
-      />
          
       <Stack.Screen 
             name="Codeconfirm"

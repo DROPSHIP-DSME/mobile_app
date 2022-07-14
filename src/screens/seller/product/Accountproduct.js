@@ -216,8 +216,6 @@ const Accountproduct = (props) => {
 
         } else {
 
-           // props.navigation.navigate("AddStore")
-
             const formData = new FormData();
             formData.append("shopName", Store);
             formData.append("shopTheme", Themecolor);

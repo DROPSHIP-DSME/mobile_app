@@ -135,7 +135,7 @@ const editprofile = (props) => {
 
     const checklogin = async () => {
         if (props?.loginuserstatus == "1") {
-            props.navigation.navigate("AddStore")
+            props.navigation.navigate("watchlist")
         } else {
             setshowAlert(true)
         }

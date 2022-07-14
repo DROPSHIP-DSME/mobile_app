@@ -221,11 +221,7 @@ export const shoplogin = (loginCredentials,navigation,type, usertype) => {
         let response = await Utilise.apiCalling('POST', Api.createcategory, signupRequest);
         if (response?.status) {
           if (navigation) {
-             if(islogin=="1"){
-               navigation.navigate("Category")
-             }else {
-              navigation.navigate("AddProduct",{ categoryId:response.data._id, categoryName:response.data.categoryName  })
-            }
+             
               //Alert.alert("DROPSHIP", "Category added successfully")
           
           }
@@ -591,7 +587,7 @@ export const createproduct2 = (signupRequest, navigation, role,eventId,todopage)
              if(todopage!="" && todopage!=undefined){
                navigation.navigate(todopage)
              }else {
-              navigation.navigate("StartRecording")
+              navigation.navigate("watchlist")
             }
              // Alert.alert("DROPSHIP", "Product added successfully")
           }
@@ -741,7 +737,7 @@ export const createshop = (signupRequest, navigation, role) => {
         if (response?.status) {
           dispatch({ type: GET_ALL_SHOP, payload: response.data });
           if (navigation) {
-              navigation.navigate("AddStore");
+              navigation.navigate("watchlist");
           }
         }
       } catch (error) {

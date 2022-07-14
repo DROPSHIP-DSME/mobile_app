@@ -23,9 +23,6 @@ import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper
 import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 
-
-
-
 const Footer3 = (props) => {
 
     const {
@@ -58,7 +55,7 @@ const Footer3 = (props) => {
         () => {
         getBrandUserId();
      })
- 
+
 
     return (
 

@@ -101,10 +101,7 @@ const Dashaccount = (props) => {
     }
   }
 
-  const golivepage = async () => {
-    props.liveeventdetail(props?.loginuserid);
-    setTimeout(function () { props.navigation.navigate("StartRecording", { userId: userId }) }, 500)
-  }
+ 
   // Local states
   const [subMsg, onChangeText1] = React.useState("");
   const [msg, onChangeText2] = React.useState("");

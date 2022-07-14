@@ -197,23 +197,7 @@ const NameStore = (props) => {
     );
   }
 
-  const renderItem = ({ item }) => {
-
-    return (
-      <View style={tw.style('flex flex-row justify-between mt-[5%] mx-[2%] bg-[#f9f9f9] rounded-[10px]')}>
-        <TouchableOpacity onPress={() => { props.navigation.navigate("ProductDetails2", { productId: item._id, shopId: shopId, userType: 'shopside' }) }}>
-          <View >
-            <Image source={{ uri: item.productImage }} style={{ height: deviceWidth / 2.2 + 80, borderRadius: 5, width: deviceWidth / 2.3 }} />
-            <View>
-              <Text style={tw.style('text-sm mx-[2%] text-black font-normal')}>{item.productName}</Text>
-              <Text style={tw.style('text-xs font-normal text-black')}>${item.productPrice}</Text>
-            </View>
-          </View>
-        </TouchableOpacity>
-
-      </View>
-    );
-  }
+  
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}

@@ -166,7 +166,7 @@ const watchlist = (props) => {
 
     const showConfirmDialog = () => {
         if (props?.loginuserstatus == "1") {
-            navigation.navigate('Newprofile');
+            navigation.navigate('watchlist');
         } else {
 
             setshowAlert(true)
