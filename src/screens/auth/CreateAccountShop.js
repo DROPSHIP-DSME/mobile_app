@@ -117,7 +117,7 @@ const CreateAccountShop = (props) => {
 
             <View style={styles.leftlogView}>
                 <TouchableOpacity onPress={() => props.navigation.navigate("Golive")}>
-                       
+
                 <Image source={ImageIcons.left} style={styles.droparrow}  />
                 </TouchableOpacity>
             </View>

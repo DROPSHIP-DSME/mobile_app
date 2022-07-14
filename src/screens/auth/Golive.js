@@ -103,7 +103,7 @@ const Golive = (props) => {
                   style={tw.style('w-10/11 h-16 bg-white justify-center text-center rounded-lg border border-slate-400 shadow-sm')}
                   activeOpacity = { .5}
                   onPress={() => navigation.navigate('watchlist')}>
-                  <View style={tw.style('flex flex-row justify-center')}>
+                  <View style={tw.style('flex flex-row justify-center items-center')}>
                       <Image source={ImageIcons.googleicon} style={tw.style('w-8 h-8')} />
                       <Text style={tw.style('text-lg font-bold ml-3 text-gray-800 tracking-wide')}>Sign in with Google</Text>
                   </View>
@@ -114,7 +114,7 @@ const Golive = (props) => {
                   style={tw.style('w-10/11 h-16 bg-white justify-center text-center rounded-lg border border-slate-400 shadow-sm ')}
                   activeOpacity = { .5}
                   onPress={() => bigcommercelogin()}>
-                  <View style={tw.style('flex flex-row justify-center')}>
+                  <View style={tw.style('flex flex-row justify-center items-center')}>
                       <Image source={ImageIcons.facebook} style={tw.style('w-5 h-9')} />
                       <Text style={tw.style('text-lg font-bold ml-3 mt-1 text-gray-800 tracking-wide')}>Sign in with Facebook</Text>
                   </View>

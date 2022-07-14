@@ -19,6 +19,7 @@ import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import {FlatListSlider} from 'react-native-flatlist-slider';
 import Footer2 from '../../../screens/common/Footer2';
+import tw from 'twrnc';
 
 
 const ProductDetails = (props) => {

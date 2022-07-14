@@ -26,6 +26,8 @@ import { PlayIcon } from "react-native-heroicons/solid";
 import { ShareIcon } from "react-native-heroicons/solid";
 import { CameraIcon } from "react-native-heroicons/solid";
 import Medbutton from '../../../components/dropshipbutton/Medbutton';
+import { ShoppingBagIcon } from "react-native-heroicons/solid";
+import { HeartIcon } from "react-native-heroicons/solid";
 
 
 const NameStore = (props) => {
@@ -155,18 +157,17 @@ const NameStore = (props) => {
 
   const renderItem1 = ({ item, index }) => {
     return (
-      <View style={tw.style('flex flex-row mt-[5%] mx-[2%] rounded-[10px]')}>
+      <View style={tw.style('flex flex-row mt-[3%] mx-[3%] rounded-md')}>
         <TouchableOpacity onPress={() => { props.navigation.navigate("NameStore", { shopId: item._id, shopName: item.shopName }) }}>
           <View style={tw.style('p-0.5')}>
             <Image source={{uri: item.productImage}} style={{ height: 150, width: deviceWidth / 2.4, borderRadius: 10 }} onPress={() => { props.navigation.navigate("clothing") }} />
-
-
           </View>
+
           <View style={tw.style('flex flex-row mt-2.5 justify-between')}>
             <View style={tw.style('pl-2')}>
               <Text style={tw.style('text-[#1A1A1A] text-xs font-normal')}>{item.productName}</Text>
               <Text style={tw.style('text-[#1A1A1A] text-base font-bold')}>${item.productPrice}</Text>
-              <View style={tw.style('flex flex-row mt-[5px]')}>
+              <View style={tw.style('flex flex-row mt-[5px] items-center')}>
                 <Rating
                   type='custom'
                   imageSize={15}
@@ -177,13 +178,16 @@ const NameStore = (props) => {
                   onFinishRating={(start) => ratingCompleted(start)}
                   style={tw.style('ml-[2%]')}
                 />
-                <Text style={tw.style('text-sm mx-[2%] text-black font-normal')}>4.0</Text>
-
+                <Text style={tw.style('ml-3 text-sm text-black font-normal')}>4.0</Text>
               </View>
             </View>
             <View style={tw.style('mr-2')}>
-              <Image source={ImageIcons.Iconlock} style={tw.style('w-[30px] h-[30px]')} />
-              <Image source={ImageIcons.iconheart} style={tw.style('w-[30px] h-[30px] mt-[5px]')} />
+              <View style={tw`bg-red-700 items-center p-1 rounded-md`}>
+                <ShoppingBagIcon color="red" fill="white" size={18} />
+              </View>
+              <View style={tw`bg-gray-200 items-center p-1 rounded-md mt-1`}>
+                <HeartIcon color="red" fill="red" size={18} />
+              </View>
             </View>
           </View>
 
@@ -196,7 +200,7 @@ const NameStore = (props) => {
     );
   }
 
-  
+
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -207,17 +211,17 @@ const NameStore = (props) => {
         handleScroll(nativeEvent['contentOffset'].y);
       }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={tw.style('bg-white')} >
 
-        <View style={tw.style('mx-5 mb-10')}>
+        <View style={tw.style('mx-5 mb-5')}>
           <TouchableOpacity onPress={() => props.navigation.navigate("shop")}>
             <View style={tw.style('flex flex-row mt-5 items-center')}>
               <Image source={ImageIcons.backpopup} style={tw.style('w-2.5 h-[17px]')} />
-              <Text style={tw.style('text-sm font-bold ml-3')}>GO2 BACK</Text>
+              <Text style={tw.style('text-sm font-bold ml-3')}>Back to Shop</Text>
             </View>
           </TouchableOpacity>
         </View>
-        <View>
 
-        <View style={tw`mx-4 mt-3 bg-gray-200 h-70 rounded-lg justify-center items-center`}>
+        <View>
+        <View style={tw`mx-4 mt-2 mb-3 bg-gray-200 h-70 rounded-lg justify-center items-center`}>
           <Image source={{ uri: props?.getlistproductdetails?.data?.productImage }} style={tw.style('w-full', { width: deviceWidth / 1.1 })} />
           <View style={tw.style('absolute')}>
             <PlayIcon color="red" fill="gray" size={96} />
@@ -290,7 +294,7 @@ const NameStore = (props) => {
         </View>
         <View style={tw.style('border-b my-8 mx-4 border-[#B6B6B6]')}></View>
         <View style={tw.style('mx-4')}>
-          <Text style={tw.style('text-gray-700 text-2xl font-bold')}>Product Detailes</Text>
+          <Text style={tw.style('text-gray-700 text-2xl font-bold')}>Product Details</Text>
           <Text style={tw.style('text-[#1A1A1A] text-lg font-normal')}>{props?.getlistproductdetails?.data?.productDescription}</Text>
         </View>
 
@@ -320,11 +324,11 @@ const NameStore = (props) => {
         </View>
 
         <View style={tw.style('flex flex-row mx-4 mt-10 justify-between')}>
-          <View style={tw`w-80`}>
+          <View style={tw`w-[65%]`}>
             <Medbutton text="Add to Bag" onPress={() => { cartdataSubmit(props?.getlistproductdetails?.data?._id) }}/>
           </View>
 
-          <View style={tw.style('ml-3 w-20 h-auto bg-gray-100 justify-center items-center reounded-lg')}>
+          <View style={tw.style('ml-3 w-20 h-auto bg-gray-100 justify-center items-center rounded-lg')}>
             <TouchableOpacity onPress={() => { setfav(s => !s) }} >
                {fav==true ?
                   <Image source={ImageIcons.calllike} style={[tw.style('w-[35px] h-[30px]'),{tintColor:'#b80000'}]} />
@@ -418,12 +422,12 @@ const NameStore = (props) => {
     style={{ marginLeft:'3%',marginTop:"1%"}}
   />
   <View style={{marginLeft:"2%",backgroundColor:"#B3B3B3",borderRadius:5,height:21}}>
-  <Progress.Bar progress={0.01} width={200} height={20} borderWidth={1} color={"#B80000"} />
+    <Progress.Bar progress={0.01} width={200} height={20} borderWidth={1} color={"#B80000"} />
   </View>
-  <Text style={[styles.TEXT,{fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",fontSize:18}]}>1%</Text>
+    <Text style={[styles.TEXT,{fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",fontSize:18}]}>1%</Text>
   </View>
-  <View style={{flexDirection:'row',marginTop:"5%"}}>
 
+  <View style={{flexDirection:'row',marginTop:"5%"}}>
   <Rating
       type='custom'
       imageSize={18}
@@ -439,11 +443,11 @@ const NameStore = (props) => {
     <Text style={[styles.TEXT,{fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular",fontSize:18}]}>1%</Text>
   </View>
 
-        <View style={{ marginTop: "6%", marginHorizontal: "4%" }}>
+        <View style={tw`mt-5 mx-3`}>
           <Text style={styles.clothpop}>More Products from this Store</Text>
         </View>
 
-        <View style={{ marginHorizontal: '3%', marginBottom: 90 }}>
+        <View style={tw`mx-3 mb-4`}>
           <FlatList
             data={props?.getlistproduct || []}
             renderItem={renderItem1}

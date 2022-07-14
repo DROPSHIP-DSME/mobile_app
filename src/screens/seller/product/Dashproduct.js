@@ -154,9 +154,9 @@ const options1 = [
 
  const renderItem2 = ({ item ,index }) => {
      return(
-        <View>
+        <View style={tw`mr-[2%]`}>
            <TouchableOpacity onPress={() => props.navigation.navigate("ProductDetails",{productId:item._id, })} style={tw`p-2`}>
-              <Image source={{uri:item.productImage}} style={tw`w-40 h-40`} />
+              <Image source={{uri:item.productImage}} style={tw`w-50 h-40`} />
            </TouchableOpacity>
 
            <View style={tw`mt-2`}>
@@ -234,7 +234,7 @@ const options1 = [
                  }
                </View>
 
-              <View style={tw.style('flex flex-row mx-4')}>
+              <View style={tw.style('flex flex-row mx-4 items-center')}>
 
                 <Sortorder text="Sort Order" options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
