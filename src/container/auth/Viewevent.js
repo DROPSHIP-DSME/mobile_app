@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { Viewevent } from '../../screens/auth';
+import { Viewevent } from '../../screens/customer/event';
 import { getAllproduct,searchproduct,Brandslist,getalleventlist1,getchanneltoken } from '../../redux/actions/Auth'
 
 

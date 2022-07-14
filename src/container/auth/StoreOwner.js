@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { StoreOwner } from '../../screens/auth';
+import { StoreOwner } from '../../screens/customer/cart';
 import { chekout,countrylist,cartPrice } from '../../redux/actions/Auth'
 
 

@@ -3,22 +3,22 @@ import { Text, View,Picker,TouchableOpacity,Image,TextInput,StatusBar, ImageBack
 import LinearGradient from 'react-native-linear-gradient';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
-import styles from './styles';
-import { Colors, CommonStrings } from '../../common'
-import ImageIcons from '../../common/ImageIcons'
-import InputField from '../../components/forms/inputField';
-import { RoundedButton } from '../../components/forms/button';
-import { phoneRegExp } from '../../services/helper';
-import DropdownField from '../../components/dropdown/DropDownMenu';
-import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
-import Loader from '../../components/modals/Loader';
+import styles from '../../../screens/auth/styles';
+import { Colors, CommonStrings } from '../../../common'
+import ImageIcons from '../../../common/ImageIcons'
+import InputField from '../../../components/forms/inputField';
+import { RoundedButton } from '../../../components/forms/button';
+import { phoneRegExp } from '../../../services/helper';
+import DropdownField from '../../../components/dropdown/DropDownMenu';
+import PhoneMaskInput from '../../../components/forms/inputField/PhoneMaskInput';
+import Loader from '../../../components/modals/Loader';
 import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper';
 import CheckBox from '@react-native-community/checkbox';
 import 'react-native-get-random-values';
 import { v4 as uuid } from "uuid";
 import BraintreeDropIn from 'react-native-braintree-dropin-ui';
-import Footer3 from '../../screens/auth/Footer3';
-import Sortorder from '../../components/pickers/Sortorder';
+import Footer3 from '../../../screens/auth/Footer3';
+import Sortorder from '../../../components/pickers/Sortorder';
 const options = [
       {
         label: 'USA',

@@ -7,21 +7,20 @@ import { Text, View,TouchableOpacity,FlatList,
 import LinearGradient from 'react-native-linear-gradient';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
-import styles from './styles';
-import styl from './styledrop';
-import { Colors, CommonStrings } from '../../common'
-import ImageIcons from '../../common/ImageIcons'
-import InputField from '../../components/forms/inputField';
-import { RoundedButton } from '../../components/forms/button';
-import { phoneRegExp } from '../../services/helper';
-import DropdownField from '../../components/dropdown/DropDownMenu';
-import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
-import Loader from '../../components/modals/Loader';
+import styles from '../../../screens/auth/styles';
+import styl from '../../../screens/auth/styledrop';
+import { Colors, CommonStrings } from '../../../common'
+import ImageIcons from '../../../common/ImageIcons'
+import InputField from '../../../components/forms/inputField';
+import { RoundedButton } from '../../../components/forms/button';
+import { phoneRegExp } from '../../../services/helper';
+import DropdownField from '../../../components/dropdown/DropDownMenu';
+import PhoneMaskInput from '../../../components/forms/inputField/PhoneMaskInput';
+import Loader from '../../../components/modals/Loader';
 import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper';
 import { Rating, AirbnbRating } from 'react-native-ratings';
-import Footer3 from '../../screens/auth/Footer3';
-import Shopheader from '../../screens/auth/Shopheader';
-import Sortorder from '../../components/pickers/Sortorder';
+import Footer3 from '../../../screens/auth/Footer3';
+import Sortorder from '../../../components/pickers/Sortorder';
 const options = [
       {
         label: 'USA',

@@ -17,7 +17,6 @@ import ImageIcons from '../../../common/ImageIcons'
 import { RadioButton, Provider, Modal, Portal, Button, } from 'react-native-paper';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import Footer3 from '../../../screens/auth/Footer3';
-import Shopheader from '../../../screens/auth/Shopheader';
 import tw from 'twrnc';
 import Share from 'react-native-share';
 import * as Progress from 'react-native-progress';

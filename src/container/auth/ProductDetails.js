@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { ProductDetails } from '../../screens/auth';
+import { ProductDetails } from '../../screens/seller/product';
 import { getAllproductdetails } from '../../redux/actions/Auth'
 
 

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { Popevent } from '../../screens/auth';
+import { Popevent } from '../../screens/customer/event';
 import { getAllproduct,searchproduct,Brandslist,getalleventlist1,getchanneltoken } from '../../redux/actions/Auth'
 
 
