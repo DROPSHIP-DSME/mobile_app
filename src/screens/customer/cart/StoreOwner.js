@@ -3,7 +3,7 @@ import { Text, View,Picker,TouchableOpacity,Image,TextInput,StatusBar, ImageBack
 import LinearGradient from 'react-native-linear-gradient';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
-import styles from '../../../screens/auth/styles';
+import styles from '../../../screens/common/styles';
 import { Colors, CommonStrings } from '../../../common'
 import ImageIcons from '../../../common/ImageIcons'
 import InputField from '../../../components/forms/inputField';
@@ -17,7 +17,7 @@ import CheckBox from '@react-native-community/checkbox';
 import 'react-native-get-random-values';
 import { v4 as uuid } from "uuid";
 import BraintreeDropIn from 'react-native-braintree-dropin-ui';
-import Footer3 from '../../../screens/auth/Footer3';
+import Footer3 from '../../../screens/common/Footer3';
 import Sortorder from '../../../components/pickers/Sortorder';
 const options = [
       {

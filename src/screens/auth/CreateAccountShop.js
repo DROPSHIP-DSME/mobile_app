@@ -5,7 +5,7 @@ import messaging from '@react-native-firebase/messaging';
 import CheckBox from '@react-native-community/checkbox';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
-import styles from './styles';
+import styles from '../../screens/common/styles';
 import { Colors, CommonStrings } from '../../common'
 import ImageIcons from '../../common/ImageIcons'
 import InputField from '../../components/forms/inputField';

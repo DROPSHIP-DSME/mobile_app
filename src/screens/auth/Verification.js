@@ -3,7 +3,7 @@ import { Text, View,Image,TouchableOpacity,TextInput, ImageBackground, ScrollVie
 import LinearGradient from 'react-native-linear-gradient';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
-import styles from './styles';
+import styles from '../../screens/common/styles';
 import { Colors, CommonStrings } from '../../common'
 import ImageIcons from '../../common/ImageIcons'
 import InputField from '../../components/forms/inputField';

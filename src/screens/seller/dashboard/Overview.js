@@ -3,8 +3,8 @@ import { Text, View,Image,TextInput, ImageBackground,FlatList,Picker,StatusBar,D
 import LinearGradient from 'react-native-linear-gradient';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
-import styles from '../../../screens/auth/styles';
-import newstyles from '../../../screens/auth/styles';
+import styles from '../../../screens/common/styles';
+import newstyles from '../../../screens/common/styles';
 import { Colors, CommonStrings } from '../../common';
 import ImageIcons from '../../../common/ImageIcons';
 import { DatabaseIcon } from "react-native-heroicons/solid";
@@ -20,7 +20,7 @@ import tw from 'twrnc';
 import Smallbutton from '../../../components/dropshipbutton/Smallbutton';
 import Sortorder from '../../../components/pickers/Sortorder';
 import Salesyear from '../../../components/pickers/Salesyear';
-import Footer2 from '../../../screens/auth/Footer2';
+import Footer2 from '../../../screens/common/Footer2';
 import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import {

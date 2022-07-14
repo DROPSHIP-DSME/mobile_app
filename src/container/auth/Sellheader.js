@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { Sellheader } from '../../screens/auth';
+import { Sellheader } from '../../screens/common';
 import { branddetails,Brandslist } from '../../redux/actions/Auth'
 
 

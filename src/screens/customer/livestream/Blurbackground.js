@@ -3,8 +3,8 @@ import { Text, View, Image, TouchableOpacity,Picker, Keyboard,TextInput, Dimensi
 import RtcEngine, { ChannelProfile, ClientRole, RtcLocalView, RtcRemoteView, VideoRemoteState } from "react-native-agora";
 import io from "socket.io-client";
 import { useSelector, useDispatch } from 'react-redux'
-import styles from '../../../screens/auth/style'
-import newstyles from '../../../screens/auth/styles';
+import styles from '../../../screens/common/style'
+import newstyles from '../../../screens/common/styles';
 import { Colors, fonts, Images } from '../../../common';
 import Loader from '../../../components/modals/Loader'; 
 import { requestMultiplePermisisons } from '../../../services/Permissions'

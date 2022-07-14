@@ -3,7 +3,7 @@ import { Text, View,Image,TextInput, ActivityIndicator, ImageBackground, ScrollV
 import LinearGradient from 'react-native-linear-gradient';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
-import styles from '../../../screens/auth/styles';
+import styles from '../../../screens/common/styles';
 import { Colors, CommonStrings } from '../../../common'
 import ImageIcons from '../../../common/ImageIcons'
 import InputField from '../../../components/forms/inputField';
@@ -16,7 +16,7 @@ import { Rating ,AirbnbRating} from 'react-native-ratings';
 import RnIncrementDecrementBtn  from
 'react-native-increment-decrement-button';
 import DashedLine from 'react-native-dashed-line';
-import Footer3 from '../../../screens/auth/Footer3';
+import Footer3 from '../../../screens/common/Footer3';
 import Modal from 'react-native-modal';
 
 import CheckBox from '@react-native-community/checkbox';

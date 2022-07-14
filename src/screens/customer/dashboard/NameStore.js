@@ -10,13 +10,13 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
-import styles from '../../../screens/auth/styles';
-import styl from '../../../screens/auth/styledrop';
+import styles from '../../../screens/common/styles';
+import styl from '../../../screens/common/styledrop';
 import { Colors, CommonStrings } from '../../../common'
 import ImageIcons from '../../../common/ImageIcons'
 import { RadioButton, Provider, Modal, Portal, Button, } from 'react-native-paper';
 import { Rating, AirbnbRating } from 'react-native-ratings';
-import Footer3 from '../../../screens/auth/Footer3';
+import Footer3 from '../../../screens/common/Footer3';
 import tw from 'twrnc';
 import Share from 'react-native-share';
 import * as Progress from 'react-native-progress';

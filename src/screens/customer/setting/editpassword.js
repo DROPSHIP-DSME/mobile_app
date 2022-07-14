@@ -3,8 +3,8 @@ import { Text, View, Image, FlatList, Dimensions, StatusBar, Picker, TextInput, 
 import LinearGradient from 'react-native-linear-gradient';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
-import styles from '../../../screens/auth/styles';
-import styl from '../../../screens/auth/styledrop';
+import styles from '../../../screens/common/styles';
+import styl from '../../../screens/common/styledrop';
 import { Colors, CommonStrings } from '../../../common'
 import ImageIcons from '../../../common/ImageIcons'
 import InputField from '../../../components/forms/inputField';
@@ -13,7 +13,7 @@ import { phoneRegExp } from '../../../services/helper';
 import DropdownField from '../../../components/dropdown/DropDownMenu';
 import PhoneMaskInput from '../../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../../components/modals/Loader';
-import Footer3 from '../../../screens/auth/Footer3';
+import Footer3 from '../../../screens/common/Footer3';
 import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import AwesomeAlert from 'react-native-awesome-alerts';

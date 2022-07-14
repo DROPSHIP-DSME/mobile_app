@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { Footer3 } from '../../screens/auth';
+import { Footer3 } from '../../screens/common';
 import { signup } from '../../redux/actions/Auth'
 
 

@@ -3,7 +3,7 @@ import { Text, View, TouchableOpacity, Image, Dimensions, FlatList, TextInput, S
 import LinearGradient from 'react-native-linear-gradient';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
-import styles from '../../../screens/auth/styles';
+import styles from '../../../screens/common/styles';
 import { Colors, CommonStrings } from '../../../common'
 import ImageIcons from '../../../common/ImageIcons'
 import InputField from '../../../components/forms/inputField';
@@ -14,8 +14,8 @@ import PhoneMaskInput from '../../../components/forms/inputField/PhoneMaskInput'
 import Loader from '../../../components/modals/Loader';
 import { RadioButton, Provider, Modal, Portal, Button, } from 'react-native-paper';
 import CheckBox from '@react-native-community/checkbox';
-import Footer3 from '../../../screens/auth/Footer3';
-import styl from '../../../screens/auth/styledrop';
+import Footer3 from '../../../screens/common/Footer3';
+import styl from '../../../screens/common/styledrop';
 import Moment from 'moment';
 import tw from 'twrnc';
 import { UsersIcon } from "react-native-heroicons/solid";

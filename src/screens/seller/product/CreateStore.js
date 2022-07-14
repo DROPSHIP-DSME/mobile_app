@@ -3,7 +3,7 @@ import { Text, View,TouchableOpacity,FlatList,Image,TextInput,Picker,StatusBar, 
 import LinearGradient from 'react-native-linear-gradient';
 import { withFormik } from 'formik';
 import * as Yup from 'yup';
-import styles from '../../../screens/auth/styles';
+import styles from '../../../screens/common/styles';
 import { Colors, CommonStrings } from '../../../common'
 import ImageIcons from '../../../common/ImageIcons'
 import InputField from '../../../components/forms/inputField';
@@ -16,7 +16,7 @@ import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper
 import { RNCamera } from 'react-native-camera';
 import ImagePicker from 'react-native-image-crop-picker';
 import { launchImageLibrary } from 'react-native-image-picker';
-import Footer3 from '../../../screens/auth/Footer3';
+import Footer3 from '../../../screens/common/Footer3';
 import tw from 'twrnc';
 import Largebutton from '../../../components/dropshipbutton/Largebutton';
 import { CameraIcon } from "react-native-heroicons/solid";
