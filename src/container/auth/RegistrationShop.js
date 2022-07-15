@@ -8,6 +8,7 @@ const mapStateToProps = (state) => ({
     loginLoader:state.auth.loginLoader,
     loginuserid: state.auth.loginuserid,
     loginuserstatus: state.auth.loginuserstatus,
+    alertmessage:state.auth.alertmessage,
 });
 
 const mapDispatchToProps = {

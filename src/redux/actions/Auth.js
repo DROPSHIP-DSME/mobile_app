@@ -7,6 +7,7 @@ import {
   SET_REGISTRATION_LOADER,
   SET_OTP_LOADER,
   SET_LOGIN_LOADER,
+  USER_ALERT_STATUS,
   SET_PHONESIGNUP_LOADER,
   SET_FORGET_PASSWORD_LOADER,
   SET_RESET_PASSWORD_LOADER,
@@ -121,7 +122,6 @@ export const login = (loginCredentials,navigation,type, usertype) => {
           global.authToken = response?.data?.token || null;
           await AsyncStorage.setItem('UserId',response.data._id);
           await AsyncStorage.setItem('userLogin',"1");
-         // Alert.alert("User LoggedIn successfully")
           dispatch({ type: LOGIN_USER_ID, payload: response.data._id });
           dispatch({ type: LOGIN_USER_STATUS, payload: 1 });
           if(usertype == 'shop'){
@@ -130,12 +130,10 @@ export const login = (loginCredentials,navigation,type, usertype) => {
           setTimeout(function(){ navigation.navigate("Overview",{ userId:response.data._id }); },1);
         } } else {
            
-          Alert.alert("DROPSHIP", String(response?.message))
         }
       } catch (error) {
         dispatch({ type: SET_LOGIN_LOADER, payload: false });
         dispatch(changeLoginCredentials(null));
-        //Alert.alert("DROPSHIP", String(error?.message))
       }
     }
   };
@@ -157,7 +155,6 @@ export const shopsignupphone = (loginCredentials,navigation,type, usertype) => {
           global.authToken = response?.data?.token || null;
           await AsyncStorage.setItem('UserId',response.data._id);
           await AsyncStorage.setItem('userLogin',"1");
-         // Alert.alert("User LoggedIn successfully")
           dispatch({ type: LOGIN_USER_ID, payload: response.data._id });
           dispatch({ type: LOGIN_USER_STATUS, payload: 1 });
           if(usertype == 'shop'){
@@ -166,12 +163,10 @@ export const shopsignupphone = (loginCredentials,navigation,type, usertype) => {
           setTimeout(function(){ navigation.navigate("Overview",{ userId:response.data._id }); },1);
         } } else {
            
-          Alert.alert("DROPSHIP", String(response?.message))
         }
       } catch (error) {
         dispatch({ type: SET_PHONESIGNUP_LOADER, payload: false });
         dispatch(changeLoginCredentials(null));
-        //Alert.alert("DROPSHIP", String(error?.message))
       }
     }
   };
@@ -181,6 +176,7 @@ export const shoplogin = (loginCredentials,navigation,type, usertype) => {
   return async (dispatch, getState) => {
     let isInternetConnected = await getState().auth?.isInternetConnected;
     if (isInternetConnected) {
+      dispatch({ type:USER_ALERT_STATUS, payload: '' });
       try {
         dispatch({ type: SET_LOGIN_LOADER, payload: true });
        // dispatch({ type: LOGIN_USER_ID, payload: ''});
@@ -198,13 +194,14 @@ export const shoplogin = (loginCredentials,navigation,type, usertype) => {
           dispatch({ type: LOGIN_USER_STATUS, payload: 1 });
           setTimeout(function(){ navigation.navigate("watchlist",{ userId:response.data._id }); },1);
         } else {
-           
-          Alert.alert("DROPSHIP", 'Invalid Email or Password')
+          dispatch({ type:USER_ALERT_STATUS, payload: 'Invalid Email or Password' });
+          setTimeout(function(){ navigation.navigate("RegistrationShop"); },1);
         }
       } catch (error) {
         dispatch({ type: SET_LOGIN_LOADER, payload: false });
         dispatch(changeLoginCredentials(null));
-        Alert.alert("DROPSHIP", 'Invalid Email or Password')
+        dispatch({ type:USER_ALERT_STATUS, payload: 'Invalid Email or Password' });
+        setTimeout(function(){ navigation.navigate("RegistrationShop"); },1);
       }
     }
   };
@@ -221,13 +218,10 @@ export const shoplogin = (loginCredentials,navigation,type, usertype) => {
         let response = await Utilise.apiCalling('POST', Api.createcategory, signupRequest);
         if (response?.status) {
           if (navigation) {
-             
-              //Alert.alert("DROPSHIP", "Category added successfully")
-          
+                       
           }
         }
       } catch (error) {
-        //Alert.alert("DROPSHIP", String(error?.message))
       }
     }
   }
@@ -247,7 +241,6 @@ export const shoplogin = (loginCredentials,navigation,type, usertype) => {
           dispatch({ type: GET_ALL_PRODUCT, payload: response.data });
         }
       } catch (error) {
-       // Alert.alert("DROPSHIP", String(error?.message))
       }
     }
   }
@@ -266,10 +259,8 @@ export const postrating = (signupRequest, navigation, role) => {
           dispatch({ type: SET_RATING_REVIEW, payload: response.data });
 
         }else{
-          //Alert.alert("DROPSHIP", "Category added successfully")
         }
       } catch (error) {
-       // Alert.alert("DROPSHIP", String(error?.message))
       }
     }
   }
@@ -290,11 +281,9 @@ export const getpostrating = (productId) => {
                 if (response?.status) {
                     dispatch({ type: GET_ALL_RATING, payload: response.data});
                 } else {
-                    //Alert.alert("DROPSHIP", String(response?.message))
                 }
             } catch (error) {
                 dispatch({ type: GET_ALL_RATING, payload: [] });
-                //Alert.alert("DROPSHIP", String(error?.message))
             }
         };
     }
@@ -363,7 +352,6 @@ export const updateprofile = (signupRequest, navigation, role) => {
           dispatch({ type: SIGNUP_CREDENTIALS, payload: response.data });
         } 
       } catch (error) {
-        //Alert.alert("DROPSHIP", String(error?.message)
       }
     }
   }
@@ -383,7 +371,6 @@ export const newprofile = (request, navigation, role) => {
           dispatch({ type: NEW_PROFILE, payload: response.data });
         } 
       } catch (error) {
-        //Alert.alert("DROPSHIP", String(error?.message)
       }
     }
   }
@@ -488,7 +475,6 @@ export const createproduct = (signupRequest, navigation, role,islogin) => {
     if (isInternetConnected) {
       try {
         let response = await Utilise.apiCalling('POST', Api.createproduct, signupRequest);
-        //Alert.alert("DROPSHIP", "Product added successfully")
         if (response?.status) {
           if (navigation) {
               //if(islogin=="1"){
@@ -582,7 +568,6 @@ export const createproduct2 = (signupRequest, navigation, role,eventId,todopage)
              }else {
               navigation.navigate("watchlist")
             }
-             // Alert.alert("DROPSHIP", "Product added successfully")
           }
         }
       } catch (error) {
@@ -616,7 +601,6 @@ export const saveaddress = (request, navigation, role) => {
     if (isInternetConnected) {
       try {
         let response = await Utilise.apiCalling('POST', Api.saveaddress, request);
-        Alert.alert("DROPSHIP", "Shipping information added Successfully")
       } catch (error) {
        
       }
@@ -706,7 +690,6 @@ export const createbrand = (signupRequest, navigation, role) => {
         if (response?.status) {
           if (navigation) { 
               navigation.navigate("Accountproduct",{ brandId:response.data._id  })
-            //  Alert.alert("DROPSHIP", "Brand added successfully")
           
           }
         }
@@ -733,7 +716,6 @@ export const createshop = (signupRequest, navigation, role) => {
           }
         }
       } catch (error) {
-       // Alert.alert("DROPSHIP", String(error?.message))
       }
     }
   }
@@ -767,16 +749,13 @@ export const signup = (signupRequest, navigation, role,type) => {
             }else {
               navigation.navigate("Overview",{ userId:response.data._id });
             }
-             // Alert.alert("DROPSHIP", "User Registered successfully")  
 
           }
         } else {
           if(response?.message!="Email already exists"){
-          //  Alert.alert("DROPSHIP", String(response?.message))
           }
         }
       } catch (error) {
-       // Alert.alert("DROPSHIP", String(error?.message))
         dispatch({ type: SET_REGISTRATION_LOADER, payload: false });
         dispatch({ type: VENDOR_REQUEST_LOADER, payload: false });
       }
@@ -809,11 +788,10 @@ export const shopsignup = (signupRequest, navigation, role,type) => {
           }
         } else {
          // if(response?.message!="Email already exists"){
-           Alert.alert("DROPSHIP", String(response?.message))
+             Alert.alert("DROPSHIP", String(response?.message))
           //}
         }
       } catch (error) {
-       // Alert.alert("DROPSHIP", String(error?.message))
         dispatch({ type: SET_REGISTRATION_LOADER, payload: false });
         dispatch({ type: VENDOR_REQUEST_LOADER, payload: false });
       }
@@ -844,10 +822,8 @@ export const verifyOtp = (otpCredentials, navigation, isForgetPassword) => {
           }
           dispatch({ type: OTP_VERIFIED, payload: response || false });
         } else {
-        //  Alert.alert("DROPSHIP", String(response?.message))
         }
       } catch (error) {
-       // Alert.alert("DROPSHIP", String(error?.message))
         dispatch({ type: SET_OTP_LOADER, payload: false });
         dispatch({ type: OTP_VERIFIED, payload: false });
       }
@@ -867,7 +843,6 @@ export const resendOtp = () => {
           dispatch({ type: OTP_RESEND_SUCCESS, payload: response || false });
         }
       } catch (error) {
-       // Alert.alert("DROPSHIP", String(error?.message))
         dispatch({ type: OTP_RESEND_SUCCESS, payload: false });
       }
     };
@@ -893,10 +868,8 @@ export const forgetPassword = (request, navigation) => {
             );
           }
         } else {
-         // Alert.alert("DROPSHIP", String(response?.message))
         }
       } catch (error) {
-       // Alert.alert("DROPSHIP", String(error?.message))
         dispatch({ type: SET_FORGET_PASSWORD_SUCCESS, payload: false });
         dispatch({ type: SET_FORGET_PASSWORD_LOADER, payload: false });
       }
@@ -922,10 +895,8 @@ export const resetPassword = (request, userId, navigation) => {
           });
           dispatch({ type: SET_DEFAULT_AUTH_SCREEN, payload: "Login" })
         } else {
-         // Alert.alert("DROPSHIP", String(response?.message))
         }
       } catch (error) {
-       // Alert.alert("DROPSHIP", String(error?.message))
         dispatch({ type: SET_RESET_PASSWORD_SUCCESS, payload: false });
         dispatch({ type: SET_RESET_PASSWORD_LOADER, payload: false });
       }
@@ -954,14 +925,11 @@ export const changeLoginCredentials = (loginCredentials) => {
             try {
                 let response = await Utilise.apiCalling('POST', `${Api.liveeventdetail}`,  request);
                 if (response?.status) {
-                  // Alert.alert("DROPSHIP", 'Livedetail successfully')
                     dispatch({ type: LIVE_LIST_DATA, payload: response.data });
                 } else {
-                  //  Alert.alert("DROPSHIP", String(response?.message))
                 }
             } catch (error) {
                 dispatch({ type: LIVE_LIST_DATA, payload: [] });
-              //  Alert.alert("DROPSHIP", String(error?.message))
             }
         };
     }
@@ -979,14 +947,11 @@ export const getalleventlist = (userId) => {
                 let response = await Utilise.apiCalling('POST', `${Api.getalleventlist}`,  request);
                 
                 if (response?.status) {
-                   //Alert.alert("DROPSHIP", 'alleventlist successfully')
                     dispatch({ type: ALLEVENT_LIST_DATA, payload: response.data });
                 } else {
-                  //  Alert.alert("DROPSHIP", String(response?.message))
                 }
             } catch (error) {
                 //dispatch({ type: ALLEVENT_LIST_DATA, payload: [] });
-               // Alert.alert("DROPSHIP", String(error?.message))
             }
         };
     }
@@ -1003,14 +968,11 @@ export const getlivestreamrecap = (channelId) => {
            try {
                let response = await Utilise.apiCalling('POST', `${Api.getlivestreamrecap}`,  request);
                if (response?.status) {
-                  //Alert.alert("DROPSHIP", 'livestreamlist successfully')
                    dispatch({ type: LIVESTREAM_RECAP, payload: response.data });
                } else {
-                 //  Alert.alert("DROPSHIP", String(response?.message))
                }
            } catch (error) {
                dispatch({ type: LIVESTREAM_RECAP, payload: [] });
-              // Alert.alert("DROPSHIP", String(error?.message))
            }
        };
    }
@@ -1027,12 +989,9 @@ export const deletelivestreamrecap = (channelId) => {
            try {
                let response = await Utilise.apiCalling('POST', `${Api.getdeletelivestreamrecap}`,  request);
                if (response?.status) {
-                   Alert.alert("DROPSHIP", 'livestream deleted successfully')
-                   //dispatch({ type: LIVESTREAM_RECAP, payload: response.data });
                }
            } catch (error) {
               // dispatch({ type: LIVESTREAM_RECAP, payload: [] });
-              // Alert.alert("DROPSHIP", String(error?.message))
            }
        };
    }
@@ -1055,14 +1014,11 @@ export const getalleventlist1 = (userId) => {
                       let response = await Utilise.apiCalling('POST', `${Api.getalleventlist}`,  request);
                       
                       if (response?.status) {
-                         //Alert.alert("DROPSHIP", 'alleventlist successfully')
                           dispatch({ type: ALLEVENT_LIST_DATA, payload: response.data });
                       } else {
-                        //  Alert.alert("DROPSHIP", String(response?.message))
                       }
                   } catch (error) {
                       //dispatch({ type: ALLEVENT_LIST_DATA, payload: [] });
-                     // Alert.alert("DROPSHIP", String(error?.message))
                   }
               };
           }
@@ -1103,14 +1059,11 @@ export const Brandslist = (userId) => {
                 let response = await Utilise.apiCalling('POST', `${Api.Brandslist}`,  request);
                 
                 if (response?.status) {
-                   //Alert.alert("DROPSHIP", 'Brandslist successfully')
                     dispatch({ type: BRANDS_LIST_DATA, payload: response.data });
                 } else {
-                   // Alert.alert("DROPSHIP", String(response?.message))
                 }
             } catch (error) {
                 dispatch({ type: BRANDS_LIST_DATA, payload: [] });
-               // Alert.alert("DROPSHIP", String(error?.message))
             }
         };
     }
@@ -1131,14 +1084,11 @@ export const searchbrand = (userId,search) => {
                 let response = await Utilise.apiCalling('POST', `${Api.SearchBrandslist}`,  request);
                
                 if (response?.status) {
-                   //Alert.alert("DROPSHIP", 'Brandslist successfully')
                     dispatch({ type: BRANDS_LIST_DATA, payload: response.data });
                 } else {
-                   // Alert.alert("DROPSHIP", String(response?.message))
                 }
             } catch (error) {
                 dispatch({ type: BRANDS_LIST_DATA, payload: [] });
-               // Alert.alert("DROPSHIP", String(error?.message))
             }
         };
     }
@@ -1157,14 +1107,11 @@ export const searchitems = (search,userId) => {
                 let response = await Utilise.apiCalling('POST', `${Api.searchlistitmes}`,  request);
                
                 if (response?.status) {
-                   //Alert.alert("DROPSHIP", 'Brandslist successfully')
                     dispatch({ type: SEARCH_LIST_ITMES, payload: response.data });
                 } else {
-                   // Alert.alert("DROPSHIP", String(response?.message))
                 }
             } catch (error) {
                 dispatch({ type: SEARCH_LIST_ITMES, payload: [] });
-               // Alert.alert("DROPSHIP", String(error?.message))
             }
         };
     }
@@ -1354,11 +1301,9 @@ export const deletedata = (cartId,navigation) => {
                    dispatch({ type: REMOVE_CATEGORY_LIST, payload: [] });
                    // dispatch({ type: DELETE_CART_LIST, payload: response.data });
                 } else {
-                  //  Alert.alert("DROPSHIP", String(response?.message))
                 }
             } catch (error) {
                 dispatch({ type: REMOVE_CATEGORY_LIST, payload: [] });
-              //  Alert.alert("DROPSHIP", String(error?.message))
             }
         };
     }
@@ -1377,14 +1322,11 @@ export const shopsellcount = (shopId) => {
                 let response = await Utilise.apiCalling('POST', `${Api.shopsellcount}`,  request);
                 
                 if (response?.status) {
-                  //Alert.alert("DROPSHIP", "shop product successfully")
                     dispatch({ type: GET_SHOPSELL_COUNT, payload: response.data });
                 } else {
-                   // Alert.alert("DROPSHIP", String(response?.message))
                 }
             } catch (error) {
                 dispatch({ type: GET_SHOPSELL_COUNT, payload: [] });
-              //  Alert.alert("DROPSHIP", String(error?.message))
             }
         };
     }
@@ -1404,14 +1346,11 @@ export const shopproduct = (shopId) => {
                 let response = await Utilise.apiCalling('POST', `${Api.shopproduct}`,  request);
                 
                 if (response?.status) {
-                  //Alert.alert("DROPSHIP", "shop product successfully")
                     dispatch({ type: GET_SHOP_PRODUCT, payload: response.data });
                 } else {
-                   // Alert.alert("DROPSHIP", String(response?.message))
                 }
             } catch (error) {
                 dispatch({ type: GET_SHOP_PRODUCT, payload: [] });
-              //  Alert.alert("DROPSHIP", String(error?.message))
             }
         };
     }
@@ -1432,17 +1371,14 @@ export const shopproduct = (shopId) => {
                 let response = await Utilise.apiCalling('POST', `${Api.branddetails}`,  request);
                 
                 if (response?.status) {
-                  // Alert.alert("DROPSHIP", "Brand details successfully")
                     dispatch({ type: GET_BRAND_DETAILS, payload: response.data.data });
 
                     dispatch({ type: GET_BRAND_PRODUCT, payload: response.data.prouduct });
 
                 } else {
-                   // Alert.alert("DROPSHIP", String(response?.message))
                 }
             } catch (error) {
                 dispatch({ type: GET_BRAND_DETAILS, payload: [] });
-              //  Alert.alert("DROPSHIP", String(error?.message))
             }
         };
     }
@@ -1461,14 +1397,11 @@ export const getbrandName = (UserId,navigation) => {
                 
                 // alert(JSON.stringify(response));
                 if (response?.status) {
-                 // Alert.alert("DROPSHIP", 'brandName successfully')
                    dispatch({ type: SET_BRAND_NAME, payload: response.data });
                 } else {
-                   // Alert.alert("DROPSHIP", String(response?.message))
                 }
             } catch (error) {
                 dispatch({ type: REMOVE_CATEGORY_LIST, payload: [] });
-              //  Alert.alert("DROPSHIP", String(error?.message))
             }
         };
     }
@@ -1488,14 +1421,11 @@ export const getchannelbrandName = (channelId,navigation) => {
                 
                 // alert(JSON.stringify(response));
                 if (response?.status) {
-                 // Alert.alert("DROPSHIP", 'brandName successfully')
                    dispatch({ type: SET_BRAND_NAME, payload: response.data });
                 } else {
-                  //  Alert.alert("DROPSHIP", String(response?.message))
                 }
             } catch (error) {
                 dispatch({ type: REMOVE_CATEGORY_LIST, payload: [] });
-               // Alert.alert("DROPSHIP", String(error?.message))
             }
         };
     }
@@ -1521,16 +1451,13 @@ export const getchannelbrandName = (channelId,navigation) => {
                 // alert(JSON.stringify(response));
                 
                 if (response?.status) {
-                  Alert.alert("DROPSHIP", 'Item remove successfully')
                  // navigation.navigate("Cart");
                    dispatch({ type: REMOVE_ITEM_LIST, payload: [] });
                    // dispatch({ type: DELETE_CART_LIST, payload: response.data });
                 } else {
-                   // Alert.alert("DROPSHIP", String(response?.message))
                 }
             } catch (error) {
                 dispatch({ type: REMOVE_ITEM_LIST, payload: [] });
-               // Alert.alert("DROPSHIP", String(error?.message))
             }
         };
     }
@@ -1555,14 +1482,11 @@ export const getchannelbrandName = (channelId,navigation) => {
                 
                 // alert(JSON.stringify(response));
                 if (response?.status) {
-                 // Alert.alert("DROPSHIP", 'Cart updated successfully')
                     dispatch({ type: INCREMENT_CART_LIST, payload: response.data });
                 } else {
-                    //Alert.alert("DROPSHIP", String(response?.message))
                 }
             } catch (error) {
                 dispatch({ type: INCREMENT_CART_LIST, payload: [] });
-               // Alert.alert("DROPSHIP", String(error?.message))
             }
         };
     }
@@ -1582,14 +1506,11 @@ export const gettopsell = (userId,limit) => {
                 let response = await Utilise.apiCalling('POST', `${Api.gettopsell}`,  request);
                 
                 if (response?.status) {
-                 // Alert.alert("DROPSHIP", 'dashboard updated successfully')
                     dispatch({ type: GET_TOP_SELL, payload: response.data });
                 } else {
-                    //Alert.alert("DROPSHIP", String(response?.message))
                 }
             } catch (error) {
                 dispatch({ type: GET_TOP_SELL, payload: [] });
-                //Alert.alert("DROPSHIP", String(error?.message))
             }
         };
     }
@@ -1609,14 +1530,11 @@ export const gettopcountry = (userId,limit) => {
                 let response = await Utilise.apiCalling('POST', `${Api.gettopcountry}`,  request);
                 
                 if (response?.status) {
-                 // Alert.alert("DROPSHIP", 'dashboard updated successfully')
                     dispatch({ type: GET_TOP_COUNTRY, payload: response.data });
                 } else {
-                    //Alert.alert("DROPSHIP", String(response?.message))
                 }
             } catch (error) {
                 dispatch({ type: GET_TOP_COUNTRY, payload: [] });
-                //Alert.alert("DROPSHIP", String(error?.message))
             }
         };
     }
@@ -1636,14 +1554,11 @@ export const gettopcountry = (userId,limit) => {
                 let response = await Utilise.apiCalling('POST', `${Api.getselldeshboard}`,  request);
                 
                 if (response?.status) {
-                 // Alert.alert("DROPSHIP", 'dashboard updated successfully')
                     dispatch({ type: GET_SELL_DESHBOARD, payload: response.data });
                 } else {
-                    //Alert.alert("DROPSHIP", String(response?.message))
                 }
             } catch (error) {
                 dispatch({ type: GET_SELL_DESHBOARD, payload: [] });
-                //Alert.alert("DROPSHIP", String(error?.message))
             }
         };
     }
@@ -1666,11 +1581,9 @@ export const gettopcountry = (userId,limit) => {
                 if (response?.status) {
                     dispatch({ type: GET_ALL_CATEGORY, payload: response.data });
                 } else {
-                    //Alert.alert("DROPSHIP", String(response?.message))
                 }
             } catch (error) {
                 dispatch({ type: GET_ALL_CATEGORY, payload: [] });
-                //Alert.alert("DROPSHIP", String(error?.message))
             }
         };
     }
@@ -1691,11 +1604,9 @@ export const gettopcountry = (userId,limit) => {
                 if (response?.status) {
                     dispatch({ type: GET_ALL_PRODUCTDETAILS, payload: response.data });
                 } else {
-                    //Alert.alert("DROPSHIP", String(response?.message))
                 }
             } catch (error) {
                 dispatch({ type: GET_ALL_PRODUCTDETAILS, payload: [] });
-                //Alert.alert("DROPSHIP", String(error?.message))
             }
         };
     }
@@ -1719,11 +1630,9 @@ export const gettopcountry = (userId,limit) => {
                 if (response?.status) {
                     dispatch({ type: GET_ALL_PRODUCT, payload: response.data });
                 } else {
-                   // Alert.alert("DROPSHIP", String(response?.message))
                 }
             } catch (error) {
                 dispatch({ type: GET_ALL_PRODUCT, payload: [] });
-                //Alert.alert("DROPSHIP", String(error?.message))
             }
         };
     }
@@ -1771,11 +1680,9 @@ export const selectAllproduct = (responsedata) => {
                 if (response?.status) {
                     dispatch({ type: GET_ALL_PRODUCT, payload: response.data });
                 } else {
-                   // Alert.alert("DROPSHIP", String(response?.message))
                 }
             } catch (error) {
                 dispatch({ type: GET_ALL_PRODUCT, payload: [] });
-                //Alert.alert("DROPSHIP", String(error?.message))
             }
         };
     }
@@ -1797,11 +1704,9 @@ export const getusercard = (userId) => {
                   
                   dispatch({ type: GET_USERCARD_LIST, payload: response.data });
                 } else {
-                   // Alert.alert("DROPSHIP", String(response?.message))
                 }
             } catch (error) {
                 dispatch({ type: GET_USERCARD_LIST, payload: [] });
-                //Alert.alert("DROPSHIP", String(error?.message))
             }
         };
     }
@@ -1824,11 +1729,9 @@ export const getuseraddress = (userId) => {
                   
                   dispatch({ type: GET_USERADDRESS_LIST, payload: response.data });
                 } else {
-                   // Alert.alert("DROPSHIP", String(response?.message))
                 }
             } catch (error) {
                 dispatch({ type: GET_USERADDRESS_LIST, payload: [] });
-                //Alert.alert("DROPSHIP", String(error?.message))
             }
         };
     }
@@ -1849,11 +1752,9 @@ export const getprofileuser = (userId) => {
                   
                   dispatch({ type: GET_PROFILEUSER_LIST, payload: response.data });
                 } else {
-                   // Alert.alert("DROPSHIP", String(response?.message))
                 }
             } catch (error) {
                 dispatch({ type: GET_PROFILEUSER_LIST, payload: [] });
-                //Alert.alert("DROPSHIP", String(error?.message))
             }
         };
     }
@@ -1919,14 +1820,11 @@ export const getsupportlist = (userId) => {
                
                 if (response?.status) {
                    
-                  //Alert.alert("DROPSHIP", 'Chat successfully')
                     dispatch({ type: GET_SUPPORT_LIST1, payload: response.data });
                 } else {
-                    //Alert.alert("DROPSHIP", String(response?.message))
                 }
             } catch (error) {
                 dispatch({ type: GET_SUPPORT_LIST, payload: [] });
-                //Alert.alert("DROPSHIP", String(error?.message))
             }
         };
     }
@@ -1950,11 +1848,9 @@ export const getprocesstlist = (userId) => {
                    
                     dispatch({ type: GET_PROCESSORDER_LIST, payload: response.data });
                 } else {
-                   // Alert.alert("DROPSHIP", String(response?.message))
                 }
             } catch (error) {
                 dispatch({ type: GET_PROCESSORDER_LIST, payload: [] });
-                //Alert.alert("DROPSHIP", String(error?.message))
             }
         };
     }
@@ -1975,11 +1871,9 @@ export const getincomingtlist = (userId) => {
                 if (response?.status) {
                     dispatch({ type: GET_INCOMINGORDER_LIST, payload: response.data });
                 } else {
-                    //Alert.alert("DROPSHIP", String(response?.message))
                 }
             } catch (error) {
                 dispatch({ type: GET_INCOMINGORDER_LIST, payload: [] });
-                //Alert.alert("DROPSHIP", String(error?.message))
             }
         };
     }
@@ -2002,11 +1896,9 @@ export const getincomingtlist = (userId) => {
                 if (response?.status) {
                     dispatch({ type: GET_LIVECOMMENT_LIST, payload: response.data });
                 } else {
-                   // Alert.alert("DROPSHIP", String(response?.message))
                 }
             } catch (error) {
                 dispatch({ type: GET_LIVECOMMENT_LIST, payload: [] });
-                //Alert.alert("DROPSHIP", String(error?.message))
             }
         };
     }
@@ -2029,14 +1921,11 @@ export const getincomingtlist = (userId) => {
                 
                 if (response?.status) {
                    
-                 // Alert.alert("DROPSHIP", 'eventlist successfully')
                     dispatch({ type: GET_LIVEEVENT_LIST, payload: response.data });
                 } else {
-                   // Alert.alert("DROPSHIP", String(response?.message))
                 }
             } catch (error) {
                 dispatch({ type: GET_LIVEEVENT_LIST, payload: [] });
-                //Alert.alert("DROPSHIP", String(error?.message))
             }
         };
     }
@@ -2058,14 +1947,11 @@ export const getorderdetail = (orderNumber) => {
                
                 if (response?.status) {
                    
-                  //Alert.alert("DROPSHIP", 'orderlist successfully')
                     dispatch({ type: GET_ORDER_LIST, payload: response.data });
                 } else {
-                    //Alert.alert("DROPSHIP", String(response?.message))
                 }
             } catch (error) {
                 dispatch({ type: GET_ORDER_LIST, payload: [] });
-                //Alert.alert("DROPSHIP", String(error?.message))
             }
         };
     }
@@ -2092,11 +1978,9 @@ export const getAllshop = (userId,usertype) => {
                 if (response?.status) {
                     dispatch({ type: GET_ALL_SHOP, payload: response.data });
                 } else {
-                    //Alert.alert("DROPSHIP", String(response?.message))
                 }
             } catch (error) {
                 dispatch({ type: GET_ALL_SHOP, payload: [] });
-                //Alert.alert("DROPSHIP", String(error?.message))
             }
         };
     }
@@ -2119,11 +2003,9 @@ export const updateorderdetail = (orderNumber,status) => {
                     alert('Order Status updated successfully')
                    // dispatch({ type: GET_ALL_SHOP, payload: response.data });
                 } else {
-                    //Alert.alert("DROPSHIP", String(response?.message))
                 }
             } catch (error) {
                 dispatch({ type: GET_ALL_SHOP, payload: [] });
-                //Alert.alert("DROPSHIP", String(error?.message))
             }
         };
     }
@@ -2141,14 +2023,11 @@ export const editUser = (orderNumber,status) => {
                 let response = await Utilise.apiCalling('POST', `${Api.editUser}`,  request);
                 
                 if (response?.status) {
-                    //alert('Order Status updated successfully')
                     dispatch({ type: POST_EDIT_USER, payload: response.data });
                 } else {
-                    //Alert.alert("DROPSHIP", String(response?.message))
                 }
             } catch (error) {
                 //dispatch({ type: GET_ALL_SHOP, payload: [] });
-                Alert.alert("DROPSHIP", String(error?.message))
             }
         };
     }

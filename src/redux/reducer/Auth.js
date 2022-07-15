@@ -10,6 +10,7 @@ import {
   SET_REGISTRATION_LOADER,
   SET_OTP_LOADER,
   SET_LOGIN_LOADER,
+  USER_ALERT_STATUS,
   SET_PHONESIGNUP_LOADER,
   SET_FORGET_PASSWORD_LOADER,
   SET_RESET_PASSWORD_LOADER,
@@ -89,6 +90,7 @@ const initialState = {
   signupSuccess: false,
   loginCredentials: null,
   loginLoader: false,
+  alertmessage: false,
   signupphoneLoader: false,
   remeberMeLoginCredentials: false,
   forgetPasswordLoader: false,
@@ -233,6 +235,12 @@ const Auth = (state = initialState, action) => {
         ...state,
         loginLoader: action.payload,
       };
+
+    case USER_ALERT_STATUS:
+      return {
+        ...state,
+        alertmessage: action.payload,
+    };
 
     case SET_BRAND_LOADER:
       return {

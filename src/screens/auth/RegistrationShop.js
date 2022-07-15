@@ -68,7 +68,12 @@ const RegistrationShop = (props) => {
         });
         requestUserPermission();
         getrememberMe();
-    }, [])
+        if(props?.alertmessage=='Invalid Email or Password'){
+            setshowotherAlert(true)
+            setshowalertmsg('Invalid Email or Password')
+        }
+
+    }, [props?.alertmessage])
 
     const getrememberMe = async () => {
         var getpassword = await AsyncStorage.getItem('rememberpassword');

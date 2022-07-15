@@ -74,7 +74,7 @@ const RootNavigation = (props) => {
         // End: Dynamic link Listener
         const unsubscribe = NetInfo.addEventListener(state => {
             if (!state.isConnected) {
-                Alert.alert("Wallpon", "Please check your internet connection")
+                Alert.alert("Dropship", "Please check your internet connection")
             }
             props.setNetworkConnection(state.isConnected);
         });
