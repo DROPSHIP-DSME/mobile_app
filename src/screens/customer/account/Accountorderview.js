@@ -28,6 +28,7 @@ import RnIncrementDecrementBtn from
   'react-native-increment-decrement-button';
 import Modal from 'react-native-modal';
 import Moment from 'moment';
+import tw from 'twrnc';
 
 const Accountorderview = (props) => {
 
@@ -113,31 +114,32 @@ const Accountorderview = (props) => {
   };
   const renderItem = ({ item, index }) => {
     return (
-      <View style={styles.heartratingView}>
-        <View style={{ flexDirection:'row', marginHorizontal: 0, padding: 0, alignItems: 'center' }}>
-          <Image source={{ uri: item?.productId?.productImage }} style={{ width: 100, height: 100, marginVertical: 5, borderRadius: 5, alignSelf: 'center' }} />
-          <View style={{marginLeft:20}}>
-            
-        
-          <View style={styles.heartratingView}>
-            <Text style={styles.pdclr}> Name:</Text>
-            <Text style={styles.pdnme}> {item?.productId?.productName}</Text>
-          </View>
+      <View style={tw`flex flex-row`}>
+        <View style={tw`flex-row justify-center items-center`}>
+          <Image source={{ uri: item?.productId?.productImage }} style={tw`w-30 h-30 rounded-lg`} />
+          <View style={tw`ml-3 mr-7`}>
 
-          <View style={styles.heartratingView}>
-            <Text style={styles.pdclr}> Price:</Text>
-            <Text style={styles.pdnme}> {item.productPrice}</Text>
-          </View>
+              <View style={tw`flex flex-row`}>
+                <Text style={tw`text-base text-gray-900`}>Name:</Text>
+                <Text style={tw`text-base text-gray-700`}>{item?.productId?.productName}</Text>
+              </View>
+
+              <View style={tw`flex flex-row`}>
+                <Text style={tw`text-base text-gray-900`}>Price:</Text>
+                <Text style={tw`text-base text-gray-700`}>{item.productPrice}</Text>
+              </View>
 
 
-          <View style={styles.heartratingView}>
-            <Text style={styles.pdclr}> Size:</Text>
-            <Text style={styles.pdnme}> {item.productSize}</Text>
-          </View>
-          <View style={styles.heartratingView}>
-            <Text style={styles.pdclr}>Quantity:</Text>
-            <Text style={styles.pdnme}> {item.productQuantity}</Text>
-          </View>
+              <View style={tw`flex flex-row`}>
+                <Text style={tw`text-base text-gray-900`}>Size:</Text>
+                <Text style={tw`text-base text-gray-700`}>{item.productSize}</Text>
+              </View>
+
+              <View style={tw`flex flex-row`}>
+                <Text style={tw`text-base text-gray-900`}>Quantity:</Text>
+                <Text style={tw`text-base text-gray-700`}>{item.productQuantity}</Text>
+              </View>
+
           </View>
         </View>
       </View>
@@ -148,48 +150,42 @@ const Accountorderview = (props) => {
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={styles.registrationRoot}>
-      
+
 
       <ScrollView onScroll={({ nativeEvent }) => {
         handleScroll(nativeEvent['contentOffset'].y);
       }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#FFFFFF' }} >
 
-        <View style={{ flexDirection: "row", marginHorizontal: "4%", marginTop: "9%" }}>
-          <Text style={{ fontSize: 12, fontFamily: "hinted-AvertaStd-Regular", color: "#999999" }}>ACCOUNT SUMMARY /</Text>
-          <Text style={{ fontSize: 12, fontFamily: "hinted-AvertaStd-Regular", color: "#999999" }}> ORDER HISTORY /</Text>
-          <Text style={{ fontSize: 12, fontFamily: "hinted-AvertaStd-Regular", color: "#1A1A1A" }}> VIEW ORDER</Text>
+
+        <View style={tw`flex flex-row justify-between mx-4 mt-[10%] mb-2`}>
+          <Text style={tw`text-2xl text-gray-900`}>View Order</Text>
         </View>
 
 
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginHorizontal: '4%', marginVertical: '6%' }}>
-          <Text style={{ fontSize: 26, color: '#1a1a1a', fontFamily: 'hinted-AvertaStd-Semibold', }}>View Order</Text>
-        </View>
-
-
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginHorizontal: '4%', }}>
+        <View style={tw`mx-4 mt-4 mb-2`}>
           <View>
-            <View style={{ alignItems: "center", flexDirection: 'row', }}>
-              <Text style={{ fontSize: 14, fontFamily: "hinted-AvertaStd-Semibold", color: "#1A1A1A" }}>Order No: </Text>
-              <Text style={{ fontSize: 14, fontFamily: "hinted-AvertaStd-Regular", color: "#1A1A1A" }}>{props?.getorderlist?.data?.orderNumber}</Text>
+            <TouchableOpacity style={tw`my-2 w-1/4 items-center px-3 py-1 rounded-full bg-blue-100 mb-3`}>
+              <Text style={tw`text-xs font-medium text-blue-900`} >{props?.getorderlist?.data?.orderStatus}</Text>
+            </TouchableOpacity>
+            <View style={tw`flex flex-row items-center`}>
+              <Text style={tw`text-base font-medium text-gray-900`}>Order No: </Text>
+              <Text style={tw`text-sm font-medium text-blue-700`}>{props?.getorderlist?.data?.orderNumber}</Text>
             </View>
             <View style={{ alignItems: "center", marginTop: "1%", flexDirection: 'row', }}>
-              <Text style={{ fontSize: 14, fontFamily: "hinted-AvertaStd-Semibold", color: "#1A1A1A" }}>Date: </Text>
-              <Text style={{ fontSize: 14, fontFamily: "hinted-AvertaStd-Regular", color: "#1A1A1A" }}>{Moment(props?.getinconeorderlist?.createdAt).format('MMM DD YYYY')}</Text>
+              <Text style={tw`text-base font-medium text-gray-900`}>Date: </Text>
+              <Text style={tw`text-base font-medium text-gray-900`}>{Moment(props?.getinconeorderlist?.createdAt).format('MMM DD YYYY')}</Text>
             </View>
           </View>
-          
-        </View>
-        <View style={{ flexDirection: 'row', marginTop: '5%', marginHorizontal: '4%' }}>
-          <TouchableOpacity style={{ backgroundColor: '#d0e3fb', width: '30%', borderRadius: 15, padding: 8, }}>
-            <Text style={styles.totalincometodayWIDROprocess}>{props?.getorderlist?.data?.orderStatus}</Text>
-          </TouchableOpacity>
-          
-          {/* <View style={{ backgroundColor: '#b80000', width: '32%', borderRadius: 15, padding: 8, marginLeft: '4%' }}>
-            <Text style={[styles.totalincometodayWIDRO, { color: '#ffffff' }]}>CANCEL ORDER</Text>
-          </View>*/}
+
         </View>
 
-        <View style={styles.odrmainview}>
+        {/*<View style={{ flexDirection: 'row', marginTop: '5%', marginHorizontal: '4%' }}>
+           <View style={{ backgroundColor: '#b80000', width: '32%', borderRadius: 15, padding: 8, marginLeft: '4%' }}>
+            <Text style={[styles.totalincometodayWIDRO, { color: '#ffffff' }]}>CANCEL ORDER</Text>
+          </View>
+        </View>*/}
+
+        <View style={tw`mx-4 my-6`}>
           <FlatList
             data={props?.getorderlist?.ItemList || []}
             renderItem={renderItem}
@@ -199,59 +195,58 @@ const Accountorderview = (props) => {
           />
         </View>
 
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginHorizontal: '3%', marginTop: '1%' }}>
-          <Text style={{ fontSize: 26, color: '#1a1a1a', fontFamily: 'hinted-AvertaStd-Bold', }}>Order Summary</Text>
+        <View style={tw`mt-4 mb-1 mx-4`}>
+          <Text style={tw`text-2xl text-blue-900`}>Order Summary</Text>
         </View>
-        <View style={{ width: deviceWidth / 1, padding: '5%', alignSelf: 'center', borderRadius: 15 }}>
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: '3%' }}>
-            <Text style={{ fontSize: 16, fontFamily: 'hinted-AvertaStd-Semibold', color: '#666666' }}>Subtotal</Text>
-            <Text style={{ fontSize: 16, fontFamily: 'hinted-AvertaStd-Regular', color: '#1a1a1a' }}>${props?.getorderlist?.data?.orderAmount}</Text>
-          </View>
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: '4%' }}>
-            <Text style={{ fontSize: 16, fontFamily: 'hinted-AvertaStd-Regular', color: '#666666' }}>Taxes</Text>
-            <Text style={{ fontSize: 16, fontFamily: 'hinted-AvertaStd-Regular', color: '#1a1a1a' }}>US$0</Text>
-          </View>
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: '4%' }}>
-            <Text style={{ fontSize: 16, fontFamily: 'hinted-AvertaStd-Regular', color: '#666666' }}>Shipping</Text>
-            <Text style={{ fontSize: 16, fontFamily: 'hinted-AvertaStd-Regular', color: '#1a1a1a' }}>US$0</Text>
+
+        <View style={tw`flex flex-row justify-between mx-5 items-center`}>
+          <Text style={tw`text-base text-gray-900`}>Subtotal</Text>
+          <Text style={tw`text-base text-blue-900`}>${props?.getorderlist?.data?.orderAmount}</Text>
+        </View>
+        <View style={tw`flex flex-row justify-between mx-5 items-center`}>
+          <Text style={tw`text-base text-gray-900`}>Taxes</Text>
+          <Text style={tw`text-base text-blue-900`}>US$0</Text>
+        </View>
+        <View style={tw`flex flex-row justify-between mx-5 items-center`}>
+          <Text style={tw`text-base text-gray-900`}>Shipping</Text>
+          <Text style={tw`text-base text-blue-900`}>US$0</Text>
+        </View>
+
+
+        <View style={tw`border-b-2 border-gray-900 my-3 mx-4`}></View>
+        <View style={tw`mb-10 mx-5 mt-5`}>
+          <View style={tw`flex flex-row justify-between`}>
+            <Text style={tw`text-lg text-gray-900`}>Grand Total:</Text>
+            <Text style={tw`text-2xl text-gray-900`}>${props?.getorderlist?.data?.orderAmount}</Text>
           </View>
         </View>
 
-        <View style={{ borderBottomWidth: 1.5, marginTop: "3%", marginHorizontal: "3%", borderColor: "#000000" }}></View>
-        <View style={{ marginHorizontal: "3%", marginTop: "4%", bottom: 5 }}>
-          <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-            <Text style={{ color: "#1A1A1A", fontSize: 18, fontFamily: 'hinted-AvertaStd-Regular' }}>Grand Total:</Text>
-            <Text style={{ color: "#1A1A1A", fontSize: 22, fontFamily: 'hinted-AvertaStd-Bold' }}>${props?.getorderlist?.data?.orderAmount}</Text>
-          </View>
+        <View style={tw`mt-10 mx-3`}>
+          <Text style={tw`text-2xl text-blue-900`}>Order Details</Text>
         </View>
 
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginHorizontal: '3%', marginTop: '10%' }}>
-          <Text style={{ fontSize: 26, color: '#1a1a1a', fontFamily: 'hinted-AvertaStd-Bold', }}>Order Details</Text>
-        </View>
+        <View style={tw`flex flex-row justify-between mx-4`}>
+            <View style={tw`mt-5`}>
+              <Text style={tw`text-xl text-black`}>Personal Details</Text>
+              <Text style={tw`text-base text-gray-900 leading-1.2`}>{props?.getorderlist?.data?.firstName} {props?.getorderlist?.data?.lastName}{"\n"}{props?.getorderlist?.data?.streetAdress}{"\n"}{props?.getorderlist?.data?.city}, {props?.getorderlist?.data?.zipCode} {"\n"}{props?.getorderlist?.data?.country},{"\n"}
+                {"\n"}{props?.getorderlist?.data?.email}{props?.getorderlist?.data?.phoneNumber}</Text>
+            </View>
 
-        <View style={{ flexDirection: "row", justifyContent: "space-between", marginHorizontal: "4%" }}>
-          <View style={{ justifyContent: 'space-between', marginTop: '4%' }}>
-            <Text style={{ fontSize: 16, color: '#1a1a1a', fontFamily: 'hinted-AvertaStd-Bold', fontWeight:'bold' }}>Personal Details</Text>
-            <Text style={{ fontSize: 14, fontFamily: "hinted-AvertaStd-Regular", color: "#1A1A1A", padding: "1%" }}>{props?.getorderlist?.data?.firstName} {props?.getorderlist?.data?.lastName}{"\n"}{props?.getorderlist?.data?.zipCode},{props?.getorderlist?.data?.city} {"\n"}{props?.getorderlist?.data?.country},{"\n"}
-              {props?.getorderlist?.data?.streetAdress}{"\n"} {"\n"}{props?.getorderlist?.data?.email}{"\n"}{props?.getorderlist?.data?.phoneNumber}</Text>
-          </View>
-
-          <View style={{ justifyContent: 'space-between', marginTop: '4%' }}>
-            <Text style={{ fontSize: 16, color: '#1a1a1a', fontFamily: 'hinted-AvertaStd-Semibold', fontWeight:'bold' }}>Shipping {"\n"}Information</Text>
-            <Text style={{ fontSize: 14, fontFamily: "hinted-AvertaStd-Regular", color: "#1A1A1A", }}>Standard Shipping {"\n"}{props?.getorderlist?.data?.zipCode}, {"\n"}{props?.getorderlist?.data?.city},{props?.getorderlist?.data?.country}{"\n"}
-              {props?.getorderlist?.data?.streetAdress}</Text>
-            
-          </View>
+            <View style={tw`mt-5`}>
+              <Text style={tw`text-xl text-black`}>Shipping Information</Text>
+              <Text style={tw`text-base text-gray-900 leading-1.2`}>Standard Shipping {"\n"}{props?.getorderlist?.data?.streetAdress}{"\n"}{props?.getorderlist?.data?.city}, {props?.getorderlist?.data?.zipCode}{"\n"}{props?.getorderlist?.data?.country}{"\n"}
+                </Text>
+            </View>
         </View>
-        <View style={{ flexDirection: "row", justifyContent: "space-between", marginHorizontal: "4%", marginTop: '5%', marginBottom: '30%' }}>
-          <View style={{ justifyContent: 'space-between', marginVertical: '3%' }}>
-            <Text style={{ fontSize: 16, color: '#1a1a1a', fontFamily: 'hinted-AvertaStd-Semibold', fontWeight:'bold' }}>Billing Information</Text>
-            <Text style={{ fontSize: 14, fontFamily: "hinted-AvertaStd-Regular", color: "#1A1A1A", width: 200 }}>Standard Shipping {"\n"}{props?.getorderlist?.data?.zipCode}, {"\n"}{props?.getorderlist?.data?.city},{props?.getorderlist?.data?.country}{"\n"}
-              {props?.getorderlist?.data?.streetAdress} </Text>
+        <View style={tw`flex flex-row justify-between mx-4`}>
+          <View style={tw`mt-5`}>
+            <Text style={tw`text-xl text-black`}>Billing Information</Text>
+            <Text style={tw`text-base text-gray-900 leading-1.2`}>{props?.getorderlist?.data?.streetAdress}{"\n"}{props?.getorderlist?.data?.city}, {props?.getorderlist?.data?.zipCode}{"\n"}{props?.getorderlist?.data?.country}{"\n"}
+              </Text>
           </View>
-          <View style={{ marginVertical: '3%', marginLeft: 10 }}>
-            <Text style={{ fontSize: 16, color: '#1a1a1a', fontFamily: 'hinted-AvertaStd-Semibold', fontWeight:'bold' }}>Payment</Text>
-            <Text style={{ fontSize: 14, fontFamily: "hinted-AvertaStd-Semibold", color: "#1A1A1A", width: 200 }}>Pay by credit/debit card</Text>
+          <View style={tw`mt-5`}>
+            <Text style={tw`text-xl text-black`}>Payment</Text>
+            <Text style={tw`text-base text-gray-900 leading-1.2`}>Pay by credit/debit card</Text>
           </View>
         </View>
         <View>
@@ -293,7 +288,7 @@ const Accountorderview = (props) => {
           }
         </View>
       </ScrollView>
-      
+
 
       {helppopup1 == true &&
         <View style={{ flex: 1, backgroundColor: '#ffffff', margin: 20, paddingVertical: 10, borderRadius: 10, zIndex: 4001, position: 'absolute', bottom: '10%' }}>

@@ -22,6 +22,7 @@ import PasswordInputText from '../../components/react-native-hide-show-password-
 import tw from 'twrnc';
 import Largebutton from '../../components/dropshipbutton/Largebutton';
 import AwesomeAlert from '../../components/modals/AlertModal';
+import Logobase from '../../components/baseassests/Logobase';
 
 const ForgetPassword = (props) => {
 
@@ -100,8 +101,8 @@ const ForgetPassword = (props) => {
 
       <View style={tw.style('flex flex-1 bg-white')}>
 
-        <View style={tw.style('items-center my-18 w-full h-24')}>
-                <Image source={ImageIcons.logored_1} style={tw.style('w-[32%] h-26.7')}  />
+            <View style={tw.style('items-center mt-[20%] mb-[10%]')}>
+                <Logobase />
             </View>
                     <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
 
@@ -124,7 +125,7 @@ const ForgetPassword = (props) => {
           value={email}
           onSubmitEditing={() => handleRegistrationSubmit()}
           />
-          
+
         </View>
       </View>
       <View style={tw`mx-5`}>

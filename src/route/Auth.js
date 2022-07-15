@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { TouchableOpacity, Text ,Image,StyleSheet,View} from 'react-native';
+import { SearchIcon } from "react-native-heroicons/solid";
+import { BellIcon } from "react-native-heroicons/solid";
+import { ShoppingBagIcon } from "react-native-heroicons/solid";
 import {
   Registration,
   RegistrationShop,
@@ -82,6 +85,8 @@ import {
 import Colors from '../common/Color';
 import { Fonts, ImageIcons } from '../common';
 import { connect } from 'react-redux';
+import tw from 'twrnc';
+import Whitelogo from '../components/baseassests/Whitelogo';
 
 
 const Stack = createStackNavigator();
@@ -113,14 +118,14 @@ const Auth = (props) => {
           options={{ title: '', headerShown: false }}
         />
         :
-        
-         <Stack.Screen 
+
+         <Stack.Screen
             name="Login"
             component={Login}
             options={{ title: '', headerShown: false, headerTransparent: true,headerTintColor:Colors.WHITE}}
           />
       }
-      
+
 
         <Stack.Screen
         name="Sellheader"
@@ -135,9 +140,9 @@ const Auth = (props) => {
                         headerStyle: styles.headerbackgroundstyle,
                     })}
       />
-      
-       
-      
+
+
+
       <Stack.Screen
         name="Registration"
         component={Registration}
@@ -167,9 +172,9 @@ const Auth = (props) => {
                         headerStyle: styles.headerbackgroundstyle,
                     })}
       />
- 
 
-      
+
+
 
       <Stack.Screen
         name="Popevent"
@@ -213,7 +218,7 @@ const Auth = (props) => {
                         headerStyle: styles.headerbackgroundstyle,
                     })}
       />
-      
+
       <Stack.Screen
         name="Account"
         component={Account}
@@ -270,9 +275,9 @@ const Auth = (props) => {
                         headerStyle: styles.headerbackgroundstyle,
                     })}
       />
-    
 
-      
+
+
      <Stack.Screen
         name="editaddress"
         component={editaddress}
@@ -343,7 +348,7 @@ const Auth = (props) => {
                     })}
       />
 
-     
+
 
        <Stack.Screen
         name="ProductDetails"
@@ -359,7 +364,7 @@ const Auth = (props) => {
                     })}
       />
 
-     
+
 
       <Stack.Screen
         name="NameStore"
@@ -387,8 +392,8 @@ const Auth = (props) => {
                         headerStyle: styles.headerbackgroundstyle,
                     })}
       />
-     
-      
+
+
       <Stack.Screen
         name="editprofile"
         component={editprofile}
@@ -416,7 +421,7 @@ const Auth = (props) => {
                         headerStyle: styles.headerbackgroundstyle,
                     })}
       />
-      
+
       <Stack.Screen
         name="editviewaddress"
         component={editviewaddress}
@@ -430,10 +435,10 @@ const Auth = (props) => {
                         headerStyle: styles.headerbackgroundstyle,
                     })}
       />
-      
-      
-      
-       
+
+
+
+
        <Stack.Screen
         name="Accountorderview"
         component={Accountorderview}
@@ -447,8 +452,8 @@ const Auth = (props) => {
                         headerStyle: styles.headerbackgroundstyle,
                     })}
       />
-      
-     
+
+
       <Stack.Screen
         name="Search"
         component={Search}
@@ -462,7 +467,7 @@ const Auth = (props) => {
                         headerStyle: styles.headerbackgroundstyle,
                     })}
       />
-     
+
        <Stack.Screen
         name="Notification"
         component={Notification}
@@ -477,7 +482,7 @@ const Auth = (props) => {
                     })}
       />
 
-      
+
 
       <Stack.Screen
         name="SearchProduct"
@@ -493,7 +498,7 @@ const Auth = (props) => {
                     })}
       />
 
-      
+
        <Stack.Screen
         name="Cart"
         component={Cart}
@@ -507,10 +512,10 @@ const Auth = (props) => {
                         headerStyle: styles.headerbackgroundstyle,
                     })}
       />
-      
 
-      
-     
+
+
+
 
       <Stack.Screen
         name="SalesAnalytic"
@@ -527,10 +532,10 @@ const Auth = (props) => {
         //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
       />
 
-       
-      
-       
-      
+
+
+
+
       <Stack.Screen
         name="Overview"
         component={Overview}
@@ -572,8 +577,8 @@ const Auth = (props) => {
                         headerStyle: styles.headerbackgroundstyle,
                     })}
       />
-       
-      
+
+
        <Stack.Screen
         name="Accountfollow"
         component={Accountfollow}
@@ -782,7 +787,7 @@ const Auth = (props) => {
                         headerStyle: styles.headerbackgroundstyle,
                     })}
       />
-      
+
       <Stack.Screen
         name="Dashimport"
         component={Dashimport}
@@ -887,11 +892,11 @@ const Auth = (props) => {
                         headerStyle: styles.headerbackgroundstyle,
                     })}
       />
-      
-      
 
 
-    
+
+
+
       <Stack.Screen
         name="StoreOwner"
         component={StoreOwner}
@@ -906,10 +911,10 @@ const Auth = (props) => {
                     })}
       />
 
-     
-       
-      
-      
+
+
+
+
 
 
       <Stack.Screen
@@ -942,7 +947,7 @@ const Auth = (props) => {
         //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
       />
 
-      
+
 
       <Stack.Screen
         name="Goliveshop"
@@ -974,25 +979,25 @@ const Auth = (props) => {
         //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
       />
 
-      
 
-      
-     
-         
-      <Stack.Screen 
+
+
+
+
+      <Stack.Screen
             name="Codeconfirm"
             component={Codeconfirm}
             options={{ title: '', headerShown: false, headerTransparent: true,headerTintColor:Colors.WHITE}}
           />
 
-      
-      <Stack.Screen 
+
+      <Stack.Screen
         name="CreateAccountShop"
         component={CreateAccountShop}
         options={{ title: '', headerShown: false, headerTransparent: true,headerTintColor:Colors.WHITE}}
       />
-      
-      
+
+
       <Stack.Screen
         name="Footer2"
         component={Footer2}
@@ -1008,20 +1013,20 @@ const Auth = (props) => {
         component={Verification}
         options={{ title: '', headerShown: false, headerTransparent: true,headerTintColor:Colors.WHITE}}
       />
-     
-      
+
+
       <Stack.Screen
         name="ForgetPassword"
         component={ForgetPassword}
         options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.BLACK }}
       />
-      
+
        <Stack.Screen
           name="ResetPassword"
           component={ResetPassword}
           options={{ title: '', headerShown: false }}
         />
-        
+
     </Stack.Navigator>
   );
 };
@@ -1038,7 +1043,9 @@ const LeftMenuItem = ({ navigation, isMenu }) => {
             }}
             style={{ paddingLeft: '5%',marginRight:15 }}>
                {isMenu ?
-                <Image source={ImageIcons.logored} style={{width:65,height:53,marginTop:4}}/>
+                <View style={tw.style('w-12 h-12 top-2')}>
+                    <Whitelogo />
+                </View>
                :
                 <Image source={ImageIcons.backlefticon} style={{width:45,height:45, tintColor:'#FFFFFF'}}/>
               }
@@ -1053,16 +1060,16 @@ const RightMenuItem = ({navigation}) => {
     return (
         <View style={styles.rightLabel}>
            <TouchableOpacity onPress={() => navigation.navigate("Search")} style={{ marginHorizontal: '5%',marginRight:15 }}>
-                <Image source={ImageIcons.white_search} style={{width:21,height:20}}/>
+                <SearchIcon color="White" fill="#ffffff" size={24} />
             </TouchableOpacity>
 
            <TouchableOpacity onPress={() => navigation.navigate("Notification")} style={{ marginHorizontal: '5%',marginRight:15 }}>
-              <Image source={ImageIcons.bell} style={{ width: 21, height: 21, }} />
+              <BellIcon color="White" fill="#ffffff" size={24} />
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => { navigation.navigate('Cart') }}>
               <View style={{ flexDirection: 'row' }}>
-                  <Image source={ImageIcons.whitecart} style={{ width: 18, height: 20.6,marginRight:2}} />
+                  <ShoppingBagIcon color="red" fill="#ffffff" size={24} />
                   <Text style={styles.numtext1}>0</Text>
               </View>
           </TouchableOpacity>
@@ -1074,7 +1081,7 @@ const RightMenuItem = ({navigation}) => {
 const RightMenuItemsell = ({navigation}) => {
     return (
         <View style={styles.rightLabel}>
-           
+
 
            <TouchableOpacity onPress={() => navigation.navigate("Dashsetting")} style={{ marginHorizontal: '5%',marginRight:15 }}>
                <Image source={ImageIcons.colortodayshoe} style={{width:50,height:50,marginTop:-15}}/>
@@ -1100,7 +1107,7 @@ const mapDispatchToProps = {
 
 const styles = StyleSheet.create({
     leftButton: {
-        width: 70, 
+        width: 70,
         height: 57,
         marginLeft: 15,
         paddingHorizontal: 8,
@@ -1133,7 +1140,7 @@ const styles = StyleSheet.create({
         flexDirection:'row'
     },
     leftIcon: {
-        width: 70, 
+        width: 70,
         height: 57
     },
     rightText: {
@@ -1143,7 +1150,7 @@ const styles = StyleSheet.create({
        backgroundColor:'#B80000', elevation: 0, shadowOpacity: 0
     },
     titleheaderstyle:{
-      color: Colors.WHITE, fontFamily: Fonts.RalewayExtraBold 
+      color: Colors.WHITE, fontFamily: Fonts.RalewayExtraBold
     },
     numtext1:{
          fontSize:20,fontWeight:'bold',fontStyle:'normal',lineHeight:25,marginLeft:5,

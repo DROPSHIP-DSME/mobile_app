@@ -20,6 +20,7 @@ import tw from 'twrnc';
 import Largebutton from '../../components/dropshipbutton/Largebutton';
 import AwesomeAlert from '../../components/modals/AlertModal';
 import { EyeIcon } from "react-native-heroicons/solid";
+import Logobase from '../../components/baseassests/Logobase';
 
 
 const CreateAccountShop = (props) => {
@@ -79,7 +80,7 @@ const CreateAccountShop = (props) => {
         }
     }
 
-    
+
 
 
     // Registration request submission
@@ -146,8 +147,8 @@ const CreateAccountShop = (props) => {
                 <Image source={ImageIcons.left} style={styles.droparrow}  />
                 </TouchableOpacity>
             </View>
-            <View style={tw.style('items-center mt-5')}>
-                <Image source={ImageIcons.logored_1} style={styles.setlogonewdatarow}  />
+            <View style={tw.style('items-center mb-[10%]')}>
+                <Logobase />
             </View>
         <View>
             <Text style={tw.style('text-2xl text-gray-700 font-bold mt-2 ml-5')}>Sign Up</Text>
@@ -158,7 +159,7 @@ const CreateAccountShop = (props) => {
             <View>
 
                 <View style={tw.style('mt-5')}>
-                    <TextInput  
+                    <TextInput
                      style={tw.style('mx-5 pl-3 sm:text-sm text-gray-700 border-gray-300 bg-gray-200 rounded-lg')}
                      placeholder="Email address"
                      onChangeText={onChangeText1}
@@ -169,7 +170,7 @@ const CreateAccountShop = (props) => {
                 </View>
 
                 <View style={tw.style('mt-4')}>
-                    <TextInput  
+                    <TextInput
                      style={tw.style('mx-5 pl-3 sm:text-sm text-gray-700  border-gray-300 bg-gray-200 rounded-lg')}
                      placeholder="Username"
                      onChangeText={onChangeText6}
@@ -213,11 +214,11 @@ const CreateAccountShop = (props) => {
                 </View>
 
                 <View style={tw.style('flex mt-2 mx-4 my-4')}>
-                
 
-                
 
-                   
+
+
+
 
                 <View style={tw.style('flex flex-row justify-center mt-3 w-12/12')}>
                     <CheckBox

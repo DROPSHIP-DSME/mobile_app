@@ -30,6 +30,7 @@ import ModalSelector from 'react-native-modal-selector';
 import { useTailwind } from 'tailwind-rn';
 import AwesomeAlert from '../../components/modals/AlertModal';
 import { LoginManager } from "react-native-fbsdk-next";
+import Logobase from '../../components/baseassests/Logobase';
 
 
 
@@ -121,10 +122,11 @@ const Golive = (props) => {
              <StatusBar backgroundColor={'#ffffff00'} barStyle="dark-content" translucent={true} />
         <View style={{backgroundColor:'#ffffff',flex:1}}>
 
-          <View style={tw.style('items-center my-16')}>
-                    <Image source={ImageIcons.logored_1} style={styles.setlogonewdatarow}  />
+          <View style={tw.style('items-center mt-[20%] mb-[10%]')}>
+              <Logobase />
           </View>
-                  <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
+
+            <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
 
           <View style={tw.style('items-center mt-12')}>
               <TouchableOpacity
