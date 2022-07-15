@@ -14,6 +14,8 @@ import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import { useNavigation } from '@react-navigation/native';
 import tw from 'twrnc';
+import Whitelogo from '../../components/baseassests/Whitelogo';
+import { SearchIcon } from "react-native-heroicons/solid";
 
 const deviceHeight = Dimensions.get('window').height;
 const deviceWidth = Dimensions.get('window').width;
@@ -145,7 +147,10 @@ const Sellheader = (props) => {
                               placeholderTextColor="#848484"
                               paddingLeft={35}
                             />
-                            <Image source={ImageIcons.redsearchtoday}  style={{height:14,width:14,position:'absolute',top:18,marginLeft:16}} />
+                      
+                            <View style={tw`absolute top-4 ml-4`}>
+                              <SearchIcon color="white" fill="White" size={14} />
+                            </View>
                         </View>
 
             </View>

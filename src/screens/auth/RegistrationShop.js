@@ -26,6 +26,7 @@ import tw from 'twrnc';
 import Largebutton from '../../components/dropshipbutton/Largebutton';
 import { EyeIcon } from "react-native-heroicons/solid";
 import AwesomeAlert from '../../components/modals/AlertModal';
+import Logobase from '../../components/baseassests/Logobase';
 
 
 const RegistrationShop = (props) => {
@@ -61,7 +62,7 @@ const RegistrationShop = (props) => {
     const [showotherAlert, setshowotherAlert] = React.useState(false);
     const [showalertmsg, setshowalertmsg] = React.useState('');
 
-    
+
     useEffect(() => {
         GoogleSignin.configure({
             webClientId: '512487199242-cp48gba87neibcgvoo98i8tca01tr0i0.apps.googleusercontent.com', // client ID of type WEB for your server (needed to verify user ID and offline access)
@@ -75,7 +76,7 @@ const RegistrationShop = (props) => {
         var getemail = await AsyncStorage.getItem('rememberemail');
         onChangeText1(getemail);
         onChangeText2(getpassword);
-        if(getemail!=null){  
+        if(getemail!=null){
             setToggleCheckBox(true)
         }else{
             setToggleCheckBox(false)
@@ -165,8 +166,8 @@ const RegistrationShop = (props) => {
     return (
       <View style={{ backgroundColor: '#ffffff', flex: 1 }}>
 
-            <View style={tw.style('items-center my-18 w-full h-24')}>
-                <Image source={ImageIcons.logored_1} style={tw.style('w-[32%] h-26.7')}  />
+            <View style={tw.style('items-center mt-[20%] mb-[10%]')}>
+                <Logobase />
             </View>
           <View>
               <Text style={styles.headingText1}>Login</Text>
@@ -186,7 +187,7 @@ const RegistrationShop = (props) => {
                       value={email}
                       onSubmitEditing={() => handleRegistrationSubmit()}
                   />
-                  
+
               </View>
 
               <View style={tw.style('mx-1 mt-3 mb-1 flex items-center rounded-lg')} >
@@ -204,7 +205,7 @@ const RegistrationShop = (props) => {
                         <EyeIcon color="red" fill="black" size={24} />
                     </TouchableOpacity>
                   </View>
-                  
+
               </View>
               <View style={tw.style('mt-2 flex flex-row ml-3 mb-4')}>
                   <CheckBox

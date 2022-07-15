@@ -24,6 +24,7 @@ import { v4 as uuid } from "uuid";
 import tw from 'twrnc';
 import Medbutton from '../../components/dropshipbutton/Medbutton';
 import AppIntroSlider from 'react-native-app-intro-slider';
+import Logobase from '../../components/baseassests/Logobase';
 
 
 const Login = (props) => {
@@ -186,8 +187,8 @@ const Login = (props) => {
               resizeMode={"cover"}
               style={styles.backgroundVideo}
             />
-            <View style={tw.style('items-center my-11')}>
-              <Image source={item.title} style={{ width: 145, height: 117 }} />
+            <View style={tw.style('items-center mt-[20%] mb-[10%]')}>
+                <Logobase />
             </View>
             <View style={tw.style('items-center mt-[30%] mx-5')}>
               <Text style={tw.style('font-sans font-bold px-2 text-4xl text-white text-center')}>{item.text}</Text>
@@ -260,8 +261,8 @@ const Login = (props) => {
               resizeMode={"cover"}
               style={styles.backgroundVideo}
             />
-            <View style={tw.style('items-center mt-15')}>
-              <Image source={ImageIcons.logoredagain} style={{ width: 145, height: 117 }} />
+            <View style={tw.style('items-center mt-[20%] mb-[10%]')}>
+                <Logobase />
             </View>
             <View style={tw.style('mt-[15%] items-center mx-4')}>
               <Text style={tw.style('px-2 text-3xl font-bold text-white text-center')}>A live-commerce marketplace for fashion and home goods. </Text>
