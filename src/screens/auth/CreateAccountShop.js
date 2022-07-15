@@ -18,6 +18,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import PasswordInputText from '../../components/react-native-hide-show-password-input';
 import tw from 'twrnc';
 import Largebutton from '../../components/dropshipbutton/Largebutton';
+import AwesomeAlert from '../../components/modals/AlertModal';
 
 
 const CreateAccountShop = (props) => {
@@ -44,6 +45,10 @@ const CreateAccountShop = (props) => {
     const [confirmPassword, onChangeText3] = React.useState("");
     const [UserID, setUserID] = useState("");
 
+    const [showotherAlert, setshowotherAlert] = React.useState(false);
+    const [showalertmsg, setshowalertmsg] = React.useState('');
+
+
     useEffect(() => {
         requestUserPermission();
         getBrandUserId();
@@ -69,28 +74,40 @@ const CreateAccountShop = (props) => {
         }
     }
 
+    const validatePassword = async (val) => {
+         return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(val);
+    }
+
+
     // Registration request submission
     const handleRegistrationSubmit = () => {
         Keyboard.dismiss();
         if (email == "") {
-            Alert.alert('email is required')
-        }else if(email == "email" ){
-            Alert.alert('This email is Already used')
+            setshowotherAlert(true)
+            setshowalertmsg('Email is required')
+        }else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
+            setshowotherAlert(true)
+            setshowalertmsg('Invalid Email')
+        }else if (username == "" ) {
+            setshowotherAlert(true)
+            setshowalertmsg('Username is required')
         }else if (password == "" ) {
-            Alert.alert('password is required')
-        }else if (password.length<8) {
-            Alert.alert('password should be atleast 8 char')
+            setshowotherAlert(true)
+            setshowalertmsg('Password is required')
+        }else if(!validatePassword(password)){
+            setshowotherAlert(true)
+            setshowalertmsg('The password should have at least 8 characters with 1 upper case, 1 lower case, 1 number, and 1 special character(*,%,!,@,&,$,?)')
         } else if (confirmPassword == "") {
-            Alert.alert('confirmPassword is required')
+            setshowotherAlert(true)
+            setshowalertmsg('Confirm Password is required')
         } else if (confirmPassword !== password) {
-            Alert.alert("Password does not match.")
+            setshowotherAlert(true)
+            setshowalertmsg('Confirm Password does not match.')
         } else {
             //props.navigation.navigate("Overview")
             let request = {
                 "email": email,
-
-                "userName": email,
-
+                "userName": username,
                 "phone": phone,
                 "countryCode": '+1',
                 "password": password,
@@ -130,6 +147,7 @@ const CreateAccountShop = (props) => {
             <Text style={tw.style('text-2xl text-gray-700 font-bold mt-2 ml-5')}>Sign Up</Text>
         </View>
 
+            <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
 
             <View>
 
