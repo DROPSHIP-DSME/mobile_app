@@ -204,7 +204,6 @@ const CreateAccountShop = (props) => {
                       value={confirmPassword}
                       placeholder="Confirm Password"
                       secureTextEntry={confirmsecure}
-                      onSubmitEditing={() => handleRegistrationSubmit()}
                     />
                     <View style={tw`absolute top-3 right-8`}>
                       <TouchableOpacity onPress={() => setconfirmsecure(s=>!s)}>

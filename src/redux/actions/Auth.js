@@ -788,7 +788,7 @@ export const shopsignup = (signupRequest, navigation, role,type) => {
           }
         } else {
          // if(response?.message!="Email already exists"){
-             Alert.alert("DROPSHIP", String(response?.message))
+            Alert.alert("DROPSHIP", String(response?.message))
           //}
         }
       } catch (error) {
