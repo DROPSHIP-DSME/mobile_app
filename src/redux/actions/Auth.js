@@ -255,14 +255,12 @@ export const shoplogin = (loginCredentials,navigation,type, usertype) => {
 
 //postrating
 export const postrating = (signupRequest, navigation, role) => {
-    console.log("lavleshpostresponserating=====>",signupRequest)
   return async (dispatch, getState) => {
     let isInternetConnected = await getState().auth?.isInternetConnected;
     if (isInternetConnected) {
       try {
         //dispatch({ type: SET_RATING_REVIEW, payload: [] });
         let response = await Utilise.apiCalling('POST', Api.postratingnew, signupRequest);
-        console.log('lavleshpostresponserating=====>',response)
         if (response?.status) {
           
           dispatch({ type: SET_RATING_REVIEW, payload: response.data });
@@ -271,7 +269,6 @@ export const postrating = (signupRequest, navigation, role) => {
           //Alert.alert("DROPSHIP", "Category added successfully")
         }
       } catch (error) {
-         console.log("lavleshpostresponserating=====>",error)
        // Alert.alert("DROPSHIP", String(error?.message))
       }
     }
@@ -284,21 +281,18 @@ export const getpostrating = (productId) => {
     let request = {
       productId:productId,
     }
-    console.log('showserating=====>',request)
     return async (dispatch, getState) => {
         let isInternetConnected = await getState().auth?.isInternetConnected; 
         if (isInternetConnected) {
             try {
                 //dispatch({ type: GET_ALL_RATING, payload: [] });
                 let response = await Utilise.apiCalling('POST', `${Api.getpostratingnew}`,  request);
-                console.log('newshowserating=====>',response)
                 if (response?.status) {
                     dispatch({ type: GET_ALL_RATING, payload: response.data});
                 } else {
                     //Alert.alert("DROPSHIP", String(response?.message))
                 }
             } catch (error) {
-               console.log('showserating=====>',error)
                 dispatch({ type: GET_ALL_RATING, payload: [] });
                 //Alert.alert("DROPSHIP", String(error?.message))
             }
@@ -494,7 +488,6 @@ export const createproduct = (signupRequest, navigation, role,islogin) => {
     if (isInternetConnected) {
       try {
         let response = await Utilise.apiCalling('POST', Api.createproduct, signupRequest);
-        console.log('responsecreateproduct',response)
         //Alert.alert("DROPSHIP", "Product added successfully")
         if (response?.status) {
           if (navigation) {
@@ -606,7 +599,6 @@ export const savepaymentaddress = (request, navigation, role) => {
       try {
         
         let response = await Utilise.apiCalling('POST', Api.savepaymentaddress, request);
-        console.log("responseatm-",response)
         navigation.navigate("Account")
         
       } catch (error) {
@@ -961,7 +953,6 @@ export const changeLoginCredentials = (loginCredentials) => {
         if (isInternetConnected) {
             try {
                 let response = await Utilise.apiCalling('POST', `${Api.liveeventdetail}`,  request);
-                console.log('liveeventdetailstatus',response.data);
                 if (response?.status) {
                   // Alert.alert("DROPSHIP", 'Livedetail successfully')
                     dispatch({ type: LIVE_LIST_DATA, payload: response.data });
@@ -1011,7 +1002,6 @@ export const getlivestreamrecap = (channelId) => {
        if (isInternetConnected) {
            try {
                let response = await Utilise.apiCalling('POST', `${Api.getlivestreamrecap}`,  request);
-               console.log("responselivestream------>>>>",response)
                if (response?.status) {
                   //Alert.alert("DROPSHIP", 'livestreamlist successfully')
                    dispatch({ type: LIVESTREAM_RECAP, payload: response.data });
@@ -1084,7 +1074,6 @@ export const getsearchlist = (userId) => {
       let request = {
         userId:userId
       }
-                        console.log('getsearchlistresponse',request);
 
       return async (dispatch, getState) => {
           dispatch({ type: ALLSEARCH_LIST_DATA, payload: [] });
@@ -1092,7 +1081,6 @@ export const getsearchlist = (userId) => {
           if (isInternetConnected) {
               try {
                   let response = await Utilise.apiCalling('POST', `${Api.searchlistdata}`,  request);
-                  console.log('getsearchlistresponse',response);
                   if (response?.status) {
                       dispatch({ type: ALLSEARCH_LIST_DATA, payload: response.data });
                   }
@@ -1700,7 +1688,6 @@ export const gettopcountry = (userId,limit) => {
             try {
                 dispatch({ type: GET_ALL_PRODUCTDETAILS, payload: [] });
                 let response = await Utilise.apiCalling('POST', `${Api.getlistproductdetails}`,  request);
-                console.log(response,'aaaaa')
                 if (response?.status) {
                     dispatch({ type: GET_ALL_PRODUCTDETAILS, payload: response.data });
                 } else {
@@ -1833,7 +1820,6 @@ export const getuseraddress = (userId) => {
             try {
               
                 let response = await Utilise.apiCalling('POST', `${Api.getuseraddress}`,  request);
-                console.log('responseresponse',response)
                 if (response?.status) {
                   
                   dispatch({ type: GET_USERADDRESS_LIST, payload: response.data });
@@ -1986,7 +1972,6 @@ export const getincomingtlist = (userId) => {
         if (isInternetConnected) {
             try {
                 let response = await Utilise.apiCalling('POST', `${Api.getincomingtlist}`,  request);
-                //console.log(response,'darshan')
                 if (response?.status) {
                     dispatch({ type: GET_INCOMINGORDER_LIST, payload: response.data });
                 } else {
@@ -1999,6 +1984,9 @@ export const getincomingtlist = (userId) => {
         };
     }
 };
+
+
+
 //getLivecommentCustomer
   export const getLivecommentCustomer = (orderNumber) => {
 
@@ -2006,13 +1994,11 @@ export const getincomingtlist = (userId) => {
   let request = {
       eventId:orderNumber
     }
-    console.log('responsegetLivecommentCustomer',request)
     return async (dispatch, getState) => {
         let isInternetConnected = await getState().auth?.isInternetConnected;
         if (isInternetConnected) {
             try {
                 let response = await Utilise.apiCalling('POST', `${Api.getLivecommentCustomer}`,  request);
-                console.log('responsegetLivecommentCustomer',response)
                 if (response?.status) {
                     dispatch({ type: GET_LIVECOMMENT_LIST, payload: response.data });
                 } else {

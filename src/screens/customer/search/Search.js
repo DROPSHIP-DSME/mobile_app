@@ -217,7 +217,8 @@ const renderItem2 = ({ item ,index }) => {
             <View style={tw`mx-4 pt-5`}>
 
                 <TouchableOpacity style={tw`h-14 mt-4 bg-gray-200 pl-3 pt-1 rounded-md`} onPress={()=> handleRegistrationSubmit()}>
-                    <TextInput style={tw.style('text-gray-600 items-center'),{width:deviceWidth/1.1}}
+                    <TextInput 
+                      style={tw.style('w-11/12 sm:text-sm bg-zinc-200 rounded-lg text-gray-700 border-gray-300 pl-3')}
                       placeholder="Search for anything"
                       placeholderTextColor="#848484"
                       paddingLeft={35}
@@ -233,6 +234,7 @@ const renderItem2 = ({ item ,index }) => {
                         <Text style={{textAlign:'center' ,color:"#FFFFFF",fontWeight:'bold',fontSize:14,top:12}}>Search</Text>
                     </TouchableOpacity>
                 */}
+           {enablesearch==false &&
             <View>
                 <Text style={tw`flex flex-row mx-2 font-bold text-2xl mt-8 mb-3 text-gray-700`}>Search History</Text>
                 <View>
@@ -245,6 +247,8 @@ const renderItem2 = ({ item ,index }) => {
                    />
                 </View>
             </View>
+            }
+            {enablesearch==false &&
             <View>
                 <Text style={tw`flex flex-row mx-2 font-bold text-2xl mt-8 mb-3 text-gray-700`}>Recommendations</Text>
                 <View>
@@ -257,6 +261,7 @@ const renderItem2 = ({ item ,index }) => {
                    />
                 </View>
             </View>
+        }
             <View>
                 
                 <View style={tw`mt-15`}>

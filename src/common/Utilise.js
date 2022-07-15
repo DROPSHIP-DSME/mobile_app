@@ -20,7 +20,6 @@ const APICalling = async (
       : 'application/json',
   };
 
-  console.log("headers====>", headers)
   let timeout = 90000;
 
   let apiResponse = {
@@ -60,22 +59,13 @@ const APICalling = async (
       break;
   }
 
-  console.log('api calling method.', configuration);
   
   await axios(configuration)
     .then((response) => {
-      // console.log(
-      //   '========= api success : response =========',
-      //   response,
-      //   response.data.data,
-      //   response.status,
-      // );
-      console.log("response?.data?.data=====?", response)
       if (response.status === 200) {
         apiResponse.status = response?.status;
         apiResponse.message = null;
         apiResponse.data = response?.data?.data || [];
-        console.log("apiResponse==aaaaaa==>", response?.data)
         apiResponse.data = response?.data?.data?.token
           ? {
             ...apiResponse?.data,
@@ -89,19 +79,13 @@ const APICalling = async (
       }
     })
     .catch((error) => {
-      console.log(
-        '========= api error : response =========',
-        error,
-        error.response,
-        // error.message,
-      );
+      
 
       apiResponse.status = false;
       apiResponse.data = [];
       if (error?.response?.status) {
         switch (error?.response?.status) {
           case 404:
-            console.log("Server is not responding..")
             apiResponse.message = 'Server is not responding.';
             break;
           case 400:
@@ -121,7 +105,6 @@ const APICalling = async (
         apiResponse.message = 'Something went wrong';
       }
     });
-  console.log("apiResponse===>", apiResponse)
   return apiResponse;
 };
 

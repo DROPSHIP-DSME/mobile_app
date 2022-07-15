@@ -20,8 +20,7 @@ const mapDispatchToProps = {
    gettopsell,
    getincomingtlist,
    liveeventdetail,
-   Brandslist
-   // signup
+   Brandslist,
 
 };
 

@@ -19,9 +19,10 @@ import Share from 'react-native-share';
 import { v4 as uuid } from "uuid";
 import { CreditCardInput } from 'react-native-payment-card';
 import ModalSelector from 'react-native-modal-selector';
-import AwesomeAlert from 'react-native-awesome-alerts';
 import SwitchToggle from "react-native-switch-toggle";
 import Sortorder from '../../../components/pickers/Sortorder';
+import AwesomeAlert from '../../../components/modals/AlertModal';
+
 const options = [ { label: '1', value: '1' }, { label: '2', value: '2' }, { label: '3', value: '3' }, { label: '4', value: '4' },{ label: '5', value: '5' },{ label: '6', value: '6' },{ label: '7', value: '7' },{ label: '8', value: '8' },{ label: '9', value: '9' } ]
 const options1 = [
       {label: 'English', value: 'English' },
@@ -94,7 +95,9 @@ const Blurbackground = (props) => {
     const [cardType, setcardType] = useState();
     const [showcardNumber, setcardNumber] = useState();
 
-    
+    const [showotherAlert, setshowotherAlert] = React.useState(false);
+    const [showalertmsg, setshowalertmsg] = React.useState('');
+
     const [First, onChangeFirst] = React.useState("");
     const [Lastname, onChangeLastname] = React.useState("");
     const [Address, onChangeAddress] = React.useState("");
@@ -110,8 +113,7 @@ const Blurbackground = (props) => {
     const [selectedValue2, setSelectedValue2] = useState(1);
     const [selectedValue3, setSelectedValue3] = useState(1);
     const [selectedValue4, setSelectedValue4] = useState(1);
-    const [showotherAlert, setshowotherAlert] = React.useState(false);
-    const [showalertmsg, setshowalertmsg] = React.useState('');
+    
     const [showmodalid, setshowmodalid] = React.useState();
 
     //alert(channel)
@@ -434,6 +436,9 @@ const Blurbackground = (props) => {
         }
         setpurchaseCount(purchaseCount+1);
         //console.log('request',request)
+        setshowotherAlert(true)
+        setshowalertmsg('Item added in cart successfully!')
+
         props.cartadd(request, props.navigation, "vendor");
     }
     const saveAddshipping = () =>{ 
@@ -850,9 +855,15 @@ const Blurbackground = (props) => {
                     </View>
                 </View>
                  <View style={{ width:120,marginTop:10,marginBottom:10,marginLeft:10,backgroundColor:'#D4E0F2',paddingHorizontal:10,paddingVertical:5,borderRadius:10}}>
-                   <Text style={{color:'#2666BE'}}>New Stock</Text>
+                   <Text style={{color:'#2666BE',textAlign:'center'}}>New Stock</Text>
                 </View>
-                <View style={{ flexDirection:'row', justifyContent:'space-between',alignItems:'center'}}>
+                <TouchableOpacity onPress={() => cartpicker(item._id,item.productPrice,index)}>
+                    <View style={{ width:120,marginTop:10,marginBottom:10,marginLeft:10,backgroundColor:'#B80000',paddingHorizontal:10,paddingVertical:5,borderRadius:10}}>
+                       <Text style={{color:'#ffffff',textAlign:'center'}}>Add to Bag</Text>
+                    </View>
+                </TouchableOpacity>
+
+                <View style={{opacity:0, flexDirection:'row', justifyContent:'space-between',alignItems:'center'}}>
                     <View>
                         <Text style={{fontWeight:'600',fontSize:16,fontFamily:'hinted-AvertaStd-Semibold'}}>Size</Text>
                         <View style={newstyles.pickerViewshort}>
@@ -979,13 +990,13 @@ const Blurbackground = (props) => {
                 <Header />
                 <StatusBar backgroundColor={'#B80000'} barStyle="dark-content" translucent={true} />
                  <View style={{justifyContent:'space-between', zIndex:1010,position:'absolute',top:120, right:0, textAlign:'center'}}>
-                    
+                    { isbroadcaster == true &&
                         <TouchableOpacity onPress={() => opensettings() } >
                             <View style={{marginBottom:15,marginLeft:8,}}>
                                 <Image source={ImageIcons.callmore} style={styles.newmslimg}/>
                             </View>
                         </TouchableOpacity>
-                    
+                    }
                         <TouchableOpacity onPress={() => openshare() } >
                             <View style={{marginVertical:10,marginRight:5}}>
                                 <Image source={ImageIcons.callshare}  style={styles.newshrimg}/>
@@ -1198,6 +1209,7 @@ const Blurbackground = (props) => {
                     </View>
                     
                 </View>
+        <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
 
             { cartview  &&
                 <View style={{borderTopLeftRadius:15,borderTopRightRadius:15,backgroundColor:'#ffffff',width:'100%',position:'absolute',zIndex:2001,bottom:0}}>
@@ -1224,286 +1236,12 @@ const Blurbackground = (props) => {
                         <TouchableOpacity style={newstyles.greencartttview} onPress={() =>props.navigation.navigate("Cart")}>
                             <Text style={newstyles.greecolortext}>View Cart</Text>
                         </TouchableOpacity>
-                        {/*<TouchableOpacity style={newstyles.proceedcartview} onPress={() => showcheckview() }>
-                            <Text style={newstyles.proceedtext}>Proceed to Checkout</Text>
-                        </TouchableOpacity>*/}
+                        
                     </View>
                 </View>
             }
 
-            { checkview  &&
-                <View style={{backgroundColor:'#FFE7E7',width:'100%',position:'absolute',zIndex:2001,bottom:0}}>
-                <View style={newstyles.textshoop3}>
-                   <View style={newstyles.textshoop2}>
-                    <TouchableOpacity onPress={() => { setcheckview(false); setcartview(true);} }>
-                        <Image source={ImageIcons.backIcon}  style={newstyles.textshoop4}/>
-                    </TouchableOpacity>
-                    </View>
-                    <TouchableOpacity onPress={() => { hidepopup();} }>
-                        <Image source={ImageIcons.line} style={newstyles.textshoop1} />
-                     </TouchableOpacity>
-                    <Text style={newstyles.textshoop}>Checkout</Text>
-                </View>
-                    <Text style={newstyles.textshopcheck}>{props?.cartlistdata1?.length} Items</Text>
-                    <View style={{marginVertical:'3%'}}>
-                        <FlatList
-                            data={props?.cartlistdata1 || []} 
-                            renderItem={renderItemcheck}
-                            keyExtractor={item => item.id}
-                            showsHorizontalScrollIndicator={false}
-                            horizontal={true}
-                            style={{ maxHeight: 280,marginRight:0, marginBottom:0 }}
-                        />
-                    </View>
-                    <View style={{marginVertical:'2%'}}>
-                        <Text style={newstyles.suntotaltext}>Subtotal: <Text style={newstyles.textshopcheck}>${props?.totalcartprice}</Text></Text>
-                    </View>
-                    <View  style={{flexDirection: 'row',justifyContent:'center',marginVertical:'4%',marginHorizontal:'4%'}} >
-                        <View>
-                            <Text style={newstyles.textshipcheck}>shipping</Text>
-                            <TouchableOpacity style={newstyles.newcartttview2} onPress={() =>showAddshipping()}>
-                                <Text style={newstyles.textshipcheck}>Shipping address</Text>
-                            </TouchableOpacity>
-                        </View>
-                        <View>
-                            <Text style={newstyles.textshipcheck}>Payment</Text>
-                            <TouchableOpacity style={newstyles.newcartttview2} onPress={() =>showAddpayment()}>
-                                <Text style={newstyles.textshipcheck}>Add Payment info</Text>
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-                    <TouchableOpacity style={newstyles.confirmView} onPress={() =>showcheckshipping()}>
-                        <Text style={newstyles.confirmtexxt}>Confirm info</Text>
-                    </TouchableOpacity>
-                </View>
-
-            }
-            { checkshipping  &&
-                <View style={{backgroundColor:'#FFE7E7',width:'100%',position:'absolute',zIndex:2001,bottom:0}}>
-                
-                <View style={newstyles.textshoop3}>
-                   <View style={newstyles.textshoop2}>
-                    <TouchableOpacity onPress={() => { setcheckshipping(false); setcartview(true);} }>
-                        <Image source={ImageIcons.backIcon}  style={newstyles.textshoop4}/>
-                    </TouchableOpacity>
-                    </View>
-                    <TouchableOpacity onPress={() => { hidepopup()} }>
-                        <Image source={ImageIcons.line} style={newstyles.textshoop1} />
-                     </TouchableOpacity>
-                    <Text style={newstyles.textshoop}>Checkout</Text>
-                </View>
-
-                    <Text style={newstyles.textshopcheck}>{props?.cartlistdata1?.length} Items</Text>
-                    <View style={{marginVertical:'3%'}}>
-                        <FlatList
-                            data={props?.cartlistdata1 || []}
-                            renderItem={renderItemcheck}
-                            keyExtractor={item => item.id}
-                            showsHorizontalScrollIndicator={false}
-                            horizontal={true}
-                            style={{ maxHeight: 280,marginRight:0, marginBottom:0 }}
-                        />
-                    </View>
-                    
-                    <View  style={{flexDirection: 'row',justifyContent:'center',marginVertical:'4%',marginHorizontal:'4%'}} >
-                        <View>
-                            <Text style={newstyles.textshipcheck}>shipping</Text>
-                            <TouchableOpacity style={newstyles.newcartttview2} >
-                                <Text style={newstyles.textshipcheck}>{First} {Address} {City}</Text>
-                            </TouchableOpacity>
-                        </View>
-                        <View>
-                            <Text style={newstyles.textshipcheck}>Payment</Text>
-                            <TouchableOpacity style={newstyles.newcartttview2}>
-                                <Text style={newstyles.textshipcheck}>{cardType} {showcardNumber}</Text>
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-                    <View style={[newstyles.newcartttview2,{width:200, marginLeft:'25%'}]}>
-                        <Text style={newstyles.suntotaltext}>Total Payment: <Text style={newstyles.textshopcheck}>${props?.totalcartprice}</Text></Text>
-                    </View>
-                    <TouchableOpacity style={[newstyles.confirmView,{width:200}]}  onPress={() => { setcheckshipping(false); setcartview(false);} }>
-                        <Text style={newstyles.confirmtexxt}>CHECKOUT</Text>
-                    </TouchableOpacity>
-                </View>
-
-            }
-            { Addshipping  &&
-                <View style={{backgroundColor:'#FFE7E7',position:'absolute',zIndex:2001,bottom:0}}>
-                 <ScrollView  keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#FFE7E7',height:'auto'}} >
-                    
-                    <View style={newstyles.textshoop3}>
-                   <View style={newstyles.textshoop2}>
-                    <TouchableOpacity onPress={() => { setAddshipping(false); setcheckview(true);} }>
-                        <Image source={ImageIcons.backIcon}  style={newstyles.textshoop4}/>
-                    </TouchableOpacity>
-                    </View>
-                    <TouchableOpacity onPress={() => { hidepopup()} }>
-                        <Image source={ImageIcons.line} style={newstyles.textshoop1} />
-                     </TouchableOpacity>
-                    <Text style={newstyles.textshoop}>Add Shipping info</Text>
-                </View>
-                    <View style={newstyles.maincartviewfooter}>
-                        <View style={{width:'30%',justifyContent:'center'}}>
-                            <Text style={newstyles.labeltext}>First Name</Text>
-                        </View>
-                        <View style={{width:'70%'}}>
-                            <TextInput
-                             style={newstyles.inputshipping}
-                             onChangeText={(text) => onChangeFirst(text)}
-                             value={First}
-                             autoCompleteType="off"
-                             placeholder=""
-                             placeholderTextColor="#999999"
-                            />
-                        </View>
-                    </View>
-                    <View style={newstyles.maincartviewfooter}>
-                        <View style={{width:'30%',justifyContent:'center'}}>
-                            <Text style={newstyles.labeltext}>Last Name</Text>
-                        </View>
-                        <View style={{width:'70%'}}>
-                            <TextInput
-                             style={newstyles.inputshipping}
-                             onChangeText={(text) => onChangeLastname(text)}
-                             value={Lastname}
-                             autoCompleteType="off"
-                             placeholder=""
-                             placeholderTextColor="#999999"
-                            />
-                        </View>
-                    </View>
-                    <View style={newstyles.maincartviewfooter}>
-                        <View style={{width:'30%',justifyContent:'center'}}>
-                            <Text style={newstyles.labeltext}>Country</Text>
-                        </View>
-                        <View style={{width:'70%'}}>
-                            <TextInput
-                             style={newstyles.inputshipping}
-                             onChangeText={(text) => onChangeCountry(text)}
-                             value={Country}
-                             autoCompleteType="off"
-                             placeholder=""
-                             placeholderTextColor="#999999"
-                            />
-                        </View>
-                    </View>
-                    <View style={newstyles.maincartviewfooter}>
-                        <View style={{width:'30%',justifyContent:'center'}}>
-                            <Text style={newstyles.labeltext}>Address Line 1</Text>
-                        </View>
-                        <View style={{width:'70%'}}>
-                            <TextInput
-                             style={newstyles.inputshipping}
-                             onChangeText={(text) => onChangeAddress(text)}
-                             value={Address}
-                             autoCompleteType="off"
-                             placeholder=""
-                             placeholderTextColor="#999999"
-                            />
-                        </View>
-                    </View>
-                    <View style={newstyles.maincartviewfooter}>
-                        <View style={{width:'30%',justifyContent:'center'}}>
-                            <Text style={newstyles.labeltext}>Address Line 2</Text>
-                        </View>
-                        <View style={{width:'70%'}}> 
-                            <TextInput
-                             style={newstyles.inputshipping}
-                             onChangeText={(text) => onChangeAddress2(text)}
-                             value={Address2}
-                             autoCompleteType="off"
-                             placeholder=""
-                             placeholderTextColor="#999999"
-                            />
-                        </View>
-                    </View>
-                    <View style={newstyles.maincartviewfooter}>
-                        <View style={{width:'30%',justifyContent:'center'}}>
-                            <Text style={newstyles.labeltext}>City</Text>
-                        </View>
-                        <View style={{width:'70%'}}>
-                            <TextInput
-                             style={newstyles.inputshipping}
-                             onChangeText={(text) => onChangeCity(text)}
-                             value={City}
-                             autoCompleteType="off"
-                             placeholder=""
-                             placeholderTextColor="#999999"
-                            />
-                        </View>
-                    </View>
-                    <View style={newstyles.maincartviewfooter}>
-                        <View style={{width:'30%',justifyContent:'center'}}>
-                            <Text style={newstyles.labeltext}>State</Text>
-                        </View>
-                        <View style={{width:'70%'}}>
-                            <TextInput
-                             style={newstyles.inputshipping}
-                             onChangeText={(text) => onChangeState(text)}
-                             value={State}
-                             autoCompleteType="off"
-                             placeholder=""
-                             placeholderTextColor="#999999"
-                            />
-                        </View>
-                    </View>
-                    <View style={newstyles.maincartviewfooter}>
-                        <View style={{width:'30%',justifyContent:'center'}}>
-                            <Text style={newstyles.labeltext}>Zip Code</Text>
-                        </View>
-                        <View style={{width:'70%'}}>
-                            <TextInput
-                             style={newstyles.inputshipping}
-                             onChangeText={(text) => onChangeZip(text)}
-                             value={Zip}
-                             autoCompleteType="off"
-                             placeholder=""
-                             placeholderTextColor="#999999"
-                            />
-                        </View>
-                    </View>
-                   
-                    <TouchableOpacity style={newstyles.saveView} onPress={() =>saveAddshipping() }>
-                        <Text style={newstyles.textshipcheck}>Save</Text>
-                    </TouchableOpacity>
-                </ScrollView>
-                </View>
-            }
-
-            { Addpayment  &&
-                
-                 <View style={{backgroundColor:'#FFE7E7',width:'100%',position:'absolute',zIndex:2001,bottom:0}}>
-                 <ScrollView  keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#FFE7E7',height:'auto'}} >
-                    
-                    <View style={newstyles.textshoop3}>
-                   <View style={newstyles.textshoop2}>
-                    <TouchableOpacity onPress={() => { setAddpayment(false); setcheckview(true);} }>
-                        <Image source={ImageIcons.backIcon}  style={newstyles.textshoop4}/>
-                    </TouchableOpacity>
-                    </View>
-                    <TouchableOpacity onPress={() => { hidepopup()} }>
-                        <Image source={ImageIcons.line} style={newstyles.textshoop1} />
-                     </TouchableOpacity>
-                    <Text style={newstyles.textshoop}>Add Payment info</Text>
-                </View>
-                    <View style={newstyles.maincartviewfooter}>
-                        <CreditCardInput
-                            requiresName
-                            requiresCVC
-                            requiresPostalCode
-                            validColor={"black"}
-                            invalidColor={"red"}
-                            placeholderColor={"darkgray"}
-                            onChange={_onChange}
-                        />
-                    </View>
-                    <TouchableOpacity style={newstyles.saveView} onPress={() =>hideAddpayment()}>
-                        <Text style={newstyles.textshipcheck}>Save</Text>
-                    </TouchableOpacity>
-                </ScrollView>
-                </View>
-            }
+            
 
                 { showsidebar  &&
                     <Provider>
@@ -1543,44 +1281,6 @@ const Blurbackground = (props) => {
                     </Portal>
                     </Provider>
                 }
-
-            <AwesomeAlert
-              show={showAlert}
-              showProgress={false}
-              title="DROPSHIP"
-              message="You need to login to access this screen!"
-              closeOnTouchOutside={true}
-              closeOnHardwareBackPress={false}
-              showCancelButton={true}
-              showConfirmButton={true}
-              cancelText="Cancel"
-              confirmText="Login"
-              confirmButtonColor="#E22020"
-              onCancelPressed={() => {
-                setshowAlert(false)
-              }}
-              onConfirmPressed={() => {
-                 setshowAlert(false)
-                 navigation.navigate('Golive');
-              }}
-            />
-
-            <AwesomeAlert
-              show={showotherAlert}
-              showProgress={false}
-              title="DROPSHIP"
-              message={showalertmsg}
-              closeOnTouchOutside={true}
-              closeOnHardwareBackPress={false}
-              showCancelButton={true}
-              showConfirmButton={false}
-              cancelText="Close"
-              confirmText="Login"
-              confirmButtonColor="#E22020"
-              onCancelPressed={() => {
-                setshowotherAlert(false)
-              }}
-            />
             </KeyboardAvoidingView>
 
         )

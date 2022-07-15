@@ -54,12 +54,19 @@ const Dashorder = (props) => {
   const brandId = props?.route?.params?.brandId;
 
   useEffect(() => {
-    props.getincomingtlist(props?.loginuserid);
-    props.getselldeshboard(props?.loginuserid);
-    props.gettopsell(props?.loginuserid, 3);
-    props.liveeventdetail(props?.loginuserid);
-    props.Brandslist();
-  }, [])
+    if(props?.getinconeorderlist?.length>0){
+      setorderlisting(props?.getinconeorderlist);
+    }else{
+      sethitcount(hitcount+1)
+      if(hitcount<5){
+        props.getincomingtlist(props?.loginuserid);
+      }
+    }
+    // props.getselldeshboard(props?.loginuserid);
+    // props.gettopsell(props?.loginuserid, 3);
+    // props.liveeventdetail(props?.loginuserid);
+    // props.Brandslist();
+  }, [props?.getinconeorderlist])
 
   useEffect(() => {
     getBrandUserId();
@@ -91,8 +98,18 @@ const Dashorder = (props) => {
   const [visible, setVisible] = React.useState(false);
   const [selectedValue, setSelectedValue] = useState("");
   const [showclassName, setshowclassName] = useState("#B80000");
+  const [hitcount, sethitcount] = useState(0);
+  const [orderlisting, setorderlisting] = useState([]);
 
 const options = [
+      {
+        label: 'All',
+        value: 'all'
+      },
+      {
+        label: 'Accepted',
+        value: 'accepted'
+      },
       {
         label: 'Prcoessing',
         value: 'Prcoessing'
@@ -117,6 +134,16 @@ const options = [
 
   const updateorderStatus = (itemValue) => {
         setSelectedValue(itemValue)
+        //alert(itemValue)
+        if(itemValue=='all'){
+            setorderlisting(props?.getinconeorderlist);
+        }else{
+          let filteredData = props?.getinconeorderlist.filter(function (item) {
+              return item.status.toLowerCase()==itemValue.toLowerCase();
+          });
+            setorderlisting(filteredData);
+        }
+
     }
 
   const closepopup = () => {
@@ -167,10 +194,12 @@ const options = [
           <Sortorder text="Sort Order" options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
           <View style={tw.style('bg-zinc-100 mt-6 p-3 ')} >
+          
             <FlatList
-              data={props?.getinconeorderlist || []}
+              data={orderlisting || []}
               renderItem={Data}
             />
+            
           </View>
          </View>
 
