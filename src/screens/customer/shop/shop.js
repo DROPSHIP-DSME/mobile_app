@@ -132,12 +132,12 @@ const shop = (props) => {
     ];
     const renderItem = ({ item, index }) => {
         return (
-            <View style={tw.style('flex flex-row')}>
+            <View style={tw.style(tw`w-2/4 mb-6`)}>
                 <TouchableOpacity onPress={() => { props.navigation.navigate("ProductStore", { productId: item._id, shopId: item._id, shopName: item.shopName })}}
                     style={tw.style('rounded-lg mt-5 mx-4')}
                     >
-                    <View style={tw.style('p-0.5 rounded-md')}>
-                        <Image source={{ uri: item.shopImage }} style={tw.style('h-14 rounded-lg'),{ height: 150, width: deviceWidth / 2.4}} onPress={() => { props.navigation.navigate("clothing") }} />
+                    <View style={tw.style('p-0.5')}>
+                        <Image source={{ uri: item.shopImage }} style={tw.style('rounded-lg'),{ height: 150, width: deviceWidth / 2.4}} onPress={() => { props.navigation.navigate("clothing") }} />
                     </View>
                     <View style={tw.style('flex flex-row mt-4 justify-between')}>
                         <View style={tw.style('pl-2')}>

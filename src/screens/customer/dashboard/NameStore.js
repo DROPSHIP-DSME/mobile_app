@@ -221,12 +221,12 @@ const NameStore = (props) => {
         </View>
 
         <View>
-        <View style={tw`mx-4 mt-2 mb-3 bg-gray-200 h-70 rounded-lg justify-center items-center`}>
-          <Image source={{ uri: props?.getlistproductdetails?.data?.productImage }} style={tw.style('w-full', { width: deviceWidth / 1.1 })} />
-          <View style={tw.style('absolute')}>
-            <PlayIcon color="red" fill="gray" size={96} />
+          <View style={tw`mx-4 mt-2 mb-3 bg-gray-200 h-70 rounded-lg justify-center items-center`}>
+            <Image source={{ uri: props?.getlistproductdetails?.data?.productImage }} style={tw.style('w-full', { width: deviceWidth / 1.1 })} />
+            <View style={tw.style('absolute')}>
+              <PlayIcon color="red" fill="gray" size={96} />
+            </View>
           </View>
-        </View>
 
           {props?.getlistproductdetails?.ProductImages?.length > 0 ?
             <View style={tw`mx-4 mt-10 justify-center items-center`}>
@@ -292,6 +292,7 @@ const NameStore = (props) => {
           </View>
 
         </View>
+
         <View style={tw.style('border-b my-8 mx-4 border-[#B6B6B6]')}></View>
         <View style={tw.style('mx-4')}>
           <Text style={tw.style('text-gray-700 text-2xl font-bold')}>Product Details</Text>

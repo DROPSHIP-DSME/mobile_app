@@ -130,17 +130,19 @@ const renderItem2 = ({ item ,index }) => {
 
    return(
 
-        <View style={tw.style('flex flex-row my-5')}>
-         <TouchableOpacity >
-             <View style={tw.style('mx-2 aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8')}>
-                <Image source={{uri:item.brandImage}} style={tw.style('w-52 h-40 object-center object-cover group-hover:opacity-75')} />
-             </View>
-             <View style={tw.style('mx-4 mt-3')}>
-               <Text style={tw.style('text-sm text-gray-700')}>{item.brandName}</Text>
-               <Text style={tw.style('mt-1 text-xl font-bold text-gray-900')}>$45</Text>
-             </View>
-            </TouchableOpacity>
-        </View>
+
+          <View style={tw`w-2/4 px-2 mb-6`}>
+           <TouchableOpacity >
+               <View style={tw.style('mx-2 aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8')}>
+                  <Image source={{uri:item.brandImage}} style={tw.style('w-full h-40 object-center object-cover group-hover:opacity-75')} />
+               </View>
+               <View style={tw.style('mx-4 mt-3')}>
+                 <Text style={tw.style('text-sm text-gray-700')}>{item.brandName}</Text>
+                 <Text style={tw.style('mt-1 text-xl font-bold text-gray-900')}>$45</Text>
+               </View>
+              </TouchableOpacity>
+          </View>
+
 
 
   );
@@ -190,7 +192,7 @@ const renderItem2 = ({ item ,index }) => {
                      </View>
                 <View style={tw.style('mt-10')}>
                   <Text style={styles.salestextonce}>Suggested Products</Text>
-                   <View style={{marginBottom:5}}>
+                   <View style={tw`mb-10`}>
                       <FlatList
                           data={props?.Brandlistdata || []}
                           renderItem={renderItem2}
