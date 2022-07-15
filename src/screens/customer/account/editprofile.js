@@ -16,11 +16,12 @@ import Loader from '../../../components/modals/Loader';
 import Footer3 from '../../../screens/common/Footer3';
 import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
-import AwesomeAlert from 'react-native-awesome-alerts';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import tw from 'twrnc';
 import Largebutton from '../../../components/dropshipbutton/Largebutton';
 import Sortorder from '../../../components/pickers/Sortorder';
+import AwesomeAlert from '../../../components/modals/AlertModal';
+
 const options = [
       {
         label: 'USA',
@@ -78,19 +79,29 @@ const editprofile = (props) => {
     const [text1, onChangeText1] = React.useState("");
     const [helppopup, sethelppopup] = React.useState(false);
     const [selectedValue, setSelectedValue] = useState("USA");
-    const [showAlert, setshowAlert] = React.useState(false);
-
+    const [showotherAlert, setshowotherAlert] = React.useState(false);
+    const [showalertmsg, setshowalertmsg] = React.useState('');
 
     const handleSendRequestSubmit = async () => {
         Keyboard.dismiss();
         if (name == "") {
-            Alert.alert('First name is required')
+            setshowotherAlert(true)
+            setshowalertmsg('First name is required')
         }else if(lastname ==""){
-            Alert.alert('Last name is required')
+            setshowotherAlert(true)
+            setshowalertmsg('Last name is required')
         }else if (Email == "") {
-            Alert.alert('Email is required')
+            setshowotherAlert(true)
+            setshowalertmsg('Email is required')
+        }else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(Email)) {
+            setshowotherAlert(true)
+            setshowalertmsg('Invalid Email')
         }else if(number ==""){
-             Alert.alert('Phone Number is required')
+             setshowotherAlert(true)
+            setshowalertmsg('Mobile Number is required')
+        }else if (!/^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/.test(number)) {
+            setshowotherAlert(true)
+            setshowalertmsg('Invalid Number')
         } else {
             let request = {
                 //"userName":First,
@@ -227,6 +238,8 @@ const editprofile = (props) => {
                 handleScroll(nativeEvent['contentOffset'].y);
             }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#ffffff' }} >
 
+        <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
+
                 <View style={tw`mx-3`}>
                     <Text style={tw.style('text-2xl font-bold mt-8 mb-6 mx-2')}>Edit Profile</Text>
                 </View>
@@ -292,26 +305,7 @@ const editprofile = (props) => {
 
             <Footer3 onSelection="5" />
 
-            <AwesomeAlert
-                show={showAlert}
-                showProgress={false}
-                title="DROPSHIP"
-                message="You need to login to access this screen!"
-                closeOnTouchOutside={true}
-                closeOnHardwareBackPress={false}
-                showCancelButton={true}
-                showConfirmButton={true}
-                cancelText="Cancel"
-                confirmText="Login"
-                confirmButtonColor="#E22020"
-                onCancelPressed={() => {
-                    setshowAlert(false)
-                }}
-                onConfirmPressed={() => {
-                    setshowAlert(false)
-                    navigation.navigate('Golive');
-                }}
-            />
+            
         </KeyboardAvoidingView>
 
     )

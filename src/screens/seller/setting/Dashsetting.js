@@ -25,6 +25,7 @@ import Modal from 'react-native-modal';
 import tw from 'twrnc';
 import Editbutton from '../../../components/pickers/Editbutton';
 import { ArrowRightIcon } from "react-native-heroicons/solid";
+import AwesomeAlert from 'react-native-awesome-alerts';
 
 
 import {
@@ -87,26 +88,11 @@ const deviceWidth = Dimensions.get('window').width;
 
     // Local states
     const [showclassName, setshowclassName] = useState("#B80000");
+    const [showAlert, setshowAlert] = React.useState(false);
+
 
     const deleetaccount = () => {
-        return Alert.alert(
-          "Are your sure?",
-          "Are you sure you want to delete this account?",
-          [
-            // The "Yes" button
-            {
-              text: "Yes",
-              onPress: () => {
-                props.navigation.navigate("Login")
-              },
-            },
-            // The "No" button
-            // Does nothing but dismiss the dialog when tapped
-            {
-              text: "No",
-            },
-          ]
-        );
+        setshowAlert(true);
     }
 
 
@@ -180,9 +166,33 @@ const deviceWidth = Dimensions.get('window').width;
                 </View>
               </View>
 
+              
 
                </ScrollView>
             <Footer2 />
+
+            <AwesomeAlert
+                show={showAlert}
+                showProgress={false}
+                title="DROPSHIP"
+                message="Are you sure you want to delete this account?"
+                closeOnTouchOutside={true}
+                closeOnHardwareBackPress={false}
+                showCancelButton={true}
+                showConfirmButton={true}
+                cancelText="Cancel"
+                confirmText="Delete"
+                confirmButtonColor="#E22020"
+                onCancelPressed={() => {
+                    setshowAlert(false)
+                }}
+                onConfirmPressed={() => {
+                    setshowAlert(false)
+                    props.navigation.navigate("RegistrationShop")
+                    
+                }}
+            />
+
         </View>
     )
 }

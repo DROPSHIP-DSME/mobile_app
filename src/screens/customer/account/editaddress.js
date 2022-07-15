@@ -60,6 +60,9 @@ const editaddress = (props) => {
     const [selectedValue, setSelectedValue] = useState("java");
     const [wayToContact, setWayToContact] = useState("Phone");
     const [showAlert, setshowAlert] = React.useState(false);
+    const [deletedid, setdeletedid] = React.useState('');
+
+
     const [wayToContactList, setWayToContactList] = useState([
         {
             label: "Phone",
@@ -114,27 +117,8 @@ const editaddress = (props) => {
     ];
 
     const setdeleteaddress = async (id) => {
-        return Alert.alert(
-          "Are your sure?",
-          "Are you sure you want to remove this address?",
-          [
-            // The "Yes" button
-            {
-              text: "Yes",
-              onPress: () => {
-                    props.deleteaddress(id);
-                    setTimeout(function(){ props.getuseraddress(props?.loginuserid); },100);
-              },
-            },
-            // The "No" button
-            // Does nothing but dismiss the dialog when tapped
-            {
-              text: "No",
-            },
-          ]
-        );
-
-
+        setshowAlert(true);
+        setdeletedid(id);
      }
 
     const renderItem6 = ({ item }) => {
@@ -178,7 +162,7 @@ const editaddress = (props) => {
           </View>
             <View style={`flex-row justify-between h-40`}>
               <View style={tw`flex-row mr-3`}>
-                <Editbutton />
+               
                 <Deletebutton onPress={() =>setdeleteaddress(item._id)}/>
               </View>
             </View>
@@ -232,20 +216,22 @@ const editaddress = (props) => {
                 show={showAlert}
                 showProgress={false}
                 title="DROPSHIP"
-                message="You need to login to access this screen!"
+                message="Are you sure, you want to remove this address?"
                 closeOnTouchOutside={true}
                 closeOnHardwareBackPress={false}
                 showCancelButton={true}
                 showConfirmButton={true}
                 cancelText="Cancel"
-                confirmText="Login"
+                confirmText="Delete"
                 confirmButtonColor="#E22020"
                 onCancelPressed={() => {
                     setshowAlert(false)
                 }}
                 onConfirmPressed={() => {
                     setshowAlert(false)
-                    navigation.navigate('Golive');
+                    props.deleteaddress(deletedid);
+                    setTimeout(function(){ props.getuseraddress(props?.loginuserid); },100);
+                    
                 }}
             />
         </KeyboardAvoidingView>

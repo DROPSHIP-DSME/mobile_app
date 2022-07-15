@@ -16,9 +16,12 @@ import Loader from '../../../components/modals/Loader';
 import Footer3 from '../../../screens/common/Footer3';
 import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
-import AwesomeAlert from 'react-native-awesome-alerts';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import Sortorder from '../../../components/pickers/Sortorder';
+import AwesomeAlert from '../../../components/modals/AlertModal';
+import CheckBox from '@react-native-community/checkbox';
+
+
 const options = [
       {
         label: 'USA',
@@ -78,6 +81,10 @@ const editviewaddress = (props) => {
     const [country, setcountry] = useState("USA");
     const [zipcode, setzipcode] = useState("");
 
+    const [showotherAlert, setshowotherAlert] = React.useState(false);
+    const [showalertmsg, setshowalertmsg] = React.useState('');
+    const [toggleCheckBox, setToggleCheckBox] = useState(true)
+
     const [showclassName, setshowclassName] = useState("#B80000");
      const handleScroll=(pageYOffset)=>{
         if (pageYOffset > 0) {
@@ -90,15 +97,20 @@ const editviewaddress = (props) => {
    const handleSendRequestSubmit = async () => {
         Keyboard.dismiss();
         if (firstname == "") {
-            Alert.alert('First name is required')
+            setshowotherAlert(true)
+            setshowalertmsg('First name is required')
         }else if(lastname ==""){
-            Alert.alert('Last name is required')
+            setshowotherAlert(true)
+            setshowalertmsg('Last name is required')
         }else if (address1 == "") {
-            Alert.alert('Address 1 is required')
+            setshowotherAlert(true)
+            setshowalertmsg('Address is required')
         }else if(city ==""){
-             Alert.alert('City is required')
+            setshowotherAlert(true)
+            setshowalertmsg('City is required')
         }else if(zipcode ==""){
-             Alert.alert('Zipcode is required')
+            setshowotherAlert(true)
+            setshowalertmsg('Zipcode is required')
         } else {
             let request = {
                 "firstName":firstname,
@@ -160,6 +172,7 @@ const editviewaddress = (props) => {
                <View style={tw`mt-10 mx-3`}>
                 <Text style={tw`text-gray-700 font-bold text-3xl`}>Add Address</Text>
                </View>
+        <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
 
                 <View style={[styles.pickerViewshorttodaybrand,{marginTop:'7%',backgroundColor:"#e6e6e6",marginHorizontal:"3%",borderRadius:10}]}>
                     <TextInput
@@ -241,12 +254,21 @@ const editviewaddress = (props) => {
 
 
                 <View style={{flexDirection:'row',marginHorizontal:'4%',marginTop:"10%"}}>
-                    <View style={{height:15,width:15,backgroundColor:'#848484',borderRadius:3,}}></View>
-                    <Text style={{fontSize:16,marginTop:-5,marginBottom:15,fontFamily:'hinted-AvertaStd-Regular',color:'#1a1a1a',marginLeft:5}}>Make default shipping method</Text>
+                    <CheckBox
+                        value={toggleCheckBox}
+                        onValueChange={(newValue) => setToggleCheckBox(newValue)}
+                        tintColors={'#9E663C'}
+                        onCheckColor={'#6F763F'}
+                        onFillColor={'#4DABEC'}
+                        onTintColor={'#F4DCF8'}
+                     />
+                    <Text style={tw.style('text-sm text-gray-700 tracking-wide mt-1')}> Make default shipping method </Text>
+
                 </View>
 
 
-                <View style={tw`my-8`}>
+
+                <View style={tw`my-8 mx-6`}>
                   <Largebutton text="Save Changes" onPress={()=>{ handleSendRequestSubmit()}} />
                 </View>
 
@@ -254,26 +276,7 @@ const editviewaddress = (props) => {
 
     <Footer3 onSelection="5"/>
 
-    <AwesomeAlert
-          show={showAlert}
-          showProgress={false}
-          title="DROPSHIP"
-          message="You need to login to access this screen!"
-          closeOnTouchOutside={true}
-          closeOnHardwareBackPress={false}
-          showCancelButton={true}
-          showConfirmButton={true}
-          cancelText="Cancel"
-          confirmText="Login"
-          confirmButtonColor="#E22020"
-          onCancelPressed={() => {
-            setshowAlert(false)
-          }}
-          onConfirmPressed={() => {
-             setshowAlert(false)
-             navigation.navigate('Golive');
-          }}
-        />
+   
     </KeyboardAvoidingView>
 
     )

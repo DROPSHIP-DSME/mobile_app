@@ -202,31 +202,7 @@ const Accountproduct = (props) => {
     }
 
 
-    // Vendor request submission
-    const handleSendRequestSubmit = async () => {
-        Keyboard.dismiss();
-        if (billImgPath == "") {
-            Alert.alert('Image is required')
-
-        }  else if (Store == "") {
-            Alert.alert('shop name is required')
-
-        }else if (Themecolor == "") {
-            Alert.alert('Theme color is required')
-
-        } else {
-
-            const formData = new FormData();
-            formData.append("shopName", Store);
-            formData.append("shopTheme", Themecolor);
-            formData.append("userId", props?.loginuserid);
-            formData.append("shopImage", billImgPath);
-
-
-            props.createshop(formData, props.navigation, "vendor");
-        }
-    }
-
+    
     const selectPhoto1 = async () => {
         if(counter<5){
         ImagePicker.openPicker({
@@ -404,7 +380,7 @@ const renderItem6 = ({ item }) => {
                         placeholder='Name of Product'
                         value={Name}
                         onChangeText={onChangeName}
-                        onSubmitEditing={() => handleSendRequestSubmit1()}
+                       
                         placeholderTextColor='#4D4D4D'
                         style={tw`h-14 bg-zinc-200 mx-3 text-gray-500 px-4 rounded-md items-center`} />
 
@@ -416,7 +392,7 @@ const renderItem6 = ({ item }) => {
                       <TextInput
                       onChangeText={onChangeProduct}
                       value={Product}
-                      onSubmitEditing={() => handleSendRequestSubmit()}
+                      
                       placeholder='Provide more details about your product (500 characters max)' placeholderTextColor='#4D4D4D'
                       style={tw`h-36 bg-zinc-200 mx-3 text-gray-600 px-5 mt-5 rounded-md text-start`} />
                  </View>
@@ -462,7 +438,7 @@ const renderItem6 = ({ item }) => {
                       value={Price}
                       onChangeText={onChangePrice}
                       keyboardType={'numeric'}
-                      onSubmitEditing={() => handleSendRequestSubmit1()}
+                      
                       placeholderTextColor='#4D4D4D'
                       style={tw`bg-zinc-200 h-14 rounded-md px-4 w-full`} />
                   </View>
@@ -473,7 +449,7 @@ const renderItem6 = ({ item }) => {
                       value={SelectedDiscount}
                       onChangeText={setSelectedDiscount}
                       keyboardType={'numeric'}
-                      onSubmitEditing={() => handleSendRequestSubmit1()}
+                      
                       placeholderTextColor='#4D4D4D'
                       style={tw`bg-zinc-200 h-14 rounded-md px-4 w-full`} />
                   </View>
@@ -578,49 +554,9 @@ const renderItem6 = ({ item }) => {
 
                </ScrollView>
 
-                <View style={{ position:'absolute',opacity:0,zIndex:2001,right:20,bottom:70}}>
-               <TouchableOpacity onPress={() => sethelppopup(false)}>
-                    <Image source={ImageIcons.exporthelp} style={{width:50,height:50}}/>
-                </TouchableOpacity>
-               </View>
+                
 
-               { helppopup ==true &&
-        <View style={{flex:1,backgroundColor:'#ffffff',margin:20,paddingVertical:10,borderRadius:10,zIndex:4001, position:'absolute',bottom:'10%'}}>
-
-
-              <View style={styles.chatViewrose}>
-
-                <Text style={styles.Benrosetext}>Chat with customer support</Text>
-                <TouchableOpacity style={{position:'absolute',right:15,top:5}} onPress={() => sethelppopup(false)}>
-                    <Image source={ImageIcons.closepopup}  style={styles.sendmsg2} />
-                </TouchableOpacity>
-            </View>
-            <ScrollView  keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#ffffff', height:200}} >
-            <View style={{marginVertical:'2%'}}>
-                <FlatList
-                    data={props?.getchatsupportlist1 || []}
-                    renderItem={renderItem6}
-                    keyExtractor={item => item.id}
-                    showsHorizontalScrollIndicator={false}
-                    horizontal={false}
-                />
-             </View>
-           </ScrollView>
-            <View style={[styles.accountmainview,{marginBottom:10, width:'100%'}]}>
-            <View style={{width:'90%'}}>
-                <TextInput  style={styles.chatinput}
-                placeholder="Type here..."
-                onChangeText={onChangeText3}
-                value={text1}
-                placeholderTextColor="#999999"
-                />
-            </View>
-            <TouchableOpacity style={{position:'absolute',right:55,top:5}} onPress={() => handleSendRequestSubmit()}>
-                    <Image source={ImageIcons.sendchat}  style={styles.sendmsg1} />
-                </TouchableOpacity>
-            </View>
-        </View>
-        }
+             
 
         </View>
 
