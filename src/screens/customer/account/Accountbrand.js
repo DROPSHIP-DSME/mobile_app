@@ -24,6 +24,8 @@ import Modal from 'react-native-modal'
 import Footer3 from '../../../screens/common/Footer3';
 import tw from 'twrnc';
 import Smallbutton from '../../../components/dropshipbutton/Smallbutton';
+import { ShoppingBagIcon } from "react-native-heroicons/solid";
+import { TagIcon } from "react-native-heroicons/solid";
 
 
 import {
@@ -122,29 +124,29 @@ const deviceWidth = Dimensions.get('window').width;
     const renderItem1 =({item,index}) =>{
 
       return(
-        <View style={tw`mt-9 mx-2 bg-gray-100 p-2 rounded-lg`}>
+        <View style={tw`mt-6 mx-2 bg-gray-100 p-2 rounded-lg`}>
 
-            <TouchableOpacity style={tw.style('h-14 p-5 border-5 items-center',{width:deviceWidth/2.4})} onPress={() => props.navigation.navigate("Accountbrandlist",{brandId:item._id})}>
-              <View style={tw`bg-gray-200`}>
-                <Image source={{uri: item.brandImage}} style={tw`w-20 h-20 border-7 items-center`} />
-              </View>
-                <Text style={tw`text-base text-gray-700 my-1 w-9/11 leading-2 text-center`}>{item.brandName}</Text>
-                <Text style={tw`text-sm text-blue-700 my-1 w-9/11 leading-2 text-center`}>store.dropship.com</Text>
+            <TouchableOpacity style={tw.style('items-center',{width:deviceWidth/2.4})} onPress={() => props.navigation.navigate("Accountbrandlist",{brandId:item._id})}>
+                <Image source={{uri: item.brandImage}} style={tw`w-full h-50 border-7 items-center`} />
 
+                <Text style={tw`text-base text-gray-700 my-1 text-center`}>{item.brandName}</Text>
+                <Text style={tw`text-sm text-blue-700 text-center`}>store.dropship.com</Text>
             </TouchableOpacity>
+
+
             <View style={tw`items-center`}>
-              <View style={tw`flex flex-row mt-4`}>
-                 <Image source={ImageIcons.redcolorbag} style={tw`w-3 h-3 mt-3`}/>
+              <View style={tw`flex flex-row mt-4 items-center`}>
+                  <ShoppingBagIcon color="red" fill="red" size={18} />
                  <Text style={tw`text-base text-gray-700 ml-3`}>0 products</Text>
               </View>
-              <View style={{flexDirection:'row',marginVertical:'3%',}}>
-                 <Image source={ImageIcons.rededit} style={tw`w-3 h-3 mt-3`}/>
-                 <Text style={tw`text-base text-gray-700 ml-3`}>0 sales</Text>
+              <View style={tw`flex-row items-center`}>
+                 <TagIcon color="red" fill="red" size={18} />
+                 <Text style={tw`text-lg text-gray-700 ml-3`}>0 sales</Text>
               </View>
             </View>
-            <View style={tw`flex-row justify-between mx-3 my-2`}>
-              <Text style={tw`text-2xl text-gray-700 font-smibold`}>My Brands</Text>
-            </View>
+
+              <Text style={tw`text-2xl text-gray-700 font-smibold text-center my-2`}>My Brands</Text>
+
         </View>
       );
     }

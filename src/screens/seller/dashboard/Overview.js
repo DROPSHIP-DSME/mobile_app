@@ -136,13 +136,13 @@ const renderItem2 = ({ item,index }) => {
                     <Text style={tw.style('text-4xl font-bold text-gray-800')}>${props?.getlistselldeshboard?.income}</Text>
                   </View>
                   <View style={tw.style('flex-none')}>
-                    <Text style={tw.style('items-center text-lg font-semibold text-green-600')}>+32%</Text>
+                    { props?.getlistselldeshboard?.income>0 &&
+                     <Text style={tw.style('items-center text-lg font-semibold text-green-600')}>+32%</Text>
+                     }
                   </View>
                 </View>
               </View>
-               { props?.getlistselldeshboard?.income>0 &&
-                <Text style={tw.style('items-center text-lg font-semibold text-green-600')}>+32%</Text>
-                }
+
           </View>
 
         </View>
@@ -248,7 +248,7 @@ const renderItem2 = ({ item,index }) => {
                        </View>
 
                         <Sortorder text="Sort" options={options} onSelect={(checked) => updateorderStatus(checked)} />
-                
+
                   </View>
 
                   <BarChart
@@ -319,16 +319,16 @@ const renderItem2 = ({ item,index }) => {
                }
                   </View>
                    {props?.gettopsellproduct?.length>0 ?
-                   <View style={styles.salesViewTODAYprod}>
-                       <Text style={styles.seriestext}>Product</Text>
-                       <Text style={styles.seriestext}>Category</Text>
+                   <View style={tw`flex flex-row bg-gray-300 justify-between p-4 rounded-lg items-center`}>
+                       <Text style={tw`text-base font-bold text-gray-700`}>Product</Text>
+                       <Text style={tw`text-base font-bold text-gray-700`}>Category</Text>
                    </View>
                    :
                 <View style={tw.style('items-center')}>
                    <Text style={tw.style('text-base font-bold text-gray-700 my-3')}>No Record Found</Text>
                 </View>
             }
-                  <View style={{marginLeft:-10}}>
+                  <View style={tw`mx-3`}>
                       <FlatList
                       data={props?.gettopsellproduct || []}
                       renderItem={renderItem4}

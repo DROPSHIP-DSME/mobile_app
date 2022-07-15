@@ -203,7 +203,7 @@ const Accountdata = (props) => {
                 handleScroll(nativeEvent['contentOffset'].y);
             }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#f2f2f2' }} >
 
-                <View style={tw`flex flex-row justify-between mx-4 mt-20 mb-5`}>
+                <View style={tw`flex flex-row justify-between mx-4 mt-10 mb-5`}>
                     <Text style={tw.style('text-3xl font-bold text-gray-700', {fontFamily: 'hintedavertastdsemibold', })}>Bookmarks</Text>
                 </View>
 

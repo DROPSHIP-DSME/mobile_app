@@ -43,7 +43,7 @@ import {
 
 const Dashlive = (props) => {
 
-     const deviceHeight = Dimensions.get('window').height;
+    const deviceHeight = Dimensions.get('window').height;
     const deviceWidth = Dimensions.get('window').width;
 
 
@@ -163,26 +163,25 @@ const Dashlive = (props) => {
 
  const renderItem2 = ({ item ,index }) => {
      return(
-        <View>
-           <View style={{paddingHorizontal:2}}>
-              <Image source={{uri:item.productImage}} style={{height:159,width:159}} />
+        <View style={tw`w-2/4 px-4 mb-6`}>
+           <View style={tw`mx-1`}>
+              <Image source={{uri:item.productImage}} style={tw`w-full h-40 rounded-lg`} />
            </View>
-           <View style={{marginTop:5,}}>
-            <Text style={tw`text-base w-9/11 ml-4`}>{item.productName}</Text>
-            <View style={tw`h-4 w-4 bg-gray-600 rounded-md mr-8 mt-[-2]`}></View>
-            <Text style={tw`text-base w-9/11 ml-10`}>{item.productPrice}</Text>
-             <View>
+           <View style={tw`mt-3 mx-3`}>
+            <Text style={tw`text-base w-9/11`}>{item.productName}</Text>
+            <Text style={tw`text-base w-9/11`}>Price: ${item.productPrice}</Text>
+             <View style={tw`items-center w-full`}>
                 <Rating
                 type='custom'
                 imageSize={18}
                 ratingCount={5}
                 ratingColor='#EB5757'
                 tintColor='#FFE7E7'
-                style={{ paddingVertical: 5,width:100,marginLeft:5}}
+                style={tw`w-28 py-2`}
                 />
              </View>
-             <TouchableOpacity onPress={() => props.navigation.navigate("Dashsubscribe2")} style={{backgroundColor:'#ffe6ff',width:90,borderRadius:5,padding:6,marginHorizontal:'4%',marginBottom:'12%'}}>
-                <Text style={{fontSize:12,color:'#E25424',fontFamily:'hinted-AvertaStd-Semibold',textAlign:'center'}}>NEW STOCK</Text>
+             <TouchableOpacity onPress={() => props.navigation.navigate("Dashsubscribe2")} style={tw`items-center px-2.5 py-0.5 rounded-full bg-pink-100 text-pink-80`}>
+                <Text style={tw`text-sm text-gray-600`}>NEW STOCK</Text>
              </TouchableOpacity>
           </View>
         </View>
@@ -199,49 +198,49 @@ return (
     }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#ffffff'}} >
 
               <View style={tw.style('flex flex-row justify-between items-center mx-4 mt-8 mb-6')}>
-                <Text style={tw.style('text-2xl text-gray-700 font-bold')}>Go Live</Text>
+                <Text style={tw.style('text-3xl text-gray-700 font-bold')}>Go Live</Text>
                </View>
 
-            
+
 
               <View style={tw`flex flex-row relative mx-4 shadow-sm`}>
-                  <View
-                    type="button"
-                    style={tw`w-1.5/4 relative inline-flex items-center px-4 py-4 rounded-l-md border border-red-300 bg-red-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500`}
-                  >
-                    <TouchableOpacity onPress={() =>  setshowstream(false)}>
-                      <Text style={tw`text-base font-medium text-white`}>Go Live Now</Text>
-                    </TouchableOpacity>
-                  </View>
-                  <View
-                    type="button"
-                    style={tw`-ml-px w-2.5/4 relative inline-flex items-center px-4 py-4 rounded-r-md border border-gray-200 bg-gray-200 hover:bg-red-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500`}
-                  >
-                   <TouchableOpacity onPress={() => props.navigation.navigate("Dashlive2") }>
-                    <Text style={tw`text-base font-medium text-gray-700`}>Schedule Livestream</Text>
-                    </TouchableOpacity>
-                  </View>
+                  <TouchableOpacity onPress={() =>  setshowstream(false)} style={tw.style('w-2/4')}>
+                    <View
+                      type="button"
+                      style={tw`relative inline-flex items-center px-4 py-3 rounded-l-md border border-red-300 bg-red-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500`}
+                    >
+                        <Text style={tw`text-base font-medium text-white`}>Go Live Now</Text>
+                    </View>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity onPress={() => props.navigation.navigate("Dashlive2")} style={tw.style('w-2/4')}>
+                    <View
+                      type="button"
+                      style={tw`-ml-px relative inline-flex items-center px-4 py-3 rounded-r-md border border-gray-200 bg-gray-200 hover:bg-red-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500`}
+                    >
+                        <Text style={tw`text-base font-medium text-gray-700`}>Schedule Livestream</Text>
+                    </View>
+                  </TouchableOpacity>
                 </View>
 
-      
+
              { showstream==true &&
                 <View>
-              <View style={tw`mx-4 mt-5`}>
-                <TouchableOpacity onPress={() => props.navigation.navigate("Dashsubscribe")}>
-                 <Text style={tw`text-base text-gray-600`}>Date & Time</Text>
-                </TouchableOpacity>
-              </View>
+                  <View style={tw`mx-4 mt-5`}>
+                    <TouchableOpacity onPress={() => props.navigation.navigate("Dashsubscribe")}>
+                     <Text style={tw`text-base text-gray-600`}>Date & Time</Text>
+                    </TouchableOpacity>
+                  </View>
 
 
-                <View style={{backgroundColor:'#e6e6e6',width:200,borderRadius:10,padding:10,marginHorizontal:'4%',marginTop:'2%',flexDirection:'row',justifyContent:'space-between'}}>
-                      <Text style={{fontSize:18,color:'#000000',fontFamily:'hinted-AvertaStd-Regular'}}>Select Date</Text>
-                      <Image source={ImageIcons.caltoday} style={{width:15,height:15,marginTop:2}}/>
-                   </View>
+                  <View style={{backgroundColor:'#e6e6e6',width:200,borderRadius:10,padding:10,marginHorizontal:'4%',marginTop:'2%',flexDirection:'row',justifyContent:'space-between'}}>
+                    <Text style={{fontSize:18,color:'#000000',fontFamily:'hinted-AvertaStd-Regular'}}>Select Date</Text>
+                    <Image source={ImageIcons.caltoday} style={{width:15,height:15,marginTop:2}}/>
+                  </View>
 
-                 <View style={styles.pickerViewshorttodayagainlive2}>
-                      <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
-
-                </View>
+                  <View style={styles.pickerViewshorttodayagainlive2}>
+                        <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
+                  </View>
                 </View>
 
               }
@@ -257,57 +256,56 @@ return (
                       />
               </View>
 
-               <View style={{marginHorizontal:'3%',marginTop:'7%'}}>
-               <TouchableOpacity>
-                 <Text style={{fontSize:22,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',}}>Stream Time</Text>
-                 </TouchableOpacity>
+               <View style={tw`mx-4 mt-10`}>
+                 <TouchableOpacity>
+                    <Text style={tw`text-2xl text-gray-700`}>Stream Time</Text>
+                   </TouchableOpacity>
                </View>
 
               <View style={tw.style('flex flex-row mx-4 my-5')}>
-               <TouchableOpacity onPress={() =>setDuration(1200)} style={tw.style('mr-2')}>
-                { Duration==1200 ?
-                  <Smallbutton text="20 Min" />
-                   :
-                    <View  style={tw.style('w-auto items-center px-3 py-2 border border-transparent rounded-md shadow-sm  bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200')}>
-                      <Text style={tw.style('text-sm text-gray-700')}>20 MIN</Text>
-                   </View>
-               }
-                </TouchableOpacity>
+                 <TouchableOpacity onPress={() =>setDuration(1200)} style={tw.style('mr-2')}>
+                  { Duration==1200 ?
+                     <Smallbutton text="20 Min" />
+                     :
+                      <View  style={tw.style('w-auto items-center px-3 py-3 border border-transparent rounded-md shadow-sm  bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200')}>
+                        <Text style={tw.style('text-sm text-gray-700')}>20 MIN</Text>
+                      </View>
+                }
+                  </TouchableOpacity>
 
                  <TouchableOpacity onPress={() =>setDuration(1800)} style={tw.style('mx-2')}>
                 { Duration==1800 ?
                     <Smallbutton text="30 Min" />
                    :
-                    <View  style={tw.style('w-auto items-center px-3 py-2 border border-transparent rounded-md shadow-sm  bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200')}>
+                    <View  style={tw.style('w-auto items-center px-3 py-3 border border-transparent rounded-md shadow-sm  bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200')}>
                       <Text style={tw.style('text-sm text-gray-700')}>30 MIN</Text>
                    </View>
-               }
+                }
                    </TouchableOpacity>
 
                    <TouchableOpacity onPress={() =>setDuration(2700)} style={tw.style('mx-2')}>
                         { Duration==2700 ?
                       <Smallbutton text="45 Min" />
                    :
-                    <View  style={tw.style('w-auto items-center px-3 py-2 border border-transparent rounded-md shadow-sm  bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200')}>
+                    <View  style={tw.style('w-auto items-center px-3 py-3 border border-transparent rounded-md shadow-sm  bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200')}>
                       <Text style={tw.style('text-sm text-gray-700')}>45 MIN</Text>
                    </View>
-               }
+                }
                    </TouchableOpacity>
               </View>
 
 
 
 
-                 <View style={tw.style('mt-1')}>
-                    <View style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
+                <View style={tw.style('mt-1')}>
+                    <View style={tw.style('flex flex-row justify-between mx-4 mt-4 mb-6 items-center')}>
                        <Text style={tw.style('text-2xl text-gray-700')}>Products</Text>
-                       <Medbutton
+                       <Smallbutton
                        text="Add Product"
                        onPress={() => props.navigation.navigate("SearchProduct")}
                        />
-
                     </View>
-                    <View style={{marginLeft:'5%'}}>
+                    <View style={tw`mt-3 mx-3`}>
                       <FlatList
                           data={props?.getlistproduct || []}
                           renderItem={renderItem2}
@@ -317,12 +315,12 @@ return (
                           />
                       </View>
                </View>
-               <View style={tw.style('flex flex-row mx-4 mt-2 mb-5 items-center')}>
+               {/*<View style={tw.style('flex flex-row mx-4 mt-2 mb-5 justify-between items-center')}>
                   <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
                   <View style={tw.style('ml-3')}>
                     <Deletebutton />
                   </View>
-               </View>
+               </View>*/}
 
 
                 <View style={tw.style('mt-10 mb-16 mx-4')}>
@@ -340,8 +338,8 @@ return (
                         <TouchableOpacity onPress={() =>  openshare() } >
                             <DocumentDuplicateIcon color="red" fill="gray" size={24} />
                         </TouchableOpacity>
-                    </View>
-              </View>
+                      </View>
+                </View>
 
               { timer>0 &&
                         <View style={{marginTop:'6%'}}>
@@ -381,7 +379,7 @@ return (
 
                        <View
                         type="button"
-                         style={tw.style('my-5 inline-flex items-center px-4 py-6 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-gray-800 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500')}
+                         style={tw.style('my-5 inline-flex items-center px-3 py-3 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-gray-800 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500')}
                        >
                         <TouchableOpacity style={tw.style('w-10/11 items-center')}>
                            <Text style={tw.style('text-lg text-white')}>Test Livestream</Text>

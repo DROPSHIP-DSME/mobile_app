@@ -556,7 +556,7 @@ const renderItem6 = ({ item }) => {
 
                 <View
                   type="button"
-                  style={tw.style('mb-20 mx-4 items-center px-4 py-6 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-black hover:bg-black focus:outline-none focus:ring-2')}
+                  style={tw.style('mb-20 mx-4 items-center px-2 py-3 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-black hover:bg-black focus:outline-none focus:ring-2')}
                 >
                 <TouchableOpacity style={tw.style('w-10/11 items-center')}
                     onPress={() => props.navigation.navigate("Dashproduct")}>

@@ -362,7 +362,7 @@ const watchlist = (props) => {
                         <Image source={{ uri: item.products[0]?.productImage }} style={tw.style('w-40 h-56 rounded-md')} />
                         <Text style={tw`text-sm text-white absolute bottom-4 left-3 leading-4`}></Text>
 
-                        <View style={tw.style('flex flex-row bg-red-700 w-16 h-6 rounded-lg px-1 absolute top-4 left-2')}>
+                        <View style={tw.style('flex flex-row bg-red-700 w-16 h-6 rounded-lg px-1 absolute top-4 left-2 items-center')}>
                             <Text style={tw.style('px-3 text-sm text-white text-center')}>Live</Text>
                         </View>
                         <View style={tw.style('flex flex-row bg-green-200 w-16 h-6 rounded-lg px-2 items-center absolute top-4 left-[55%]')}>
@@ -704,13 +704,13 @@ const watchlist = (props) => {
                             />
                         </View>}
 
-                    <View style={tw.style('flex flex-1 bg-white overflow-hidden h-40 mt-6')}>
+                    <View style={tw.style('flex flex-1 bg-white overflow-hidden h-45 mt-6')}>
                         <ImageBackground source={image} resizeMode="cover" style={tw.style('flex flex-1 justify-center p-6')}>
                             <View style={tw.style('absolute bottom-10 left-3 h-16 w-10/12')}>
                                 <Text style={tw.style('text-lg text-white')}>Sneakers Store</Text>
                                 <Text style={tw.style('text-sm text-white')}>New Products Released</Text>
                             </View>
-                            <View style={tw.style('absolute bottom-5 left-3 w-36 py-2 px-2 rounded-full text-white bg-red-700')}>
+                            <View style={tw.style('absolute bottom-3 left-3 w-36 py-2 px-2 rounded-full text-white bg-red-700 items-center')}>
                                 <TouchableOpacity style={tw.style('items-center')}
                                     onPress={() => props.navigation.navigate('upcoming')}>
                                     <Text style={tw.style('text-xs text-white')}>Check out store</Text>
@@ -733,7 +733,7 @@ const watchlist = (props) => {
 
                     {(shop==true || Data==true) &&
                         <TouchableOpacity>
-                            <View style={{ marginBottom: '18%', marginLeft: '3%', marginTop: 35 }}>
+                            <View style={tw`ml-2 mt-8`}>
                                 <FlatList
                                     data={props?.getlistshop || []}
                                     renderItem={renderItem2}

@@ -218,16 +218,15 @@ const editpassword = (props) => {
                     <Text style={tw`text-2xl font-bold text-gray-800`}>Change Password</Text>
                 </View>
 
-                <View style={[tw.style('border-gray-200 rounded-md bg-gray-200 h-14 self-center mt-4 mx-2'), { width: deviceWidth / 1.1 }]}>
+                <View style={[tw.style('border-gray-200 rounded-md bg-gray-200 h-14 self-center mt-4 mx-2 justify-center'), { width: deviceWidth / 1.1 }]}>
                     <TextInput
                         placeholder="Old Password"
                         placeholderTextColor="#1a1a1a"
                         paddingLeft={15}
-
                     />
                 </View>
 
-                <View style={[tw.style('border-gray-200 rounded-md bg-gray-200 h-14 self-center mt-4 mx-2'), { width: deviceWidth / 1.1 }]}>
+                <View style={[tw.style('border-gray-200 rounded-md bg-gray-200 h-14 self-center mt-4 mx-2 justify-center'), { width: deviceWidth / 1.1 }]}>
                     <TextInput
                         placeholder="New Password"
                         placeholderTextColor="#1a1a1a"
@@ -239,7 +238,7 @@ const editpassword = (props) => {
 
                     />
                 </View>
-                <View style={[tw.style('border-gray-200 rounded-md bg-gray-200 h-14 self-center mt-4 mx-2'), { width: deviceWidth / 1.1 }]}>
+                <View style={[tw.style('border-gray-200 rounded-md bg-gray-200 h-14 self-center mt-4 mx-2 justify-center'), { width: deviceWidth / 1.1 }]}>
                     <TextInput
                         placeholder="Confirm New Password"
                         placeholderTextColor="#1a1a1a"
