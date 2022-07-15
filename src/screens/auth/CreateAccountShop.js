@@ -19,6 +19,7 @@ import PasswordInputText from '../../components/react-native-hide-show-password-
 import tw from 'twrnc';
 import Largebutton from '../../components/dropshipbutton/Largebutton';
 import AwesomeAlert from '../../components/modals/AlertModal';
+import { EyeIcon } from "react-native-heroicons/solid";
 
 
 const CreateAccountShop = (props) => {
@@ -47,6 +48,10 @@ const CreateAccountShop = (props) => {
 
     const [showotherAlert, setshowotherAlert] = React.useState(false);
     const [showalertmsg, setshowalertmsg] = React.useState('');
+    const [toggleCheckBox, setToggleCheckBox] = useState(true)
+
+    const [confirmsecure, setconfirmsecure] = useState(true)
+    const [passwordsecure, setpasswordsecure] = useState(true)
 
 
     useEffect(() => {
@@ -74,9 +79,7 @@ const CreateAccountShop = (props) => {
         }
     }
 
-    const validatePassword = async (val) => {
-         return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(val);
-    }
+    
 
 
     // Registration request submission
@@ -94,15 +97,18 @@ const CreateAccountShop = (props) => {
         }else if (password == "" ) {
             setshowotherAlert(true)
             setshowalertmsg('Password is required')
-        }else if(!validatePassword(password)){
+        }else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(password)) {
             setshowotherAlert(true)
             setshowalertmsg('The password should have at least 8 characters with 1 upper case, 1 lower case, 1 number, and 1 special character(*,%,!,@,&,$,?)')
         } else if (confirmPassword == "") {
             setshowotherAlert(true)
             setshowalertmsg('Confirm Password is required')
-        } else if (confirmPassword !== password) {
+        } else if (confirmPassword != password) {
             setshowotherAlert(true)
             setshowalertmsg('Confirm Password does not match.')
+        }else if(toggleCheckBox==false){
+            setshowotherAlert(true)
+            setshowalertmsg('Please accept the Terms & Conditions')
         } else {
             //props.navigation.navigate("Overview")
             let request = {
@@ -122,11 +128,11 @@ const CreateAccountShop = (props) => {
     }
 
     const openPrivacyPolicy = () => {
-        Linking.openURL('');
+        Linking.openURL('https://dropship.shopping/privacy-policy/');
     }
 
     const openTerms = () => {
-        Linking.openURL('');
+        Linking.openURL('https://dropship.shopping/');
     }
 
     return (
@@ -152,7 +158,8 @@ const CreateAccountShop = (props) => {
             <View>
 
                 <View style={tw.style('mt-5')}>
-                    <TextInput  style={tw.style('mx-5 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg')}
+                    <TextInput  
+                     style={tw.style('mx-5 pl-3 sm:text-sm text-gray-700 border-gray-300 bg-gray-200 rounded-lg')}
                      placeholder="Email address"
                      onChangeText={onChangeText1}
                      value={email}
@@ -162,7 +169,8 @@ const CreateAccountShop = (props) => {
                 </View>
 
                 <View style={tw.style('mt-4')}>
-                    <TextInput  style={tw.style('mx-5 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg')}
+                    <TextInput  
+                     style={tw.style('mx-5 pl-3 sm:text-sm text-gray-700  border-gray-300 bg-gray-200 rounded-lg')}
                      placeholder="Username"
                      onChangeText={onChangeText6}
                      value={username}
@@ -171,36 +179,71 @@ const CreateAccountShop = (props) => {
                     />
                 </View>
 
-                <View style={tw.style('mx-5 mt-4 border-gray-300 bg-gray-200 rounded-lg')}>
+                <View style={tw.style('mt-4')}>
                     <TextInput
-                      style={tw.style('pl-3 sm:text-sm')}
+                      style={tw.style('mx-5 pl-3 sm:text-sm text-gray-700 border-gray-300 bg-gray-200 rounded-lg')}
                       placeholderTextColor="#000000"
                       onChangeText={onChangeText2}
                       value={password}
                       placeholder="Password"
-                      secureTextEntry={true}
+                      secureTextEntry={passwordsecure}
                       onSubmitEditing={() => handleRegistrationSubmit()}
                     />
+                    <View style={tw`absolute top-3 right-8`}>
+                       <TouchableOpacity onPress={() => setpasswordsecure(s=>!s)}>
+                        <EyeIcon color="red" fill="black" size={24} />
+                        </TouchableOpacity>
+                  </View>
                 </View>
 
                 <View style={tw.style('mt-4')}>
                      <TextInput
-                      style={tw.style('mx-5 pl-3 sm:text-sm border-gray-300 bg-gray-200 rounded-lg')}
+                      style={tw.style('mx-5 pl-3 sm:text-sm text-gray-700 border-gray-300 bg-gray-200 rounded-lg')}
                       placeholderTextColor="#000000"
                       onChangeText={onChangeText3}
                       value={confirmPassword}
-                      placeholder="confirmPassword"
-                      secureTextEntry={true}
+                      placeholder="Confirm Password"
+                      secureTextEntry={confirmsecure}
                       onSubmitEditing={() => handleRegistrationSubmit()}
                     />
+                    <View style={tw`absolute top-3 right-8`}>
+                      <TouchableOpacity onPress={() => setconfirmsecure(s=>!s)}>
+                        <EyeIcon color="red" fill="black" size={24} />
+                      </TouchableOpacity>
+                    </View>
                 </View>
 
-                <View style={tw.style('flex flex-row mt-2 mx-4 my-4')}>
-                <CheckBox
-                    checkedColor='red'
-                    value={true}
-                 />
-                    <Text style={tw.style('text-sm text-gray-700 mt-2 w-10/11')}>I agree to the <Text style={tw.style('text-sm text-red-700 mt-2')}>Terms & Conditions</Text> and have read the <Text style={tw.style('text-sm text-red-700 mt-2')}>Privacy Policy</Text></Text>
+                <View style={tw.style('flex mt-2 mx-4 my-4')}>
+                
+
+                
+
+                   
+
+                <View style={tw.style('flex flex-row justify-center mt-3 w-12/12')}>
+                    <CheckBox
+                        value={toggleCheckBox}
+                        onValueChange={(newValue) => setToggleCheckBox(newValue)}
+                        tintColors={'#9E663C'}
+                        onCheckColor={'#6F763F'}
+                        onFillColor={'#4DABEC'}
+                        onTintColor={'#F4DCF8'}
+                     />
+                    <Text style={tw.style('text-sm text-gray-700 tracking-wide')}> I agree to the </Text>
+                    <TouchableOpacity onPress={() => openTerms()}>
+                        <Text style={tw.style('text-sm text-red-700')}> Terms & Conditions</Text>
+                    </TouchableOpacity>
+                    <Text style={tw.style('text-sm text-gray-700 tracking-wide')}> and have</Text>
+                </View>
+
+                <View style={tw.style('flex flex-row justify-center w-9/12')}>
+                    <Text style={tw.style('text-sm text-gray-700 tracking-wide')}>read the </Text>
+                    <TouchableOpacity onPress={() => openPrivacyPolicy()}>
+                        <Text style={tw.style('text-sm text-red-700')}> Privacy Policy</Text>
+                    </TouchableOpacity>
+                </View>
+
+
                 </View>
                 <View style={tw`mx-5`}>
                 <Largebutton

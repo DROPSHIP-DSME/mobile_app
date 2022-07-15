@@ -21,6 +21,7 @@ import { useValidation } from 'react-native-form-validator';
 import PasswordInputText from '../../components/react-native-hide-show-password-input';
 import tw from 'twrnc';
 import Largebutton from '../../components/dropshipbutton/Largebutton';
+import AwesomeAlert from '../../components/modals/AlertModal';
 
 const ForgetPassword = (props) => {
 
@@ -44,6 +45,9 @@ const ForgetPassword = (props) => {
     const [password, onChangeText2] = React.useState("");
     const [text3, onChangeText3] = React.useState("Confirm password");
     const [UserID, setUserID] = useState("");
+
+    const [showotherAlert, setshowotherAlert] = React.useState(false);
+    const [showalertmsg, setshowalertmsg] = React.useState('');
 
     const { validate, isFieldInError, getErrorsInField, getErrorMessages } =
     useValidation({
@@ -80,19 +84,14 @@ const ForgetPassword = (props) => {
     // Registration request submission
     const handleRegistrationSubmit = () => {
         Keyboard.dismiss();
-            validate({
-                email: { email: true },
-                password: { password: true },
-            }); {
-            //props.navigation.navigate("Overview")
-            let request = {
-                "email": email,
-
-                "type":"shop"
-            }
-            props.navigation.navigate("ResetPassword");
-            //props.shoplogin(request,props.navigation,'user','shop')
-            //props.signup(request, props.navigation, "salesman");
+        if (email == "") {
+            setshowotherAlert(true)
+            setshowalertmsg('Email is required')
+        }else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
+            setshowotherAlert(true)
+            setshowalertmsg('Invalid Email')
+        }else{
+             props.navigation.navigate("ResetPassword");
         }
     }
 
@@ -101,9 +100,11 @@ const ForgetPassword = (props) => {
 
       <View style={tw.style('flex flex-1 bg-white')}>
 
-        <View style={tw.style('items-center mt-24 w-full')}>
-            <Image source={ImageIcons.logored_1} style={tw.style('w-30 h-24')}  />
-        </View>
+        <View style={tw.style('items-center my-18 w-full h-24')}>
+                <Image source={ImageIcons.logored_1} style={tw.style('w-[32%] h-26.7')}  />
+            </View>
+                    <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
+
 
         <View>
             <Text style={tw.style('text-2xl text-gray-700 tracking-wide mt-8 mb-3 ml-5')}>Forgot Password</Text>
@@ -123,9 +124,7 @@ const ForgetPassword = (props) => {
           value={email}
           onSubmitEditing={() => handleRegistrationSubmit()}
           />
-          {isFieldInError('email') &&
-              <Text style={styles.stringerror}>must be required field</Text>
-          }
+          
         </View>
       </View>
       <View style={tw`mx-5`}>

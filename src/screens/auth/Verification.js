@@ -14,6 +14,8 @@ import PhoneMaskInput from '../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../components/modals/Loader';
 import { useNavigation } from '@react-navigation/native';
 import { useValidation } from 'react-native-form-validator';
+import tw from 'twrnc';
+import AwesomeAlert from '../../components/modals/AlertModal';
 
 
 const Verification = (props) => {
@@ -30,40 +32,36 @@ const Verification = (props) => {
     //Reference
    
     // Local states
-    const [wayToContact, setWayToContact] = useState("Phone");
-    const [wayToContactList, setWayToContactList] = useState([
-        {
-            label: "Phone",
-            value: "Phone"
-        },
-        {
-            label: "Email",
-            value: "Email"
-        }
-    ]);
     const [hide, setHide] = React.useState(false)
     const [show, setShow] = React.useState(false)
-    const [code, setCode] = React.useState("");
-   const [email, onChangeText1] = React.useState("");
-    const { validate, isFieldInError, getErrorsInField, getErrorMessages } =
-    useValidation({
-      state: { email,  },
-    });
+    const [code, setCode] = React.useState("123456");
+    const [showotherAlert, setshowotherAlert] = React.useState(false);
+    const [showalertmsg, setshowalertmsg] = React.useState('');
+
+   const [phonenumber, onChangeText1] = React.useState("");
+    
+
     const handleRegistrationSubmit = () => {
         Keyboard.dismiss();
-            validate({
-                email: { email: true },
-                password: { password: true },
-            }); {
-            //props.navigation.navigate("Overview")
-            let request = {
-                "email": email,
-               
-                "type":"shop"
-            }
-            props.navigation.navigate("ResetPassword");
-            //props.shoplogin(request,props.navigation,'user','shop')
-            //props.signup(request, props.navigation, "salesman");
+        if (phonenumber == "") {
+            setshowotherAlert(true)
+            setshowalertmsg('Mobile Number is required')
+        }else if (!/^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/.test(phonenumber)) {
+            setshowotherAlert(true)
+            setshowalertmsg('Invalid Number')
+        }else{
+            setShow('true');
+            setHide(true);  
+        }
+    }
+
+    const handleRegistrationSubmit1 = () => {
+        Keyboard.dismiss();
+        if(code!='123456'){
+            setshowotherAlert(true)
+            setshowalertmsg('Code is invalid')
+        }else {
+            props.navigation.navigate("Codeconfirm");
         }
     }
 
@@ -74,6 +72,9 @@ const Verification = (props) => {
           <View style={{alignItems:'center',marginTop:'18%'}}>
               <Image source={ImageIcons.logored_1} style={styles.setlogonewdatarow}  />
           </View>
+
+        <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
+
         <View>
             <Text style={styles.headingTextfrgt}>Confirm Phone Number</Text>
         </View>
@@ -82,22 +83,20 @@ const Verification = (props) => {
              <View>
                 <Text style={styles.headingText1today}>To authorise your account, we will send a code to the mobile number entered below. Please enter your mobile number.</Text>
             </View>
-            <View >
-                <TextInput  style={styles.input1}
+            <View style={tw.style('flex mt-2 my-4')}>
+                <TextInput  
+                style={tw.style('mx-5 pl-3 sm:text-sm text-gray-700 border-gray-300 bg-gray-200 rounded-lg')}
                 placeholder="Mobile Number"
-                 autoCompleteType='email'
-                 placeholderTextColor="#999999" 
+                placeholderTextColor="#999999" 
                 onChangeText={onChangeText1}
-                value={email}
+                value={phonenumber}
                 onSubmitEditing={() => handleRegistrationSubmit()}
                 />
-                {isFieldInError('email') &&
-                    <Text style={styles.stringerror}>must be required field</Text>
-                }
+                
             </View>
 
             <TouchableOpacity style={styles.Touchablelogin}
-                onPress={() => {setShow('true');setHide(true)}}>
+                onPress={() => {  handleRegistrationSubmit() }}>
                 <Text style={styles.TouchableloginTEXT}>Send Code</Text>
             </TouchableOpacity>
         </View>
@@ -107,22 +106,20 @@ const Verification = (props) => {
              <View>
                 <Text style={styles.headingText1today}>Please enter the code you received via text message.</Text>
             </View>
-            <View >
-                <TextInput  style={styles.input1}
+            <View style={tw.style('flex mt-2 my-4')}>
+                <TextInput  
+                style={tw.style('mx-5 pl-3 sm:text-sm text-gray-700 border-gray-300 bg-gray-200 rounded-lg')}
                 placeholder="Enter Code"
-                 autoCompleteType='email'
-                 placeholderTextColor="#999999" 
+                placeholderTextColor="#999999" 
                 onChangeText={setCode}
                 value={code}
-                onSubmitEditing={() => handleRegistrationSubmit()}
+                onSubmitEditing={() => handleRegistrationSubmit1() }
                 />
-                {isFieldInError('email') &&
-                    <Text style={styles.stringerror}>must be required field</Text>
-                }
+                
             </View>
 
             <TouchableOpacity style={styles.Touchablelogin}
-                onPress={() => props.navigation.navigate("Codeconfirm")}>
+                onPress={() => handleRegistrationSubmit1() }>
                 <Text style={styles.TouchableloginTEXT}>Confirm</Text>
             </TouchableOpacity>
         </View>

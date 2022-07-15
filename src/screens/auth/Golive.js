@@ -28,6 +28,7 @@ import {
 } from '@react-native-google-signin/google-signin';
 import ModalSelector from 'react-native-modal-selector';
 import { useTailwind } from 'tailwind-rn';
+import AwesomeAlert from '../../components/modals/AlertModal';
 
 
 
@@ -50,6 +51,8 @@ const Golive = (props) => {
     // Local states
     const [City, onChangeCity] = React.useState("");
     const [Country, onChangeCountry] = React.useState("");
+    const [showotherAlert, setshowotherAlert] = React.useState(false);
+    const [showalertmsg, setshowalertmsg] = React.useState('');
 
     useEffect(() => {
         props.countrylist();
@@ -57,31 +60,51 @@ const Golive = (props) => {
          //AsyncStorage.setItem('userLogin',"0");
          //GoogleSignin.configure();
          GoogleSignin.configure({
-                  scopes: ['https://www.googleapis.com/auth/user.gender.read'], // [Android] what API you want to access on behalf of the user, default is email and profile
-                  webClientId: '512487199242-cp48gba87neibcgvoo98i8tca01tr0i0.apps.googleusercontent.com', // client ID of type WEB for your server (needed to verify user ID and offline access)
-                  offlineAccess: true, // if you want to access Google API on behalf of the user FROM YOUR SERVER
-                  hostedDomain: '', // specifies a hosted domain restriction
-                  forceCodeForRefreshToken: true, // [Android] related to `serverAuthCode`, read the docs link below *.
-                  accountName: '', // [Android] specifies an account name on the device that should be used
-                  iosClientId: '', // [iOS] if you want to specify the client ID of type iOS (otherwise, it is taken from GoogleService-Info.plist)
-                  googleServicePlistPath: '', // [iOS] if you renamed your GoogleService-Info file, new name here, e.g. GoogleService-Info-Staging
-                  openIdRealm: '', // [iOS] The OpenID2 realm of the home web server. This allows Google to include the user's OpenID Identifier in the OpenID Connect ID token.
-                  profileImageSize: 120, // [iOS] The desired height (and width) of the profile image. Defaults to 120px
-                });
+            webClientId: '512487199242-cp48gba87neibcgvoo98i8tca01tr0i0.apps.googleusercontent.com', // client ID of type WEB for your server (needed to verify user ID and offline access)
+        });
+        //requestUserPermission();
     }, [])
 
-    const googlesignin = async () => {
-        try {
+    // const googlesignin = async () => {
+    //     try {
 
-          await GoogleSignin.hasPlayServices();
-          var userInfo = await GoogleSignin.signIn();
-          console.log('userInfo:',userInfo)
-          props.navigation.navigate('watchlist')
+    //       await GoogleSignin.hasPlayServices();
+    //       var userInfo = await GoogleSignin.signIn();
+    //       console.log('userInfo:',userInfo)
+    //       props.navigation.navigate('watchlist')
+    //     } catch (error) {
+    //         //alert('Dropship has not updated on stores yet, please upload app on stores to proceed')
+    //         //props.navigation.navigate('watchlist')
+    //         console.log('google sign error:', error)
+    //     }
+    // }
+
+    const googleSignIn = async () => {
+        try {
+            await GoogleSignin.signOut();
+            const userInfo = await GoogleSignin.signIn();
+            //alert('LOGIN_SUCCESS')
+            setshowotherAlert(true)
+            setshowalertmsg('Work is in progress')
         } catch (error) {
-            //alert('Dropship has not updated on stores yet, please upload app on stores to proceed')
-            //props.navigation.navigate('watchlist')
-            console.log('google sign error:', error)
+           setshowotherAlert(true)
+            setshowalertmsg('Work is in progress')
         }
+    }
+
+    const facebookSignIn = async () => {
+        // LoginManager.logInWithPermissions(["public_profile", "email"]).then(
+        //     function (result) {
+        //         if (result.isCancelled) {
+        //             console.log("Login cancelled");
+        //         } else {
+        //             console.log("Login Success ", JSON.stringify(result));
+        //         }
+        //     },
+        //     function (error) {
+        //         console.log("Login fail with error: " + error);
+        //     }
+        // );
     }
 
 
@@ -94,15 +117,15 @@ const Golive = (props) => {
         <View style={{backgroundColor:'#ffffff',flex:1}}>
 
           <View style={tw.style('items-center my-16')}>
-                <TouchableOpacity onPress={() => props.navigation.navigate("CreateAccountShop")}>
                     <Image source={ImageIcons.logored_1} style={styles.setlogonewdatarow}  />
-                </TouchableOpacity>
           </View>
+                  <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
+
           <View style={tw.style('items-center mt-12')}>
               <TouchableOpacity
                   style={tw.style('w-10/11 h-16 bg-white justify-center text-center rounded-lg border border-slate-400 shadow-sm')}
                   activeOpacity = { .5}
-                  onPress={() => navigation.navigate('watchlist')}>
+                  onPress={() => googleSignIn()}>
                   <View style={tw.style('flex flex-row justify-center items-center')}>
                       <Image source={ImageIcons.googleicon} style={tw.style('w-8 h-8')} />
                       <Text style={tw.style('text-lg font-bold ml-3 text-gray-800 tracking-wide')}>Sign in with Google</Text>
@@ -113,7 +136,7 @@ const Golive = (props) => {
               <TouchableOpacity
                   style={tw.style('w-10/11 h-16 bg-white justify-center text-center rounded-lg border border-slate-400 shadow-sm ')}
                   activeOpacity = { .5}
-                  onPress={() => bigcommercelogin()}>
+                  onPress={() => facebookSignIn()}>
                   <View style={tw.style('flex flex-row justify-center items-center')}>
                       <Image source={ImageIcons.facebook} style={tw.style('w-5 h-9')} />
                       <Text style={tw.style('text-lg font-bold ml-3 mt-1 text-gray-800 tracking-wide')}>Sign in with Facebook</Text>

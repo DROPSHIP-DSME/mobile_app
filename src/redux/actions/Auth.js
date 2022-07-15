@@ -199,12 +199,12 @@ export const shoplogin = (loginCredentials,navigation,type, usertype) => {
           setTimeout(function(){ navigation.navigate("watchlist",{ userId:response.data._id }); },1);
         } else {
            
-          //Alert.alert("DROPSHIP", String(response?.message))
+          Alert.alert("DROPSHIP", 'Invalid Email or Password')
         }
       } catch (error) {
         dispatch({ type: SET_LOGIN_LOADER, payload: false });
         dispatch(changeLoginCredentials(null));
-        //Alert.alert("DROPSHIP", String(error?.message))
+        Alert.alert("DROPSHIP", 'Invalid Email or Password')
       }
     }
   };

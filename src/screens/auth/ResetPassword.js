@@ -59,31 +59,13 @@ const ResetPassword = (props) => {
     });
 
     useEffect(() => {
-        requestUserPermission();
+        //requestUserPermission();
         //getBrandUserId();
     }, [])
 
-    const getBrandUserId = async () => {
-        var getUserId = await AsyncStorage.getItem('userLogin');
-        if(getUserId=="1"){
-            props.navigation.navigate("watchlist")
-        }
-    }
+    
 
-    // Request FCM Permission & get device token
-    const requestUserPermission = async () => {
-        const authStatus = await messaging().requestPermission();
-        const enabled =
-            authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
-            authStatus === messaging.AuthorizationStatus.PROVISIONAL;
-
-        if (enabled) {
-            // console.log('Authorization status:', authStatus);
-            const _deviceToken = await messaging().getToken();
-            setDeviceToken(_deviceToken)
-        }
-    }
-
+    
 
     // Registration request submission
     const handleRegistrationSubmit = () => {
@@ -106,9 +88,9 @@ const ResetPassword = (props) => {
 
     return (
       <View style={tw.style('flex flex-1 bg-white')}>
-         <View style={tw.style('items-center mt-32')}>
-             <Image source={ImageIcons.logored_1} style={tw.style('w-40 h-32')}  />
-         </View>
+         <View style={tw.style('items-center my-18 w-full h-24')}>
+                <Image source={ImageIcons.logored_1} style={tw.style('w-[32%] h-26.7')}  />
+            </View>
          <View style={tw.style('mb-7 mt-10 items-center')}>
              <CheckCircleIcon color="white" fill="green" size={70}/>
          </View>
@@ -121,7 +103,7 @@ const ResetPassword = (props) => {
          <View style={tw.style('mt-30 mx-5')}>
            <Largebutton
              text="Return to Login"
-             onPress={() => props.navigation.navigate("Registration")}
+             onPress={() => props.navigation.navigate("RegistrationShop")}
            />
          </View>
          <Loader isVisible={props?.loginLoader} />

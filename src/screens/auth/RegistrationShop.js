@@ -25,6 +25,7 @@ import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import tw from 'twrnc';
 import Largebutton from '../../components/dropshipbutton/Largebutton';
 import { EyeIcon } from "react-native-heroicons/solid";
+import AwesomeAlert from '../../components/modals/AlertModal';
 
 
 const RegistrationShop = (props) => {
@@ -45,8 +46,6 @@ const RegistrationShop = (props) => {
     const fullnameRef = useRef();
     const instaLogin = useRef()
     const linkedInLogin = useRef()
-
-
     // Local States
     const [isShowPassword, setIsShowPassword] = useState(true);
     const [isShowConfirmPassword, setIsShowConfirmPassword] = useState(true);
@@ -57,23 +56,29 @@ const RegistrationShop = (props) => {
     const [password, onChangeText2] = React.useState("");
     const [text3, onChangeText3] = React.useState("Confirm password");
     const [UserID, setUserID] = useState("");
-    const { validate, isFieldInError, getErrorsInField, getErrorMessages } =
-        useValidation({
-            state: { email, password, },
-        });
+    const [passwordsecure, setpasswordsecure] = useState(true)
+    const [toggleCheckBox, setToggleCheckBox] = useState(false)
+    const [showotherAlert, setshowotherAlert] = React.useState(false);
+    const [showalertmsg, setshowalertmsg] = React.useState('');
 
+    
     useEffect(() => {
         GoogleSignin.configure({
             webClientId: '512487199242-cp48gba87neibcgvoo98i8tca01tr0i0.apps.googleusercontent.com', // client ID of type WEB for your server (needed to verify user ID and offline access)
         });
         requestUserPermission();
-        //getBrandUserId();
+        getrememberMe();
     }, [])
 
-    const getBrandUserId = async () => {
-        var getUserId = await AsyncStorage.getItem('userLogin');
-        if (getUserId == "1") {
-            props.navigation.navigate("watchlist")
+    const getrememberMe = async () => {
+        var getpassword = await AsyncStorage.getItem('rememberpassword');
+        var getemail = await AsyncStorage.getItem('rememberemail');
+        onChangeText1(getemail);
+        onChangeText2(getpassword);
+        if(getemail!=null){  
+            setToggleCheckBox(true)
+        }else{
+            setToggleCheckBox(false)
         }
     }
 
@@ -95,24 +100,27 @@ const RegistrationShop = (props) => {
     // Registration request submission
     const handleRegistrationSubmit = () => {
         Keyboard.dismiss();
-        validate({
-            email: { email: true },
-            password: { password: true },
-        }); {
-            //alert(email+':password:'+password)
-            //props.navigation.navigate("Overview")
+        if (email == "") {
+            setshowotherAlert(true)
+            setshowalertmsg('Email is required')
+        }else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
+            setshowotherAlert(true)
+            setshowalertmsg('Invalid Email')
+        }else if (password == "" ) {
+            setshowotherAlert(true)
+            setshowalertmsg('Password is required')
+        }else{
+            getrememberMe();
             let request = {
                 "email": email,
                 "password": password,
                 "deviceToken": deviceToken,
-                "otheruserid": props?.loginuserid,
+                "otheruserid": '',
                 "type": "shop"
             }
             if(email!="" && password!=""){
-                console.log('valdashoprequestdata',request);
                 props.shoplogin(request, props.navigation, 'user', 'shop')
             }
-            //props.signup(request, props.navigation, "salesman");
         }
     }
     const googleSignIn = async () => {
@@ -143,22 +151,29 @@ const RegistrationShop = (props) => {
         instaLogin.current.hide()
     }
 
-    const getLinkedToken = (data) => {
-        console.log(data)
-        getLinkedinProfileData(data)
-        // call this to get the profile data
-        //https://api.linkedin.com/v2/me
+    const Rememberme = async (newValue) => {
+        setToggleCheckBox(newValue);
+        if(newValue==true){
+           await AsyncStorage.setItem('rememberpassword',password);
+           await AsyncStorage.setItem('rememberemail',email);
+        }else {
+           await AsyncStorage.setItem('rememberpassword','');
+           await AsyncStorage.setItem('rememberemail','');
+        }
     }
+
     return (
       <View style={{ backgroundColor: '#ffffff', flex: 1 }}>
 
             <View style={tw.style('items-center my-18 w-full h-24')}>
-                <Image source={ImageIcons.logored_1} style={tw.style('w-[32%] h-27')}  />
+                <Image source={ImageIcons.logored_1} style={tw.style('w-[32%] h-26.7')}  />
             </View>
           <View>
               <Text style={styles.headingText1}>Login</Text>
           </View>
         <View>
+
+        <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
 
 
               <View style={tw.style('mx-1 my-3 flex rounded-md items-center')}>
@@ -171,9 +186,7 @@ const RegistrationShop = (props) => {
                       value={email}
                       onSubmitEditing={() => handleRegistrationSubmit()}
                   />
-                  {isFieldInError('email') &&
-                      <Text style={tw.style('text-red-700 mx-8 my-2')}>must be required field</Text>
-                  }
+                  
               </View>
 
               <View style={tw.style('mx-1 mt-3 mb-1 flex items-center rounded-lg')} >
@@ -183,21 +196,28 @@ const RegistrationShop = (props) => {
                       placeholderTextColor="#000000"
                       onChangeText={onChangeText2}
                       value={password}
-                      secureTextEntry={true}
+                      secureTextEntry={passwordsecure}
                       onSubmitEditing={() => handleRegistrationSubmit()}
                   />
                   <View style={tw`absolute top-3 right-8`}>
-                    <EyeIcon color="red" fill="black" size={24} />
+                    <TouchableOpacity onPress={() => setpasswordsecure(s=>!s)}>
+                        <EyeIcon color="red" fill="black" size={24} />
+                    </TouchableOpacity>
                   </View>
-                  {isFieldInError('password') &&
-                      <Text style={tw.style('text-red-700 mx-8 my-2')}>must be required field</Text>
-                  }
+                  
               </View>
               <View style={tw.style('mt-2 flex flex-row ml-3 mb-4')}>
                   <CheckBox
-                      onCheckColor='#b80000'
-                      value={true}
-                  />
+                        value={toggleCheckBox}
+                        onValueChange={(newValue) => {
+                                Rememberme(newValue)
+                            }
+                        }
+                        tintColors={'#9E663C'}
+                        onCheckColor={'#6F763F'}
+                        onFillColor={'#4DABEC'}
+                        onTintColor={'#F4DCF8'}
+                     />
                   <Text style={tw.style('mt-1 text-base')}>Remember me</Text>
               </View>
 
