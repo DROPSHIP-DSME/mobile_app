@@ -231,7 +231,7 @@ const editprofile = (props) => {
                     <Text style={tw.style('text-2xl font-bold mt-8 mb-6 mx-2')}>Edit Profile</Text>
                 </View>
 
-                <View style={[tw.style('border-gray-200 rounded-md bg-gray-200 h-14 self-center mt-4 mx-2'), { width: deviceWidth / 1.1 }]}>
+                <View style={[tw.style('border-gray-200 rounded-md bg-gray-200 h-14 self-center mt-4 mx-2 justify-center'), { width: deviceWidth / 1.1 }]}>
                     <TextInput
                          placeholder="First Name"
                          placeholderTextColor="#1a1a1a"
@@ -243,7 +243,7 @@ const editprofile = (props) => {
 
                 </View>
 
-                <View style={[tw.style('border-gray-200 rounded-md bg-gray-200 h-14 self-center mt-4 mx-2'), { width: deviceWidth / 1.1 }]}>
+                <View style={[tw.style('border-gray-200 rounded-md bg-gray-200 h-14 self-center mt-4 mx-2 justify-center'), { width: deviceWidth / 1.1 }]}>
                     <TextInput
                  placeholder="Last Name"
                  placeholderTextColor="#1a1a1a"
@@ -253,7 +253,7 @@ const editprofile = (props) => {
                  value={lastname}
                  />
                 </View>
-                <View style={[tw.style('border-gray-200 rounded-md bg-gray-200 h-14 self-center mt-4 mx-2'), { width: deviceWidth / 1.1 }]}>
+                <View style={[tw.style('border-gray-200 rounded-md bg-gray-200 h-14 self-center mt-4 mx-2 justify-center'), { width: deviceWidth / 1.1 }]}>
                     <TextInput
                  placeholder="Email Address"
                  placeholderTextColor="#1a1a1a"
@@ -264,9 +264,9 @@ const editprofile = (props) => {
                  />
                 </View>
 
-                <View style={tw.style('flex flex-row mx-4 justify-between mt-4')}>
+                <View style={tw.style('flex flex-row mx-5 justify-between mt-4')}>
 
-                    <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
+                    <Sortorder text="Select Country" options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
                     <View style={tw.style('h-14 ml-2 w-[45%] bg-gray-200 rounded-md')}>
                         <TextInput
@@ -279,7 +279,7 @@ const editprofile = (props) => {
                          />
                     </View>
                 </View>
-                <View style={tw`my-10 mx-4`}>
+                <View style={tw`my-10 mx-5`}>
                   <Largebutton
                   text='Save Changes'
                   onPress={()=>{ handleSendRequestSubmit()}} />

@@ -20,6 +20,8 @@ import AwesomeAlert from 'react-native-awesome-alerts';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import tw from 'twrnc';
 import Largebutton from '../../../components/dropshipbutton/Largebutton';
+import Editbutton from '../../../components/pickers/Editbutton';
+import Deletebutton from '../../../components/pickers/Deletebutton';
 
 const editaddress = (props) => {
 
@@ -161,23 +163,28 @@ const editaddress = (props) => {
     const renderItem = ({ item, index }) => {
     return(
 
-    <View style={{marginHorizontal:"3%",backgroundColor:"#FFFFFF",marginTop:"4%",elevation:1,borderRadius:10,padding:6}}>
-              {index==0 &&
-               <View style={{backgroundColor:"#E6E6E6",width:deviceWidth/3,height:25,paddingTop:"1%",borderRadius:5}}><Text style={{textAlign:"center", color:"#2F80ED",fontSize:12,fontWeight:"bold",fontFamily:"hinted-AvertaStd-Regular"}}>
-                 DEFAULT ADDRESS</Text></View>
-            }
-              <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"3%", marginTop:"1%"}}>
-
-                 <Text style={{fontSize:18,fontFamily:"hinted-AvertaStd-Regular",color:"#1A1A1A",padding:"2%"}}>{item?.firstName} {item?.lastName} {"\n"}{item?.streetAdress}, {item?.phoneNumber}{"\n"}{item?.city}{"\n"}{item?.zipCode}</Text>
-               <View style={{flexDirection:'row'}}>
-
-              <TouchableOpacity   onPress={() =>setdeleteaddress(item._id)}>
-                 <Image source={ImageIcons.del} style={{width:45,height:40,marginLeft:8}}/>
-              </TouchableOpacity>
-              </View>
-
-              </View>
+    <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 mb-5')}>
+      <View style={tw.style('px-2 py-5')}>
+       <View style={tw`flex flex-row justify-between`}>
+          <View style={tw`min-w-[55%] mx-3`}>
+                 {index==0 &&
+                  <View style={tw.style('mb-1 items-center px-2.5 py-2 rounded-full bg-blue-100 w-40')}>
+                     <Text style={tw.style('text-xs font-medium text-blue-800')}>Default Address</Text>
+                  </View>
+                  }
+                  <View sytle={tw``}>
+                    <Text style={tw`text-base text-gray-700 mt-3`}>{item?.firstName} {item?.lastName} {"\n"}{item?.streetAdress}, {item?.phoneNumber}{"\n"}{item?.city}{"\n"}{item?.zipCode}</Text>
+                  </View>
           </View>
+            <View style={`flex-row justify-between h-40`}>
+              <View style={tw`flex-row mr-3`}>
+                <Editbutton />
+                <Deletebutton onPress={() =>setdeleteaddress(item._id)}/>
+              </View>
+            </View>
+        </View>
+      </View>
+    </View>
 
   );
  }
@@ -208,7 +215,7 @@ const editaddress = (props) => {
                     />
                 </View>
 
-                <View style={tw`my-8 mx-4`}>
+                <View style={tw`mx-4`}>
                   <Largebutton
                     text="Add New Address"
                     onPress={() => props.navigation.navigate("editviewaddress")} />
