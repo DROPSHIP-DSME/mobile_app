@@ -29,6 +29,7 @@ import {
 import ModalSelector from 'react-native-modal-selector';
 import { useTailwind } from 'tailwind-rn';
 import AwesomeAlert from '../../components/modals/AlertModal';
+import { LoginManager } from "react-native-fbsdk-next";
 
 
 
@@ -87,12 +88,15 @@ const Golive = (props) => {
             setshowotherAlert(true)
             setshowalertmsg('Work is in progress')
         } catch (error) {
-           setshowotherAlert(true)
+            setshowotherAlert(true)
             setshowalertmsg('Work is in progress')
         }
     }
 
     const facebookSignIn = async () => {
+        setshowotherAlert(true)
+        setshowalertmsg('Work is in progress')
+
         // LoginManager.logInWithPermissions(["public_profile", "email"]).then(
         //     function (result) {
         //         if (result.isCancelled) {
@@ -102,6 +106,7 @@ const Golive = (props) => {
         //         }
         //     },
         //     function (error) {
+        //         alert('sdfsd')
         //         console.log("Login fail with error: " + error);
         //     }
         // );

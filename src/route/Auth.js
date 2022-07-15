@@ -366,7 +366,7 @@ const Auth = (props) => {
         component={NameStore}
         options={({ navigation }) => ({
                         headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
+                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
                         headerRight: () => <RightMenuItem navigation={navigation}  />,
                         headerTitle: "",
                         headerTitleAlign: "center",
@@ -897,14 +897,13 @@ const Auth = (props) => {
         component={StoreOwner}
         options={({ navigation }) => ({
                         headerShown: true,
-                        headerLeft: () => <LeftMenuItem navigation={navigation}  />,
-                        //headerRight: () => <RightMenuItem navigation={navigation}  />,
-                        headerTitle: "Checkout",
+                        headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerTitle: "",
                         headerTitleAlign: "center",
-                        headerTitleStyle: { color: Colors.BLACK, fontFamily: Fonts.RalewayExtraBold },
-                        headerStyle: { backgroundColor: '#FFFFFF', elevation: 0, shadowOpacity: 0 },
+                        headerTitleStyle: styles.titleheaderstyle,
+                        headerStyle: styles.headerbackgroundstyle,
                     })}
-        //options={{ title: '', headerShown: true, headerTransparent: true,headerTintColor:Colors.WHITE}}
       />
 
      

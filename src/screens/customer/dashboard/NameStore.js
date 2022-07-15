@@ -28,6 +28,7 @@ import { CameraIcon } from "react-native-heroicons/solid";
 import Medbutton from '../../../components/dropshipbutton/Medbutton';
 import { ShoppingBagIcon } from "react-native-heroicons/solid";
 import { HeartIcon } from "react-native-heroicons/solid";
+import AwesomeAlert from '../../../components/modals/AlertModal';
 
 
 const NameStore = (props) => {
@@ -62,7 +63,10 @@ const NameStore = (props) => {
   const [reportpopup, setreportpopup] = React.useState(false);
   const [fav, setfav] = React.useState(false);
   const [incCount, setincCount] = useState(1);
+  const [openpopup, setopenpopup] = React.useState(false);
 
+  const [showotherAlert, setshowotherAlert] = React.useState(false);
+    const [showalertmsg, setshowalertmsg] = React.useState('');
 
   useEffect(() => {
     props.getAllproductdetails(productId);
@@ -71,20 +75,24 @@ const NameStore = (props) => {
   }, [])
 
   const cartdataSubmit = async (productId, productQuantity) => {
-
-    openpopup();
+     getpopup();
 
     let request = {
       "productId": productId,
       "userId": props?.loginuserid,
-      "productQuantity": productQuantity
+      "productQuantity": 1,
+      "productPrice":props?.getlistproductdetails?.data?.productPrice
     }
 
     props.cartadd(request, props.navigation, "vendor");
+   
   }
 
-  const openpopup = () => {
-    setVisible(true)
+  const getpopup = () => {
+    setshowotherAlert(true)
+    setshowalertmsg('Item added in cart successfully!')
+    // setVisible(true)
+    // setopenpopup()
 
   }
   const closepopup = () => {
@@ -158,10 +166,11 @@ const NameStore = (props) => {
   const renderItem1 = ({ item, index }) => {
     return (
       <View style={tw.style('flex flex-row mt-[3%] mx-[3%] rounded-md')}>
-        <TouchableOpacity onPress={() => { props.navigation.navigate("NameStore", { shopId: item._id, shopName: item.shopName }) }}>
+        <TouchableOpacity>
           <View style={tw.style('p-0.5')}>
             <Image source={{uri: item.productImage}} style={{ height: 150, width: deviceWidth / 2.4, borderRadius: 10 }} onPress={() => { props.navigation.navigate("clothing") }} />
           </View>
+          <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
 
           <View style={tw.style('flex flex-row mt-2.5 justify-between')}>
             <View style={tw.style('pl-2')}>
@@ -211,17 +220,10 @@ const NameStore = (props) => {
         handleScroll(nativeEvent['contentOffset'].y);
       }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={tw.style('bg-white')} >
 
-        <View style={tw.style('mx-5 mb-5')}>
-          <TouchableOpacity onPress={() => props.navigation.navigate("shop")}>
-            <View style={tw.style('flex flex-row mt-5 items-center')}>
-              <Image source={ImageIcons.backpopup} style={tw.style('w-2.5 h-[17px]')} />
-              <Text style={tw.style('text-sm font-bold ml-3')}>Back to Shop</Text>
-            </View>
-          </TouchableOpacity>
-        </View>
+        
 
         <View>
-          <View style={tw`mx-4 mt-2 mb-3 bg-gray-200 h-70 rounded-lg justify-center items-center`}>
+          <View style={tw`mx-4 mt-4 mb-3 bg-gray-200 h-70 rounded-lg justify-center items-center`}>
             <Image source={{ uri: props?.getlistproductdetails?.data?.productImage }} style={tw.style('w-full', { width: deviceWidth / 1.1 })} />
             <View style={tw.style('absolute')}>
               <PlayIcon color="red" fill="gray" size={96} />
@@ -326,7 +328,7 @@ const NameStore = (props) => {
 
         <View style={tw.style('flex flex-row mx-4 mt-10 justify-between')}>
           <View style={tw`w-[65%]`}>
-            <Medbutton text="Add to Bag" onPress={() => { cartdataSubmit(props?.getlistproductdetails?.data?._id) }}/>
+            <Medbutton text="Add to Bag" onPress={() => { cartdataSubmit(props?.getlistproductdetails?.data?._id,1) }}/>
           </View>
 
           <View style={tw.style('ml-3 w-20 h-auto bg-gray-100 justify-center items-center rounded-lg')}>

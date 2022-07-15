@@ -61,23 +61,29 @@ const Cart = (props) => {
 
 
     const setIncrement = async (Incval,cartId) => {
+           setIncval(Incval)
            props.increcartlist(cartId, Incval);
+            setTimeout(function(){ 
+                props.cartdata(props?.loginuserid);
+            },1000);
      };
 
     const setdeletedata = async (cartId) => {
         setisVisible(true);
         props.deletedata(cartId,props.navigation);
-        props.cartdata(props?.loginuserid);
-        setTimeout(function(){ setisVisible(false); },3000);
+        setTimeout(function(){ 
+            props.cartdata(props?.loginuserid);
+        },1000);
+        setTimeout(function(){ 
+            setisVisible(false);
+        },3000);
      }
 
 
     const checklogin =  async () => {
-        if(props?.loginuserstatus=="1"){
+        //if(props?.loginuserstatus=="1"){
            props.navigation.navigate("StoreOwner")
-         }else {
-            setshowAlert(true)
-        }
+         
     }
 
 
@@ -111,13 +117,13 @@ const Cart = (props) => {
                     </View>
                 </View>
                 <View style={tw`flex-row mt-4 -ml-2 mr-8 items-center`}>
-                    <View style={tw`w-8/12 flex-row`}>
+                    <View style={tw`w-7/12 flex-row`}>
                       <Deletebutton onPress={() =>setdeletedata(item._id)} />
-                      <Heartbutton onPress={() =>setdeletedata(item._id)} />
+                      <Heartbutton  />
                     </View>
                     <View style={tw`flex-row`}>
                       <Text style={tw`text-sm`}>Total </Text>
-                      <Text style={tw`text-sm font-bold`}>${item.productId?.productPrice}</Text>
+                      <Text style={tw`text-sm font-bold`}>${item.productId?.productPrice*item.productQuantity}</Text>
                     </View>
                 </View>
             </View>

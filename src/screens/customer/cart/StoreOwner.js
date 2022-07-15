@@ -19,6 +19,8 @@ import { v4 as uuid } from "uuid";
 import BraintreeDropIn from 'react-native-braintree-dropin-ui';
 import Footer3 from '../../../screens/common/Footer3';
 import Sortorder from '../../../components/pickers/Sortorder';
+import AwesomeAlert from '../../../components/modals/AlertModal';
+
 const options = [
       {
         label: 'USA',
@@ -78,6 +80,11 @@ const StoreOwner = (props) => {
     const [Paypal, onChangePaypal] = React.useState("Paypal");
     const [Debit, onChangeDebit] = React.useState("Debit Card");
 
+    const [showotherAlert, setshowotherAlert] = React.useState(false);
+    const [showalertmsg, setshowalertmsg] = React.useState('');
+
+        const [toggleCheckBox, setToggleCheckBox] = useState(false)
+
     const [wayToContact, setWayToContact] = useState("Phone");
 
     const openpopup = () => {
@@ -127,19 +134,32 @@ const StoreOwner = (props) => {
     const handleSendRequestSubmit = async () => {
         Keyboard.dismiss();
         if (First == "") {
-            Alert.alert('FirstName is required')
+            setshowotherAlert(true)
+            setshowalertmsg('First Name is required')
         } else if (Lastname == "") {
-            Alert.alert('Lastname is required')
+            setshowotherAlert(true)
+            setshowalertmsg('Last Name is required')
         } else if (Email == "") {
-            Alert.alert('email is required')
+            setshowotherAlert(true)
+            setshowalertmsg('Email is required')
+        } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(Email)) {
+            setshowotherAlert(true)
+            setshowalertmsg('Invalid Email')
         } else if (PhoneNumber == "") {
-            Alert.alert('PhoneNumber is required')
+            setshowotherAlert(true)
+            setshowalertmsg('Mobile Number is required')
+        } else if (!/^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/.test(PhoneNumber)) {
+            setshowotherAlert(true)
+            setshowalertmsg('Invalid Number')
         } else if (Street == "") {
-            Alert.alert('Street is required')
+            setshowotherAlert(true)
+            setshowalertmsg('Street Address is required')
         }  else if (Zip == "") {
-            Alert.alert('Zip is required')
+            setshowotherAlert(true)
+            setshowalertmsg('Zip Code is required')
         }  else if (City == "") {
-            Alert.alert('City is required')
+            setshowotherAlert(true)
+            setshowalertmsg('City Name is required')
         } else {
             let request = {
                 "userId":props?.loginuserid,
@@ -168,6 +188,9 @@ const StoreOwner = (props) => {
             style={styles.registrationRoot}>
             <StatusBar backgroundColor={'#FFFFFF00'} barStyle="dark-content" translucent={true} />
             <ScrollView  keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#ffffff'}} >
+
+            <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
+
 
              <View style={{marginHorizontal:'3%',marginTop:'4%'}}>
              <View>
@@ -257,10 +280,14 @@ const StoreOwner = (props) => {
     </View>
             <View style={{marginTop:'2%',flexDirection: 'row',marginLeft:'3%'}}>
             <CheckBox
-            checkedColor='red'
-            value={true}
-            disabled={false}
-            />
+                        value={toggleCheckBox}
+                        onValueChange={(newValue) => setToggleCheckBox(newValue)}
+                        tintColors={'#9E663C'}
+                        onCheckColor={'#6F763F'}
+                        onFillColor={'#4DABEC'}
+                        onTintColor={'#F4DCF8'}
+                     />
+            
             <Text style={styles.checkboxtext}>Use this address always </Text>
             </View>
                 <View style={{marginTop:'5%',}}>
@@ -281,7 +308,7 @@ const StoreOwner = (props) => {
                          </TouchableOpacity>
                     </View>
 
-                    <View style={styles.checkboxView}>
+                    {/*<View style={styles.checkboxView}>
                        <Text style={{marginLeft:'2%',alignSelf:'center'}}>Affirm</Text>
                         <TouchableOpacity onPress={() => setChecked('second')}>
                         { checked=='second' ?
@@ -290,7 +317,7 @@ const StoreOwner = (props) => {
                             <Image source={ImageIcons.ci_radio} />
                         }
                         </TouchableOpacity>
-                    </View>
+                    </View>*/}
                     </View>
                 </View>
                 <View style={{alignItems:'center',marginTop:'12%',marginBottom:'22%'}}>
