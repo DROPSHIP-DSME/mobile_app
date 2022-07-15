@@ -152,18 +152,18 @@ const renderItem2 = ({ item,index }) => {
     const renderItem3 = ({ item,index }) => {
        return(
            <View>
-              <View style={tw.style('flex flex-row justify-between')}>
+              <View style={tw.style('flex flex-row justify-between mx-4')}>
                    <Text style={tw`text-base font-bold text-gray-800`}>{item?.loggedInUserId?.userName}</Text>
                    <View style={tw`inline-flex items-center px-2.5 py-0.5 rounded-md`}>
-                    <Text style={tw`text-xs font-medium bg-blue-100 text-blue-800`}>Processing</Text>
+                    <Text style={tw`text-sm font-medium bg-blue-100 text-blue-800`}>Processing</Text>
                    </View>
                </View>
                <View style={tw`flex flex-row`}>
                    <Text style={tw`text-base text-gray-700`}>{item?.loggedInUserId?.userName}</Text>
                </View>
                <View style={tw`flex flex-row`}>
-                   <Text style={tw`text-base text-gray-700 mr-2`}>Order number:</Text>
-                   <Text style={tw`text-base text-blue-700`}>{item?.orderNumber}</Text>
+                   <Text style={tw`text-sm text-gray-700 mr-2`}>Order number:</Text>
+                   <Text style={tw`text-sm text-blue-700`}>{item?.orderNumber}</Text>
                </View>
             </View>
         );
@@ -197,7 +197,7 @@ const renderItem2 = ({ item,index }) => {
 
             { visible1 == true &&
                 <View>
-                <View style={{marginTop:'8%'}}>
+                <View style={tw`mt-6`}>
                     <FlatList
                     data={DATA}
                     renderItem={renderItem2}
@@ -213,32 +213,30 @@ const renderItem2 = ({ item,index }) => {
                       <Text style={tw.style('text-lg text-gray-700 font-bold')}>Recent Orders</Text>
                     </View>
                     {props?.getinconeorderlist?.length>0 &&
-                    <TouchableOpacity  onPress={() => props.navigation.navigate("Dashorder")} style={{backgroundColor:'#B80000',width:'40%',borderRadius:15,padding:6,}}>
-                      <Text style={styles.totalincometodayWIDRO}>SEE ALL ORDERS</Text>
-                   </TouchableOpacity>
+                    <Smallbutton onPress={() => props.navigation.navigate("Dashorder")} text="See All Orders" />
 
                    }
                   </View>
                    {props?.getinconeorderlist?.length>0 ?
-                   <View style={styles.salesViewTODAY}>
-                       <Text style={styles.seriestext}>Order Number</Text>
-                       <Text style={styles.seriestext}>Ordered By</Text>
-                       <Text style={styles.seriestext}>Ema </Text>
-                   </View>
-                   :
-                  <View style={tw.style('items-center')}>
-                    <Text style={tw.style('text-base font-bold text-gray-700 my-3')}>No Record Found</Text>
-                  </View>
-            }
-                  <View style={{marginLeft:-10}}>
-                      <FlatList
-                      data={props?.getinconeorderlist || []}
-                      renderItem={renderItem3}
-                      keyExtractor={item => item.id}
-                      showsHorizontalScrollIndicator={false}
-                      horizontal={false}
-                      />
-                  </View>
+                     <View style={tw`flex flex-row bg-gray-300 justify-between p-4 rounded-lg items-center`}>
+                         <Text style={tw`text-base font-bold text-gray-700`}>Order Number</Text>
+                         <Text style={tw`text-base font-bold text-gray-700`}>Ordered By</Text>
+                         <Text style={tw`text-base font-bold text-gray-700`}>Ema </Text>
+                     </View>
+                     :
+                    <View style={tw.style('items-center')}>
+                      <Text style={tw.style('text-base font-bold text-gray-700 my-3')}>No Record Found</Text>
+                    </View>
+              }
+                    <View style={{marginLeft:-10}}>
+                        <FlatList
+                        data={props?.getinconeorderlist || []}
+                        renderItem={renderItem3}
+                        keyExtractor={item => item.id}
+                        showsHorizontalScrollIndicator={false}
+                        horizontal={false}
+                        />
+                    </View>
                 </View>
 
                 <View style={tw.style('max-w-7xl bg-white overflow-hidden rounded-lg p-4 m-4')}>

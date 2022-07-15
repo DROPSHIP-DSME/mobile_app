@@ -19,7 +19,9 @@ import { useFocusEffect } from '@react-navigation/native';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import Moment from 'moment';
+import tw from 'twrnc';
 import Sortorder from '../../../components/pickers/Sortorder';
+
 const options = [ { label: '1', value: '1' }, { label: '2', value: '2' }, { label: '3', value: '3' }, { label: '4', value: '4' },{ label: '5', value: '5' },{ label: '6', value: '6' },{ label: '7', value: '7' },{ label: '8', value: '8' },{ label: '9', value: '9' } ]
 
 const Accountorderhist = (props) => {
@@ -36,7 +38,7 @@ const Accountorderhist = (props) => {
     useEffect(() => {
        // props.getAllshop(1);
         props.getincomingtlist(props?.loginuserid);
-       
+
     }, [])
     useFocusEffect(() => {
         //props.getincomingtlist(props?.loginuserid);
@@ -59,7 +61,7 @@ const Accountorderhist = (props) => {
     const [selectedValue, setSelectedValue] = useState("1");
     const [wayToContact, setWayToContact] = useState("Phone");
     const [showAlert, setshowAlert] = React.useState(false);
-    
+
     const updateorderStatus = (itemValue) => {
         setSelectedValue(itemValue)
     }
@@ -137,20 +139,20 @@ const Accountorderhist = (props) => {
 
     const renderItem3 = ({ item }) => {
         return (
-          <View style={{ marginHorizontal: 2, borderRadius: 10, backgroundColor: '#FFF', padding: 15, marginVertical: 5,borderBottomWidth:1,borderBottomColor:'#ccc' }}>
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
+          <View style={tw`border-b-2 border-gray-200 pb-6 mx-3 mt-4`}>
+            <View style={tw`flex flex-row justify-between`}>
               <View>
-                <Text style={{ fontSize: 14, color: '#1A1A1A', fontFamily: 'AvertaStd-SemiBold' }} >{item?.productId?.productName}</Text>
-                <Text style={{ color: '#808080', fontSize: 12, marginTop: 3 }} >{Moment(item.createdAt).format('MMM DD YYYY')}</Text>
+                <Text style={tw`text-lg text-gray-900`} >{item?.productId?.productName}</Text>
+                <Text style={tw`text-sm text-gray-700`} >{Moment(item.createdAt).format('MMM DD YYYY')}</Text>
               </View>
               <View style={{ marginTop: 5 }}>
-                <Text style={{ color: '#2F80ED', fontSize: 12, backgroundColor: '#ADD8E6', paddingTop: 3, height: 25, width: 91, textAlign: 'center', borderRadius: 6, fontWeight: 'bold' }} >{item.status}</Text>
+                <Text style={tw`items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800`} >{item.status}</Text>
               </View>
-    
             </View>
+
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
               <View style={{ width: 230, marginVertical: 3 }}>
-                <Text style={{ fontSize: 12, color: 'black', }} >Order Number:<Text style={{ fontSize: 12, color: '#2F80ED', fontWeight: 'bold', }} > {item.orderNumber}</Text></Text>
+                <Text style={tw`text-sm text-gray-900`} >Order Number:<Text style={tw`text-sm text-blue-500`} > {item.orderNumber}</Text></Text>
               </View>
               <View style={{ justifyContent: 'flex-end' }}>
                 <TouchableOpacity onPress={() => props.navigation.navigate("Accountorderview", { orderNumber: item.orderNumber })}>
@@ -188,20 +190,14 @@ const Accountorderhist = (props) => {
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={styles.registrationRoot}>
-            
+
 
             <ScrollView onScroll={({ nativeEvent }) => {
                 handleScroll(nativeEvent['contentOffset'].y);
             }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#f2f2f2' }} >
 
-                <View style={{ flexDirection: "row", marginHorizontal: "4%", marginTop: "9%" }}>
-                    <Text style={{ fontSize: 15, fontFamily: "hinted-AvertaStd-Regular", color: "#999999" }}>ACCOUNT SUMMARY /</Text>
-                    <Text style={{ fontSize: 15, fontFamily: "hinted-AvertaStd-Regular", color: "#1A1A1A" }}> ORDER HISTORY</Text>
-
-                </View>
-
-                <View style={{ marginHorizontal: "4%", marginTop: '5%' }}>
-                    <Text style={{ fontSize: 26, fontFamily: "hinted-AvertaStd-Semibold", }}>Order History</Text>
+                <View style={tw`mx-4 mt-[10%] mb-6`}>
+                    <Text style={tw`text-2xl text-gray-700 font-bold`}>Order History</Text>
                 </View>
 
                 {/* <View style={{ flexDirection: 'row', marginHorizontal: '4%', marginTop: '5%' }}>
@@ -215,21 +211,24 @@ const Accountorderhist = (props) => {
                     </View>
                 </View> */}
 
-                <View style={{ backgroundColor: '#ffffff', padding: '4%', width: '92%', borderRadius: 15, marginHorizontal: '3%', marginVertical: '8%' }}>
-                    <View style={styles.salesViewTODAY}>
-                        <Text style={styles.seriestext}>Order Number</Text>
-                        <Text style={styles.seriestext}>Ordered by</Text>
-                        <Text style={styles.seriestext}>Email </Text>
-                    </View>
-                    <View style={{ marginLeft: -10 }}>
-                        <FlatList
-                            data={props?.getinconeorderlist || []}
-                            renderItem={renderItem3}
-                            keyExtractor={item => item.id}
-                            showsHorizontalScrollIndicator={false}
-                            horizontal={false}
-                        />
-                    </View>
+                <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 mt-4')}>
+                    <View style={tw.style('py-8 px-3')}>
+                      <View style={tw.style('flex flex-row justify-between mx-1 p-4 bg-gray-200 rounded-md')}>
+                          <Text style={tw`text-sm text-gray-700`}>Order Number</Text>
+                          <Text style={tw`text-sm text-gray-700`}>Ordered by</Text>
+                          <Text style={tw`text-sm text-gray-700`}>Email </Text>
+                      </View>
+
+                      <View style={tw``}>
+                          <FlatList
+                              data={props?.getinconeorderlist || []}
+                              renderItem={renderItem3}
+                              keyExtractor={item => item.id}
+                              showsHorizontalScrollIndicator={false}
+                              horizontal={false}
+                          />
+                      </View>
+                  </View>
                 </View>
             </ScrollView>
 

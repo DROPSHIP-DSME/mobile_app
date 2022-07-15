@@ -64,7 +64,7 @@ const Accountsum = (props) => {
 
     const renderItem3 = ({ item, index }) => {
         return (
-            <View> 
+            <View>
 
                 <TouchableOpacity onPress={() => props.navigation.navigate("Accountorderview")} style={styles.seledataViewTODAYaccountsummary}>
 
@@ -143,9 +143,9 @@ const Accountsum = (props) => {
                         </View>
 
                         <View style={tw.style('flex flex-row justify-between mx-1 p-4 bg-gray-200 rounded-md')}>
-                            <Text style={styles.seriestext}>Order Number</Text>
-                            <Text style={styles.seriestext}>Ordered by</Text>
-                            <Text style={styles.seriestext}>Email </Text>
+                            <Text style={tw`text-sm text-gray-700`}>Order Number</Text>
+                            <Text style={tw`text-sm text-gray-700`}>Ordered by</Text>
+                            <Text style={tw`text-sm text-gray-700`}>Email </Text>
                         </View>
                         <View style={{ marginLeft: -10 }}>
                             <FlatList
