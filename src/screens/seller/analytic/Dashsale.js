@@ -25,7 +25,11 @@ import tw from 'twrnc';
 import Sortfilter from '../../../components/pickers/Sortfilter';
 import Sortorder from '../../../components/pickers/Sortorder';
 import Smallbutton from '../../../components/dropshipbutton/Smallbutton';
- const options = [ { label: '1', value: '1' }, { label: '2', value: '2' }, { label: '3', value: '3' }, { label: '4', value: '4' },{ label: '5', value: '5' },{ label: '6', value: '6' },{ label: '7', value: '7' },{ label: '8', value: '8' },{ label: '9', value: '9' } ]
+import Medbutton from '../../../components/dropshipbutton/Medbutton';
+import Comingsoon from '../../../components/baseassests/Comingsoon';
+
+
+const options = [ { label: '1', value: '1' }, { label: '2', value: '2' }, { label: '3', value: '3' }, { label: '4', value: '4' },{ label: '5', value: '5' },{ label: '6', value: '6' },{ label: '7', value: '7' },{ label: '8', value: '8' },{ label: '9', value: '9' } ]
 
 import {
   LineChart,
@@ -130,8 +134,17 @@ const Dashsale = (props) => {
   return (
     <View style={tw.style('flex flex-1')}>
 
-  <View style={{padding:20,backgroundColor:'#B80000', height:'92%'}}>
-       <Image source={ImageIcons.workinprogress} style={{width:'100%', height:250}} />
+       <View style={tw`py-6 bg-white h-[93%]`}>
+        <View style={tw`items-center mt-25 mx-4`}>
+          <Comingsoon />
+          <View style={tw`items-center mt-10`}>
+            <Text style={tw`text-5xl text-Red-700 text-center`}>OOPS!</Text>
+            <Text style={tw`text-xl text-gray-700 text-center mx-4 mt-3`}>Would you like to upgrade your account to have acces to this awsome feature!</Text>
+          </View>
+          <View style={tw`mt-10 w-full`}>
+           <Medbutton text="Upgrade Account" />
+          </View>
+        </View>
        </View>
 
       <ScrollView onScroll={({ nativeEvent }) => {

@@ -27,6 +27,7 @@ import Datepicker from '../../../components/pickers/Datepicker';
 const options = [ { label: '1', value: '1' }, { label: '2', value: '2' }, { label: '3', value: '3' }, { label: '4', value: '4' },{ label: '5', value: '5' },{ label: '6', value: '6' },{ label: '7', value: '7' },{ label: '8', value: '8' },{ label: '9', value: '9' } ]
 import tw from 'twrnc';
 import Smallbutton from '../../../components/dropshipbutton/Smallbutton';
+import SQsmallbutton from '../../../components/dropshipbutton/SQsmallbutton';
 import Largebutton from '../../../components/dropshipbutton/Largebutton';
 import { DocumentDuplicateIcon } from "react-native-heroicons/solid";
 
@@ -155,11 +156,11 @@ const deviceWidth = Dimensions.get('window').width;
                 handleScroll(nativeEvent['contentOffset'].y);
     }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#ffffff'}} >
 
-              <View style={tw`mx-[3%] my-3`}>
-               <View>
-                 <Text style={{fontSize:22,color:'#1a1a1a',fontFamily:'hinted-AvertaStd-Semibold',}}>Go Live</Text>
+
+                  <View style={tw.style('flex flex-row justify-between items-center mx-4 mt-8 mb-6')}>
+                    <Text style={tw.style('text-3xl text-gray-700 font-bold')}>Go Live</Text>
                  </View>
-               </View>
+
 
 
               <View style={tw`flex flex-row relative mx-4 shadow-sm`}>
@@ -168,7 +169,7 @@ const deviceWidth = Dimensions.get('window').width;
                       type="button"
                       style={tw`relative inline-flex items-center px-4 py-3 rounded-l-md border border-gray-200 bg-gray-200 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500`}
                     >
-                        <Text style={tw`text-base font-medium text-gray-700`}>Go Live Now</Text>
+                        <Text style={tw`text-base sm:text-sm font-medium text-gray-700`}>Go Live Now</Text>
                     </View>
                   </TouchableOpacity>
                   <TouchableOpacity onPress={() => props.navigation.navigate("Dashlive2")} style={tw.style('w-2.3/4')}>
@@ -176,7 +177,7 @@ const deviceWidth = Dimensions.get('window').width;
                       type="button"
                       style={tw`-ml-px relative inline-flex items-center px-4 py-3 rounded-r-md border border-red-300 bg-red-700 hover:bg-red-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500`}
                     >
-                      <Text style={tw`text-base font-medium text-white`}>Schedule Livestream</Text>
+                      <Text style={tw`text-base sm:text-sm font-medium text-white`}>Schedule Livestream</Text>
                     </View>
                   </TouchableOpacity>
                 </View>
@@ -212,9 +213,9 @@ const deviceWidth = Dimensions.get('window').width;
                <View style={tw.style('flex flex-row mx-4 my-5')}>
                   <TouchableOpacity onPress={() =>setDuration(1200)} style={tw.style('mr-2')}>
                    { Duration==1200 ?
-                      <Smallbutton text="20 Min" />
+                      <SQsmallbutton text="20 Min" />
                       :
-                       <View  style={tw.style('w-auto items-center px-3 py-3 border border-transparent rounded-md shadow-sm  bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200')}>
+                       <View  style={tw.style('w-auto items-center px-4 py-3 border border-transparent rounded-md shadow-sm  bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200')}>
                          <Text style={tw.style('text-sm text-gray-700')}>20 MIN</Text>
                        </View>
                  }
@@ -222,9 +223,9 @@ const deviceWidth = Dimensions.get('window').width;
 
                   <TouchableOpacity onPress={() =>setDuration(1800)} style={tw.style('mx-2')}>
                  { Duration==1800 ?
-                     <Smallbutton text="30 Min" />
+                     <SQsmallbutton text="30 Min" />
                     :
-                     <View  style={tw.style('w-auto items-center px-3 py-3 border border-transparent rounded-md shadow-sm  bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200')}>
+                     <View  style={tw.style('w-auto items-center px-4 py-3 border border-transparent rounded-md shadow-sm  bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200')}>
                        <Text style={tw.style('text-sm text-gray-700')}>30 MIN</Text>
                     </View>
                  }
@@ -232,9 +233,9 @@ const deviceWidth = Dimensions.get('window').width;
 
                     <TouchableOpacity onPress={() =>setDuration(2700)} style={tw.style('mx-2')}>
                          { Duration==2700 ?
-                       <Smallbutton text="45 Min" />
+                       <SQsmallbutton text="45 Min" />
                     :
-                     <View  style={tw.style('w-auto items-center px-3 py-3 border border-transparent rounded-md shadow-sm  bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200')}>
+                     <View  style={tw.style('w-auto items-center px-4 py-3 border border-transparent rounded-md shadow-sm  bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200')}>
                        <Text style={tw.style('text-sm text-gray-700')}>45 MIN</Text>
                     </View>
                  }

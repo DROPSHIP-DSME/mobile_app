@@ -202,11 +202,11 @@ const upcoming = (props) => {
                       <Image source={{ uri: item.products[0]?.productImage }} style={tw.style('w-40 h-56 rounded-md')} />
                       <Text style={tw`text-sm text-white absolute bottom-4 left-3 leading-4`}></Text>
 
-                      <View style={tw.style('flex flex-row bg-red-700 w-16 h-6 rounded-lg px-1 absolute top-4 left-2')}>
+                      <View style={tw.style('flex flex-row bg-red-700 w-16 h-6 rounded-lg px-1 absolute top-4 left-2 justify-center items-center')}>
                           <Text style={tw.style('px-3 text-sm text-white text-center')}>Live</Text>
                       </View>
-                      <View style={tw.style('flex flex-row bg-green-200 w-16 h-6 rounded-lg px-2 items-center absolute top-4 left-[55%]')}>
-                          <View style={tw.style('pt-[2%]')}>
+                      <View style={tw.style('flex flex-row bg-green-200 w-16 h-6 rounded-lg px-2 items-center absolute top-4 left-[55%] items-center')}>
+                          <View style={tw.style('pt-[2%] justify-center')}>
                               <UsersIcon color="red" fill="#000000" size={14} />
                           </View>
                           <Text style={tw.style('text-xs text-gray-800 pl-1')}>0</Text>

@@ -169,7 +169,7 @@ const CreateAccountShop = (props) => {
                     />
                 </View>
 
-                <View style={tw.style('mt-4')}>
+                <View style={tw.style('mt-5')}>
                     <TextInput
                      style={tw.style('mx-5 pl-3 sm:text-sm text-gray-700  border-gray-300 bg-gray-200 rounded-lg')}
                      placeholder="Username"
@@ -180,7 +180,7 @@ const CreateAccountShop = (props) => {
                     />
                 </View>
 
-                <View style={tw.style('mt-4')}>
+                <View style={tw.style('mt-5')}>
                     <TextInput
                       style={tw.style('mx-5 pl-3 sm:text-sm text-gray-700 border-gray-300 bg-gray-200 rounded-lg')}
                       placeholderTextColor="#000000"
@@ -201,7 +201,7 @@ const CreateAccountShop = (props) => {
                   </View>
                 </View>
 
-                <View style={tw.style('mt-4')}>
+                <View style={tw.style('mt-5')}>
                      <TextInput
                       style={tw.style('mx-5 pl-3 sm:text-sm text-gray-700 border-gray-300 bg-gray-200 rounded-lg')}
                       placeholderTextColor="#000000"
@@ -221,12 +221,7 @@ const CreateAccountShop = (props) => {
                     </View>
                 </View>
 
-                <View style={tw.style('flex mt-2 mx-4 my-4')}>
-
-
-
-
-
+                <View style={tw.style('flex mt-5 mx-4 my-4')}>
 
                 <View style={tw.style('flex flex-row justify-center mt-3 w-12/12')}>
                     <CheckBox

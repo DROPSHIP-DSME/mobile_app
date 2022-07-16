@@ -25,6 +25,7 @@ import Modal from 'react-native-modal'
 import tw from 'twrnc';
 import Medbutton from '../../../components/dropshipbutton/Medbutton';
 import Smallbutton from '../../../components/dropshipbutton/Smallbutton';
+import SQsmallbutton from '../../../components/dropshipbutton/SQsmallbutton';
 import Largebutton from '../../../components/dropshipbutton/Largebutton';
 import Sortorder from '../../../components/pickers/Sortorder';
 import Deletebutton from '../../../components/pickers/Deletebutton';
@@ -265,9 +266,9 @@ return (
               <View style={tw.style('flex flex-row mx-4 my-5')}>
                  <TouchableOpacity onPress={() =>setDuration(1200)} style={tw.style('mr-2')}>
                   { Duration==1200 ?
-                     <Smallbutton text="20 Min" />
+                     <SQsmallbutton text="20 Min" />
                      :
-                      <View  style={tw.style('w-auto items-center px-3 py-3 border border-transparent rounded-md shadow-sm  bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200')}>
+                      <View  style={tw.style('w-auto items-center px-4 py-3 border border-transparent rounded-md shadow-sm  bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200')}>
                         <Text style={tw.style('text-sm text-gray-700')}>20 MIN</Text>
                       </View>
                 }
@@ -275,9 +276,9 @@ return (
 
                  <TouchableOpacity onPress={() =>setDuration(1800)} style={tw.style('mx-2')}>
                 { Duration==1800 ?
-                    <Smallbutton text="30 Min" />
+                    <SQsmallbutton text="30 Min" />
                    :
-                    <View  style={tw.style('w-auto items-center px-3 py-3 border border-transparent rounded-md shadow-sm  bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200')}>
+                    <View  style={tw.style('w-auto items-center px-4 py-3 border border-transparent rounded-md shadow-sm  bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200')}>
                       <Text style={tw.style('text-sm text-gray-700')}>30 MIN</Text>
                    </View>
                 }
@@ -285,9 +286,9 @@ return (
 
                    <TouchableOpacity onPress={() =>setDuration(2700)} style={tw.style('mx-2')}>
                         { Duration==2700 ?
-                      <Smallbutton text="45 Min" />
+                      <SQsmallbutton text="45 Min" />
                    :
-                    <View  style={tw.style('w-auto items-center px-3 py-3 border border-transparent rounded-md shadow-sm  bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200')}>
+                    <View  style={tw.style('w-auto items-center px-4 py-3 border border-transparent rounded-md shadow-sm  bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200')}>
                       <Text style={tw.style('text-sm text-gray-700')}>45 MIN</Text>
                    </View>
                 }
@@ -363,7 +364,7 @@ return (
                  { showstream==true ?
                         <View
                           type="button"
-                          style={tw.style('inline-flex items-center mx-5 px-4 py-6 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500')}
+                          style={tw.style('inline-flex items-center mx-5 px-4 py-6 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500')}
                         >
                          <TouchableOpacity style={tw.style('w-10/11 items-center')}
                             onPress={() => startlivebtn() }>
@@ -379,7 +380,7 @@ return (
 
                        <View
                         type="button"
-                         style={tw.style('my-5 inline-flex items-center px-3 py-3 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-gray-800 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500')}
+                         style={tw.style('my-5 inline-flex items-center px-3 py-3 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-gray-800 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500')}
                        >
                         <TouchableOpacity style={tw.style('w-10/11 items-center')}>
                            <Text style={tw.style('text-lg text-white')}>Test Livestream</Text>

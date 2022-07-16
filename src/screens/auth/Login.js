@@ -26,7 +26,6 @@ import Medbutton from '../../components/dropshipbutton/Medbutton';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import Logobase from '../../components/baseassests/Logobase';
 
-
 const Login = (props) => {
 
   const {
@@ -76,19 +75,19 @@ const Login = (props) => {
       key: 's2',
       title: 'Flight Booking',
       text: 'Browse through videos and images of different products. Save your favourites.',
-      image: ImageIcons.sliderimage1,
+      image: ImageIcons.screen1,
     },
     {
       key: 's3',
       title: 'Great Offers',
       text: 'Create live-shops and advertise your products from the comfort of your own home or store.',
-      image: ImageIcons.newchange,
+      image: ImageIcons.screen2,
     },
     {
       key: 's4',
       title: 'Best Deals',
       text: 'Create live-shops and advertise your products from the comfort of your own home or store.',
-      image: ImageIcons.sliderimage2,
+      image: ImageIcons.screen3,
     },
 
   ];
@@ -195,12 +194,13 @@ const Login = (props) => {
             </View>
           </View>
           :
-          <View style={tw.style('w-full h-10/11 bg-white')}>
-            <View style={tw.style('flex flex-1 bg-white justify-center')}>
-              <View style={tw.style('items-center')}>
-                <Image source={item.image} style={tw.style('h-80 w-72')} />
+          <View style={tw.style('h-10/11 bg-white')}>
+            <View style={tw.style('flex flex-1 bg-white justify-center items-center')}>
+              <View style={tw.style('flex-row h-90')}>
+                <Image source={item.image} style={tw.style('')} />
               </View>
-              <View style={tw.style('mt-10 mx-4')}>
+              <View style={tw.style('h-30')}></View>
+              <View style={tw.style('flex-row mt-10 mx-4')}>
                 <Text style={tw.style('px-4 text-2xl text-black text-center')}>{item.text}</Text>
               </View>
             </View>

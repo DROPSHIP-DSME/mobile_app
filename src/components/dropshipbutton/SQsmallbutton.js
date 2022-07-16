@@ -2,12 +2,12 @@ import React from 'react';
 import { TouchableOpacity, Text, View } from 'react-native';
 import tw from 'twrnc';
 
-const Smallbutton = ({text, onPress}) => {
+const SQsmallbutton = ({text, onPress}) => {
 
     return (
 
       <View
-        style={tw.style('w-auto items-center px-6 py-2.5 border border-transparent rounded-full shadow-sm text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500')}
+        style={tw.style('w-auto items-center px-4 py-3 border border-transparent rounded-md shadow-sm text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500')}
       >
       <TouchableOpacity
           onPress={onPress}>
@@ -18,4 +18,4 @@ const Smallbutton = ({text, onPress}) => {
     );
 }
 
-export default Smallbutton
+export default SQsmallbutton
