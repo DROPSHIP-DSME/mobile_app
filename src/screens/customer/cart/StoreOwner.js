@@ -20,6 +20,7 @@ import BraintreeDropIn from 'react-native-braintree-dropin-ui';
 import Footer3 from '../../../screens/common/Footer3';
 import Sortorder from '../../../components/pickers/Sortorder';
 import AwesomeAlert from '../../../components/modals/AlertModal';
+import Largebutton from '../../../components/dropshipbutton/Largebutton';
 
 const options = [
       {
@@ -50,10 +51,12 @@ const StoreOwner = (props) => {
         handleSubmit,
     } = props;
 
-    useEffect(() => {
-         props.countrylist();
-         props.cartPrice(props?.loginuserid);
-    }, [])
+    useEffect(() => { 
+        props.countrylist();
+        props.cartPrice(props?.loginuserid);
+        props.getprofileuser(props?.loginuserid);
+        props.getuseraddress(props?.loginuserid);
+    }, [props?.getprofileuserlist,props?.getuseraddresslist]) 
 
     //Reference
     const emailRef = useRef();
@@ -64,13 +67,13 @@ const StoreOwner = (props) => {
     // Local states
      const [checked, setChecked] = React.useState('second');
 
-    const [First, onChangeFirst] = React.useState("");
-    const [Lastname, onChangeLastname] = React.useState("");
-    const [Email, onChangeEmail] = React.useState("");
-    const [PhoneNumber, onChangePhoneNumber] = React.useState("");
-    const [Street, onChangeStreet] = React.useState("");
-    const [Zip, onChangeZip] = React.useState("");
-    const [City, onChangeCity] = React.useState("");
+    const [First, onChangeFirst] = React.useState(props?.getprofileuserlist?.userName);
+    const [Lastname, onChangeLastname] = React.useState(props?.getprofileuserlist?.lastName);
+    const [Email, onChangeEmail] = React.useState(props?.getprofileuserlist?.email);
+    const [PhoneNumber, onChangePhoneNumber] = React.useState(props?.getprofileuserlist?.phone);
+    const [Street, onChangeStreet] = React.useState(props?.getuseraddresslist[0]?.streetAdress);
+    const [Zip, onChangeZip] = React.useState(props?.getuseraddresslist[0]?.zipCode);
+    const [City, onChangeCity] = React.useState(props?.getuseraddresslist[0]?.city);
     const [Country, onChangeCountry] = React.useState("");
     const [selectedValue, setSelectedValue] = useState("USA");
 
@@ -271,7 +274,7 @@ const StoreOwner = (props) => {
                         placeholderTextColor="#999999"
                         />
                     </View>
-                     <View style={styles.pickerView}>
+                     <View style={{marginTop:20,marginLeft:20}}>
                     <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)}  />
                 </View>
                      <View>
@@ -321,12 +324,9 @@ const StoreOwner = (props) => {
                     </View>
                 </View>
                 <View style={{alignItems:'center',marginTop:'12%',marginBottom:'22%'}}>
-                    <TouchableOpacity
-                        style={styles.TouchableOpacitybrand}
-                        activeOpacity = { .5}
-                        onPress={() => handleSendRequestSubmit()}>
-                        <Text style={styles.buttontext}>Pay {props?.totalcartprice}</Text>
-                    </TouchableOpacity>
+                    
+                        <Largebutton text={" Pay $" + props?.totalcartprice} onPress={() => { handleSendRequestSubmit() }} />
+                   
                </View>
                 </View>
                 { openpopup  &&

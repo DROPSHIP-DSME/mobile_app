@@ -631,7 +631,7 @@ const Blurbackground = (props) => {
         if (isbroadcaster) {
             props.navigation.navigate("Overview")
         }else {
-            props.navigation.navigate("Search")
+            props.navigation.navigate("upcoming")
         }
     }
     const DATA2 = [
@@ -669,7 +669,7 @@ const Blurbackground = (props) => {
                     <Text style={{fontFamily:'hinted-AvertaStd-Semibold',color:'#ffffff',fontSize:18}}>{props?.showbrandName?.brandName}</Text>
                    
                 </View>
-                <View style={{ width:'48%'}}>
+                <View style={{ width:'48%',}}>
                     <View style={{borderRadius:5,position:'absolute',top:10,left:0, backgroundColor:'#EB2F2F'}}>
                         <Text style={newstyles.shorttest1}>Live</Text>
                     </View>
@@ -683,9 +683,11 @@ const Blurbackground = (props) => {
                             <Text style={newstyles.shorttest}>{props?.audiancecount?.audianceCount}</Text>
                         }
                     </View>
-                    <View style={{backgroundColor:'#ffffff',width:40,position:'absolute',top:10,right:"0%",}}>
-                        
-                    </View>
+                        <View style={{width:40,top:-10,position:'absolute', zIndex:100,right:10}}>
+                         <TouchableOpacity onPress={() => endStream()}>
+                          <Image source={ImageIcons.callsignout}/>
+                          </TouchableOpacity>
+                        </View>
                 </View>
                 
             </View>

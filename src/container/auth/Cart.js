@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { Cart } from '../../screens/customer/cart';
-import { cartlist,cartdata,increcartlist,deletedata } from '../../redux/actions/Auth'
+import { cartlist,cartdata,increcartlist,deletedata,getprofileuser,getuseraddress } from '../../redux/actions/Auth'
 
 
 const mapStateToProps = (state) => ({
@@ -15,7 +15,9 @@ const mapDispatchToProps = {
     cartlist,
    cartdata,
    increcartlist,
-   deletedata
+   deletedata,
+   getprofileuser,
+   getuseraddress,
 };
   
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);

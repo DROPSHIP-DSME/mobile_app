@@ -39,7 +39,8 @@ const Cart = (props) => {
     } = props;
 
     useEffect(() => {
-
+        props.getprofileuser(props?.loginuserid);
+        props.getuseraddress(props?.loginuserid);
     }, [])
 
     useEffect(() => {
