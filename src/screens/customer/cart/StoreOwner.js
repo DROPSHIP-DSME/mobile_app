@@ -18,9 +18,10 @@ import 'react-native-get-random-values';
 import { v4 as uuid } from "uuid";
 import BraintreeDropIn from 'react-native-braintree-dropin-ui';
 import Footer3 from '../../../screens/common/Footer3';
-import Sortorder from '../../../components/pickers/Sortorder';
+import Fullwidthsortorder from '../../../components/pickers/Fullwidthsortorder';
 import AwesomeAlert from '../../../components/modals/AlertModal';
-import Largebutton from '../../../components/dropshipbutton/Largebutton';
+import tw from 'twrnc';
+
 
 const options = [
       {
@@ -51,12 +52,12 @@ const StoreOwner = (props) => {
         handleSubmit,
     } = props;
 
-    useEffect(() => { 
+    useEffect(() => {
         props.countrylist();
         props.cartPrice(props?.loginuserid);
         props.getprofileuser(props?.loginuserid);
         props.getuseraddress(props?.loginuserid);
-    }, [props?.getprofileuserlist,props?.getuseraddresslist]) 
+    }, [props?.getprofileuserlist,props?.getuseraddresslist])
 
     //Reference
     const emailRef = useRef();
@@ -101,7 +102,7 @@ const StoreOwner = (props) => {
     const updateorderStatus = (itemValue) => {
         setSelectedValue(itemValue)
     }
-    
+
     const openpayment = () => {
         setChecked('first');
         BraintreeDropIn.show({
@@ -193,91 +194,94 @@ const StoreOwner = (props) => {
             <ScrollView  keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#ffffff'}} >
 
             <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
-
-
-             <View style={{marginHorizontal:'3%',marginTop:'4%'}}>
-             <View>
-             <Text style={styles.barlotext}>Personal Details</Text>
+              <View style={tw`my-5 mx-5`}>
+                <Text style={tw`text-3xl text-gray-700`}>Checkout</Text>
               </View>
-                    <View>
+
+             <View style={tw`mt-3 mx-[2%]`}>
+                  <View style={tw`mx-[3%]`}>
+                      <Text style={tw`text-lg text-gray-800`}>Personal Details</Text>
+                  </View>
+                    <View style={tw`mx-4`}>
                         <TextInput
-                        style={styles.inputcategory}
+                        style={tw`mt-3 px-5 border-1 border-gray-400 bg-zinc-100 text-gray-800 h-12 rounded-lg`}
                         onChangeText={onChangeFirst}
                         value={First}
                          autoCompleteType="off"
                          placeholder="First name"
-                         placeholderTextColor="#999999"
+                         placeholderTextColor="#000000"
                         />
                     </View>
-                     <View>
+                     <View style={tw`mx-4`}>
                         <TextInput
-                        style={styles.inputcategory}
+                        style={tw`mt-3 px-5 border-1 border-gray-400 bg-zinc-100 text-gray-800 h-12 rounded-lg`}
                         onChangeText={onChangeLastname}
                         value={Lastname}
                          autoCompleteType="off"
                          placeholder="Last name"
-                         placeholderTextColor="#999999"
+                         placeholderTextColor="#000000"
                         />
                     </View>
-                     <View>
+                     <View style={tw`mx-4`}>
                         <TextInput
-                        style={styles.inputcategory}
+                        style={tw`mt-3 px-5 border-1 border-gray-400 bg-zinc-100 text-gray-800 h-12 rounded-lg`}
                         onChangeText={onChangeEmail}
                         value={Email}
                          autoCompleteType="off"
                          placeholder="Email address"
-                         placeholderTextColor="#999999"
+                         placeholderTextColor="#000000"
                         />
                     </View>
 
-                     <View>
+                     <View style={tw`mx-4`}>
                         <TextInput
-                        style={styles.inputcategory}
+                        style={tw`mt-3 px-5 border-1 border-gray-400 bg-zinc-100 text-gray-800 h-12 rounded-lg`}
                         onChangeText={onChangePhoneNumber}
                         value={PhoneNumber}
                          placeholder="Phone number"
                          autoCompleteType="off"
                          keyboardType={'numeric'}
                          maxLength = {10}
-                         placeholderTextColor="#999999"
+                         placeholderTextColor="#000000"
                         />
                     </View>
                 </View>
                  <View style={{marginHorizontal:'3%',marginTop:'5%'}}>
-                 <View>
-             <Text style={styles.barlotext}>Shipping Details</Text>
-              </View>
-                     <View>
+                  <View style={tw`mx-[3%]`}>
+                      <Text style={tw`text-lg text-gray-800`}>Shipping Details</Text>
+                  </View>
+                     <View style={tw`mx-4`}>
                         <TextInput
-                        style={styles.inputcategory}
+                        style={tw`mt-3 px-5 border-1 border-gray-400 bg-zinc-100 text-gray-800 h-12 rounded-lg`}
                         onChangeText={onChangeStreet}
                         value={Street}
                          placeholder="Street address"
-                         placeholderTextColor="#999999"
+                         placeholderTextColor="#000000"
                         />
                     </View>
-                     <View>
+                     <View style={tw`mx-4`}>
                         <TextInput
-                        style={styles.inputcategory}
+                        style={tw`mt-3 px-5 border-1 border-gray-400 bg-zinc-100 text-gray-800 h-12 rounded-lg`}
                         onChangeText={onChangeZip}
                         value={Zip}
                          placeholder="Zip Code"
-                         placeholderTextColor="#999999"
+                         placeholderTextColor="#000000"
                         />
                     </View>
-                     <View>
+                     <View style={tw`mx-4`}>
                         <TextInput
-                        style={styles.inputcategory}
+                        style={tw`mt-3 px-5 border-1 border-gray-400 bg-zinc-100 text-gray-800 h-12 rounded-lg`}
                         onChangeText={onChangeCity}
                         value={City}
                         placeholder="City"
-                        placeholderTextColor="#999999"
+                        placeholderTextColor="#000000"
                         />
                     </View>
-                     <View style={{marginTop:20,marginLeft:20}}>
-                    <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)}  />
-                </View>
-                     <View>
+
+                       <View style={tw`mt-3 mx-4`}>
+                          <Fullwidthsortorder text="Select Country" options={options} onSelect={(checked) => updateorderStatus(checked)}  />
+                      </View>
+                  <View>
 
 
     </View>
@@ -290,12 +294,12 @@ const StoreOwner = (props) => {
                         onFillColor={'#4DABEC'}
                         onTintColor={'#F4DCF8'}
                      />
-            
+
             <Text style={styles.checkboxtext}>Use this address always </Text>
             </View>
                 <View style={{marginTop:'5%',}}>
-                 <View>
-                  <Text style={styles.barlotext}>Payment method</Text>
+                 <View style={tw`mx-[3%]`}>
+                  <Text style={tw`text-lg text-gray-800`}>Payment method</Text>
                  </View>
                  <View style={{marginTop:'2%',flexDirection: 'row',marginLeft:'3%'}}>
                     <View style={styles.checkboxView}>
@@ -324,9 +328,9 @@ const StoreOwner = (props) => {
                     </View>
                 </View>
                 <View style={{alignItems:'center',marginTop:'12%',marginBottom:'22%'}}>
-                    
+
                         <Largebutton text={" Pay $" + props?.totalcartprice} onPress={() => { handleSendRequestSubmit() }} />
-                   
+
                </View>
                 </View>
                 { openpopup  &&

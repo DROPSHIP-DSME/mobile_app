@@ -97,7 +97,7 @@ const deviceWidth = Dimensions.get('window').width;
                 <Comingsoon />
                 <View style={tw`items-center mt-10`}>
                   <Text style={tw`text-5xl text-Red-700 text-center`}>OOPS!</Text>
-                  <Text style={tw`text-xl text-gray-700 text-center mx-4 mt-3`}>We are in exclusive beta mode please joing our waiting to recieve your invite</Text>
+                  <Text style={tw`text-xl text-gray-700 text-center mx-4 mt-3`}>We are in exclusive beta mode please join our waiting to recieve your invite Today!</Text>
                 </View>
                 <View style={tw`mt-10 w-full`}>
                  <Medbutton text="Join Waiting List" />

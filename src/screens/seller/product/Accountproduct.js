@@ -63,7 +63,7 @@ const options = [
       }
     ]
 
-    
+
 
     const options2 = [
       {
@@ -205,7 +205,7 @@ const Accountproduct = (props) => {
     }
 
 
-    
+
     const selectPhoto1 = async () => {
         if(counter<5){
         ImagePicker.openPicker({
@@ -377,13 +377,13 @@ const renderItem6 = ({ item }) => {
               </View>
 
                  <View style={tw`mt-8`}>
-                      <Text style={tw`text-2xl font-bold text-gray-700 mx-3 mb-3`}>Product Info</Text>
+                      <Text style={tw`text-3xl text-gray-900 mx-3 mb-3`}>Product Info</Text>
                      <View style={tw`justify-center`}>
                        <TextInput
                         placeholder='Name of Product'
                         value={Name}
                         onChangeText={onChangeName}
-                       
+
                         placeholderTextColor='#4D4D4D'
                         style={tw`h-14 bg-zinc-200 mx-3 text-gray-500 px-4 rounded-md items-center`} />
 
@@ -395,7 +395,7 @@ const renderItem6 = ({ item }) => {
                       <TextInput
                       onChangeText={onChangeProduct}
                       value={Product}
-                      
+
                       placeholder='Provide more details about your product (500 characters max)' placeholderTextColor='#4D4D4D'
                       style={tw`h-36 bg-zinc-200 mx-3 text-gray-600 px-5 mt-5 rounded-md text-start`} />
                  </View>
@@ -413,26 +413,27 @@ const renderItem6 = ({ item }) => {
                 </View>
 
 
-                <Text style={tw`text-gray-700 text-2xl mt-12 font-bold mx-3`} >Product Specifics (Optional)</Text>
+                <Text style={tw`text-3xl text-gray-900 mt-10 mx-3`} >Product Specifics (Optional)</Text>
                 <View style={tw`flex flex-row mx-3 mt-4`}>
                 <TextInput
                 placeholder='Height (ft)'
                 placeholderTextColor='#4D4D4D'
                 keyboardType={'numeric'}
-                style={tw`bg-zinc-200 h-14 text-gray-700 rounded-md px-4 w-6/12`} /> 
+                style={tw`bg-zinc-200 h-14 rounded-md px-4 w-6/12 text-gray-900`} />
 
                 <TextInput
                 placeholder='Length (ft)'
                 placeholderTextColor='#4D4D4D'
                 keyboardType={'numeric'}
-                style={tw`bg-zinc-200 h-14 text-gray-700 rounded-md px-4 w-6/12 ml-2`} />
+                style={tw`bg-zinc-200 h-14 rounded-md px-4 w-6/12 ml-2 text-gray-900`} />
+
                 </View>
 
                 <TouchableOpacity>
                     <Text style={tw`text-base text-gray-700 mx-3 mt-2`} >+ Add another option</Text>
                 </TouchableOpacity>
 
-                <Text style={tw`text-gray-700 text-2xl mt-5 font-bold mx-3 mt-10`} >Pricing</Text>
+                <Text style={tw`text-3xl text-gray-900 mt-10 mx-3`} >Pricing</Text>
 
                 <View style={tw`flex flex-row mx-3 mt-5 justify-between`}>
                   <View style={tw`w-6/12 mr-1`}>
@@ -442,9 +443,10 @@ const renderItem6 = ({ item }) => {
                       value={Price}
                       onChangeText={onChangePrice}
                       keyboardType={'numeric'}
-                      
+
                       placeholderTextColor='#4D4D4D'
-                      style={tw`bg-zinc-200 h-14 text-gray-700 rounded-md px-4 w-full`} />
+                      style={tw`bg-zinc-200 h-14 rounded-md px-4 w-full text-gray-900`} />
+
                   </View>
                   <View style={tw`w-6/12 ml-1`}>
                     <Text style={tw`text-gray-700`}>Discount in %</Text>
@@ -453,9 +455,9 @@ const renderItem6 = ({ item }) => {
                       value={SelectedDiscount}
                       onChangeText={setSelectedDiscount}
                       keyboardType={'numeric'}
-                      
+
                       placeholderTextColor='#4D4D4D'
-                      style={tw`bg-zinc-200 h-14 text-gray-700 rounded-md px-4 w-full`} />
+                      style={tw`bg-zinc-200 h-14 rounded-md px-4 w-full text-gray-900`} />
                   </View>
 
                 </View>
@@ -467,7 +469,7 @@ const renderItem6 = ({ item }) => {
                 </View>
 
                 <View style={tw`mt-10 mb-5`}>
-                  <Text style={tw`text-gray-700 text-2xl mt-5 font-bold mx-3 mt-2`} >Product Tags</Text>
+                  <Text style={tw`text-3xl text-gray-900 mt-10 mx-3`} >Product Tags</Text>
                   <Text style={tw`text-gray-700 text-small mx-3`} >Automatic Labels</Text>
                 </View>
 
@@ -491,7 +493,7 @@ const renderItem6 = ({ item }) => {
                     </TouchableOpacity>
                 </View>
 
-                <Text style={{ color: 'black', fontSize: 22, fontWeight: 'bold', marginTop: 40, marginStart: 20 }} >Shipping</Text>
+                <Text style={tw`text-3xl text-gray-900 mt-15 mx-4`} >Shipping</Text>
 
 
               <View style={tw`mx-4`}>
@@ -536,7 +538,7 @@ const renderItem6 = ({ item }) => {
 
                 <View
                   type="button"
-                  style={tw.style('mb-20 mx-4 items-center px-2 py-3 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-black hover:bg-black focus:outline-none focus:ring-2')}
+                  style={tw.style('mb-20 mx-4 items-center px-2 py-3 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-black hover:bg-black focus:outline-none focus:ring-2')}
                 >
                 <TouchableOpacity style={tw.style('w-10/11 items-center')}
                     onPress={() => props.navigation.navigate("Dashproduct")}>
@@ -558,9 +560,9 @@ const renderItem6 = ({ item }) => {
 
                </ScrollView>
 
-                
 
-             
+
+
 
         </View>
 
