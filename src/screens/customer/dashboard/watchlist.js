@@ -96,15 +96,9 @@ const watchlist = (props) => {
     }
 
     const getBrandUserId = async () => {
-        if (userId != "" && userId != undefined) {
-            await AsyncStorage.setItem('UserId', userId);
-            await AsyncStorage.setItem('userLogin', "1");
-        } else {
-            var userLogin = await AsyncStorage.getItem('userLogin');
-            // if(userLogin!="1"){
-            //     await AsyncStorage.setItem('UserId',uuid());
-            //     await AsyncStorage.setItem('userLogin',"0");
-            // }
+        var loginuserid = await AsyncStorage.getItem('UserId');
+        if(loginuserid==null || loginuserid==undefined || loginuserid==""){
+            await AsyncStorage.setItem('UserId', props?.loginuserid);
         }
     }
 
@@ -176,7 +170,7 @@ const watchlist = (props) => {
     useEffect(() => {
         // AsyncStorage.setItem('UserId','');
         //AsyncStorage.setItem('userLogin','');
-        //getBrandUserId();
+        getBrandUserId();
         //alert(props?.loginuserid)
         props.getAllproduct(1);
         props.getalleventlist(1);

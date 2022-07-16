@@ -1070,7 +1070,7 @@ const RightMenuItem = ({navigation}) => {
           <TouchableOpacity onPress={() => { navigation.navigate('Cart') }}>
               <View style={{ flexDirection: 'row' }}>
                   <ShoppingBagIcon color="red" fill="#ffffff" size={24} />
-                  <Text style={styles.numtext1}>0</Text>
+                  <Text style={styles.numtext1}></Text>
               </View>
           </TouchableOpacity>
         </View>
