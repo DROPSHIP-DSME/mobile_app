@@ -151,19 +151,19 @@ const renderItem2 = ({ item,index }) => {
 
     const renderItem3 = ({ item,index }) => {
        return(
-           <View>
-              <View style={tw.style('flex flex-row justify-between mx-4')}>
-                   <Text style={tw`text-base font-bold text-gray-800`}>{item?.loggedInUserId?.userName}</Text>
+           <View style={tw`border-b-1 border-gray-400 my-3`}>
+              <View style={tw.style('flex flex-row justify-between mx-4 mt-3')}>
+                   <Text style={tw`text-base font-bold text-gray-800`}>Product: {item?.Brandname}</Text>
                    <View style={tw`inline-flex items-center px-2.5 py-0.5 rounded-md`}>
-                    <Text style={tw`text-sm font-medium bg-blue-100 text-blue-800`}>Processing</Text>
+                    <Text style={tw`text-sm font-medium bg-blue-100 px-4 py-1 rounded-full text-blue-800`}>Processing</Text>
                    </View>
                </View>
-               <View style={tw`flex flex-row`}>
+               <View style={tw`flex flex-row mx-4`}>
                    <Text style={tw`text-base text-gray-700`}>{item?.loggedInUserId?.userName}</Text>
                </View>
-               <View style={tw`flex flex-row`}>
+               <View style={tw`flex flex-row mx-4`}>
                    <Text style={tw`text-sm text-gray-700 mr-2`}>Order number:</Text>
-                   <Text style={tw`text-sm text-blue-700`}>{item?.orderNumber}</Text>
+                   <Text style={tw`text-xs text-blue-700`}>{item?.orderNumber}</Text>
                </View>
             </View>
         );
@@ -218,10 +218,8 @@ const renderItem2 = ({ item,index }) => {
                    }
                   </View>
                    {props?.getinconeorderlist?.length>0 ?
-                     <View style={tw`flex flex-row bg-gray-300 justify-between p-4 rounded-lg items-center`}>
-                         <Text style={tw`text-base font-bold text-gray-700`}>Order Number</Text>
-                         <Text style={tw`text-base font-bold text-gray-700`}>Ordered By</Text>
-                         <Text style={tw`text-base font-bold text-gray-700`}>Ema </Text>
+                     <View style={tw`flex flex-row bg-gray-300 justify-between py-4 px-6 rounded-lg items-center`}>
+                         <Text style={tw`text-base font-bold text-gray-700`}>Order Details</Text>
                      </View>
                      :
                     <View style={tw.style('items-center')}>

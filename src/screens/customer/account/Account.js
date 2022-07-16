@@ -194,16 +194,16 @@ const Account = (props) => {
                 handleScroll(nativeEvent['contentOffset'].y);
             }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={tw.style('bg-gray-100')} >
                 <View style={tw.style('mx-4 pt-3 mb-4')}>
-                    <Text style={tw`text-4xl text-red-700 font-bold pt-3 mt-4`}>My Account</Text>
+                    <Text style={tw`text-4xl text-gray-900 pt-3 mt-4`}>My Account</Text>
                 </View>
                 <View style={tw.style('flex flex-row justify-between mx-4 pt-5')}>
-                    <Text style={tw`text-base font-bold text-gray-900`}>Personal Details</Text>
+                    <Text style={tw`text-lg text-gray-900`}>Personal Details</Text>
 
                     <TouchableOpacity onPress={() => props.navigation.navigate("Accountstore")}>
-                        <Text style={tw`text-base font-bold text-gray-400`}>My store</Text>
+                        <Text style={tw`text-base text-gray-400`}>My store</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => props.navigation.navigate("Accountsum")}>
-                        <Text style={tw`text-base font-bold text-gray-400`}>Account Summary</Text>
+                        <Text style={tw`text-base text-gray-400`}>Account Summary</Text>
                     </TouchableOpacity>
                 </View>
 
@@ -214,46 +214,46 @@ const Account = (props) => {
 
                 <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 my-5')}>
                   <View style={tw.style('px-2 py-5')}>
-                    <View style={tw.style('flex flex-row justify-between mx-4 items-center')}>
+                    <View style={tw.style('flex flex-row justify-between mx-4 items-center mb-3')}>
                         <View>
-                            <Text style={tw`flex flex-row font-bold text-xl text-gray-900`}>My Profile</Text>
+                            <Text style={tw`flex flex-row text-2xl text-gray-900`}>My Profile</Text>
                         </View>
                             <Editbutton navigation={props.navigation} page='editprofile'  />
                     </View>
 
                     <View style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
                         <View>
-                            <Text style={tw`text-base font-normal text-gray-900`}>First Name</Text>
+                            <Text style={tw`text-base text-gray-700`}>First Name</Text>
                         </View>
                         <View>
-                            <Text style={tw`text-base font-bold text-gray-900`}>{props?.getprofileuserlist?.userName}</Text>
-                        </View>
-                    </View>
-                    <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
-                    <View style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
-                        <View>
-                            <Text style={tw`text-base font-normal text-gray-900`}>Last Name</Text>
-                        </View>
-                        <View>
-                            <Text style={tw`text-base font-bold text-gray-900`}>{props?.getprofileuserlist?.lastName}</Text>
+                            <Text style={tw`text-lg text-gray-900`}>{props?.getprofileuserlist?.userName}</Text>
                         </View>
                     </View>
                     <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
                     <View style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
                         <View>
-                            <Text style={tw`text-base font-normal text-gray-900`}>Email</Text>
+                            <Text style={tw`text-base text-gray-900`}>Last Name</Text>
                         </View>
                         <View>
-                            <Text style={tw`text-base font-bold text-gray-900`}>{props?.getprofileuserlist?.email}</Text>
+                            <Text style={tw`text-lg text-gray-900`}>{props?.getprofileuserlist?.lastName}</Text>
                         </View>
                     </View>
                     <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
                     <View style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
                         <View>
-                            <Text style={tw`text-base font-normal text-gray-900`}>Number</Text>
+                            <Text style={tw`text-base text-gray-700`}>Email</Text>
                         </View>
                         <View>
-                            <Text style={tw`text-base font-normal text-gray-900`}>{props?.getprofileuserlist?.phone}</Text>
+                            <Text style={tw`text-lg text-gray-900`}>{props?.getprofileuserlist?.email}</Text>
+                        </View>
+                    </View>
+                    <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
+                    <View style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
+                        <View>
+                            <Text style={tw`text-base text-gray-700`}>Number</Text>
+                        </View>
+                        <View>
+                            <Text style={tw`text-base text-gray-900`}>{props?.getprofileuserlist?.phone}</Text>
                         </View>
                     </View>
                   </View>
@@ -262,41 +262,41 @@ const Account = (props) => {
 
                 <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 my-5')}>
                   <View style={tw.style('px-2 py-5')}>
-                      <View style={tw.style('flex flex-row justify-between mx-4 mt-2')}>
+                      <View style={tw.style('flex flex-row justify-between mx-4 mt-2 mb-3')}>
                           <View>
-                              <Text style={tw`text-xl font-bold text-gray-900`}>My Address</Text>
+                              <Text style={tw`flex flex-row text-2xl text-gray-900`}>My Address</Text>
                           </View>
                           <Editbutton navigation={props.navigation} page='editaddress' />
                       </View>
 
                       <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
                           <View>
-                              <Text style={tw`text-base font-normal text-gray-900`}>Address line1</Text>
+                              <Text style={tw`text-base text-gray-700`}>Address line1</Text>
                           </View>
                           {(props?.getuseraddresslist && props?.getuseraddresslist?.length > 0) &&
                               <View>
-                                  <Text style={tw`text-base font-bold text-gray-900`}>{props?.getuseraddresslist[0]?.streetAdress}</Text>
+                                  <Text style={tw`text-lg text-gray-900`}>{props?.getuseraddresslist[0]?.streetAdress}</Text>
                               </View>
                           }
                       </View>
-                      <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
+                      <View style={tw.style('flex flex-row justify-between mx-4')}>
                           <View>
-                              <Text style={tw`text-base font-normal text-gray-900`}>Address line2</Text>
+                              <Text style={tw`text-base text-gray-700`}>Address line2</Text>
                           </View>
                           {(props?.getuseraddresslist && props?.getuseraddresslist?.length > 0) &&
                               <View>
-                                  <Text style={tw`text-base font-bold text-gray-900`}>{props?.getuseraddresslist[0]?.phoneNumber}</Text>
+                                  <Text style={tw`text-lg text-gray-900`}>{props?.getuseraddresslist[0]?.phoneNumber}</Text>
                               </View>
                           }
                       </View>
                       <View style={tw.style('border-b mt-2 mx-4 border-gray-500')}></View>
                       <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
                           <View>
-                              <Text style={tw`text-base font-normal text-gray-900`}>City</Text>
+                              <Text style={tw`text-base text-gray-700`}>City</Text>
                           </View>
                           {(props?.getuseraddresslist && props?.getuseraddresslist?.length > 0) &&
                               <View>
-                                  <Text style={tw`text-base font-bold text-gray-900`}>{props?.getuseraddresslist[0]?.city}</Text>
+                                  <Text style={tw`text-lg text-gray-900`}>{props?.getuseraddresslist[0]?.city}</Text>
                               </View>
                           }
                       </View>
@@ -318,7 +318,7 @@ const Account = (props) => {
                   <View style={tw.style('px-2 py-5')}>
                       <View style={tw.style('flex flex-row justify-between mx-4 mt-4')}>
                           <View>
-                              <Text style={tw.style('text-xl font-bold text-gray-900')}>Payment Details</Text>
+                              <Text style={tw`flex flex-row text-2xl text-gray-900`}>Payment Details</Text>
                           </View>
 
                       </View>
@@ -374,11 +374,11 @@ const Account = (props) => {
                   <View style={tw.style('px-2 py-5')}>
                       <View style={tw.style('flex flex-row justify-between mx-4 mt-4 mb-5')}>
                           <View>
-                              <Text style={tw.style('text-xl font-bold text-gray-900')}>Account Settings</Text>
+                              <Text style={tw`flex flex-row text-2xl text-gray-900`}>Account Settings</Text>
                           </View>
 
                       </View>
- 
+
                       <TouchableOpacity onPress={() => props.navigation.navigate("Dashsupportacc")} style={tw.style('flex flex-row justify-between mx-4 my-2 items-center')}>
                           <View style={tw.style('my-1')}>
                               <Text style={tw.style('text-base font-normal text-gray-900')}>Customer Support</Text>

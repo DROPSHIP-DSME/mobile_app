@@ -163,18 +163,18 @@ const Accountstore = (props) => {
 
 
         <View style={tw.style('mx-4 pt-3 mb-4')}>
-          <Text style={tw`text-4xl text-red-700 font-bold pt-3 mt-4`}>My Account</Text>
+            <Text style={tw`text-4xl text-gray-900 pt-3 mt-4`}>My Account</Text>
         </View>
 
         <View style={tw.style('flex flex-row justify-between mx-4 pt-5')}>
           <TouchableOpacity onPress={() => props.navigation.navigate("Account")}>
-            <Text style={tw`text-base font-bold text-gray-400`}>Personal Details</Text>
+            <Text style={tw`text-base text-gray-400`}>Personal Details</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => props.navigation.navigate("Accountstore")}>
-            <Text style={tw`text-base font-bold text-gray-800`}>My store</Text>
+            <Text style={tw`text-base text-gray-800`}>My store</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => props.navigation.navigate("Accountsum")}>
-            <Text style={tw`text-base font-bold text-gray-400`}>Account Summary</Text>
+            <Text style={tw`text-base text-gray-400`}>Account Summary</Text>
           </TouchableOpacity>
         </View>
 

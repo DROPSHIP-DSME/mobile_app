@@ -16,13 +16,15 @@ import Loader from '../../../components/modals/Loader';
 import Swipeout from 'react-native-swipeout';
 import HorizontalSlider from 'react-horizontal-slider';
 import Footer2 from '../../../screens/common/Footer2';
-
-import AsyncStorage from '@react-native-community/async-storage'; 
+import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import { Provider , Portal,} from 'react-native-paper';
 import Modal from 'react-native-modal'
 import Sortorder from '../../../components/pickers/Sortorder';
+import tw from 'twrnc'
+
+
 const options = [
       {
         label: 'Prcoessing',
@@ -69,8 +71,8 @@ const deviceWidth = Dimensions.get('window').width;
     const userId = props?.route?.params?.userId;
     const brandId = props?.route?.params?.brandId;
     const orderNumber = props?.route?.params?.orderNumber;
-   
- 
+
+
     useEffect(() => {
       props.getincomingtlist(props?.loginuserid);
       props.getselldeshboard(props?.loginuserid);
@@ -88,10 +90,10 @@ const deviceWidth = Dimensions.get('window').width;
         getBrandUserId();
      })
 
-    
+
      const handleScroll=(pageYOffset)=>{
         if (pageYOffset > 0) {
-            setshowclassName('#B80000');  
+            setshowclassName('#B80000');
         }else{
             setshowclassName('#B80000');
         }
@@ -108,7 +110,7 @@ const deviceWidth = Dimensions.get('window').width;
     const [visible, setVisible] = React.useState(false);
     const [selectedValue, setSelectedValue] = useState("Delivered");
     const [showclassName, setshowclassName] = useState("#B80000");
-    
+
    useEffect(() => {
         props.getorderdetail(orderNumber);
         console.log('getorderlist',props.getorderdetail);
@@ -118,8 +120,8 @@ const deviceWidth = Dimensions.get('window').width;
         setSelectedValue(itemValue)
         props.updateorderdetail(orderNumber,itemValue);
     }
-    
-    
+
+
     const renderItem = ({ item,index }) => {
         return(
             <View style={styles.heartratingView}>
@@ -129,117 +131,117 @@ const deviceWidth = Dimensions.get('window').width;
                     <View style={styles.heartratingView}>
                        <Text style={styles.pdclr}>Price: </Text>
                        <Text style={styles.pdnme}>${item.productPrice}</Text>
-                    </View> 
+                    </View>
                     <View style={styles.heartratingView}>
                        <Text style={styles.pdclr}>Quantity:</Text>
                        <Text style={styles.pdnme}> {item.productQuantity}</Text>
-                    </View>   
+                    </View>
                 </View>
             </View>
         );
     }
 
- 
+
 
     return (
          <View style={{flex:1}}>
-         
+
        <ScrollView onScroll={({nativeEvent}) => {
                 handleScroll(nativeEvent['contentOffset'].y);
-    }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} > 
-          
-                
+    }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} >
 
-               <View style={styles.stsview}>
-                 <Text style={styles.odrstxt}>ORDER STATUS</Text>
+
+
+               <View style={tw`mt-10 mx-3`}>
+                 <Text style={tw`text-3xl text-gray-900 mx-3 mb-3`}>Product Info</Text>
                </View>
 
-             
-               <View style={{marginHorizontal:'5%',width:350,marginTop:'2%'}}>
-                     <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
+
+              <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 mt-10')}>
+                <View style={tw.style('px-2 py-5')}>
+                    <Text style={tw`text-xl text-gray-900 mx-3 mb-3`}>Products Ordered: {props?.getorderlist?.data?.orderStatus}</Text>
+                    <FlatList
+                      data={props?.getorderlist?.ItemList || []}
+                      renderItem={renderItem}
+                      keyExtractor={item => item.id}
+                      showsHorizontalScrollIndicator={false}
+                      horizontal={true}
+                    />
                 </View>
-
-              
-               
-              <View style={[styles.odrmainview,{marginTop:30}]}>
-                <Text style={styles.dtlodrtxt}>Order Details: {props?.getorderlist?.data?.orderStatus}</Text>
-                <FlatList
-                  data={props?.getorderlist?.ItemList || []}
-                  renderItem={renderItem}
-                  keyExtractor={item => item.id}
-                  showsHorizontalScrollIndicator={false}
-                  horizontal={true}
-                />
               </View>
-               <View style={styles.dtlvw}>
-                
-                <View style={styles.dirspcView}>
-                <Text style={styles.dtlodrtxt}>Buyer Details</Text>
-                {/* <TouchableOpacity onPress={() => props.navigation.navigate("Dashreturn")} style={{backgroundColor:'#B80000',width:130,borderRadius:20,padding:8,}}>
-                      <Text style={styles.totalincometodayWIDRO}>SEND MESSAGE</Text> 
-                   </TouchableOpacity>*/}
+
+              <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 mt-10')}>
+                <View style={tw.style('px-6 py-5')}>
+                    <View style={styles.dirspcView}>
+                      <Text style={tw`text-xl text-gray-900 mb-3`}>Buyer Details</Text>
+                      {/* <TouchableOpacity onPress={() => props.navigation.navigate("Dashreturn")} style={{backgroundColor:'#B80000',width:130,borderRadius:20,padding:8,}}>
+                            <Text style={styles.totalincometodayWIDRO}>SEND MESSAGE</Text>
+                         </TouchableOpacity>*/}
+                    </View>
+
+                   <View style={tw`flex flex-row justify-between items-center `}>
+                      <Text style={tw`text-base text-gray-700`}>Name:</Text>
+                       <Text style={tw`text-base text-gray-900`}>{props?.getorderlist?.data?.firstName} {props?.getorderlist?.data?.lastName}</Text>
+                   </View>
+                   <View style={tw`flex flex-row justify-between items-center my-1.5`}>
+                      <Text style={tw`text-base text-gray-700`}>phoneNumber:</Text>
+                       <Text style={styles.ustxt}>{props?.getorderlist?.data?.phoneNumber}</Text>
+                   </View>
+                    <View style={tw`flex flex-row justify-between items-center  my-1.5`}>
+                      <Text style={tw`text-base text-gray-700`}>Address:</Text>
+                      <Text style={tw`text-base text-gray-900`}>{props?.getorderlist?.data?.zipCode}, {props?.getorderlist?.data?.city} {props?.getorderlist?.data?.country}, {props?.getorderlist?.data?.streetAdress}</Text>
+                    </View>
                 </View>
+              </View>
 
-               <View style={styles.textviewpop1}>
-                  <Text style={styles.proregultxt}>Name</Text>
-                   <Text style={styles.ustxt}>{props?.getorderlist?.data?.firstName} {props?.getorderlist?.data?.lastName}</Text>
-               </View>
-               <View style={styles.textviewpop1}>
-                  <Text style={styles.proregultxt}>phoneNumber</Text>
-                   <Text style={styles.ustxt}>{props?.getorderlist?.data?.phoneNumber}</Text>
-               </View>
-                <View style={styles.textviewpop1}>
-                  <Text style={styles.proregultxt}>Address</Text>
-                  <Text style={{color:'#333333'}}>{props?.getorderlist?.data?.zipCode}, {props?.getorderlist?.data?.city} {props?.getorderlist?.data?.country}, {props?.getorderlist?.data?.streetAdress}</Text>
+
+
+              <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 mt-10')}>
+                <View style={tw.style('px-6 py-5')}>
+                      <Text style={tw`text-xl text-gray-900 mb-3`}>Shipping Details</Text>
+
+                     <View style={tw`flex flex-row justify-between items-center my-1.5`}>
+                        <Text style={tw`text-base text-gray-700`}>Shipping Method:</Text>
+                         <Text style={tw`text-base text-gray-900`}>Standard</Text>
+                     </View>
+                     <View style={tw`flex flex-row justify-between items-center my-1.5`}>
+                        <Text style={tw`text-base text-gray-700`}>Address:</Text>
+                         <Text style={tw`text-base text-gray-900`}>{props?.getorderlist?.data?.zipCode}, {props?.getorderlist?.data?.city} {props?.getorderlist?.data?.country}, {props?.getorderlist?.data?.streetAdress}</Text>
+                     </View>
                 </View>
-               
-              </View>
-              
-
-
-               <View style={styles.dtlvw}>
-                
-                <Text style={styles.dtlodrtxt}>Shipping Details</Text>
-                 
-               <View style={styles.textviewpop1}>
-                  <Text style={styles.mtdtxt}>Shipping Method</Text>
-                   <Text style={styles.ustxt}>Standard</Text>
-               </View>
-               <View style={styles.textviewpop1}>
-                  <Text style={styles.proregultxt}>Address</Text>
-                   <Text style={{color:'#333333'}}>{props?.getorderlist?.data?.zipCode}, {props?.getorderlist?.data?.city} {props?.getorderlist?.data?.country}, {props?.getorderlist?.data?.streetAdress}</Text>
-               </View>
-               
               </View>
 
 
 
-               <View style={styles.botmdtlvw}>
-                <Text style={styles.dtlodrtxt}>Payment Details</Text>
-                
-               <View style={styles.textviewpop1}>
-                  <Text style={styles.proregultxt}>Subtotal</Text>
-                   <Text style={styles.shptxt}>${props?.getorderlist?.data?.orderAmount}</Text>
-               </View>
-               <View style={styles.textviewpop1}>
-                  <Text style={styles.proregultxt}>Taxes</Text>
-                   <Text style={styles.shptxt}>$0</Text>
-               </View>
-                <View style={styles.textviewpop1}>
-                  <Text style={styles.proregultxt}>Shipping</Text>
-                   <Text style={styles.shptxt}>$0</Text>
-               </View>
+              <View style={tw.style('bg-white overflow-hidden shadow rounded-md mx-4 my-10')}>
+                <View style={tw.style('px-6 py-5')}>
+                      <Text style={tw`text-xl text-gray-900 mb-3`}>Payment Details</Text>
 
-               <View style={styles.grndline}></View>
+                     <View style={tw`flex flex-row justify-between items-center my-1.5`}>
+                        <Text style={tw`text-base text-gray-700`}>Subtotal:</Text>
+                         <Text style={tw`text-lg text-gray-900`}>${props?.getorderlist?.data?.orderAmount}</Text>
+                     </View>
+                     <View style={tw`flex flex-row justify-between items-center my-1.5`}>
+                        <Text style={tw`text-base text-gray-700`}>Taxes</Text>
+                         <Text style={tw`text-lg text-gray-700`}>$0</Text>
+                     </View>
+                      <View style={tw`flex flex-row justify-between items-center my-1.5`}>
+                        <Text style={tw`text-base text-gray-700`}>Shipping:</Text>
+                         <Text style={tw`text-lg text-gray-700`}>$0</Text>
+                     </View>
 
-                <View style={styles.textviewpop1}>
-                  <Text style={styles.proregultxt}>Grand Total</Text>
-                   <Text style={styles.ustxt}>${props?.getorderlist?.data?.orderAmount}</Text>
-               </View>
-                 
+                     <View style={styles.grndline}></View>
+
+                      <View style={tw`flex flex-row justify-between items-center my-1.5`}>
+                        <Text style={tw`text-2xl text-gray-900`}>Grand Total</Text>
+                         <Text style={tw`text-2xl text-gray-900`}>${props?.getorderlist?.data?.orderAmount}</Text>
+                     </View>
+                </View>
               </View>
-            </ScrollView>    
-            <Footer2 onSelelection="2"  /> 
+
+
+            </ScrollView>
+            <Footer2 onSelelection="2"  />
         </View>
     )
 }
