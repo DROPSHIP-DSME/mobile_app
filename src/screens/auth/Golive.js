@@ -130,7 +130,7 @@ const Golive = (props) => {
 
           <View style={tw.style('items-center mt-12')}>
               <TouchableOpacity
-                  style={tw.style('w-10/11 h-16 bg-white justify-center text-center rounded-lg border border-slate-400 shadow-sm')}
+                  style={tw.style('w-10/11 h-16 bg-white justify-center text-center rounded-full border border-slate-400 shadow-sm')}
                   activeOpacity = { .5}
                   onPress={() => googleSignIn()}>
                   <View style={tw.style('flex flex-row justify-center items-center')}>
@@ -141,7 +141,7 @@ const Golive = (props) => {
           </View>
           <View style={tw.style('mt-4 items-center')}>
               <TouchableOpacity
-                  style={tw.style('w-10/11 h-16 bg-white justify-center text-center rounded-lg border border-slate-400 shadow-sm ')}
+                  style={tw.style('w-10/11 h-16 bg-white justify-center text-center rounded-full border border-slate-400 shadow-sm ')}
                   activeOpacity = { .5}
                   onPress={() => facebookSignIn()}>
                   <View style={tw.style('flex flex-row justify-center items-center')}>
