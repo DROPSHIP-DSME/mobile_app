@@ -697,10 +697,10 @@ const Blurbackground = (props) => {
                         }
                     </View>
 
-                      <View style={tw.style('ml-3 right-2',{zIndex:100})}>
-                       <TouchableOpacity onPress={() => endStream()}>
-                        <PhoneOutgoingIcon color="green" fill="black" size={20} />
-                        </TouchableOpacity>
+                      <View style={tw.style('ml-1 right-2',{zIndex:100})}>
+                         <TouchableOpacity onPress={() => endStream()}>
+                          <PhoneOutgoingIcon color="green" fill="white" size={32} />
+                          </TouchableOpacity>
                       </View>
 
                 </View>
