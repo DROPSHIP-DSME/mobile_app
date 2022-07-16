@@ -19,7 +19,7 @@ import PasswordInputText from '../../components/react-native-hide-show-password-
 import tw from 'twrnc';
 import Largebutton from '../../components/dropshipbutton/Largebutton';
 import AwesomeAlert from '../../components/modals/AlertModal';
-import { EyeIcon } from "react-native-heroicons/solid";
+import { EyeIcon,EyeOffIcon } from "react-native-heroicons/solid";
 import Logobase from '../../components/baseassests/Logobase';
 
 
@@ -192,7 +192,11 @@ const CreateAccountShop = (props) => {
                     />
                     <View style={tw`absolute top-3 right-8`}>
                        <TouchableOpacity onPress={() => setpasswordsecure(s=>!s)}>
-                        <EyeIcon color="red" fill="black" size={24} />
+                        {passwordsecure==false ?
+                            <EyeOffIcon color="red" fill="black" size={24} />
+                        :
+                            <EyeIcon color="red" fill="black" size={24} />
+                        }
                         </TouchableOpacity>
                   </View>
                 </View>
@@ -208,7 +212,11 @@ const CreateAccountShop = (props) => {
                     />
                     <View style={tw`absolute top-3 right-8`}>
                       <TouchableOpacity onPress={() => setconfirmsecure(s=>!s)}>
-                        <EyeIcon color="red" fill="black" size={24} />
+                        {confirmsecure==false ?
+                            <EyeOffIcon color="red" fill="black" size={24} />
+                        :
+                            <EyeIcon color="red" fill="black" size={24} />
+                        }
                       </TouchableOpacity>
                     </View>
                 </View>

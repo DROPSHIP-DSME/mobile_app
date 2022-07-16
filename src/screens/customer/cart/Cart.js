@@ -169,7 +169,7 @@ const Cart = (props) => {
           </View>
         { props?.cartlistdata1?.length>0 ?
             <View style={tw`my-5 mx-4`}>
-              <Largebutton text="Check out" onPress={() => { checklogin() }} />
+              <Largebutton text="Check out" onPress={() => { checklogin() }} /> 
             </View>
 
         :

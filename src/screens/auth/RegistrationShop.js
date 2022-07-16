@@ -24,7 +24,7 @@ import { GoogleSignin } from '@react-native-google-signin/google-signin';
 //import { LoginManager } from "react-native-fbsdk-next";
 import tw from 'twrnc';
 import Largebutton from '../../components/dropshipbutton/Largebutton';
-import { EyeIcon } from "react-native-heroicons/solid";
+import { EyeIcon, EyeOffIcon } from "react-native-heroicons/solid";
 import AwesomeAlert from '../../components/modals/AlertModal';
 import Logobase from '../../components/baseassests/Logobase';
 
@@ -207,7 +207,11 @@ const RegistrationShop = (props) => {
                   />
                   <View style={tw`absolute top-3 right-8`}>
                     <TouchableOpacity onPress={() => setpasswordsecure(s=>!s)}>
-                        <EyeIcon color="red" fill="black" size={24} />
+                        {passwordsecure==false ?
+                            <EyeOffIcon color="red" fill="black" size={24} />
+                        :
+                            <EyeIcon color="red" fill="black" size={24} />
+                        }
                     </TouchableOpacity>
                   </View>
 

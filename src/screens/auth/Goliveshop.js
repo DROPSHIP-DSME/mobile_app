@@ -184,12 +184,12 @@ const Goliveshop = (props) => {
                 </TouchableOpacity>
             </View>
 
-
+ 
             <View style={{alignItems:'center',marginVertical:'8%'}}>
                 <TouchableOpacity
                     style={styles.Touchablestarttextnew}
                     activeOpacity = { .5}
-                    onPress={() => alert('Coming Soon!')}>
+                    onPress={() => props.navigation.navigate('CreateStore')}>
                         <Text style={[styles.startbutton1,{fontSize:16,marginLeft:10,marginTop:5,color:'#000000'}]}>Are you a brand?</Text>
                 </TouchableOpacity>
             </View>
@@ -229,7 +229,7 @@ const Goliveshop = (props) => {
                 <TouchableOpacity
                     style={styles.Touchablestarttextnew}
                     activeOpacity = { .5}
-                    onPress={() => showregister()}>
+                    onPress={() => props.navigation.navigate('CreateStore')}>
                         <Text style={[styles.startbutton1,{fontSize:13,marginLeft:10,marginTop:5,color:'#000000'}]}>Create a new store</Text>
                 </TouchableOpacity>
             </View>

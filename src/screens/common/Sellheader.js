@@ -132,7 +132,7 @@ const Sellheader = (props) => {
 
 
 
-                                         <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+                                         <TouchableOpacity onPress={() => navigation.navigate("watchlist")}>
                                           <View style={{flexDirection:'row',marginVertical:'7%'}}>
                                                <Image source={ImageIcons.exittoday}  style={{height:21,width:21}} />
                                                <Text style={{color:'#ffffff',fontSize:16,marginLeft:'8%'}}>Exit Dashboard</Text>

@@ -74,17 +74,17 @@ const NameStore = (props) => {
     props.shopsellcount(shopId);
   }, [])
 
-  const cartdataSubmit = async (productId, productQuantity) => {
-     getpopup();
+  const cartdataSubmit = async () => {
 
     let request = {
-      "productId": productId,
+      "productId": props?.getlistproductdetails?.data?._id,
       "userId": props?.loginuserid,
       "productQuantity": 1,
       "productPrice":props?.getlistproductdetails?.data?.productPrice
     }
-
     props.cartadd(request, props.navigation, "vendor");
+    setshowotherAlert(true)
+    setshowalertmsg('Item added in cart successfully!')
    
   }
 
@@ -170,7 +170,7 @@ const NameStore = (props) => {
           <View style={tw.style('p-0.5')}>
             <Image source={{uri: item.productImage}} style={{ height: 150, width: deviceWidth / 2.4, borderRadius: 10 }} onPress={() => { props.navigation.navigate("clothing") }} />
           </View>
-          <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
+          
 
           <View style={tw.style('flex flex-row mt-2.5 justify-between')}>
             <View style={tw.style('pl-2')}>
@@ -221,7 +221,7 @@ const NameStore = (props) => {
       }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={tw.style('bg-white')} >
 
         
-
+      <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
         <View>
           <View style={tw`mx-4 mt-4 mb-3 bg-gray-200 h-70 rounded-lg justify-center items-center`}>
             <Image source={{ uri: props?.getlistproductdetails?.data?.productImage }} style={tw.style('w-full', { width: deviceWidth / 1.1 })} />
@@ -328,7 +328,7 @@ const NameStore = (props) => {
 
         <View style={tw.style('flex flex-row mx-4 mt-10 justify-between')}>
           <View style={tw`w-[65%]`}>
-            <Medbutton text="Add to Bag" onPress={() => { cartdataSubmit(props?.getlistproductdetails?.data?._id,1) }}/>
+            <Medbutton text="Add to Bag" onPress={() => { cartdataSubmit() }}/>
           </View>
 
           <View style={tw.style('ml-3 w-20 h-auto bg-gray-100 justify-center items-center rounded-lg')}>

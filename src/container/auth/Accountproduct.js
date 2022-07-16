@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { Accountproduct } from '../../screens/seller/product';
-import { createshop,uploadpic,getAllcategory,createproduct } from '../../redux/actions/Auth'
+import { createshop,uploadpic,getAllcategory,createproduct,getbrandName,Brandslist } from '../../redux/actions/Auth'
 
 
 const mapStateToProps = (state) => ({
@@ -10,13 +10,17 @@ const mapStateToProps = (state) => ({
     loginuserstatus: state.auth.loginuserstatus,
     productLoader: state.auth.productLoader,
     getlistcategory: state.auth.getlistcategory,
+    brandName:state.auth.brandName,
+    Brandlistdata: state.auth.Brandlistdata,
 });
 
 const mapDispatchToProps = {
     createshop,
     uploadpic,
     getAllcategory,
-    createproduct
+    createproduct,
+    getbrandName,
+    Brandslist
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Accountproduct);

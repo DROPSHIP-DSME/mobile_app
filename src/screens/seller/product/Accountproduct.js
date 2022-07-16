@@ -63,12 +63,7 @@ const options = [
       }
     ]
 
-    const options1 = [
-      {
-        label: 'Sneakers',
-        value: '6295110f3defd98ec12b7f80'
-      }
-    ]
+    
 
     const options2 = [
       {
@@ -95,6 +90,13 @@ const Accountproduct = (props) => {
     } = props;
 
     //Reference
+    const options1 = [
+      {
+        label: props?.brandName,
+        value: '6295110f3defd98ec12b7f80'
+      }
+    ]
+
     const categoryId = props?.route?.params?.categoryId;
     const categoryName = props?.route?.params?.categoryName;
 
@@ -165,6 +167,7 @@ const Accountproduct = (props) => {
      useEffect(() => {
          getBrandUserId();
          getLoginUserId();
+         //props.getbrandName(props?.loginuserid);
     }, [])
 
     const getBrandUserId = async () => {
@@ -401,9 +404,9 @@ const renderItem6 = ({ item }) => {
                       <Sortorder text="Choose a Category" options={options} onSelect={(checked) => updateorderStatus(checked)}  />
                  </View>
 
-                 <View style={tw`mx-3 mt-5`}>
+                {/* <View style={tw`mx-3 mt-5`}>
                         <Sortorder text="Brand" options={options1}  onSelect={(checked) => updateorderStatus1(checked)} />
-                 </View>
+                 </View>*/}
 
                  <View style={tw`mx-3 mt-5`}>
                     <Sortorder text="Product Condition" options={options2} onSelect={(checked) => updateorderStatus2(checked)} />
@@ -415,13 +418,14 @@ const renderItem6 = ({ item }) => {
                 <TextInput
                 placeholder='Height (ft)'
                 placeholderTextColor='#4D4D4D'
-                style={tw`bg-zinc-200 h-14 rounded-md px-4 w-6/12`} />
+                keyboardType={'numeric'}
+                style={tw`bg-zinc-200 h-14 text-gray-700 rounded-md px-4 w-6/12`} /> 
 
                 <TextInput
                 placeholder='Length (ft)'
                 placeholderTextColor='#4D4D4D'
-                style={tw`bg-zinc-200 h-14 rounded-md px-4 w-6/12 ml-2`} />
-
+                keyboardType={'numeric'}
+                style={tw`bg-zinc-200 h-14 text-gray-700 rounded-md px-4 w-6/12 ml-2`} />
                 </View>
 
                 <TouchableOpacity>
@@ -440,7 +444,7 @@ const renderItem6 = ({ item }) => {
                       keyboardType={'numeric'}
                       
                       placeholderTextColor='#4D4D4D'
-                      style={tw`bg-zinc-200 h-14 rounded-md px-4 w-full`} />
+                      style={tw`bg-zinc-200 h-14 text-gray-700 rounded-md px-4 w-full`} />
                   </View>
                   <View style={tw`w-6/12 ml-1`}>
                     <Text style={tw`text-gray-700`}>Discount in %</Text>
@@ -451,7 +455,7 @@ const renderItem6 = ({ item }) => {
                       keyboardType={'numeric'}
                       
                       placeholderTextColor='#4D4D4D'
-                      style={tw`bg-zinc-200 h-14 rounded-md px-4 w-full`} />
+                      style={tw`bg-zinc-200 h-14 text-gray-700 rounded-md px-4 w-full`} />
                   </View>
 
                 </View>

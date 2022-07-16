@@ -14,7 +14,7 @@ const Largebutton = ({text, onPress}) => {
               onPress={onPress}>
               <Text style={tw.style('text-lg text-white')}>{text}</Text>
             </TouchableOpacity>
-          </View>
+          </View> 
 
     );
 }

@@ -75,15 +75,12 @@ const Codeconfirm = (props) => {
                 onPress={() => {props.navigation.navigate("watchlist");}}>
                 <Text style={styles.TouchableloginTEXT}>Start Shopping</Text>
             </TouchableOpacity>
-            {/* <TouchableOpacity style={styles.Touchableloginblack}
+            <TouchableOpacity style={styles.Touchableloginblack}
                 onPress={() => {props.navigation.navigate("Goliveshop");}}>
                 <Text style={styles.TouchableloginTEXT}>Create Store</Text>
-            </TouchableOpacity>*/}
-
-            <TouchableOpacity style={styles.Touchableloginblack}
-                >
-                <Text style={styles.TouchableloginTEXT}>Create Store</Text>
             </TouchableOpacity>
+
+            
 
             <Loader isVisible={props?.loginLoader} />
         </View>

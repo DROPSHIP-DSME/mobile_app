@@ -163,7 +163,7 @@ const deviceWidth = Dimensions.get('window').width;
 
 
               <View style={tw`flex flex-row relative mx-4 shadow-sm`}>
-                  <TouchableOpacity onPress={() => props.navigation.navigate("Dashlive")} style={tw.style('w-2/4')}>
+                  <TouchableOpacity onPress={() => props.navigation.navigate("Dashlive")} style={tw.style('w-1.7/4')}>
                     <View
                       type="button"
                       style={tw`relative inline-flex items-center px-4 py-3 rounded-l-md border border-gray-200 bg-gray-200 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500`}
@@ -171,7 +171,7 @@ const deviceWidth = Dimensions.get('window').width;
                         <Text style={tw`text-base font-medium text-gray-700`}>Go Live Now</Text>
                     </View>
                   </TouchableOpacity>
-                  <TouchableOpacity onPress={() => props.navigation.navigate("Dashlive2")} style={tw.style('w-2/4')}>
+                  <TouchableOpacity onPress={() => props.navigation.navigate("Dashlive2")} style={tw.style('w-2.3/4')}>
                     <View
                       type="button"
                       style={tw`-ml-px relative inline-flex items-center px-4 py-3 rounded-r-md border border-red-300 bg-red-700 hover:bg-red-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500`}

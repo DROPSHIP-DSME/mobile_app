@@ -282,6 +282,7 @@ const Login = (props) => {
           onDone={onDone}
           activeDotStyle={{ backgroundColor: '#B80000' }}
           showSkipButton={false}
+          showNextButton={false}
           onSkip={onSkip}
           style={{backgroundColor: '#ffffff'}}
         />
