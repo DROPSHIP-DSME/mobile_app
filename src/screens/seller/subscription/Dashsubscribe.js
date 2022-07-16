@@ -24,6 +24,8 @@ import Modal from 'react-native-modal';
 import tw from 'twrnc';
 import { CheckIcon } from "react-native-heroicons/solid";
 import Smallbutton from '../../../components/dropshipbutton/Smallbutton';
+import Medbutton from '../../../components/dropshipbutton/Medbutton';
+import Comingsoon from '../../../components/baseassests/Comingsoon';
 
 
 import {
@@ -89,11 +91,20 @@ const deviceWidth = Dimensions.get('window').width;
 
     return (
          <View style={{flex:1}}>
-        
-        <View style={{padding:20,backgroundColor:'#B80000', height:'92%'}}>
-       <Image source={ImageIcons.workinprogress} style={{width:'100%', height:250}} />
-       </View>
- 
+
+             <View style={tw`py-6 bg-white h-[93%]`}>
+              <View style={tw`items-center mt-25 mx-4`}>
+                <Comingsoon />
+                <View style={tw`items-center mt-10`}>
+                  <Text style={tw`text-5xl text-Red-700 text-center`}>OOPS!</Text>
+                  <Text style={tw`text-xl text-gray-700 text-center mx-4 mt-3`}>We are in exclusive beta mode please joing our waiting to recieve your invite</Text>
+                </View>
+                <View style={tw`mt-10 w-full`}>
+                 <Medbutton text="Join Waiting List" />
+                </View>
+              </View>
+             </View>
+
        <ScrollView onScroll={({nativeEvent}) => {
                 handleScroll(nativeEvent['contentOffset'].y);
     }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} >
