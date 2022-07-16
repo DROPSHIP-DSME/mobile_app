@@ -288,10 +288,12 @@ const Login = (props) => {
         />
       )}
 
-      <View style={{ position: 'absolute', zIndex: 3001, bottom: 70, justifyContent: 'center', alignItems: 'center', width: '100%' }}>
-        <Medbutton
-          text="Skip"
-          onPress={() => navigation.navigate("Golive")} />
+      <View style={tw.style('absolute bottom-20 justify-center items-center w-full', {zIndex: 3001 })}>
+        <View style={tw`w-32`}>
+          <Medbutton
+            text="Skip"
+            onPress={() => navigation.navigate("Golive")} />
+        </View>
       </View>
 
     </>

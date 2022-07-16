@@ -30,6 +30,7 @@ import { ClockIcon } from "react-native-heroicons/solid";
 import { PhoneIcon } from "react-native-heroicons/solid";
 import { VideoCameraIcon } from "react-native-heroicons/solid";
 import { HeartIcon } from "react-native-heroicons/solid";
+import { PhoneOutgoingIcon } from "react-native-heroicons/solid";
 import { VolumeUpIcon } from "react-native-heroicons/solid";
 import { VolumeOffIcon } from "react-native-heroicons/solid";
 import { ShareIcon } from "react-native-heroicons/solid";
@@ -695,6 +696,12 @@ const Blurbackground = (props) => {
                             <Text style={tw`ml-3 text-xs font-medium text-grey-700`}>{props?.audiancecount?.audianceCount}</Text>
                         }
                     </View>
+
+                      <View style={tw.style('ml-3 right-2',{zIndex:100})}>
+                       <TouchableOpacity onPress={() => endStream()}>
+                        <PhoneOutgoingIcon color="green" fill="black" size={20} />
+                        </TouchableOpacity>
+                      </View>
 
                 </View>
 
