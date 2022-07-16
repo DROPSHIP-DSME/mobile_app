@@ -32,7 +32,8 @@ import {
 } from "react-native-chart-kit";
 import tw from 'twrnc';
 import Sortorder from '../../../components/pickers/Sortorder';
-import Orderstable from '../../../components/tables/Orderstable'
+import Orderstable from '../../../components/tables/Orderstable';
+import { ArrowCircleDownIcon } from "react-native-heroicons/solid";
 
 
 const Dashorder = (props) => {
@@ -153,28 +154,31 @@ const options = [
 
   const Data = ({ item }) => {
     return (
-      <View style={{ marginHorizontal: 2, borderRadius: 10, backgroundColor: '#FFF', padding: 15, marginVertical: 5 }}>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
-          <View>
-            <Text style={{ fontSize: 14, color: '#1A1A1A', fontFamily: 'AvertaStd-SemiBold' }} >{item?.productId?.productName}</Text>
-            <Text style={{ color: '#808080', fontSize: 12, marginTop: 3 }} >{Moment(item.createdAt).format('MMM DD YYYY')}</Text>
-          </View>
-          <View style={{ marginTop: 5 }}>
-            <Text style={{ color: '#2F80ED', fontSize: 12, backgroundColor: '#ADD8E6', paddingTop: 3, height: 25, width: 91, textAlign: 'center', borderRadius: 6, fontWeight: 'bold' }} >{item.status}</Text>
-          </View>
 
-        </View>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
-          <View style={{ width: 230, marginVertical: 3 }}>
-            <Text style={{ fontSize: 12, color: 'black', }} >Order Number:<Text style={{ fontSize: 12, color: '#2F80ED', fontWeight: 'bold', }} > {item.orderNumber}</Text></Text>
-          </View>
-          <View style={{ justifyContent: 'flex-end' }}>
-              <TouchableOpacity onPress={()=> props.navigation.navigate("Dashdetail", { orderNumber: item.orderNumber })}>
-                <Image source={ImageIcons.dropDownIcon} style={{ width: 15, height: 15, marginRight: 5 }} />
-              </TouchableOpacity>
-          </View>
+      <View style={tw.style('bg-white overflow-hidden shadow rounded-md mb-4 border-2 border-gray-100')}>
+        <View style={tw.style('px-2 py-5')}>
+            <View style={tw`flex flex-row justify-between items-center`}>
+                <View>
+                  <Text style={tw`text-lg text-gray-800`} >{item?.productId?.productName}</Text>
+                  <Text style={tw`text-base text-gray-700`} >{Moment(item.createdAt).format('MMM DD YYYY')}</Text>
+                </View>
+                <View style={tw`items-center px-3 py-0.5 rounded-full bg-blue-100`}>
+                  <Text style={tw`text-sm font-medium text-blue-800`} >{item.status}</Text>
+                </View>
+            </View>
+            <View style={tw`flex flex-row justify-between items-center`}>
+                <View style={tw`mt-2`}>
+                  <Text style={tw`text-sm text-gray-900`} >Order Number:<Text style={tw`text-sm text-blue-800`} > {item.orderNumber}</Text></Text>
+                </View>
+                <View style={tw`flex-end right-2`}>
+                    <TouchableOpacity onPress={()=> props.navigation.navigate("Dashdetail", { orderNumber: item.orderNumber })}>
+                      <ArrowCircleDownIcon color="red" fill="black" size={32} />
+                    </TouchableOpacity>
+                </View>
+            </View>
         </View>
       </View>
+
     )
   }
 
@@ -193,13 +197,13 @@ const options = [
 
           <Sortorder text="Sort Order" options={options} onSelect={(checked) => updateorderStatus(checked)} />
 
-          <View style={tw.style('bg-zinc-100 mt-6 p-3 ')} >
-          
+          <View style={tw.style('mt-6 p-3')} >
+
             <FlatList
               data={orderlisting || []}
               renderItem={Data}
             />
-            
+
           </View>
          </View>
 
