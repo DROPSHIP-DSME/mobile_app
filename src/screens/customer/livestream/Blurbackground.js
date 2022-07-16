@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import styles from '../../../screens/common/style'
 import newstyles from '../../../screens/common/styles';
 import { Colors, fonts, Images } from '../../../common';
-import Loader from '../../../components/modals/Loader'; 
+import Loader from '../../../components/modals/Loader';
 import { requestMultiplePermisisons } from '../../../services/Permissions'
 import { socketUri } from '../../../common/Api'
 import Orientation from 'react-native-orientation-locker';
@@ -22,6 +22,19 @@ import ModalSelector from 'react-native-modal-selector';
 import SwitchToggle from "react-native-switch-toggle";
 import Sortorder from '../../../components/pickers/Sortorder';
 import AwesomeAlert from '../../../components/modals/AlertModal';
+import tw from 'twrnc';
+import Smallbutton from '../../../components/dropshipbutton/Smallbutton';
+import { UsersIcon } from "react-native-heroicons/solid";
+import { ShoppingCartIcon } from "react-native-heroicons/solid";
+import { ClockIcon } from "react-native-heroicons/solid";
+import { PhoneIcon } from "react-native-heroicons/solid";
+import { VideoCameraIcon } from "react-native-heroicons/solid";
+import { HeartIcon } from "react-native-heroicons/solid";
+import { VolumeUpIcon } from "react-native-heroicons/solid";
+import { VolumeOffIcon } from "react-native-heroicons/solid";
+import { ShareIcon } from "react-native-heroicons/solid";
+import { XIcon } from "react-native-heroicons/solid";
+
 
 const options = [ { label: '1', value: '1' }, { label: '2', value: '2' }, { label: '3', value: '3' }, { label: '4', value: '4' },{ label: '5', value: '5' },{ label: '6', value: '6' },{ label: '7', value: '7' },{ label: '8', value: '8' },{ label: '9', value: '9' } ]
 const options1 = [
@@ -85,7 +98,7 @@ const Blurbackground = (props) => {
 
      const [on, seton] = React.useState(false);
 
-    
+
     const [purchaseCount, setpurchaseCount] = React.useState(0);
     const [showmodalname, setshowmodalname] = React.useState();
     const [showmodalprice, setshowmodalprice] = React.useState();
@@ -113,7 +126,7 @@ const Blurbackground = (props) => {
     const [selectedValue2, setSelectedValue2] = useState(1);
     const [selectedValue3, setSelectedValue3] = useState(1);
     const [selectedValue4, setSelectedValue4] = useState(1);
-    
+
     const [showmodalid, setshowmodalid] = React.useState();
 
     //alert(channel)
@@ -139,11 +152,11 @@ const Blurbackground = (props) => {
 
 
         if (Platform.OS === 'android') await requestMultiplePermisisons();
-        
-        //  AgoraEngine.current = await RtcEngine.create("0c96ec2a0c9744c0bb3d21330bb0911d"); 
+
+        //  AgoraEngine.current = await RtcEngine.create("0c96ec2a0c9744c0bb3d21330bb0911d");
         AgoraEngine.current = await RtcEngine.create("ccb0f65b5af549c383620f289af77cbf");   //appId used for testing
         // AgoraEngine.current = await RtcEngine.create("04c68745a5c94f16b02f3608abf51669"); //appId given by roadman
-         
+
         await AgoraEngine.current.enableVideo();
         await AgoraEngine.current.startPreview()
         if (isback) {
@@ -168,7 +181,7 @@ const Blurbackground = (props) => {
         });
 
         //await AgoraEngine.current.userJoined( Setgetaudiance(getaudiance+1) )
-        
+
     };
 
     useEffect(() => {
@@ -231,10 +244,10 @@ const Blurbackground = (props) => {
     const hidepress = () => {
         setIsPress(false)
     }
-    
-    
+
+
     const showAddpayment = () => {
-      
+
       setcheckview(false);
       setcartview(false);
       setAddpayment(true);
@@ -268,12 +281,12 @@ const Blurbackground = (props) => {
         //     alert(cardType)
         //     console.log('request',request)
         // }
-       
+
     }
 
     const showAddshipping = () => {
       setAddshipping(true);
-      
+
     }
 
     const hideAddshipping = () => {
@@ -357,7 +370,7 @@ const Blurbackground = (props) => {
     const hidecheckshipping =()=>{
         setcheckshipping(false)
     }
-    
+
     const hidepopup =()=>{
         setcartview(false)
         setAddshipping(false);
@@ -366,7 +379,7 @@ const Blurbackground = (props) => {
         setcheckshipping(false);
     }
 
-    
+
 
     const openlikePress = () => {
         setlikePress(true);
@@ -374,7 +387,7 @@ const Blurbackground = (props) => {
     const closelikePress = () => {
         setlikePress(false);
     }
-    
+
     const opensidebar = () => {
         setsidevalue('Product left');
         setshowsidebar(true);
@@ -394,7 +407,7 @@ const Blurbackground = (props) => {
     }
 
 
-    
+
 
     const closepopupcloth = () => {
         setshowmodal(false)
@@ -411,7 +424,7 @@ const Blurbackground = (props) => {
        setsharePress(sharePress+1);
     }
 
-    
+
     const setselected = (value,index) =>{
         if(index==1){ setSelectedValue1(value) }
         if(index==2){ setSelectedValue2(value) }
@@ -426,7 +439,7 @@ const Blurbackground = (props) => {
         if(index==2){ var productQuantity = selectedValue2;  }
         if(index==3){ var productQuantity = selectedValue3;  }
         if(index==4){ var productQuantity = selectedValue4;  }
-        
+
         let request = {
             "productId":productid,
             "userId":props?.loginuserid,
@@ -441,7 +454,7 @@ const Blurbackground = (props) => {
 
         props.cartadd(request, props.navigation, "vendor");
     }
-    const saveAddshipping = () =>{ 
+    const saveAddshipping = () =>{
         showAddshipping(false);
         setcheckview(true);
         let request = {
@@ -462,8 +475,8 @@ const Blurbackground = (props) => {
             }
             props.chekout(request, props.navigation, "vendor");
     }
-   
-    
+
+
     const containerStyle = {backgroundColor: 'white', padding: '7%',marginHorizontal:'5%',alignItems:'center'};
     const containerStyle2 = {backgroundColor: 'white', padding: '5%',marginHorizontal:'5%',};
 
@@ -473,7 +486,7 @@ const Blurbackground = (props) => {
 
     useEffect(() => {
         //alert(channel)
-        props.getchannelbrandName(channel); 
+        props.getchannelbrandName(channel);
         props.getLiveCustomer(channel);
         props.getLivecommentCustomer(channel);
         if (isbroadcaster) {
@@ -484,7 +497,7 @@ const Blurbackground = (props) => {
         }
         //Orientation.lockToPortrait();
         AppState.addEventListener('change', inBackground)
-        
+
 
         //const tokenA = RtcTokenBuilder.buildTokenWithUid(appID, appCertificate, channel, 2882341273, 1, privilegeExpiredTs);
         //alert(props?.getcalltokendata)
@@ -521,7 +534,7 @@ const Blurbackground = (props) => {
         }
 
        // alert('sd');
-       
+
     }, []);
 
 
@@ -529,11 +542,11 @@ const Blurbackground = (props) => {
         videoStateMessage(broadcasterVideoState)
     }, [broadcasterVideoState])
 
-    
+
     const resetchannel = (channeldata)=>{
         AgoraEngine.current.destroy();
         setshowsidebar(false)
-        props.navigation.navigate("SearchProduct", { isback: false, channel: channeldata, isbroadcaster: false }) 
+        props.navigation.navigate("SearchProduct", { isback: false, channel: channeldata, isbroadcaster: false })
     }
 
     const inBackground = (nextState) => {
@@ -613,7 +626,7 @@ const Blurbackground = (props) => {
             setlikeCount(likeCount-1);
         }
     }
-    
+
 
     const endStream = async() => {
         AgoraEngine.current.destroy();
@@ -663,31 +676,28 @@ const Blurbackground = (props) => {
      ];
     const Header = () => {
         return (
-            <View style={{ marginTop: Platform.OS == 'android' ? 30 : 60,zIndex:1001, paddingTop:30,position:'relative',flexDirection: 'row', justifyContent: 'space-between',marginHorizontal:'5%' }}>
-                 
-                <View style={{ }}>
-                    <Text style={{fontFamily:'hinted-AvertaStd-Semibold',color:'#ffffff',fontSize:18}}>{props?.showbrandName?.brandName}</Text>
-                   
+            <View style={tw.style('flex flex-row pt-8 relative justify-between mx-5',{ marginTop: Platform.OS == 'android' ? 30 : 60,zIndex:1001})}>
+
+                <View style={tw`w-[45%]`}>
+                    <Text style={tw`text-xl text-white`}>{props?.showbrandName?.brandName}</Text>
                 </View>
-                <View style={{ width:'48%'}}>
-                    <View style={{borderRadius:5,position:'absolute',top:10,left:0, backgroundColor:'#EB2F2F'}}>
-                        <Text style={newstyles.shorttest1}>Live</Text>
+                <View style={tw`flex-row`}>
+                    <View style={tw`items-center px-4 py-0.5 rounded-lg bg-red-700 justify-center`}>
+                        <Text style={tw`text-xs font-medium text-white`}>Live</Text>
                     </View>
-                    <View style={{backgroundColor:'#AFFFE2',borderRadius:5,position:'absolute',top:10,left:"40%",flexDirection:"row"}}>
-                        <View style={{left:7,top:2}}>
-                            <Image source={ImageIcons.iconpath} style={{width:16,height:16}}/>
+                    <View style={tw`flex-row`}>
+                        <View style={tw`ml-3 items-center px-4 py-1 rounded-lg bg-green-300 justify-center`}>
+                            <UsersIcon color="red" fill="black" size={20} />
                         </View>
                         { (props?.audiancecount?.audianceCount >2 ) ?
-                            <Text style={newstyles.shorttest}>3</Text>
+                            <Text style={tw`mx-3 text-sm font-medium text-grey-800`}>33</Text>
                         :
-                            <Text style={newstyles.shorttest}>{props?.audiancecount?.audianceCount}</Text>
+                            <Text style={tw`ml-3 text-xs font-medium text-grey-700`}>{props?.audiancecount?.audianceCount}</Text>
                         }
                     </View>
-                    <View style={{backgroundColor:'#ffffff',width:40,position:'absolute',top:10,right:"0%",}}>
-                        
-                    </View>
+
                 </View>
-                
+
             </View>
         )
     }
@@ -737,7 +747,7 @@ const Blurbackground = (props) => {
                         {item.message}
                     </Text>
                 </Text>
-              
+
             </View>
         )
     }
@@ -757,162 +767,160 @@ const Blurbackground = (props) => {
         );
     }
     const renderItemcart = ({ item, index }) => {
-        
-       
-       
 
        return(
-        <View style={[newstyles.Viewcart2,{ flexDirection:'row'}]} >
-         <View>
-            <Image source={{uri:item.productImage}}  style={newstyles.clothimage} />
-            <View  style={{flexDirection: 'row',marginVertical:'4%',}} >
-                    
-                        <TouchableOpacity style={[newstyles.cartttview,{padding:5,marginRight:10,borderRadius:10}]} onPress={() => cartpicker(item._id,item.productPrice,index)}>
-                            
-                            <Image source={ImageIcons.whitecart} style={{width:18, height:18}} />
-                          
-                        </TouchableOpacity>
-                    
-                    <View style={{flexDirection: 'row',}}>
-                        {index ==0 &&
-                            <View> 
-                                { Movecart == true ?   
-                                    <TouchableOpacity onPress={() => { setMovecart(false); addtowatchlist(item._id,false);} } >
-                                        <Image source={ImageIcons.redlike}  style={newstyles.likeimgred} />
-                                    </TouchableOpacity>
-                                    :
-                                    <TouchableOpacity onPress={() =>  { setMovecart(true); addtowatchlist(item._id,true);}} >
-                                        <Image source={ImageIcons.likee}  style={newstyles.likeimg} />
-                                    </TouchableOpacity>
-                                }
-                            </View>
-                        }
-                        {index ==1 &&
-                            <View> 
-                                { Movecart1 == true ?   
-                                    <TouchableOpacity onPress={() => { setMovecart1(false); addtowatchlist(item._id,false);} } >
-                                        <Image source={ImageIcons.redlike}  style={newstyles.likeimgred} />
-                                    </TouchableOpacity>
-                                    :
-                                    <TouchableOpacity onPress={() =>  { setMovecart1(true); addtowatchlist(item._id,true);}} >
-                                        <Image source={ImageIcons.likee}  style={newstyles.likeimg} />
-                                    </TouchableOpacity>
-                                }
-                            </View>
-                        }
-                        {index ==2 &&
-                            <View> 
-                                { Movecart2 == true ?   
-                                    <TouchableOpacity onPress={() => { setMovecart2(false); addtowatchlist(item._id,false);} } >
-                                        <Image source={ImageIcons.redlike}  style={newstyles.likeimgred} />
-                                    </TouchableOpacity>
-                                    :
-                                    <TouchableOpacity onPress={() =>  { setMovecart2(true); addtowatchlist(item._id,true);}} >
-                                        <Image source={ImageIcons.likee}  style={newstyles.likeimg} />
-                                    </TouchableOpacity>
-                                }
-                            </View>
-                        }
-                        {index ==3 &&
-                            <View> 
-                                { Movecart3 == true ?   
-                                    <TouchableOpacity onPress={() => { setMovecart3(false); addtowatchlist(item._id,false);} } >
-                                        <Image source={ImageIcons.redlike}  style={newstyles.likeimgred} />
-                                    </TouchableOpacity>
-                                    :
-                                    <TouchableOpacity onPress={() =>  { setMovecart3(true); addtowatchlist(item._id,true);}} >
-                                        <Image source={ImageIcons.likee}  style={newstyles.likeimg} />
-                                    </TouchableOpacity>
-                                }
-                            </View>
-                        }
+        <View style={tw`my-2 mx-2`}>
 
-                        {index ==4 &&
-                            <View> 
-                                { Movecart4 == true ?   
-                                    <TouchableOpacity onPress={() => { setMovecart4(false); addtowatchlist(item._id,false);} } >
-                                        <Image source={ImageIcons.redlike}  style={newstyles.likeimgred} />
-                                    </TouchableOpacity>
-                                    :
-                                    <TouchableOpacity onPress={() =>  { setMovecart4(true); addtowatchlist(item._id,true);}} >
-                                        <Image source={ImageIcons.likee}  style={newstyles.likeimg} />
-                                    </TouchableOpacity>
-                                }
-                            </View>
-                        }
-                    </View>
-
-                </View>
-       </View>
-            <View>
-                <View style={{justifyContent:'space-between',marginHorizontal:5}}>
+              <View style={tw`flex-row items-center`}>
+                <Image source={{uri:item.productImage}}  style={tw.style('h-30 w-35 rounded-lg border-gray-500 border-2 mr-1')} />
+                <View style={tw`justify-between`}>
                     <View>
-                         <Text style={newstyles.beautygreytext}>{item.productName}</Text>
+                         <Text style={tw`text-lg text-gray-700 leading-1`}> {item.productName}</Text>
                     </View>
-                    <View style={{marginLeft:10}}>
-                        <Text style={newstyles.pricebrandtext}>${item.productPrice}</Text>
-                        <Text style={newstyles.brandcolortext}>MSRP: ${item.productPrice}</Text>
+                    <View style={tw`ml-2`}>
+                        <Text style={tw`text-lg text-gray-900`}>${item.productPrice}</Text>
+                        <Text style={tw`text-base text-gray-700`}>MSRP: ${item.productPrice}</Text>
+                    </View>
+                    <View style={tw`flex flex-row justify-end items-center`}>
+                          <View style={tw`items-center px-4 py-2 rounded-lg bg-blue-100 w-25 my-1`}>
+                            <Text style={tw`text-xs font-medium text-blue-800`}>New Stock</Text>
+                         </View>
+                         <TouchableOpacity onPress={() => cartpicker(item._id,item.productPrice,index)}>
+                             <View style={tw`items-center px-4 py-2 rounded-lg bg-red-700 w-35 my-1 ml-5`}>
+                                <Text style={tw`text-xs font-medium text-white`}>Add to Bag</Text>
+                             </View>
+                         </TouchableOpacity>
                     </View>
                 </View>
-                 <View style={{ width:120,marginTop:10,marginBottom:10,marginLeft:10,backgroundColor:'#D4E0F2',paddingHorizontal:10,paddingVertical:5,borderRadius:10}}>
-                   <Text style={{color:'#2666BE',textAlign:'center'}}>New Stock</Text>
-                </View>
-                <TouchableOpacity onPress={() => cartpicker(item._id,item.productPrice,index)}>
-                    <View style={{ width:120,marginTop:10,marginBottom:10,marginLeft:10,backgroundColor:'#B80000',paddingHorizontal:10,paddingVertical:5,borderRadius:10}}>
-                       <Text style={{color:'#ffffff',textAlign:'center'}}>Add to Bag</Text>
-                    </View>
-                </TouchableOpacity>
+              </View>
+              {/*<View  style={tw`flex flex-row mx-4`} >
 
-                <View style={{opacity:0, flexDirection:'row', justifyContent:'space-between',alignItems:'center'}}>
-                    <View>
-                        <Text style={{fontWeight:'600',fontSize:16,fontFamily:'hinted-AvertaStd-Semibold'}}>Size</Text>
-                        <View style={newstyles.pickerViewshort}>
-                            <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
+                      <TouchableOpacity style={[newstyles.cartttview,{padding:5,marginRight:10,borderRadius:10}]} onPress={() => cartpicker(item._id,item.productPrice,index)}>
+                          <ShoppingCartIcon color="white" fill="White" size={24} />
+                      </TouchableOpacity>
 
-                        </View>
-                    </View>
+                  <View style={tw`flex-row`}>
+                      {index ==0 &&
+                          <View>
+                              { Movecart == true ?
+                                  <TouchableOpacity onPress={() => { setMovecart(false); addtowatchlist(item._id,false);} } >
+                                      <HeartIcon color="red" fill="red" size={24} />
+                                  </TouchableOpacity>
+                                  :
+                                  <TouchableOpacity onPress={() =>  { setMovecart(true); addtowatchlist(item._id,true);}} >
+                                      <HeartIcon color="white" fill="white" size={24} />
+                                  </TouchableOpacity>
+                              }
+                          </View>
+                      }
+                      {index ==1 &&
+                          <View>
+                              { Movecart1 == true ?
+                                  <TouchableOpacity onPress={() => { setMovecart1(false); addtowatchlist(item._id,false);} } >
+                                      <HeartIcon color="red" fill="red" size={24} />
+                                  </TouchableOpacity>
+                                  :
+                                  <TouchableOpacity onPress={() =>  { setMovecart1(true); addtowatchlist(item._id,true);}} >
+                                      <HeartIcon color="white" fill="white" size={24} />
+                                  </TouchableOpacity>
+                              }
+                          </View>
+                      }
+                      {index ==2 &&
+                          <View>
+                              { Movecart2 == true ?
+                                  <TouchableOpacity onPress={() => { setMovecart2(false); addtowatchlist(item._id,false);} } >
+                                      <HeartIcon color="red" fill="red" size={24} />
+                                  </TouchableOpacity>
+                                  :
+                                  <TouchableOpacity onPress={() =>  { setMovecart2(true); addtowatchlist(item._id,true);}} >
+                                      <HeartIcon color="white" fill="white" size={24} />
+                                  </TouchableOpacity>
+                              }
+                          </View>
+                      }
+                      {index ==3 &&
+                          <View>
+                              { Movecart3 == true ?
+                                  <TouchableOpacity onPress={() => { setMovecart3(false); addtowatchlist(item._id,false);} } >
+                                      <HeartIcon color="red" fill="red" size={24} />
+                                  </TouchableOpacity>
+                                  :
+                                  <TouchableOpacity onPress={() =>  { setMovecart3(true); addtowatchlist(item._id,true);}} >
+                                      <HeartIcon color="white" fill="white" size={24} />
+                                  </TouchableOpacity>
+                              }
+                          </View>
+                      }
 
-                    <View>
-                        <Text style={{fontWeight:'600',fontSize:16,fontFamily:'hinted-AvertaStd-Semibold'}}>Color</Text>
-                        <View style={newstyles.pickerViewshort}>
-                            <Sortorder options={options2} onSelect={(checked) => updateorderStatus2(checked)} />
-                        </View>
-                    </View>
+                      {index ==4 &&
+                          <View>
+                              { Movecart4 == true ?
+                                  <TouchableOpacity onPress={() => { setMovecart4(false); addtowatchlist(item._id,false);} } >
+                                      <HeartIcon color="red" fill="red" size={24} />
+                                  </TouchableOpacity>
+                                  :
+                                  <TouchableOpacity onPress={() =>  { setMovecart4(true); addtowatchlist(item._id,true);}} >
+                                      <HeartIcon color="white" fill="white" size={24} />
+                                  </TouchableOpacity>
+                              }
+                          </View>
+                      }
+                  </View>
 
-                    <View>
-                        <Text style={{fontWeight:'600',fontSize:16,fontFamily:'hinted-AvertaStd-Semibold'}}>Quantity</Text>
-                        <View style={newstyles.pickerViewshort}>
-                            <TextInput
-                                onChangeText={(text) => setselected(text,index)}
-                                autoCompleteType="off"
-                                placeholder="1"
-                                keyboardType={'numeric'}
-                                maxLength={2}
-                                placeholderTextColor="#999999"
-                                style={{color:'#000000',padding:0, alignItems:'center', textAlign:'center',justifyContent:'center'}}
-                            />
-                        </View>
-                    </View>
+              </View>*/}
 
-                </View>
-                
-                
-            </View>
+
+              {/*<View>
+                  <View style={tw`flex flex-row justify-between items-center opacity-0`}>
+                      <View>
+                          <Text style={tw`text-base text-gray-800`}>Size</Text>
+                          <View style={tw`mt-5 mx-3`}>
+                              <Sortorder options={options} onSelect={(checked) => updateorderStatus(checked)} />
+                          </View>
+                      </View>
+
+                      <View>
+                          <Text style={tw`text-base text-gray-800`}>Color</Text>
+                          <View style={tw`mt-5 mx-3`}>
+                              <Sortorder options={options2} onSelect={(checked) => updateorderStatus2(checked)} />
+                          </View>
+                      </View>
+
+                      <View>
+                          <Text style={tw`text-base text-gray-800`}>Quantity</Text>
+                          <View style={newstyles.pickerViewshort}>
+                              <TextInput
+                                  onChangeText={(text) => setselected(text,index)}
+                                  autoCompleteType="off"
+                                  placeholder="1"
+                                  keyboardType={'numeric'}
+                                  maxLength={2}
+                                  placeholderTextColor="#999999"
+                                  style={{color:'#000000',padding:0, alignItems:'center', textAlign:'center',justifyContent:'center'}}
+                              />
+                          </View>
+                      </View>
+
+                  </View>
+              </View>*/}
+
+
         </View>
         );
     }
     const renderItem5 = ({ item ,index }) => {
        return(
-        <View style={newstyles.maincartviewshop}>
+        <View style={tw`flex flex-row justify-between mt-6 mx-6 bg-white rounded-lg`}>
         <TouchableOpacity onPress={() => resetchannel(item._id)}>
-            <View style={newstyles.comingViewflatlist}>
-                <Image source={{uri: item.products[0]?.productImage}} style={newstyles.jeansimg} onPress={() => { props.navigation.navigate("clothing") }} />
-                <View style={{flexDirection:'row',position:'absolute',top:15,left:'5%'}}>
+            <View style={tw.style('rounded-lg bg-gray-200 items-center',{width:deviceWidth/2.2})}>
+                <Image source={{uri: item.products[0]?.productImage}} style={tw`w-[98%] h-50 rounded-lg`} onPress={() => { props.navigation.navigate("clothing") }} />
+                <View style={tw`flex flex-row absolute top-4 left-[5%]`}>
                </View>
-                <View style={{position:'absolute',bottom:'7%',left:10}}>
-                    <Text style={newstyles.upcomingtext2}>{item.userId?.userName}</Text>
+                <View style={tw`absolute bottom-[7%] left-2`}>
+                    <Text style={tw`text-base text-white leading-1`}>{item.userId?.userName}</Text>
                 </View>
-            </View> 
+            </View>
             </TouchableOpacity>
         </View>
       );
@@ -937,7 +945,7 @@ const Blurbackground = (props) => {
     }
 
     const doComment = () => {
-        
+
         if(comment!="" && comment!=undefined){
                let request ={
                   "liveevent":channel,
@@ -956,7 +964,7 @@ const Blurbackground = (props) => {
                     }
 
                     socketRef.current.emit('live-stream-comments', ({ currentUser, channel }));
-                    
+
                    // console.log("new commments from my side => ", { currentUser, channel });
                     setcomment('');
                 }
@@ -989,29 +997,29 @@ const Blurbackground = (props) => {
                 }
                 <Header />
                 <StatusBar backgroundColor={'#B80000'} barStyle="dark-content" translucent={true} />
-                 <View style={{justifyContent:'space-between', zIndex:1010,position:'absolute',top:120, right:0, textAlign:'center'}}>
+                 <View style={tw.style('justify-between absolute top-30 right-3 text-center', {zIndex:1010})}>
                     { isbroadcaster == true &&
                         <TouchableOpacity onPress={() => opensettings() } >
-                            <View style={{marginBottom:15,marginLeft:8,}}>
-                                <Image source={ImageIcons.callmore} style={styles.newmslimg}/>
+                            <View style={tw`mb-4`}>
+                                 <ShareIcon color="red" fill="red" size={28} />
                             </View>
                         </TouchableOpacity>
                     }
                         <TouchableOpacity onPress={() => openshare() } >
-                            <View style={{marginVertical:10,marginRight:5}}>
-                                <Image source={ImageIcons.callshare}  style={styles.newshrimg}/>
+                            <View style={tw`mb-4`}>
+                                <ShareIcon color="red" fill="white" size={28} />
                             </View>
                         </TouchableOpacity>
-                    
-                    
-                    
-                    
+
+
+
+
                     <TouchableOpacity onPress={calllike}>
                         <View style={{marginVertical:15,marginRight:15}}>
                             {likePress==false ?
-                                <Image source={ImageIcons.calllike}  style={[styles.newlkiimg,{tintColor:'#ffffff'}]}/>
+                                <HeartIcon color="red" fill="white" size={28} />
                             :
-                                <Image source={ImageIcons.calllike}  style={[styles.newlkiimg,{tintColor:'#FF0000'}]}/>
+                                <HeartIcon color="red" fill="red" size={28} />
                             }
                             <Text style={[newstyles.liketext,{marginTop:4}]}>{likeCount}</Text>
                         </View>
@@ -1021,31 +1029,31 @@ const Blurbackground = (props) => {
                                         <View style={{marginBottom:1,marginRight:7,marginTop:-10}}>
                                             <Image source={ImageIcons.callevent} />
                                             <Text style={[newstyles.liketext,{marginTop:-10}]}>{purchaseCount} {mute}</Text>
-                                        </View> 
+                                        </View>
                                         </TouchableOpacity>*/}
 
                     <TouchableOpacity onPress={muteaudio}>
                         <View style={{flexDirection:'row',marginHorizontal:'2%',marginVertical:6}}>
-                           
+
 
                            {mute==false ?
-                            <Image source={ImageIcons.callspeaker}  style={[styles.newspkimg,{tintColor:'#ffffff'}]}/>
+                            <VolumeUpIcon color="white" fill="white" size={28} />
                             :
-                            <Image source={ImageIcons.mutespeker} style={[styles.newspkimg,{tintColor:'#c9c9c9'}]} />
+                            <VolumeOffIcon color="white" fill="gray" size={28} />
                            }
                         </View>
                     </TouchableOpacity>
 
                 </View>
-                
-                <View> 
-                    
-                   <TouchableOpacity style={[styles.fllowview,{marginHorizontal:'5%'}]}>
-                        <Text style={styles.flltxt}>FOLLOW</Text>
-                    </TouchableOpacity>                         
-                    <View style={{flexDirection:'row',borderRadius:5,marginLeft:20,padding:5,backgroundColor:'#ffffff',width:90,marginTop:10}}>
-                        <Image source={ImageIcons.timer} style={[newstyles.imgtimer,{tintColor:'#EB2F2F'}]} />
-                        <View style={{marginLeft:-5,marginTop:-5}}>
+
+                <View>
+
+                   <TouchableOpacity style={tw`mx-5 mt-3 items-center px-2.5 py-1 rounded-lg bg-red-700 w-24`}>
+                        <Text style={tw`text-xs font-medium text-white`}>FOLLOW</Text>
+                    </TouchableOpacity>
+                    <View style={tw`flex flex-row rounded-lg ml-5 bg-white w-24 mt-3 py-1 justify-center items-center`}>
+                        <ClockIcon color="red" fill="red" size={20} />
+                        <View style={tw``}>
                         { props?.getliveeventlist?.EventDuration &&
                         <CountDown
                             until={props?.getliveeventlist?.EventDuration}
@@ -1060,17 +1068,17 @@ const Blurbackground = (props) => {
                           />
                         }
                     </View>
-                          
+
                 </View>
-                    
-                    
+
+
                 { isbroadcaster == 'asdsd' &&
-                    <View style={{flexDirection:'row',marginTop:isKeyboardVisible?'1%':'3%',marginHorizontal:'3%'}}>
+                    <View style={tw.style('flex flex-row mx-[3%]',{marginTop:isKeyboardVisible?'1%':'3%'})}>
                       <TouchableOpacity>
-                      <Image source={ImageIcons.greenphone}  style={{width:35,height:35}} />
+                        <ClockIcon color="green" fill="green" size={20} />
                       </TouchableOpacity>
-                      <TouchableOpacity style={{marginHorizontal:'2%'}}>
-                        <Image source={ImageIcons.videoicon} style={{width:35,height:35}}  />
+                      <TouchableOpacity style={tw`mx-[2%]`}>
+                        <VideoCameraIcon color="red" fill="white" size={20} />
                       </TouchableOpacity>
                     </View>
                   }
@@ -1079,12 +1087,12 @@ const Blurbackground = (props) => {
                                         <Image source={ImageIcons.callsignout}/>
                                     </View>
                                 </TouchableOpacity>
-                
+
                                 <View style={{flexDirection:'row',marginHorizontal:'2%',marginTop:-10}}>
                                     <Image source={ImageIcons.callspeaker}  />
                                 </View>*/}
-                    
-                </View> 
+
+                </View>
                   { isbroadcaster == false &&
                         <View style={{marginRight:10}}>
                             {/*<TouchableOpacity style={{marginBottom:5, }} onPress={() =>showcartview() }>
@@ -1109,23 +1117,23 @@ const Blurbackground = (props) => {
                                 horizontal={true}
                             />
                             </View>
-                        
+
                         </View>
                     }
-                    
+
                     { isbroadcaster == 'false33' &&
-                        <View style={{marginLeft:5}}>
+                        <View style={tw`ml-2`}>
                         <TouchableOpacity>
-                            <View style={newstyles.Viewwhite}>
-                                <Text style={newstyles.yellowboxtextnew}>{props?.audiancecount?.itemDiscount}% OFF</Text>
+                            <View style={tw`text-center bg-gray-600 rounded-md mx-[4%] items-center justify-center border-b-1 w-6 h-6`}>
+                                <Text style={tw`text-sm text-white p-2 text-center leading-1`}>{props?.audiancecount?.itemDiscount}% OFF</Text>
                             </View>
                         </TouchableOpacity>
                         </View>
                     }
 
-                   
-                <View style={{ justifyContent: 'flex-end', flex: 1, marginHorizontal: 6, }}>
-                    <View style={{ justifyContent: 'flex-end', flexDirection:'row', marginBottom: 1 }}>
+
+                <View style={tw`flex flex-1 justify-end mx-2`}>
+                    <View style={tw`flex-end flex-row mb-1`}>
 
                         { isbroadcaster == false ?
                             <FlatList
@@ -1142,11 +1150,11 @@ const Blurbackground = (props) => {
                                 renderItem={({ index, item }) => Comments(index, item)}
                             />
                         }
-                        
 
-                        
 
-                    
+
+
+
                         {/*<View style={{marginVertical:'5%',right:5}}>
                             <View style={{marginBottom:1,marginTop:0,marginLeft:10}}>
                                 <Image source={ImageIcons.callbrand}  />
@@ -1156,17 +1164,17 @@ const Blurbackground = (props) => {
                                 <Image source={ImageIcons.callbag}  />
                                 <Text style={[newstyles.yellowboxtextnew,{fontSize:13,paddingTop:8}]}>0</Text>
                             </View>
-                            
+
 
                             <View style={{marginBottom:1,marginTop:0,marginRight:5}}>
                                 <Image source={ImageIcons.calllogo}  />
                             </View>
 
                         </View>*/}
-                    
+
                     </View>
-                    <View style={newstyles.directionViewble}>
-                        <View style={styles.box}>  
+                    <View style={tw`flex flex-row justify-between items-center mx-3`}>
+                        <View style={styles.box}>
                             <TextInput
                                 value={comment}
                                 style={{ color: Colors.white, ...styles.input,paddingLeft:5 }}
@@ -1175,16 +1183,16 @@ const Blurbackground = (props) => {
                                 placeholderTextColor={Colors.white}
                                 placeholder="Send a message"
                                 ></TextInput>
-                            
+
                         </View>
-                        
-                            <TouchableOpacity onPress={() => doComment()} style={{left:0,right:15,paddingHorizontal:10,paddingVertical:10,borderRadius:10}}>
+
+                            <TouchableOpacity onPress={() => doComment()} style={tw`left-0 right-4 px-2 my-2 rounded-lg`}>
                                 <Image
                                     source={ImageIcons.messagesend}
                                     style={{ width: 21, height: 20.94 }}
                                 />
                             </TouchableOpacity>
-                            
+
                            {/* <TouchableOpacity style={{left:0,right:18,paddingHorizontal:10,paddingVertical:10,}}>
                                 <Image
                                     source={ImageIcons.call}
@@ -1207,23 +1215,22 @@ const Blurbackground = (props) => {
                             </TouchableOpacity>
                         }
                     </View>
-                    
+
                 </View>
         <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
 
             { cartview  &&
-                <View style={{borderTopLeftRadius:15,borderTopRightRadius:15,backgroundColor:'#ffffff',width:'100%',position:'absolute',zIndex:2001,bottom:0}}>
-                    <View style={newstyles.textshoop3}>
-                        <View style={newstyles.textshoop2}>
-                        <TouchableOpacity onPress={() => setcartview(false) }>
-                            <Image source={ImageIcons.closepopup} />
-                        </TouchableOpacity>
+                <View style={tw.style('rounded-r-3xl rounded-l-3xl bg-white absolute w-full bottom-0',{zIndex:2001})}>
+                    <View style={tw`flex flex-row justify-between items-center mx-5 mb-5 pt-5`}>
+                        <Text style={tw`mx-4 text-3xl text-gray-700`}>Shop</Text>
+                        <View style={tw`right-5 bg-gray-200 p-2 rounded-lg`}>
+                          <TouchableOpacity onPress={() => setcartview(false) }>
+                              <XIcon color="red" fill="black" size={24} />
+                          </TouchableOpacity>
                         </View>
-                         
-                        <Text style={newstyles.textshoop}>Shop</Text>
                     </View>
                     <ScrollView  keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#ffffff',height:'auto',maxHeight:450,minHeight:225}} >
-                        <View style={{marginVertical:'3%'}}>
+                        <View style={tw`my-[1%] mx-5`}>
                             <FlatList
                                 data={props?.getliveeventlist?.products || []}
                                 renderItem={renderItemcart}
@@ -1232,21 +1239,21 @@ const Blurbackground = (props) => {
                             />
                         </View>
                     </ScrollView>
-                    <View  style={{flexDirection: 'row',justifyContent:'center',marginVertical:'4%',}} >
-                        <TouchableOpacity style={newstyles.greencartttview} onPress={() =>props.navigation.navigate("Cart")}>
-                            <Text style={newstyles.greecolortext}>View Cart</Text>
+                    <View  style={tw`flex flex-row justify-center my-5`} >
+                        <TouchableOpacity style={tw`px-6 py-2 border border-transparent rounded-full shadow-sm bg-green-300 hover:bg-green-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500`} onPress={() =>props.navigation.navigate("Cart")}>
+                            <Text style={tw`items-center text-base font-medium  text-black`}>View Cart</Text>
                         </TouchableOpacity>
-                        
+
                     </View>
                 </View>
             }
 
-            
+
 
                 { showsidebar  &&
                     <Provider>
                     <Portal>
-                    <Modal visible={showsidebar} onDismiss={hidesidebar} 
+                    <Modal visible={showsidebar} onDismiss={hidesidebar}
                     contentContainerStyle={{ top:-200,zIndex:1011,justifyContent:'center',backgroundColor: 'white', marginBottom:0, padding: 10,borderRadius:5,paddingHorizontal:'10%',alignSelf:'center',alignItems:'center',marginHorizontal:'4%' }}>
                     <View>
                         <Text style={{fontFamily:'hinted-AvertaStd-Bold',fontSize:15,fontWeight:'bold', color:'#000000',}}>Language</Text>
@@ -1275,7 +1282,7 @@ const Blurbackground = (props) => {
                             />
                         </View>
 
-                       
+
                     </View>
                     </Modal>
                     </Portal>
@@ -1288,4 +1295,3 @@ const Blurbackground = (props) => {
 }
 
 export default Blurbackground
-

@@ -121,7 +121,7 @@ const products = require(`${assetsRootPath}products.png`);
 const chatarrow = require(`${assetsRootPath}chatarrow.png`);
 const cart2 = require(`${assetsRootPath}cart2.png`);
 const more = require(`${assetsRootPath}more.png`);
-const emailing = require(`${assetsRootPath}emailing.png`); 
+const emailing = require(`${assetsRootPath}emailing.png`);
 const phonee = require(`${assetsRootPath}phonee.png`);
 const man = require(`${assetsRootPath}man.png`);
 const smile = require(`${assetsRootPath}smile.png`);
@@ -172,9 +172,9 @@ const Vector = require(`${assetsRootPath}Vector.png`);
 const copy = require(`${assetsRootPath}copy.png`);
 const circle = require(`${assetsRootPath}circle.png`);
 const redclock = require(`${assetsRootPath}redclock.png`);
-const speker = require(`${assetsRootPath}speker.png`); 
+const speker = require(`${assetsRootPath}speker.png`);
 const Vectorcart = require(`${assetsRootPath}Vectorcart.png`);
-const mutespeker = require(`${assetsRootPath}mutespeker.png`); 
+const mutespeker = require(`${assetsRootPath}mutespeker.png`);
 const refresh = require(`${assetsRootPath}refresh.png`);
 const bar = require(`${assetsRootPath}bar.png`);
 const bar1 = require(`${assetsRootPath}bar1.png`);
@@ -239,7 +239,6 @@ const neworder=require(`${assetsRootPath}neworder.png`);
 const neworderred=require(`${assetsRootPath}neworderred.png`);
 const golivered=require(`${assetsRootPath}golivered.png`);
 
-const webcam=require(`${assetsRootPath}webcam.svg`);
 const wooCommerce=require(`${assetsRootPath}wooCommerce.png`);
 const exporthelp=require(`${assetsRootPath}exporthelp.png`);
 const sendchat=require(`${assetsRootPath}sendchat.png`);
@@ -341,6 +340,9 @@ const sliderimage1=require(`${assetsRootPath}sliderimage1.png`);
 const sliderimage2=require(`${assetsRootPath}sliderimage2.png`);
 const uparrow=require(`${assetsRootPath}uparrow.png`);
 const messagebox=require(`${assetsRootPath}messagebox.png`);
+const screen1=require(`${assetsRootPath}screen1.png`);
+const screen2=require(`${assetsRootPath}screen2.png`);
+const screen3=require(`${assetsRootPath}screen3.png`);
 
 const workinprogress=require(`${assetsRootPath}workinprogress.png`);
 
@@ -401,7 +403,6 @@ const ImageIcons = {
   Elli,
   searchdata,
   iconpath,
-  webcam,
   returntoday,
   returnordtoday,
   whiteedittoday,
@@ -520,7 +521,7 @@ const ImageIcons = {
   backlefticon,
   chat,
   facebook,
- twitter, 
+ twitter,
   cam,
   wallponLogo,
   venderIcon,
@@ -681,6 +682,9 @@ const ImageIcons = {
   popimg2,
   popimg3,
   left,
-  sell
+  sell,
+  screen1,
+  screen2,
+  screen3
 };
 export default ImageIcons;
