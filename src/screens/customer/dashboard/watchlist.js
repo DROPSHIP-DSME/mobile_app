@@ -350,7 +350,7 @@ const watchlist = (props) => {
         return (
 
             <View style={tw.style('ml-2 mr-2 mt-3')}>
-                <TouchableOpacity onPress={() => joinbroadcast(item._id, item.startNow, item.eventdate)}>
+                <TouchableOpacity onPress={() => joinbroadcast(item.broadcastId, item.startNow, item.eventdate)}>
                     <View>
                         <Image source={{ uri: item.products[0]?.productImage }} style={tw.style('w-40 h-56 rounded-md')} />
                         <Text style={tw`text-sm text-white absolute bottom-4 left-3 leading-4`}></Text>

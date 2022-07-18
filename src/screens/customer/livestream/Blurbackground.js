@@ -34,6 +34,7 @@ import { PhoneOutgoingIcon } from "react-native-heroicons/solid";
 import { VolumeUpIcon } from "react-native-heroicons/solid";
 import { VolumeOffIcon } from "react-native-heroicons/solid";
 import { ShareIcon } from "react-native-heroicons/solid";
+import { DotsVerticalIcon } from "react-native-heroicons/solid";
 import { XIcon } from "react-native-heroicons/solid";
 
 
@@ -680,7 +681,7 @@ const Blurbackground = (props) => {
             <View style={tw.style('flex flex-row pt-8 relative justify-between mx-5',{ marginTop: Platform.OS == 'android' ? 30 : 60,zIndex:1001})}>
 
                 <View style={tw`w-[45%]`}>
-                    <Text style={tw`text-xl text-white`}>{props?.showbrandName?.brandName}</Text>
+                    <Text style={tw`text-xl text-white`}>{props?.getliveeventlist?.eventTitle}</Text>
                 </View>
                 <View style={tw`flex-row`}>
                     <View style={tw`items-center px-4 py-0.5 rounded-lg bg-red-700 justify-center`}>
@@ -1008,7 +1009,7 @@ const Blurbackground = (props) => {
                     { isbroadcaster == true &&
                         <TouchableOpacity onPress={() => opensettings() } >
                             <View style={tw`mb-4`}>
-                                 <ShareIcon color="red" fill="red" size={28} />
+                                 <DotsVerticalIcon color="red" fill="white" size={28} />
                             </View>
                         </TouchableOpacity>
                     }

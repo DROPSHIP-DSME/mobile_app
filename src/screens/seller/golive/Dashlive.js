@@ -29,6 +29,8 @@ import SQsmallbutton from '../../../components/dropshipbutton/SQsmallbutton';
 import Largebutton from '../../../components/dropshipbutton/Largebutton';
 import Sortorder from '../../../components/pickers/Sortorder';
 import Deletebutton from '../../../components/pickers/Deletebutton';
+import AwesomeAlert from '../../../components/modals/AlertModal';
+
 import { DocumentDuplicateIcon } from "react-native-heroicons/solid";
 const options = [ { label: '1', value: '1' }, { label: '2', value: '2' }, { label: '3', value: '3' }, { label: '4', value: '4' },{ label: '5', value: '5' },{ label: '6', value: '6' },{ label: '7', value: '7' },{ label: '8', value: '8' },{ label: '9', value: '9' } ]
 
@@ -62,28 +64,30 @@ const Dashlive = (props) => {
 
 
     useEffect(() => {
+      props.getAllproduct(props?.loginuserid);
+      let getbrandnumberId = makeid(32);
+      setlivedetailId(getbrandnumberId);
+      // if(props?.livedetail && props?.livedetail[0]?._id!=undefined){
+      //   setlivedetailId(props?.livedetail[0]?._id);
+      // }else {
+      //   props.liveeventdetail(props?.loginuserid);
+      // }
 
-      props.getincomingtlist(props?.loginuserid);
-      props.getselldeshboard(props?.loginuserid);
-      props.gettopsell(props?.loginuserid,3);
-      //alert(props?.loginuserid)
-      props.Brandslist();
-      if(props?.livedetail && props?.livedetail[0]?._id!=undefined){
-        //alert(props?.livedetail[0]?._id)
-        //alert('no')
-        setlivedetailId(props?.livedetail[0]?._id);
-      }else {
-        //alert('yes')
-        //alert(props?.loginuserid)
-        props.liveeventdetail(props?.loginuserid);
-      }
-
-    }, [props?.livedetail])
-
-    useEffect(() => {
-       getBrandUserId();
     }, [])
 
+    useEffect(() => {
+       //getBrandUserId();
+    }, [])
+
+    const makeid=(len)=>{
+        var result           = '';
+        var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var charactersLength = characters.length;
+        for ( var i = 0; i < len; i++ ) {
+          result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        return result;
+    }
 
      const handleScroll=(pageYOffset)=>{
         if (pageYOffset > 0) {
@@ -113,7 +117,9 @@ const Dashlive = (props) => {
     const [timer, settimer] = useState(0);
     const [Duration, setDuration] = React.useState(1200);
     const [livedetailId, setlivedetailId] = React.useState('');
-
+    const [Name, onChangeName] = React.useState("");
+    const [showotherAlert, setshowotherAlert] = React.useState(false);
+    const [showalertmsg, setshowalertmsg] = React.useState('');
     const [producttype, setproducttype] = React.useState('new');
 
     const openpopup = () => {
@@ -131,22 +137,29 @@ const Dashlive = (props) => {
     const containerStyle = {backgroundColor: 'red', padding: '7%',marginHorizontal:'5%',alignItems:'center',};
 
     const startlivebtn = ()=>{
-        let request = {
-            "eventId":livedetailId,
-            "EventDuration":Duration,
-            "startNow":true,
-            "eventType":producttype
+        if(Name==""){
+            setshowotherAlert(true)
+            setshowalertmsg('Stream Title is required')
+        }else {
+            let request = {
+                "eventId":livedetailId,
+                "EventDuration":Duration,
+                "startNow":true,
+                "eventType":producttype,
+                "Name":Name,
+                "userId":props?.loginuserid
+            }
+            let request1 = {
+                "channelName":livedetailId,
+                "appID":"0c96ec2a0c9744c0bb3d21330bb0911d",
+                "appCertificate":"f877b72b55264162bfc8b88421fa8b77",
+                "uid":1
+            }
+            //props.liveeventdetail(props?.loginuserid);
+            props.getchanneltoken(request1, props.navigation, "vendor");
+            props.schuleEventstart(request, props.navigation, "vendor");
+            settimer(10)
         }
-        //alert(livedetailId)
-        let request1 = {
-            "channelName":livedetailId,
-            "appID":"0c96ec2a0c9744c0bb3d21330bb0911d",
-            "appCertificate":"f877b72b55264162bfc8b88421fa8b77",
-            "uid":1
-        }
-        props.getchanneltoken(request1, props.navigation, "vendor");
-        props.schuleEventstart(request, props.navigation, "vendor");
-        settimer(10)
     }
 
     const openshare=()=>{
@@ -158,11 +171,10 @@ const Dashlive = (props) => {
     }
 
     const startBrodcast = ()=>{
-
         props.navigation.navigate("Blurbackground", { isback: false, channel:livedetailId, isbroadcaster: true })
     }
 
- const renderItem2 = ({ item ,index }) => {
+    const renderItem2 = ({ item ,index }) => {
      return(
         <View style={tw`w-2/4 px-4 mb-6`}>
            <View style={tw`mx-1`}>
@@ -203,6 +215,7 @@ return (
                </View>
 
 
+            <AwesomeAlert showotherAlert={showotherAlert} showalertmsg={showalertmsg} onSelect={(checked) => setshowotherAlert(checked)} />
 
               <View style={tw`flex flex-row relative mx-4 shadow-sm`}>
                   <TouchableOpacity onPress={() =>  setshowstream(false)} style={tw.style('w-1.7/4')}>
@@ -253,7 +266,9 @@ return (
                         placeholderTextColor="#4d4d4d"
                         paddingLeft={15}
                         multiline
-                        onChangeText={(text) => {}}
+                        value={Name}
+                        onChangeText={onChangeName}
+
                       />
               </View>
 
@@ -382,7 +397,7 @@ return (
                         type="button"
                          style={tw.style('my-5 inline-flex items-center px-3 py-3 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-gray-800 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500')}
                        >
-                        <TouchableOpacity style={tw.style('w-10/11 items-center')}>
+                        <TouchableOpacity onPress={() => startBrodcast() } style={tw.style('w-10/11 items-center')}>
                            <Text style={tw.style('text-lg text-white')}>Test Livestream</Text>
                          </TouchableOpacity>
                        </View>
