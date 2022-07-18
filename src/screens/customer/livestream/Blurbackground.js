@@ -325,7 +325,7 @@ const Blurbackground = (props) => {
 
     const hidesaleview = (count) => {
         let request = {
-            "eventId":channel,
+            "eventId":props?.getliveeventlist?._id,
             "itemDiscount":count
         }
         props.updatediscount(request, props.navigation, "vendor");
