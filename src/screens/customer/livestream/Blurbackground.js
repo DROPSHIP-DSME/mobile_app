@@ -956,12 +956,12 @@ const Blurbackground = (props) => {
 
         if(comment!="" && comment!=undefined){
                let request ={
-                  "liveevent":channel,
+                  "liveevent":props?.getliveeventlist?._id,
                   "message":comment,
                   "user":props?.loginuserid
                 }
                 props.postcomment(request, props.navigation, "vendor");
-                setTimeout(function(){ props.getLivecommentCustomer(channel);},1000);
+                setTimeout(function(){ props.getLivecommentCustomer(props?.getliveeventlist?._id);},1000);
 
             try {
                 if (comment) {
