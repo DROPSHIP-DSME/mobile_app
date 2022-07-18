@@ -3,6 +3,7 @@
 export const LOGIN_USER_ID = "LOGIN_USER_ID";
 export const LOGIN_USER_STATUS = "LOGIN_USER_STATUS";
 export const SET_LOGIN_CREDENTIAL = "SET_LOGIN_CREDENTIAL";
+export const SET_CART_COUNT = "SET_CART_COUNT";
 export const CART_LIST_DATA = "CART_LIST_DATA";
 export const CART_LIST_DATA1 = "CART_LIST_DATA1";
 export const GET_ALL_SHOP = "GET_ALL_SHOP";

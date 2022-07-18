@@ -4,6 +4,8 @@ import { TouchableOpacity, Text ,Image,StyleSheet,View} from 'react-native';
 import { SearchIcon } from "react-native-heroicons/solid";
 import { BellIcon } from "react-native-heroicons/solid";
 import { ShoppingBagIcon } from "react-native-heroicons/solid";
+import { connect, useSelector } from 'react-redux';
+
 import {
   Registration,
   RegistrationShop,
@@ -93,12 +95,13 @@ const Stack = createStackNavigator();
 
 const Auth = (props) => {
 
-  // useEffect(() => {
-  //   console.log("props.defaultAuthScreen==>", props.defaultAuthScreen)
-  //   if (props.defaultAuthScreen === "ResetPassword") {
-  //     props.navigation.navigate("ResetPassword");
-  //   }
-  // }, [props.defaultAuthScreen])
+    let { cartcountVal } = useSelector(state => state.auth)
+    const [cartCount, setcartCount] = useState(0);
+
+
+  useEffect(() => {
+    setcartCount(cartcountVal);
+  }, [cartcountVal])
 
   return (
     <Stack.Navigator
@@ -1070,7 +1073,7 @@ const RightMenuItem = ({navigation}) => {
           <TouchableOpacity onPress={() => { navigation.navigate('Cart') }}>
               <View style={{ flexDirection: 'row' }}>
                   <ShoppingBagIcon color="red" fill="#ffffff" size={24} />
-                  <Text style={styles.numtext1}></Text>
+                  <Text style={styles.numtext1}>{cartCount}</Text>
               </View>
           </TouchableOpacity>
         </View>

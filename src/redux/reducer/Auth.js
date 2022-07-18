@@ -5,6 +5,7 @@ import {
   CHANGE_REMBER_ME_LOGIN_CREDENTIALS,
   SIGNUP_SUCCESS,
   SET_LOGIN_CREDENTIAL,
+  SET_CART_COUNT,
   OTP_VERIFIED,
   OTP_RESEND_SUCCESS,
   SET_REGISTRATION_LOADER,
@@ -89,6 +90,7 @@ const initialState = {
   otpVerificationLoader: false,
   signupSuccess: false,
   loginCredentials: null,
+  cartcountVal:null,
   loginLoader: false,
   alertmessage: false,
   signupphoneLoader: false,
@@ -222,6 +224,11 @@ const Auth = (state = initialState, action) => {
       return {
         ...state,
         loginCredentials: action.payload,
+      };
+    case SET_CART_COUNT:
+      return {
+        ...state,
+        cartcountVal: action.payload,
       };
 
     case SET_PHONESIGNUP_LOADER:

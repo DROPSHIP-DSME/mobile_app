@@ -2,6 +2,7 @@ import {
   SIGNUP_CREDENTIALS,
   SIGNUP_SUCCESS,
   SET_LOGIN_CREDENTIAL,
+  SET_CART_COUNT,
   OTP_VERIFIED,
   OTP_RESEND_SUCCESS,
   SET_REGISTRATION_LOADER,
@@ -1177,6 +1178,7 @@ export const cartdata = (userId) => {
                 
                 if (response?.status) {
                     dispatch({ type: CART_LIST_DATA1, payload: response.data });
+                    dispatch({ type: SET_CART_COUNT, payload: response?.data?.length });
                 } else {
                   
                 }
