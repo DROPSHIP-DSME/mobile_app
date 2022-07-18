@@ -56,7 +56,6 @@ const editpassword = (props) => {
     const [password, onChangeText2] = React.useState("");
     const [confirmPassword, onChangeText3] = React.useState("");
     const [visible, setVisible] = React.useState(false);
-    const [helppopup, sethelppopup] = React.useState(false);
     const [starCount, setstarCount] = useState(5);
     const [selectedValue, setSelectedValue] = useState("java");
     const [showAlert, setshowAlert] = React.useState(false);

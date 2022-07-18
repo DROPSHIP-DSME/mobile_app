@@ -21,7 +21,6 @@ import Modal from 'react-native-modal';
 
 import CheckBox from '@react-native-community/checkbox';
 import AsyncStorage from '@react-native-community/async-storage';
-import AwesomeAlert from 'react-native-awesome-alerts';
 import tw from 'twrnc';
 import Largebutton from '../../../components/dropshipbutton/Largebutton';
 import Deletebutton from '../../../components/pickers/Deletebutton';
@@ -182,27 +181,6 @@ const Cart = (props) => {
 
 
         <Footer3  />
-
-    <AwesomeAlert
-          show={showAlert}
-          showProgress={false}
-          title="DROPSHIP"
-          message="You need to login to access this screen!"
-          closeOnTouchOutside={true}
-          closeOnHardwareBackPress={false}
-          showCancelButton={true}
-          showConfirmButton={true}
-          cancelText="Cancel"
-          confirmText="Login"
-          confirmButtonColor="#E22020"
-          onCancelPressed={() => {
-            setshowAlert(false)
-          }}
-          onConfirmPressed={() => {
-             setshowAlert(false)
-             navigation.navigate('Golive');
-          }}
-        />
 
 </KeyboardAvoidingView>
 

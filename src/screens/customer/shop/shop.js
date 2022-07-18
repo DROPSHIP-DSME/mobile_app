@@ -20,7 +20,6 @@ import tw from 'twrnc';
 import Sortorder from '../../../components/pickers/Sortorder';
 import Sortfilter from '../../../components/pickers/Sortfilter';
 import { ChevrondoubleupIcon } from "react-native-heroicons/solid";
-import AwesomeAlert from 'react-native-awesome-alerts';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 
 const shop = (props) => {
@@ -222,26 +221,6 @@ const shop = (props) => {
 
             <Footer3 onSelection="4" />
 
-            <AwesomeAlert
-                show={showAlert}
-                showProgress={false}
-                title="DROPSHIP"
-                message="You need to login to access this screen!"
-                closeOnTouchOutside={true}
-                closeOnHardwareBackPress={false}
-                showCancelButton={true}
-                showConfirmButton={true}
-                cancelText="Cancel"
-                confirmText="Login"
-                confirmButtonColor="#E22020"
-                onCancelPressed={() => {
-                    setshowAlert(false)
-                }}
-                onConfirmPressed={() => {
-                    setshowAlert(false)
-                    navigation.navigate('Golive');
-                }}
-            />
         </KeyboardAvoidingView>
 
     )

@@ -16,11 +16,11 @@ import Loader from '../../../components/modals/Loader';
 import Footer3 from '../../../screens/common/Footer3';
 import AsyncStorage from '@react-native-community/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
-import AwesomeAlert from 'react-native-awesome-alerts';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import Moment from 'moment';
 import tw from 'twrnc';
 import Sortorder from '../../../components/pickers/Sortorder';
+import Help from '../../../components/help/Help';
 
 const options = [ { label: '1', value: '1' }, { label: '2', value: '2' }, { label: '3', value: '3' }, { label: '4', value: '4' },{ label: '5', value: '5' },{ label: '6', value: '6' },{ label: '7', value: '7' },{ label: '8', value: '8' },{ label: '9', value: '9' } ]
 
@@ -56,7 +56,6 @@ const Accountorderhist = (props) => {
 
     // Local states
     const [text1, onChangeText1] = React.useState("");
-    const [helppopup, sethelppopup] = React.useState(false);
     const [starCount, setstarCount] = useState(5);
     const [selectedValue, setSelectedValue] = useState("1");
     const [wayToContact, setWayToContact] = useState("Phone");
@@ -91,6 +90,16 @@ const Accountorderhist = (props) => {
         }
     }
 
+    const helpbuttonsubmit = async (textval) => {
+        if(textval!=''){
+            let request = {
+                "userId": props?.loginuserid,
+                "message": textval,
+                "msgDate": new Date()
+            }
+            props.support(request, props.navigation, "vendor");
+        }
+    }
 
     const DATA = [
         {
@@ -233,64 +242,10 @@ const Accountorderhist = (props) => {
             </ScrollView>
 
 
-            {helppopup == true &&
-                <View style={{ flex: 1, backgroundColor: '#ffffff', margin: 20, paddingVertical: 10, borderRadius: 10, zIndex: 4001, position: 'absolute', bottom: '10%' }}>
-                    <View style={styles.chatViewrose}>
-                        <Text style={styles.Benrosetext}>Chat with customer support</Text>
-                        <TouchableOpacity style={{ position: 'absolute', right: 15, top: 5 }} onPress={() => sethelppopup(false)}>
-                            <Image source={ImageIcons.closepopup} style={styles.sendmsg2} />
-                        </TouchableOpacity>
-                    </View>
-                    <ScrollView keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#ffffff', height: 200 }} >
-                        <View style={{ marginVertical: '2%' }}>
-                            <FlatList
-                                data={props?.getchatsupportlist1 || []}
-                                renderItem={renderItem6}
-                                keyExtractor={item => item.id}
-                                showsHorizontalScrollIndicator={false}
-                                horizontal={false}
-                            />
-                        </View>
-                    </ScrollView>
-                    <View style={[styles.accountmainview, { marginBottom: 10, width: '100%' }]}>
-                        <View style={{ width: '90%' }}>
-                            <TextInput style={styles.chatinput}
-                                placeholder="Type here..."
-                                onChangeText={onChangeText1}
-                                value={text1}
-                                placeholderTextColor="#999999"
-                            />
-                        </View>
-                        <TouchableOpacity style={{ position: 'absolute', right: 55, top: 5 }} onPress={() => handleSendRequestSubmit()}>
-                            <Image source={ImageIcons.sendchat} style={styles.sendmsg1} />
-                        </TouchableOpacity>
-                    </View>
-                </View>
-            }
+            <Help onPress={(text1) => helpbuttonsubmit(text1)} />
 
 
             <Footer3 onSelection="5" />
-
-            <AwesomeAlert
-                show={showAlert}
-                showProgress={false}
-                title="DROPSHIP"
-                message="You need to login to access this screen!"
-                closeOnTouchOutside={true}
-                closeOnHardwareBackPress={false}
-                showCancelButton={true}
-                showConfirmButton={true}
-                cancelText="Cancel"
-                confirmText="Login"
-                confirmButtonColor="#E22020"
-                onCancelPressed={() => {
-                    setshowAlert(false)
-                }}
-                onConfirmPressed={() => {
-                    setshowAlert(false)
-                    navigation.navigate('Golive');
-                }}
-            />
         </KeyboardAvoidingView>
 
     )

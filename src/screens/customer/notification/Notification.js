@@ -52,7 +52,6 @@ const Notification = (props) => {
     const [text1, onChangeText1] = React.useState("");
     const [City, onChangeCity] = React.useState("City");
     const [UserID, setUserID] = useState("");
-    const [helppopup, sethelppopup] = React.useState(false);
     const [filterData, onfilterData] = React.useState([]);
 
 

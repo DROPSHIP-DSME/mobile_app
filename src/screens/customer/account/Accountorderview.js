@@ -29,6 +29,7 @@ import RnIncrementDecrementBtn from
 import Modal from 'react-native-modal';
 import Moment from 'moment';
 import tw from 'twrnc';
+import Help from '../../../components/help/Help';
 
 const Accountorderview = (props) => {
 
@@ -89,6 +90,18 @@ const Accountorderview = (props) => {
       setshowclassName('#B80000');
     }
   }
+
+  const helpbuttonsubmit = async (textval) => {
+        if(textval!=''){
+            let request = {
+                "userId": props?.loginuserid,
+                "message": textval,
+                "msgDate": new Date()
+            }
+            props.support(request, props.navigation, "vendor");
+        }
+    }
+    
 
   const containerStyle = { backgroundColor: 'white', padding: '3%', marginHorizontal: '5%', borderRadius: 10 };
   const renderItem6 = ({ item }) => {
@@ -290,43 +303,7 @@ const Accountorderview = (props) => {
       </ScrollView>
 
 
-      {helppopup1 == true &&
-        <View style={{ flex: 1, backgroundColor: '#ffffff', margin: 20, paddingVertical: 10, borderRadius: 10, zIndex: 4001, position: 'absolute', bottom: '10%' }}>
-
-
-          <View style={styles.chatViewrose}>
-
-            <Text style={styles.Benrosetext}>Chat with customer support</Text>
-            <TouchableOpacity style={{ position: 'absolute', right: 15, top: 5 }} onPress={() => sethelppopup1(false)}>
-              <Image source={ImageIcons.closepopup} style={styles.sendmsg2} />
-            </TouchableOpacity>
-          </View>
-          <ScrollView keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#ffffff', height: 200 }} >
-            <View style={{ marginVertical: '2%' }}>
-              <FlatList
-                data={props?.getchatsupportlist1 || []}
-                renderItem={renderItem6}
-                keyExtractor={item => item.id}
-                showsHorizontalScrollIndicator={false}
-                horizontal={false}
-              />
-            </View>
-          </ScrollView>
-          <View style={[styles.accountmainview, { marginBottom: 10, width: '100%' }]}>
-            <View style={{ width: '90%' }}>
-              <TextInput style={styles.chatinput}
-                placeholder="Type here..."
-                onChangeText={onChangeText3}
-                value={text3}
-                placeholderTextColor="#999999"
-              />
-            </View>
-            <TouchableOpacity style={{ position: 'absolute', right: 55, top: 5 }} onPress={() => handleSendRequestSubmit()}>
-              <Image source={ImageIcons.sendchat} style={styles.sendmsg1} />
-            </TouchableOpacity>
-          </View>
-        </View>
-      }
+      <Help onPress={(text1) => helpbuttonsubmit(text1)} />
 
       {visiblebag == true &&
         <View style={{ flex: 1, backgroundColor: '#ffffff', paddingVertical: 10, borderRadius: 10, zIndex: 4001, position: 'absolute', bottom: '20%', margin: "5%" }}>

@@ -20,6 +20,7 @@ import Footer3 from '../../../screens/common/Footer3';
 import tw from 'twrnc';
 import Largebutton from '../../../components/dropshipbutton/Largebutton';
 import { CameraIcon } from "react-native-heroicons/solid";
+import Help from '../../../components/help/Help';
 
 
 import Sortorder from '../../../components/pickers/Sortorder';
@@ -79,7 +80,6 @@ const CreateStore = (props) => {
      const [checked, setChecked] = React.useState('first');
       const [text1, onChangeText3] = React.useState("");
     const [subMsg, onChangeText1] = React.useState("");
-     const [helppopup, sethelppopup] = React.useState(false);
 
     const [First, onChangeFirst] = React.useState("First name");
     const [Lastname, onChangeLastname] = React.useState("Last name");
@@ -176,6 +176,17 @@ const CreateStore = (props) => {
         }
     }
 
+    const helpbuttonsubmit = async (textval) => {
+        if(textval!=''){
+            let request = {
+                "userId": props?.loginuserid,
+                "message": textval,
+                "msgDate": new Date()
+            }
+            onChangeText1('');
+            props.support(request, props.navigation, "vendor");
+        }
+    }
 
     const renderItem = ({ item }) => {
   return(
@@ -276,53 +287,11 @@ const renderItem6 = ({ item }) => {
 
                </ScrollView>
 
-                <View style={{ position:'absolute',opacity:0,zIndex:2001,right:20,bottom:70}}>
-               <TouchableOpacity onPress={() => sethelppopup(false)}>
-                    <Image source={ImageIcons.exporthelp} style={{width:50,height:50}}/>
-                </TouchableOpacity>
-               </View>
-
-               { helppopup ==true &&
-        <View style={{flex:1,backgroundColor:'#ffffff',margin:20,paddingVertical:10,borderRadius:10,zIndex:4001, position:'absolute',bottom:'10%'}}>
-
-
-              <View style={styles.chatViewrose}>
-
-                <Text style={styles.Benrosetext}>Chat with customer support</Text>
-                <TouchableOpacity style={{position:'absolute',right:15,top:5}} onPress={() => sethelppopup(false)}>
-                    <Image source={ImageIcons.closepopup}  style={styles.sendmsg2} />
-                </TouchableOpacity>
-            </View>
-            <ScrollView  keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#ffffff', height:200}} >
-            <View style={{marginVertical:'2%'}}>
-                <FlatList
-                    data={props?.getchatsupportlist1 || []}
-                    renderItem={renderItem6}
-                    keyExtractor={item => item.id}
-                    showsHorizontalScrollIndicator={false}
-                    horizontal={false}
-                />
-             </View>
-           </ScrollView>
-            <View style={[styles.accountmainview,{marginBottom:10, width:'100%'}]}>
-            <View style={{width:'90%'}}>
-                <TextInput  style={styles.chatinput}
-                placeholder="Type here..."
-                onChangeText={onChangeText3}
-                value={text1}
-                placeholderTextColor="#999999"
-                />
-            </View>
-            <TouchableOpacity style={{position:'absolute',right:55,top:5}} onPress={() => handleSendRequestSubmit()}>
-                    <Image source={ImageIcons.sendchat}  style={styles.sendmsg1} />
-                </TouchableOpacity>
-            </View>
-        </View>
-        }
+               <Help onPress={(text1) => helpbuttonsubmit(text1)} />
 
 
                 </View>
-                   <Footer3 onSelection="4"/>
+            <Footer3 onSelection="4"/>
 
         </KeyboardAvoidingView>
     )

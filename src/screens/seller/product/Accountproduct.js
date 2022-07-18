@@ -116,7 +116,6 @@ const Accountproduct = (props) => {
     const [billImgPath5, setBillImgPath5] = useState("");
 
       const [text1, onChangeText3] = React.useState("");
-     const [helppopup, sethelppopup] = React.useState(false);
 
     const [Store, onChangeStore] = React.useState("");
     const [Themecolor, onThemecolor] = React.useState("");

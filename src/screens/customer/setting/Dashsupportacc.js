@@ -28,6 +28,7 @@ import { PhoneIcon } from "react-native-heroicons/solid";
 import { MailIcon } from "react-native-heroicons/solid";
 import Sendbutton from '../../../components/pickers/Sendbutton';
 import Closebutton from '../../../components/pickers/Closebutton';
+import Help from '../../../components/help/Help';
 
 import {
   LineChart,

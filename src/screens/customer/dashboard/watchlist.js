@@ -22,7 +22,6 @@ import AsyncStorage from '@react-native-community/async-storage';
 import Video from 'react-native-video';
 import { requestMultiplePermisisons } from '../../../services/Permissions'
 import moment from 'moment';
-import AwesomeAlert from 'react-native-awesome-alerts';
 import Productstream from '../../../components/product/Productstream';
 import tw from 'twrnc';
 const deviceHeight = Dimensions.get('window').height;
@@ -32,6 +31,8 @@ import { PlayIcon } from "react-native-heroicons/solid";
 import { SearchIcon } from "react-native-heroicons/solid";
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import Searchbox from '../../../common/Searchbox';
+import Help from '../../../components/help/Help';
+
 
 const watchlist = (props) => {
 
@@ -65,7 +66,6 @@ const watchlist = (props) => {
     const [visible, setVisible] = React.useState(false);
     const [showAlert, setshowAlert] = React.useState(false);
     const [showotherAlert, setshowotherAlert] = React.useState(false);
-    const [helppopup, sethelppopup] = React.useState(false);
     const [text1, onChangeText1] = React.useState("");
     const [showalertmsg, setshowalertmsg] = React.useState('');
 
@@ -335,17 +335,16 @@ const watchlist = (props) => {
 
     const image = { uri: "https://media.vogue.fr/photos/5d40515bc93b83000833392f/master/w_1920,h_1280,c_limit/020-Sneakers-Encyclopaedia-Vogueint-Jul24-Getty-Images.jpg" };
 
-    const handleSendRequestSubmit = async () => {
-        let request = {
-            "userId": props?.loginuserid,
-            "message": text1,
-            "msgDate": new Date()
+    const helpbuttonsubmit = async (textval) => {
+        if(textval!=''){
+            let request = {
+                "userId": props?.loginuserid,
+                "message": textval,
+                "msgDate": new Date()
+            }
+            props.support(request, props.navigation, "vendor");
         }
-        onChangeText1('');
-        props.support(request, props.navigation, "vendor");
     }
-
-
 
     const renderItem1 = ({ item, index }) => {
         return (
@@ -643,6 +642,8 @@ const watchlist = (props) => {
                 handleScroll(nativeEvent['contentOffset'].y);
             }} keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#FFFFFF' }} >
 
+            
+
                 <View >
                     <View>
                         <FlatListSlider
@@ -751,84 +752,10 @@ const watchlist = (props) => {
                 </View>
             </ScrollView>
 
-            {helppopup == true &&
-                <View style={{ flex: 1, backgroundColor: '#f9f9f9', margin: 20, paddingVertical: 10, borderRadius: 10, zIndex: 4001, position: 'absolute', bottom: '20%' }}>
-
-
-                    <View style={styles.chatViewrose}>
-
-                        <Text style={styles.Benrosetext}>Write to Customer Support</Text>
-                        <TouchableOpacity style={{ position: 'absolute', right: 15, top: 5 }} onPress={() => sethelppopup(false)}>
-                            <Image source={ImageIcons.closepopup} style={styles.sendmsg2} />
-                        </TouchableOpacity>
-                    </View>
-
-                    <View style={[styles.accountmainview, { marginBottom: 50, width: '100%' }]}>
-                        <View style={{ width: '90%' }}>
-                            <TextInput style={[styles.chatinput, { height: 120, width: '100%' }]}
-                                placeholder="Type here..."
-                                onChangeText={onChangeText1}
-                                value={text1}
-                                placeholderTextColor="#999999"
-                            />
-                        </View>
-                        <TouchableOpacity style={{ position: 'absolute', right: '50%', bottom: -50 }} onPress={() => handleSendRequestSubmit()}>
-                            <View style={{ borderRadius: 10, marginRight: 10, padding: 10, backgroundColor: '#B80000' }}>
-                                <Text style={{ color: '#ffffff', fontFamily: 'hinted-AvertaStd-Semibold', paddingHorizontal: 10 }}>Send</Text>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-            }
-
-            <View style={{ position: 'absolute', zIndex: 2001, right: 20, bottom: 70 }}>
-                <TouchableOpacity onPress={() => sethelppopup(true)}>
-                    <Image source={ImageIcons.exporthelp} style={{ width: 50, height: 50 }} />
-                </TouchableOpacity>
-            </View>
+            <Help onPress={(text1) => helpbuttonsubmit(text1)} />
 
             <Footer3 onSelection="1" />
-            <AwesomeAlert
-                show={showAlert}
-                showProgress={false}
-                title="DROPSHIP"
-                message="You need to login to access this screen!"
-                closeOnTouchOutside={true}
-                closeOnHardwareBackPress={false}
-                showCancelButton={true}
-                showConfirmButton={true}
-                cancelText="Cancel"
-                confirmText="Login"
-                confirmButtonColor="#E22020"
-                onCancelPressed={() => {
-                    setshowAlert(false)
-                }}
-                onConfirmPressed={() => {
-                    setshowAlert(false)
-                    navigation.navigate('Golive');
-                }}
-            />
-
-            <AwesomeAlert
-                show={showotherAlert}
-                showProgress={false}
-                title="DROPSHIP"
-                message={showalertmsg}
-                closeOnTouchOutside={true}
-                closeOnHardwareBackPress={false}
-                showCancelButton={true}
-                showConfirmButton={false}
-                cancelText="Close"
-                confirmText="Login"
-                confirmButtonColor="#E22020"
-                onCancelPressed={() => {
-                    setshowotherAlert(false)
-                }}
-            />
-
         </KeyboardAvoidingView>
     )
 }
-
-
 export default watchlist;

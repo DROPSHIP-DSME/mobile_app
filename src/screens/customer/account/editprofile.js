@@ -77,7 +77,6 @@ const editprofile = (props) => {
     const [lastname, onChangelastname] = React.useState(props?.getprofileuserlist?.lastName);
     const [name, onChangeName] = React.useState(props?.getprofileuserlist?.userName);
     const [text1, onChangeText1] = React.useState("");
-    const [helppopup, sethelppopup] = React.useState(false);
     const [selectedValue, setSelectedValue] = useState("USA");
     const [showotherAlert, setshowotherAlert] = React.useState(false);
     const [showalertmsg, setshowalertmsg] = React.useState('');

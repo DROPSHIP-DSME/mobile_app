@@ -26,6 +26,7 @@ import Modal from 'react-native-modal';
 import tw from 'twrnc';
 import { ShoppingBagIcon } from "react-native-heroicons/solid";
 import Smallbutton from '../../../components/dropshipbutton/Smallbutton';
+import Help from '../../../components/help/Help';
 
 
 import {
@@ -80,6 +81,18 @@ const Accountfollow = (props) => {
         }
     }
 
+    const helpbuttonsubmit = async (textval) => {
+        if(textval!=''){
+            let request = {
+                "userId": props?.loginuserid,
+                "message": textval,
+                "msgDate": new Date()
+            }
+            props.support(request, props.navigation, "vendor");
+        }
+    }
+    
+
     const getBrandUserId = async () => {
         if (userId != "" && userId != undefined) {
             await AsyncStorage.setItem('UserId', userId);
@@ -89,7 +102,6 @@ const Accountfollow = (props) => {
 
     // Local states
     const [text1, onChangeText3] = React.useState("");
-    const [helppopup, sethelppopup] = React.useState(false);
     const [showclassName, setshowclassName] = useState("#B80000");
 
 
@@ -170,49 +182,7 @@ const Accountfollow = (props) => {
 
             </ScrollView>
 
-            <View style={{ position: 'absolute', zIndex: 2001, right: 20, bottom: 70 }}>
-                <TouchableOpacity onPress={() => sethelppopup(true)}>
-                    <Image source={ImageIcons.exporthelp} style={{ width: 50, height: 50 }} />
-                </TouchableOpacity>
-            </View>
-
-            {helppopup == true &&
-                <View style={{ flex: 1, backgroundColor: '#ffffff', margin: 20, paddingVertical: 10, borderRadius: 10, zIndex: 4001, position: 'absolute', bottom: '10%' }}>
-
-
-                    <View style={styles.chatViewrose}>
-
-                        <Text style={styles.Benrosetext}>Chat with customer support</Text>
-                        <TouchableOpacity style={{ position: 'absolute', right: 15, top: 5 }} onPress={() => sethelppopup(false)}>
-                            <Image source={ImageIcons.closepopup} style={styles.sendmsg2} />
-                        </TouchableOpacity>
-                    </View>
-                    <ScrollView keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{ backgroundColor: '#ffffff', height: 200 }} >
-                        <View style={{ marginVertical: '2%' }}>
-                            <FlatList
-                                data={props?.getchatsupportlist1 || []}
-                                renderItem={renderItem6}
-                                keyExtractor={item => item.id}
-                                showsHorizontalScrollIndicator={false}
-                                horizontal={false}
-                            />
-                        </View>
-                    </ScrollView>
-                    <View style={[styles.accountmainview, { marginBottom: 10, width: '100%' }]}>
-                        <View style={{ width: '90%' }}>
-                            <TextInput style={styles.chatinput}
-                                placeholder="Type here..."
-                                onChangeText={onChangeText3}
-                                value={text1}
-                                placeholderTextColor="#999999"
-                            />
-                        </View>
-                        <TouchableOpacity style={{ position: 'absolute', right: 55, top: 5 }} onPress={() => handleSendRequestSubmit()}>
-                            <Image source={ImageIcons.sendchat} style={styles.sendmsg1} />
-                        </TouchableOpacity>
-                    </View>
-                </View>
-            }
+            <Help onPress={(text1) => helpbuttonsubmit(text1)} />
 
 
             <Footer3 onSelection="5" />

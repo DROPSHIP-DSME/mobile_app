@@ -59,7 +59,6 @@ const NameStore = (props) => {
   const [starCount, setstarCount] = useState(3);
   const [visiblebag, setVisiblebag] = React.useState(false);
   const [showclassName, setshowclassName] = useState("#B80000");
-  const [helppopup, sethelppopup] = React.useState(false);
   const [reportpopup, setreportpopup] = React.useState(false);
   const [fav, setfav] = React.useState(false);
   const [incCount, setincCount] = useState(1);

@@ -68,7 +68,6 @@ const editviewaddress = (props) => {
     //Reference
 
     const [text1, onChangeText1] = React.useState("");
-    const [helppopup, sethelppopup] = React.useState(false);
     const [starCount, setstarCount] = useState(5);
     const [selectedValue, setSelectedValue] = useState("java");
     const [showAlert, setshowAlert] = React.useState(false);
