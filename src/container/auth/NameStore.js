@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { NameStore } from '../../screens/customer/dashboard';
-import { shopproduct,shopsellcount,getAllproduct,getAllproductdetails,getAllshop,cartadd } from '../../redux/actions/Auth'
+import { shopproduct,cartdata,shopsellcount,getAllproduct,getAllproductdetails,getAllshop,cartadd } from '../../redux/actions/Auth'
 
 
 
@@ -23,7 +23,8 @@ const mapDispatchToProps = {
     getAllproductdetails,
     getAllshop,
     cartadd,
-    getAllproduct
+    getAllproduct,
+    cartdata
 };
  
 export default connect(mapStateToProps, mapDispatchToProps)(NameStore);

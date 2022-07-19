@@ -86,7 +86,6 @@ import {
 } from 'react-native-responsive-screen';
 import Colors from '../common/Color';
 import { Fonts, ImageIcons } from '../common';
-import { connect } from 'react-redux';
 import tw from 'twrnc';
 import Whitelogo from '../components/baseassests/Whitelogo';
 
@@ -136,7 +135,7 @@ const Auth = (props) => {
         options={({ navigation }) => ({
                         headerShown: true,
                         headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
-                        headerRight: () => <RightMenuItemsell navigation={navigation}  />,
+                        headerRight: () => <RightMenuItemsell navigation={navigation} cartCount={cartCount} />,
                         headerTitle: "",
                         headerTitleAlign: "center",
                         headerTitleStyle: styles.titleheaderstyle,
@@ -168,7 +167,7 @@ const Auth = (props) => {
         options={({ navigation }) => ({
                         headerShown: true,
                         headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
-                        headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation} cartCount={cartCount} />,
                         headerTitle: "",
                         headerTitleAlign: "center",
                         headerTitleStyle: styles.titleheaderstyle,
@@ -214,7 +213,7 @@ const Auth = (props) => {
         options={({ navigation }) => ({
                          headerShown: true,
                         headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
-                        headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation} cartCount={cartCount} />,
                         headerTitle: "",
                         headerTitleAlign: "center",
                         headerTitleStyle: styles.titleheaderstyle,
@@ -228,7 +227,7 @@ const Auth = (props) => {
         options={({ navigation }) => ({
                         headerShown: true,
                         headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
-                        headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation} cartCount={cartCount} />,
                         headerTitle: "",
                         headerTitleAlign: "center",
                         headerTitleStyle: styles.titleheaderstyle,
@@ -242,7 +241,7 @@ const Auth = (props) => {
         options={({ navigation }) => ({
                         headerShown: true,
                         headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
-                        headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation} cartCount={cartCount} />,
                         headerTitle: "",
                         headerTitleAlign: "center",
                         headerTitleStyle: styles.titleheaderstyle,
@@ -271,7 +270,7 @@ const Auth = (props) => {
         options={({ navigation }) => ({
                         headerShown: true,
                         headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
-                        headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation} cartCount={cartCount}  />,
                         headerTitle: "",
                         headerTitleAlign: "center",
                         headerTitleStyle: styles.titleheaderstyle,
@@ -287,7 +286,7 @@ const Auth = (props) => {
         options={({ navigation }) => ({
                         headerShown: true,
                         headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
-                        headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation} cartCount={cartCount}  />,
                         headerTitle: "",
                         headerTitleAlign: "center",
                         headerTitleStyle: styles.titleheaderstyle,
@@ -300,7 +299,7 @@ const Auth = (props) => {
         options={({ navigation }) => ({
                         headerShown: true,
                         headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
-                        headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation} cartCount={cartCount} />,
                         headerTitle: "",
                         headerTitleAlign: "center",
                         headerTitleStyle: styles.titleheaderstyle,
@@ -315,7 +314,7 @@ const Auth = (props) => {
         options={({ navigation }) => ({
                         headerShown: true,
                         headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
-                        headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation} cartCount={cartCount} />,
                         headerTitle: "",
                         headerTitleAlign: "center",
                         headerTitleStyle: styles.titleheaderstyle,
@@ -343,7 +342,7 @@ const Auth = (props) => {
         options={({ navigation }) => ({
                         headerShown: true,
                         headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
-                        headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation} cartCount={cartCount} />,
                         headerTitle: "",
                         headerTitleAlign: "center",
                         headerTitleStyle: styles.titleheaderstyle,
@@ -359,7 +358,7 @@ const Auth = (props) => {
         options={({ navigation }) => ({
                         headerShown: true,
                         headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
-                        headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation} cartCount={cartCount} />,
                         headerTitle: "",
                         headerTitleAlign: "center",
                         headerTitleStyle: styles.titleheaderstyle,
@@ -375,7 +374,7 @@ const Auth = (props) => {
         options={({ navigation }) => ({
                         headerShown: true,
                         headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
-                        headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation} cartCount={cartCount} />,
                         headerTitle: "",
                         headerTitleAlign: "center",
                         headerTitleStyle: styles.titleheaderstyle,
@@ -388,7 +387,7 @@ const Auth = (props) => {
         options={({ navigation }) => ({
                         headerShown: true,
                         headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
-                        headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation} cartCount={cartCount} />,
                         headerTitle: "",
                         headerTitleAlign: "center",
                         headerTitleStyle: styles.titleheaderstyle,
@@ -403,7 +402,7 @@ const Auth = (props) => {
         options={({ navigation }) => ({
                         headerShown: true,
                         headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
-                        headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation} cartCount={cartCount}  />,
                         headerTitle: "",
                         headerTitleAlign: "center",
                         headerTitleStyle: styles.titleheaderstyle,
@@ -417,7 +416,7 @@ const Auth = (props) => {
         options={({ navigation }) => ({
                         headerShown: true,
                         headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
-                        headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation} cartCount={cartCount} />,
                         headerTitle: "",
                         headerTitleAlign: "center",
                         headerTitleStyle: styles.titleheaderstyle,
@@ -431,7 +430,7 @@ const Auth = (props) => {
          options={({ navigation }) => ({
                         headerShown: true,
                         headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
-                        headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation} cartCount={cartCount}  />,
                         headerTitle: "",
                         headerTitleAlign: "center",
                         headerTitleStyle: styles.titleheaderstyle,
@@ -448,7 +447,7 @@ const Auth = (props) => {
         options={({ navigation }) => ({
                         headerShown: true,
                         headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
-                        headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation} cartCount={cartCount} />,
                         headerTitle: "",
                         headerTitleAlign: "center",
                         headerTitleStyle: styles.titleheaderstyle,
@@ -463,7 +462,7 @@ const Auth = (props) => {
          options={({ navigation }) => ({
                         headerShown: true,
                         headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
-                        headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation} cartCount={cartCount} />,
                         headerTitle: "",
                         headerTitleAlign: "center",
                         headerTitleStyle: styles.titleheaderstyle,
@@ -477,7 +476,7 @@ const Auth = (props) => {
          options={({ navigation }) => ({
                         headerShown: true,
                         headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
-                        headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation} cartCount={cartCount} />,
                         headerTitle: "",
                         headerTitleAlign: "center",
                         headerTitleStyle: styles.titleheaderstyle,
@@ -508,7 +507,7 @@ const Auth = (props) => {
         options={({ navigation }) => ({
                         headerShown: true,
                         headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
-                        headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation} cartCount={cartCount} />,
                         headerTitle: "",
                         headerTitleAlign: "center",
                         headerTitleStyle: styles.titleheaderstyle,
@@ -588,7 +587,7 @@ const Auth = (props) => {
         options={({ navigation }) => ({
                         headerShown: true,
                         headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
-                        headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation} cartCount={cartCount}  />,
                         headerTitle: "",
                         headerTitleAlign: "center",
                         headerTitleStyle: styles.titleheaderstyle,
@@ -601,7 +600,7 @@ const Auth = (props) => {
         options={({ navigation }) => ({
                         headerShown: true,
                         headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
-                        headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation} cartCount={cartCount} />,
                         headerTitle: "",
                         headerTitleAlign: "center",
                         headerTitleStyle: styles.titleheaderstyle,
@@ -614,7 +613,7 @@ const Auth = (props) => {
          options={({ navigation }) => ({
                         headerShown: true,
                         headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
-                        headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation} cartCount={cartCount} />,
                         headerTitle: "",
                         headerTitleAlign: "center",
                         headerTitleStyle: styles.titleheaderstyle,
@@ -627,7 +626,7 @@ const Auth = (props) => {
         options={({ navigation }) => ({
                         headerShown: true,
                         headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true}  />,
-                        headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation} cartCount={cartCount} />,
                         headerTitle: "",
                         headerTitleAlign: "center",
                         headerTitleStyle: styles.titleheaderstyle,
@@ -640,7 +639,7 @@ const Auth = (props) => {
         options={({ navigation }) => ({
                         headerShown: true,
                         headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
-                        headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation} cartCount={cartCount} />,
                         headerTitle: "",
                         headerTitleAlign: "center",
                         headerTitleStyle: styles.titleheaderstyle,
@@ -888,7 +887,7 @@ const Auth = (props) => {
         options={({ navigation }) => ({
                         headerShown: true,
                         headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
-                        headerRight: () => <RightMenuItemsell navigation={navigation}  />,
+                        headerRight: () => <RightMenuItemsell navigation={navigation} />,
                         headerTitle: "",
                         headerTitleAlign: "center",
                         headerTitleStyle: styles.titleheaderstyle,
@@ -906,7 +905,7 @@ const Auth = (props) => {
         options={({ navigation }) => ({
                         headerShown: true,
                         headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false}  />,
-                        headerRight: () => <RightMenuItem navigation={navigation}  />,
+                        headerRight: () => <RightMenuItem navigation={navigation} cartCount={cartCount}  />,
                         headerTitle: "",
                         headerTitleAlign: "center",
                         headerTitleStyle: styles.titleheaderstyle,
@@ -1059,7 +1058,7 @@ const LeftMenuItem = ({ navigation, isMenu }) => {
 
 
 
-const RightMenuItem = ({navigation}) => {
+const RightMenuItem = ({navigation,cartCount}) => {
     return (
         <View style={styles.rightLabel}>
            <TouchableOpacity onPress={() => navigation.navigate("Search")} style={{ marginHorizontal: '5%',marginRight:15 }}>
@@ -1138,7 +1137,7 @@ const styles = StyleSheet.create({
         height: wp('6%'),
         width: wp('25%'),
         paddingHorizontal: 8,
-        marginRight: 20,
+        marginRight: 30,
         justifyContent: 'center',
         flexDirection:'row'
     },

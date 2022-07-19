@@ -84,7 +84,7 @@ const NameStore = (props) => {
     props.cartadd(request, props.navigation, "vendor");
     setshowotherAlert(true)
     setshowalertmsg('Item added in cart successfully!')
-   
+    setTimeout(function(){  props.cartdata(props?.loginuserid); },1000);
   }
 
   const getpopup = () => {

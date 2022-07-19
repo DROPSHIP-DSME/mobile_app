@@ -177,6 +177,7 @@ const watchlist = (props) => {
         props.getwatchlistproduct(props?.loginuserid);
         props.getAllshop(props?.loginuserid, 1);
         props.Brandslist();
+        props.cartdata(props?.loginuserid);
         showalldata();
 
         if (Platform.OS === 'android') requestMultiplePermisisons();
