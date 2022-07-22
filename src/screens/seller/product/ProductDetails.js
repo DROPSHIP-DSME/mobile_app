@@ -1,20 +1,9 @@
 import React, { useRef, useState ,useEffect} from 'react';
-import { Text, View,TouchableOpacity,FlatList,Picker,
-    Image,TextInput, ImageBackground,Dimensions,
-    ScrollView, Alert,
-    KeyboardAvoidingView, Platform,Keyboard} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
-import { withFormik } from 'formik';
+import { Text, View,TouchableOpacity,FlatList,Picker, Image,TextInput, ImageBackground,Dimensions, ScrollView, Alert, KeyboardAvoidingView, Platform, Keyboard } from 'react-native';
 import * as Yup from 'yup';
 import styles from '../../../screens/common/styles';
 import { Colors, CommonStrings } from '../../../common'
 import ImageIcons from '../../../common/ImageIcons'
-import InputField from '../../../components/forms/inputField';
-import { RoundedButton } from '../../../components/forms/button';
-import { phoneRegExp } from '../../../services/helper';
-import DropdownField from '../../../components/dropdown/DropDownMenu';
-import PhoneMaskInput from '../../../components/forms/inputField/PhoneMaskInput';
-import Loader from '../../../components/modals/Loader';
 import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import {FlatListSlider} from 'react-native-flatlist-slider';
@@ -24,9 +13,7 @@ import { PlayIcon } from "react-native-heroicons/solid";
 import Editbutton from '../../../components/pickers/Editbutton';
 import Deletebutton from '../../../components/pickers/Deletebutton';
 
-
 const ProductDetails = (props) => {
-
     const {
         navigation,
         values,
@@ -34,8 +21,6 @@ const ProductDetails = (props) => {
         handleChange,
         handleSubmit,
     } = props;
-
-
 
     //Reference
     const emailRef = useRef();
@@ -47,40 +32,12 @@ const ProductDetails = (props) => {
     const [checked, setChecked] = React.useState('first');
     const deviceHeight = Dimensions.get('window').height;
     const deviceWidth = Dimensions.get('window').width;
-
     const productId = props?.route?.params?.productId;
-    const [First, onChangeFirst] = React.useState("First name");
-    const [Lastname, onChangeLastname] = React.useState("Last name");
-    const [Email, onChangeEmail] = React.useState("Email address");
-    const [PhoneNumber, onChangePhoneNumber] = React.useState("Phone number");
-    const [Street, onChangeStreet] = React.useState("Street address");
-    const [Zip, onChangeZip] = React.useState("Zip");
-    const [City, onChangeCity] = React.useState("City");
-    const [Country, onChangeCountry] = React.useState("Country");
-    const [selectedValue, setSelectedValue] = useState("");
-
     const [visible, setVisible] = React.useState(false);
     const [starCount, setstarCount] = useState(5);
-    const [showclassName, setshowclassName] = useState("#B80000");
-
-    const [Paypal, onChangePaypal] = React.useState("Paypal");
-    const [Debit, onChangeDebit] = React.useState("Debit Card");
-
-    const [wayToContact, setWayToContact] = useState("Phone");
-    const [wayToContactList, setWayToContactList] = useState([
-        {
-            label: "Phone",
-            value: "Phone"
-        },
-        {
-            label: "Email",
-            value: "Email"
-        }
-    ]);
 
     useEffect(() => {
         props.getAllproductdetails(productId);
-
     }, [])
 
     const openpopup = () => {
@@ -91,30 +48,17 @@ const ProductDetails = (props) => {
           setVisible(false)
         }
 
-         const ratingCompleted = (ratingdata) => {
+        const ratingCompleted = (ratingdata) => {
             console.log('rating',ratingdata)
-               if(ratingdata!="" && ratingdata!=undefined){
-                setstarCount(ratingdata)
-               }
-
+           if(ratingdata!="" && ratingdata!=undefined){
+            setstarCount(ratingdata)
+           }
         }
-
-         const handleScroll=(pageYOffset)=>{
-        if (pageYOffset > 0) {
-            setshowclassName('#B80000');
-        }else{
-            setshowclassName('#B80000');
-        }
-    }
-
-
 
     return (
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={styles.registrationRoot}>
-
-
 
             <ScrollView  keyboardShouldPersistTaps="handled" persistentScrollbar={true} style={{backgroundColor:'#f2f2f2'}} >
 
@@ -188,14 +132,6 @@ const ProductDetails = (props) => {
                  <Text style={tw.style('text-[#1A1A1A] text-lg font-normal')}>{props?.getlistproductdetails?.data?.productDescription}</Text>
                </View>
 
-
-
-
-
-
-
-
-
             {/*<View style={{flexDirection:'row',marginHorizontal:'4%',marginTop:'4%'}}>
                <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Bold',}}>Color :</Text>
                 <Text style={{fontSize:18,fontFamily:'hinted-AvertaStd-Regular',marginLeft:5}}>{props?.getlistproductdetails?.data?.productColor}</Text>
@@ -233,6 +169,4 @@ const ProductDetails = (props) => {
     </KeyboardAvoidingView>
     )
 }
-
-
 export default ProductDetails
