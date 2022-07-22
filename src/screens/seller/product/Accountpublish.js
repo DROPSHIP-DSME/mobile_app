@@ -1,20 +1,11 @@
 import React, { useEffect,useRef, useState } from 'react';
 import { Text, View,Image,TextInput, ImageBackground,FlatList,Picker,StatusBar,Dimensions,ScrollView, Alert, TouchableOpacity,  KeyboardAvoidingView, Platform,Keyboard} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
-import { withFormik } from 'formik';
 import * as Yup from 'yup';
 import styles from '../../../screens/common/styles';
 import newstyles from '../../../screens/common/styles';
 import { Colors, CommonStrings } from '../../../common'
 import ImageIcons from '../../../common/ImageIcons'
-import InputField from '../../../components/forms/inputField';
-import { RoundedButton } from '../../../components/forms/button';
-import { phoneRegExp } from '../../../services/helper';
-import DropdownField from '../../../components/dropdown/DropDownMenu';
-import PhoneMaskInput from '../../../components/forms/inputField/PhoneMaskInput';
 import Loader from '../../../components/modals/Loader';
-import Swipeout from 'react-native-swipeout';
-import HorizontalSlider from 'react-horizontal-slider';
 import Footer2 from '../../../screens/common/Footer2';
 
 import AsyncStorage from '@react-native-community/async-storage'; 
@@ -179,6 +170,4 @@ const deviceWidth = Dimensions.get('window').width;
         </View>
     )
 }
-
-
 export default Accountpublish

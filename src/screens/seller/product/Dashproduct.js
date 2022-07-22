@@ -1,20 +1,10 @@
 import React, { useEffect,useRef, useState } from 'react';
 import { Text, View,Image,TextInput, ImageBackground,FlatList,Picker,StatusBar,Dimensions,ScrollView, Alert, TouchableOpacity,  KeyboardAvoidingView, Platform,Keyboard} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
-import { withFormik } from 'formik';
 import * as Yup from 'yup';
 import styles from '../../../screens/common/styles';
 import newstyles from '../../../screens/common/styles';
 import { Colors, CommonStrings } from '../../../common'
 import ImageIcons from '../../../common/ImageIcons'
-import InputField from '../../../components/forms/inputField';
-import { RoundedButton } from '../../../components/forms/button';
-import { phoneRegExp } from '../../../services/helper';
-import DropdownField from '../../../components/dropdown/DropDownMenu';
-import PhoneMaskInput from '../../../components/forms/inputField/PhoneMaskInput';
-import Loader from '../../../components/modals/Loader';
-import Swipeout from 'react-native-swipeout';
-import HorizontalSlider from 'react-horizontal-slider';
 import Footer2 from '../../../screens/common/Footer2';
 import tw from 'twrnc';
 import Smallbutton from '../../../components/dropshipbutton/Smallbutton';
@@ -122,11 +112,6 @@ const options1 = [
 
     // Local states
     const [UserID, setUserID] = useState("");
-    const [subMsg, onChangeText1] = React.useState("");
-      const [msg, onChangeText2] = React.useState("");
-    const [isModalVisible, setModalVisible] = useState(false);
-    const [isSelected, setSelection] = useState(false);
-    const [dataload, setdataload] = useState(false);
     const [visible, setVisible] = React.useState(false);
     const [selectedValue, setSelectedValue] = useState("1");
     const [showclassName, setshowclassName] = useState("#B80000");

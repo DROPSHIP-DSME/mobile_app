@@ -1,19 +1,10 @@
 import React, { useRef, useState,useEffect } from 'react';
 import { Text, View,TouchableOpacity,FlatList,Image,TextInput,Picker,StatusBar, ImageBackground, ScrollView, Alert,   KeyboardAvoidingView, Platform,Keyboard} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
-import { withFormik } from 'formik';
 import * as Yup from 'yup';
 import styles from '../../../screens/common/styles';
 import { Colors, CommonStrings } from '../../../common'
 import ImageIcons from '../../../common/ImageIcons'
-import InputField from '../../../components/forms/inputField';
-import { RoundedButton } from '../../../components/forms/button';
-import { phoneRegExp } from '../../../services/helper';
-import DropdownField from '../../../components/dropdown/DropDownMenu';
-import PhoneMaskInput from '../../../components/forms/inputField/PhoneMaskInput';
-import Loader from '../../../components/modals/Loader';
 import { RadioButton ,Provider ,Modal, Portal, Button,} from 'react-native-paper';
-import { RNCamera } from 'react-native-camera';
 import ImagePicker from 'react-native-image-crop-picker';
 import { launchImageLibrary } from 'react-native-image-picker';
 import Footer3 from '../../../screens/common/Footer3';
@@ -77,14 +68,9 @@ const CreateStore = (props) => {
     const [retakeFlag, setRetakeFlag] = useState(false);
     const [fromGallery, setFromGallery] = useState(false);
 
-     const [checked, setChecked] = React.useState('first');
-      const [text1, onChangeText3] = React.useState("");
+    const [checked, setChecked] = React.useState('first');
+    const [text1, onChangeText3] = React.useState("");
     const [subMsg, onChangeText1] = React.useState("");
-
-    const [First, onChangeFirst] = React.useState("First name");
-    const [Lastname, onChangeLastname] = React.useState("Last name");
-    const [Email, onChangeEmail] = React.useState("Email address");
-    const [PhoneNumber, onChangePhoneNumber] = React.useState("Phone number");
     const [Brand, onChangeBrand] = React.useState("");
     const [AboutBrand, onChangeAboutBrand] = React.useState("");
     const [Store, onChangeStore] = React.useState("");
@@ -94,26 +80,13 @@ const CreateStore = (props) => {
     const [UserID, setUserID] = useState("");
     const [visible, setVisible] = React.useState(false);
 
-    const [Paypal, onChangePaypal] = React.useState("Paypal");
-    const [Debit, onChangeDebit] = React.useState("Debit Card");
     const [selectedValue, setSelectedValue] = useState("61b2e25addb2bd19c2b9532a");
 
-    const [wayToContact, setWayToContact] = useState("Phone");
-    const [wayToContactList, setWayToContactList] = useState([
-        {
-            label: "Phone",
-            value: "Phone"
-        },
-        {
-            label: "Email",
-            value: "Email"
-        }
-    ]);
-     const selectcolor = async (color) => {
+    const selectcolor = async (color) => {
         onThemecolor(color);
-     }
+    }
 
-     useEffect(() => {
+    useEffect(() => {
          getBrandUserId();
     }, [])
 
@@ -296,6 +269,4 @@ const renderItem6 = ({ item }) => {
         </KeyboardAvoidingView>
     )
 }
-
-
 export default CreateStore
